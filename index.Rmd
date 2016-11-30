@@ -1,0 +1,18 @@
+--- 
+title: "Manual de R"
+author: |
+  | Freddy Hernández Barajas
+  | Olga Cecilia Usuga Manco
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+# Prefacio {-}
+
+Este es un manual de R y tiene por objetivo que el lector aprenda a usar las funciones básicas y a crear sus propias funciones.
