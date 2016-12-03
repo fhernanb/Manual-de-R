@@ -18,16 +18,35 @@ Para ilustrar el uso de las funciones se utilizará la base de datos llamada __a
 
 A continuación se presenta el código para definir la url donde están los datos, para cargar la base de datos en R y para mostrar por pantalla un encabezado (usando `head`) de la base de datos.
 
-```{r}
+
+```r
 url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'
 datos <- read.table(file=url, header=T)
 head(datos)  # Para ver el encabezado de la base de datos
 ```
 
+```
+##   precio   mt2 ubicacion estrato alcobas banos balcon parqueadero
+## 1     79 43.16     norte       3       3     1     si          si
+## 2     93 56.92     norte       2       2     1     si          si
+## 3    100 66.40     norte       3       2     2     no          no
+## 4    123 61.85     norte       2       3     2     si          si
+## 5    135 89.80     norte       4       3     2     si          no
+## 6    140 71.00     norte       3       3     2     no          si
+##   administracion   avaluo terminado
+## 1          0.050 14.92300        no
+## 2          0.069 27.00000        si
+## 3          0.000 15.73843        no
+## 4          0.130 27.00000        no
+## 5          0.000 39.56700        si
+## 6          0.120 31.14551        si
+```
+
 ## Rango \index{rango} \index{range}
 Para calcular el rango de una variable cuantitativa se usa la función `range`. Los argumentos básicos de la función `range` son dos y se muestran abajo.
 
-```{r, eval=F}
+
+```r
 range(x, na.rm)
 ```
 
@@ -39,21 +58,39 @@ Suponga que queremos obtener el rango para la variable precio de los apartamento
 
 Para obtener el rango usamos el siguiente código.
 
-```{r}
+
+```r
 range(datos$precio)
+```
+
+```
+## [1]   25 1700
+```
+
+```r
 max(datos$precio) - min(datos$precio)
 ```
-Del resultado anterior podemos ver que los precios de todos los apartamentos van desde `r min(datos$precio)` hasta `r max(datos$precio)` millones de pesos, es decir, el rango de la variables precio es `r max(datos$precio)-min(datos$precio)` millones de pesos.
+
+```
+## [1] 1675
+```
+Del resultado anterior podemos ver que los precios de todos los apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el rango de la variables precio es 1675 millones de pesos.
 
 ### Ejemplo {-}
 Suponga que queremos obtener nuevamente el rango para la variable precio de los apartamentos pero diferenciando por el estrato.
 
 Primero vamos a crear una función auxiliar llamada `myrange` que calculará el rango directamente ($max - min$). Luego vamos a partir la información de los precios por cada estrato usando `split`, la partición se almacenará en la lista `precios`. Finalmente se aplicará la función `myrange` a la lista `precios` para obtener los rangos del precio por estrato socioeconómico. El código para realizar esto se muestra a continuación.
 
-```{r}
+
+```r
 myrange <- function(x) max(x) - min(x)
 precios <- split(datos$precio, f=datos$estrato)
 sapply(precios, myrange)
+```
+
+```
+##    2    3    4    5    6 
+##  103  225  610 1325 1560
 ```
 De los resultados podemos ver claramente que a medida que aumenta de estrato el rango (variabilidad) del precio de los apartamentos aumenta. Apartamentos de estrato bajo tienden a tener precios similares mientras que los precios de venta para apartamentos de estratos altos tienden a ser muy diferentes entre si.
 

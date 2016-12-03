@@ -1,1 +1,4 @@
 book_filename: "Manual_de_R"
+output_dir: docs
+clean: [packages.bib, bookdown.bbl]
+new_session: yes
