@@ -1543,6 +1543,94 @@ eso se usa el siguiente código.
 \label{posi}}{Medidas de posición }}\label{medidas-de-posicion}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de
+posición con \proglang{R}.
+
+Para ilustrar el uso de las funciones se utilizará una base de datos
+llamada \textbf{medidas del cuerpo}, esta base de datos cuenta con 6
+variables registradas a un grupo de 36 estudiantes de la universidad.
+Las variables son:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{edad} del estudiante (años),
+\item
+  \texttt{peso} del estudiante (kilogramos),
+\item
+  \texttt{altura} del estudiante (centímetros),
+\item
+  \texttt{sexo} del estudiante (Hombre, Mujer),
+\item
+  \texttt{muneca}: perímetro de la muñeca derecha (centímetros),
+\item
+  \texttt{biceps}: perímetro del biceps derecho (centímetros).
+\end{enumerate}
+
+A continuación se presenta el código para definir la url donde están los
+datos, para cargar la base de datos en R y para mostrar por pantalla un
+encabezado (usando \texttt{head}) de la base de datos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+\KeywordTok{head}\NormalTok{(datos)  }\CommentTok{# Para ver el encabezado de la base de datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   edad peso altura   sexo muneca biceps
+## 1   43 87.3  188.0 Hombre   12.2   35.8
+## 2   65 80.0  174.0 Hombre   12.0   35.0
+## 3   45 82.3  176.5 Hombre   11.2   38.5
+## 4   37 73.6  180.3 Hombre   11.2   32.2
+## 5   55 74.1  167.6 Hombre   11.8   32.9
+## 6   33 85.9  188.0 Hombre   12.4   38.5
+\end{verbatim}
+
+\section{\texorpdfstring{Cuantiles \index{cuantiles}
+\index{quantile}}{Cuantiles  }}\label{cuantiles}
+
+Para obtener cualquier cuantil (cuartiles, deciles y percentiles) se usa
+la función \texttt{quantile}. Los argumentos básicos de la función
+\texttt{quantile} son tres y se muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{quantile}\NormalTok{(x, probs, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+En el parámetro \texttt{x} se indica la variable de interés para la cual
+se quieren calcular los cuantiles, el parámetro \texttt{probs} sirve
+para definir los cuantiles de interés y el parámetro \texttt{na.rm} es
+un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
+remover las observaciones con \texttt{NA}, el valor por defecto para
+este parámetro es \texttt{FALSE}.
+
+\subsection*{Ejemplo}\label{ejemplo-11}
+
+
+Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
+la altura del grupo de estudiantes.
+
+Se solicita el percentil 5, la mediana que es el percentil 50 y el decil
+8 que corresponde al percentil 80, por lo tanto es necesario indicarle a
+la función \texttt{quantile} que calcule los cuantiles para las
+ubicaciones 0.05, 0.5 y 0.8, el código para obtener las tres medidas
+solicitadas es el siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{quantile}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$altura, }\DataTypeTok{probs=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.8}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    5%   50%   80% 
+## 155.2 172.7 180.3
+\end{verbatim}
 
 \chapter{\texorpdfstring{Medidas de correlación
 \label{correl}}{Medidas de correlación }}\label{medidas-de-correlacion}
@@ -1608,7 +1696,8 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
+
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
 \(\Re\) utilizando la aproximación de Laplace.
@@ -1625,8 +1714,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-46-1.pdf}
-\caption{\label{fig:unnamed-chunk-46}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-49-1.pdf}
+\caption{\label{fig:unnamed-chunk-49}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

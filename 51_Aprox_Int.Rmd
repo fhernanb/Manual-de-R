@@ -27,7 +27,7 @@ Así al calcular la integral de $f(x)$ en $\Re$ se tiene que:
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-### Ejemplo
+### Ejemplo {-}
 Calcular la integral de $f(x)=\exp \left( -(x-1.5)^2 \right)$ en $\Re$ utilizando la aproximación de Laplace.
 
 Primero vamos a dibujar la función $f(x)$ para ver en dónde está su moda $x_0$.

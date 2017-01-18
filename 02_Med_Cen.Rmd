@@ -20,7 +20,6 @@ datos <- read.table(file=url, header=T)
 head(datos)  # Para ver el encabezado de la base de datos
 ```
 
-
 ## Media \index{media} \index{mean}
 Para calcular la media de una variable cuantitativa se usa la función `mean`. Los argumentos básicos de la función `mean` son dos y se muestran a continuación.
 

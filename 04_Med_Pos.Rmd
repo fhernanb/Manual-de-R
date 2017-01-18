@@ -1,14 +1,42 @@
 # Medidas de posición \label{posi}
 
-En este capítulo se mostrará cómo obtener las diferentes medidas de 
+En este capítulo se mostrará cómo obtener las diferentes medidas de posición con \proglang{R}.
 
+Para ilustrar el uso de las funciones se utilizará una base de datos llamada __medidas del cuerpo__, esta base de datos cuenta con 6 variables registradas a un grupo de 36 estudiantes de la universidad. Las variables son: 
 
+1. `edad` del estudiante (años),
+2. `peso` del estudiante (kilogramos),
+3. `altura` del estudiante (centímetros),
+4. `sexo` del estudiante (Hombre, Mujer),
+5. `muneca`: perímetro de la muñeca derecha (centímetros),
+6. `biceps`: perímetro del biceps derecho (centímetros).
 
+A continuación se presenta el código para definir la url donde están los datos, para cargar la base de datos en R y para mostrar por pantalla un encabezado (usando `head`) de la base de datos.
 
+```{r}
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
+datos <- read.table(file=url, header=T)
+head(datos)  # Para ver el encabezado de la base de datos
+```
 
+## Cuantiles \index{cuantiles} \index{quantile}
 
+Para obtener cualquier cuantil (cuartiles, deciles y percentiles) se usa la función `quantile`. Los argumentos básicos de la función `quantile` son tres y se muestran a continuación.
 
+```{r, eval=F}
+quantile(x, probs, na.rm = FALSE)
+```
 
+En el parámetro `x` se indica la variable de interés para la cual se quieren calcular los cuantiles, el parámetro `probs` sirve para definir los cuantiles de interés y el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
+
+### Ejemplo {-}
+Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa la altura del grupo de estudiantes.
+
+Se solicita el percentil 5, la mediana que es el percentil 50 y el decil 8 que corresponde al percentil 80, por lo tanto es necesario indicarle a la función `quantile` que calcule los cuantiles para las ubicaciones 0.05, 0.5 y 0.8, el código para obtener las tres medidas solicitadas es el siguiente.
+
+```{r}
+quantile(x=datos$altura, probs=c(0.05, 0.5, 0.8))
+```
 
 
 
