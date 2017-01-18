@@ -1215,7 +1215,7 @@ variables de la base de datos son:
 \item
   \texttt{mt2}: área del apartamento (\(m^2\)),
 \item
-  \texttt{ubicación}: lugar de ubicación del aparamentos en la ciudad
+  \texttt{ubicacion}: lugar de ubicación del aparamentos en la ciudad
   (cualitativa),
 \item
   \texttt{estrato}: nivel socioeconómico donde está el apartamento (2 a
@@ -1431,6 +1431,114 @@ datos usamos el siguiente código.
 ## [1] 6.621
 \end{verbatim}
 
+\section{\texorpdfstring{Varianza muestral (\(S^2\)) \index{varianza}
+\index{var}}{Varianza muestral (S\^{}2)  }}\label{varianza-muestral-s2}
+
+Para calcular la varianza muestral de una variable cuantitativa se usa
+la función \texttt{var}. Los argumentos básicos de la función
+\texttt{var} son dos y se muestran abajo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{(x, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+En el parámetro \texttt{x} se indica la variable de interés para la cual
+se quiere calcular la varianza muestral, el parámetro \texttt{na.rm} es
+un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
+remover las observaciones con \texttt{NA}, el valor por defecto para
+este parámetro es \texttt{FALSE}.
+
+\subsection*{Ejemplo}\label{ejemplo-9}
+
+
+Suponga que queremos determinar cuál región en la ciudad presenta mayor
+varianza en los precios de los apartamentos.
+
+Para realizar esto debemos usar en conjunto la función \texttt{split},
+\texttt{sapply} y \texttt{var} ya que se quiere la varianza de una
+variable (\texttt{precio}) dado los valores de otra variable
+(\texttt{ubicacion}). El código para obtener las varianzas es el
+siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{precios <-}\StringTok{ }\KeywordTok{split}\NormalTok{(datos$precio, }\DataTypeTok{f=}\NormalTok{datos$ubicacion)}
+\KeywordTok{sapply}\NormalTok{(precios, var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     aburra sur belen guayabal         centro 
+##           4169           2528           2588 
+##       laureles          norte      occidente 
+##          25351           1009           3596 
+##        poblado 
+##          84497
+\end{verbatim}
+
+De los resultados anteriores se nota que los apartamentos ubicados en el
+Poblado tienen la mayor variabilidad en el precio, este resultado se
+confirma al dibujar un boxplot para la variable precio dada la
+ubicación, en la Figura \ref{fig:box1} se muestra el boxplot y se ve
+claramente la dispersión de los precios en el Poblado. El código usado
+para generar la Figura \ref{fig:box1} se presenta a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{boxplot}\NormalTok{(precio ~}\StringTok{ }\NormalTok{ubicacion, }\DataTypeTok{ylab=}\StringTok{'Precio (millones)'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/box1-1.pdf}
+\caption{\label{fig:box1}Boxplot para el precio de los apartamentos dada la
+ubicación.}
+\end{figure}
+
+\section{\texorpdfstring{Coeficiente de variación (\(CV\))
+\index{coeficiente de variación}}{Coeficiente de variación (CV) }}\label{coeficiente-de-variacion-cv}
+
+El coeficiente de variación se define como \(CV=s/\bar{x}\) y es muy
+sencillo de obtenerlo, la función \texttt{CV} mostrada abajo permite
+calcularlo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CV <-}\StringTok{ }\NormalTok{function(x, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{) \{}
+  \KeywordTok{sd}\NormalTok{(x, }\DataTypeTok{na.rm=}\NormalTok{na.rm) /}\StringTok{ }\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\NormalTok{na.rm)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Ejemplo}\label{ejemplo-10}
+
+
+Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{w <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, -}\DecValTok{3}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Vemos que el vector \texttt{w} tiene 6 observaciones y la tercera de
+ellas es un \texttt{NA}. Lo correcto aquí es usar la función \texttt{CV}
+definida antes pero indicándole que remueva los valores faltantes, para
+eso se usa el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{CV}\NormalTok{(}\DataTypeTok{x=}\NormalTok{w, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9274
+\end{verbatim}
+
 \chapter{\texorpdfstring{Medidas de posición
 \label{posi}}{Medidas de posición }}\label{medidas-de-posicion}
 
@@ -1500,7 +1608,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection{Ejemplo}\label{ejemplo-9}
+\subsection{Ejemplo}\label{ejemplo-11}
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
 \(\Re\) utilizando la aproximación de Laplace.
@@ -1517,8 +1625,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-41-1.pdf}
-\caption{\label{fig:unnamed-chunk-41}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-46-1.pdf}
+\caption{\label{fig:unnamed-chunk-46}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

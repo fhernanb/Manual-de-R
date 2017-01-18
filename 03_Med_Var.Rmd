@@ -6,7 +6,7 @@ Para ilustrar el uso de las funciones se utilizará la base de datos llamada __a
 
 1. `precio`: precio de venta del apartamento (millones de pesos),
 2. `mt2`: área del apartamento ($m^2$),
-3. `ubicación`: lugar de ubicación del aparamentos en la ciudad (cualitativa),
+3. `ubicacion`: lugar de ubicación del aparamentos en la ciudad (cualitativa),
 4. `estrato`: nivel socioeconómico donde está el apartamento (2 a 6),
 5. `alcobas`: número de alcobas del apartamento,
 6. `banos`: número de baños del apartamento,
@@ -96,5 +96,60 @@ Ahora para obtener la desviación estándar __poblacional__ de los datos usamos 
 y <- c(12, 25, 32, 15, 26)
 Sigma(y)
 ```
+
+## Varianza muestral ($S^2$) \index{varianza} \index{var}
+
+Para calcular la varianza muestral de una variable cuantitativa se usa la función `var`. Los argumentos básicos de la función `var` son dos y se muestran abajo.
+
+```{r, eval=F}
+var(x, na.rm = FALSE)
+```
+
+En el parámetro `x` se indica la variable de interés para la cual se quiere calcular la varianza muestral, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
+
+
+### Ejemplo {-}
+Suponga que queremos determinar cuál región en la ciudad presenta mayor varianza en los precios de los apartamentos.
+
+Para realizar esto debemos usar en conjunto la función `split`, `sapply` y `var` ya que se quiere la varianza de una variable (`precio`) dado los valores de otra variable (`ubicacion`). El código para obtener las varianzas es el siguiente.
+
+```{r}
+precios <- split(datos$precio, f=datos$ubicacion)
+sapply(precios, var)
+```
+
+De los resultados anteriores se nota que los apartamentos ubicados en el Poblado tienen la mayor variabilidad en el precio, este resultado se confirma al dibujar un boxplot para la variable precio dada la ubicación, en la Figura \@ref(fig:box1) se muestra el boxplot y se ve claramente la dispersión de los precios en el Poblado. El código usado para generar la Figura \@ref(fig:box1) se presenta a continuación.
+
+```{r box1, fig.cap='Boxplot para el precio de los apartamentos dada la ubicación.', fig.asp=0.5, fig.width =10}
+with(datos, boxplot(precio ~ ubicacion, ylab='Precio (millones)'))
+```
+
+## Coeficiente de variación ($CV$) \index{coeficiente de variación}
+
+El coeficiente de variación se define como $CV=s/\bar{x}$ y es muy sencillo de obtenerlo, la función `CV` mostrada abajo permite calcularlo.
+
+```{r}
+CV <- function(x, na.rm = FALSE) {
+  sd(x, na.rm=na.rm) / mean(x, na.rm=na.rm)
+}
+```
+
+### Ejemplo {-}
+Calcular el $CV$ para el vector `w` definido a continuación.
+
+```{r}
+w <- c(5, -3, NA, 8, 8, 7)
+```
+
+Vemos que el vector `w` tiene 6 observaciones y la tercera de ellas es un `NA`. Lo correcto aquí es usar la función `CV` definida antes pero indicándole que remueva los valores faltantes, para eso se usa el siguiente código.
+
+```{r}
+CV(x=w, na.rm=T)
+```
+
+
+
+
+
 
 
