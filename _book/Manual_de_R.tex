@@ -1498,6 +1498,40 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
+\subsection*{Ejemplo}\label{ejemplo-10}
+
+
+¿Son los resultados de la función \texttt{var} los mismos que los
+resultados de la función \texttt{sd} elevados al cuadrado?
+
+La respuesta es \textbf{NO}. La función \texttt{sd} se aplica sólo a
+vectores mientras que la función \texttt{var} de puede aplicar tanto a
+vectores como a marcos de datos. Al ser aplicada a marcos de datos
+numéricos se obtiene una matriz en que la diagonal representa las
+varianzas de las de cada una de las variables mientras que arriba y
+abajo de la diagonal se encuentran las covarianzas entre pares de
+variables.
+
+Por ejemplo, si aplicamos la función \texttt{var} al marco de datos sólo
+con las variables precio, área y avaluo se obtiene una matriz de
+dimensión \(3 \times 3\), a continuación el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{(datos[, }\KeywordTok{c}\NormalTok{(}\StringTok{'precio'}\NormalTok{, }\StringTok{'mt2'}\NormalTok{, }\StringTok{'avaluo'}\NormalTok{)])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        precio   mt2 avaluo
+## precio  61313 15874  33056
+## mt2     15874  5579   9508
+## avaluo  33056  9508  28589
+\end{verbatim}
+
+Del anterior resultado se observa la matriz de varianzas y covarianzas
+de dimensión \(3 \times 3\).
+
 \section{\texorpdfstring{Coeficiente de variación (\(CV\))
 \index{coeficiente de variación}}{Coeficiente de variación (CV) }}\label{coeficiente-de-variacion-cv}
 
@@ -1513,7 +1547,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -1610,7 +1644,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -1697,7 +1731,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -1715,8 +1749,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-49-1.pdf}
-\caption{\label{fig:unnamed-chunk-49}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-50-1.pdf}
+\caption{\label{fig:unnamed-chunk-50}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

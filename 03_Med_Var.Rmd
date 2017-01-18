@@ -124,6 +124,20 @@ De los resultados anteriores se nota que los apartamentos ubicados en el Poblado
 with(datos, boxplot(precio ~ ubicacion, ylab='Precio (millones)'))
 ```
 
+### Ejemplo {-}
+¿Son los resultados de la función `var` los mismos que los resultados de la función `sd` elevados al cuadrado?
+
+La respuesta es __NO__. La función `sd` se aplica sólo a vectores mientras que la función `var` de puede aplicar tanto a vectores como a marcos de datos. Al ser aplicada a marcos de datos numéricos se obtiene una matriz en que la diagonal representa las varianzas de las de cada una de las variables mientras que arriba y abajo de la diagonal se encuentran las covarianzas entre pares de variables.
+
+Por ejemplo, si aplicamos la función `var` al marco de datos sólo con las variables precio, área y avaluo se obtiene una matriz de dimensión $3 \times 3$, a continuación el código usado.
+
+```{r}
+var(datos[, c('precio', 'mt2', 'avaluo')])
+```
+
+Del anterior resultado se observa la matriz de varianzas y covarianzas de dimensión $3 \times 3$.
+
+
 ## Coeficiente de variación ($CV$) \index{coeficiente de variación}
 
 El coeficiente de variación se define como $CV=s/\bar{x}$ y es muy sencillo de obtenerlo, la función `CV` mostrada abajo permite calcularlo.
