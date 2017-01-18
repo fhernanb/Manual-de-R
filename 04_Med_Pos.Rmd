@@ -19,7 +19,7 @@ datos <- read.table(file=url, header=T)
 head(datos)  # Para ver el encabezado de la base de datos
 ```
 
-## Cuantiles \index{cuantiles} \index{quantile}
+## Cuantiles \index{cuantiles} \index{quantile} \index{cuartiles} \index{deciles}  \index{percentiles} 
 
 Para obtener cualquier cuantil (cuartiles, deciles y percentiles) se usa la función `quantile`. Los argumentos básicos de la función `quantile` son tres y se muestran a continuación.
 
