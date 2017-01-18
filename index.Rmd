@@ -4,27 +4,59 @@ author: |
   | Freddy Hernández Barajas
   | Olga Cecilia Usuga Manco
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
-output: bookdown::gitbook
-documentclass: book
+documentclass: krantz
 fontsize: 10pt
-lot: yes
-lof: yes
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 colorlinks: yes
-github-repo: fhernanb/Manual-de-R
-cover-image: images/logo.png
+lot: yes
+lof: yes
+site: bookdown::bookdown_site
+description: "A book example for a Chapman & Hall book."
+github-repo: yihui/bookdown-crc
+#cover-image: images/cover.jpg
 ---
+
+```{r setup, include=FALSE}
+options(
+  htmltools.dir.version = FALSE, formatR.indent = 2, width = 55, digits = 4
+)
+
+# install the packages needed by this book; you fill out c(), e.g. c('ggplot2', 'dplyr')
+lapply(c(), function(pkg) {
+  if (system.file(package = pkg) == '') install.packages(pkg)
+})
+```
 
 # Prefacio {-}
 
-En este manual de \proglang{R} se explican de forma sencilla las funciones y procedimientos básicos para un análisis estadístico. Como complemento a este libro se recomienda consultar @correa2016 para la construcción de gráficos en \proglang{R}.
+Este libro fue creado con la intención de ...
 
+## ¿Por qué leer este libro? {-}
 
+Este libro es importante porque ...
 
+## Estructura del libro {-}
 
+En el capítulo \@ref(central) se muestra como obtener las medidas de tendencial central.
 
+## Software information and conventions {-}
 
+Para realizar este libro usamos los paquetes **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown]. La información de la sesión de \proglang{R} usada se muestra abajo:
+
+```{r}
+sessionInfo()
+```
+
+Package names are in bold text (e.g., **rmarkdown**), and inline code and filenames are formatted in a typewriter font (e.g., `knitr::knit('foo.Rmd')`). Function names are followed by parentheses (e.g., `bookdown::render_book()`).
+
+## Agradecimientos {-}
+
+Agradecemos a ...
+
+```{block2, type='flushright', html.tag='p'}
+Freddy Hernández Barajas
+Olga Cecilia Usuga Manco
+```
 
