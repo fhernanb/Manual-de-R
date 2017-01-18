@@ -226,8 +226,14 @@ Este libro es importante porque \ldots{}
 \section*{Estructura del libro}\label{estructura-del-libro}
 
 
-En el capítulo \ref{central} se muestra como obtener las medidas de
-tendencial central.
+El libro está estructurado de la siguiente manera.
+
+En el capítulo \ref{central} se muestra como obtener las diversas
+medidas de tendencial central para variables cuantitativas, el capítulo
+\ref{varia} muestra como calcular las medidas de variabilidad, en el
+capítulo \ref{posi} se ilustra cómo usar las funciones para obtener
+medidas de posición y en el capítulo \ref{correl} se muestra como
+obtener medidas de correlación entre pares de variables.
 
 \section*{Software information and
 conventions}\label{software-information-and-conventions}
@@ -276,7 +282,9 @@ Function names are followed by parentheses (e.g.,
 \section*{Agradecimientos}\label{agradecimientos}
 
 
-Agradecemos a \ldots{}
+Agradecemos enormemente a todos los estudiantes, profesores e
+investigadores que nos han retroalimentado con comentarios valiosos para
+mejorar el documento.
 
 \BeginKnitrBlock{flushright}
 Freddy Hernández Barajas Olga Cecilia Usuga Manco
@@ -917,8 +925,6 @@ A pesar de la anterior advertencia es posible que en este libro usemos
 el \texttt{;} en algunas ocasiones, si lo hacemos es para ahorrar
 espacio en la presentación del código.
 
-\mainmatter
-
 \chapter{\texorpdfstring{Medidas de tendencia central
 \label{central}}{Medidas de tendencia central }}\label{medidas-de-tendencia-central}
 
@@ -978,9 +984,15 @@ dos y se muestran a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{mean}\NormalTok{(x, na.rm)}
+\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+En el parámetro \texttt{x} se indica la variable de interés para la cual
+se quiere calcular la media, el parámetro \texttt{na.rm} es un valor
+lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
+las observaciones con \texttt{NA}, el valor por defecto para este
+parámetro es \texttt{FALSE}.
 
 \subsection*{Ejemplo}\label{ejemplo}
 
@@ -1084,9 +1096,15 @@ son dos y se muestran a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{median}\NormalTok{(x, na.rm)}
+\KeywordTok{median}\NormalTok{(x, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+En el parámetro \texttt{x} se indica la variable de interés para la cual
+se quiere calcular la mediana, el parámetro \texttt{na.rm} es un valor
+lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
+las observaciones con \texttt{NA}, el valor por defecto para este
+parámetro es \texttt{FALSE}.
 
 \subsection*{Ejemplo}\label{ejemplo-3}
 
@@ -1178,7 +1196,8 @@ ordenar la tabla usando la función \texttt{sort} de la siguiente manera:
 De esta manera se ve fácilmente que la variable edad es unimodal con
 valor de 25 años.
 
-\chapter{Medidas de variabilidad}\label{medidas-de-variabilidad}
+\chapter{\texorpdfstring{Medidas de variabilidad
+\label{varia}}{Medidas de variabilidad }}\label{medidas-de-variabilidad}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de
 variabilidad con \proglang{R}.
@@ -1186,7 +1205,7 @@ variabilidad con \proglang{R}.
 Para ilustrar el uso de las funciones se utilizará la base de datos
 llamada \textbf{aptos2015}, esta base de datos cuenta con 11 variables
 registradas a apartamentos usados en la ciudad de Medellín. Las
-variables son:
+variables de la base de datos son:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1258,13 +1277,19 @@ dos y se muestran abajo.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{range}\NormalTok{(x, na.rm)}
+\KeywordTok{range}\NormalTok{(x, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
+En el parámetro \texttt{x} se indica la variable de interés para la cual
+se quiere calcular el rango, el parámetro \texttt{na.rm} es un valor
+lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
+las observaciones con \texttt{NA}, el valor por defecto para este
+parámetro es \texttt{FALSE}.
+
 La función \texttt{range} entrega el valor mínimo y máximo de la
-variable ingresada y el valor de rango (\(max - min\)) se puede obtener
-restando del máximo el mínimo.
+variable ingresada y el valor de rango se puede obtener restando del
+valor máximo el valor mínimo.
 
 \subsection*{Ejemplo}\label{ejemplo-5}
 
@@ -1296,7 +1321,7 @@ Para obtener el rango usamos el siguiente código.
 
 Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
-rango de la variables precio es 1675 millones de pesos.
+rango de la variable precio es 1675 millones de pesos.
 
 \subsection*{Ejemplo}\label{ejemplo-6}
 
@@ -1331,11 +1356,88 @@ Apartamentos de estrato bajo tienden a tener precios similares mientras
 que los precios de venta para apartamentos de estratos altos tienden a
 ser muy diferentes entre si.
 
-\chapter{Medidas de correlación}\label{medidas-de-correlacion}
+\section{\texorpdfstring{Desviación estándar muestral (\(S\))
+\index{desviación}
+\index{sd}}{Desviación estándar muestral (S)  }}\label{desviacion-estandar-muestral-s}
+
+Para calcular la desviación muestral de una variable cuantitativa se usa
+la función \texttt{sd}. Los argumentos básicos de la función \texttt{sd}
+son dos y se muestran abajo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sd}\NormalTok{(x, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+En el parámetro \texttt{x} se indica la variable de interés para la cual
+se quiere calcular la desviación estándar muestral, el parámetro
+\texttt{na.rm} es un valor lógico que en caso de ser \texttt{TRUE},
+significa que se deben remover las observaciones con \texttt{NA}, el
+valor por defecto para este parámetro es \texttt{FALSE}.
+
+\subsection*{Ejemplo}\label{ejemplo-7}
+
+
+Suponga que queremos obtener la desviación estándar muestral para la
+variable precio de los apartamentos.
+
+Para obtener la desviación solicitada usamos el siguiente código:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sd}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$precio)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 247.6
+\end{verbatim}
+
+\subsection*{Ejemplo}\label{ejemplo-8}
+
+
+Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
+el siguiente conjunto de 5 observaciones: 12, 25, 32, 15, 26.
+
+Recordemos que las expresiones matemáticas para obtener \(S\) y
+\(\sigma\) son muy similares, la diferencia está en el denominador, para
+\(S\) el denominador es \(n-1\) mientras que para \(\sigma\) es \(n\).
+Teniendo esto en cuenta podemos calcular la desviación poblacional
+apoyándonos en la función \texttt{sd}, para esto podemos construir una
+función llamada \texttt{Sigma} que calcule la desviación poblacional, a
+continuación el código necesario.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Sigma <-}\StringTok{ }\NormalTok{function(x) \{}
+  \NormalTok{n <-}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
+  \KeywordTok{sd}\NormalTok{(x) *}\StringTok{ }\NormalTok{(n}\DecValTok{-1}\NormalTok{) /}\StringTok{ }\NormalTok{n}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+Ahora para obtener la desviación estándar \textbf{poblacional} de los
+datos usamos el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{32}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{26}\NormalTok{)}
+\KeywordTok{Sigma}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6.621
+\end{verbatim}
+
+\chapter{\texorpdfstring{Medidas de posición
+\label{posi}}{Medidas de posición }}\label{medidas-de-posicion}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de
 
-\chapter{Medidas de posición}\label{medidas-de-posicion}
+\chapter{\texorpdfstring{Medidas de correlación
+\label{correl}}{Medidas de correlación }}\label{medidas-de-correlacion}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de
 
@@ -1398,7 +1500,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection{Ejemplo}\label{ejemplo-7}
+\subsection{Ejemplo}\label{ejemplo-9}
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
 \(\Re\) utilizando la aproximación de Laplace.
@@ -1415,8 +1517,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-37-1.pdf}
-\caption{\label{fig:unnamed-chunk-37}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-41-1.pdf}
+\caption{\label{fig:unnamed-chunk-41}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
@@ -1475,18 +1577,6 @@ integral usando la función \texttt{integrate}, a continuación el código.
 \end{verbatim}
 
 De los anteriores resultados vemos que la aproximación es buena.
-
-\cleardoublepage 
-
-\appendix \addcontentsline{toc}{chapter}{\appendixname}
-
-
-\chapter{More to Say}\label{more-to-say}
-
-Yeah! I have finished my book, but I have more to say about some topics.
-Let me explain them in this appendix.
-
-To know more about \textbf{bookdown}, see \url{https://bookdown.org}.
 
 \bibliography{packages,book}
 

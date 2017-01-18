@@ -1,8 +1,8 @@
-# Medidas de variabilidad
+# Medidas de variabilidad \label{varia}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de variabilidad con \proglang{R}.
 
-Para ilustrar el uso de las funciones se utilizará la base de datos llamada __aptos2015__, esta base de datos cuenta con 11 variables registradas a apartamentos usados en la ciudad de Medellín. Las variables son: 
+Para ilustrar el uso de las funciones se utilizará la base de datos llamada __aptos2015__, esta base de datos cuenta con 11 variables registradas a apartamentos usados en la ciudad de Medellín. Las variables de la base de datos son: 
 
 1. `precio`: precio de venta del apartamento (millones de pesos),
 2. `mt2`: área del apartamento ($m^2$),
@@ -28,10 +28,12 @@ head(datos)  # Para ver el encabezado de la base de datos
 Para calcular el rango de una variable cuantitativa se usa la función `range`. Los argumentos básicos de la función `range` son dos y se muestran abajo.
 
 ```{r, eval=F}
-range(x, na.rm)
+range(x, na.rm = FALSE)
 ```
 
-La función `range` entrega el valor mínimo y máximo de la variable ingresada y el valor de rango ($max - min$) se puede obtener restando del máximo el mínimo.
+En el parámetro `x` se indica la variable de interés para la cual se quiere calcular el rango, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
+
+La función `range` entrega el valor mínimo y máximo de la variable ingresada y el valor de rango se puede obtener restando del valor máximo el valor mínimo.
 
 
 ### Ejemplo {-}
@@ -43,7 +45,7 @@ Para obtener el rango usamos el siguiente código.
 range(datos$precio)
 max(datos$precio) - min(datos$precio)
 ```
-Del resultado anterior podemos ver que los precios de todos los apartamentos van desde `r min(datos$precio)` hasta `r max(datos$precio)` millones de pesos, es decir, el rango de la variables precio es `r max(datos$precio)-min(datos$precio)` millones de pesos.
+Del resultado anterior podemos ver que los precios de todos los apartamentos van desde `r min(datos$precio)` hasta `r max(datos$precio)` millones de pesos, es decir, el rango de la variable precio es `r max(datos$precio)-min(datos$precio)` millones de pesos.
 
 ### Ejemplo {-}
 Suponga que queremos obtener nuevamente el rango para la variable precio de los apartamentos pero diferenciando por el estrato.
@@ -57,15 +59,42 @@ sapply(precios, myrange)
 ```
 De los resultados podemos ver claramente que a medida que aumenta de estrato el rango (variabilidad) del precio de los apartamentos aumenta. Apartamentos de estrato bajo tienden a tener precios similares mientras que los precios de venta para apartamentos de estratos altos tienden a ser muy diferentes entre si.
 
+## Desviación estándar muestral ($S$) \index{desviación} \index{sd}
 
+Para calcular la desviación muestral de una variable cuantitativa se usa la función `sd`. Los argumentos básicos de la función `sd` son dos y se muestran abajo.
 
+```{r, eval=F}
+sd(x, na.rm = FALSE)
+```
 
+En el parámetro `x` se indica la variable de interés para la cual se quiere calcular la desviación estándar muestral, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
 
+### Ejemplo {-}
+Suponga que queremos obtener la desviación estándar muestral para la variable precio de los apartamentos.
 
+Para obtener la desviación solicitada usamos el siguiente código:
 
+```{r}
+sd(x=datos$precio)
+```
 
+### Ejemplo {-}
+Calcular la desviación estándar __poblacional__ ($\sigma$) para el siguiente conjunto de 5 observaciones: 12, 25, 32, 15, 26.
 
+Recordemos que las expresiones matemáticas para obtener $S$ y $\sigma$ son muy similares, la diferencia está en el denominador, para $S$ el denominador es $n-1$ mientras que para $\sigma$ es $n$. Teniendo esto en cuenta podemos calcular la desviación poblacional apoyándonos en la función `sd`, para esto podemos construir una función llamada `Sigma` que calcule la desviación poblacional, a continuación el código necesario.
 
+```{r}
+Sigma <- function(x) {
+  n <- length(x)
+  sd(x) * (n-1) / n
+} 
+```
 
+Ahora para obtener la desviación estándar __poblacional__ de los datos usamos el siguiente código.
+
+```{r}
+y <- c(12, 25, 32, 15, 26)
+Sigma(y)
+```
 
 

@@ -1,4 +1,3 @@
-\mainmatter
 
 # Medidas de tendencia central \label{central}
 
@@ -26,8 +25,10 @@ head(datos)  # Para ver el encabezado de la base de datos
 Para calcular la media de una variable cuantitativa se usa la función `mean`. Los argumentos básicos de la función `mean` son dos y se muestran a continuación.
 
 ```{r, eval=F}
-mean(x, na.rm)
+mean(x, na.rm = FALSE)
 ```
+
+En el parámetro `x` se indica la variable de interés para la cual se quiere calcular la media, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
 
 
 ### Ejemplo {-}
@@ -76,8 +77,10 @@ De este último resultado se obtiene que la edad promedio de los individuos es 2
 Para calcular la mediana de una variable cantitativa se usa la función `median`. Los argumentos básicos de la función `median` son dos y se muestran a continuación.
 
 ```{r, eval=F}
-median(x, na.rm)
+median(x, na.rm = FALSE)
 ```
+
+En el parámetro `x` se indica la variable de interés para la cual se quiere calcular la mediana, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
 
 ### Ejemplo {-}
 Calcular la edad mediana para los estudiantes de la base de datos.

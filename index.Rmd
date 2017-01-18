@@ -39,7 +39,9 @@ Este libro es importante porque ...
 
 ## Estructura del libro {-}
 
-En el capítulo \@ref(central) se muestra como obtener las medidas de tendencial central.
+El libro está estructurado de la siguiente manera.
+
+En el capítulo \@ref(central) se muestra como obtener las diversas medidas de tendencial central para variables cuantitativas, el capítulo \@ref(varia) muestra como calcular las medidas de variabilidad, en el capítulo \@ref(posi) se ilustra cómo usar las funciones para obtener medidas de posición y en el capítulo \@ref(correl) se muestra como obtener medidas de correlación entre pares de variables.
 
 ## Software information and conventions {-}
 
@@ -53,7 +55,7 @@ Package names are in bold text (e.g., **rmarkdown**), and inline code and filena
 
 ## Agradecimientos {-}
 
-Agradecemos a ...
+Agradecemos enormemente a todos los estudiantes, profesores e investigadores que nos han retroalimentado con comentarios valiosos para mejorar el documento.
 
 ```{block2, type='flushright', html.tag='p'}
 Freddy Hernández Barajas
