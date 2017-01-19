@@ -216,7 +216,14 @@ Gracias a Dios por todo lo que me ha dado.
 \chapter*{Prefacio}\label{prefacio}
 
 
-Este libro fue creado con la intención de \ldots{}
+Este libro fue creado con la intención de apoyar el aprendizaje del
+programa \proglang{R} en estudiantes de cualquier pregrado,
+especialización, maestría e investigadores que necesiten realizar
+análisis estadísticos. El objetivo de este libro es mostrar la forma de
+realizar diversos análisis estadísticos, las cuestiones sobre la
+creación de gráficos estadísticos no son abordadas en el presente libro,
+para consultar sobre gráficos recomendamos consultar
+\citet{correa_hernandez}.
 
 \section*{¿Por qué leer este libro?}\label{por-que-leer-este-libro}
 
@@ -235,43 +242,12 @@ capítulo \ref{posi} se ilustra cómo usar las funciones para obtener
 medidas de posición y en el capítulo \ref{correl} se muestra como
 obtener medidas de correlación entre pares de variables.
 
-\section*{Software information and
-conventions}\label{software-information-and-conventions}
+\section*{Información del software y
+convenciones}\label{informacion-del-software-y-convenciones}
 
 
 Para realizar este libro usamos los paquetes \textbf{knitr}\index{knitr}
 \citep{xie2015} y \textbf{bookdown}\index{bookdown} \citep{R-bookdown}.
-La información de la sesión de \proglang{R} usada se muestra abajo:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{sessionInfo}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## R version 3.3.2 (2016-10-31)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 7 x64 (build 7601) Service Pack 1
-## 
-## locale:
-## [1] LC_COLLATE=English_Australia.1252 
-## [2] LC_CTYPE=English_Australia.1252   
-## [3] LC_MONETARY=English_Australia.1252
-## [4] LC_NUMERIC=C                      
-## [5] LC_TIME=English_Australia.1252    
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets 
-## [6] methods   base     
-## 
-## loaded via a namespace (and not attached):
-##  [1] backports_1.0.4 bookdown_0.3    magrittr_1.5   
-##  [4] rprojroot_1.1   tools_3.3.2     htmltools_0.3.5
-##  [7] rstudioapi_0.6  yaml_2.1.14     Rcpp_0.12.8    
-## [10] stringi_1.1.2   rmarkdown_1.3   knitr_1.15.1   
-## [13] stringr_1.1.0   digest_0.6.11   evaluate_0.10
-\end{verbatim}
 
 Package names are in bold text (e.g., \textbf{rmarkdown}), and inline
 code and filenames are formatted in a typewriter font (e.g.,
@@ -279,15 +255,49 @@ code and filenames are formatted in a typewriter font (e.g.,
 Function names are followed by parentheses (e.g.,
 \texttt{bookdown::render\_book()}).
 
+En todo el libro se presentarán códigos que el lector puede copiar y
+pegar en su consola de \proglang{R} para obtener los mismos resultados
+aquí presentados. Los códigos se destacan en una caja de color beis (o
+beige) similar a la mostrada a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{4} \NormalTok{+}\StringTok{ }\DecValTok{6}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{)}
+\DecValTok{5} \NormalTok{*}\StringTok{ }\NormalTok{a}
+\DecValTok{1}\NormalTok{:}\DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+Los resultados o salidas obtenidos de cualquier código se destacan con
+dos símbolos de númeral (\texttt{\#\#}) al inicio de cada línea o
+renglón, esto quiere decir que todo lo que inicie con \texttt{\#\#} son
+resultados obtenidos y \textbf{NO} los debe copiar. Abajo se muestran
+los resultados obtenidos luego de correr el código anterior.
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\begin{verbatim}
+## [1]  5 25 30
+\end{verbatim}
+
+\begin{verbatim}
+##  [1]  1  2  3  4  5  6  7  8  9 10
+\end{verbatim}
+
 \section*{Agradecimientos}\label{agradecimientos}
 
 
 Agradecemos enormemente a todos los estudiantes, profesores e
-investigadores que nos han retroalimentado con comentarios valiosos para
-mejorar el documento.
+investigadores que han leído este libro y nos han retroalimentado con
+comentarios valiosos para mejorar el documento.
 
 \BeginKnitrBlock{flushright}
-Freddy Hernández Barajas Olga Cecilia Usuga Manco
+Freddy Hernández Barajas
+
+Olga Cecilia Usuga Manco
 \EndKnitrBlock{flushright}
 
 \chapter*{Sobre los autores}\label{sobre-los-autores}
@@ -297,7 +307,7 @@ Freddy Hernández Barajas es profesor asistente de la Universidad
 Nacional de Colombia adscrito a la Escuela de Estadística de la Facultad
 de Ciencias.
 
-Olga Cecilia Usuga Manco es profesora asociado de la Universidad de
+Olga Cecilia Usuga Manco es profesora asociada de la Universidad de
 Antioquia adscrita a la Facultad de Ingeniería.
 
 \mainmatter
@@ -351,7 +361,7 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 }
 
-\caption{Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.}\label{fig:unnamed-chunk-3}
+\caption{Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.}\label{fig:unnamed-chunk-4}
 \end{figure}
 
 \section{Descarga e instalación} \label{sec:descarga}
@@ -857,8 +867,9 @@ dos ejemplos de lo que se recomienda.
   \NormalTok{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)}
 \NormalTok{\}}
     
-\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim)) \{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)\}  }\CommentTok{# Frente a la llave \{ no debe ir nada}
-                                         \CommentTok{# la llave de cierre \} debe ir sola}
+\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim)) \{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)\}}
+\CommentTok{# Frente a la llave \{ no debe ir nada}
+\CommentTok{# la llave de cierre \} debe ir sola}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1880,6 +1891,11 @@ funciones.
 ## [1] FALSE FALSE FALSE
 \end{verbatim}
 
+\chapter{\texorpdfstring{Creación de funciones en
+\proglang{R}}{Creación de funciones en }}\label{creacion-de-funciones-en}
+
+En este capítulo se
+
 \chapter{Distribuciones discretas}\label{distribuciones-discretas}
 
 En este capítulo se
@@ -1888,11 +1904,7 @@ En este capítulo se
 
 En este capítulo se
 
-\chapter{Distribuciones continuas}\label{distribuciones-continuas-1}
-
-En este capítulo se
-
-\chapter{Creación de funciones en R}\label{creacion-de-funciones-en-r}
+\chapter{Pruebas de bondad de ajuste}\label{pruebas-de-bondad-de-ajuste}
 
 En este capítulo se
 
@@ -1953,8 +1965,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-53-1.pdf}
-\caption{\label{fig:unnamed-chunk-53}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-54-1.pdf}
+\caption{\label{fig:unnamed-chunk-54}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

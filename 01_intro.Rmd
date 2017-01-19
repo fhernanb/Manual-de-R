@@ -237,8 +237,9 @@ if (is.null(ylim))                       # No se recomienda
   ylim <- c(0, 0.06)
 }
 	
-if (is.null(ylim)) {ylim <- c(0, 0.06)}  # Frente a la llave { no debe ir nada
-                                         # la llave de cierre } debe ir sola
+if (is.null(ylim)) {ylim <- c(0, 0.06)}
+# Frente a la llave { no debe ir nada
+# la llave de cierre } debe ir sola
 ```
 
 La sentencia else debe ir siempre entre llaves `} {`, ver el siguiente ejemplo.

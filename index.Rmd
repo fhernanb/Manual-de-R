@@ -31,7 +31,7 @@ lapply(c(), function(pkg) {
 
 # Prefacio {-}
 
-Este libro fue creado con la intención de ...
+Este libro fue creado con la intención de apoyar el aprendizaje del programa \proglang{R} en estudiantes de cualquier pregrado, especialización, maestría e investigadores que necesiten realizar análisis estadísticos. El objetivo de este libro es mostrar la forma de realizar diversos análisis estadísticos, las cuestiones sobre la creación de gráficos estadísticos no son abordadas en el presente libro, para consultar sobre gráficos recomendamos consultar @correa_hernandez.
 
 ## ¿Por qué leer este libro? {-}
 
@@ -43,22 +43,39 @@ El libro está estructurado de la siguiente manera.
 
 En el capítulo \@ref(central) se muestra como obtener las diversas medidas de tendencial central para variables cuantitativas, el capítulo \@ref(varia) muestra como calcular las medidas de variabilidad, en el capítulo \@ref(posi) se ilustra cómo usar las funciones para obtener medidas de posición y en el capítulo \@ref(correl) se muestra como obtener medidas de correlación entre pares de variables.
 
-## Software information and conventions {-}
+## Información del software y convenciones {-}
 
-Para realizar este libro usamos los paquetes **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown]. La información de la sesión de \proglang{R} usada se muestra abajo:
-
-```{r}
-sessionInfo()
-```
+Para realizar este libro usamos los paquetes **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown].
 
 Package names are in bold text (e.g., **rmarkdown**), and inline code and filenames are formatted in a typewriter font (e.g., `knitr::knit('foo.Rmd')`). Function names are followed by parentheses (e.g., `bookdown::render_book()`).
 
+En todo el libro se presentarán códigos que el lector puede copiar y pegar en su consola de \proglang{R} para obtener los mismos resultados aquí presentados. Los códigos se destacan en una caja de color beis (o beige) similar a la mostrada a continuación.
+
+```{r, eval=F}
+4 + 6
+a <- c(1, 5, 6)
+5 * a
+1:10
+```
+
+Los resultados o salidas obtenidos de cualquier código se destacan con dos símbolos de númeral (`##`) al inicio de cada línea o renglón, esto quiere decir que todo lo que inicie con `##` son resultados obtenidos y __NO__ los debe copiar. Abajo se muestran los resultados obtenidos luego de correr el código anterior.
+
+```{r, echo=F}
+4 + 6
+a <- c(1, 5, 6)
+5 * a
+1:10
+```
+
+
+
 ## Agradecimientos {-}
 
-Agradecemos enormemente a todos los estudiantes, profesores e investigadores que nos han retroalimentado con comentarios valiosos para mejorar el documento.
+Agradecemos enormemente a todos los estudiantes, profesores e investigadores que han leído este libro y nos han retroalimentado con comentarios valiosos para mejorar el documento.
 
 ```{block2, type='flushright', html.tag='p'}
 Freddy Hernández Barajas
+
 Olga Cecilia Usuga Manco
 ```
 
