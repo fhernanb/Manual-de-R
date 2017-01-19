@@ -1,9 +1,69 @@
 # Funciones básicas de R
 
-En este capítulo se 
+En este capítulo se presentarán algunas funciones básicas y útiles de \proglang{R} para realizar diversas tareas.
+
+## Operadores de asignación \index{asignación}
+En \proglang{R} se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.
+
+- `<-`: este es el operador de asignación a izquierda, es el más usado y recomendado.
+- `->`: este es el operador de asignación a derecha, no es frecuente su uso.
+- `=`: el símbolo igual sirve para hacer asignaciones pero __NO__ se recomienda usarlo.
+- `<<-`: este es un operador de asignación global y sólo debe ser usado por usuarios avanzados.
+
+A continuación se presentan ejemplos de cómo usar los tres primeros operadores de asignación.
+
+```{r}
+a <- 5.3 # Recomended
+4.6 -> b # It is not usual
+age = 25 # Not recomended
+```
+
+## Operaciones básicas \index{operaciones básicas}
+En \proglang{R} se pueden hacer diversas operaciones usando operadores binarios. Este tipo de operadores se denomina binarios porque actuan entre dos objetos, a continuación el listado.
+
+- `+`: operador binario para sumar.
+- `-`: operador binario para restar.
+- `*`: operador binario para multiplicar.
+- `/`: operador binario para dividir.
+- `^`: operador binario para potencia.
+- `%/%`: operador binario para obtener el cociente en una división (número entero).
+- `%%`: operador binario para obtener el residuo en una división.
 
 
+A continuación se presentan ejemplos de cómo usar las anteriores funciones.
 
+```{r}
+6 + 4  # Para sumar dos números
+a <- c(1, 3, 2)
+b <- c(2, 0, 1)  # a y b de la misma dimensión
+a + b  # Para sumar los vectores a y b miembro a miembro
+a - b  # Para restar dos vectores a y b miembro a miembro
+a * b  # Para multiplicar
+a / b  # Para dividir
+a ^ b  # Para potencia
+7 %/% 3  # Para saber las veces que cabe 3 en 7
+7 %% 3  # Para saber el residuo al dividir 7 entre 3
+```
+
+## Pruebas lógicas \index{pruebas lógicas}
+En \proglang{R} se puede verificar si un objeto cumple una condición dada, a continuación el listado de las pruebas usuales.
+
+- `<`: para saber si un número es menor que otro.
+- `>`: para saber si un número es mayor que otro.
+- `==`: para saber si un número es igual que otro.
+- `<=`: para saber si un número es menor o igual que otro.
+- `>=`: para saber si un número es mayor o igual que otro.
+
+A continuación se presentan ejemplos de cómo usar las anteriores funciones.
+
+```{r}
+5 < 12  # ¿Será 5 menor que 12?
+# Usando vectores
+a <- c(1, 3, 2)
+b <- c(2, 0, 1)
+a > b  # Comparación término a término
+a == b  # Comparación de igualdad término a término
+```
 
 
 

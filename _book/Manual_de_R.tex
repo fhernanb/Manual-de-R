@@ -183,7 +183,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-01-18}
+\date{2017-01-19}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1674,7 +1674,211 @@ En este capítulo se mostrará cómo obtener las diferentes medidas de
 
 \chapter{Funciones básicas de R}\label{funciones-basicas-de-r}
 
-En este capítulo se
+En este capítulo se presentarán algunas funciones básicas y útiles de
+\proglang{R} para realizar diversas tareas.
+
+\section{\texorpdfstring{Operadores de asignación
+\index{asignación}}{Operadores de asignación }}\label{operadores-de-asignacion}
+
+En \proglang{R} se pueden hacer asignación de varias formas, a
+continuación se presentan los operadores disponibles para tal fin.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\textless{}-}: este es el operador de asignación a izquierda,
+  es el más usado y recomendado.
+\item
+  \texttt{-\textgreater{}}: este es el operador de asignación a derecha,
+  no es frecuente su uso.
+\item
+  \texttt{=}: el símbolo igual sirve para hacer asignaciones pero
+  \textbf{NO} se recomienda usarlo.
+\item
+  \texttt{\textless{}\textless{}-}: este es un operador de asignación
+  global y sólo debe ser usado por usuarios avanzados.
+\end{itemize}
+
+A continuación se presentan ejemplos de cómo usar los tres primeros
+operadores de asignación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\FloatTok{5.3} \CommentTok{# Recomended}
+\FloatTok{4.6} \NormalTok{->}\StringTok{ }\NormalTok{b }\CommentTok{# It is not usual}
+\NormalTok{age =}\StringTok{ }\DecValTok{25} \CommentTok{# Not recomended}
+\end{Highlighting}
+\end{Shaded}
+
+\section{\texorpdfstring{Operaciones básicas
+\index{operaciones básicas}}{Operaciones básicas }}\label{operaciones-basicas}
+
+En \proglang{R} se pueden hacer diversas operaciones usando operadores
+binarios. Este tipo de operadores se denomina binarios porque actuan
+entre dos objetos, a continuación el listado.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{+}: operador binario para sumar.
+\item
+  \texttt{-}: operador binario para restar.
+\item
+  \texttt{*}: operador binario para multiplicar.
+\item
+  \texttt{/}: operador binario para dividir.
+\item
+  \texttt{\^{}}: operador binario para potencia.
+\item
+  \texttt{\%/\%}: operador binario para obtener el cociente en una
+  división (número entero).
+\item
+  \texttt{\%\%}: operador binario para obtener el residuo en una
+  división.
+\end{itemize}
+
+A continuación se presentan ejemplos de cómo usar las anteriores
+funciones.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{6} \NormalTok{+}\StringTok{ }\DecValTok{4}  \CommentTok{# Para sumar dos números}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{b <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)  }\CommentTok{# a y b de la misma dimensión}
+\NormalTok{a +}\StringTok{ }\NormalTok{b  }\CommentTok{# Para sumar los vectores a y b miembro a miembro}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3 3 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a -}\StringTok{ }\NormalTok{b  }\CommentTok{# Para restar dos vectores a y b miembro a miembro}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -1  3  1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a *}\StringTok{ }\NormalTok{b  }\CommentTok{# Para multiplicar}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 0 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a /}\StringTok{ }\NormalTok{b  }\CommentTok{# Para dividir}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5 Inf 2.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a ^}\StringTok{ }\NormalTok{b  }\CommentTok{# Para potencia}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 1 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{7} \NormalTok{%/%}\StringTok{ }\DecValTok{3}  \CommentTok{# Para saber las veces que cabe 3 en 7}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{7} \NormalTok{%%}\StringTok{ }\DecValTok{3}  \CommentTok{# Para saber el residuo al dividir 7 entre 3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\section{\texorpdfstring{Pruebas lógicas
+\index{pruebas lógicas}}{Pruebas lógicas }}\label{pruebas-logicas}
+
+En \proglang{R} se puede verificar si un objeto cumple una condición
+dada, a continuación el listado de las pruebas usuales.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\textless{}}: para saber si un número es menor que otro.
+\item
+  \texttt{\textgreater{}}: para saber si un número es mayor que otro.
+\item
+  \texttt{==}: para saber si un número es igual que otro.
+\item
+  \texttt{\textless{}=}: para saber si un número es menor o igual que
+  otro.
+\item
+  \texttt{\textgreater{}=}: para saber si un número es mayor o igual que
+  otro.
+\end{itemize}
+
+A continuación se presentan ejemplos de cómo usar las anteriores
+funciones.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5} \NormalTok{<}\StringTok{ }\DecValTok{12}  \CommentTok{# ¿Será 5 menor que 12?}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Usando vectores}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{b <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{a >}\StringTok{ }\NormalTok{b  }\CommentTok{# Comparación término a término}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE  TRUE  TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a ==}\StringTok{ }\NormalTok{b  }\CommentTok{# Comparación de igualdad término a término}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE FALSE FALSE
+\end{verbatim}
 
 \chapter{Distribuciones discretas}\label{distribuciones-discretas}
 
@@ -1749,8 +1953,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-50-1.pdf}
-\caption{\label{fig:unnamed-chunk-50}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-53-1.pdf}
+\caption{\label{fig:unnamed-chunk-53}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
