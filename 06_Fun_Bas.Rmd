@@ -65,6 +65,17 @@ a > b  # Comparación término a término
 a == b  # Comparación de igualdad término a término
 ```
 
+## Operadores lógicos \index{operadores lógicos}
+En \proglang{R} están disponibles los operadores lógicos negación, conjunción y disyunción. A continuación el listado de los operadores entre los elementos `x` e `y`.
+
+```{r, eval=F}
+!x  # Negación de x
+x & y  # Conjunción entre x e y
+x && y
+x | y  # Disyunción entre x e y
+x || y
+xor(x, y)
+```
 
 
 

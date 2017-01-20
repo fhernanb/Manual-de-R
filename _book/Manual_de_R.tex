@@ -183,7 +183,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-01-19}
+\date{2017-01-20}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1891,6 +1891,24 @@ funciones.
 ## [1] FALSE FALSE FALSE
 \end{verbatim}
 
+\section{\texorpdfstring{Operadores lógicos
+\index{operadores lógicos}}{Operadores lógicos }}\label{operadores-logicos}
+
+En \proglang{R} están disponibles los operadores lógicos negación,
+conjunción y disyunción. A continuación el listado de los operadores
+entre los elementos \texttt{x} e \texttt{y}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{!x  }\CommentTok{# Negación de x}
+\NormalTok{x &}\StringTok{ }\NormalTok{y  }\CommentTok{# Conjunción entre x e y}
+\NormalTok{x &&}\StringTok{ }\NormalTok{y}
+\NormalTok{x |}\StringTok{ }\NormalTok{y  }\CommentTok{# Disyunción entre x e y}
+\NormalTok{x ||}\StringTok{ }\NormalTok{y}
+\KeywordTok{xor}\NormalTok{(x, y)}
+\end{Highlighting}
+\end{Shaded}
+
 \chapter{\texorpdfstring{Creación de funciones en
 \proglang{R}}{Creación de funciones en }}\label{creacion-de-funciones-en}
 
@@ -1965,8 +1983,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-54-1.pdf}
-\caption{\label{fig:unnamed-chunk-54}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-55-1.pdf}
+\caption{\label{fig:unnamed-chunk-55}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
