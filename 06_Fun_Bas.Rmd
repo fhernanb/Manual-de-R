@@ -152,6 +152,64 @@ De las dos últimas líneas podemos destacar lo siguiente:
 1. __NO es necesario__ usar `na.rm = TRUE` para remover el `NA` dentro de las funciones `which.min` ni `which.max`.
 2. El valor mínimo 0 aparece en las posiciones 6 y 8 pero la función `which.min` sólo entrega la posición del primer valor mínimo dentro del vector.
 
+## Funciones matemáticas
+Otras funciones básicas muy utilizadas en estadística son: `sin, cos, tan, asin, acos, atan, atan2, log, logb, log10, exp, sqrt, abs`. A continuación algunos ejemplos de las anteriores funciones.
+
+__Ejemplos de medidas trigonométricas__
+```{r}
+angulos <- c(0, pi/2, pi)
+sin(angulos)
+tan(angulos)
+```
+
+__Ejemplos de logaritmos__
+```{r}
+log(100)
+log10(100)
+logb(125, base=5)
+```
+
+__Ejemplos de exponencial__
+```{r}
+exp(1)
+exp(2)
+exp(1:3)
+```
+
+__Ejemplos de raices__
+```{r}
+sqrt(49)  # Raiz cuadrada de 49
+27 ^ (1/3)  # Raiz cúbica de 27
+```
+
+__Ejemplos de valor absoluto__
+```{r}
+abs(2.5)
+abs(-3.6)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## EJERCICIOS {-}
 Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
@@ -163,6 +221,9 @@ Use funciones o procedimientos (varias líneas) de \proglang{R} para responder c
  \item Construya dos vectores, el primero con los números enteros desde 7 hasta 3, el segundo vector con los primeros cinco números positivos divisibles por 5. Sea A la condición de ser par en el primer vector. Sea B la condición de ser mayor que 10 en el segundo vector. ¿En cuál de las 5 posiciones se cumple A y B simultáneamente?
  \item Consulte el siguiente enlace sobre una anéctoda de Gauss cuando tenía 10 años de edad http://tinyurl.com/hk2l8h2. Use R para obtener el resultado de la suma solicitada por el profesor del niño Gauss.
  \item Construya un vector con los siguientes elementos: 1, -4, 5, 9, -4. Escriba un procedimiento para extraer las posiciones donde está el valor mínimo en el vector.
+ \item Calcular $8!$
+ \item Evaluar la siguiente suma $\sum_{i=3}^{i=7}e^i$.
+ \item Evaluar la siguiente productoria $\prod_{i=1}^{i=10}\log\sqrt{i}$.
 \end{enumerate}
 
 
