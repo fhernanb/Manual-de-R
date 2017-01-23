@@ -183,7 +183,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-01-20}
+\date{2017-01-23}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1870,6 +1870,19 @@ funciones.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# Comparando objetos}
+\NormalTok{x <-}\StringTok{ }\DecValTok{5}
+\NormalTok{y <-}\StringTok{ }\DecValTok{20} \NormalTok{/}\StringTok{ }\DecValTok{4}
+\NormalTok{x ==}\StringTok{ }\NormalTok{y  }\CommentTok{# ¿Será x igual a y?}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# Usando vectores}
 \NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{)}
 \NormalTok{b <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
@@ -1908,6 +1921,82 @@ entre los elementos \texttt{x} e \texttt{y}.
 \KeywordTok{xor}\NormalTok{(x, y)}
 \end{Highlighting}
 \end{Shaded}
+
+A continuación se presentan ejemplos de cómo usar el símbolo de negación
+\texttt{!}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ans <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{!ans  }\CommentTok{# Negando las respuestas almacenadas en ans}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE  TRUE FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\FloatTok{1.5}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{!(x <}\StringTok{ }\FloatTok{2.5}\NormalTok{)  }\CommentTok{# Negando los resultados de una prueba}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  TRUE FALSE FALSE  TRUE FALSE
+\end{verbatim}
+
+A continuación se presentan ejemplos de cómo aplicar la conjunción
+\texttt{\&} y \texttt{\&\&}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\FloatTok{1.5}\NormalTok{, }\DecValTok{2}\NormalTok{)  }\CommentTok{# Se construyen dos vectores para la prueba}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+
+\NormalTok{x <}\StringTok{ }\DecValTok{4}  \CommentTok{# ¿Serán los elementos de x menores que 4?}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE  TRUE  TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y >}\StringTok{ }\DecValTok{5}  \CommentTok{# ¿Serán los elementos de y mayores que 5?}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE  TRUE FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <}\StringTok{ }\DecValTok{4} \NormalTok{&}\StringTok{ }\NormalTok{y >}\StringTok{ }\DecValTok{5}  \CommentTok{# Conjunción entre las pruebas anteriores.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE  TRUE FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <}\StringTok{ }\DecValTok{4} \NormalTok{&&}\StringTok{ }\NormalTok{y >}\StringTok{ }\DecValTok{5}  \CommentTok{# Conjunción vectorial}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+Note las diferencias entre los dos últimos ejemplos, cuando se usa
+\texttt{\&} se hace una prueba término a término y el resultado es un
+vector, cuando se usa \texttt{\&\&} se aplica la conjunción al vector de
+resultados obtenido con \texttt{\&}.
 
 \chapter{\texorpdfstring{Creación de funciones en
 \proglang{R}}{Creación de funciones en }}\label{creacion-de-funciones-en}
@@ -1983,8 +2072,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-55-1.pdf}
-\caption{\label{fig:unnamed-chunk-55}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-57-1.pdf}
+\caption{\label{fig:unnamed-chunk-57}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
