@@ -1998,6 +1998,121 @@ Note las diferencias entre los dos últimos ejemplos, cuando se usa
 vector, cuando se usa \texttt{\&\&} se aplica la conjunción al vector de
 resultados obtenido con \texttt{\&}.
 
+\section{Funciones sobre vectores}\label{funciones-sobre-vectores}
+
+En \proglang{R} podemos destacar las siguientes funciones básicas sobre
+vectores numéricos.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{min}: para obtener el mínimo de un vector.
+\item
+  \texttt{max}: para obtener el máximo de un vector.
+\item
+  \texttt{length}: para determinar la longitud de un vector.
+\item
+  \texttt{range}: para obtener el rango de valores de un vector, entrega
+  el mínimo y máximo.
+\item
+  \texttt{sum}: entrega la suma de todos los elementos del vector.
+\item
+  \texttt{prod}: multiplica todos los elementos del vector.
+\item
+  \texttt{which.min}: nos entrega la posición en donde está el valor
+  mínimo del vector.
+\item
+  \texttt{which.max}: nos da la posición del valor máximo del vector.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-13}
+
+
+Construir en vector llamado \texttt{myvec} con los siguientes elementos:
+5, 3, 2, 1, 2, 0, NA, 0, 9, 6. Luego aplicar todas las funciones
+anteriores para verificar el funcionamiento de las mismas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myvec <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{6}\NormalTok{)}
+\KeywordTok{min}\NormalTok{(myvec)  }\CommentTok{# Opss}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{min}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)  }\CommentTok{# Usamos na.rm = TRUE para remover el NA}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{max}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{range}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0 9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 28
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{prod}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{which.min}\NormalTok{(myvec)  }\CommentTok{# Esta función NO necesita de na.rm = TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{which.max}\NormalTok{(myvec)  }\CommentTok{# Esta función NO necesita de na.rm = TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9
+\end{verbatim}
+
 \chapter{\texorpdfstring{Creación de funciones en
 \proglang{R}}{Creación de funciones en }}\label{creacion-de-funciones-en}
 
@@ -2054,7 +2169,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -2072,8 +2187,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-57-1.pdf}
-\caption{\label{fig:unnamed-chunk-57}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-58-1.pdf}
+\caption{\label{fig:unnamed-chunk-58}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

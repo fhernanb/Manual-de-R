@@ -104,6 +104,34 @@ x < 4 && y > 5  # Conjunción vectorial
 
 Note las diferencias entre los dos últimos ejemplos, cuando se usa `&` se hace una prueba término a término y el resultado es un vector, cuando se usa `&&` se aplica la conjunción al vector de resultados obtenido con `&`.
 
+## Funciones sobre vectores
+En \proglang{R} podemos destacar las siguientes funciones básicas sobre vectores numéricos.
+
+- `min`: para obtener el mínimo de un vector.
+- `max`: para obtener el máximo de un vector.
+- `length`: para determinar la longitud de un vector.
+- `range`: para obtener el rango de valores de un vector, entrega el mínimo y máximo.
+- `sum`: entrega la suma de todos los elementos del vector.
+- `prod`: multiplica todos los elementos del vector.
+- `which.min`: nos entrega la posición en donde está el valor mínimo del vector.
+- `which.max`: nos da la posición del valor máximo del vector.
+
+### Ejemplo {-}
+Construir en vector llamado `myvec` con los siguientes elementos: 5, 3, 2, 1, 2, 0, NA, 0, 9, 6. Luego aplicar todas las funciones anteriores para verificar el funcionamiento de las mismas.
+
+```{r}
+myvec <- c(5, 3, 2, 1, 2, 0, NA, 0, 9, 6)
+min(myvec)  # Opss
+min(myvec, na.rm=TRUE)  # Usamos na.rm = TRUE para remover el NA
+max(myvec, na.rm=T)
+range(myvec, na.rm=T)
+sum(myvec, na.rm=T)
+prod(myvec, na.rm=T)
+which.min(myvec)  # Esta función NO necesita de na.rm = TRUE
+which.max(myvec)  # Esta función NO necesita de na.rm = TRUE
+```
+
+
 
 
 
