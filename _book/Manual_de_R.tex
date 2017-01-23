@@ -1710,8 +1710,13 @@ continuación se presentan los operadores disponibles para tal fin.
   global y sólo debe ser usado por usuarios avanzados.
 \end{itemize}
 
-A continuación se presentan ejemplos de cómo usar los tres primeros
-operadores de asignación.
+\subsection*{Ejemplo}\label{ejemplo-13}
+
+
+Almacene los valores 5.3, 4.6 y 25 en los objetos \texttt{a}, \texttt{b}
+y \texttt{age} respectivamente, use diferentes símbolos de asignación.
+
+Para hacer lo solicitado se podría usar el siguiente código.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1904,6 +1909,32 @@ funciones.
 ## [1] FALSE FALSE FALSE
 \end{verbatim}
 
+\subsection*{Ejemplo}\label{ejemplo-14}
+
+
+Crear un vector con los números de 1 a 17 y extrater los números que son
+mayores o iguales a 12.
+
+Primero se crear el vector \texttt{x} con los elementos del 1 al 17. La
+prueba lógica \texttt{x\ \textgreater{}=\ 12} se usa para evaluar la
+condición, el resultado es un vector de 17 posiciones con valores de
+\texttt{TRUE} o \texttt{FALSE} dependiendo de si la condición se cumple
+o no. Este vector lógico se coloca dentro de \texttt{x{[}\ {]}} para que
+al evaluar \texttt{x{[}x\ \textgreater{}=\ 12{]}} sólo aparezcan los
+valores del vector original que SI cumplen la condición. El código
+necesario se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\DecValTok{1}\NormalTok{:}\DecValTok{17}  \CommentTok{# Se crea el vector}
+\NormalTok{x[x >=}\StringTok{ }\DecValTok{12}\NormalTok{]  }\CommentTok{# Se solicitan los valores que cumplen la condición}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12 13 14 15 16 17
+\end{verbatim}
+
 \section{\texorpdfstring{Operadores lógicos
 \index{operadores lógicos}}{Operadores lógicos }}\label{operadores-logicos}
 
@@ -2025,7 +2056,7 @@ vectores numéricos.
   \texttt{which.max}: nos da la posición del valor máximo del vector.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Construir en vector llamado \texttt{myvec} con los siguientes elementos:
@@ -2035,7 +2066,17 @@ anteriores para verificar el funcionamiento de las mismas.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{myvec <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{6}\NormalTok{)}
-\KeywordTok{min}\NormalTok{(myvec)  }\CommentTok{# Opss}
+\NormalTok{myvec}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  5  3  2  1  2  0 NA  0  9  6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{min}\NormalTok{(myvec)  }\CommentTok{# Opss, no aparece el mínimo que es Cero.}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2055,7 +2096,7 @@ anteriores para verificar el funcionamiento de las mismas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{max}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\KeywordTok{max}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)  }\CommentTok{# Para obtener el valor máximo}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2065,7 +2106,7 @@ anteriores para verificar el funcionamiento de las mismas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{range}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\KeywordTok{range}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)  }\CommentTok{# Genera min y max simultáneamente}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2075,7 +2116,7 @@ anteriores para verificar el funcionamiento de las mismas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{sum}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\KeywordTok{sum}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)  }\CommentTok{# La suma de los valores internos}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2085,7 +2126,7 @@ anteriores para verificar el funcionamiento de las mismas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{prod}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\KeywordTok{prod}\NormalTok{(myvec, }\DataTypeTok{na.rm=}\NormalTok{T)  }\CommentTok{# El productor de los valores internos}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2095,7 +2136,7 @@ anteriores para verificar el funcionamiento de las mismas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{which.min}\NormalTok{(myvec)  }\CommentTok{# Esta función NO necesita de na.rm = TRUE}
+\KeywordTok{which.min}\NormalTok{(myvec)  }\CommentTok{# Posición del valor mínimo 0 en el vector}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2105,13 +2146,42 @@ anteriores para verificar el funcionamiento de las mismas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{which.max}\NormalTok{(myvec)  }\CommentTok{# Esta función NO necesita de na.rm = TRUE}
+\KeywordTok{which.max}\NormalTok{(myvec)  }\CommentTok{# Posición del valor máximo 9 en el vector}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## [1] 9
 \end{verbatim}
+
+De las dos últimas líneas podemos destacar lo siguiente:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{NO es necesario} usar \texttt{na.rm\ =\ TRUE} para remover el
+  \texttt{NA} dentro de las funciones \texttt{which.min} ni
+  \texttt{which.max}.
+\item
+  El valor mínimo 0 aparece en las posiciones 6 y 8 pero la función
+  \texttt{which.min} sólo entrega la posición del primer valor mínimo
+  dentro del vector.
+\end{enumerate}
+
+\section*{EJERCICIOS}\label{ejercicios}
+
+
+Use funciones o procedimientos (varias líneas) de \proglang{R} para
+responder cada una de las siguientes preguntas.
+
+\begin{enumerate}
+ \item ¿Qué cantidad de dinero sobra al repartir 10000\$ entre 3 personas?
+ \item ¿Es el número 4560 divisible por 3?
+ \item Construya un vector con los números enteros del 2 al 87. ¿Cuáles de esos números son divisibles por 7?
+ \item Construya dos vectores, el primero con los números enteros desde 7 hasta 3, el segundo vector con los primeros cinco números positivos divisibles por 5. Sea A la condición de ser par en el primer vector. Sea B la condición de ser mayor que 10 en el segundo vector. ¿En cuál de las 5 posiciones se cumple A y B simultáneamente?
+ \item Construya un vector con los siguientes elementos: 1, -4, 5, 9, -4. Escriba un procedimiento para extraer las posiciones donde está el valor mínimo en el vector.
+\end{enumerate}
 
 \chapter{\texorpdfstring{Creación de funciones en
 \proglang{R}}{Creación de funciones en }}\label{creacion-de-funciones-en}
@@ -2169,7 +2239,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -2187,8 +2257,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-58-1.pdf}
-\caption{\label{fig:unnamed-chunk-58}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-59-1.pdf}
+\caption{\label{fig:unnamed-chunk-59}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

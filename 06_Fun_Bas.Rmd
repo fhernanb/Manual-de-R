@@ -10,7 +10,10 @@ En \proglang{R} se pueden hacer asignación de varias formas, a continuación se
 - `=`: el símbolo igual sirve para hacer asignaciones pero __NO__ se recomienda usarlo.
 - `<<-`: este es un operador de asignación global y sólo debe ser usado por usuarios avanzados.
 
-A continuación se presentan ejemplos de cómo usar los tres primeros operadores de asignación.
+### Ejemplo {-}
+Almacene los valores 5.3, 4.6 y 25 en los objetos `a`, `b` y `age` respectivamente, use diferentes símbolos de asignación.
+
+Para hacer lo solicitado se podría usar el siguiente código.
 
 ```{r}
 a <- 5.3 # Recomended
@@ -69,6 +72,17 @@ a > b  # Comparación término a término
 a == b  # Comparación de igualdad término a término
 ```
 
+### Ejemplo {-}
+Crear un vector con los números de 1 a 17 y extrater los números que son mayores o iguales a 12.
+
+Primero se crear el vector `x` con los elementos del 1 al 17. La prueba lógica `x >= 12` se usa para evaluar la condición, el resultado es un vector de 17 posiciones con valores de `TRUE` o `FALSE` dependiendo de si la condición se cumple o no. Este vector lógico se coloca dentro de `x[ ]` para que al evaluar `x[x >= 12]` sólo aparezcan los valores del vector original que SI cumplen la condición. El código necesario se muestra a continuación.
+
+```{r}
+x <- 1:17  # Se crea el vector
+x[x >= 12]  # Se solicitan los valores que cumplen la condición
+```
+
+
 ## Operadores lógicos \index{operadores lógicos}
 En \proglang{R} están disponibles los operadores lógicos negación, conjunción y disyunción. A continuación el listado de los operadores entre los elementos `x` e `y`.
 
@@ -121,15 +135,47 @@ Construir en vector llamado `myvec` con los siguientes elementos: 5, 3, 2, 1, 2,
 
 ```{r}
 myvec <- c(5, 3, 2, 1, 2, 0, NA, 0, 9, 6)
-min(myvec)  # Opss
+myvec
+
+min(myvec)  # Opss, no aparece el mínimo que es Cero.
 min(myvec, na.rm=TRUE)  # Usamos na.rm = TRUE para remover el NA
-max(myvec, na.rm=T)
-range(myvec, na.rm=T)
-sum(myvec, na.rm=T)
-prod(myvec, na.rm=T)
-which.min(myvec)  # Esta función NO necesita de na.rm = TRUE
-which.max(myvec)  # Esta función NO necesita de na.rm = TRUE
+max(myvec, na.rm=T)  # Para obtener el valor máximo
+range(myvec, na.rm=T)  # Genera min y max simultáneamente
+sum(myvec, na.rm=T)  # La suma de los valores internos
+prod(myvec, na.rm=T)  # El productor de los valores internos
+which.min(myvec)  # Posición del valor mínimo 0 en el vector
+which.max(myvec)  # Posición del valor máximo 9 en el vector
 ```
+
+De las dos últimas líneas podemos destacar lo siguiente:
+
+1. __NO es necesario__ usar `na.rm = TRUE` para remover el `NA` dentro de las funciones `which.min` ni `which.max`.
+2. El valor mínimo 0 aparece en las posiciones 6 y 8 pero la función `which.min` sólo entrega la posición del primer valor mínimo dentro del vector.
+
+
+## EJERCICIOS {-}
+Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
+
+\begin{enumerate}
+ \item ¿Qué cantidad de dinero sobra al repartir 10000\$ entre 3 personas?
+ \item ¿Es el número 4560 divisible por 3?
+ \item Construya un vector con los números enteros del 2 al 87. ¿Cuáles de esos números son divisibles por 7?
+ \item Construya dos vectores, el primero con los números enteros desde 7 hasta 3, el segundo vector con los primeros cinco números positivos divisibles por 5. Sea A la condición de ser par en el primer vector. Sea B la condición de ser mayor que 10 en el segundo vector. ¿En cuál de las 5 posiciones se cumple A y B simultáneamente?
+ \item Construya un vector con los siguientes elementos: 1, -4, 5, 9, -4. Escriba un procedimiento para extraer las posiciones donde está el valor mínimo en el vector.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
