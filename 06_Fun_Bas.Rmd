@@ -161,6 +161,7 @@ Use funciones o procedimientos (varias líneas) de \proglang{R} para responder c
  \item ¿Es el número 4560 divisible por 3?
  \item Construya un vector con los números enteros del 2 al 87. ¿Cuáles de esos números son divisibles por 7?
  \item Construya dos vectores, el primero con los números enteros desde 7 hasta 3, el segundo vector con los primeros cinco números positivos divisibles por 5. Sea A la condición de ser par en el primer vector. Sea B la condición de ser mayor que 10 en el segundo vector. ¿En cuál de las 5 posiciones se cumple A y B simultáneamente?
+ \item Consulte el siguiente enlace sobre una anéctoda de Gauss cuando tenía 10 años de edad http://tinyurl.com/hk2l8h2. Use R para obtener el resultado de la suma solicitada por el profesor del niño Gauss.
  \item Construya un vector con los siguientes elementos: 1, -4, 5, 9, -4. Escriba un procedimiento para extraer las posiciones donde está el valor mínimo en el vector.
 \end{enumerate}
 
