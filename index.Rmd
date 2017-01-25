@@ -31,7 +31,7 @@ lapply(c(), function(pkg) {
 
 # Prefacio {-}
 
-Este libro fue creado con la intención de apoyar el aprendizaje del programa \proglang{R} en estudiantes de cualquier pregrado, especialización, maestría e investigadores que necesiten realizar análisis estadísticos. El objetivo de este libro es mostrar la forma de realizar diversos análisis estadísticos, las cuestiones sobre la creación de gráficos estadísticos no son abordadas en el presente libro, para consultar sobre gráficos recomendamos consultar @correa_hernandez.
+Este libro fue creado con la intención de apoyar el aprendizaje del programa \proglang{R} en estudiantes de pregrado, especialización, maestría e investigadores que necesiten realizar análisis estadísticos. En este libro se explica de una forma sencilla la utilidad de la principales funciones para realizar diversos análisis estadísticos, las cuestiones sobre creación de gráficos estadísticos no son abordadas en el presente libro, recomendamos consultar @correa_hernandez.
 
 ## ¿Por qué leer este libro? {-}
 
