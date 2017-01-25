@@ -5,10 +5,10 @@ En este capítulo se presentarán algunas funciones básicas y útiles de \progl
 ## Operadores de asignación \index{asignación}
 En \proglang{R} se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.
 
-- `<-`: este es el operador de asignación a izquierda, es el más usado y recomendado.
-- `->`: este es el operador de asignación a derecha, no es frecuente su uso.
-- `=`: el símbolo igual sirve para hacer asignaciones pero __NO__ se recomienda usarlo.
-- `<<-`: este es un operador de asignación global y sólo debe ser usado por usuarios avanzados.
+- `<-` este es el operador de asignación a izquierda, es el más usado y recomendado.
+- `->` este es el operador de asignación a derecha, no es frecuente su uso.
+- `=` el símbolo igual sirve para hacer asignaciones pero __NO__ se recomienda usarlo.
+- `<<-` este es un operador de asignación global y sólo debe ser usado por usuarios avanzados.
 
 ### Ejemplo {-}
 Almacene los valores 5.3, 4.6 y 25 en los objetos `a`, `b` y `age` respectivamente, use diferentes símbolos de asignación.
@@ -24,13 +24,13 @@ age = 25 # Not recomended
 ## Operaciones básicas \index{operaciones básicas}
 En \proglang{R} se pueden hacer diversas operaciones usando operadores binarios. Este tipo de operadores se denomina binarios porque actuan entre dos objetos, a continuación el listado.
 
-- `+`: operador binario para sumar.
-- `-`: operador binario para restar.
-- `*`: operador binario para multiplicar.
-- `/`: operador binario para dividir.
-- `^`: operador binario para potencia.
-- `%/%`: operador binario para obtener el cociente en una división (número entero).
-- `%%`: operador binario para obtener el residuo en una división.
+- `+` operador binario para sumar.
+- `-` operador binario para restar.
+- `*` operador binario para multiplicar.
+- `/` operador binario para dividir.
+- `^` operador binario para potencia.
+- `%/%` operador binario para obtener el cociente en una división (número entero).
+- `%%` operador binario para obtener el residuo en una división.
 
 
 A continuación se presentan ejemplos de cómo usar las anteriores funciones.
@@ -51,11 +51,11 @@ a ^ b  # Para potencia
 ## Pruebas lógicas \index{pruebas lógicas}
 En \proglang{R} se puede verificar si un objeto cumple una condición dada, a continuación el listado de las pruebas usuales.
 
-- `<`: para saber si un número es menor que otro.
-- `>`: para saber si un número es mayor que otro.
-- `==`: para saber si un número es igual que otro.
-- `<=`: para saber si un número es menor o igual que otro.
-- `>=`: para saber si un número es mayor o igual que otro.
+- `<` para saber si un número es menor que otro.
+- `>` para saber si un número es mayor que otro.
+- `==` para saber si un número es igual que otro.
+- `<=` para saber si un número es menor o igual que otro.
+- `>=` para saber si un número es mayor o igual que otro.
 
 A continuación se presentan ejemplos de cómo usar las anteriores funciones.
 
@@ -121,6 +121,8 @@ Note las diferencias entre los dos últimos ejemplos, cuando se usa `&` se hace 
 ## Funciones sobre vectores
 En \proglang{R} podemos destacar las siguientes funciones básicas sobre vectores numéricos.
 
+\index{min} \index{max} \index{legth} \index{range} \index{sum} \index{prod} \index{which.min} \index{which.max}  
+
 - `min`: para obtener el mínimo de un vector.
 - `max`: para obtener el máximo de un vector.
 - `length`: para determinar la longitud de un vector.
@@ -129,6 +131,7 @@ En \proglang{R} podemos destacar las siguientes funciones básicas sobre vectore
 - `prod`: multiplica todos los elementos del vector.
 - `which.min`: nos entrega la posición en donde está el valor mínimo del vector.
 - `which.max`: nos da la posición del valor máximo del vector.
+- `rev`: invierte un vector.
 
 ### Ejemplo {-}
 Construir en vector llamado `myvec` con los siguientes elementos: 5, 3, 2, 1, 2, 0, NA, 0, 9, 6. Luego aplicar todas las funciones anteriores para verificar el funcionamiento de las mismas.
@@ -188,14 +191,84 @@ abs(2.5)
 abs(-3.6)
 ```
 
+## Función `seq` \index{seq} \index{secuencias}
+En \proglang{R} podemos crear secuencias de números de una forma sencilla usando la función `seq`, la estructura de esta función es:
 
+```{r, eval=F}
+seq(from=1, to=1, by, length.out)
+```
 
+Los argumentos de esta función son:
 
+- `from`: valor de inicio de la secuencia.
+- `to`: valor de fin de la secuencia, no siempre se alcanza.
+- `by`: incremento de la secuencia.
+- `length.out`: longitud deseado de la secuencia.
 
+### Ejemplo {-}
+Construya las siguientes tres secuencias usando la función `seq`.
 
+- Once valores igualmente espaciados desde 0 hasta 1.
+- Una secuencia de dos en dos comenzando en 1.
+- Una secuencia desde 1 con un salto de $\pi$ y sin pasar del número 9.
 
+El código necesario para obtener las secuencias se muestra a continuación.
 
+```{r}
+seq(from=0, to=1, length.out = 11)
+seq(from=1, to=9, by=2)  # matches 'end'
+seq(from=1, to=9, by=pi) # stays below 'end'
+```
 
+__Nota__: en \proglang{R} existe el operador binario `:` que sirve para construir secuencias de uno en uno fácilmente. Revise los siguientes ejemplos para entender su funcionamiento.
+
+```{r}
+2:8
+3:-5
+pi:6  # real sequence
+6:pi  # integer sequence
+```
+
+## Función `rep` \index{rep} \index{repeticiones}
+En \proglang{R} podemos crear repeticiones usando la función `rep`, la estructura de esta función es:
+
+```{r, eval=F}
+rep(x, times=1, length.out=NA, each=1)
+```
+
+Los argumentos de esta función son:
+
+- `x`: vector con los elementos a repetir.
+- `times`: número de veces que el vector `x` se debe repetir.
+- `length.out`: longitud deseada para el vector resultante.
+- `each`: número de veces que cada elemento de `x` se debe repetir.
+
+### Ejemplo {-}
+Construya las siguientes repeticiones usando la función `rep`, no lo haga ingresando número por número.
+
+- 1 2 3 4 1 2 3 4
+- 1 1 2 2 3 3 4 4
+- 1 1 2 3 3 4
+- 1 1 2 2 3 3 4 4
+
+La clave para construir una repetición es descrubir la semilla o elemento que se repite. Las instrucciones para obtener las repeticiones anteriores se muestra a continuación.
+
+```{r}
+rep(x=1:4, times=2)
+rep(x=1:4, times=c(2,2,2,2))
+rep(x=1:4, times=c(2,1,2,1))
+rep(x=1:4, each=2)
+```
+
+### Ejemplo {-}
+La función `rep` es muy versátil, observe los siguientes 4 ejemplos y saque una conclusión de cada uno de ellos.
+
+```{r}
+rep(x=1:4, each=2)
+rep(x=1:4, each=2, len=4)    # first 4 only.
+rep(x=1:4, each=2, len=10)   # 8 integers plus two recycled 1's.
+rep(x=1:4, each=2, times=3)  # length 24, 3 complete replications
+```
 
 
 
@@ -214,18 +287,27 @@ abs(-3.6)
 ## EJERCICIOS {-}
 Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
 
-\begin{enumerate}
- \item ¿Qué cantidad de dinero sobra al repartir 10000\$ entre 3 personas?
- \item ¿Es el número 4560 divisible por 3?
- \item Construya un vector con los números enteros del 2 al 87. ¿Cuáles de esos números son divisibles por 7?
- \item Construya dos vectores, el primero con los números enteros desde 7 hasta 3, el segundo vector con los primeros cinco números positivos divisibles por 5. Sea A la condición de ser par en el primer vector. Sea B la condición de ser mayor que 10 en el segundo vector. ¿En cuál de las 5 posiciones se cumple A y B simultáneamente?
- \item Consulte el siguiente enlace sobre una anéctoda de Gauss cuando tenía 10 años de edad http://tinyurl.com/hk2l8h2. Use R para obtener el resultado de la suma solicitada por el profesor del niño Gauss.
- \item Construya un vector con los siguientes elementos: 1, -4, 5, 9, -4. Escriba un procedimiento para extraer las posiciones donde está el valor mínimo en el vector.
- \item Calcular $8!$
- \item Evaluar la siguiente suma $\sum_{i=3}^{i=7}e^i$.
- \item Evaluar la siguiente productoria $\prod_{i=1}^{i=10}\log\sqrt{i}$.
-\end{enumerate}
 
+1. ¿Qué cantidad de dinero sobra al repartir 10000\$ entre 3 personas?
+2. ¿Es el número 4560 divisible por 3?
+3. Construya un vector con los números enteros del 2 al 87. ¿Cuáles de esos números son divisibles por 7?
+4. Construya dos vectores, el primero con los números enteros desde 7 hasta 3, el segundo vector con los primeros cinco números positivos divisibles por 5. Sea A la condición de ser par en el primer vector. Sea B la condición de ser mayor que 10 en el segundo vector. ¿En cuál de las 5 posiciones se cumple A y B simultáneamente?
+5. Consulte el siguiente enlace sobre una anéctoda de Gauss cuando tenía 10 años de edad http://tinyurl.com/hk2l8h2. Use R para obtener el resultado de la suma solicitada por el profesor del niño Gauss.
+6. Construya un vector con los siguientes elementos: 1, -4, 5, 9, -4. Escriba un procedimiento para extraer __las posiciones__ donde está el valor mínimo en el vector.
+7. Calcular $8!$
+8. Evaluar la siguiente suma $\sum_{i=3}^{i=7}e^i$
+9. Evaluar la siguiente productoria $\prod_{i=1}^{i=10}\log\sqrt{i}$
+10. Construya un vector cualquiera e inviertalo, es decir, que el primer elemento quede de último, el segundo de penúltimo y así sucesivamente. Compare su resultado con el de la función `rev`.
+11. Create the vector: $1, 2, 3, \ldots, 19, 20$.
+12. Create the vector: $20, 19, \ldots , 2, 1$.
+13. Create the vector: $1, -2, 3, -4, 5, -6, \ldots, 19, -20$.
+14. Create the vector: $0.1^3, 0.2^1, 0.1^6, 0.2^4, . . . , 0.1^{36}, 0.2^{34}$.
+15. Calculate the following: $\sum_{i=10}^{100}(i^3+4i^2)$ and $\sum_{i=1}^{25}\left( \frac{2^i}{i} + \frac{3^i}{i^2} \right)$.
+16. Read the data set available in: http://tinyurl.com/hcusrdc
+17. Use a code to obtain the number of variables of the data set.
+18. Use a code to obtain the number of countries in the data set.
+19. Which is the country with the higher population?.
+20. Which is the country with the lowest literacy rate?
 
 
 
