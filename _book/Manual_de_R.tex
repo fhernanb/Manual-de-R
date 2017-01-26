@@ -324,6 +324,25 @@ los resultados obtenidos luego de correr el código anterior.
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 \end{verbatim}
 
+\section*{Bloques informativos}\label{bloques-informativos}
+
+
+En varias partes del libro usaremos bloques informativos para resaltar
+algún aspecto importante. Abajo se encuentra un ejemplo de los bloques y
+su significado.
+
+\BeginKnitrBlock{rmdnote}
+Este bloque sirve para una nota aclaratoria.
+\EndKnitrBlock{rmdnote}
+
+\BeginKnitrBlock{rmdtip}
+Este bloque sirve para una sugerencia.
+\EndKnitrBlock{rmdtip}
+
+\BeginKnitrBlock{rmdwarning}
+Este bloque sirve para una advertencia.
+\EndKnitrBlock{rmdwarning}
+
 \section*{Agradecimientos}\label{agradecimientos}
 
 
@@ -345,7 +364,8 @@ Nacional de Colombia adscrito a la Escuela de Estadística de la Facultad
 de Ciencias.
 
 Olga Cecilia Usuga Manco es profesora asociada de la Universidad de
-Antioquia adscrita a la Facultad de Ingeniería.
+Antioquia adscrita al Departamento de Ingeniería Industrial de la
+Facultad de Ingeniería.
 
 \mainmatter
 
@@ -398,7 +418,7 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 }
 
-\caption{Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.}\label{fig:unnamed-chunk-4}
+\caption{Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.}\label{fig:unnamed-chunk-7}
 \end{figure}
 
 \section{Descarga e instalación} \label{sec:descarga}
@@ -541,15 +561,18 @@ persona. El último vector \texttt{comic.fav} contiene la información del
 cómic favorito de cada persona, como esta variable es cualitativa es
 necesario usar las comillas
 \texttt{\textquotesingle{}\ \textquotesingle{}} para encerrar las
-respuestas. Cuando se usa \texttt{NA} para representar una información
-\textit{Not Available} NO SE DEBEN usar las comillas
-\texttt{\textquotesingle{}\ \textquotesingle{}}.
+respuestas.
 
-\BeginKnitrBlock{rmdimportant}
+\BeginKnitrBlock{rmdwarning}
+Cuando se usa \texttt{NA} para representar una información
+\textit{Not Available} no se deben usar comillas.
+\EndKnitrBlock{rmdwarning}
+
+\BeginKnitrBlock{rmdnote}
 Es posible usar comillas sencillas
 \texttt{\textquotesingle{}foo\textquotesingle{}} o comillas dobles
 \texttt{"foo"} para ingresar valores de una variable cualitativa.
-\EndKnitrBlock{rmdimportant}
+\EndKnitrBlock{rmdnote}
 
 Si se desea ver lo que está almacenado en cada uno de estos vectores, se
 debe escribir en la consola de \proglang{R} el nombre de uno de los
@@ -1741,10 +1764,10 @@ continuación.
 ## [1] 1.000 4.142 7.283
 \end{verbatim}
 
-\BeginKnitrBlock{rmdimportant}
+\BeginKnitrBlock{rmdnote}
 En \proglang{R} existe el operador binario \texttt{:} que sirve para
 construir secuencias de uno en uno fácilmente.
-\EndKnitrBlock{rmdimportant}
+\EndKnitrBlock{rmdnote}
 
 Revise los siguientes ejemplos para entender el funcionamiento del
 operador \texttt{:}.
@@ -2990,8 +3013,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-79-1.pdf}
-\caption{\label{fig:unnamed-chunk-79}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-83-1.pdf}
+\caption{\label{fig:unnamed-chunk-83}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

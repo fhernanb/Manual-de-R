@@ -249,7 +249,7 @@ seq(from=1, to=9, by=2)  # matches 'end'
 seq(from=1, to=9, by=pi) # stays below 'end'
 ```
 
-```{block2, type='rmdimportant'}
+```{block2, type='rmdnote'}
 En \proglang{R} existe el operador binario `:` que sirve para construir secuencias de uno en uno fácilmente.
 ```
 
