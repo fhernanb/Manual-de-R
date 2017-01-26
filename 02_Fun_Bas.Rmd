@@ -1,8 +1,8 @@
-# Funciones básicas de R
+# Funciones básicas de \proglang{R}
 
 En este capítulo se presentará lo que es una función y se mostrarán varias funciones básicas que son útiles para realizar diversas tareas.
 
-## ¿Qué es una función? \index{función} \index{function}
+## ¿Qué es una función \proglang{R}? \index{función} \index{function}
 En la Figura \@ref(fig:machine) se muestra una ilustración de lo que es una función o máquina general. Hay unas entradas (_inputs_) que luego son procesadas dentro de la caja para generar unas salidas (_outputs_). Un ejemplo de una función o máquina muy común en nuestras casas es la licuadora. Si a una licuadora le ingresamos leche, fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa. 
 
 ```{r machine, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org.', dpi=250, fig.align='center'}
@@ -303,16 +303,57 @@ rep(x=1:4, each=2, len=10)   # 8 integers plus two recycled 1's.
 rep(x=1:4, each=2, times=3)  # length 24, 3 complete replications
 ```
 
+## Funciones `round`, `ceiling`, `floor` y `trunc` \index{round} \index{ceiling}  \index{floor}  \index{trunc}
 
+Existen 4 funciones útiles para modificar u obtener información de un número, estas funciones son `round`, `ceiling`, `floor` y `trunc`.
 
+- `round(x, digits)`: sirve para redondear un número según los dígitos indicados.
+- `ceiling(x)`: entrega el mínimo entero mayor o igual que `x`.
+- `floor(x)`: entrega el máximo entero menor o igual que `x`.
+- `trunc(x)`: entrega la parte entera de un número `x`.
 
+### Ejemplo {-}
+Aplique las funciones `round`, `ceiling`, `floor` y `trunc` a un valor positivo y a un valor negativo para inspeccionar los resultados.
 
+A continuación el código de prueba para un número positivo cualquiera.
 
+```{r}
+x <- 5.34896  # Número positivo elegido
+round(x, digits=3)
+ceiling(x)
+floor(x)
+trunc(x)
+```
 
+A continuación las pruebas con un número negativo cualquiera.
 
+```{r}
+x <- -4.26589  # Número negativo elegido
+round(x, digits=3)
+ceiling(x)
+floor(x)
+trunc(x)
+```
 
+## Funciones `sort` y `rank` \index{sort} \index{rank}  \index{ordenar}  \index{posición}
+Las funciones `sort` y `rank` son útiles para ordenar los elementos de un vector o para saber las posiciones que ocuarían los elementos de un vector al ser ordenado. La estructura de las dos funciones es la siguiente.
 
+```{r, eval=F}
+sort(x, decreasing = FALSE)
+rank(x)
+```
 
+En el parámetro `x` se ingresa el vector y el parámetro `decreasing` sirva para indicar si el ordenamiento es de menor a mayor (por defecto es este) o de mayor a menor.
+
+### Ejemplo {-}
+Considere el vector `x` que tiene los siguientes elementos: 2, 3, 6, 4, 9 y 5. Ordene el vector de menor a mayor, de mayor a menor y por último encuentre la posición que ocupan los elementos de `x` si se ordenaran de menor a mayor.
+
+```{r}
+x <- c(2, 3, 6, 4, 9, 5)
+sort(x)
+sort(x, decreasing=TRUE)
+rank(x)
+```
 
 
 
@@ -341,6 +382,8 @@ Use funciones o procedimientos (varias líneas) de \proglang{R} para responder c
 18. Use a code to obtain the number of countries in the data set.
 19. Which is the country with the higher population?
 20. Which is the country with the lowest literacy rate?
+21. ¿Qué valor de verdad tiene la siguiente afirmación? "Los resultados de la función `floor` y `trunc` son siempre los mismos".
+22. 
 
 
 

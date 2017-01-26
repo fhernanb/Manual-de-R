@@ -975,13 +975,15 @@ A pesar de la anterior advertencia es posible que en este libro usemos
 el \texttt{;} en algunas ocasiones, si lo hacemos es para ahorrar
 espacio en la presentación del código.
 
-\chapter{Funciones básicas de R}\label{funciones-basicas-de-r}
+\chapter{\texorpdfstring{Funciones básicas de
+\proglang{R}}{Funciones básicas de }}\label{funciones-basicas-de}
 
 En este capítulo se presentará lo que es una función y se mostrarán
 varias funciones básicas que son útiles para realizar diversas tareas.
 
-\section{\texorpdfstring{¿Qué es una función? \index{función}
-\index{function}}{¿Qué es una función?  }}\label{que-es-una-funcion}
+\section{\texorpdfstring{¿Qué es una función \proglang{R}?
+\index{función}
+\index{function}}{¿Qué es una función ?  }}\label{que-es-una-funcion}
 
 En la Figura \ref{fig:machine} se muestra una ilustración de lo que es
 una función o máquina general. Hay unas entradas (\emph{inputs}) que
@@ -1923,6 +1925,182 @@ ejemplos y saque una conclusión de cada uno de ellos.
 ##  [1] 1 1 2 2 3 3 4 4 1 1 2 2 3 3 4 4 1 1 2 2 3 3 4 4
 \end{verbatim}
 
+\section{\texorpdfstring{Funciones \texttt{round}, \texttt{ceiling},
+\texttt{floor} y \texttt{trunc} \index{round} \index{ceiling}
+\index{floor}
+\index{trunc}}{Funciones round, ceiling, floor y trunc    }}\label{funciones-round-ceiling-floor-y-trunc}
+
+Existen 4 funciones útiles para modificar u obtener información de un
+número, estas funciones son \texttt{round}, \texttt{ceiling},
+\texttt{floor} y \texttt{trunc}.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{round(x,\ digits)}: sirve para redondear un número según los
+  dígitos indicados.
+\item
+  \texttt{ceiling(x)}: entrega el mínimo entero mayor o igual que
+  \texttt{x}.
+\item
+  \texttt{floor(x)}: entrega el máximo entero menor o igual que
+  \texttt{x}.
+\item
+  \texttt{trunc(x)}: entrega la parte entera de un número \texttt{x}.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-6}
+
+
+Aplique las funciones \texttt{round}, \texttt{ceiling}, \texttt{floor} y
+\texttt{trunc} a un valor positivo y a un valor negativo para
+inspeccionar los resultados.
+
+A continuación el código de prueba para un número positivo cualquiera.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\FloatTok{5.34896}  \CommentTok{# Número positivo elegido}
+\KeywordTok{round}\NormalTok{(x, }\DataTypeTok{digits=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.349
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ceiling}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{floor}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{trunc}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+A continuación las pruebas con un número negativo cualquiera.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\NormalTok{-}\FloatTok{4.26589}  \CommentTok{# Número negativo elegido}
+\KeywordTok{round}\NormalTok{(x, }\DataTypeTok{digits=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -4.266
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ceiling}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{floor}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{trunc}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -4
+\end{verbatim}
+
+\section{\texorpdfstring{Funciones \texttt{sort} y \texttt{rank}
+\index{sort} \index{rank} \index{ordenar}
+\index{posición}}{Funciones sort y rank    }}\label{funciones-sort-y-rank}
+
+Las funciones \texttt{sort} y \texttt{rank} son útiles para ordenar los
+elementos de un vector o para saber las posiciones que ocuarían los
+elementos de un vector al ser ordenado. La estructura de las dos
+funciones es la siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sort}\NormalTok{(x, }\DataTypeTok{decreasing =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{rank}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+En el parámetro \texttt{x} se ingresa el vector y el parámetro
+\texttt{decreasing} sirva para indicar si el ordenamiento es de menor a
+mayor (por defecto es este) o de mayor a menor.
+
+\subsection*{Ejemplo}\label{ejemplo-7}
+
+
+Considere el vector \texttt{x} que tiene los siguientes elementos: 2, 3,
+6, 4, 9 y 5. Ordene el vector de menor a mayor, de mayor a menor y por
+último encuentre la posición que ocupan los elementos de \texttt{x} si
+se ordenaran de menor a mayor.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\KeywordTok{sort}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 3 4 5 6 9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sort}\NormalTok{(x, }\DataTypeTok{decreasing=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9 6 5 4 3 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rank}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 5 3 6 4
+\end{verbatim}
+
 \section*{EJERCICIOS}\label{ejercicios}
 
 
@@ -1931,7 +2109,6 @@ responder cada una de las siguientes preguntas.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   ¿Qué cantidad de dinero sobra al repartir 10000\$ entre 3 personas?
 \item
@@ -1985,6 +2162,11 @@ responder cada una de las siguientes preguntas.
   Which is the country with the higher population?
 \item
   Which is the country with the lowest literacy rate?
+\item
+  ¿Qué valor de verdad tiene la siguiente afirmación? ``Los resultados
+  de la función \texttt{floor} y \texttt{trunc} son siempre los
+  mismos''.
+\item
 \end{enumerate}
 
 \chapter{\texorpdfstring{Medidas de tendencia central
@@ -2056,7 +2238,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-6}
+\subsection*{Ejemplo}\label{ejemplo-8}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -2077,7 +2259,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-7}
+\subsection*{Ejemplo}\label{ejemplo-9}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -2109,7 +2291,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-8}
+\subsection*{Ejemplo}\label{ejemplo-10}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -2168,7 +2350,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-9}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -2208,7 +2390,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -2353,7 +2535,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -2385,7 +2567,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -2438,7 +2620,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -2456,7 +2638,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -2512,7 +2694,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -2560,7 +2742,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -2609,7 +2791,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -2706,7 +2888,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -2790,7 +2972,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -2808,8 +2990,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-75-1.pdf}
-\caption{\label{fig:unnamed-chunk-75}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-79-1.pdf}
+\caption{\label{fig:unnamed-chunk-79}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
