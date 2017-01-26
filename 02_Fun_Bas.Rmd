@@ -1,15 +1,15 @@
 # Funciones básicas de R
 
-En este capítulo se presentarán algunas funciones básicas y útiles de \proglang{R} para realizar diversas tareas.
+En este capítulo se presentará lo que es una función y se mostrarán varias funciones básicas que son útiles para realizar diversas tareas.
 
-## ¿Qué es una función?
+## ¿Qué es una función? \index{función} \index{function}
 En la Figura \@ref(fig:machine) se muestra una ilustración de lo que es una función o máquina general. Hay unas entradas (_inputs_) que luego son procesadas dentro de la caja para generar unas salidas (_outputs_). Un ejemplo de una función o máquina muy común en nuestras casas es la licuadora. Si a una licuadora le ingresamos leche, fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa. 
 
 ```{r machine, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org.', dpi=250, fig.align='center'}
 knitr::include_graphics("images/function_machine.png")
 ```
 
-Las funciones en \proglang{R} se caracterizan por un nombre corto y que dé una idea de lo que hace la función. Los elementos que pueden ingresar (_inputs_) a la función se llaman __parámetros__ y se ubican dentro de paréntesis, el cuerpo de la función se ubica dentro de llaves y es ahí donde se procesan los _inputs_ para convertirlos en _outputs_, a continuación se muestra la estructura de una función.
+Las funciones en \proglang{R} se caracterizan por un nombre corto y que dé una idea de lo que hace la función. Los elementos que pueden ingresar (_inputs_) a la función se llaman __parámetros__ y se ubican dentro de paréntesis, el cuerpo de la función se ubica dentro de llaves y es ahí donde se procesan los _inputs_ para convertirlos en _outputs_, a continuación se muestra la estructura general de una función.
 
 ```{r, eval=F}
 nombre_de_funcion(parametro1, parametro2, ...) {
@@ -20,7 +20,12 @@ nombre_de_funcion(parametro1, parametro2, ...) {
 }
 ```
 
+Cuando usamos una función sólo debemos escribir bien el nombre e ingresar correctamente los parámetros de la función, el cuerpo de la función ni lo vemos ni lo debemos modificar. A continuación se presenta un ejemplo de cómo usar la función `mean` para calcular un promedio.
 
+```{r}
+notas <- c(4.0, 1.3, 3.8, 2.0)  # Notas de un estudiante
+mean(notas)
+```
 
 ## Operadores de asignación \index{asignación}
 En \proglang{R} se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.
@@ -39,6 +44,10 @@ Para hacer lo solicitado se podría usar el siguiente código.
 a <- 5.3 # Recomended
 4.6 -> b # It is not usual
 age = 25 # Not recomended
+```
+
+```{block2, type='rmdimportant'}
+Aunque una asignación se puede hacer de tres formas diferentes, se recomienda sólo usar el símbolo `<-`.
 ```
 
 ## Operaciones básicas \index{operaciones básicas}
@@ -240,7 +249,11 @@ seq(from=1, to=9, by=2)  # matches 'end'
 seq(from=1, to=9, by=pi) # stays below 'end'
 ```
 
-__Nota__: en \proglang{R} existe el operador binario `:` que sirve para construir secuencias de uno en uno fácilmente. Revise los siguientes ejemplos para entender su funcionamiento.
+```{block2, type='rmdimportant'}
+En \proglang{R} existe el operador binario `:` que sirve para construir secuencias de uno en uno fácilmente.
+```
+
+Revise los siguientes ejemplos para entender el funcionamiento del operador `:`.
 
 ```{r}
 2:8
