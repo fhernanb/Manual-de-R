@@ -183,7 +183,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-01-25}
+\date{2017-01-26}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1687,6 +1687,42 @@ En este capítulo se mostrará cómo obtener las diferentes medidas de
 En este capítulo se presentarán algunas funciones básicas y útiles de
 \proglang{R} para realizar diversas tareas.
 
+\section{¿Qué es una función?}\label{que-es-una-funcion}
+
+En la Figura \ref{fig:machine} se muestra una ilustración de lo que es
+una función o máquina general. Hay unas entradas (\emph{inputs}) que
+luego son procesadas dentro de la caja para generar unas salidas
+(\emph{outputs}). Un ejemplo de una función o máquina muy común en
+nuestras casas es la licuadora. Si a una licuadora le ingresamos leche,
+fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa.
+
+\begin{figure}
+
+{\centering \includegraphics[width=2in]{images/function_machine} 
+
+}
+
+\caption{Ilustración de una función, tomada de www.mathinsight.org.}\label{fig:machine}
+\end{figure}
+
+Las funciones en \proglang{R} se caracterizan por un nombre corto y que
+dé una idea de lo que hace la función. Los elementos que pueden ingresar
+(\emph{inputs}) a la función se llaman \textbf{parámetros} y se ubican
+dentro de paréntesis, el cuerpo de la función se ubica dentro de llaves
+y es ahí donde se procesan los \emph{inputs} para convertirlos en
+\emph{outputs}, a continuación se muestra la estructura de una función.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nombre_de_funcion}\NormalTok{(parametro1, parametro2, ...) \{}
+  \NormalTok{tareas internas}
+  \NormalTok{tareas internas}
+  \NormalTok{tareas internas}
+  \NormalTok{salida}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
 \section{\texorpdfstring{Operadores de asignación
 \index{asignación}}{Operadores de asignación }}\label{operadores-de-asignacion}
 
@@ -2704,8 +2740,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-70-1.pdf}
-\caption{\label{fig:unnamed-chunk-70}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-71-1.pdf}
+\caption{\label{fig:unnamed-chunk-71}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

@@ -2,6 +2,26 @@
 
 En este capítulo se presentarán algunas funciones básicas y útiles de \proglang{R} para realizar diversas tareas.
 
+## ¿Qué es una función?
+En la Figura \@ref(fig:machine) se muestra una ilustración de lo que es una función o máquina general. Hay unas entradas (_inputs_) que luego son procesadas dentro de la caja para generar unas salidas (_outputs_). Un ejemplo de una función o máquina muy común en nuestras casas es la licuadora. Si a una licuadora le ingresamos leche, fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa. 
+
+```{r machine, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org.', dpi=250, fig.align='center'}
+knitr::include_graphics("images/function_machine.png")
+```
+
+Las funciones en \proglang{R} se caracterizan por un nombre corto y que dé una idea de lo que hace la función. Los elementos que pueden ingresar (_inputs_) a la función se llaman __parámetros__ y se ubican dentro de paréntesis, el cuerpo de la función se ubica dentro de llaves y es ahí donde se procesan los _inputs_ para convertirlos en _outputs_, a continuación se muestra la estructura de una función.
+
+```{r, eval=F}
+nombre_de_funcion(parametro1, parametro2, ...) {
+  tareas internas
+  tareas internas
+  tareas internas
+  salida
+}
+```
+
+
+
 ## Operadores de asignación \index{asignación}
 En \proglang{R} se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.
 
