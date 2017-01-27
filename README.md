@@ -1,6 +1,6 @@
 # Manual de R
 
-[![](http://cranlogs.r-pkg.org/badges/ggplot2)](https://github.com/fhernanb/Manual-de-R/blob/master/_book/Manual_de_R.pdf)
+[![](https://github.com/fhernanb/Manual-de-R/blob/master/_book/Manual_de_R.pdf)](https://github.com/fhernanb/Manual-de-R/blob/master/_book/Manual_de_R.pdf)
 
 Este es el repositorio del libro titulado __Manual de R__.
 
