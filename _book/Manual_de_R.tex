@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-01-26}
+\date{2017-01-27}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -2192,6 +2192,117 @@ responder cada una de las siguientes preguntas.
 \item
 \end{enumerate}
 
+\chapter{\texorpdfstring{Lectura de bases de datos
+\index{lectura de bases de datos}}{Lectura de bases de datos }}\label{lectura-de-bases-de-datos}
+
+En este capítulo se mostrará cómo leer una base de datos externa hacia
+\proglang{R}.
+
+\section{¿En qué formato almacenar una base de
+datos?}\label{en-que-formato-almacenar-una-base-de-datos}
+
+Los archivos con la información para ser leídos por \proglang{R} se
+pueden almacenar en formato plano con extensión .txt o en Excel con
+extensión .csv.
+
+En el Cuadro \ref{tab:dt1} se presenta una base de datos pequeña, tres
+observaciones y tres variables que nos servirá como ejemplo para mostrar
+cómo se debe almacenar la información.
+
+\begin{table}
+
+\caption{\label{tab:dt1}Ejemplo de una base de datos simple.}
+\centering
+\begin{tabular}[t]{rll}
+\toprule
+Edad & Fuma & Pais\\
+\midrule
+35 & TRUE & Colombia\\
+46 & TRUE & Francia\\
+23 & FALSE & Malta\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Para almacenar la información del Cuadro \ref{tab:dt1} en Excel, abrimos
+un archivo nuevo archivo de Excel y copiamos la información tal como se
+muestra en la Figura \ref{fig:excel1}. Se debe iniciar en la parte
+superior izquierda, no se deben dejar filas vacías, no se debe colorear,
+no se deben colocar bordes ni nada, se ingresa la información sin
+embellecer el contenido. Por último se guarda el archivo en el lugar
+deseado y al momento de guardarlo se debe modificar la opción tipo de
+archivo a \textbf{csv (delimitado por comas)}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=2.34in]{images/excel1} 
+
+}
+
+\caption{Forma de almacenar los datos en Excel.}\label{fig:excel1}
+\end{figure}
+
+\BeginKnitrBlock{rmdwarning}
+Recuerde que el archivo de Excel se debe guardar con extensión .csv.
+\EndKnitrBlock{rmdwarning}
+
+\section{\texorpdfstring{Función \texttt{read.table}
+\index{read.table}}{Función read.table }}\label{funcion-read.table}
+
+La función \texttt{read.table} se puede usar para leer o traer bases de
+datos hacia \proglang{R}. La estructura de la función con los parámetros
+más comunes de uso es la siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{read.table}\NormalTok{(file, header, sep, dec)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función \texttt{read.table} son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{file}: nombre o ruta donde están alojados los datos. Puede ser
+  un url o una dirección del computador. Es posible usar
+  \texttt{file.choose()} para que se abra un ventana y adjuntar el
+  archivo deseado manualmente.
+\item
+  \texttt{header}: valor lógico, se usa \texttt{TRUE} si la primer línea
+  de la base de datos tiene los nombres de las variables, caso contrario
+  se usa \texttt{FALSE}.
+\item
+  \texttt{sep}: tipo de separación interna para los datos dentro del
+  archivo. Usar \texttt{sep=\textquotesingle{};\textquotesingle{}}
+  cuando el archivo tiene extension .csv, usar
+  \texttt{sep=\textquotesingle{}\textquotesingle{}}, sin nada adentro,
+  para .
+\item
+  ``: .
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-8}
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://dl.dropboxusercontent.com/u/9602072/toy_data_set.csv'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep=}\StringTok{';'}\NormalTok{)}
+\NormalTok{datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Peso      Sexo Estatura circun_cuello circun_muneca
+## 1 47.6  Femenino     1.57          29.5          13.9
+## 2 68.1 Masculino     1.66          38.4          16.0
+## 3 68.0 Masculino     1.90          36.5          16.6
+## 4 80.0  Femenino     1.76          38.0          17.1
+## 5 68.1 Masculino     1.83          38.0          17.1
+## 6 56.1  Femenino     1.66          33.0          14.7
+\end{verbatim}
+
 \chapter{\texorpdfstring{Medidas de tendencia central
 \label{central}}{Medidas de tendencia central }}\label{medidas-de-tendencia-central}
 
@@ -2261,7 +2372,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-8}
+\subsection*{Ejemplo}\label{ejemplo-9}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -2282,7 +2393,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-9}
+\subsection*{Ejemplo}\label{ejemplo-10}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -2314,7 +2425,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -2373,7 +2484,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -2413,7 +2524,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -2462,6 +2573,100 @@ ordenar la tabla usando la función \texttt{sort} de la siguiente manera:
 
 De esta manera se ve fácilmente que la variable edad es unimodal con
 valor de 25 años.
+
+\chapter{\texorpdfstring{Medidas de posición
+\label{posi}}{Medidas de posición }}\label{medidas-de-posicion}
+
+En este capítulo se mostrará cómo obtener las diferentes medidas de
+posición con \proglang{R}.
+
+Para ilustrar el uso de las funciones se utilizará una base de datos
+llamada \textbf{medidas del cuerpo}, esta base de datos cuenta con 6
+variables registradas a un grupo de 36 estudiantes de la universidad.
+Las variables son:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{edad} del estudiante (años),
+\item
+  \texttt{peso} del estudiante (kilogramos),
+\item
+  \texttt{altura} del estudiante (centímetros),
+\item
+  \texttt{sexo} del estudiante (Hombre, Mujer),
+\item
+  \texttt{muneca}: perímetro de la muñeca derecha (centímetros),
+\item
+  \texttt{biceps}: perímetro del biceps derecho (centímetros).
+\end{enumerate}
+
+A continuación se presenta el código para definir la url donde están los
+datos, para cargar la base de datos en R y para mostrar por pantalla un
+encabezado (usando \texttt{head}) de la base de datos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+\KeywordTok{head}\NormalTok{(datos)  }\CommentTok{# Para ver el encabezado de la base de datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   edad peso altura   sexo muneca biceps
+## 1   43 87.3  188.0 Hombre   12.2   35.8
+## 2   65 80.0  174.0 Hombre   12.0   35.0
+## 3   45 82.3  176.5 Hombre   11.2   38.5
+## 4   37 73.6  180.3 Hombre   11.2   32.2
+## 5   55 74.1  167.6 Hombre   11.8   32.9
+## 6   33 85.9  188.0 Hombre   12.4   38.5
+\end{verbatim}
+
+\section{\texorpdfstring{Cuantiles \index{cuantiles} \index{quantile}
+\index{cuartiles} \index{deciles}
+\index{percentiles}}{Cuantiles     }}\label{cuantiles}
+
+Para obtener cualquier cuantil (cuartiles, deciles y percentiles) se usa
+la función \texttt{quantile}. Los argumentos básicos de la función
+\texttt{quantile} son tres y se muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{quantile}\NormalTok{(x, probs, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+En el parámetro \texttt{x} se indica la variable de interés para la cual
+se quieren calcular los cuantiles, el parámetro \texttt{probs} sirve
+para definir los cuantiles de interés y el parámetro \texttt{na.rm} es
+un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
+remover las observaciones con \texttt{NA}, el valor por defecto para
+este parámetro es \texttt{FALSE}.
+
+\subsection*{Ejemplo}\label{ejemplo-14}
+
+
+Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
+la altura del grupo de estudiantes.
+
+Se solicita el percentil 5, la mediana que es el percentil 50 y el decil
+8 que corresponde al percentil 80, por lo tanto es necesario indicarle a
+la función \texttt{quantile} que calcule los cuantiles para las
+ubicaciones 0.05, 0.5 y 0.8, el código para obtener las tres medidas
+solicitadas es el siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{quantile}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$altura, }\DataTypeTok{probs=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.8}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    5%   50%   80% 
+## 155.2 172.7 180.3
+\end{verbatim}
 
 \chapter{\texorpdfstring{Medidas de variabilidad
 \label{varia}}{Medidas de variabilidad }}\label{medidas-de-variabilidad}
@@ -2558,7 +2763,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -2590,7 +2795,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -2643,7 +2848,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -2661,7 +2866,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -2717,7 +2922,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -2765,7 +2970,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -2814,7 +3019,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -2838,100 +3043,6 @@ eso se usa el siguiente código.
 
 \begin{verbatim}
 ## [1] 0.9274
-\end{verbatim}
-
-\chapter{\texorpdfstring{Medidas de posición
-\label{posi}}{Medidas de posición }}\label{medidas-de-posicion}
-
-En este capítulo se mostrará cómo obtener las diferentes medidas de
-posición con \proglang{R}.
-
-Para ilustrar el uso de las funciones se utilizará una base de datos
-llamada \textbf{medidas del cuerpo}, esta base de datos cuenta con 6
-variables registradas a un grupo de 36 estudiantes de la universidad.
-Las variables son:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \texttt{edad} del estudiante (años),
-\item
-  \texttt{peso} del estudiante (kilogramos),
-\item
-  \texttt{altura} del estudiante (centímetros),
-\item
-  \texttt{sexo} del estudiante (Hombre, Mujer),
-\item
-  \texttt{muneca}: perímetro de la muñeca derecha (centímetros),
-\item
-  \texttt{biceps}: perímetro del biceps derecho (centímetros).
-\end{enumerate}
-
-A continuación se presenta el código para definir la url donde están los
-datos, para cargar la base de datos en R y para mostrar por pantalla un
-encabezado (usando \texttt{head}) de la base de datos.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
-\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
-\KeywordTok{head}\NormalTok{(datos)  }\CommentTok{# Para ver el encabezado de la base de datos}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##   edad peso altura   sexo muneca biceps
-## 1   43 87.3  188.0 Hombre   12.2   35.8
-## 2   65 80.0  174.0 Hombre   12.0   35.0
-## 3   45 82.3  176.5 Hombre   11.2   38.5
-## 4   37 73.6  180.3 Hombre   11.2   32.2
-## 5   55 74.1  167.6 Hombre   11.8   32.9
-## 6   33 85.9  188.0 Hombre   12.4   38.5
-\end{verbatim}
-
-\section{\texorpdfstring{Cuantiles \index{cuantiles} \index{quantile}
-\index{cuartiles} \index{deciles}
-\index{percentiles}}{Cuantiles     }}\label{cuantiles}
-
-Para obtener cualquier cuantil (cuartiles, deciles y percentiles) se usa
-la función \texttt{quantile}. Los argumentos básicos de la función
-\texttt{quantile} son tres y se muestran a continuación.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{quantile}\NormalTok{(x, probs, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-En el parámetro \texttt{x} se indica la variable de interés para la cual
-se quieren calcular los cuantiles, el parámetro \texttt{probs} sirve
-para definir los cuantiles de interés y el parámetro \texttt{na.rm} es
-un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
-remover las observaciones con \texttt{NA}, el valor por defecto para
-este parámetro es \texttt{FALSE}.
-
-\subsection*{Ejemplo}\label{ejemplo-20}
-
-
-Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
-la altura del grupo de estudiantes.
-
-Se solicita el percentil 5, la mediana que es el percentil 50 y el decil
-8 que corresponde al percentil 80, por lo tanto es necesario indicarle a
-la función \texttt{quantile} que calcule los cuantiles para las
-ubicaciones 0.05, 0.5 y 0.8, el código para obtener las tres medidas
-solicitadas es el siguiente.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{quantile}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$altura, }\DataTypeTok{probs=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.8}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    5%   50%   80% 
-## 155.2 172.7 180.3
 \end{verbatim}
 
 \chapter{\texorpdfstring{Medidas de correlación
@@ -2995,7 +3106,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -3013,8 +3124,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-83-1.pdf}
-\caption{\label{fig:unnamed-chunk-83}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-86-1.pdf}
+\caption{\label{fig:unnamed-chunk-86}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

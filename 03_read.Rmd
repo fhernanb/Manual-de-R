@@ -1,0 +1,65 @@
+# Lectura de bases de datos \index{lectura de bases de datos}
+
+En este capítulo se mostrará cómo leer una base de datos externa hacia \proglang{R}.
+
+## ¿En qué formato almacenar una base de datos?
+Los archivos con la información para ser leídos por \proglang{R} se pueden almacenar en formato plano con extensión .txt o en Excel con extensión .csv. 
+
+En el Cuadro \@ref(tab:dt1) se presenta una base de datos pequeña, tres observaciones y tres variables que nos servirá como ejemplo para mostrar cómo se debe almacenar la información.
+
+```{r dt1, echo=F}
+Edad <- c(35, 46, 23)
+Fuma <- c(TRUE, TRUE, FALSE)
+Pais <- c('Colombia', 'Francia', 'Malta')
+dt <- data.frame(Edad, Fuma, Pais)
+knitr::kable(dt, booktabs = TRUE,
+caption = 'Ejemplo de una base de datos simple.'
+)
+```
+
+Para almacenar la información del Cuadro \@ref(tab:dt1) en Excel, abrimos un archivo nuevo archivo de Excel y copiamos la información tal como se muestra en la Figura \@ref(fig:excel1). Se debe iniciar en la parte superior izquierda, no se deben dejar filas vacías, no se debe colorear, no se deben colocar bordes ni nada, se ingresa la información sin embellecer el contenido. Por último se guarda el archivo en el lugar deseado y al momento de guardarlo se debe modificar la opción tipo de archivo a __csv (delimitado por comas)__.
+
+```{r excel1, echo=F, fig.cap='Forma de almacenar los datos en Excel.', dpi=400, fig.align='center'}
+knitr::include_graphics("images/excel1.png")
+```
+
+```{block2, type='rmdwarning'}
+Recuerde que el archivo de Excel se debe guardar con extensión .csv.
+```
+
+
+## Función `read.table` \index{read.table}
+La función `read.table` se puede usar para leer o traer bases de datos hacia \proglang{R}. La estructura de la función con los parámetros más comunes de uso es la siguiente.
+
+```{r, eval=F}
+read.table(file, header, sep, dec)
+```
+
+Los argumentos de la función `read.table` son:
+
+- `file`: nombre o ruta donde están alojados los datos. Puede ser un url o una dirección del computador. Es posible usar `file.choose()` para que se abra un ventana y adjuntar el archivo deseado manualmente.
+- `header`: valor lógico, se usa `TRUE` si la primer línea de la base de datos tiene los nombres de las variables, caso contrario se usa `FALSE`.
+- `sep`: tipo de separación interna para los datos dentro del archivo. Usar `sep=';'` cuando el archivo tiene extension .csv, usar `sep=''`, sin nada adentro, para .
+- ``: .
+
+### Ejemplo {-}
+
+```{r}
+url <- 'https://dl.dropboxusercontent.com/u/9602072/toy_data_set.csv'
+datos <- read.table(file=url, header=TRUE, sep=';')
+datos
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+

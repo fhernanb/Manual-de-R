@@ -1,0 +1,169 @@
+# Medidas de variabilidad \label{varia}
+
+En este capítulo se mostrará cómo obtener las diferentes medidas de variabilidad con \proglang{R}.
+
+Para ilustrar el uso de las funciones se utilizará la base de datos llamada __aptos2015__, esta base de datos cuenta con 11 variables registradas a apartamentos usados en la ciudad de Medellín. Las variables de la base de datos son: 
+
+1. `precio`: precio de venta del apartamento (millones de pesos),
+2. `mt2`: área del apartamento ($m^2$),
+3. `ubicacion`: lugar de ubicación del aparamentos en la ciudad (cualitativa),
+4. `estrato`: nivel socioeconómico donde está el apartamento (2 a 6),
+5. `alcobas`: número de alcobas del apartamento,
+6. `banos`: número de baños del apartamento,
+7. `balcon`: si el apartamento tiene balcón (si o no),
+8. `parqueadero`: si el apartamento tiene parqueadero (si o no),
+9. `administracion`: valor mensual del servicio de administración (millones de pesos),
+10. `avaluo`: valor del apartamento en escrituras (millones de pesos),
+11. `terminado`: si el apartamento se encuentra terminado (si o no).
+
+A continuación se presenta el código para definir la url donde están los datos, para cargar la base de datos en R y para mostrar por pantalla un encabezado (usando `head`) de la base de datos.
+
+```{r}
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'
+datos <- read.table(file=url, header=T)
+head(datos)  # Para ver el encabezado de la base de datos
+```
+
+## Rango \index{rango} \index{range}
+Para calcular el rango de una variable cuantitativa se usa la función `range`. Los argumentos básicos de la función `range` son dos y se muestran abajo.
+
+```{r, eval=F}
+range(x, na.rm = FALSE)
+```
+
+En el parámetro `x` se indica la variable de interés para la cual se quiere calcular el rango, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
+
+La función `range` entrega el valor mínimo y máximo de la variable ingresada y el valor de rango se puede obtener restando del valor máximo el valor mínimo.
+
+
+### Ejemplo {-}
+Suponga que queremos obtener el rango para la variable precio de los apartamentos.
+
+Para obtener el rango usamos el siguiente código.
+
+```{r}
+range(datos$precio)
+max(datos$precio) - min(datos$precio)
+```
+Del resultado anterior podemos ver que los precios de todos los apartamentos van desde `r min(datos$precio)` hasta `r max(datos$precio)` millones de pesos, es decir, el rango de la variable precio es `r max(datos$precio)-min(datos$precio)` millones de pesos.
+
+### Ejemplo {-}
+Suponga que queremos obtener nuevamente el rango para la variable precio de los apartamentos pero diferenciando por el estrato.
+
+Primero vamos a crear una función auxiliar llamada `myrange` que calculará el rango directamente ($max - min$). Luego vamos a partir la información de los precios por cada estrato usando `split`, la partición se almacenará en la lista `precios`. Finalmente se aplicará la función `myrange` a la lista `precios` para obtener los rangos del precio por estrato socioeconómico. El código para realizar esto se muestra a continuación.
+
+```{r}
+myrange <- function(x) max(x) - min(x)
+precios <- split(datos$precio, f=datos$estrato)
+sapply(precios, myrange)
+```
+De los resultados podemos ver claramente que a medida que aumenta de estrato el rango (variabilidad) del precio de los apartamentos aumenta. Apartamentos de estrato bajo tienden a tener precios similares mientras que los precios de venta para apartamentos de estratos altos tienden a ser muy diferentes entre si.
+
+## Desviación estándar muestral ($S$) \index{desviación} \index{sd}
+
+Para calcular la desviación muestral de una variable cuantitativa se usa la función `sd`. Los argumentos básicos de la función `sd` son dos y se muestran abajo.
+
+```{r, eval=F}
+sd(x, na.rm = FALSE)
+```
+
+En el parámetro `x` se indica la variable de interés para la cual se quiere calcular la desviación estándar muestral, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
+
+### Ejemplo {-}
+Suponga que queremos obtener la desviación estándar muestral para la variable precio de los apartamentos.
+
+Para obtener la desviación solicitada usamos el siguiente código:
+
+```{r}
+sd(x=datos$precio)
+```
+
+### Ejemplo {-}
+Calcular la desviación estándar __poblacional__ ($\sigma$) para el siguiente conjunto de 5 observaciones: 12, 25, 32, 15, 26.
+
+Recordemos que las expresiones matemáticas para obtener $S$ y $\sigma$ son muy similares, la diferencia está en el denominador, para $S$ el denominador es $n-1$ mientras que para $\sigma$ es $n$. Teniendo esto en cuenta podemos calcular la desviación poblacional apoyándonos en la función `sd`, para esto podemos construir una función llamada `Sigma` que calcule la desviación poblacional, a continuación el código necesario.
+
+```{r}
+Sigma <- function(x) {
+  n <- length(x)
+  sd(x) * (n-1) / n
+} 
+```
+
+Ahora para obtener la desviación estándar __poblacional__ de los datos usamos el siguiente código.
+
+```{r}
+y <- c(12, 25, 32, 15, 26)
+Sigma(y)
+```
+
+## Varianza muestral ($S^2$) \index{varianza} \index{var}
+
+Para calcular la varianza muestral de una variable cuantitativa se usa la función `var`. Los argumentos básicos de la función `var` son dos y se muestran abajo.
+
+```{r, eval=F}
+var(x, na.rm = FALSE)
+```
+
+En el parámetro `x` se indica la variable de interés para la cual se quiere calcular la varianza muestral, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
+
+
+### Ejemplo {-}
+Suponga que queremos determinar cuál región en la ciudad presenta mayor varianza en los precios de los apartamentos.
+
+Para realizar esto debemos usar en conjunto la función `split`, `sapply` y `var` ya que se quiere la varianza de una variable (`precio`) dado los valores de otra variable (`ubicacion`). El código para obtener las varianzas es el siguiente.
+
+```{r}
+precios <- split(datos$precio, f=datos$ubicacion)
+sapply(precios, var)
+```
+
+De los resultados anteriores se nota que los apartamentos ubicados en el Poblado tienen la mayor variabilidad en el precio, este resultado se confirma al dibujar un boxplot para la variable precio dada la ubicación, en la Figura \@ref(fig:box1) se muestra el boxplot y se ve claramente la dispersión de los precios en el Poblado. El código usado para generar la Figura \@ref(fig:box1) se presenta a continuación.
+
+```{r box1, fig.cap='Boxplot para el precio de los apartamentos dada la ubicación.', fig.asp=0.5, fig.width =10}
+with(datos, boxplot(precio ~ ubicacion, ylab='Precio (millones)'))
+```
+
+### Ejemplo {-}
+¿Son los resultados de la función `var` los mismos que los resultados de la función `sd` elevados al cuadrado?
+
+La respuesta es __NO__. La función `sd` se aplica sólo a vectores mientras que la función `var` de puede aplicar tanto a vectores como a marcos de datos. Al ser aplicada a marcos de datos numéricos se obtiene una matriz en que la diagonal representa las varianzas de las de cada una de las variables mientras que arriba y abajo de la diagonal se encuentran las covarianzas entre pares de variables.
+
+Por ejemplo, si aplicamos la función `var` al marco de datos sólo con las variables precio, área y avaluo se obtiene una matriz de dimensión $3 \times 3$, a continuación el código usado.
+
+```{r}
+var(datos[, c('precio', 'mt2', 'avaluo')])
+```
+
+Del anterior resultado se observa la matriz de varianzas y covarianzas de dimensión $3 \times 3$.
+
+
+## Coeficiente de variación ($CV$) \index{coeficiente de variación}
+
+El coeficiente de variación se define como $CV=s/\bar{x}$ y es muy sencillo de obtenerlo, la función `CV` mostrada abajo permite calcularlo.
+
+```{r}
+CV <- function(x, na.rm = FALSE) {
+  sd(x, na.rm=na.rm) / mean(x, na.rm=na.rm)
+}
+```
+
+### Ejemplo {-}
+Calcular el $CV$ para el vector `w` definido a continuación.
+
+```{r}
+w <- c(5, -3, NA, 8, 8, 7)
+```
+
+Vemos que el vector `w` tiene 6 observaciones y la tercera de ellas es un `NA`. Lo correcto aquí es usar la función `CV` definida antes pero indicándole que remueva los valores faltantes, para eso se usa el siguiente código.
+
+```{r}
+CV(x=w, na.rm=T)
+```
+
+
+
+
+
+
+
