@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-01-27}
+\date{2017-01-28}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -2202,12 +2202,21 @@ En este capítulo se mostrará cómo leer una base de datos externa hacia
 datos?}\label{en-que-formato-almacenar-una-base-de-datos}
 
 Los archivos con la información para ser leídos por \proglang{R} se
-pueden almacenar en formato plano con extensión .txt o en Excel con
-extensión .csv.
+pueden almacenar en formato:
 
-En el Cuadro \ref{tab:dt1} se presenta una base de datos pequeña, tres
-observaciones y tres variables que nos servirá como ejemplo para mostrar
-cómo se debe almacenar la información.
+\begin{itemize}
+\tightlist
+\item
+  plano con extensión \textbf{.txt} o,
+\item
+  Excel con extensión \textbf{.csv}.
+\end{itemize}
+
+En las secciones siguientes se mostrará cómo almacenar datos en los dos
+formatos para ser leídos en \proglang{R}. En el Cuadro \ref{tab:dt1} se
+presenta una base de datos pequeña, tres observaciones y tres variables,
+que nos servirá como ejemplo para mostrar cómo se debe almacenar la
+información.
 
 \begin{table}
 
@@ -2224,18 +2233,21 @@ Edad & Fuma & Pais\\
 \end{tabular}
 \end{table}
 
+\subsection{Almacenamiento de información en
+Excel}\label{almacenamiento-de-informacion-en-excel}
+
 Para almacenar la información del Cuadro \ref{tab:dt1} en Excel, abrimos
 un archivo nuevo archivo de Excel y copiamos la información tal como se
 muestra en la Figura \ref{fig:excel1}. Se debe iniciar en la parte
 superior izquierda, no se deben dejar filas vacías, no se debe colorear,
 no se deben colocar bordes ni nada, se ingresa la información sin
-embellecer el contenido. Por último se guarda el archivo en el lugar
-deseado y al momento de guardarlo se debe modificar la opción tipo de
-archivo a \textbf{csv (delimitado por comas)}.
+embellecer el contenido. Por último se guarda el archivo en la carpeta
+deseada y al momento de nombrar el archivo se debe modificar la opción
+tipo de archivo a \textbf{csv (delimitado por comas)}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.34in]{images/excel1} 
+{\centering \includegraphics[width=3.12in]{images/excel1} 
 
 }
 
@@ -2245,6 +2257,49 @@ archivo a \textbf{csv (delimitado por comas)}.
 \BeginKnitrBlock{rmdwarning}
 Recuerde que el archivo de Excel se debe guardar con extensión .csv.
 \EndKnitrBlock{rmdwarning}
+
+\subsection{Almacenamiento de información en bloc de
+notas}\label{almacenamiento-de-informacion-en-bloc-de-notas}
+
+Para almacenar la información del Cuadro \ref{tab:dt1} en bloc de notas,
+abrimos un archivo nuevo de bloc de notas y copiamos la información tal
+como se muestra en la Figura \ref{fig:bloc1}. Se copian los nombres de
+las variables o los datos separados por un espacio obtenido con la tecla
+tabuladora, cada línea se finaliza con un \emph{enter}. Se recomienda al
+guardar el archivo que el cursor al inicio de una línea vacía, en la
+Figura \ref{fig:bloc1} se señala la posición del cursor con la flecha
+roja, a pesar de que no éxiste línea número 5, el curso debe quedar al
+inicio de esa línea número 5.
+
+\begin{figure}
+
+{\centering \includegraphics[width=2.77in]{images/bloc1} 
+
+}
+
+\caption{Almacenamiento de los datos en bloc de notas usando la barra espaciadora}\label{fig:bloc1}
+\end{figure}
+
+Es posible mejorar la apariencia de la información almacenada en el bloc
+de notas si, en lugar de usar espacios con la barra espaciadora, se
+colocan los espacios con la barra tabuladora, así la información se ve
+más organizada y se puede chequear fácilmente la información ingresada.
+En la Figura \ref{fig:bloc2} se muestra la información para el ejemplo,
+claramente se nota la organización de la información.
+
+\begin{figure}
+
+{\centering \includegraphics[width=2.79in]{images/bloc2} 
+
+}
+
+\caption{Almacenamiento de los datos en bloc de notas usando la barra tabuladora}\label{fig:bloc2}
+\end{figure}
+
+\BeginKnitrBlock{rmdtip}
+Una buena práctica es usar la barra tabuladora para separar, eso permite
+que la información se vea ordenada.
+\EndKnitrBlock{rmdtip}
 
 \section{\texorpdfstring{Función \texttt{read.table}
 \index{read.table}}{Función read.table }}\label{funcion-read.table}
@@ -3124,8 +3179,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-86-1.pdf}
-\caption{\label{fig:unnamed-chunk-86}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-87-1.pdf}
+\caption{\label{fig:unnamed-chunk-87}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
