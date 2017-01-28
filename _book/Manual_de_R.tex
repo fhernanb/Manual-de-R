@@ -2198,8 +2198,9 @@ responder cada una de las siguientes preguntas.
 En este capítulo se mostrará cómo leer una base de datos externa hacia
 \proglang{R}.
 
-\section{¿En qué formato almacenar una base de
-datos?}\label{en-que-formato-almacenar-una-base-de-datos}
+\section{\texorpdfstring{¿En qué formato almacenar una base de datos?
+\index{.csv}
+\index{.txt}}{¿En qué formato almacenar una base de datos?  }}\label{en-que-formato-almacenar-una-base-de-datos}
 
 Los archivos con la información para ser leídos por \proglang{R} se
 pueden almacenar en formato:
@@ -2233,8 +2234,8 @@ Edad & Fuma & Pais\\
 \end{tabular}
 \end{table}
 
-\subsection{Almacenamiento de información en
-Excel}\label{almacenamiento-de-informacion-en-excel}
+\subsection{\texorpdfstring{Almacenamiento de información en Excel
+\index{Excel}}{Almacenamiento de información en Excel }}\label{almacenamiento-de-informacion-en-excel}
 
 Para almacenar la información del Cuadro \ref{tab:dt1} en Excel, abrimos
 un archivo nuevo archivo de Excel y copiamos la información tal como se
@@ -2258,8 +2259,9 @@ tipo de archivo a \textbf{csv (delimitado por comas)}.
 Recuerde que el archivo de Excel se debe guardar con extensión .csv.
 \EndKnitrBlock{rmdwarning}
 
-\subsection{Almacenamiento de información en bloc de
-notas}\label{almacenamiento-de-informacion-en-bloc-de-notas}
+\subsection{\texorpdfstring{Almacenamiento de información en bloc de
+notas
+\index{bloc de notas}}{Almacenamiento de información en bloc de notas }}\label{almacenamiento-de-informacion-en-bloc-de-notas}
 
 Para almacenar la información del Cuadro \ref{tab:dt1} en bloc de notas,
 abrimos un archivo nuevo de bloc de notas y copiamos la información tal
@@ -2273,7 +2275,7 @@ inicio de esa línea número 5.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.77in]{images/bloc1} 
+{\centering \includegraphics[width=3.03in]{images/bloc1} 
 
 }
 
@@ -2289,7 +2291,7 @@ claramente se nota la organización de la información.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.79in]{images/bloc2} 
+{\centering \includegraphics[width=3.05in]{images/bloc2} 
 
 }
 
@@ -2304,9 +2306,9 @@ que la información se vea ordenada.
 \section{\texorpdfstring{Función \texttt{read.table}
 \index{read.table}}{Función read.table }}\label{funcion-read.table}
 
-La función \texttt{read.table} se puede usar para leer o traer bases de
-datos hacia \proglang{R}. La estructura de la función con los parámetros
-más comunes de uso es la siguiente.
+La función \texttt{read.table} se puede usar para leer bases de datos
+hacia \proglang{R}. La estructura de la función con los parámetros más
+comunes de uso es la siguiente.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2320,43 +2322,120 @@ Los argumentos de la función \texttt{read.table} son:
 \tightlist
 \item
   \texttt{file}: nombre o ruta donde están alojados los datos. Puede ser
-  un url o una dirección del computador. Es posible usar
+  un url o una dirección del computador. Es también posible usar
   \texttt{file.choose()} para que se abra un ventana y adjuntar el
   archivo deseado manualmente.
 \item
-  \texttt{header}: valor lógico, se usa \texttt{TRUE} si la primer línea
-  de la base de datos tiene los nombres de las variables, caso contrario
-  se usa \texttt{FALSE}.
+  \texttt{header}: valor lógico, se usa \texttt{TRUE} si la primera
+  línea de la base de datos tiene los nombres de las variables, caso
+  contrario se usa \texttt{FALSE}.
 \item
   \texttt{sep}: tipo de separación interna para los datos dentro del
-  archivo. Usar \texttt{sep=\textquotesingle{};\textquotesingle{}}
-  cuando el archivo tiene extension .csv, usar
-  \texttt{sep=\textquotesingle{}\textquotesingle{}}, sin nada adentro,
-  para .
+  archivo. Los valores usuales para este parámetros son:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{sep=\textquotesingle{};\textquotesingle{}} si el archivo
+    tiene extensión .csv.
+  \item
+    \texttt{sep=\textquotesingle{}\textquotesingle{}} si el archivo es
+    bloc de notas con espacios por la barra \textbf{espaciadora}.
+  \item
+    \texttt{sep=\textquotesingle{}\textbackslash{}t\textquotesingle{}}
+    si el archivo es bloc de notas con espacios por la barra
+    \textbf{tabuladora}.
+  \end{itemize}
 \item
-  ``: .
+  \texttt{dec}: símbolo con el cual están indicados los decimales.
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-8}
 
 
+Crear la base de datos del Cuadro \ref{tab:dt1} en Excel y bloc de notas
+para luego leerla desde \proglang{R}.
+
+Lo primero que se debe hacer es construir tres archivos (uno de Excel y
+dos bloc de notas) igual a los mostrados en las figuras
+\ref{fig:excel1}, \ref{fig:bloc1} y \ref{fig:bloc2}, vamos a suponer que
+los nombres para cada uno de ellos son \texttt{base1.csv},
+\texttt{base2.txt} y \texttt{base3.txt} respectivamente.
+
+\subsubsection*{Para Excel}\label{para-excel}
+
+
+Para leer el archivo de Excel llamado \texttt{base1.csv} podemos usar el
+siguiente código.
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{url <-}\StringTok{ 'https://dl.dropboxusercontent.com/u/9602072/toy_data_set.csv'}
-\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep=}\StringTok{';'}\NormalTok{)}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\StringTok{'C:/Users/Hernandez/Desktop/base1.csv'}\NormalTok{,}
+                    \DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep=}\StringTok{';'}\NormalTok{)}
 \NormalTok{datos}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-##   Peso      Sexo Estatura circun_cuello circun_muneca
-## 1 47.6  Femenino     1.57          29.5          13.9
-## 2 68.1 Masculino     1.66          38.4          16.0
-## 3 68.0 Masculino     1.90          36.5          16.6
-## 4 80.0  Femenino     1.76          38.0          17.1
-## 5 68.1 Masculino     1.83          38.0          17.1
-## 6 56.1  Femenino     1.66          33.0          14.7
-\end{verbatim}
+La dirección
+\texttt{file=\textquotesingle{}C:/Users/Hernandez/Desktop/base1.csv\textquotesingle{}}
+le indica a \proglang{R} dónde debe buscar el archivo, note que se debe
+usar el símbolo \texttt{/} para que sea un dirección válida.
+
+Si no se conoce la ubicación del archivo a leer o si la dirección es muy
+extensa se puede usar \texttt{file.choose()} para que se abra una
+ventana y así adjuntar manualmente el archivo. A continuación se muestra
+el código para hacerlo de esta manera.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\KeywordTok{file.choose}\NormalTok{(), }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep=}\StringTok{';'}\NormalTok{)}
+\NormalTok{datos}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{Para bloc de notas con barra
+espaciadora}\label{para-bloc-de-notas-con-barra-espaciadora}
+\addcontentsline{toc}{subsubsection}{Para bloc de notas con barra
+espaciadora}
+
+Para leer el archivo de Excel llamado \texttt{base2.txt} podemos usar el
+siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\StringTok{'C:/Users/Hernandez/Desktop/base2.txt'}\NormalTok{,}
+                    \DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep=}\StringTok{''}\NormalTok{)}
+\NormalTok{datos}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{Para bloc de notas con barra
+tabuladora}\label{para-bloc-de-notas-con-barra-tabuladora}
+\addcontentsline{toc}{subsubsection}{Para bloc de notas con barra
+tabuladora}
+
+Para leer el archivo de Excel llamado \texttt{base3.txt} podemos usar el
+siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\StringTok{'C:/Users/Hernandez/Desktop/base3.txt'}\NormalTok{,}
+                    \DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep=}\StringTok{'}\CharTok{\textbackslash{}t}\StringTok{'}\NormalTok{)}
+\NormalTok{datos}
+\end{Highlighting}
+\end{Shaded}
+
+\BeginKnitrBlock{rmdnote}
+El usuario puede usar indiferentemente
+\texttt{file=\textquotesingle{}C:/Users/bla/bla\textquotesingle{}} o
+\texttt{file.choose()} para ingresar el archivo, con la práctica se
+aprende a decidir cuando conviene una u otra forma.
+\EndKnitrBlock{rmdnote}
+
+\BeginKnitrBlock{rmdwarning}
+Un error frecuente es escribir la dirección o ubicación del archivo
+usando \texttt{\textbackslash{}}, lo correcto es usar \texttt{/}.
+\EndKnitrBlock{rmdwarning}
 
 \chapter{\texorpdfstring{Medidas de tendencia central
 \label{central}}{Medidas de tendencia central }}\label{medidas-de-tendencia-central}
@@ -3179,8 +3258,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-87-1.pdf}
-\caption{\label{fig:unnamed-chunk-87}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-92-1.pdf}
+\caption{\label{fig:unnamed-chunk-92}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

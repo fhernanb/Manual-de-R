@@ -2,7 +2,7 @@
 
 En este capítulo se mostrará cómo leer una base de datos externa hacia \proglang{R}.
 
-## ¿En qué formato almacenar una base de datos?
+## ¿En qué formato almacenar una base de datos? \index{.csv} \index{.txt}
 Los archivos con la información para ser leídos por \proglang{R} se pueden almacenar en formato:
 
 - plano con extensión __.txt__ o, 
@@ -20,7 +20,7 @@ caption = 'Ejemplo de una base de datos simple.'
 )
 ```
 
-### Almacenamiento de información en Excel
+### Almacenamiento de información en Excel \index{Excel}
 Para almacenar la información del Cuadro \@ref(tab:dt1) en Excel, abrimos un archivo nuevo archivo de Excel y copiamos la información tal como se muestra en la Figura \@ref(fig:excel1). Se debe iniciar en la parte superior izquierda, no se deben dejar filas vacías, no se debe colorear, no se deben colocar bordes ni nada, se ingresa la información sin embellecer el contenido. Por último se guarda el archivo en la carpeta deseada y al momento de nombrar el archivo se debe modificar la opción tipo de archivo a __csv (delimitado por comas)__.
 
 ```{r excel1, echo=F, fig.cap='Forma de almacenar los datos en Excel.', dpi=300, fig.align='center'}
@@ -31,16 +31,16 @@ knitr::include_graphics("images/excel1.png")
 Recuerde que el archivo de Excel se debe guardar con extensión .csv.
 ```
 
-### Almacenamiento de información en bloc de notas
+### Almacenamiento de información en bloc de notas \index{bloc de notas}
 Para almacenar la información del Cuadro \@ref(tab:dt1) en bloc de notas, abrimos un archivo nuevo de bloc de notas y copiamos la información tal como se muestra en la Figura \@ref(fig:bloc1). Se copian los nombres de las variables o los datos separados por un espacio obtenido con la tecla tabuladora, cada línea se finaliza con un _enter_. Se recomienda al guardar el archivo que el cursor al inicio de una línea vacía, en la Figura \@ref(fig:bloc1) se señala la posición del cursor con la flecha roja, a pesar de que no éxiste línea número 5, el curso debe quedar al inicio de esa línea número 5.
 
-```{r bloc1, echo=F, fig.cap='Almacenamiento de los datos en bloc de notas usando la barra espaciadora', dpi=120, fig.align='center'}
+```{r bloc1, echo=F, fig.cap='Almacenamiento de los datos en bloc de notas usando la barra espaciadora', dpi=110, fig.align='center'}
 knitr::include_graphics("images/bloc1.png")
 ```
 
 Es posible mejorar la apariencia de la información almacenada en el bloc de notas si, en lugar de usar espacios con la barra espaciadora, se colocan los espacios con la barra tabuladora, así la información se ve más organizada y se puede chequear fácilmente la información ingresada. En la Figura \@ref(fig:bloc2) se muestra la información para el ejemplo, claramente se nota la organización de la información.
 
-```{r bloc2, echo=F, fig.cap='Almacenamiento de los datos en bloc de notas usando la barra tabuladora', dpi=120, fig.align='center'}
+```{r bloc2, echo=F, fig.cap='Almacenamiento de los datos en bloc de notas usando la barra tabuladora', dpi=110, fig.align='center'}
 knitr::include_graphics("images/bloc2.png")
 ```
 
@@ -49,7 +49,7 @@ Una buena práctica es usar la barra tabuladora para separar, eso permite que la
 ```
 
 ## Función `read.table` \index{read.table}
-La función `read.table` se puede usar para leer o traer bases de datos hacia \proglang{R}. La estructura de la función con los parámetros más comunes de uso es la siguiente.
+La función `read.table` se puede usar para leer bases de datos hacia \proglang{R}. La estructura de la función con los parámetros más comunes de uso es la siguiente.
 
 ```{r, eval=F}
 read.table(file, header, sep, dec)
@@ -57,27 +57,65 @@ read.table(file, header, sep, dec)
 
 Los argumentos de la función `read.table` son:
 
-- `file`: nombre o ruta donde están alojados los datos. Puede ser un url o una dirección del computador. Es posible usar `file.choose()` para que se abra un ventana y adjuntar el archivo deseado manualmente.
-- `header`: valor lógico, se usa `TRUE` si la primer línea de la base de datos tiene los nombres de las variables, caso contrario se usa `FALSE`.
-- `sep`: tipo de separación interna para los datos dentro del archivo. Usar `sep=';'` cuando el archivo tiene extension .csv, usar `sep=''`, sin nada adentro, para .
-- ``: .
+- `file`: nombre o ruta donde están alojados los datos. Puede ser un url o una dirección del computador. Es también posible usar `file.choose()` para que se abra un ventana y adjuntar el archivo deseado manualmente.
+- `header`: valor lógico, se usa `TRUE` si la primera línea de la base de datos tiene los nombres de las variables, caso contrario se usa `FALSE`.
+- `sep`: tipo de separación interna para los datos dentro del archivo. Los valores usuales para este parámetros son:
+    - `sep=';'` si el archivo tiene extensión .csv. 
+    - `sep=''` si el archivo es bloc de notas con espacios por la barra __espaciadora__. 
+    - `sep='\t'` si el archivo es bloc de notas con espacios por la barra __tabuladora__. 
+- `dec`: símbolo con el cual están indicados los decimales.
 
 ### Ejemplo {-}
+Crear la base de datos del Cuadro \@ref(tab:dt1) en Excel y bloc de notas para luego leerla desde \proglang{R}.
 
-```{r}
-url <- 'https://dl.dropboxusercontent.com/u/9602072/toy_data_set.csv'
-datos <- read.table(file=url, header=TRUE, sep=';')
+Lo primero que se debe hacer es construir tres archivos (uno de Excel y dos bloc de notas) igual a los mostrados en las figuras \@ref(fig:excel1), \@ref(fig:bloc1) y \@ref(fig:bloc2), vamos a suponer que los nombres para cada uno de ellos son `base1.csv`, `base2.txt` y `base3.txt` respectivamente.
+
+#### Para Excel {-}
+
+Para leer el archivo de Excel llamado `base1.csv` podemos usar el siguiente código.
+
+```{r, eval=F}
+datos <- read.table(file='C:/Users/Hernandez/Desktop/base1.csv',
+                    header=TRUE, sep=';')
 datos
 ```
 
+La dirección `file='C:/Users/Hernandez/Desktop/base1.csv'` le indica a \proglang{R} dónde debe buscar el archivo, note que se debe usar el símbolo `/` para que sea un dirección válida.
 
+Si no se conoce la ubicación del archivo a leer o si la dirección es muy extensa se puede usar `file.choose()` para que se abra una ventana y así adjuntar manualmente el archivo. A continuación se muestra el código para hacerlo de esta manera.
 
+```{r, eval=F}
+datos <- read.table(file.choose(), header=TRUE, sep=';')
+datos
+```
 
+#### Para bloc de notas con barra espaciadora {-}
 
+Para leer el archivo de Excel llamado `base2.txt` podemos usar el siguiente código.
 
+```{r, eval=F}
+datos <- read.table(file='C:/Users/Hernandez/Desktop/base2.txt',
+                    header=TRUE, sep='')
+datos
+```
 
+#### Para bloc de notas con barra tabuladora {-}
 
+Para leer el archivo de Excel llamado `base3.txt` podemos usar el siguiente código.
 
+```{r, eval=F}
+datos <- read.table(file='C:/Users/Hernandez/Desktop/base3.txt',
+                    header=TRUE, sep='\t')
+datos
+```
+
+```{block2, type='rmdnote'}
+El usuario puede usar indiferentemente `file='C:/Users/bla/bla'` o `file.choose()` para ingresar el archivo, con la práctica se aprende a decidir cuando conviene una u otra forma. 
+```
+
+```{block2, type='rmdwarning'}
+Un error frecuente es escribir la dirección o ubicación del archivo usando `\`, lo correcto es usar `/`.
+```
 
 
 
