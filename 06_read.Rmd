@@ -3,7 +3,7 @@
 En este capítulo se mostrará cómo leer una base de datos externa hacia \proglang{R}.
 
 ## ¿En qué formato almacenar una base de datos? \index{.csv} \index{.txt}
-Los archivos con la información para ser leídos por \proglang{R} se pueden almacenar en formato:
+Usualmente los archivos con la información para ser leídos por \proglang{R} se pueden almacenar en formato:
 
 - plano con extensión __.txt__ o, 
 - Excel con extensión __.csv__. 
@@ -80,9 +80,9 @@ datos <- read.table(file='C:/Users/Hernandez/Desktop/base1.csv',
 datos
 ```
 
-La dirección `file='C:/Users/Hernandez/Desktop/base1.csv'` le indica a \proglang{R} dónde debe buscar el archivo, note que se debe usar el símbolo `/` para que sea un dirección válida.
+La dirección `file='C:/Users/Hernandez/Desktop/base1.csv'` le indica a \proglang{R} en qué lugar del computador debe buscar el archivo, note que se debe usar el símbolo `/` para que sea un dirección válida. Substituya la dirección del código anterior con la dirección donde se encuentra su archivo para que pueda leer la base de datos.
 
-Si no se conoce la ubicación del archivo a leer o si la dirección es muy extensa se puede usar `file.choose()` para que se abra una ventana y así adjuntar manualmente el archivo. A continuación se muestra el código para hacerlo de esta manera.
+Si no se conoce la ubicación del archivo a leer o si la dirección es muy extensa, se puede usar `file.choose()` para que se abra una ventana y así adjuntar manualmente el archivo. A continuación se muestra el código para hacerlo de esta manera.
 
 ```{r, eval=F}
 datos <- read.table(file.choose(), header=TRUE, sep=';')
@@ -117,6 +117,21 @@ El usuario puede usar indiferentemente `file='C:/Users/bla/bla'` o `file.choose(
 Un error frecuente es escribir la dirección o ubicación del archivo usando `\`, lo correcto es usar `/`.
 ```
 
+
+
+## EJERCICIOS {-}
+Realice los siguiente ejercicios propuestos.
+
+1. En el Cuadro \@ref(tab:toy) se presenta una base de datos de 6 observaciones y 5 variables. Almacene la información del cuadro en dos archivos diferentes, en Excel y en bloc de notas. Lea los dos archivos con la función `read.table` y compare los resultados obtenidos con la del Cuadro \@ref(tab:toy) fuente.
+
+```{r toy, echo=F}
+url <- 'https://dl.dropboxusercontent.com/u/9602072/toy_data_set.csv'
+datos <- read.table(file=url, header=T, sep=';')
+knitr::kable(
+datos, booktabs = TRUE,
+caption = 'Base de datos para practicar lectura.'
+)
+```
 
 
 

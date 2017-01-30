@@ -2254,8 +2254,8 @@ En este capítulo se mostrará cómo leer una base de datos externa hacia
 \index{.csv}
 \index{.txt}}{¿En qué formato almacenar una base de datos?  }}\label{en-que-formato-almacenar-una-base-de-datos}
 
-Los archivos con la información para ser leídos por \proglang{R} se
-pueden almacenar en formato:
+Usualmente los archivos con la información para ser leídos por
+\proglang{R} se pueden almacenar en formato:
 
 \begin{itemize}
 \tightlist
@@ -2430,11 +2430,14 @@ siguiente código.
 
 La dirección
 \texttt{file=\textquotesingle{}C:/Users/Hernandez/Desktop/base1.csv\textquotesingle{}}
-le indica a \proglang{R} dónde debe buscar el archivo, note que se debe
-usar el símbolo \texttt{/} para que sea un dirección válida.
+le indica a \proglang{R} en qué lugar del computador debe buscar el
+archivo, note que se debe usar el símbolo \texttt{/} para que sea un
+dirección válida. Substituya la dirección del código anterior con la
+dirección donde se encuentra su archivo para que pueda leer la base de
+datos.
 
 Si no se conoce la ubicación del archivo a leer o si la dirección es muy
-extensa se puede usar \texttt{file.choose()} para que se abra una
+extensa, se puede usar \texttt{file.choose()} para que se abra una
 ventana y así adjuntar manualmente el archivo. A continuación se muestra
 el código para hacerlo de esta manera.
 
@@ -2488,6 +2491,40 @@ aprende a decidir cuando conviene una u otra forma.
 Un error frecuente es escribir la dirección o ubicación del archivo
 usando \texttt{\textbackslash{}}, lo correcto es usar \texttt{/}.
 \EndKnitrBlock{rmdwarning}
+
+\section*{EJERCICIOS}\label{ejercicios-2}
+
+
+Realice los siguiente ejercicios propuestos.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  En el Cuadro \ref{tab:toy} se presenta una base de datos de 6
+  observaciones y 5 variables. Almacene la información del cuadro en dos
+  archivos diferentes, en Excel y en bloc de notas. Lea los dos archivos
+  con la función \texttt{read.table} y compare los resultados obtenidos
+  con la del Cuadro \ref{tab:toy} fuente.
+\end{enumerate}
+
+\begin{table}
+
+\caption{\label{tab:toy}Base de datos para practicar lectura.}
+\centering
+\begin{tabular}[t]{rlrrr}
+\toprule
+Peso & Sexo & Estatura & circun\_cuello & circun\_muneca\\
+\midrule
+47.6 & Femenino & 1.57 & 29.5 & 13.9\\
+68.1 & Masculino & 1.66 & 38.4 & 16.0\\
+68.0 & Masculino & 1.90 & 36.5 & 16.6\\
+80.0 & Femenino & 1.76 & 38.0 & 17.1\\
+68.1 & Masculino & 1.83 & 38.0 & 17.1\\
+56.1 & Femenino & 1.66 & 33.0 & 14.7\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \chapter{\texorpdfstring{Medidas de tendencia central
 \label{central}}{Medidas de tendencia central }}\label{medidas-de-tendencia-central}
