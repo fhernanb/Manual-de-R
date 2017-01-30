@@ -515,19 +515,21 @@ consola, para hacer esto se deben explorar las opciones de
 \caption{Apariencia de R.}\label{fig:pantalla}
 \end{figure}
 
-\section{Tipos de objetos} \label{sec:objetos}
+\chapter{\texorpdfstring{Tipos de objetos
+\index{objetos}}{Tipos de objetos }}\label{tipos-de-objetos}
 
-En \proglang{R} existen varios tipos de objectos \index{objetos} que
-permiten que el usuario pueda almacenar la información para realizar
-procedimientos estadísticos y gráficos. Los principales objetos en
-\proglang{R} son vectores, matrices, arreglos, marcos de datos y listas.
-A continuación se presentan las características de estos objetos y la
-forma para crearlos.
+En \proglang{R} existen varios tipos de objectos que permiten que el
+usuario pueda almacenar la información para realizar procedimientos
+estadísticos y gráficos. Los principales objetos en \proglang{R} son
+vectores, matrices, arreglos, marcos de datos y listas. A continuación
+se presentan las características de estos objetos y la forma para
+crearlos.
 
-\subsection{Vectores}
+\section{\texorpdfstring{Vectores
+\index{vector}}{Vectores }}\label{vectores}
 
-Los vectores \index{vectores} son arreglos ordenados en los cuales se
-puede almacenar información de tipo numérico (variable cuantitativa),
+Los vectores vectores son arreglos ordenados en los cuales se puede
+almacenar información de tipo numérico (variable cuantitativa),
 alfanumérico (variable cualitativa) o lógico (\texttt{TRUE} o
 \texttt{FALSE}), pero no mezclas de éstos. La función de \proglang{R}
 para crear un vector es \texttt{c()} y que significa concatenar; dentro
@@ -648,12 +650,13 @@ escribe en la consola el nombre del objeto seguido de la tecla
 ## [4,]    4    8   12   16   20
 \end{verbatim}
 
-\subsection{Arreglos}
+\section{\texorpdfstring{Arreglos \index{arreglo}
+\index{array}}{Arreglos  }}\label{arreglos}
 
-Un arreglo \index{arreglo} es una matriz de varias dimensiones con
-información numérica, alfanumérica o lógica. Para construir una arreglo
-se usa la función \texttt{array(\ )}. Por ejemplo, para crear un arreglo
-de \(3 \times 4 \times 2\) con las primeras 24 letras minúsculas del
+Un arreglo arreglo es una matriz de varias dimensiones con información
+numérica, alfanumérica o lógica. Para construir una arreglo se usa la
+función \texttt{array(\ )}. Por ejemplo, para crear un arreglo de
+\(3 \times 4 \times 2\) con las primeras 24 letras minúsculas del
 alfabeto se escribe el siguiente código.
 
 \begin{Shaded}
@@ -690,16 +693,17 @@ siguiente.
 ## [3,] "o"  "r"  "u"  "x"
 \end{verbatim}
 
-\subsection{Marco de datos}
+\section{\texorpdfstring{Marco de datos \index{marco de datos}
+\index{data.frame}}{Marco de datos  }}\label{marco-de-datos}
 
-El marco de datos \index{marco de datos} o \textit{data frame} es uno de
-los objetos más utilizados porque permite agrupar vectores con
-información de diferente tipo (numérica, alfanumérica o lógica) en un
-mismo objeto, la única restricción es que los vectores deben tener la
-misma longitud. Para crear un marco de datos se usa la función
-\texttt{data.frame(\ )}, como ejemplo vamos a crear un marco de datos
-con los vectores \texttt{edad}, \texttt{deporte} y \texttt{comic.fav}
-definidos anteriormente.
+El marco de datos marco de datos o \emph{data frame} es uno de los
+objetos más utilizados porque permite agrupar vectores con información
+de diferente tipo (numérica, alfanumérica o lógica) en un mismo objeto,
+la única restricción es que los vectores deben tener la misma longitud.
+Para crear un marco de datos se usa la función \texttt{data.frame(\ )},
+como ejemplo vamos a crear un marco de datos con los vectores
+\texttt{edad}, \texttt{deporte} y \texttt{comic.fav} definidos
+anteriormente.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -732,12 +736,13 @@ creados anteriormente, los números consecutivos al lado izquierdo son
 sólo de referencia y permiten identificar la información para cada
 persona en la base de datos.
 
-\subsection{Listas}
+\section{\texorpdfstring{Listas \index{lista}
+\index{list}}{Listas  }}\label{listas}
 
-Las listas \index{lista} son otro tipo de objeto muy usado para
-almacenar objetos de diferente tipo. La instrucción para crear una lista
-es \texttt{list(\ )}. A continuación vamos a crear una lista que
-contiene tres objetos: un vector con 5 números aleatorios llamado
+Las listas son otro tipo de objeto muy usado para almacenar objetos de
+diferente tipo. La instrucción para crear una lista es
+\texttt{list(\ )}. A continuación vamos a crear una lista que contiene
+tres objetos: un vector con 5 números aleatorios llamado
 \texttt{mivector}, una matriz de dimensión \(6 \times 2\) con los
 primeros doce números enteros positivos llamada \texttt{matriz2} y el
 tercer objeto será el marco de datos \texttt{mimarco} creado en el
@@ -789,7 +794,45 @@ muestra a continuación.
 ## 5   20    TRUE    Batman
 \end{verbatim}
 
-\section{Guía de estilo para la escritura en R} \label{sec:estilo}
+\section*{EJERCICIOS}\label{ejercicios}
+
+
+Use funciones o procedimientos (varias líneas) de \proglang{R} para
+responder cada una de las siguientes preguntas.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Construya un vector con la primeras 20 letras MAYÚSCULAS usando la
+  función LETTERS.
+\item
+  Construya una matriz de \(10 \times 10\) con los primeros 100 números
+  positivos pares.
+\item
+  Construya una matriz identidad de dimension \(3 \times 3\). Recuerde
+  que una matriz identidad tiene sólo unos en la diagonal principal y
+  los demás elementos son cero.
+\item
+  Construya una lista con los anteriores tres objetos creados.
+\item
+  Construya un marco de datos o data frame con las respuestas de 3
+  personas a las preguntas: (a) ¿Cuál es su edad en años? (b) ¿Tipo de
+  música que más le gusta? (c) ¿Tiene usted pareja sentimental estable?
+\item
+  ¿Cuál es el error al correr el siguiente código? ¿A qué se debe?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edad <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{13}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{20}\NormalTok{)}
+\NormalTok{deporte <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{comic.fav <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\StringTok{'Superman'}\NormalTok{, }\StringTok{'Batman'}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\StringTok{'Batman'}\NormalTok{)}
+\KeywordTok{matrix}\NormalTok{(edad, deporte, comic.fav)}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter{\texorpdfstring{Guía de estilo
+\index{estilo}}{Guía de estilo }}\label{guia-de-estilo}
 
 Así como en el español existen reglas ortográficas, la escritura de
 códigos en \proglang{R} también tiene unas reglas que se recomienda
@@ -800,18 +843,21 @@ una única y mejor guía de estilo para escritura en \proglang{R}, sin
 embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada
 \href{https://google.github.io/styleguide/Rguide.xml}{\textit{Google's R style guide}}.
 
-\subsection{Nombres de los archivos}
+\section{Nombres de los archivos}\label{nombres-de-los-archivos}
 
 Se sugiere que el nombre usado para nombrar un archivo tenga sentido y
 que termine con extensión .R. A continuación dos ejemplos de como
 nombrar mal y bien un archivo.
 
 \begin{itemize}
-    \item Mal: \verb|hola.R|
-    \item Bien: \verb|analisis_icfes.R|
+\tightlist
+\item
+  Bien: \texttt{hola.R}
+\item
+  Mal: \texttt{analisis\_icfes.R}
 \end{itemize}
 
-\subsection{Nombres de los objetos}
+\section{Nombres de los objetos}\label{nombres-de-los-objetos}
 
 Se recomienda no usar los símbolos \texttt{\_} y \texttt{-} dentro de
 los nombres de objetos. Para las variables es preferible usar letras
@@ -838,12 +884,13 @@ Para funciones:
     \item Mal: \verb|calculate_avg_clicks| , \verb|calculateAvgClicks|
 \end{itemize}
 
-\subsection{Longitud de una línea de código}
+\section{Longitud de una línea de
+código}\label{longitud-de-una-linea-de-codigo}
 
 Se recomienda que cada línea tenga como máximo 80 caracteres. Si una
 línea es muy larga se debe cortar siempre por una coma.
 
-\subsection{Espacios}
+\section{Espacios}\label{espacios}
 
 Use espacios alrededor de todos los operadores binarios (=, +, -,
 \textless{}-, etc.). Los espacios alrededor del símbolo ``='' son
@@ -962,7 +1009,7 @@ siguiente ejemplo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Asignación}
+\section{Asignación}\label{asignacion}
 
 Para realizar asignaciones se recomienda usar el símbolo
 \texttt{\textless{}-}, el símbolo de igualdad \texttt{=} no se
@@ -979,7 +1026,7 @@ Para una explicación más detallada sobre el símbolo de asignación se
 recomienda visitar este
 \href{http://www.win-vector.com/blog/2016/12/the-case-for-using-in-r/}{enlace}.
 
-\subsection{Punto y coma}
+\section{Punto y coma}\label{punto-y-coma}
 
 No se recomienda colocar varias instrucciones separadas por \texttt{;}
 en la misma línea, aunque funciona dificulta la revisión del código.
@@ -997,45 +1044,6 @@ en la misma línea, aunque funciona dificulta la revisión del código.
 A pesar de la anterior advertencia es posible que en este libro usemos
 el \texttt{;} en algunas ocasiones, si lo hacemos es para ahorrar
 espacio en la presentación del código.
-
-\section*{EJERCICIOS}\label{ejercicios}
-
-
-Use funciones o procedimientos (varias líneas) de \proglang{R} para
-responder cada una de las siguientes preguntas.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Construya un vector con la primeras 20 letras MAYÚSCULAS usando la
-  función LETTERS.
-\item
-  Construya una matriz de \(10 \times 10\) con los primeros 100 números
-  positivos pares.
-\item
-  Construya una matriz identidad de dimension \(3 \times 3\). Recuerde
-  que una matriz identidad tiene sólo unos en la diagonal principal y
-  los demás elementos son cero.
-\item
-  Construya una lista con los anteriores tres objetos creados.
-\item
-  Construya un marco de datos o data frame con las respuestas de 3
-  personas a las preguntas: (a) ¿Cuál es su edad en años? (b) ¿Tipo de
-  música que más le gusta? (c) ¿Tiene usted pareja sentimental estable?
-\item
-  ¿Cuál es el error al correr el siguiente código? ¿A qué se debe?
-\end{enumerate}
-
-\scriptsize
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{edad <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{13}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{20}\NormalTok{)}
-\NormalTok{deporte <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{)}
-\NormalTok{comic.fav <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\StringTok{'Superman'}\NormalTok{, }\StringTok{'Batman'}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\StringTok{'Batman'}\NormalTok{)}
-\KeywordTok{matrix}\NormalTok{(edad, deporte, comic.fav)}
-\end{Highlighting}
-\end{Shaded}
 
 \chapter{\texorpdfstring{Funciones básicas de
 \proglang{R}}{Funciones básicas de }}\label{funciones-basicas-de}
@@ -2231,6 +2239,11 @@ responder cada una de las siguientes preguntas.
 \item
 \end{enumerate}
 
+\chapter{\texorpdfstring{Creación de funciones en
+\proglang{R}}{Creación de funciones en }}\label{creacion-de-funciones-en}
+
+En este capítulo se explica cómo crear una función.
+
 \chapter{\texorpdfstring{Lectura de bases de datos
 \index{lectura de bases de datos}}{Lectura de bases de datos }}\label{lectura-de-bases-de-datos}
 
@@ -2747,100 +2760,6 @@ ordenar la tabla usando la función \texttt{sort} de la siguiente manera:
 De esta manera se ve fácilmente que la variable edad es unimodal con
 valor de 25 años.
 
-\chapter{\texorpdfstring{Medidas de posición
-\label{posi}}{Medidas de posición }}\label{medidas-de-posicion}
-
-En este capítulo se mostrará cómo obtener las diferentes medidas de
-posición con \proglang{R}.
-
-Para ilustrar el uso de las funciones se utilizará una base de datos
-llamada \textbf{medidas del cuerpo}, esta base de datos cuenta con 6
-variables registradas a un grupo de 36 estudiantes de la universidad.
-Las variables son:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \texttt{edad} del estudiante (años),
-\item
-  \texttt{peso} del estudiante (kilogramos),
-\item
-  \texttt{altura} del estudiante (centímetros),
-\item
-  \texttt{sexo} del estudiante (Hombre, Mujer),
-\item
-  \texttt{muneca}: perímetro de la muñeca derecha (centímetros),
-\item
-  \texttt{biceps}: perímetro del biceps derecho (centímetros).
-\end{enumerate}
-
-A continuación se presenta el código para definir la url donde están los
-datos, para cargar la base de datos en R y para mostrar por pantalla un
-encabezado (usando \texttt{head}) de la base de datos.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
-\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
-\KeywordTok{head}\NormalTok{(datos)  }\CommentTok{# Para ver el encabezado de la base de datos}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##   edad peso altura   sexo muneca biceps
-## 1   43 87.3  188.0 Hombre   12.2   35.8
-## 2   65 80.0  174.0 Hombre   12.0   35.0
-## 3   45 82.3  176.5 Hombre   11.2   38.5
-## 4   37 73.6  180.3 Hombre   11.2   32.2
-## 5   55 74.1  167.6 Hombre   11.8   32.9
-## 6   33 85.9  188.0 Hombre   12.4   38.5
-\end{verbatim}
-
-\section{\texorpdfstring{Cuantiles \index{cuantiles} \index{quantile}
-\index{cuartiles} \index{deciles}
-\index{percentiles}}{Cuantiles     }}\label{cuantiles}
-
-Para obtener cualquier cuantil (cuartiles, deciles y percentiles) se usa
-la función \texttt{quantile}. Los argumentos básicos de la función
-\texttt{quantile} son tres y se muestran a continuación.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{quantile}\NormalTok{(x, probs, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-En el parámetro \texttt{x} se indica la variable de interés para la cual
-se quieren calcular los cuantiles, el parámetro \texttt{probs} sirve
-para definir los cuantiles de interés y el parámetro \texttt{na.rm} es
-un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
-remover las observaciones con \texttt{NA}, el valor por defecto para
-este parámetro es \texttt{FALSE}.
-
-\subsection*{Ejemplo}\label{ejemplo-14}
-
-
-Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
-la altura del grupo de estudiantes.
-
-Se solicita el percentil 5, la mediana que es el percentil 50 y el decil
-8 que corresponde al percentil 80, por lo tanto es necesario indicarle a
-la función \texttt{quantile} que calcule los cuantiles para las
-ubicaciones 0.05, 0.5 y 0.8, el código para obtener las tres medidas
-solicitadas es el siguiente.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{quantile}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$altura, }\DataTypeTok{probs=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.8}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    5%   50%   80% 
-## 155.2 172.7 180.3
-\end{verbatim}
-
 \chapter{\texorpdfstring{Medidas de variabilidad
 \label{varia}}{Medidas de variabilidad }}\label{medidas-de-variabilidad}
 
@@ -2936,7 +2855,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -2968,7 +2887,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -3021,7 +2940,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -3039,7 +2958,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -3095,7 +3014,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -3143,7 +3062,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -3192,7 +3111,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -3218,15 +3137,104 @@ eso se usa el siguiente código.
 ## [1] 0.9274
 \end{verbatim}
 
+\chapter{\texorpdfstring{Medidas de posición
+\label{posi}}{Medidas de posición }}\label{medidas-de-posicion}
+
+En este capítulo se mostrará cómo obtener las diferentes medidas de
+posición con \proglang{R}.
+
+Para ilustrar el uso de las funciones se utilizará una base de datos
+llamada \textbf{medidas del cuerpo}, esta base de datos cuenta con 6
+variables registradas a un grupo de 36 estudiantes de la universidad.
+Las variables son:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{edad} del estudiante (años),
+\item
+  \texttt{peso} del estudiante (kilogramos),
+\item
+  \texttt{altura} del estudiante (centímetros),
+\item
+  \texttt{sexo} del estudiante (Hombre, Mujer),
+\item
+  \texttt{muneca}: perímetro de la muñeca derecha (centímetros),
+\item
+  \texttt{biceps}: perímetro del biceps derecho (centímetros).
+\end{enumerate}
+
+A continuación se presenta el código para definir la url donde están los
+datos, para cargar la base de datos en R y para mostrar por pantalla un
+encabezado (usando \texttt{head}) de la base de datos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+\KeywordTok{head}\NormalTok{(datos)  }\CommentTok{# Para ver el encabezado de la base de datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   edad peso altura   sexo muneca biceps
+## 1   43 87.3  188.0 Hombre   12.2   35.8
+## 2   65 80.0  174.0 Hombre   12.0   35.0
+## 3   45 82.3  176.5 Hombre   11.2   38.5
+## 4   37 73.6  180.3 Hombre   11.2   32.2
+## 5   55 74.1  167.6 Hombre   11.8   32.9
+## 6   33 85.9  188.0 Hombre   12.4   38.5
+\end{verbatim}
+
+\section{\texorpdfstring{Cuantiles \index{cuantiles} \index{quantile}
+\index{cuartiles} \index{deciles}
+\index{percentiles}}{Cuantiles     }}\label{cuantiles}
+
+Para obtener cualquier cuantil (cuartiles, deciles y percentiles) se usa
+la función \texttt{quantile}. Los argumentos básicos de la función
+\texttt{quantile} son tres y se muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{quantile}\NormalTok{(x, probs, }\DataTypeTok{na.rm =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+En el parámetro \texttt{x} se indica la variable de interés para la cual
+se quieren calcular los cuantiles, el parámetro \texttt{probs} sirve
+para definir los cuantiles de interés y el parámetro \texttt{na.rm} es
+un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
+remover las observaciones con \texttt{NA}, el valor por defecto para
+este parámetro es \texttt{FALSE}.
+
+\subsection*{Ejemplo}\label{ejemplo-21}
+
+
+Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
+la altura del grupo de estudiantes.
+
+Se solicita el percentil 5, la mediana que es el percentil 50 y el decil
+8 que corresponde al percentil 80, por lo tanto es necesario indicarle a
+la función \texttt{quantile} que calcule los cuantiles para las
+ubicaciones 0.05, 0.5 y 0.8, el código para obtener las tres medidas
+solicitadas es el siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{quantile}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$altura, }\DataTypeTok{probs=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.8}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    5%   50%   80% 
+## 155.2 172.7 180.3
+\end{verbatim}
+
 \chapter{\texorpdfstring{Medidas de correlación
 \label{correl}}{Medidas de correlación }}\label{medidas-de-correlacion}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de
-
-\chapter{\texorpdfstring{Creación de funciones en
-\proglang{R}}{Creación de funciones en }}\label{creacion-de-funciones-en}
-
-En este capítulo se
 
 \chapter{Distribuciones discretas}\label{distribuciones-discretas}
 
