@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-01-28}
+\date{2017-01-30}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -997,6 +997,45 @@ en la misma línea, aunque funciona dificulta la revisión del código.
 A pesar de la anterior advertencia es posible que en este libro usemos
 el \texttt{;} en algunas ocasiones, si lo hacemos es para ahorrar
 espacio en la presentación del código.
+
+\section*{EJERCICIOS}\label{ejercicios}
+
+
+Use funciones o procedimientos (varias líneas) de \proglang{R} para
+responder cada una de las siguientes preguntas.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Construya un vector con la primeras 20 letras MAYÚSCULAS usando la
+  función LETTERS.
+\item
+  Construya una matriz de \(10 \times 10\) con los primeros 100 números
+  positivos pares.
+\item
+  Construya una matriz identidad de dimension \(3 \times 3\). Recuerde
+  que una matriz identidad tiene sólo unos en la diagonal principal y
+  los demás elementos son cero.
+\item
+  Construya una lista con los anteriores tres objetos creados.
+\item
+  Construya un marco de datos o data frame con las respuestas de 3
+  personas a las preguntas: (a) ¿Cuál es su edad en años? (b) ¿Tipo de
+  música que más le gusta? (c) ¿Tiene usted pareja sentimental estable?
+\item
+  ¿Cuál es el error al correr el siguiente código? ¿A qué se debe?
+\end{enumerate}
+
+\scriptsize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edad <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{13}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{20}\NormalTok{)}
+\NormalTok{deporte <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{comic.fav <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\StringTok{'Superman'}\NormalTok{, }\StringTok{'Batman'}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\StringTok{'Batman'}\NormalTok{)}
+\KeywordTok{matrix}\NormalTok{(edad, deporte, comic.fav)}
+\end{Highlighting}
+\end{Shaded}
 
 \chapter{\texorpdfstring{Funciones básicas de
 \proglang{R}}{Funciones básicas de }}\label{funciones-basicas-de}
@@ -2124,7 +2163,7 @@ se ordenaran de menor a mayor.
 ## [1] 1 2 5 3 6 4
 \end{verbatim}
 
-\section*{EJERCICIOS}\label{ejercicios}
+\section*{EJERCICIOS}\label{ejercicios-1}
 
 
 Use funciones o procedimientos (varias líneas) de \proglang{R} para
@@ -3258,8 +3297,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-92-1.pdf}
-\caption{\label{fig:unnamed-chunk-92}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-93-1.pdf}
+\caption{\label{fig:unnamed-chunk-93}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
