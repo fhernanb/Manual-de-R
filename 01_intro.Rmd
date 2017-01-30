@@ -295,5 +295,28 @@ hist(y)
 ```
 A pesar de la anterior advertencia es posible que en este libro usemos el `;` en algunas ocasiones, si lo hacemos es para ahorrar espacio en la presentación del código.
 
+## EJERCICIOS {-}
+Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
+
+1. Construya un vector con la primeras 20 letras MAYÚSCULAS usando la función LETTERS.
+
+2. Construya una matriz de $10 \times 10$ con los primeros 100 números positivos pares.
+
+3. Construya una matriz identidad de dimension $3 \times 3$. Recuerde que una matriz identidad tiene sólo unos en la diagonal principal y los demás elementos son cero.
+
+4. Construya una lista con los anteriores tres objetos creados.
+
+2. Construya un marco de datos o data frame con las respuestas de 3 personas a las preguntas: (a) ¿Cuál es su edad en años? (b) ¿Tipo de música que más le gusta? (c) ¿Tiene usted pareja sentimental estable?
+
+3. ¿Cuál es el error al correr el siguiente código? ¿A qué se debe?
+
+\scriptsize
+```{r, echo = TRUE, eval=F}
+edad <- c(15, 19, 13, NA, 20)
+deporte <- c(TRUE, TRUE, NA, FALSE, TRUE)
+comic.fav <- c(NA, 'Superman', 'Batman', NA, 'Batman')
+matrix(edad, deporte, comic.fav)
+```
+
 
 
