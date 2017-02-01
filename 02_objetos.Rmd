@@ -32,7 +32,7 @@ deporte
 comic.fav
 ```
 
-\subsection{Matrices}
+## Matrices
 Las matrices \index{matrices} son arreglos rectangulares de filas y columnas con información numérica, alfanumérica o lógica. Para construir una matriz se usa la función `matrix( )`. Por ejemplo, para crear una matriz de 4 filas y 5 columnas (de dimensión $4 \times 5$) con los primeros 20 números positivos se escribe el código siguiente en la consola.
 
 ```{r}

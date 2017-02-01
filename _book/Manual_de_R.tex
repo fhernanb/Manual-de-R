@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-01-30}
+\date{2017-02-01}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -612,7 +612,7 @@ realizar esto lo que se obtiene se muestra a continuación.
 ## [5] "Batman"
 \end{verbatim}
 
-\subsection{Matrices}
+\section{Matrices}\label{matrices}
 
 Las matrices \index{matrices} son arreglos rectangulares de filas y
 columnas con información numérica, alfanumérica o lógica. Para construir
@@ -2526,6 +2526,186 @@ Peso & Sexo & Estatura & circun\_cuello & circun\_muneca\\
 \end{tabular}
 \end{table}
 
+\chapter{\texorpdfstring{Tablas de frecuencia
+\index{tablas de frecuencia}}{Tablas de frecuencia }}\label{tablas-de-frecuencia}
+
+Las tablas de frecuencia son muy utilizadas en estadística y
+\proglang{R} permite crearlas de una forma sencilla. En este capítulo se
+explican las principales funciones para la elaboración de tablas.
+
+\section{\texorpdfstring{Tabla de contingencia con \texttt{table}
+\index{table}}{Tabla de contingencia con table }}\label{tabla-de-contingencia-con-table}
+
+La función \texttt{table} sirve para construir tablas de frecuencia de
+una vía, a continuación la estrctura de la función.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(..., exclude, useNA)}
+\end{Highlighting}
+\end{Shaded}
+
+Los parámetros de la funció son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{...} espacio para ubicar los nombres de los objetos (variables
+  o vectores) para los cuales se quiere construir la tabla.
+\item
+  \texttt{exclude}: vector con los niveles a remover de la tabla. Si
+  \texttt{exclude=NULL} implica que se desean ver los \texttt{NA}, lo
+  que equivale a \texttt{useNA\ =\ "always"}.
+\item
+  \texttt{useNA}: instrucción de lo que se desea con los \texttt{NA}.
+  Hay tres posibles valores para este parámetro:
+  \texttt{\textquotesingle{}no\textquotesingle{}} si no se desean usar,
+  \texttt{\textquotesingle{}ifany\textquotesingle{}} y
+  \texttt{\textquotesingle{}always\textquotesingle{}} si se desean
+  incluir.
+\end{itemize}
+
+\subsection*{Ejemplo: tabla de frecuencia de una
+vía}\label{ejemplo-tabla-de-frecuencia-de-una-via}
+\addcontentsline{toc}{subsection}{Ejemplo: tabla de frecuencia de una
+vía}
+
+Considere el vector \texttt{fuma} mostrado a continuación y construya
+una tabla de frecuencias absolutas para los niveles de la variable
+frecuencia de fumar.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fuma <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'Frecuente'}\NormalTok{, }\StringTok{'Nunca'}\NormalTok{, }\StringTok{'A veces'}\NormalTok{, }\StringTok{'A veces'}\NormalTok{, }\StringTok{'Nunca'}\NormalTok{,}
+          \StringTok{'Nunca'}\NormalTok{, }\StringTok{'Frecuente'}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\StringTok{'Frecuente'}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\StringTok{'hola'}\NormalTok{, }
+          \StringTok{'Nunca'}\NormalTok{, }\StringTok{'Hola'}\NormalTok{, }\StringTok{'Frecuente'}\NormalTok{, }\StringTok{'Nunca'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+A continuación se muestra el código para crear la tabla de frecuencias
+para la variable \texttt{fuma}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(fuma)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## fuma
+##   A veces Frecuente      hola      Hola     Nunca 
+##         2         4         1         1         5
+\end{verbatim}
+
+De la tabla anterior vemos que NO aparece el conteo de los \texttt{NA},
+para obtenerlo usamos lo siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(fuma, }\DataTypeTok{useNA=}\StringTok{'always'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## fuma
+##   A veces Frecuente      hola      Hola     Nunca 
+##         2         4         1         1         5 
+##      <NA> 
+##         2
+\end{verbatim}
+
+Vemos que hay dos niveles errados en la tabla anterior, \texttt{Hola} y
+\texttt{hola}. Para construir la tabla sin esos niveles errados usamos
+lo siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(fuma, }\DataTypeTok{exclude=}\KeywordTok{c}\NormalTok{(}\StringTok{'Hola'}\NormalTok{, }\StringTok{'hola'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## fuma
+##   A veces Frecuente     Nunca      <NA> 
+##         2         4         5         2
+\end{verbatim}
+
+Por último construyamos la tabla sin los niveles errados y los
+\texttt{NA}, a esta última tabla la llamaremos \texttt{tabla1} para
+luego poder usarla. Las instrucciones para hacer esto son las
+siguientes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tabla1 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(fuma, }\DataTypeTok{exclude=}\KeywordTok{c}\NormalTok{(}\StringTok{'Hola'}\NormalTok{, }\StringTok{'hola'}\NormalTok{, }\OtherTok{NA}\NormalTok{))}
+\NormalTok{tabla1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## fuma
+##   A veces Frecuente     Nunca 
+##         2         4         5
+\end{verbatim}
+
+\subsection*{Ejemplo: tabla de frecuencia de dos
+vías}\label{ejemplo-tabla-de-frecuencia-de-dos-vias}
+\addcontentsline{toc}{subsection}{Ejemplo: tabla de frecuencia de dos
+vías}
+
+Considere otro vector \texttt{sexo} mostrado a continuación y construya
+una tabla de frecuencias absolutas para ver cómo se relaciona el sexo
+con fumar del ejemplo anterior.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sexo <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'Hombre'}\NormalTok{, }\StringTok{'Hombre'}\NormalTok{, }\StringTok{'Mujer'}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\StringTok{'Mujer'}\NormalTok{,}
+          \StringTok{'Casa'}\NormalTok{, }\StringTok{'Mujer'}\NormalTok{, }\StringTok{'Mujer'}\NormalTok{, }\StringTok{'Mujer'}\NormalTok{, }\StringTok{'Hombre'}\NormalTok{, }\StringTok{'Mujer'}\NormalTok{, }
+          \StringTok{'Hombre'}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\StringTok{'Mujer'}\NormalTok{, }\StringTok{'Mujer'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Para construir la tabla solicitada usamos el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(sexo, fuma)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         fuma
+## sexo     A veces Frecuente hola Hola Nunca
+##   Casa         0         0    0    0     1
+##   Hombre       0         1    0    0     2
+##   Mujer        1         3    1    0     2
+\end{verbatim}
+
+De la tabla anterior vemos que aparecen niveles errados en fuma y en
+sexo, para retirarlos usamos el siguiente código incluyendo en el
+parámetro \texttt{exclude} un vector con los niveles que \textbf{NO}
+deseamos en la tabla.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tabla2 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(sexo, fuma, }\DataTypeTok{exclude=}\KeywordTok{c}\NormalTok{(}\StringTok{'Hola'}\NormalTok{, }\StringTok{'hola'}\NormalTok{, }\StringTok{'Casa'}\NormalTok{, }\OtherTok{NA}\NormalTok{))}
+\NormalTok{tabla2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         fuma
+## sexo     A veces Frecuente Nunca
+##   Hombre       0         1     2
+##   Mujer        1         3     2
+\end{verbatim}
+
+\section{\texorpdfstring{Función \texttt{prop.table}
+\index{prop.table}}{Función prop.table }}\label{funcion-prop.table}
+
+La estructura de la función \texttt{prop.table} es muy sencilla y a
+continuación se muestra.
+
 \chapter{\texorpdfstring{Medidas de tendencia central
 \label{central}}{Medidas de tendencia central }}\label{medidas-de-tendencia-central}
 
@@ -3342,8 +3522,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-93-1.pdf}
-\caption{\label{fig:unnamed-chunk-93}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-102-1.pdf}
+\caption{\label{fig:unnamed-chunk-102}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

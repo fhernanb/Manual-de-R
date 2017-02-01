@@ -1,0 +1,89 @@
+# Tablas de frecuencia \index{tablas de frecuencia}
+
+Las tablas de frecuencia son muy utilizadas en estadística y \proglang{R} permite crearlas de una forma sencilla. En este capítulo se explican las principales funciones para la elaboración de tablas.
+
+## Tabla de contingencia con `table` \index{table}
+La función `table` sirve para construir tablas de frecuencia de una vía, a continuación la estrctura de la función.
+
+```{r, eval=F}
+table(..., exclude, useNA)
+```
+Los parámetros de la funció son:
+
+- `...` espacio para ubicar los nombres de los objetos (variables o vectores) para los cuales se quiere construir la tabla.
+- `exclude`: vector con los niveles a remover de la tabla. Si `exclude=NULL` implica que se desean ver los `NA`, lo que equivale a `useNA = "always"`.
+- `useNA`: instrucción de lo que se desea con los `NA`. Hay tres posibles valores para este parámetro: `'no'` si no se desean usar, `'ifany'` y `'always'` si se desean incluir.
+
+
+### Ejemplo: tabla de frecuencia de una vía {-}
+Considere el vector `fuma` mostrado a continuación y construya una tabla de frecuencias absolutas para los niveles de la variable frecuencia de fumar.
+
+```{r}
+fuma <- c('Frecuente', 'Nunca', 'A veces', 'A veces', 'Nunca',
+          'Nunca', 'Frecuente', NA, 'Frecuente', NA, 'hola', 
+          'Nunca', 'Hola', 'Frecuente', 'Nunca')
+```
+
+A continuación se muestra el código para crear la tabla de frecuencias para la variable `fuma`.
+
+```{r}
+table(fuma)
+```
+
+De la tabla anterior vemos que NO aparece el conteo de los `NA`, para obtenerlo usamos lo siguiente.
+
+```{r}
+table(fuma, useNA='always')
+```
+
+Vemos que hay dos niveles errados en la tabla anterior, `Hola` y `hola`. Para construir la tabla sin esos niveles errados usamos lo siguiente.
+
+```{r}
+table(fuma, exclude=c('Hola', 'hola'))
+```
+
+Por último construyamos la tabla sin los niveles errados y los `NA`, a esta última tabla la llamaremos `tabla1` para luego poder usarla. Las instrucciones para hacer esto son las siguientes.
+
+```{r}
+tabla1 <- table(fuma, exclude=c('Hola', 'hola', NA))
+tabla1
+```
+
+### Ejemplo: tabla de frecuencia de dos vías {-}
+Considere otro vector `sexo` mostrado a continuación y construya una tabla de frecuencias absolutas para ver cómo se relaciona el sexo con fumar del ejemplo anterior.
+
+```{r}
+sexo <- c('Hombre', 'Hombre', 'Mujer', NA, 'Mujer',
+          'Casa', 'Mujer', 'Mujer', 'Mujer', 'Hombre', 'Mujer', 
+          'Hombre', NA, 'Mujer', 'Mujer')
+```
+
+Para construir la tabla solicitada usamos el siguiente código.
+
+```{r}
+table(sexo, fuma)
+```
+
+De la tabla anterior vemos que aparecen niveles errados en fuma y en sexo, para retirarlos usamos el siguiente código incluyendo en el parámetro `exclude` un vector con los niveles que __NO__ deseamos en la tabla.
+
+```{r}
+tabla2 <- table(sexo, fuma, exclude=c('Hola', 'hola', 'Casa', NA))
+tabla2
+```
+
+## Función `prop.table` \index{prop.table}
+La estructura de la función `prop.table` es muy sencilla y a continuación se muestra.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
