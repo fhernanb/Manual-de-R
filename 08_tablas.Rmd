@@ -8,10 +8,10 @@ La función `table` sirve para construir tablas de frecuencia de una vía, a con
 ```{r, eval=F}
 table(..., exclude, useNA)
 ```
-Los parámetros de la funció son:
+Los parámetros de la función son:
 
 - `...` espacio para ubicar los nombres de los objetos (variables o vectores) para los cuales se quiere construir la tabla.
-- `exclude`: vector con los niveles a remover de la tabla. Si `exclude=NULL` implica que se desean ver los `NA`, lo que equivale a `useNA = "always"`.
+- `exclude`: vector con los niveles a remover de la tabla. Si `exclude=NULL` implica que se desean ver los `NA`, lo que equivale a `useNA = 'always'`.
 - `useNA`: instrucción de lo que se desea con los `NA`. Hay tres posibles valores para este parámetro: `'no'` si no se desean usar, `'ifany'` y `'always'` si se desean incluir.
 
 
@@ -19,7 +19,7 @@ Los parámetros de la funció son:
 Considere el vector `fuma` mostrado a continuación y construya una tabla de frecuencias absolutas para los niveles de la variable frecuencia de fumar.
 
 ```{r}
-fuma <- c('Frecuente', 'Nunca', 'A veces', 'A veces', 'Nunca',
+fuma <- c('Frecuente', 'Nunca', 'A veces', 'A veces', 'A veces',
           'Nunca', 'Frecuente', NA, 'Frecuente', NA, 'hola', 
           'Nunca', 'Hola', 'Frecuente', 'Nunca')
 ```
@@ -49,11 +49,15 @@ tabla1 <- table(fuma, exclude=c('Hola', 'hola', NA))
 tabla1
 ```
 
+```{block2, type='rmdnote'}
+Al crear una tabla con la instrucción `table(var1, var2)`, la variable 1 quedará por filas mientras que la variable 2 estará en las columnas.
+```
+
 ### Ejemplo: tabla de frecuencia de dos vías {-}
 Considere otro vector `sexo` mostrado a continuación y construya una tabla de frecuencias absolutas para ver cómo se relaciona el sexo con fumar del ejemplo anterior.
 
 ```{r}
-sexo <- c('Hombre', 'Hombre', 'Mujer', NA, 'Mujer',
+sexo <- c('Hombre', 'Hombre', 'Hombre', NA, 'Mujer',
           'Casa', 'Mujer', 'Mujer', 'Mujer', 'Hombre', 'Mujer', 
           'Hombre', NA, 'Mujer', 'Mujer')
 ```
@@ -72,18 +76,63 @@ tabla2
 ```
 
 ## Función `prop.table` \index{prop.table}
-La estructura de la función `prop.table` es muy sencilla y a continuación se muestra.
+La función `prop.table` se utiliza para crear tablas de frecuencia relativa a partir de tablas de frecuencia absoluta, la estructura de la función se muestra a continuación.
 
+```{r, eval=F}
+prop.table(x, margin=NULL)
+```
 
+- `x`: tabla de frecuencia.
+- `margin`: valor de 1 si se desean proporciones por filas, 2 si se desean por columnas, `NULL` si se desean frecuencias globales.
 
+### Ejemplo: tabla de frecuencia relativa de una vía {-}
+Obtener la tabla de frencuencia relativa para la `tabla1`.
 
+Para obtener la tabla solicitada se usa el siguiente código.
 
+```{r}
+prop.table(x=tabla1)
+```
 
+### Ejemplo: tabla de frecuencia relativa de dos vías {-}
+Obtener la tabla de frencuencia relativa para la `tabla2`.
 
+Si se desea la tabla de frecuencias relativas global se usa el siguiente código. El resultado se almacena en el objeto `tabla3` para ser usado luego.
 
+```{r}
+tabla3 <- prop.table(x=tabla2)
+tabla3
+```
 
+Si se desea la tabla de frecuencias relativas marginal por __columnas__ se usa el siguiente código.
 
+```{r}
+tabla4 <- prop.table(x=tabla2, margin=2)
+tabla4
+```
 
+## Función `addmargins` \index{addmargins}
+Esta función se puede utilizar para agregar los totales por filas o por columnas a una tabla de frecuencia absoluta o relativa. La estructura de la función es la siguiente.
 
+```{r, eval=F}
+addmargins(A, margin)
+```
+
+- `A`: tabla de frecuencia.
+- `margin`: valor de 1 si se desean proporciones por columnas, 2 si se desean por filas, `NULL` si se desean frecuencias globales.
+
+### Ejemplo {-}
+Obtener las tablas `tabla3` y `tabla4` con los totales margines global y por columnas respectivamente.
+
+Para hacer lo solicitado usamos las siguientes instrucciones.
+
+```{r}
+addmargins(tabla3)
+addmargins(tabla4, margin=1)
+```
+
+```{block2, type='rmdwarning'}
+Note que los valores de 1 y 2 en el parámetro `margin` de las funciones `prop.table` y `addmargins` significan lo contrario.
+```
 
 
