@@ -135,4 +135,47 @@ addmargins(tabla4, margin=1)
 Note que los valores de 1 y 2 en el parámetro `margin` de las funciones `prop.table` y `addmargins` significan lo contrario.
 ```
 
+## Función `hist` \index{hist}
+Construir tablas de frecuencias para variables cuantitativas es muy necesario en muchos procedimientos estadísticos, la función `hist` sirve para obtener este tipo de tablas. La estructura de la función es la siguiente.
+
+```{r, eval=F}
+hist(x, breaks='Sturges', include.lowest=TRUE, right=TRUE, plot=FALSE)
+```
+
+Los parámetros de la función son:
+
+- `x`: vector numérico.
+- `breaks`: vector con los límites de los intervalos. Si no se especifica se usar la regla de Sturges para definir el número de intervalos y el ancho.
+- `include.lowest`: valor lógico, si `TRUE` una observación $x_i$ que coincida con un límite de intervalo será ubicada en el intervalo izquierdo, si `FALSE` será incluída en el intervalo a la derecha.
+- `right`: valor lógico, si `TRUE` los intervalos serán abiertos a derecha $[lim_{inf}, lim_{sup})$.
+- `plot`: valor lógico, si `FALSE` sólo se obtiene la tabla de frecuencias mientras que con `TRUE` se obtiene la representación gráfica llamada histograma.
+
+### Ejemplo {-}
+Genere 200 observaciones aleatorias de una distribución normal con media $\mu=170$ y desviación $\sigma=5$, luego construya una tabla de frecuencias para la muestra obtenida usando (a) la regla de Sturges y (b) tres intervalos con límites 150, 170, 180 y 190.
+
+Primero se construye el vector `x` con las observaciones de la distribución normal por medio de la función `rnorm` y se especifica la media y desviación solicitada. Luego se aplica la función `hist` con el parámetro `breaks='Sturges'`, a continuación el código utilizado.
+
+```{r}
+x <- rnorm(n=200, mean=170, sd=5)
+
+res1 <- hist(x=x, breaks='Sturges', plot=FALSE)
+res1
+```
+
+El objeto `res1` es una lista donde se encuentra la información de la tabla de frecuencias para `x`. Esa lista tiene en el elemento `breaks` los límites inferior y superior de los intervalos y en en elemento `counts` están las frecuencias de cada uno de los intervalos. 
+
+Para obtener las frecuencias de tres intervalos con límites 150, 170, 180 y 190 se especifica en el parámetros `breaks` los límites. El código para obtener la segunda tabla de frecuencias se muestra a continuación.
+
+```{r}
+res2 <- hist(x=x, plot=FALSE, 
+             breaks=c(150, 170, 180, 190))
+res2
+```
+
+
+
+
+
+
+
 

@@ -2858,6 +2858,133 @@ funciones \texttt{prop.table} y \texttt{addmargins} significan lo
 contrario.
 \EndKnitrBlock{rmdwarning}
 
+\section{\texorpdfstring{Función \texttt{hist}
+\index{hist}}{Función hist }}\label{funcion-hist}
+
+Construir tablas de frecuencias para variables cuantitativas es muy
+necesario en muchos procedimientos estadísticos, la función
+\texttt{hist} sirve para obtener este tipo de tablas. La estructura de
+la función es la siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(x, }\DataTypeTok{breaks=}\StringTok{'Sturges'}\NormalTok{, }\DataTypeTok{include.lowest=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{right=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{plot=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Los parámetros de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico.
+\item
+  \texttt{breaks}: vector con los límites de los intervalos. Si no se
+  especifica se usar la regla de Sturges para definir el número de
+  intervalos y el ancho.
+\item
+  \texttt{include.lowest}: valor lógico, si \texttt{TRUE} una
+  observación \(x_i\) que coincida con un límite de intervalo será
+  ubicada en el intervalo izquierdo, si \texttt{FALSE} será incluída en
+  el intervalo a la derecha.
+\item
+  \texttt{right}: valor lógico, si \texttt{TRUE} los intervalos serán
+  abiertos a derecha \([lim_{inf}, lim_{sup})\).
+\item
+  \texttt{plot}: valor lógico, si \texttt{FALSE} sólo se obtiene la
+  tabla de frecuencias mientras que con \texttt{TRUE} se obtiene la
+  representación gráfica llamada histograma.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-10}
+
+
+Genere 200 observaciones aleatorias de una distribución normal con media
+\(\mu=170\) y desviación \(\sigma=5\), luego construya una tabla de
+frecuencias para la muestra obtenida usando (a) la regla de Sturges y
+(b) tres intervalos con límites 150, 170, 180 y 190.
+
+Primero se construye el vector \texttt{x} con las observaciones de la
+distribución normal por medio de la función \texttt{rnorm} y se
+especifica la media y desviación solicitada. Luego se aplica la función
+\texttt{hist} con el parámetro
+\texttt{breaks=\textquotesingle{}Sturges\textquotesingle{}}, a
+continuación el código utilizado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{200}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{170}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{5}\NormalTok{)}
+
+\NormalTok{res1 <-}\StringTok{ }\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{breaks=}\StringTok{'Sturges'}\NormalTok{, }\DataTypeTok{plot=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{res1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $breaks
+## [1] 150 155 160 165 170 175 180 185
+## 
+## $counts
+## [1]  1  6 15 67 82 27  2
+## 
+## $density
+## [1] 0.001 0.006 0.015 0.067 0.082 0.027 0.002
+## 
+## $mids
+## [1] 152.5 157.5 162.5 167.5 172.5 177.5 182.5
+## 
+## $xname
+## [1] "x"
+## 
+## $equidist
+## [1] TRUE
+## 
+## attr(,"class")
+## [1] "histogram"
+\end{verbatim}
+
+El objeto \texttt{res1} es una lista donde se encuentra la información
+de la tabla de frecuencias para \texttt{x}. Esa lista tiene en el
+elemento \texttt{breaks} los límites inferior y superior de los
+intervalos y en en elemento \texttt{counts} están las frecuencias de
+cada uno de los intervalos.
+
+Para obtener las frecuencias de tres intervalos con límites 150, 170,
+180 y 190 se especifica en el parámetros \texttt{breaks} los límites. El
+código para obtener la segunda tabla de frecuencias se muestra a
+continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res2 <-}\StringTok{ }\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{plot=}\OtherTok{FALSE}\NormalTok{, }
+             \DataTypeTok{breaks=}\KeywordTok{c}\NormalTok{(}\DecValTok{150}\NormalTok{, }\DecValTok{170}\NormalTok{, }\DecValTok{180}\NormalTok{, }\DecValTok{190}\NormalTok{))}
+\NormalTok{res2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $breaks
+## [1] 150 170 180 190
+## 
+## $counts
+## [1]  89 109   2
+## 
+## $density
+## [1] 0.02225 0.05450 0.00100
+## 
+## $mids
+## [1] 160 175 185
+## 
+## $xname
+## [1] "x"
+## 
+## $equidist
+## [1] FALSE
+## 
+## attr(,"class")
+## [1] "histogram"
+\end{verbatim}
+
 \chapter{\texorpdfstring{Medidas de tendencia central
 \label{central}}{Medidas de tendencia central }}\label{medidas-de-tendencia-central}
 
@@ -2927,7 +3054,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -2948,7 +3075,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -2980,7 +3107,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -3039,7 +3166,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -3079,7 +3206,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -3224,7 +3351,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -3256,7 +3383,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -3309,7 +3436,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -3327,7 +3454,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -3383,7 +3510,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -3431,7 +3558,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -3480,7 +3607,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -3577,7 +3704,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -3656,7 +3783,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -3674,8 +3801,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-110-1.pdf}
-\caption{\label{fig:unnamed-chunk-110}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-113-1.pdf}
+\caption{\label{fig:unnamed-chunk-113}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
