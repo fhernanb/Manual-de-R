@@ -1,6 +1,6 @@
 # Tablas de frecuencia \index{tablas de frecuencia}
 
-Las tablas de frecuencia son muy utilizadas en estadística y \proglang{R} permite crearlas de una forma sencilla. En este capítulo se explican las principales funciones para la elaboración de tablas.
+Las tablas de frecuencia son muy utilizadas en estadística y \proglang{R} permite crear tablas de una forma sencilla. En este capítulo se explican las principales funciones para la elaboración de tablas.
 
 ## Tabla de contingencia con `table` \index{table}
 La función `table` sirve para construir tablas de frecuencia de una vía, a continuación la estrctura de la función.
