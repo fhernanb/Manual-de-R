@@ -136,10 +136,11 @@ Note que los valores de 1 y 2 en el parámetro `margin` de las funciones `prop.t
 ```
 
 ## Función `hist` \index{hist}
-Construir tablas de frecuencias para variables cuantitativas es muy necesario en muchos procedimientos estadísticos, la función `hist` sirve para obtener este tipo de tablas. La estructura de la función es la siguiente.
+Construir tablas de frecuencias para variables cuantitativas es necesario en muchos procedimientos estadísticos, la función `hist` sirve para obtener este tipo de tablas. La estructura de la función es la siguiente.
 
 ```{r, eval=F}
-hist(x, breaks='Sturges', include.lowest=TRUE, right=TRUE, plot=FALSE)
+hist(x, breaks='Sturges', include.lowest=TRUE, right=TRUE, 
+     plot=FALSE)
 ```
 
 Los parámetros de la función son:
@@ -147,7 +148,7 @@ Los parámetros de la función son:
 - `x`: vector numérico.
 - `breaks`: vector con los límites de los intervalos. Si no se especifica se usar la regla de Sturges para definir el número de intervalos y el ancho.
 - `include.lowest`: valor lógico, si `TRUE` una observación $x_i$ que coincida con un límite de intervalo será ubicada en el intervalo izquierdo, si `FALSE` será incluída en el intervalo a la derecha.
-- `right`: valor lógico, si `TRUE` los intervalos serán abiertos a derecha $[lim_{inf}, lim_{sup})$.
+- `right`: valor lógico, si `TRUE` los intervalos serán cerrados a derecha de la forma $(lim_{inf}, lim_{sup}]$, si es `FALSE` serán abiertos a derecha.
 - `plot`: valor lógico, si `FALSE` sólo se obtiene la tabla de frecuencias mientras que con `TRUE` se obtiene la representación gráfica llamada histograma.
 
 ### Ejemplo {-}
@@ -162,7 +163,7 @@ res1 <- hist(x=x, breaks='Sturges', plot=FALSE)
 res1
 ```
 
-El objeto `res1` es una lista donde se encuentra la información de la tabla de frecuencias para `x`. Esa lista tiene en el elemento `breaks` los límites inferior y superior de los intervalos y en en elemento `counts` están las frecuencias de cada uno de los intervalos. 
+El objeto `res1` es una lista donde se encuentra la información de la tabla de frecuencias para `x`. Esa lista tiene en el elemento `breaks` los límites inferior y superior de los intervalos y en el elemento `counts` están las frecuencias de cada uno de los intervalos. 
 
 Para obtener las frecuencias de tres intervalos con límites 150, 170, 180 y 190 se especifica en el parámetros `breaks` los límites. El código para obtener la segunda tabla de frecuencias se muestra a continuación.
 
@@ -172,10 +173,50 @@ res2 <- hist(x=x, plot=FALSE,
 res2
 ```
 
+### Ejemplo {-}
+Construya el vector `x` con los siguientes elementos: 1.0, 1.2, 1.3, 2.0, 2.5, 2.7, 3.0 y 3.4. Obtenga varias tablas de frecuencia con la función `hist` variando los parámetros `include.lowest` y `right`. Use como límite de los intervalos los valores 1, 2, 3 y 4.
 
+Lo primero que debemos hacer es crear el vector `x` solicitado así:
 
+```{r}
+x <- c(1.1, 1.2, 1.3, 2.0, 2.0, 2.5, 2.7, 3.0, 3.4)
+```
 
+En la Figura \@ref(fig:dots) se muestran los `r length(x)` puntos y con color azul se representan los límites de los intervalos.
 
+```{r dots, fig.cap='Ubicación de los puntos del ejemplo con límites en color azul.', fig.asp=0.8, fig.width=5, echo=F}
+dotchart(x, xlab='Valores de x', xlim=c(0.5, 4.5), pch=19)
+abline(v=c(1, 2, 3, 4), lty='longdash', col='blue')
+```
 
+A continuación se presenta el código para obtener la tabla de frecuencia usando `rigth=TRUE`, los resultados se almacenan en el objeto `res3` y se solicitan sólo los dos primeros elementos que corresponden a los límites y frecuencias. 
 
+```{r}
+res3 <- hist(x, breaks=c(1, 2, 3, 4), right=TRUE, plot=FALSE)
+res3[1:2]
+```
 
+Ahora vamos a repetir la tabla pero usando `rigth=FALSE` para ver la diferencia, en `res4` están los resultados.
+
+```{r}
+res4 <- hist(x, breaks=c(1, 2, 3, 4), right=FALSE, plot=FALSE)
+res4[1:2]
+```
+
+Al comparar los últimos dos resultados vemos que la primera frecuencia es 5 cuando `right=TRUE` porque los intervalos se consideran cerrados a la derecha.
+
+Ahora vamos a construir una tabla de frecuencia usando `FALSE` para los parámetros `include.lowest` y `right`.
+
+```{r}
+res5 <- hist(x, breaks=c(1, 2, 3, 4),
+             include.lowest=FALSE, right=FALSE,
+             plot=FALSE)
+res5[1:2]
+```
+
+De este último resultado se ve claramente el efecto de los parámetros `include.lowest` y `right` en la construcción de tablas de frecuencia.
+
+## EJERCICIOS {-}
+Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
+
+1. 

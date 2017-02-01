@@ -2861,14 +2861,15 @@ contrario.
 \section{\texorpdfstring{Función \texttt{hist}
 \index{hist}}{Función hist }}\label{funcion-hist}
 
-Construir tablas de frecuencias para variables cuantitativas es muy
+Construir tablas de frecuencias para variables cuantitativas es
 necesario en muchos procedimientos estadísticos, la función
 \texttt{hist} sirve para obtener este tipo de tablas. La estructura de
 la función es la siguiente.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{hist}\NormalTok{(x, }\DataTypeTok{breaks=}\StringTok{'Sturges'}\NormalTok{, }\DataTypeTok{include.lowest=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{right=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{plot=}\OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(x, }\DataTypeTok{breaks=}\StringTok{'Sturges'}\NormalTok{, }\DataTypeTok{include.lowest=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{right=}\OtherTok{TRUE}\NormalTok{, }
+     \DataTypeTok{plot=}\OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2889,7 +2890,8 @@ Los parámetros de la función son:
   el intervalo a la derecha.
 \item
   \texttt{right}: valor lógico, si \texttt{TRUE} los intervalos serán
-  abiertos a derecha \([lim_{inf}, lim_{sup})\).
+  cerrados a derecha de la forma \((lim_{inf}, lim_{sup}]\), si es
+  \texttt{FALSE} serán abiertos a derecha.
 \item
   \texttt{plot}: valor lógico, si \texttt{FALSE} sólo se obtiene la
   tabla de frecuencias mientras que con \texttt{TRUE} se obtiene la
@@ -2946,7 +2948,7 @@ continuación el código utilizado.
 El objeto \texttt{res1} es una lista donde se encuentra la información
 de la tabla de frecuencias para \texttt{x}. Esa lista tiene en el
 elemento \texttt{breaks} los límites inferior y superior de los
-intervalos y en en elemento \texttt{counts} están las frecuencias de
+intervalos y en el elemento \texttt{counts} están las frecuencias de
 cada uno de los intervalos.
 
 Para obtener las frecuencias de tres intervalos con límites 150, 170,
@@ -2984,6 +2986,111 @@ continuación.
 ## attr(,"class")
 ## [1] "histogram"
 \end{verbatim}
+
+\subsection*{Ejemplo}\label{ejemplo-11}
+
+
+Construya el vector \texttt{x} con los siguientes elementos: 1.0, 1.2,
+1.3, 2.0, 2.5, 2.7, 3.0 y 3.4. Obtenga varias tablas de frecuencia con
+la función \texttt{hist} variando los parámetros \texttt{include.lowest}
+y \texttt{right}. Use como límite de los intervalos los valores 1, 2, 3
+y 4.
+
+Lo primero que debemos hacer es crear el vector \texttt{x} solicitado
+así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.1}\NormalTok{, }\FloatTok{1.2}\NormalTok{, }\FloatTok{1.3}\NormalTok{, }\FloatTok{2.0}\NormalTok{, }\FloatTok{2.0}\NormalTok{, }\FloatTok{2.5}\NormalTok{, }\FloatTok{2.7}\NormalTok{, }\FloatTok{3.0}\NormalTok{, }\FloatTok{3.4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+En la Figura \ref{fig:dots} se muestran los 9 puntos y con color azul se
+representan los límites de los intervalos.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/dots-1.pdf}
+\caption{\label{fig:dots}Ubicación de los puntos del ejemplo con límites en
+color azul.}
+\end{figure}
+
+A continuación se presenta el código para obtener la tabla de frecuencia
+usando \texttt{rigth=TRUE}, los resultados se almacenan en el objeto
+\texttt{res3} y se solicitan sólo los dos primeros elementos que
+corresponden a los límites y frecuencias.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res3 <-}\StringTok{ }\KeywordTok{hist}\NormalTok{(x, }\DataTypeTok{breaks=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{), }\DataTypeTok{right=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{plot=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{res3[}\DecValTok{1}\NormalTok{:}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $breaks
+## [1] 1 2 3 4
+## 
+## $counts
+## [1] 5 3 1
+\end{verbatim}
+
+Ahora vamos a repetir la tabla pero usando \texttt{rigth=FALSE} para ver
+la diferencia, en \texttt{res4} están los resultados.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res4 <-}\StringTok{ }\KeywordTok{hist}\NormalTok{(x, }\DataTypeTok{breaks=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{), }\DataTypeTok{right=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{plot=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{res4[}\DecValTok{1}\NormalTok{:}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $breaks
+## [1] 1 2 3 4
+## 
+## $counts
+## [1] 3 4 2
+\end{verbatim}
+
+Al comparar los últimos dos resultados vemos que la primera frecuencia
+es 5 cuando \texttt{right=TRUE} porque los intervalos se consideran
+cerrados a la derecha.
+
+Ahora vamos a construir una tabla de frecuencia usando \texttt{FALSE}
+para los parámetros \texttt{include.lowest} y \texttt{right}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res5 <-}\StringTok{ }\KeywordTok{hist}\NormalTok{(x, }\DataTypeTok{breaks=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{),}
+             \DataTypeTok{include.lowest=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{right=}\OtherTok{FALSE}\NormalTok{,}
+             \DataTypeTok{plot=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{res5[}\DecValTok{1}\NormalTok{:}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $breaks
+## [1] 1 2 3 4
+## 
+## $counts
+## [1] 3 4 2
+\end{verbatim}
+
+De este último resultado se ve claramente el efecto de los parámetros
+\texttt{include.lowest} y \texttt{right} en la construcción de tablas de
+frecuencia.
+
+\section*{EJERCICIOS}\label{ejercicios-3}
+
+
+Use funciones o procedimientos (varias líneas) de \proglang{R} para
+responder cada una de las siguientes preguntas.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+\end{enumerate}
 
 \chapter{\texorpdfstring{Medidas de tendencia central
 \label{central}}{Medidas de tendencia central }}\label{medidas-de-tendencia-central}
@@ -3054,7 +3161,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -3075,7 +3182,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -3107,7 +3214,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -3166,7 +3273,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -3206,7 +3313,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -3351,7 +3458,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -3383,7 +3490,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -3436,7 +3543,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -3454,7 +3561,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -3510,7 +3617,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -3558,7 +3665,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -3607,7 +3714,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -3704,7 +3811,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -3783,7 +3890,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -3801,8 +3908,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-113-1.pdf}
-\caption{\label{fig:unnamed-chunk-113}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-117-1.pdf}
+\caption{\label{fig:unnamed-chunk-117}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
