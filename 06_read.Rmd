@@ -132,17 +132,21 @@ La base de datos ingresada queda en el marco de datos llamado `datos` y ya está
 ## EJERCICIOS {-}
 Realice los siguiente ejercicios propuestos.
 
-1. En el Cuadro \@ref(tab:toy) se presenta una base de datos de 6 observaciones y 5 variables. Almacene la información del cuadro en dos archivos diferentes, en Excel y en bloc de notas. Lea los dos archivos con la función `read.table` y compare los resultados obtenidos con la del Cuadro \@ref(tab:toy) fuente.
+1. En el Cuadro \@ref(tab:toy) se presenta una base de datos sencilla. Almacene la información del cuadro en dos archivos diferentes, en Excel y en bloc de notas. Lea los dos archivos con la función `read.table` y compare los resultados obtenidos con la del Cuadro \@ref(tab:toy) fuente.
 
 ```{r toy, echo=F}
-url <- 'https://dl.dropboxusercontent.com/u/9602072/toy_data_set.csv'
-datos <- read.table(file=url, header=T, sep=';')
+Fuma <- c('Si', 'Si', 'No', 'No', 'Si', 'No', 'Si', NA, 'Si')
+Pasatiempo <- c('Lectura', NA, 'Correr', 'Correr', 'TV', 'TV', 'Correr', 'Correr', 'Lectura')
+Num_hermanos <- c(0, 2, 4, NA, 3, 1, 1, 0, 2)
+Mesada <- c(4500, 2600, 1000, 3990, 2570, 2371, 1389, 4589, NA)
+
+datos <- data.frame(Fuma, Pasatiempo, Num_hermanos, Mesada)
 knitr::kable(
 datos, booktabs = TRUE,
 caption = 'Base de datos para practicar lectura.'
 )
 ```
 
-2. En la url https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo están disponibles los datos sobre medidas corporales para un grupo de estudiante de la universidad, use la función read.table para leer la base de datos.
+2. En la url https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo están disponibles los datos sobre medidas corporales para un grupo de estudiante de la universidad, use la función `read.table` para leer la base de datos.
 
 

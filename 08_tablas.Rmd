@@ -219,4 +219,17 @@ De este último resultado se ve claramente el efecto de los parámetros `include
 ## EJERCICIOS {-}
 Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
 
-1. 
+En el Cuadro \@ref(tab:toy) se presenta una base de datos sencilla. Lea la base de datos usando la funcion `read.table` y construya lo que se solicita a continuación.
+
+1. Construya una tabla de frecuencia absoluta para la variable pasatiempo.
+2. Construya una tabla de frecuencia relativa para la variable fuma.
+3. Construya una tabla de frecuencia relativa para las variables pasatiempo y fuma.
+4. ¿Qué porcentaje de de los que no fuman tienen como pasatiempo la lectura.
+5. ¿Qué porcentaje de los que corren no fuman?
+
+
+
+
+
+
+

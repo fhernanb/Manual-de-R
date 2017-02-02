@@ -414,7 +414,7 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.4in]{images/Robert_Roos} 
+{\centering \includegraphics{images/Robert_Roos} 
 
 }
 
@@ -432,7 +432,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.54in]{images/cran} 
+{\centering \includegraphics{images/cran} 
 
 }
 
@@ -450,7 +450,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=5.31in]{images/instalacion1} 
+{\centering \includegraphics{images/instalacion1} 
 
 }
 
@@ -469,7 +469,7 @@ opciones que vienen por defecto.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.54in]{images/instalacion2} 
+{\centering \includegraphics{images/instalacion2} 
 
 }
 
@@ -490,7 +490,7 @@ apariencia del acceso directo para ingresar a \proglang{R}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.14in]{images/rlogo} 
+{\centering \includegraphics{images/rlogo} 
 
 }
 
@@ -508,7 +508,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
+{\centering \includegraphics{images/Rpantallazo} 
 
 }
 
@@ -1064,7 +1064,7 @@ fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2in]{images/function_machine} 
+{\centering \includegraphics{images/function_machine} 
 
 }
 
@@ -2300,7 +2300,7 @@ tipo de archivo a \textbf{csv (delimitado por comas)}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.12in]{images/excel1} 
+{\centering \includegraphics{images/excel1} 
 
 }
 
@@ -2327,7 +2327,7 @@ inicio de esa línea número 5.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.03in]{images/bloc1} 
+{\centering \includegraphics{images/bloc1} 
 
 }
 
@@ -2343,7 +2343,7 @@ claramente se nota la organización de la información.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.05in]{images/bloc2} 
+{\centering \includegraphics{images/bloc2} 
 
 }
 
@@ -2521,27 +2521,31 @@ Realice los siguiente ejercicios propuestos.
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  En el Cuadro \ref{tab:toy} se presenta una base de datos de 6
-  observaciones y 5 variables. Almacene la información del cuadro en dos
-  archivos diferentes, en Excel y en bloc de notas. Lea los dos archivos
-  con la función \texttt{read.table} y compare los resultados obtenidos
-  con la del Cuadro \ref{tab:toy} fuente.
+  En el Cuadro \ref{tab:toy} se presenta una base de datos sencilla.
+  Almacene la información del cuadro en dos archivos diferentes, en
+  Excel y en bloc de notas. Lea los dos archivos con la función
+  \texttt{read.table} y compare los resultados obtenidos con la del
+  Cuadro \ref{tab:toy} fuente.
 \end{enumerate}
 
 \begin{table}
 
 \caption{\label{tab:toy}Base de datos para practicar lectura.}
 \centering
-\begin{tabular}[t]{rlrrr}
+\begin{tabular}[t]{llrr}
 \toprule
-Peso & Sexo & Estatura & circun\_cuello & circun\_muneca\\
+Fuma & Pasatiempo & Num\_hermanos & Mesada\\
 \midrule
-47.6 & Femenino & 1.57 & 29.5 & 13.9\\
-68.1 & Masculino & 1.66 & 38.4 & 16.0\\
-68.0 & Masculino & 1.90 & 36.5 & 16.6\\
-80.0 & Femenino & 1.76 & 38.0 & 17.1\\
-68.1 & Masculino & 1.83 & 38.0 & 17.1\\
-56.1 & Femenino & 1.66 & 33.0 & 14.7\\
+Si & Lectura & 0 & 4500\\
+Si & NA & 2 & 2600\\
+No & Correr & 4 & 1000\\
+No & Correr & NA & 3990\\
+Si & TV & 3 & 2570\\
+\addlinespace
+No & TV & 1 & 2371\\
+Si & Correr & 1 & 1389\\
+NA & Correr & 0 & 4589\\
+Si & Lectura & 2 & NA\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -2554,8 +2558,8 @@ Peso & Sexo & Estatura & circun\_cuello & circun\_muneca\\
   En la url
   \url{https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo}
   están disponibles los datos sobre medidas corporales para un grupo de
-  estudiante de la universidad, use la función read.table para leer la
-  base de datos.
+  estudiante de la universidad, use la función \texttt{read.table} para
+  leer la base de datos.
 \end{enumerate}
 
 \chapter{\texorpdfstring{Tablas de frecuencia
@@ -3120,9 +3124,26 @@ frecuencia.
 Use funciones o procedimientos (varias líneas) de \proglang{R} para
 responder cada una de las siguientes preguntas.
 
+En el Cuadro \ref{tab:toy} se presenta una base de datos sencilla. Lea
+la base de datos usando la funcion \texttt{read.table} y construya lo
+que se solicita a continuación.
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
+  Construya una tabla de frecuencia absoluta para la variable
+  pasatiempo.
+\item
+  Construya una tabla de frecuencia relativa para la variable fuma.
+\item
+  Construya una tabla de frecuencia relativa para las variables
+  pasatiempo y fuma.
+\item
+  ¿Qué porcentaje de de los que no fuman tienen como pasatiempo la
+  lectura.
+\item
+  ¿Qué porcentaje de los que corren no fuman?
 \end{enumerate}
 
 \chapter{\texorpdfstring{Medidas de tendencia central
@@ -4002,7 +4023,7 @@ integral usando la función \texttt{integrate}, a continuación el código.
 
 De los anteriores resultados vemos que la aproximación es buena.
 
-\bibliography{packages,book}
+\bibliography{packages.bib,book.bib}
 
 \backmatter
 \printindex
