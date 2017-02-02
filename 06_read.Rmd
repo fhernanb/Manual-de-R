@@ -66,9 +66,9 @@ Los argumentos de la función `read.table` son:
 - `dec`: símbolo con el cual están indicados los decimales.
 
 ### Ejemplo {-}
-Crear la base de datos del Cuadro \@ref(tab:dt1) en Excel y bloc de notas para luego leerla desde \proglang{R}.
+Crear la base de datos del Cuadro \@ref(tab:dt1) en Excel y bloc de notas para practicar la lectura de base de datos desde \proglang{R}.
 
-Lo primero que se debe hacer es construir tres archivos (uno de Excel y dos bloc de notas) igual a los mostrados en las figuras \@ref(fig:excel1), \@ref(fig:bloc1) y \@ref(fig:bloc2), vamos a suponer que los nombres para cada uno de ellos son `base1.csv`, `base2.txt` y `base3.txt` respectivamente.
+Lo primero que se debe hacer para realizar lo solicitado es construir tres archivos (uno de Excel y dos bloc de notas) igual a los mostrados en las figuras \@ref(fig:excel1), \@ref(fig:bloc1) y \@ref(fig:bloc2), vamos a suponer que los nombres para cada uno de ellos son `base1.csv`, `base2.txt` y `base3.txt` respectivamente.
 
 #### Para Excel {-}
 
@@ -117,7 +117,17 @@ El usuario puede usar indiferentemente `file='C:/Users/bla/bla'` o `file.choose(
 Un error frecuente es escribir la dirección o ubicación del archivo usando `\`, lo correcto es usar `/`.
 ```
 
+### Ejemplo {-}
+Leer la base de datos sobre apartamentos usados en la ciudad de Medellín que está disponible en la página web cuya url es: https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015
 
+Para leer la base de datos desde una url usamos el siguiente código.
+
+```{r}
+enlace <- 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'
+datos <- read.table(file=enlace, header=TRUE)
+```
+
+La base de datos ingresada queda en el marco de datos llamado `datos` y ya está disponible para usarla.
 
 ## EJERCICIOS {-}
 Realice los siguiente ejercicios propuestos.
@@ -133,6 +143,6 @@ caption = 'Base de datos para practicar lectura.'
 )
 ```
 
-
+2. En la url https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo están disponibles los datos sobre medidas corporales para un grupo de estudiante de la universidad, use la función read.table para leer la base de datos.
 
 

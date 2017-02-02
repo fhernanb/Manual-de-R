@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-02-01}
+\date{2017-02-02}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -414,7 +414,7 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 \begin{figure}
 
-{\centering \includegraphics{images/Robert_Roos} 
+{\centering \includegraphics[width=2.4in]{images/Robert_Roos} 
 
 }
 
@@ -432,7 +432,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics{images/cran} 
+{\centering \includegraphics[width=4.54in]{images/cran} 
 
 }
 
@@ -450,7 +450,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion1} 
+{\centering \includegraphics[width=5.31in]{images/instalacion1} 
 
 }
 
@@ -469,7 +469,7 @@ opciones que vienen por defecto.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion2} 
+{\centering \includegraphics[width=2.54in]{images/instalacion2} 
 
 }
 
@@ -490,7 +490,7 @@ apariencia del acceso directo para ingresar a \proglang{R}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/rlogo} 
+{\centering \includegraphics[width=1.14in]{images/rlogo} 
 
 }
 
@@ -508,7 +508,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics{images/Rpantallazo} 
+{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
 
 }
 
@@ -1064,7 +1064,7 @@ fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa.
 
 \begin{figure}
 
-{\centering \includegraphics{images/function_machine} 
+{\centering \includegraphics[width=2in]{images/function_machine} 
 
 }
 
@@ -2300,7 +2300,7 @@ tipo de archivo a \textbf{csv (delimitado por comas)}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/excel1} 
+{\centering \includegraphics[width=3.12in]{images/excel1} 
 
 }
 
@@ -2327,7 +2327,7 @@ inicio de esa línea número 5.
 
 \begin{figure}
 
-{\centering \includegraphics{images/bloc1} 
+{\centering \includegraphics[width=3.03in]{images/bloc1} 
 
 }
 
@@ -2343,7 +2343,7 @@ claramente se nota la organización de la información.
 
 \begin{figure}
 
-{\centering \includegraphics{images/bloc2} 
+{\centering \includegraphics[width=3.05in]{images/bloc2} 
 
 }
 
@@ -2406,13 +2406,14 @@ Los argumentos de la función \texttt{read.table} son:
 
 
 Crear la base de datos del Cuadro \ref{tab:dt1} en Excel y bloc de notas
-para luego leerla desde \proglang{R}.
+para practicar la lectura de base de datos desde \proglang{R}.
 
-Lo primero que se debe hacer es construir tres archivos (uno de Excel y
-dos bloc de notas) igual a los mostrados en las figuras
-\ref{fig:excel1}, \ref{fig:bloc1} y \ref{fig:bloc2}, vamos a suponer que
-los nombres para cada uno de ellos son \texttt{base1.csv},
-\texttt{base2.txt} y \texttt{base3.txt} respectivamente.
+Lo primero que se debe hacer para realizar lo solicitado es construir
+tres archivos (uno de Excel y dos bloc de notas) igual a los mostrados
+en las figuras \ref{fig:excel1}, \ref{fig:bloc1} y \ref{fig:bloc2},
+vamos a suponer que los nombres para cada uno de ellos son
+\texttt{base1.csv}, \texttt{base2.txt} y \texttt{base3.txt}
+respectivamente.
 
 \subsubsection*{Para Excel}\label{para-excel}
 
@@ -2492,6 +2493,25 @@ Un error frecuente es escribir la dirección o ubicación del archivo
 usando \texttt{\textbackslash{}}, lo correcto es usar \texttt{/}.
 \EndKnitrBlock{rmdwarning}
 
+\subsection*{Ejemplo}\label{ejemplo-9}
+
+
+Leer la base de datos sobre apartamentos usados en la ciudad de Medellín
+que está disponible en la página web cuya url es:
+\url{https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015}
+
+Para leer la base de datos desde una url usamos el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{enlace <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{enlace, }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+La base de datos ingresada queda en el marco de datos llamado
+\texttt{datos} y ya está disponible para usarla.
+
 \section*{EJERCICIOS}\label{ejercicios-2}
 
 
@@ -2525,6 +2545,18 @@ Peso & Sexo & Estatura & circun\_cuello & circun\_muneca\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  En la url
+  \url{https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo}
+  están disponibles los datos sobre medidas corporales para un grupo de
+  estudiante de la universidad, use la función read.table para leer la
+  base de datos.
+\end{enumerate}
 
 \chapter{\texorpdfstring{Tablas de frecuencia
 \index{tablas de frecuencia}}{Tablas de frecuencia }}\label{tablas-de-frecuencia}
@@ -2817,7 +2849,7 @@ la función es la siguiente.
   globales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-9}
+\subsection*{Ejemplo}\label{ejemplo-10}
 
 
 Obtener las tablas \texttt{tabla3} y \texttt{tabla4} con los totales
@@ -2899,7 +2931,7 @@ Los parámetros de la función son:
   representación gráfica llamada histograma.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Genere 200 observaciones aleatorias de una distribución normal con media
@@ -2988,7 +3020,7 @@ continuación.
 ## [1] "histogram"
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Construya el vector \texttt{x} con los siguientes elementos: 1.0, 1.2,
@@ -3162,7 +3194,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -3183,7 +3215,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -3215,7 +3247,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -3274,7 +3306,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -3314,7 +3346,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -3459,7 +3491,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -3491,7 +3523,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -3544,7 +3576,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -3562,7 +3594,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -3618,7 +3650,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -3666,7 +3698,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -3715,7 +3747,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -3812,7 +3844,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -3891,7 +3923,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -3909,8 +3941,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-117-1.pdf}
-\caption{\label{fig:unnamed-chunk-117}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-118-1.pdf}
+\caption{\label{fig:unnamed-chunk-118}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
@@ -3970,7 +4002,7 @@ integral usando la función \texttt{integrate}, a continuación el código.
 
 De los anteriores resultados vemos que la aproximación es buena.
 
-\bibliography{packages.bib,book.bib}
+\bibliography{packages,book}
 
 \backmatter
 \printindex
