@@ -2252,6 +2252,160 @@ función de \proglang{R}, se dijo que una función es un conjunto de
 instrucciones que convierten unas entradas (\emph{inputs}) en resultados
 (\emph{outputs}) deseados.
 
+\section{\texorpdfstring{Partes de una función en \proglang{R}
+\index{partes de función}}{Partes de una función en  }}\label{partes-de-una-funcion-en}
+
+Las partes de una función son:
+
+\begin{itemize}
+\tightlist
+\item
+  Entradas: o llamadas también \textbf{argumentos}, sirven para ingresar
+  información necesaria para realizar el procedimiento de la función.
+  Los argumentos pueden estar vacíos y a la espera de que el usuario
+  ingrese valores, o pueden tener valores por defecto, esto significa
+  que si el usuario no ingresa una valor al función usará el valor por
+  defecto. Una función puede tener o no argumentos de entrada, en los
+  ejemplos se mostrarán estos casos.
+\item
+  Cuerpo: el cuerpo de la función está formado por un conjunto de
+  instrucciones que transforman las entradas en las salidas deseadas. Si
+  el cuerpo de la función está formado por varias instrucciones éstas
+  deben ir entre llaves.
+\item
+  Salidas: son los resultados de la función. Toda función debe tener al
+  menos un resultado, si una función no genera un resultado entonces no
+  sirve para nada. Si una función entrega varios tipos de objetos se
+  acostumbra a organizarlos en una lista que puede manejar los
+  diferentes tipos de objetos.
+\end{itemize}
+
+A continuación se mostrarán varios ejemplos \textbf{sencillos} para que
+el lector aprenda a construir funciones.
+
+\subsection*{Ejemplo}\label{ejemplo-8}
+
+
+Construir una función que reciba dos números y que entregue la suma de
+estos números.
+
+Lo primero es elegir un nombre apropiado para la función, aquí se usó el
+nombre \texttt{suma} porque así se tiene una idea clara de lo que hace
+la función. La función suma recibe dos parámetros, \texttt{x} representa
+el primer valor ingresado mientras que \texttt{y} representa el segundo.
+El cuerpo de la función está formado por dos líneas, en la primera se
+crea el objeto \texttt{resultado} en el cual se almanacena el valor de
+la suma, en la segunda línea se le indica a \proglang{R} que queremos
+que retorne el valor de la suma almacenada en el objeto
+\texttt{resultado}. A continuación se muestra el código para crear la
+función solicitada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{suma <-}\StringTok{ }\NormalTok{function(x, y) \{}
+  \NormalTok{resultado <-}\StringTok{ }\NormalTok{x +}\StringTok{ }\NormalTok{y}
+  \KeywordTok{return}\NormalTok{(resultado)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Para usar la función creada sólo se debe ejecutar, vamos a obtener la
+suma de los valores 4 y 6 usando la función \texttt{suma}, a
+continuación el código necesario.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{suma}\NormalTok{(}\DataTypeTok{x=}\DecValTok{4}\NormalTok{, }\DataTypeTok{y=}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+Para funciones simples como la anterior es posible escribirlas en forma
+más compacta. Es posible reducir el cuerpo de la función de 2 líneas a
+sólo una línea solicitándole a \proglang{R} que retorne directamente la
+suma sin almacenarla en ningún objeto. A continuación la función
+\texttt{suma} modificada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{suma <-}\StringTok{ }\NormalTok{function(x, y) \{}
+  \KeywordTok{return}\NormalTok{(x +}\StringTok{ }\NormalTok{y)}
+\NormalTok{\}}
+
+\KeywordTok{suma}\NormalTok{(}\DataTypeTok{x=}\DecValTok{4}\NormalTok{, }\DataTypeTok{y=}\DecValTok{6}\NormalTok{)  }\CommentTok{# Probando la función}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+Debido a que la función \texttt{suma} tiene un cuerpo muy reducido es
+posible escribirla en forma más compacta, en una sola línea. A
+continuación se muestra el código para reescribir la función.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{suma <-}\StringTok{ }\NormalTok{function(x, y) x +}\StringTok{ }\NormalTok{y}
+
+\KeywordTok{suma}\NormalTok{(}\DataTypeTok{x=}\DecValTok{4}\NormalTok{, }\DataTypeTok{y=}\DecValTok{6}\NormalTok{)  }\CommentTok{# Probando la función}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\subsection*{Ejemplo}\label{ejemplo-9}
+
+
+Construir una función que genere números aleatorios entre cero y uno
+hasta que la suma de éstos números supere por primera vez el valor de 3.
+La función debe entregar la cantidad de números aleatorios generados
+para que se cumpla la condición.
+
+Vamos a llamar la función solicitada con el nombre \texttt{fun1}, esta
+función \textbf{NO} necesita ningún parámetro de entrada. El valor de 3
+que está en la condición puede ir dentro del cuerpo y por eso no se
+necesitan parámetros para esta función. En el cuerpo de la función se
+genera un vector con un número aleatorio y luego se chequea si la suma
+de sus elementos es menor de 3, si se cumple que la suma es menor que 3
+se siguen generando números que se almacenan en el vector \texttt{num}.
+Una vez que la suma exceda el valor de 3 NO se ingresa al \texttt{while}
+y se pide la longitud del vector o el valor de \texttt{veces}
+solicitado. A continuación el código de la función.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fun1 <-}\StringTok{ }\NormalTok{function() \{}
+  \NormalTok{num <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+  \NormalTok{veces <-}\StringTok{ }\DecValTok{1}
+  \NormalTok{while (}\KeywordTok{sum}\NormalTok{(num) <}\StringTok{ }\DecValTok{3}\NormalTok{) \{}
+    \NormalTok{veces <-}\StringTok{ }\NormalTok{veces +}\StringTok{ }\DecValTok{1}
+    \NormalTok{num[veces] <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+  \NormalTok{\}}
+  \KeywordTok{return}\NormalTok{(veces)}
+\NormalTok{\}}
+
+\KeywordTok{fun1}\NormalTok{()  }\CommentTok{# primera prueba}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8
+\end{verbatim}
+
+\section*{EJERCICIOS}\label{ejercicios-2}
+
+
+Construir funciones en \proglang{R} que realicen lo solicitado.
+
+1- Construya una función que reciba dos números reales y que diga cuál
+es el mayor de ellos.
+
 \chapter{\texorpdfstring{Lectura de bases de datos
 \index{lectura de bases de datos}}{Lectura de bases de datos }}\label{lectura-de-bases-de-datos}
 
@@ -2410,7 +2564,7 @@ Los argumentos de la función \texttt{read.table} son:
   \texttt{dec}: símbolo con el cual están indicados los decimales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-8}
+\subsection*{Ejemplo}\label{ejemplo-10}
 
 
 Crear la base de datos del Cuadro \ref{tab:dt1} en Excel y bloc de notas
@@ -2501,7 +2655,7 @@ Un error frecuente es escribir la dirección o ubicación del archivo
 usando \texttt{\textbackslash{}}, lo correcto es usar \texttt{/}.
 \EndKnitrBlock{rmdwarning}
 
-\subsection*{Ejemplo}\label{ejemplo-9}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Leer la base de datos sobre apartamentos usados en la ciudad de Medellín
@@ -2520,7 +2674,7 @@ Para leer la base de datos desde una url usamos el siguiente código.
 La base de datos ingresada queda en el marco de datos llamado
 \texttt{datos} y ya está disponible para usarla.
 
-\section*{EJERCICIOS}\label{ejercicios-2}
+\section*{EJERCICIOS}\label{ejercicios-3}
 
 
 Realice los siguiente ejercicios propuestos.
@@ -2861,7 +3015,7 @@ la función es la siguiente.
   globales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Obtener las tablas \texttt{tabla3} y \texttt{tabla4} con los totales
@@ -2943,7 +3097,7 @@ Los parámetros de la función son:
   representación gráfica llamada histograma.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Genere 200 observaciones aleatorias de una distribución normal con media
@@ -2972,10 +3126,10 @@ continuación el código utilizado.
 ## [1] 150 155 160 165 170 175 180 185
 ## 
 ## $counts
-## [1]  1  6 15 67 82 27  2
+## [1]  1  6 15 68 82 27  1
 ## 
 ## $density
-## [1] 0.001 0.006 0.015 0.067 0.082 0.027 0.002
+## [1] 0.001 0.006 0.015 0.068 0.082 0.027 0.001
 ## 
 ## $mids
 ## [1] 152.5 157.5 162.5 167.5 172.5 177.5 182.5
@@ -3014,10 +3168,10 @@ continuación.
 ## [1] 150 170 180 190
 ## 
 ## $counts
-## [1]  89 109   2
+## [1]  90 109   1
 ## 
 ## $density
-## [1] 0.02225 0.05450 0.00100
+## [1] 0.0225 0.0545 0.0005
 ## 
 ## $mids
 ## [1] 160 175 185
@@ -3032,7 +3186,7 @@ continuación.
 ## [1] "histogram"
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Construya el vector \texttt{x} con los siguientes elementos: 1.0, 1.2,
@@ -3126,7 +3280,7 @@ De este último resultado se ve claramente el efecto de los parámetros
 \texttt{include.lowest} y \texttt{right} en la construcción de tablas de
 frecuencia.
 
-\section*{EJERCICIOS}\label{ejercicios-3}
+\section*{EJERCICIOS}\label{ejercicios-4}
 
 
 Use funciones o procedimientos (varias líneas) de \proglang{R} para
@@ -3223,7 +3377,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -3244,7 +3398,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -3276,7 +3430,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -3335,7 +3489,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -3375,7 +3529,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -3520,7 +3674,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -3552,7 +3706,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -3605,7 +3759,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -3623,7 +3777,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -3679,7 +3833,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -3727,7 +3881,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -3776,7 +3930,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -3873,7 +4027,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -3952,7 +4106,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -3970,8 +4124,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-118-1.pdf}
-\caption{\label{fig:unnamed-chunk-118}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-123-1.pdf}
+\caption{\label{fig:unnamed-chunk-123}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

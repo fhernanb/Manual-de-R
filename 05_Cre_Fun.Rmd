@@ -5,11 +5,76 @@ En este capítulo se explica cómo crear una función en \proglang{R}.
 ## Función en \proglang{R} \index{función}
 En el Capítulo \@ref(funbas) se dió una explicación de lo que es una función de \proglang{R}, se dijo que una función es un conjunto de instrucciones que convierten unas entradas (_inputs_) en resultados (_outputs_) deseados.
 
+## Partes de una función en \proglang{R} \index{partes de función}
+Las partes de una función son:
+
+- Entradas: o llamadas también __argumentos__, sirven para ingresar información necesaria para realizar el procedimiento de la función. Los argumentos pueden estar vacíos y a la espera de que el usuario ingrese valores, o pueden tener valores por defecto, esto significa que si el usuario no ingresa una valor al función usará el valor por defecto. Una función puede tener o no argumentos de entrada, en los ejemplos se mostrarán estos casos.
+- Cuerpo: el cuerpo de la función está formado por un conjunto de instrucciones que transforman las entradas en las salidas deseadas. Si el cuerpo de la función está formado por varias instrucciones éstas deben ir entre llaves.
+- Salidas: son los resultados de la función. Toda función debe tener al menos un resultado, si una función no genera un resultado entonces no sirve para nada. Si una función entrega varios tipos de objetos se acostumbra a organizarlos en una lista que puede manejar los diferentes tipos de objetos.
+
+A continuación se mostrarán varios ejemplos __sencillos__ para que el lector aprenda a construir funciones.
+
+### Ejemplo {-}
+Construir una función que reciba dos números y que entregue la suma de estos números.
+
+Lo primero es elegir un nombre apropiado para la función, aquí se usó el nombre `suma` porque así se tiene una idea clara de lo que hace la función. La función suma recibe dos parámetros, `x` representa el primer valor ingresado mientras que `y` representa el segundo. El cuerpo de la función está formado por dos líneas, en la primera se crea el objeto `resultado` en el cual se almanacena el valor de la suma, en la segunda línea se le indica a \proglang{R} que queremos que retorne el valor de la suma almacenada en el objeto `resultado`. A continuación se muestra el código para crear la función solicitada.
+
+```{r}
+suma <- function(x, y) {
+  resultado <- x + y
+  return(resultado)
+}
+```
+
+Para usar la función creada sólo se debe ejecutar, vamos a obtener la suma de los valores 4 y 6 usando la función `suma`, a continuación el código necesario.
+
+```{r}
+suma(x=4, y=6)
+```
+
+Para funciones simples como la anterior es posible escribirlas en forma más compacta. Es posible reducir el cuerpo de la función de 2 líneas a sólo una línea solicitándole a \proglang{R} que retorne directamente la suma sin almacenarla en ningún objeto. A continuación la función `suma` modificada.
+
+```{r}
+suma <- function(x, y) {
+  return(x + y)
+}
+
+suma(x=4, y=6)  # Probando la función
+```
+
+Debido a que la función `suma` tiene un cuerpo muy reducido es posible escribirla en forma más compacta, en una sola línea. A continuación se muestra el código para reescribir la función.
+
+```{r}
+suma <- function(x, y) x + y
+
+suma(x=4, y=6)  # Probando la función
+```
+
+### Ejemplo {-}
+Construir una función que genere números aleatorios entre cero y uno hasta que la suma de éstos números supere por primera vez el valor de 3. La función debe entregar la cantidad de números aleatorios generados para que se cumpla la condición.
+
+Vamos a llamar la función solicitada con el nombre `fun1`, esta función __NO__ necesita ningún parámetro de entrada. El valor de 3 que está en la condición puede ir dentro del cuerpo y por eso no se necesitan parámetros para esta función. En el cuerpo de la función se genera un vector con un número aleatorio y luego se chequea si la suma de sus elementos es menor de 3, si se cumple que la suma es menor que 3 se siguen generando números que se almacenan en el vector `num`. Una vez que la suma exceda el valor de 3 NO se ingresa al `while` y se pide la longitud del vector o el valor de `veces` solicitado. A continuación el código de la función.
+
+```{r}
+fun1 <- function() {
+  num <- runif(1)
+  veces <- 1
+  while (sum(num) < 3) {
+    veces <- veces + 1
+    num[veces] <- runif(1)
+  }
+  return(veces)
+}
+
+fun1()  # primera prueba
+```
 
 
 
+## EJERCICIOS {-}
+Construir funciones en \proglang{R} que realicen lo solicitado.
 
-
+1- Construya una función que reciba dos números reales y que diga cuál es el mayor de ellos.
 
 
 
