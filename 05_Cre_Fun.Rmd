@@ -1,7 +1,9 @@
 # Creación de funciones en \proglang{R}
 
-En este capítulo se explica cómo crear una función.
+En este capítulo se explica cómo crear una función en \proglang{R}.
 
+## Función en \proglang{R} \index{función}
+En el Capítulo \@ref(funbas) se dió una explicación de lo que es una función de \proglang{R}, se dijo que una función es un conjunto de instrucciones que convierten unas entradas (_inputs_) en resultados (_outputs_) deseados.
 
 
 

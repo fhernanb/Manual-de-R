@@ -1,8 +1,8 @@
-# Funciones básicas de \proglang{R}
+# Funciones básicas de \proglang{R} \label{funbas}
 
 En este capítulo se presentará lo que es una función y se mostrarán varias funciones básicas que son útiles para realizar diversas tareas.
 
-## ¿Qué es una función \proglang{R}? \index{función} \index{function}
+## ¿Qué es una función de \proglang{R}? \index{función} \index{function}
 En la Figura \@ref(fig:machine) se muestra una ilustración de lo que es una función o máquina general. Hay unas entradas (_inputs_) que luego son procesadas dentro de la caja para generar unas salidas (_outputs_). Un ejemplo de una función o máquina muy común en nuestras casas es la licuadora. Si a una licuadora le ingresamos leche, fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa. 
 
 ```{r machine, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org.', dpi=250, fig.align='center'}
