@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-02-05}
+\date{2017-02-06}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -2550,7 +2550,7 @@ Los argumentos de la función \texttt{read.table} son:
   \begin{itemize}
   \tightlist
   \item
-    \texttt{sep=\textquotesingle{};\textquotesingle{}} si el archivo
+    \texttt{sep=\textquotesingle{},\textquotesingle{}} si el archivo
     tiene extensión .csv.
   \item
     \texttt{sep=\textquotesingle{}\textquotesingle{}} si el archivo es
@@ -2586,7 +2586,7 @@ siguiente código.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\StringTok{'C:/Users/Hernandez/Desktop/base1.csv'}\NormalTok{,}
-                    \DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep=}\StringTok{';'}\NormalTok{)}
+                    \DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep=}\StringTok{','}\NormalTok{)}
 \NormalTok{datos}
 \end{Highlighting}
 \end{Shaded}
@@ -2606,7 +2606,7 @@ el código para hacerlo de esta manera.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\KeywordTok{file.choose}\NormalTok{(), }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep=}\StringTok{';'}\NormalTok{)}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\KeywordTok{file.choose}\NormalTok{(), }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{sep=}\StringTok{','}\NormalTok{)}
 \NormalTok{datos}
 \end{Highlighting}
 \end{Shaded}
@@ -4185,7 +4185,7 @@ integral usando la función \texttt{integrate}, a continuación el código.
 
 De los anteriores resultados vemos que la aproximación es buena.
 
-\bibliography{packages.bib,book.bib}
+\bibliography{packages,book}
 
 \backmatter
 \printindex

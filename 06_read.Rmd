@@ -60,7 +60,7 @@ Los argumentos de la función `read.table` son:
 - `file`: nombre o ruta donde están alojados los datos. Puede ser un url o una dirección del computador. Es también posible usar `file.choose()` para que se abra un ventana y adjuntar el archivo deseado manualmente.
 - `header`: valor lógico, se usa `TRUE` si la primera línea de la base de datos tiene los nombres de las variables, caso contrario se usa `FALSE`.
 - `sep`: tipo de separación interna para los datos dentro del archivo. Los valores usuales para este parámetros son:
-    - `sep=';'` si el archivo tiene extensión .csv. 
+    - `sep=','` si el archivo tiene extensión .csv. 
     - `sep=''` si el archivo es bloc de notas con espacios por la barra __espaciadora__. 
     - `sep='\t'` si el archivo es bloc de notas con espacios por la barra __tabuladora__. 
 - `dec`: símbolo con el cual están indicados los decimales.
@@ -76,7 +76,7 @@ Para leer el archivo de Excel llamado `base1.csv` podemos usar el siguiente cód
 
 ```{r, eval=F}
 datos <- read.table(file='C:/Users/Hernandez/Desktop/base1.csv',
-                    header=TRUE, sep=';')
+                    header=TRUE, sep=',')
 datos
 ```
 
@@ -85,7 +85,7 @@ La dirección `file='C:/Users/Hernandez/Desktop/base1.csv'` le indica a \proglan
 Si no se conoce la ubicación del archivo a leer o si la dirección es muy extensa, se puede usar `file.choose()` para que se abra una ventana y así adjuntar manualmente el archivo. A continuación se muestra el código para hacerlo de esta manera.
 
 ```{r, eval=F}
-datos <- read.table(file.choose(), header=TRUE, sep=';')
+datos <- read.table(file.choose(), header=TRUE, sep=',')
 datos
 ```
 
