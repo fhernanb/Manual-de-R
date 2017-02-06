@@ -69,13 +69,52 @@ fun1 <- function() {
 fun1()  # primera prueba
 ```
 
+### Ejemplo {-}
+Construir una función que, dado un número entero positivo (cota) ingresado por el usuario, genere números aleatorios entre cero y uno hasta que la suma de los números generados exceda por primera vez la cota. La función debe entregar un vector con los números aleatorios, la suma y la cantidad de números aleatorios. Si el usuario no ingresa el valor de la cota, se debe asumir igual a 1.
+
+La función aquí solicitada es similar a la construída en el ejemplo anterior. La función `fun2` tiene un sólo parámetro con el valor por defecto, si el usuario no ingresa valor a este parámetro, se asumirá el valor de uno. El cuerpo de la función es similar al anterior. Como la función debe entregar un vector y dos números, se construye la lista `resultado` que almacena los tres objetos solicitados. A continuación el código para función solicitada.
+
+```{r}
+fun2 <- function(cota=1) {
+  num <- runif(1)
+  while (sum(num) < cota) {
+    num <- c(num, runif(1))
+  }
+  resultado <- list(vector=num,
+                    suma=sum(num),
+                    cantidad=length(num))
+  return(resultado)
+}
+```
+
+Probando la función con cota de uno.
+
+```{r}
+fun2()
+```
+
+Probando la función con cota de tres.
+
+```{r}
+fun2(cota=3)
+```
+
 
 
 ## EJERCICIOS {-}
 Construir funciones en \proglang{R} que realicen lo solicitado.
 
-1- Construya una función que reciba dos números reales y que diga cuál es el mayor de ellos.
+1. Construya una función que reciba dos números reales y que diga cuál es el mayor de ellos.
 
+2. Escriba una función llamada media que calcule la media muestral de un vector numérico ingresado a la función. A continuación la fórmula para calcular la media muestral.
+
+$$\bar{x}=\frac{\sum_{i=1}^n x_i}{n}$$
+Verifique el desempeño de su función comparando con la función `mean`. Corra el siguiente código para hacer la prueba, los resultados deben coincidir.
+```{r, eval=F}
+x <- runif(n=100)
+media(x)
+mean(x)
+```
 
 
 

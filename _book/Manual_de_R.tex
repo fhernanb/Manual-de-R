@@ -2398,13 +2398,104 @@ solicitado. A continuación el código de la función.
 ## [1] 8
 \end{verbatim}
 
+\subsection*{Ejemplo}\label{ejemplo-10}
+
+
+Construir una función que, dado un número entero positivo (cota)
+ingresado por el usuario, genere números aleatorios entre cero y uno
+hasta que la suma de los números generados exceda por primera vez la
+cota. La función debe entregar un vector con los números aleatorios, la
+suma y la cantidad de números aleatorios. Si el usuario no ingresa el
+valor de la cota, se debe asumir igual a 1.
+
+La función aquí solicitada es similar a la construída en el ejemplo
+anterior. La función \texttt{fun2} tiene un sólo parámetro con el valor
+por defecto, si el usuario no ingresa valor a este parámetro, se asumirá
+el valor de uno. El cuerpo de la función es similar al anterior. Como la
+función debe entregar un vector y dos números, se construye la lista
+\texttt{resultado} que almacena los tres objetos solicitados. A
+continuación el código para función solicitada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fun2 <-}\StringTok{ }\NormalTok{function(}\DataTypeTok{cota=}\DecValTok{1}\NormalTok{) \{}
+  \NormalTok{num <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+  \NormalTok{while (}\KeywordTok{sum}\NormalTok{(num) <}\StringTok{ }\NormalTok{cota) \{}
+    \NormalTok{num <-}\StringTok{ }\KeywordTok{c}\NormalTok{(num, }\KeywordTok{runif}\NormalTok{(}\DecValTok{1}\NormalTok{))}
+  \NormalTok{\}}
+  \NormalTok{resultado <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{vector=}\NormalTok{num,}
+                    \DataTypeTok{suma=}\KeywordTok{sum}\NormalTok{(num),}
+                    \DataTypeTok{cantidad=}\KeywordTok{length}\NormalTok{(num))}
+  \KeywordTok{return}\NormalTok{(resultado)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Probando la función con cota de uno.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{fun2}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $vector
+## [1] 0.001137 0.391203 0.462495 0.388144
+## 
+## $suma
+## [1] 1.243
+## 
+## $cantidad
+## [1] 4
+\end{verbatim}
+
+Probando la función con cota de tres.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{fun2}\NormalTok{(}\DataTypeTok{cota=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $vector
+## [1] 0.4025 0.1790 0.9517 0.4537 0.3268 0.9654
+## 
+## $suma
+## [1] 3.279
+## 
+## $cantidad
+## [1] 6
+\end{verbatim}
+
 \section*{EJERCICIOS}\label{ejercicios-2}
 
 
 Construir funciones en \proglang{R} que realicen lo solicitado.
 
-1- Construya una función que reciba dos números reales y que diga cuál
-es el mayor de ellos.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Construya una función que reciba dos números reales y que diga cuál es
+  el mayor de ellos.
+\item
+  Escriba una función llamada media que calcule la media muestral de un
+  vector numérico ingresado a la función. A continuación la fórmula para
+  calcular la media muestral.
+\end{enumerate}
+
+\[\bar{x}=\frac{\sum_{i=1}^n x_i}{n}\] Verifique el desempeño de su
+función comparando con la función \texttt{mean}. Corra el siguiente
+código para hacer la prueba, los resultados deben coincidir.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{n=}\DecValTok{100}\NormalTok{)}
+\KeywordTok{media}\NormalTok{(x)}
+\KeywordTok{mean}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
 
 \chapter{\texorpdfstring{Lectura de bases de datos
 \index{lectura de bases de datos}}{Lectura de bases de datos }}\label{lectura-de-bases-de-datos}
@@ -2564,7 +2655,7 @@ Los argumentos de la función \texttt{read.table} son:
   \texttt{dec}: símbolo con el cual están indicados los decimales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Crear la base de datos del Cuadro \ref{tab:dt1} en Excel y bloc de notas
@@ -2655,7 +2746,7 @@ Un error frecuente es escribir la dirección o ubicación del archivo
 usando \texttt{\textbackslash{}}, lo correcto es usar \texttt{/}.
 \EndKnitrBlock{rmdwarning}
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Leer la base de datos sobre apartamentos usados en la ciudad de Medellín
@@ -3015,7 +3106,7 @@ la función es la siguiente.
   globales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Obtener las tablas \texttt{tabla3} y \texttt{tabla4} con los totales
@@ -3097,7 +3188,7 @@ Los parámetros de la función son:
   representación gráfica llamada histograma.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Genere 200 observaciones aleatorias de una distribución normal con media
@@ -3123,16 +3214,16 @@ continuación el código utilizado.
 
 \begin{verbatim}
 ## $breaks
-## [1] 150 155 160 165 170 175 180 185
+## [1] 155 160 165 170 175 180 185
 ## 
 ## $counts
-## [1]  1  6 15 68 82 27  1
+## [1]  6 17 67 83 26  1
 ## 
 ## $density
-## [1] 0.001 0.006 0.015 0.068 0.082 0.027 0.001
+## [1] 0.006 0.017 0.067 0.083 0.026 0.001
 ## 
 ## $mids
-## [1] 152.5 157.5 162.5 167.5 172.5 177.5 182.5
+## [1] 157.5 162.5 167.5 172.5 177.5 182.5
 ## 
 ## $xname
 ## [1] "x"
@@ -3186,7 +3277,7 @@ continuación.
 ## [1] "histogram"
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Construya el vector \texttt{x} con los siguientes elementos: 1.0, 1.2,
@@ -3377,7 +3468,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -3398,7 +3489,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -3430,7 +3521,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -3489,7 +3580,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -3529,7 +3620,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -3674,7 +3765,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -3706,7 +3797,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -3759,7 +3850,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -3777,7 +3868,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -3833,7 +3924,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -3881,7 +3972,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -3930,7 +4021,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -4027,7 +4118,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -4106,7 +4197,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-28}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -4124,8 +4215,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-123-1.pdf}
-\caption{\label{fig:unnamed-chunk-123}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-127-1.pdf}
+\caption{\label{fig:unnamed-chunk-127}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
@@ -4185,7 +4276,7 @@ integral usando la función \texttt{integrate}, a continuación el código.
 
 De los anteriores resultados vemos que la aproximación es buena.
 
-\bibliography{packages,book}
+\bibliography{packages.bib,book.bib}
 
 \backmatter
 \printindex
