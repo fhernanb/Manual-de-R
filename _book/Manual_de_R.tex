@@ -262,11 +262,6 @@ principales funciones para realizar diversos análisis estadísticos, las
 cuestiones sobre creación de gráficos estadísticos no son abordadas en
 el presente libro, recomendamos consultar \citet{correa_hernandez}.
 
-\section*{¿Por qué leer este libro?}\label{por-que-leer-este-libro}
-
-
-Este libro es importante porque \ldots{}
-
 \section*{Estructura del libro}\label{estructura-del-libro}
 
 
@@ -283,14 +278,9 @@ obtener medidas de correlación entre pares de variables.
 convenciones}\label{informacion-del-software-y-convenciones}
 
 
-Para realizar este libro usamos los paquetes \textbf{knitr}\index{knitr}
-\citep{xie2015} y \textbf{bookdown}\index{bookdown} \citep{R-bookdown}.
-
-Package names are in bold text (e.g., \textbf{rmarkdown}), and inline
-code and filenames are formatted in a typewriter font (e.g.,
-\texttt{knitr::knit(\textquotesingle{}foo.Rmd\textquotesingle{})}).
-Function names are followed by parentheses (e.g.,
-\texttt{bookdown::render\_book()}).
+Para realizar este libro usamos los paquetes de \proglang{R}
+\textbf{knitr}\index{knitr} \citep{xie2015} y
+\textbf{bookdown}\index{bookdown} \citep{R-bookdown}.
 
 En todo el libro se presentarán códigos que el lector puede copiar y
 pegar en su consola de \proglang{R} para obtener los mismos resultados
@@ -2469,6 +2459,40 @@ Probando la función con cota de tres.
 ## [1] 6
 \end{verbatim}
 
+\subsection*{Ejemplo}\label{ejemplo-11}
+
+
+Construya una función que reciba dos números de la recta real y que
+entregue el punto médio de estos números. El resultado debe ser un
+mensaje por pantalla.
+
+El punto médio entre dos valores es la suma de los números divido entre
+dos. La función \texttt{cat} sirve para concatenar objetos y
+presentarlos por pantalla. A continuación el código para la función
+requerida.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{medio <-}\StringTok{ }\NormalTok{function(a, b) \{}
+  \NormalTok{medio <-}\StringTok{ }\NormalTok{(a +}\StringTok{ }\NormalTok{b) /}\StringTok{ }\DecValTok{2}
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"El punto medio de los valores"}\NormalTok{,}
+      \NormalTok{a, }\StringTok{"y"}\NormalTok{, b,}
+      \StringTok{"ingresados es"}\NormalTok{, medio)}
+\NormalTok{\}}
+
+\KeywordTok{medio}\NormalTok{(}\DataTypeTok{a=}\NormalTok{-}\DecValTok{3}\NormalTok{, }\DataTypeTok{b=}\NormalTok{-}\DecValTok{1}\NormalTok{)  }\CommentTok{# Probando la función}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## El punto medio de los valores -3 y -1 ingresados es -2
+\end{verbatim}
+
+\BeginKnitrBlock{rmdnote}
+La función \texttt{cat} es muy útil para presentar resultados por
+pantalla. Consulte la ayuda de la función para ver otros ejemplos.
+\EndKnitrBlock{rmdnote}
+
 \section*{EJERCICIOS}\label{ejercicios-2}
 
 
@@ -2496,6 +2520,21 @@ código para hacer la prueba, los resultados deben coincidir.
 \KeywordTok{mean}\NormalTok{(x)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Construya una función que encuentre las raíces de una ecuación de
+  segundo grado. El usuario debe suministrar los coeficientes
+  \texttt{a}, \texttt{b} y \texttt{c} de la ecuación \(ax^2+bx+c=0\) y
+  la función debe entregar las raíces.
+\item
+  Escribir una función que calcule la velocidad de un proyectil dado que
+  el usuario ingresa la distancia Km y el tiempo en minutos. Expresar el
+  resultado en metros/segundo, recuerde que
+  \(velocidad = espacio / tiempo\).
+\end{enumerate}
 
 \chapter{\texorpdfstring{Lectura de bases de datos
 \index{lectura de bases de datos}}{Lectura de bases de datos }}\label{lectura-de-bases-de-datos}
@@ -2655,7 +2694,7 @@ Los argumentos de la función \texttt{read.table} son:
   \texttt{dec}: símbolo con el cual están indicados los decimales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Crear la base de datos del Cuadro \ref{tab:dt1} en Excel y bloc de notas
@@ -2746,7 +2785,7 @@ Un error frecuente es escribir la dirección o ubicación del archivo
 usando \texttt{\textbackslash{}}, lo correcto es usar \texttt{/}.
 \EndKnitrBlock{rmdwarning}
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Leer la base de datos sobre apartamentos usados en la ciudad de Medellín
@@ -3106,7 +3145,7 @@ la función es la siguiente.
   globales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Obtener las tablas \texttt{tabla3} y \texttt{tabla4} con los totales
@@ -3188,7 +3227,7 @@ Los parámetros de la función son:
   representación gráfica llamada histograma.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Genere 200 observaciones aleatorias de una distribución normal con media
@@ -3277,7 +3316,7 @@ continuación.
 ## [1] "histogram"
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Construya el vector \texttt{x} con los siguientes elementos: 1.0, 1.2,
@@ -3468,7 +3507,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -3489,7 +3528,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -3521,7 +3560,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -3580,7 +3619,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -3620,7 +3659,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -3765,7 +3804,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -3797,7 +3836,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -3850,7 +3889,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -3868,7 +3907,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -3924,7 +3963,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -3972,7 +4011,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -4021,7 +4060,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -4118,7 +4157,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-28}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -4197,7 +4236,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-29}
+\subsection*{Ejemplo}\label{ejemplo-30}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -4215,8 +4254,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-127-1.pdf}
-\caption{\label{fig:unnamed-chunk-127}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-129-1.pdf}
+\caption{\label{fig:unnamed-chunk-129}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

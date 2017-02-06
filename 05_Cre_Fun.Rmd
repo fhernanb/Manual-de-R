@@ -99,7 +99,25 @@ Probando la función con cota de tres.
 fun2(cota=3)
 ```
 
+### Ejemplo {-} 
+Construya una función que reciba dos números de la recta real y que entregue el punto médio de estos números. El resultado debe ser un mensaje por pantalla.
 
+El punto médio entre dos valores es la suma de los números divido entre dos. La función `cat` sirve para concatenar objetos y presentarlos por pantalla. A continuación el código para la función requerida.
+
+```{r}
+medio <- function(a, b) {
+  medio <- (a + b) / 2
+  cat("El punto medio de los valores",
+      a, "y", b,
+      "ingresados es", medio)
+}
+
+medio(a=-3, b=-1)  # Probando la función
+```
+
+```{block2, type='rmdnote'}
+La función `cat` es muy útil para presentar resultados por pantalla. Consulte la ayuda de la función para ver otros ejemplos.
+```
 
 ## EJERCICIOS {-}
 Construir funciones en \proglang{R} que realicen lo solicitado.
@@ -116,7 +134,9 @@ media(x)
 mean(x)
 ```
 
+3. Construya una función que encuentre las raíces de una ecuación de segundo grado. El usuario debe suministrar los coeficientes `a`, `b` y `c` de la ecuación $ax^2+bx+c=0$ y la función debe entregar las raíces.
 
+4. Escribir una función que calcule la velocidad de un proyectil dado que el usuario ingresa la distancia  Km y el tiempo  en minutos. Expresar el resultado en metros/segundo, recuerde que $velocidad = espacio / tiempo$.
 
 
 
