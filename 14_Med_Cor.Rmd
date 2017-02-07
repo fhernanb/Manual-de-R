@@ -65,16 +65,14 @@ M <- round(cor(datos.cuanti), digits=2)
 M
 ```
 
-El anterior resultado representa la matriz de correlaciones, se nota claramente que la mayor correlación corresponde a las variables precio y área del apartamento. Es posible representar la matriz `M` de correlaciones por medio de una figura, a continuación el código para obtener su representación gráfica.
+El anterior resultado representa la matriz de correlaciones, se observa que la mayor correlación corresponde a las variables precio y área del apartamento. Es posible representar la matriz `M` de correlaciones por medio de una figura, a continuación el código para obtener su representación gráfica.
 
-```{r corplot, fig.cap='Matriz de coeficientes de correlación.', fig.asp=0.6, fig.width =10}
+```{r corplot, fig.cap='Matriz de coeficientes de correlación.', fig.asp=0.6, fig.width=6}
 library('corrplot')  # Para cargar el paquete corrplot
 corrplot(M, method='ellipse', type='upper')
 ```
 
-
-
-
+En la Figura \@ref(fig:corplot) se muestra la matriz con los coeficientes de correlación. De esta figura es muy fácil determinar las mayores correlaciones debido al color y forma de la elipse. La elipse asociada a precio y área tiene la mayor tonalidad azul que significa correlación positiva.
 
 
 
