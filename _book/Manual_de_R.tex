@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-02-06}
+\date{2017-02-07}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -4183,7 +4183,207 @@ solicitadas es el siguiente.
 \chapter{\texorpdfstring{Medidas de correlación
 \label{correl}}{Medidas de correlación }}\label{medidas-de-correlacion}
 
-En este capítulo se mostrará cómo obtener las diferentes medidas de
+En este capítulo se mostrará cómo obtener el coeficiente de correlación
+lineal para variables cuantitativas.
+
+\section{\texorpdfstring{Función \texttt{cor} \index{cor}
+\index{correlación}}{Función cor  }}\label{funcion-cor}
+
+La función \texttt{cor} permite calcular el coeficiente de correlación
+de Pearson, Kendall o Spearman para dos variables cuantitativas. La
+estructura de la función es la siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cor}\NormalTok{(x, y, }\DataTypeTok{use=}\StringTok{"everything"}\NormalTok{,}
+    \DataTypeTok{method=}\KeywordTok{c}\NormalTok{(}\StringTok{"pearson"}\NormalTok{, }\StringTok{"kendall"}\NormalTok{, }\StringTok{"spearman"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Los parámetos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x,\ y}: vectores cuantitativos.
+\item
+  \texttt{use}: parámetro que indica lo que se debe hacer cuando se
+  presenten registros \texttt{NA} en alguno de los vectores. Las
+  diferentes posibilidades son: \texttt{everything}, \texttt{all.obs},
+  \texttt{complete.obs}, \texttt{na.or.complete} y
+  \texttt{pairwise.complete.obs}, el valor por defecto es
+  \texttt{everything}.
+\item
+  \texttt{method}: tipo de coeficiente de correlación a calcular, por
+  defecto es \texttt{pearson}, otros valores posibles son
+  \texttt{kendall} y \texttt{spearman}.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-30}
+
+
+Calcular el coeficiente de correlación de Pearson para las variables
+área y precio de la base de datos sobre apartamentos usados.
+
+Lo primero que se debe hacer es cargar la base de datos usando la url
+apropiada. Luego de esto se usa la función \texttt{cor} sobre las
+variables de interés. A continuación se muestra el código necesario.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+\KeywordTok{cor}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$mt2, }\DataTypeTok{y=}\NormalTok{datos$precio)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8583
+\end{verbatim}
+
+Del resultado anterior vemos que existe una correlación de 0.8583 entre
+las dos variables, eso significa que apartamentos de mayor área tienden
+a tener precios de venta más alto. Este resultado se ilustra en la
+Figura \ref{fig:disp}, se nota claramente que la nube de puntos tiene un
+pendiente positiva y por eso el signo del coeficiente de correlación.
+
+A continuación el código para generar la Figura \ref{fig:disp}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{mt2, }\DataTypeTok{y=}\NormalTok{precio, }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{,}
+                 \DataTypeTok{xlab=}\StringTok{'Área del apartamento'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+                 \DataTypeTok{ylab=}\StringTok{'Precio del apartamento (millones COP)'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/disp-1.pdf}
+\caption{\label{fig:disp}Diagrama de dispersión para precio versus área de
+los apartamentos usados.}
+\end{figure}
+
+\subsection*{Ejemplo}\label{ejemplo-31}
+
+
+Para las mismas variables del ejemplo anterior calcular los coeficientes
+de correlación Kendall y Spearman.
+
+A continuación el código para obtener lo solicitado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cor}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$mt2, }\DataTypeTok{y=}\NormalTok{datos$precio, }\DataTypeTok{method=}\StringTok{'pearson'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8583
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cor}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$mt2, }\DataTypeTok{y=}\NormalTok{datos$precio, }\DataTypeTok{method=}\StringTok{'kendall'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6911
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cor}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$mt2, }\DataTypeTok{y=}\NormalTok{datos$precio, }\DataTypeTok{method=}\StringTok{'spearman'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8603
+\end{verbatim}
+
+\subsection*{Ejemplo}\label{ejemplo-32}
+
+
+Para la base de datos de apartamentos usados, ¿cuáles de las variables
+cuantitativas tienen mayor correlación?
+
+Lo primero que debemos hacer es determinar cuáles son las cuantitativas
+de la base de datos. Para obtener información de las variables que están
+almacenadas en el marco de datos llamado \texttt{datos} usamos la
+función \texttt{str} que muestra la estructura interna de objeto.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    694 obs. of  11 variables:
+##  $ precio        : num  79 93 100 123 135 140 145 160 160 175 ...
+##  $ mt2           : num  43.2 56.9 66.4 61.9 89.8 ...
+##  $ ubicacion     : Factor w/ 7 levels "aburra sur","belen guayabal",..: 5 5 5 5 5 5 5 5 5 5 ...
+##  $ estrato       : int  3 2 3 2 4 3 3 3 4 4 ...
+##  $ alcobas       : int  3 2 2 3 3 3 2 3 4 3 ...
+##  $ banos         : int  1 1 2 2 2 2 2 2 2 2 ...
+##  $ balcon        : Factor w/ 2 levels "no","si": 2 2 1 2 2 1 2 2 2 2 ...
+##  $ parqueadero   : Factor w/ 2 levels "no","si": 2 2 1 2 1 2 2 2 1 2 ...
+##  $ administracion: num  0.05 0.069 0 0.13 0 0.12 0.14 0.127 0 0.123 ...
+##  $ avaluo        : num  14.9 27 15.7 27 39.6 ...
+##  $ terminado     : Factor w/ 2 levels "no","si": 1 2 1 1 2 2 2 2 2 2 ...
+\end{verbatim}
+
+Del anterior resultado vemos que las variables precio, mt2, alcobas,
+banos, administracion y avaluo son las variables cuantitativas, las
+restantes son cualitativas (nominal u ordinal). Las posiciones de las
+variables cuantitativas en el objeto \texttt{datos} son 1, 2, 5, 6, 9,
+10, así podemos construir un marco de datos sólo con la información
+cuantitativa, a continuación el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos.cuanti <-}\StringTok{ }\NormalTok{datos[, }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{10}\NormalTok{)]}
+\NormalTok{M <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{cor}\NormalTok{(datos.cuanti), }\DataTypeTok{digits=}\DecValTok{2}\NormalTok{)}
+\NormalTok{M}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                precio  mt2 alcobas banos
+## precio           1.00 0.86    0.19  0.63
+## mt2              0.86 1.00    0.31  0.67
+## alcobas          0.19 0.31    1.00  0.35
+## banos            0.63 0.67    0.35  1.00
+## administracion   0.75 0.77    0.16  0.55
+## avaluo           0.79 0.75    0.15  0.53
+##                administracion avaluo
+## precio                   0.75   0.79
+## mt2                      0.77   0.75
+## alcobas                  0.16   0.15
+## banos                    0.55   0.53
+## administracion           1.00   0.70
+## avaluo                   0.70   1.00
+\end{verbatim}
+
+El anterior resultado representa la matriz de correlaciones, se nota
+claramente que la mayor correlación corresponde a las variables precio y
+área del apartamento. Es posible representar la matriz \texttt{M} de
+correlaciones por medio de una figura, a continuación el código para
+obtener su representación gráfica.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(}\StringTok{'corrplot'}\NormalTok{)  }\CommentTok{# Para cargar el paquete corrplot}
+\KeywordTok{corrplot}\NormalTok{(M, }\DataTypeTok{method=}\StringTok{'ellipse'}\NormalTok{, }\DataTypeTok{type=}\StringTok{'upper'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/corplot-1.pdf}
+\caption{\label{fig:corplot}Matriz de coeficientes de correlación.}
+\end{figure}
 
 \chapter{Distribuciones discretas}\label{distribuciones-discretas}
 
@@ -4236,7 +4436,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-30}
+\subsection*{Ejemplo}\label{ejemplo-33}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -4254,8 +4454,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-129-1.pdf}
-\caption{\label{fig:unnamed-chunk-129}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-134-1.pdf}
+\caption{\label{fig:unnamed-chunk-134}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
