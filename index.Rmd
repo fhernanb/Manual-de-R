@@ -31,7 +31,7 @@ lapply(c(), function(pkg) {
 
 # Prefacio {-}
 
-Este libro fue creado con la intención de apoyar el aprendizaje del programa \proglang{R} en estudiantes de pregrado, especialización, maestría e investigadores que necesiten realizar análisis estadísticos. En este libro se explica de una forma sencilla la utilidad de la principales funciones para realizar diversos análisis estadísticos, las cuestiones sobre creación de gráficos estadísticos no son abordadas en el presente libro, recomendamos consultar @correa_hernandez.
+Este libro fue creado con la intención de apoyar el aprendizaje del lenguaje de programación \proglang{R} en estudiantes de pregrado, especialización, maestría e investigadores, que necesiten realizar análisis estadísticos. En este libro se explica de una forma sencilla la utilidad de la principales funciones para realizar diversos análisis estadísticos, las cuestiones sobre creación de gráficos estadísticos no son abordadas en el presente libro, recomendamos consultar @correa_hernandez.
 
 ## Estructura del libro {-}
 
@@ -41,7 +41,7 @@ En el capítulo \@ref(central) se muestra como obtener las diversas medidas de t
 
 ## Información del software y convenciones {-}
 
-Para realizar este libro usamos los paquetes de \proglang{R} **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown].
+Para realizar este libro se usaron los paquetes de \proglang{R} **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown], estos paquetes permiten construir todo el libro desde \proglang{R} y sirven para incluir código que se ejecute de forma automática incluyendo las salidas y gráficos.
 
 En todo el libro se presentarán códigos que el lector puede copiar y pegar en su consola de \proglang{R} para obtener los mismos resultados aquí presentados. Los códigos se destacan en una caja de color beis (o beige) similar a la mostrada a continuación.
 
@@ -52,7 +52,7 @@ a <- c(1, 5, 6)
 1:10
 ```
 
-Los resultados o salidas obtenidos de cualquier código se destacan con dos símbolos de númeral (`##`) al inicio de cada línea o renglón, esto quiere decir que todo lo que inicie con `##` son resultados obtenidos y __NO__ los debe copiar. Abajo se muestran los resultados obtenidos luego de correr el código anterior.
+Los resultados o salidas obtenidos de cualquier código se destacan con dos símbolos de númeral (`##`) al inicio de cada línea o renglón, esto quiere decir que todo lo que inicie con `##` son resultados obtenidos y el usuario __NO__ los debe copiar. Abajo se muestran los resultados obtenidos luego de correr el código anterior.
 
 ```{r, echo=F}
 4 + 6
@@ -65,15 +65,15 @@ a <- c(1, 5, 6)
 En varias partes del libro usaremos bloques informativos para resaltar algún aspecto importante. Abajo se encuentra un ejemplo de los bloques y su significado.
 
 ```{block2, type='rmdnote'}
-Este bloque sirve para una nota aclaratoria.
+Nota aclaratoria.
 ```
 
 ```{block2, type='rmdtip'}
-Este bloque sirve para una sugerencia.
+Sugerencia.
 ```
 
 ```{block2, type='rmdwarning'}
-Este bloque sirve para una advertencia.
+Advertencia.
 ```
 
 

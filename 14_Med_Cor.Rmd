@@ -102,6 +102,6 @@ Use funciones o procedimientos (varias líneas) de \proglang{R} para responder c
 
 1. Para cada uno de los estratos socioeconómicos, calcular el coeficiente de correlación lineal de Pearson para las variables precio y área de la base de datos de los apartamentos usados.
 
-2. 
+2. Calcular los coeficientes de correlación Pearson, Kendall y Spearman para las variables cuantitativas de la base de datos sobre medidas del cuerpo explicada en el Capítulo \@ref(central). La url con la información es la siguiente: https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo
 
-
+3. Represente gráficamente las matrices de correlación obtenidas en el ejercicio anterior.
