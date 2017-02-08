@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-02-07}
+\date{2017-02-08}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -505,8 +505,8 @@ consola, para hacer esto se deben explorar las opciones de
 \caption{Apariencia de R.}\label{fig:pantalla}
 \end{figure}
 
-\chapter{\texorpdfstring{Tipos de objetos
-\index{objetos}}{Tipos de objetos }}\label{tipos-de-objetos}
+\chapter{\texorpdfstring{Tipos de objetos \index{objetos}
+\label{objetos}}{Tipos de objetos  }}\label{tipos-de-objetos}
 
 En \proglang{R} existen varios tipos de objectos que permiten que el
 usuario pueda almacenar la información para realizar procedimientos
@@ -684,7 +684,8 @@ siguiente.
 \end{verbatim}
 
 \section{\texorpdfstring{Marco de datos \index{marco de datos}
-\index{data.frame}}{Marco de datos  }}\label{marco-de-datos}
+\index{data.frame}
+\label{marcodatos}}{Marco de datos   }}\label{marco-de-datos}
 
 El marco de datos marco de datos o \emph{data frame} es uno de los
 objetos más utilizados porque permite agrupar vectores con información
@@ -4344,38 +4345,37 @@ cuantitativa, a continuación el código usado.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{datos.cuanti <-}\StringTok{ }\NormalTok{datos[, }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{10}\NormalTok{)]}
+\CommentTok{# La siguiente instrucción para editar los nombres de la variables}
+\KeywordTok{colnames}\NormalTok{(datos.cuanti) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'Precio'}\NormalTok{, }\StringTok{'Área'}\NormalTok{, }\StringTok{'Alcobas'}\NormalTok{,}
+                            \StringTok{'Baños'}\NormalTok{, }\StringTok{'Admon'}\NormalTok{, }\StringTok{'Avaluo'}\NormalTok{)}
 \NormalTok{M <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{cor}\NormalTok{(datos.cuanti), }\DataTypeTok{digits=}\DecValTok{2}\NormalTok{)}
 \NormalTok{M}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##                precio  mt2 alcobas banos
-## precio           1.00 0.86    0.19  0.63
-## mt2              0.86 1.00    0.31  0.67
-## alcobas          0.19 0.31    1.00  0.35
-## banos            0.63 0.67    0.35  1.00
-## administracion   0.75 0.77    0.16  0.55
-## avaluo           0.79 0.75    0.15  0.53
-##                administracion avaluo
-## precio                   0.75   0.79
-## mt2                      0.77   0.75
-## alcobas                  0.16   0.15
-## banos                    0.55   0.53
-## administracion           1.00   0.70
-## avaluo                   0.70   1.00
+##         Precio Área Alcobas Baños Admon Avaluo
+## Precio    1.00 0.86    0.19  0.63  0.75   0.79
+## Área      0.86 1.00    0.31  0.67  0.77   0.75
+## Alcobas   0.19 0.31    1.00  0.35  0.16   0.15
+## Baños     0.63 0.67    0.35  1.00  0.55   0.53
+## Admon     0.75 0.77    0.16  0.55  1.00   0.70
+## Avaluo    0.79 0.75    0.15  0.53  0.70   1.00
 \end{verbatim}
 
-El anterior resultado representa la matriz de correlaciones, se observa
-que la mayor correlación corresponde a las variables precio y área del
-apartamento. Es posible representar la matriz \texttt{M} de
-correlaciones por medio de una figura, a continuación el código para
-obtener su representación gráfica.
+El anterior resultado representa la matriz de correlaciones entre las
+variables cuantitativas, se observa que la mayor correlación es entre
+las variables precio y área del apartamento.
+
+Es posible representar gráficamente la matriz de correlaciones
+\texttt{M} por medio de la función \texttt{corrplot} del paquete
+\textbf{corrplot}\index{corrplot} \citep{R-corrplot}, a continuación el
+código para obtener su representación gráfica.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(}\StringTok{'corrplot'}\NormalTok{)  }\CommentTok{# Para cargar el paquete corrplot}
-\KeywordTok{corrplot}\NormalTok{(M, }\DataTypeTok{method=}\StringTok{'ellipse'}\NormalTok{, }\DataTypeTok{type=}\StringTok{'upper'}\NormalTok{)}
+\KeywordTok{corrplot.mixed}\NormalTok{(M)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4386,10 +4386,74 @@ obtener su representación gráfica.
 \end{figure}
 
 En la Figura \ref{fig:corplot} se muestra la matriz con los coeficientes
-de correlación. De esta figura es muy fácil determinar las mayores
-correlaciones debido al color y forma de la elipse. La elipse asociada a
-precio y área tiene la mayor tonalidad azul que significa correlación
-positiva.
+de correlación. En la diagonal de la Figura \ref{fig:corplot} están las
+variables, por encima están unos círculos de colores, entre más
+intensidad del color, ya sea azul o rojo, mayor es la correlación,
+colores ténues significan correlación baja; el tamaño de los círculos
+está asociado al valor absoluto de correlación. Por debajo de la
+diagonal se observan los valores exactos de correlación en colores.
+
+\BeginKnitrBlock{rmdtip}
+La función \texttt{corrplot} es muy versátil, se pueden obtener
+diferentes representaciones gráficas de la matriz de correlaciones, para
+conocer las diferentes posibilidades recomendamos consultar este enlace:
+\url{https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html}.
+\EndKnitrBlock{rmdtip}
+
+\subsection*{Ejemplo}\label{ejemplo-33}
+
+
+Construya dos vectores hipotéticos con el gasto y ahorro de un grupo de
+7 familias, incluya dos \texttt{NA}. Calcule el coeficiente de
+correlación entre \texttt{ahorro} y \texttt{gasto}, use el parámetro
+\texttt{use} para manejar los \texttt{NA}.
+
+A continuación se presenta el código para crear los objetos
+\texttt{ahorro} y \texttt{gasto} con datos ficticios. Observe que en el
+primer caso donde se calcula la correlación no es posible obtener un
+resultado debido a que por defecto
+\texttt{use=\textquotesingle{}everything\textquotesingle{}} y por lo
+tanto usa todas las observaciones incluyendo los \texttt{NA}. En el
+segundo caso si se obtiene un valor para la correlación debido a que se
+usó \texttt{use=\textquotesingle{}complete.obs\textquotesingle{}}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gasto <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{170}\NormalTok{, }\DecValTok{230}\NormalTok{, }\DecValTok{120}\NormalTok{, }\DecValTok{156}\NormalTok{, }\DecValTok{256}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{352}\NormalTok{)}
+\NormalTok{ahorro <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{45}\NormalTok{, }\DecValTok{30}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{15}\NormalTok{)}
+
+\KeywordTok{cor}\NormalTok{(gasto, ahorro)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cor}\NormalTok{(gasto, ahorro, }\DataTypeTok{use=}\StringTok{'complete.obs'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.8465
+\end{verbatim}
+
+\section*{EJERCICIOS}\label{ejercicios-5}
+
+
+Use funciones o procedimientos (varias líneas) de \proglang{R} para
+responder cada una de las siguientes preguntas.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Para cada uno de los estratos socioeconómicos, calcular el coeficiente
+  de correlación lineal de Pearson para las variables precio y área de
+  la base de datos de los apartamentos usados.
+\item
+\end{enumerate}
 
 \chapter{Distribuciones discretas}\label{distribuciones-discretas}
 
@@ -4442,7 +4506,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-33}
+\subsection*{Ejemplo}\label{ejemplo-34}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -4460,8 +4524,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-134-1.pdf}
-\caption{\label{fig:unnamed-chunk-134}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-136-1.pdf}
+\caption{\label{fig:unnamed-chunk-136}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
@@ -4521,7 +4585,7 @@ integral usando la función \texttt{integrate}, a continuación el código.
 
 De los anteriores resultados vemos que la aproximación es buena.
 
-\bibliography{packages.bib,book.bib}
+\bibliography{packages,book}
 
 \backmatter
 \printindex

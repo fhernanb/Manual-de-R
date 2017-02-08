@@ -1,4 +1,4 @@
-# Tipos de objetos \index{objetos}
+# Tipos de objetos \index{objetos} \label{objetos}
 
 En \proglang{R} existen varios tipos de objectos que permiten que el usuario pueda almacenar la información para realizar procedimientos estadísticos y gráficos. Los principales objetos en \proglang{R} son vectores, matrices, arreglos, marcos de datos y listas. A continuación se presentan las características de estos objetos y la forma para crearlos.
 
@@ -60,7 +60,7 @@ miarray
 ```
 
 
-## Marco de datos \index{marco de datos} \index{data.frame} 
+## Marco de datos \index{marco de datos} \index{data.frame} \label{marcodatos}
 
 El marco de datos marco de datos o _data frame_ es uno de los objetos más utilizados porque permite agrupar vectores con información de diferente tipo (numérica, alfanumérica o lógica) en un mismo objeto, la única restricción es que los vectores deben tener la misma longitud. Para crear un marco de datos se usa la función `data.frame( )`, como ejemplo vamos a crear un marco de datos con los vectores `edad`, `deporte` y `comic.fav` definidos anteriormente.
 

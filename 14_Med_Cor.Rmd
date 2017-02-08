@@ -61,21 +61,47 @@ Del anterior resultado vemos que las variables precio, mt2, alcobas, banos, admi
 
 ```{r}
 datos.cuanti <- datos[, c(1, 2, 5, 6, 9, 10)]
+# La siguiente instrucción para editar los nombres de la variables
+colnames(datos.cuanti) <- c('Precio', 'Área', 'Alcobas',
+                            'Baños', 'Admon', 'Avaluo')
 M <- round(cor(datos.cuanti), digits=2)
 M
 ```
 
-El anterior resultado representa la matriz de correlaciones, se observa que la mayor correlación corresponde a las variables precio y área del apartamento. Es posible representar la matriz `M` de correlaciones por medio de una figura, a continuación el código para obtener su representación gráfica.
+El anterior resultado representa la matriz de correlaciones entre las variables cuantitativas, se observa que la mayor correlación es entre las variables precio y área del apartamento.
+
+Es posible representar gráficamente la matriz de correlaciones `M` por medio de la función `corrplot` del paquete **corrplot**\index{corrplot} [@R-corrplot], a continuación el código para obtener su representación gráfica.
 
 ```{r corplot, fig.cap='Matriz de coeficientes de correlación.', fig.asp=0.6, fig.width=6}
 library('corrplot')  # Para cargar el paquete corrplot
-corrplot(M, method='ellipse', type='upper')
+corrplot.mixed(M)
 ```
 
-En la Figura \@ref(fig:corplot) se muestra la matriz con los coeficientes de correlación. De esta figura es muy fácil determinar las mayores correlaciones debido al color y forma de la elipse. La elipse asociada a precio y área tiene la mayor tonalidad azul que significa correlación positiva.
+En la Figura \@ref(fig:corplot) se muestra la matriz con los coeficientes de correlación. En la diagonal de la Figura \@ref(fig:corplot) están las variables, por encima están unos círculos de colores, entre más intensidad del color, ya sea azul o rojo, mayor es la correlación, colores ténues significan correlación baja; el tamaño de los círculos está asociado al valor absoluto de correlación. Por debajo de la diagonal se observan los valores exactos de correlación en colores.
+
+```{block2, type='rmdtip'}
+La función `corrplot` es muy versátil, se pueden obtener diferentes representaciones gráficas de la matriz de correlaciones, para conocer las diferentes posibilidades recomendamos consultar este enlace: https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html.
+```
+
+### Ejemplo {-}
+Construya dos vectores hipotéticos con el gasto y ahorro de un grupo de 7 familias, incluya dos `NA`. Calcule el coeficiente de correlación entre `ahorro` y `gasto`, use el parámetro `use` para manejar los `NA`.
+
+A continuación se presenta el código para crear los objetos `ahorro` y `gasto` con datos ficticios. Observe que en el primer caso donde se calcula la correlación no es posible obtener un resultado debido a que por defecto `use='everything'` y por lo tanto usa todas las observaciones incluyendo los `NA`. En el segundo caso si se obtiene un valor para la correlación debido a que se usó `use='complete.obs'`.
+
+```{r}
+gasto <- c(170, 230, 120, 156, 256, NA, 352)
+ahorro <- c(45, 30, NA, 35, 15, 65, 15)
+
+cor(gasto, ahorro)
+cor(gasto, ahorro, use='complete.obs')
+```
 
 
+## EJERCICIOS {-}
+Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
 
+1. Para cada uno de los estratos socioeconómicos, calcular el coeficiente de correlación lineal de Pearson para las variables precio y área de la base de datos de los apartamentos usados.
 
+2. 
 
 
