@@ -32,6 +32,29 @@ deporte
 comic.fav
 ```
 
+```{block2, type='rmdnote'}
+Para recuperar el valor almacenado dentro un vector se usan corchetes `[]` y dentro la posición o posiciones que interesan.
+```
+
+### Ejemplo {-}
+Si queremos extraer la edad de la tercera persona escribimos el nombre del vector y luego `[3]` para indicar la tercera posición de `edad`, a continuación el código.
+
+```{r}
+edad[3]
+```
+
+Si queremos conocer el cómic favorito de la segunda y quinta persona, escribimos el nombre del vector y luego, dentro de los corchetes, escribimos otro vector con las posiciones 2 y 5 que nos interesan así `[c(2, 5)]`, a continuación el código. 
+
+```{r}
+comic.fav[c(2, 5)]
+```
+
+Si nos interesan las respuestas de la práctica de deporte, excepto la de la persona 3, usamos `[-3]` luego del nombre del vector para obtener todo, excepto la tercera posición.
+
+```{r}
+deporte[-3]
+```
+
 ## Matrices
 Las matrices \index{matrices} son arreglos rectangulares de filas y columnas con información numérica, alfanumérica o lógica. Para construir una matriz se usa la función `matrix( )`. Por ejemplo, para crear una matriz de 4 filas y 5 columnas (de dimensión $4 \times 5$) con los primeros 20 números positivos se escribe el código siguiente en la consola.
 
@@ -43,6 +66,37 @@ El argumento `data` de la función sirve para indicar los datos que se van a alm
 
 ```{r}
 mimatriz
+```
+
+```{block2, type='rmdnote'}
+Para recuperar el valor almacenado en la fila `f` y columna `c` dentro una matriz se usan corchetes `[f, c]` y dentro el número de fila y número de columna que nos interesan.
+```
+
+### Ejemplo {-}
+Si queremos extraer el valor almacenado en la fila 3 y columna 4 usamos el siguiente código.
+
+```{r}
+mimatriz[3, 4]
+```
+
+Si queremos recuperar __toda__ la fila 2 usamos el siguiente código.
+```{r}
+mimatriz[2, ]  # No se escribe nada luego de la coma
+```
+
+Si queremos recuperar __toda__ la columna 5 usamos el siguiente código.
+```{r}
+mimatriz[, 5]  # No se escribe nada antes de la coma
+```
+
+Si queremos recuperar la matriz original sin las columnas 2 y 4 usamos el siguiente código.
+```{r}
+mimatriz[, -c(2, 4)]  # Las columnas de interes se indican como vector
+```
+
+Si queremos recuperar la matriz original sin la fila 1 ni columna 3 usamos el siguiente código.
+```{r}
+mimatriz[-1, -3]  # Las columnas de NO interese se indican como vector
 ```
 
 ## Arreglos \index{arreglo} \index{array}
