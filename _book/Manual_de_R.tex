@@ -936,8 +936,8 @@ Si queremos extraer la variable \texttt{deporte} del marco de datos
 ## [1]  TRUE  TRUE    NA FALSE  TRUE
 \end{verbatim}
 
-Otra forma de recuperar la variable edad es indicando la columna donde
-se encuentra la variable
+Otra forma de recuperar la variable \texttt{deporte} es indicando la
+columna donde se encuentra la variable
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -947,6 +947,92 @@ se encuentra la variable
 
 \begin{verbatim}
 ## [1]  TRUE  TRUE    NA FALSE  TRUE
+\end{verbatim}
+
+Si queremos la \texttt{edad} de las personas que están en las posiciones
+2 hasta 4 usamos el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mimarco[}\DecValTok{2}\NormalTok{:}\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 19 13 NA
+\end{verbatim}
+
+\BeginKnitrBlock{rmdnote}
+Para extraer partes de un marco de datos se puede utilizar la función
+\texttt{subset(x,\ subset,\ select)}.
+\EndKnitrBlock{rmdnote} \index{subset}
+
+\subsection*{Ejemplo}\label{ejemplo-4}
+
+
+Si queremos el marco de datos \texttt{mimarco} sólo con las personas que
+SI practican deporte usamos el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{subset}\NormalTok{(mimarco, }\DataTypeTok{subset=}\NormalTok{deporte ==}\StringTok{ }\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   edad deporte comic.fav
+## 1   15    TRUE      <NA>
+## 2   19    TRUE  Superman
+## 5   20    TRUE    Batman
+\end{verbatim}
+
+Si queremos el marco de datos \texttt{mimarco} sólo con las personas
+mayores o iguales a 17 años usamos el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{subset}\NormalTok{(mimarco, }\DataTypeTok{subset=}\NormalTok{edad >=}\StringTok{ }\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   edad deporte comic.fav
+## 1   15    TRUE      <NA>
+## 2   19    TRUE  Superman
+## 3   13      NA    Batman
+## 5   20    TRUE    Batman
+\end{verbatim}
+
+Si queremos el submarco con deporte y comic de las personas menores de
+20 años usamos el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{subset}\NormalTok{(mimarco, }\DataTypeTok{subset=}\NormalTok{edad <}\StringTok{ }\DecValTok{20}\NormalTok{, }\DataTypeTok{select=}\KeywordTok{c}\NormalTok{(}\StringTok{'deporte'}\NormalTok{, }\StringTok{'comic.fav'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   deporte comic.fav
+## 1    TRUE      <NA>
+## 2    TRUE  Superman
+## 3      NA    Batman
+\end{verbatim}
+
+Si queremos el marco de datos \texttt{mimarco} sólo con las personas
+menores de 20 años y que SI practican deporte usamos el siguiente
+código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{subset}\NormalTok{(mimarco, }\DataTypeTok{subset=}\NormalTok{edad <}\StringTok{ }\DecValTok{20} \NormalTok{&}\StringTok{ }\NormalTok{deporte ==}\StringTok{ }\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   edad deporte comic.fav
+## 1   15    TRUE      <NA>
+## 2   19    TRUE  Superman
 \end{verbatim}
 
 \section{\texorpdfstring{Listas \index{lista}
@@ -1342,7 +1428,7 @@ continuación se presentan los operadores disponibles para tal fin.
   global y sólo debe ser usado por usuarios avanzados.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-4}
+\subsection*{Ejemplo}\label{ejemplo-5}
 
 
 Almacene los valores 5.3, 4.6 y 25 en los objetos \texttt{a}, \texttt{b}
@@ -1546,7 +1632,7 @@ funciones.
 ## [1] FALSE FALSE FALSE
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-5}
+\subsection*{Ejemplo}\label{ejemplo-6}
 
 
 Crear un vector con los números de 1 a 17 y extrater los números que son
@@ -1698,7 +1784,7 @@ vectores numéricos.
   \texttt{rev}: invierte un vector.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-6}
+\subsection*{Ejemplo}\label{ejemplo-7}
 
 
 Construir en vector llamado \texttt{myvec} con los siguientes elementos:
@@ -1975,7 +2061,7 @@ Los argumentos de esta función son:
   \texttt{length.out}: longitud deseado de la secuencia.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-7}
+\subsection*{Ejemplo}\label{ejemplo-8}
 
 
 Construya las siguientes tres secuencias usando la función \texttt{seq}.
@@ -2100,7 +2186,7 @@ Los argumentos de esta función son:
   repetir.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-8}
+\subsection*{Ejemplo}\label{ejemplo-9}
 
 
 Construya las siguientes repeticiones usando la función \texttt{rep}, no
@@ -2162,7 +2248,7 @@ anteriores se muestra a continuación.
 ## [1] 1 1 2 2 3 3 4 4
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-9}
+\subsection*{Ejemplo}\label{ejemplo-10}
 
 
 La función \texttt{rep} es muy versátil, observe los siguientes 4
@@ -2232,7 +2318,7 @@ número, estas funciones son \texttt{round}, \texttt{ceiling},
   \texttt{trunc(x)}: entrega la parte entera de un número \texttt{x}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Aplique las funciones \texttt{round}, \texttt{ceiling}, \texttt{floor} y
@@ -2345,7 +2431,7 @@ En el parámetro \texttt{x} se ingresa el vector y el parámetro
 \texttt{decreasing} sirva para indicar si el ordenamiento es de menor a
 mayor (por defecto es este) o de mayor a menor.
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Considere el vector \texttt{x} que tiene los siguientes elementos: 2, 3,
@@ -2496,7 +2582,7 @@ Las partes de una función son:
 A continuación se mostrarán varios ejemplos \textbf{sencillos} para que
 el lector aprenda a construir funciones.
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Construir una función que reciba dos números y que entregue la suma de
@@ -2572,7 +2658,7 @@ continuación se muestra el código para reescribir la función.
 ## [1] 10
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Construir una función que genere números aleatorios entre cero y uno
@@ -2611,7 +2697,7 @@ solicitado. A continuación el código de la función.
 ## [1] 8
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Construir una función que, dado un número entero positivo (cota)
@@ -2682,7 +2768,7 @@ Probando la función con cota de tres.
 ## [1] 6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Construya una función que reciba dos números de la recta real y que
@@ -2917,7 +3003,7 @@ Los argumentos de la función \texttt{read.table} son:
   \texttt{dec}: símbolo con el cual están indicados los decimales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Crear la base de datos del Cuadro \ref{tab:dt1} en Excel y bloc de notas
@@ -3008,7 +3094,7 @@ Un error frecuente es escribir la dirección o ubicación del archivo
 usando \texttt{\textbackslash{}}, lo correcto es usar \texttt{/}.
 \EndKnitrBlock{rmdwarning}
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Leer la base de datos sobre apartamentos usados en la ciudad de Medellín
@@ -3368,7 +3454,7 @@ la función es la siguiente.
   globales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Obtener las tablas \texttt{tabla3} y \texttt{tabla4} con los totales
@@ -3450,7 +3536,7 @@ Los parámetros de la función son:
   representación gráfica llamada histograma.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Genere 200 observaciones aleatorias de una distribución normal con media
@@ -3539,7 +3625,7 @@ continuación.
 ## [1] "histogram"
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Construya el vector \texttt{x} con los siguientes elementos: 1.0, 1.2,
@@ -3730,7 +3816,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -3751,7 +3837,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -3783,7 +3869,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -3842,7 +3928,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -3882,7 +3968,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -4027,7 +4113,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -4059,7 +4145,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -4112,7 +4198,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-28}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -4130,7 +4216,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-29}
+\subsection*{Ejemplo}\label{ejemplo-30}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -4186,7 +4272,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-30}
+\subsection*{Ejemplo}\label{ejemplo-31}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -4234,7 +4320,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-31}
+\subsection*{Ejemplo}\label{ejemplo-32}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -4283,7 +4369,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-32}
+\subsection*{Ejemplo}\label{ejemplo-33}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -4380,7 +4466,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-33}
+\subsection*{Ejemplo}\label{ejemplo-34}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -4442,7 +4528,7 @@ Los parámetos de la función son:
   \texttt{kendall} y \texttt{spearman}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-34}
+\subsection*{Ejemplo}\label{ejemplo-35}
 
 
 Calcular el coeficiente de correlación de Pearson para las variables
@@ -4487,7 +4573,7 @@ A continuación el código para generar la Figura \ref{fig:disp}.
 los apartamentos usados.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-35}
+\subsection*{Ejemplo}\label{ejemplo-36}
 
 
 Para las mismas variables del ejemplo anterior calcular los coeficientes
@@ -4525,7 +4611,7 @@ A continuación el código para obtener lo solicitado.
 ## [1] 0.8603
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-36}
+\subsection*{Ejemplo}\label{ejemplo-37}
 
 
 Para la base de datos de apartamentos usados, ¿cuáles de las variables
@@ -4622,7 +4708,7 @@ conocer las diferentes posibilidades recomendamos consultar este enlace:
 \url{https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html}.
 \EndKnitrBlock{rmdtip}
 
-\subsection*{Ejemplo}\label{ejemplo-37}
+\subsection*{Ejemplo}\label{ejemplo-38}
 
 
 Construya dos vectores hipotéticos con el gasto y ahorro de un grupo de
@@ -4736,7 +4822,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-38}
+\subsection*{Ejemplo}\label{ejemplo-39}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -4754,8 +4840,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-153-1.pdf}
-\caption{\label{fig:unnamed-chunk-153}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-159-1.pdf}
+\caption{\label{fig:unnamed-chunk-159}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

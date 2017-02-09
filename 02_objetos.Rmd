@@ -159,11 +159,41 @@ Si queremos extraer la variable `deporte` del marco de datos `mimarco` usamos el
 mimarco$deporte  # Util si el nombre es corto
 ```
 
-Otra forma de recuperar la variable edad es indicando la columna donde se encuentra la variable
+Otra forma de recuperar la variable `deporte` es indicando la columna donde se encuentra la variable
 ```{r}
 mimarco[, 2]  # Util si recordamos su ubicacion
 ```
 
+Si queremos la `edad` de las personas que están en las posiciones 2 hasta 4 usamos el siguiente código.
+```{r}
+mimarco[2:4, 1]
+```
+
+```{block2, type='rmdnote'}
+Para extraer partes de un marco de datos se puede utilizar la función `subset(x, subset, select)`.
+```
+\index{subset}
+
+### Ejemplo {-}
+Si queremos el marco de datos `mimarco` sólo con las personas que SI practican deporte usamos el siguiente código.
+```{r}
+subset(mimarco, subset=deporte == TRUE)
+```
+
+Si queremos el marco de datos `mimarco` sólo con las personas mayores o iguales a 17 años usamos el siguiente código.
+```{r}
+subset(mimarco, subset=edad >= TRUE)
+```
+
+Si queremos el submarco con deporte y comic de las personas menores de 20 años usamos el siguiente código.
+```{r}
+subset(mimarco, subset=edad < 20, select=c('deporte', 'comic.fav'))
+```
+
+Si queremos el marco de datos `mimarco` sólo con las personas menores de 20 años y que SI practican deporte usamos el siguiente código.
+```{r}
+subset(mimarco, subset=edad < 20 & deporte == TRUE)
+```
 
 ## Listas \index{lista} \index{list}
 
