@@ -69,12 +69,11 @@ mimatriz
 ```
 
 ```{block2, type='rmdnote'}
-Para recuperar el valor almacenado en la fila `f` y columna `c` dentro una matriz se usan corchetes `[f, c]` y dentro el número de fila y número de columna que nos interesan.
+Para recuperar el valor almacenado en la fila `f` y columna `c` de una matriz se usan corchetes `[f, c]` y dentro el número de fila y número de columna que nos interesan.
 ```
 
 ### Ejemplo {-}
 Si queremos extraer el valor almacenado en la fila 3 y columna 4 usamos el siguiente código.
-
 ```{r}
 mimatriz[3, 4]
 ```
@@ -113,6 +112,26 @@ El argumento `data` de la función sirve para indicar los datos que se van a alm
 miarray
 ```
 
+```{block2, type='rmdnote'}
+Para recuperar valores almacenados en un arreglo se usan también corchetes y dentro las coordenadas del objeto de interés.
+```
+
+### Ejemplo {-}
+Si queremos extraer la letra almacenada en la fila 1 y columna 3 de la segunda capa de `miarray` usamos el siguiente código.
+```{r}
+miarray[1, 3, 2]  # El orden es importante
+```
+
+Si queremos extraer la segunda capa completa usamos el siguiente código.
+```{r}
+miarray[,, 2]  # No se coloca nada en las primeras posiciones
+```
+
+Si queremos extraer la tercera columna de todas las capas usamos el siguiente código.
+```{r}
+miarray[, 3,]  # No se coloca nada en las primeras posiciones
+```
+
 
 ## Marco de datos \index{marco de datos} \index{data.frame} \label{marcodatos}
 
@@ -129,6 +148,22 @@ mimarco
 ```
 
 De la salida anterior vemos que el marco de datos tiene 3 variables (columnas) cuyos nombres coinciden con los nombres de los vectores creados anteriormente, los números consecutivos al lado izquierdo son sólo de referencia y permiten identificar la información para cada persona en la base de datos.
+
+```{block2, type='rmdnote'}
+Para recuperar las variables almacenadas en un marco de datos se puede usar el operador `$` o corchetes `[]`.
+```
+
+### Ejemplo {-}
+Si queremos extraer la variable `deporte` del marco de datos `mimarco` usamos el siguiente código.
+```{r}
+mimarco$deporte  # Util si el nombre es corto
+```
+
+Otra forma de recuperar la variable edad es indicando la columna donde se encuentra la variable
+```{r}
+mimarco[, 2]  # Util si recordamos su ubicacion
+```
+
 
 ## Listas \index{lista} \index{list}
 
