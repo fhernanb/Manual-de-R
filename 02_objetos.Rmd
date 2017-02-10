@@ -32,9 +32,8 @@ deporte
 comic.fav
 ```
 
-```{block2, type='rmdnote'}
-Para recuperar el valor almacenado dentro un vector se usan corchetes `[]` y dentro la posición o posiciones que interesan.
-```
+### ¿Cómo extraer elementos de un vector?
+Para extraer un elemento almacenado dentro un vector se usan los corchetes `[]` y dentro de ellos la posición o posiciones que interesan.
 
 ### Ejemplo {-}
 Si queremos extraer la edad de la tercera persona escribimos el nombre del vector y luego `[3]` para indicar la tercera posición de `edad`, a continuación el código.
@@ -55,6 +54,10 @@ Si nos interesan las respuestas de la práctica de deporte, excepto la de la per
 deporte[-3]
 ```
 
+```{block2, type='rmdwarning'}
+Si desea extraer varios posiciones de un vector NUNCA escriba esto: `mivector[2, 5, 7]`. Tiene que crear un vector con las posiciones y luego colocarlo dentro de los corchetes así: `mivector[c(2, 5, 7)]`
+```
+
 ## Matrices
 Las matrices \index{matrices} son arreglos rectangulares de filas y columnas con información numérica, alfanumérica o lógica. Para construir una matriz se usa la función `matrix( )`. Por ejemplo, para crear una matriz de 4 filas y 5 columnas (de dimensión $4 \times 5$) con los primeros 20 números positivos se escribe el código siguiente en la consola.
 
@@ -68,9 +71,8 @@ El argumento `data` de la función sirve para indicar los datos que se van a alm
 mimatriz
 ```
 
-```{block2, type='rmdnote'}
-Para recuperar el valor almacenado en la fila `f` y columna `c` de una matriz se usan corchetes `[f, c]` y dentro el número de fila y número de columna que nos interesan.
-```
+### ¿Cómo extraer elementos de una matriz?
+Al igual que en el caso de los vectores, para extraer elementos almacenados dentro de una matriz se usan los corchetes `[ , ]` y dentro, separado por una coma, el número de fila(s) y el número de columna(s) que nos interesan.
 
 ### Ejemplo {-}
 Si queremos extraer el valor almacenado en la fila 3 y columna 4 usamos el siguiente código.
@@ -90,17 +92,17 @@ mimatriz[, 5]  # No se escribe nada antes de la coma
 
 Si queremos recuperar la matriz original sin las columnas 2 y 4 usamos el siguiente código.
 ```{r}
-mimatriz[, -c(2, 4)]  # Las columnas de interes se indican como vector
+mimatriz[, -c(2, 4)]  # Las columnas como vector
 ```
 
 Si queremos recuperar la matriz original sin la fila 1 ni columna 3 usamos el siguiente código.
 ```{r}
-mimatriz[-1, -3]  # Las columnas de NO interese se indican como vector
+mimatriz[-1, -3]  # Signo de menos para eliminar
 ```
 
 ## Arreglos \index{arreglo} \index{array}
 
-Un arreglo arreglo es una matriz de varias dimensiones con información numérica, alfanumérica o lógica. Para construir una arreglo se usa la función `array( )`. Por ejemplo, para crear un arreglo de $3 \times 4 \times 2$ con las primeras 24 letras minúsculas del alfabeto se escribe el siguiente código.
+Un arreglo es una matriz de varias dimensiones con información numérica, alfanumérica o lógica. Para construir una arreglo se usa la función `array( )`. Por ejemplo, para crear un arreglo de $3 \times 4 \times 2$ con las primeras 24 letras minúsculas del alfabeto se escribe el siguiente código.
 
 ```{r}
 miarray <- array(data=letters[1:24], dim=c(3, 4, 2))
@@ -112,9 +114,8 @@ El argumento `data` de la función sirve para indicar los datos que se van a alm
 miarray
 ```
 
-```{block2, type='rmdnote'}
-Para recuperar valores almacenados en un arreglo se usan también corchetes y dentro las coordenadas del objeto de interés.
-```
+### ¿Cómo extraer elementos de un arreglo?
+Para recuperar elementos almacenados en un arreglo se usan también corchetes, y dentro de los corchetes, las coordenadas del objeto de interés.
 
 ### Ejemplo {-}
 Si queremos extraer la letra almacenada en la fila 1 y columna 3 de la segunda capa de `miarray` usamos el siguiente código.
@@ -134,7 +135,6 @@ miarray[, 3,]  # No se coloca nada en las primeras posiciones
 
 
 ## Marco de datos \index{marco de datos} \index{data.frame} \label{marcodatos}
-
 El marco de datos marco de datos o _data frame_ es uno de los objetos más utilizados porque permite agrupar vectores con información de diferente tipo (numérica, alfanumérica o lógica) en un mismo objeto, la única restricción es que los vectores deben tener la misma longitud. Para crear un marco de datos se usa la función `data.frame( )`, como ejemplo vamos a crear un marco de datos con los vectores `edad`, `deporte` y `comic.fav` definidos anteriormente.
 
 ```{r}
@@ -149,19 +149,19 @@ mimarco
 
 De la salida anterior vemos que el marco de datos tiene 3 variables (columnas) cuyos nombres coinciden con los nombres de los vectores creados anteriormente, los números consecutivos al lado izquierdo son sólo de referencia y permiten identificar la información para cada persona en la base de datos.
 
-```{block2, type='rmdnote'}
-Para recuperar las variables almacenadas en un marco de datos se puede usar el operador `$` o corchetes `[]`.
-```
+### ¿Cómo extraer elementos de un arreglo?
+Para recuperar las variables (columnas) almacenadas en un marco de datos se puede usar el operador `$` o también corchetes `[]`. A continuación algunos ejemplos para entender el uso del operador `$`.
+
 
 ### Ejemplo {-}
 Si queremos extraer la variable `deporte` del marco de datos `mimarco` usamos el siguiente código.
 ```{r}
-mimarco$deporte  # Util si el nombre es corto
+mimarco$deporte  # Se recomienda si el nombre es corto
 ```
 
 Otra forma de recuperar la variable `deporte` es indicando la columna donde se encuentra la variable
 ```{r}
-mimarco[, 2]  # Util si recordamos su ubicacion
+mimarco[, 2]  # Se recomienda si recordamos su ubicacion
 ```
 
 Si queremos la `edad` de las personas que están en las posiciones 2 hasta 4 usamos el siguiente código.
@@ -169,10 +169,8 @@ Si queremos la `edad` de las personas que están en las posiciones 2 hasta 4 usa
 mimarco[2:4, 1]
 ```
 
-```{block2, type='rmdnote'}
-Para extraer partes de un marco de datos se puede utilizar la función `subset(x, subset, select)`.
-```
-\index{subset}
+### ¿Cómo extraer subconjuntos de un marco de datos? \index{subset}
+Para extraer partes de un marco de datos se puede utilizar la función `subset(x, subset, select)`. El parámetro `x` sirve para indicar el marco de datos original, el parámetro `subset` sirve para colocar la condición y el parámetro `select` sirve para quedarnos sólo con algunas de las variables del marco de datos. A continuación varios ejemplos de la función `subset` para ver su utilidad.
 
 ### Ejemplo {-}
 Si queremos el marco de datos `mimarco` sólo con las personas que SI practican deporte usamos el siguiente código.
@@ -195,6 +193,19 @@ Si queremos el marco de datos `mimarco` sólo con las personas menores de 20 añ
 subset(mimarco, subset=edad < 20 & deporte == TRUE)
 ```
 
+### Ejemplo {-}
+Leer la base de datos medidas del cuerpo disponible en este enlace https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo. Extraer de esta base de datos una sub-base o subconjunto que contenga sólo la edad, peso, altura y sexo de aquellos que miden más de 185 cm y pesan más de 80 kg.
+
+```{r}
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
+dt1 <- read.table(url, header=T)
+dim(dt1)  # Para conocer la dimensión de la base original
+dt2 <- subset(x=dt1, subset=altura > 185 & peso > 80,
+              select=c('sexo', 'edad', 'peso', 'altura'))
+dt2  # Para mostrar la base de datos final
+```
+Al almacenar la nueva base de datos en el objeto `dt2` se puede manipular este nuevo objeto para realizar los análisis de interés.
+
 ## Listas \index{lista} \index{list}
 
 Las listas son otro tipo de objeto muy usado para almacenar objetos de diferente tipo. La instrucción para crear una lista es `list( )`. A continuación vamos a crear una lista que contiene tres objetos: un vector con 5 números aleatorios llamado `mivector`, una matriz de dimensión $6 \times 2$ con los primeros doce números enteros positivos llamada `matriz2` y el tercer objeto será el marco de datos `mimarco` creado en el apartado anterior. Las instrucciones para crear la lista requerida se muestran a continuación.
@@ -211,6 +222,11 @@ La función `set.seed` de la línea número 1 sirve para fijar la semilla de tal
 ```{r}
 milista
 ```
+
+### ¿Cómo extraer elementos de una lista?
+Para recuperar los elementos almacenadas en una lista se usa el operador `$`, corchetes dobles `[[]]` o corchetes sencillos `[]`. A continuación unos ejemplos para entender cómo extraer elementos de una lista.
+
+
 
 ## EJERCICIOS {-}
 Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
