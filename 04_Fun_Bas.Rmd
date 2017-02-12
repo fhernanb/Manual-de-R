@@ -111,6 +111,31 @@ x <- 1:17  # Se crea el vector
 x[x >= 12]  # Se solicitan los valores que cumplen la condición
 ```
 
+### Ejemplo {-}
+Retome el marco de datos `mimarco` construído en la sección \@ref(marcodatos) y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años.
+
+Inicialmente vamos a construir nuevamente el objeto `mimarco` de la sección \@ref(marcodatos) usando el siguiente código.
+
+```{r}
+mimarco <- data.frame(edad = c(15, 19, 13, NA, 20), 
+                      deporte = c(TRUE, TRUE, NA, FALSE, TRUE),
+                      comic.fav = c(NA, 'Superman', 'Batman',
+                                    NA, 'Batman'))
+
+mimarco  # Para ver el contenido de mimarco
+```
+
+Para extraer de `mimarco` la información de las personas que tienen una edad superior o igual a 15 años se coloca dentro de corchetes la condición `mimarco$edad >= 15`, esto servirá para chequear cuáles de las edades del vector `mimarco$ead` cumplen la condición. El resultado de evaluar `mimarco$edad >= 15` será un vector lógico (`TRUE` o `FALSE`), que al ser colocado dentro de `mimarco[,]`, entregará la información de las personas que cumplen la condición. A continuación el código para extraer la información solicitada.
+
+```{r}
+mimarco[mimarco$edad >= 15, ]
+```
+
+De la salida anterior se observa que 4 personas de las 5 cumplean la condición.
+
+```{block2, type='rmdwarning'}
+Note que la condición `mimarco$edad >= 15` se debe ubicar __antes__ de la coma para obtener todos individuos que cumplen con la condición.
+```
 
 ## Operadores lógicos \index{operadores lógicos}
 En \proglang{R} están disponibles los operadores lógicos negación, conjunción y disyunción. A continuación el listado de los operadores entre los elementos `x` e `y`.
@@ -146,6 +171,30 @@ x < 4 && y > 5  # Conjunción vectorial
 ```
 
 Note las diferencias entre los dos últimos ejemplos, cuando se usa `&` se hace una prueba término a término y el resultado es un vector, cuando se usa `&&` se aplica la conjunción al vector de resultados obtenido con `&`.
+
+### Ejemplo {-}
+Retome el marco de datos `mimarco` construído en la sección \@ref(marcodatos) y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años y que practican deporte.
+
+Aquí interesa extraer la información de los individuos que cumplen dos condiciones simultáneamente, aquellos con edad $\geq$ 15 y que SI practiquen deporte. El código necesario para obtener la información solicitada es el siguiente.
+
+```{r}
+mimarco[mimarco$edad >= 15 & mimarco$deporte == TRUE, ]
+```
+
+De la anterior salida se observa que sólo 3 de las 5 personas cumplen ambas condiciones.
+
+\index{with}
+```{block2, type='rmdtip'}
+La función `with` es útil porque nos permite realizar algún procedimiento __CON__ un objeto, escribiendo menos y de una forma más natural.
+```
+
+Una forma alternativa para escribir lo anterior usando la función `with` es la siguiente.
+
+```{r}
+with(mimarco, mimarco[edad >= 15 & deporte == TRUE, ])
+```
+
+Al usar `with` sólo se tuvo que escribir el objeto `mimarco` dos veces. Cuando hay muchas condiciones o cuando el objeto tiene un nombre largo es aconsejable usar `with`.
 
 ## Funciones sobre vectores
 En \proglang{R} podemos destacar las siguientes funciones básicas sobre vectores numéricos.
@@ -383,7 +432,12 @@ Use funciones o procedimientos (varias líneas) de \proglang{R} para responder c
 19. Which is the country with the higher population?
 20. Which is the country with the lowest literacy rate?
 21. ¿Qué valor de verdad tiene la siguiente afirmación? "Los resultados de la función `floor` y `trunc` son siempre los mismos".
-22. 
+
+En \proglang{R} hay unas bases de datos incluídas, una de ellas es la base de datos llamada `mtcars`. Para conocer las variables que están en `mtcars` usted puede escribir en la consola `?mtcars` o también `help(mtcars)`. De la base `mtcars` obtenga bases de datos que cumplan las siguientes condiciones.
+
+22. Autos que tengan un rendimiento menor a 18 millas por galón de combustible.
+23. Autos que tengan 4 cilindros.
+24. Autos que pesen más de 2500 libras y tengan transmisión manual.
 
 
 

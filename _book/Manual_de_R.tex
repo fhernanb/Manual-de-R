@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-02-10}
+\date{2017-02-12}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -519,8 +519,8 @@ vectores, matrices, arreglos, marcos de datos y listas. A continuación
 se presentan las características de estos objetos y la forma para
 crearlos.
 
-\section{\texorpdfstring{Vectores
-\index{vector}}{Vectores }}\label{vectores}
+\section{\texorpdfstring{Vectores \index{vector}
+\label{vector}}{Vectores  }}\label{vectores}
 
 Los vectores vectores son arreglos ordenados en los cuales se puede
 almacenar información de tipo numérico (variable cuantitativa),
@@ -885,8 +885,8 @@ siguiente código.
 \end{verbatim}
 
 \section{\texorpdfstring{Marco de datos \index{marco de datos}
-\index{data.frame}
-\label{marcodatos}}{Marco de datos   }}\label{marco-de-datos}
+\index{data.frame} \label{marcodatos}
+\label{marcodatos}}{Marco de datos    }}\label{marco-de-datos}
 
 El marco de datos marco de datos o \emph{data frame} es uno de los
 objetos más utilizados porque permite agrupar vectores con información
@@ -1825,6 +1825,70 @@ necesario se muestra a continuación.
 ## [1] 12 13 14 15 16 17
 \end{verbatim}
 
+\subsection*{Ejemplo}\label{ejemplo-7}
+
+
+Retome el marco de datos \texttt{mimarco} construído en la sección
+\ref{marcodatos} y use una prueba lógica para extraer la información de
+las personas que tienen una edad superior o igual a 15 años.
+
+Inicialmente vamos a construir nuevamente el objeto \texttt{mimarco} de
+la sección \ref{marcodatos} usando el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mimarco <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{edad =} \KeywordTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{13}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{20}\NormalTok{), }
+                      \DataTypeTok{deporte =} \KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{),}
+                      \DataTypeTok{comic.fav =} \KeywordTok{c}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\StringTok{'Superman'}\NormalTok{, }\StringTok{'Batman'}\NormalTok{,}
+                                    \OtherTok{NA}\NormalTok{, }\StringTok{'Batman'}\NormalTok{))}
+
+\NormalTok{mimarco  }\CommentTok{# Para ver el contenido de mimarco}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   edad deporte comic.fav
+## 1   15    TRUE      <NA>
+## 2   19    TRUE  Superman
+## 3   13      NA    Batman
+## 4   NA   FALSE      <NA>
+## 5   20    TRUE    Batman
+\end{verbatim}
+
+Para extraer de \texttt{mimarco} la información de las personas que
+tienen una edad superior o igual a 15 años se coloca dentro de corchetes
+la condición \texttt{mimarco\$edad\ \textgreater{}=\ 15}, esto servirá
+para chequear cuáles de las edades del vector \texttt{mimarco\$ead}
+cumplen la condición. El resultado de evaluar
+\texttt{mimarco\$edad\ \textgreater{}=\ 15} será un vector lógico
+(\texttt{TRUE} o \texttt{FALSE}), que al ser colocado dentro de
+\texttt{mimarco{[},{]}}, entregará la información de las personas que
+cumplen la condición. A continuación el código para extraer la
+información solicitada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mimarco[mimarco$edad >=}\StringTok{ }\DecValTok{15}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    edad deporte comic.fav
+## 1    15    TRUE      <NA>
+## 2    19    TRUE  Superman
+## NA   NA      NA      <NA>
+## 5    20    TRUE    Batman
+\end{verbatim}
+
+De la salida anterior se observa que 4 personas de las 5 cumplean la
+condición.
+
+\BeginKnitrBlock{rmdwarning}
+Note que la condición \texttt{mimarco\$edad\ \textgreater{}=\ 15} se
+debe ubicar \textbf{antes} de la coma para obtener todos individuos que
+cumplen con la condición.
+\EndKnitrBlock{rmdwarning}
+
 \section{\texorpdfstring{Operadores lógicos
 \index{operadores lógicos}}{Operadores lógicos }}\label{operadores-logicos}
 
@@ -1919,6 +1983,62 @@ Note las diferencias entre los dos últimos ejemplos, cuando se usa
 vector, cuando se usa \texttt{\&\&} se aplica la conjunción al vector de
 resultados obtenido con \texttt{\&}.
 
+\subsection*{Ejemplo}\label{ejemplo-8}
+
+
+Retome el marco de datos \texttt{mimarco} construído en la sección
+\ref{marcodatos} y use una prueba lógica para extraer la información de
+las personas que tienen una edad superior o igual a 15 años y que
+practican deporte.
+
+Aquí interesa extraer la información de los individuos que cumplen dos
+condiciones simultáneamente, aquellos con edad \(\geq\) 15 y que SI
+practiquen deporte. El código necesario para obtener la información
+solicitada es el siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mimarco[mimarco$edad >=}\StringTok{ }\DecValTok{15} \NormalTok{&}\StringTok{ }\NormalTok{mimarco$deporte ==}\StringTok{ }\OtherTok{TRUE}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   edad deporte comic.fav
+## 1   15    TRUE      <NA>
+## 2   19    TRUE  Superman
+## 5   20    TRUE    Batman
+\end{verbatim}
+
+De la anterior salida se observa que sólo 3 de las 5 personas cumplen
+ambas condiciones.
+
+\index{with} \BeginKnitrBlock{rmdtip}
+
+La función \texttt{with} es útil porque nos permite realizar algún
+procedimiento \textbf{CON} un objeto, escribiendo menos y de una forma
+más natural.
+\EndKnitrBlock{rmdtip}
+
+Una forma alternativa para escribir lo anterior usando la función
+\texttt{with} es la siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{with}\NormalTok{(mimarco, mimarco[edad >=}\StringTok{ }\DecValTok{15} \NormalTok{&}\StringTok{ }\NormalTok{deporte ==}\StringTok{ }\OtherTok{TRUE}\NormalTok{, ])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   edad deporte comic.fav
+## 1   15    TRUE      <NA>
+## 2   19    TRUE  Superman
+## 5   20    TRUE    Batman
+\end{verbatim}
+
+Al usar \texttt{with} sólo se tuvo que escribir el objeto
+\texttt{mimarco} dos veces. Cuando hay muchas condiciones o cuando el
+objeto tiene un nombre largo es aconsejable usar \texttt{with}.
+
 \section{Funciones sobre vectores}\label{funciones-sobre-vectores}
 
 En \proglang{R} podemos destacar las siguientes funciones básicas sobre
@@ -1951,7 +2071,7 @@ vectores numéricos.
   \texttt{rev}: invierte un vector.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-7}
+\subsection*{Ejemplo}\label{ejemplo-9}
 
 
 Construir en vector llamado \texttt{myvec} con los siguientes elementos:
@@ -2228,7 +2348,7 @@ Los argumentos de esta función son:
   \texttt{length.out}: longitud deseado de la secuencia.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-8}
+\subsection*{Ejemplo}\label{ejemplo-10}
 
 
 Construya las siguientes tres secuencias usando la función \texttt{seq}.
@@ -2353,7 +2473,7 @@ Los argumentos de esta función son:
   repetir.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-9}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Construya las siguientes repeticiones usando la función \texttt{rep}, no
@@ -2415,7 +2535,7 @@ anteriores se muestra a continuación.
 ## [1] 1 1 2 2 3 3 4 4
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 La función \texttt{rep} es muy versátil, observe los siguientes 4
@@ -2485,7 +2605,7 @@ número, estas funciones son \texttt{round}, \texttt{ceiling},
   \texttt{trunc(x)}: entrega la parte entera de un número \texttt{x}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Aplique las funciones \texttt{round}, \texttt{ceiling}, \texttt{floor} y
@@ -2598,7 +2718,7 @@ En el parámetro \texttt{x} se ingresa el vector y el parámetro
 \texttt{decreasing} sirva para indicar si el ordenamiento es de menor a
 mayor (por defecto es este) o de mayor a menor.
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Considere el vector \texttt{x} que tiene los siguientes elementos: 2, 3,
@@ -2645,6 +2765,7 @@ responder cada una de las siguientes preguntas.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   ¿Qué cantidad de dinero sobra al repartir 10000\$ entre 3 personas?
 \item
@@ -2702,7 +2823,26 @@ responder cada una de las siguientes preguntas.
   ¿Qué valor de verdad tiene la siguiente afirmación? ``Los resultados
   de la función \texttt{floor} y \texttt{trunc} son siempre los
   mismos''.
+\end{enumerate}
+
+En \proglang{R} hay unas bases de datos incluídas, una de ellas es la
+base de datos llamada \texttt{mtcars}. Para conocer las variables que
+están en \texttt{mtcars} usted puede escribir en la consola
+\texttt{?mtcars} o también \texttt{help(mtcars)}. De la base
+\texttt{mtcars} obtenga bases de datos que cumplan las siguientes
+condiciones.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{21}
+\tightlist
 \item
+  Autos que tengan un rendimiento menor a 18 millas por galón de
+  combustible.
+\item
+  Autos que tengan 4 cilindros.
+\item
+  Autos que pesen más de 2500 libras y tengan transmisión manual.
 \end{enumerate}
 
 \chapter{\texorpdfstring{Creación de funciones en
@@ -2749,7 +2889,7 @@ Las partes de una función son:
 A continuación se mostrarán varios ejemplos \textbf{sencillos} para que
 el lector aprenda a construir funciones.
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Construir una función que reciba dos números y que entregue la suma de
@@ -2825,7 +2965,7 @@ continuación se muestra el código para reescribir la función.
 ## [1] 10
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Construir una función que genere números aleatorios entre cero y uno
@@ -2864,7 +3004,7 @@ solicitado. A continuación el código de la función.
 ## [1] 8
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Construir una función que, dado un número entero positivo (cota)
@@ -2935,7 +3075,7 @@ Probando la función con cota de tres.
 ## [1] 6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Construya una función que reciba dos números de la recta real y que
@@ -3170,7 +3310,7 @@ Los argumentos de la función \texttt{read.table} son:
   \texttt{dec}: símbolo con el cual están indicados los decimales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Crear la base de datos del Cuadro \ref{tab:dt1} en Excel y bloc de notas
@@ -3261,7 +3401,7 @@ Un error frecuente es escribir la dirección o ubicación del archivo
 usando \texttt{\textbackslash{}}, lo correcto es usar \texttt{/}.
 \EndKnitrBlock{rmdwarning}
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Leer la base de datos sobre apartamentos usados en la ciudad de Medellín
@@ -3621,7 +3761,7 @@ la función es la siguiente.
   globales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Obtener las tablas \texttt{tabla3} y \texttt{tabla4} con los totales
@@ -3703,7 +3843,7 @@ Los parámetros de la función son:
   representación gráfica llamada histograma.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Genere 200 observaciones aleatorias de una distribución normal con media
@@ -3792,7 +3932,7 @@ continuación.
 ## [1] "histogram"
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Construya el vector \texttt{x} con los siguientes elementos: 1.0, 1.2,
@@ -3983,7 +4123,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -4004,7 +4144,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -4036,7 +4176,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -4095,7 +4235,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -4135,7 +4275,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -4280,7 +4420,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -4312,7 +4452,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-28}
+\subsection*{Ejemplo}\label{ejemplo-30}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -4365,7 +4505,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-29}
+\subsection*{Ejemplo}\label{ejemplo-31}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -4383,7 +4523,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-30}
+\subsection*{Ejemplo}\label{ejemplo-32}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -4439,7 +4579,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-31}
+\subsection*{Ejemplo}\label{ejemplo-33}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -4487,7 +4627,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-32}
+\subsection*{Ejemplo}\label{ejemplo-34}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -4536,7 +4676,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-33}
+\subsection*{Ejemplo}\label{ejemplo-35}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -4633,7 +4773,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-34}
+\subsection*{Ejemplo}\label{ejemplo-36}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -4695,7 +4835,7 @@ Los parámetos de la función son:
   \texttt{kendall} y \texttt{spearman}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-35}
+\subsection*{Ejemplo}\label{ejemplo-37}
 
 
 Calcular el coeficiente de correlación de Pearson para las variables
@@ -4740,7 +4880,7 @@ A continuación el código para generar la Figura \ref{fig:disp}.
 los apartamentos usados.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-36}
+\subsection*{Ejemplo}\label{ejemplo-38}
 
 
 Para las mismas variables del ejemplo anterior calcular los coeficientes
@@ -4778,7 +4918,7 @@ A continuación el código para obtener lo solicitado.
 ## [1] 0.8603
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-37}
+\subsection*{Ejemplo}\label{ejemplo-39}
 
 
 Para la base de datos de apartamentos usados, ¿cuáles de las variables
@@ -4875,7 +5015,7 @@ conocer las diferentes posibilidades recomendamos consultar este enlace:
 \url{https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html}.
 \EndKnitrBlock{rmdtip}
 
-\subsection*{Ejemplo}\label{ejemplo-38}
+\subsection*{Ejemplo}\label{ejemplo-40}
 
 
 Construya dos vectores hipotéticos con el gasto y ahorro de un grupo de
@@ -4989,7 +5129,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-39}
+\subsection*{Ejemplo}\label{ejemplo-41}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -5007,8 +5147,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-161-1.pdf}
-\caption{\label{fig:unnamed-chunk-161}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-167-1.pdf}
+\caption{\label{fig:unnamed-chunk-167}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
@@ -5068,7 +5208,7 @@ integral usando la función \texttt{integrate}, a continuación el código.
 
 De los anteriores resultados vemos que la aproximación es buena.
 
-\bibliography{packages,book}
+\bibliography{packages.bib,book.bib}
 
 \backmatter
 \printindex
