@@ -115,9 +115,65 @@ Note que las funciones `pxxx` y `qxxx` están relacionadas, `pxxx` entrega la pr
 ```
 
 ### Ejemplo distribución binomial negativa {-}
+Una familia desea tener hijos hasta conseguir  __2 niñas__, la probabilidad individual de obtener una niña es 0.5 y se supone que todos los nacimientos son individuales, es decir, un sólo bebé.
+
+1) Calcular la probabilidad de que se necesiten 4 hijos, es decir, 4 nacimientos para consguir las dos niñas.
+
+En este problema se tiene una distribución binomial negativa con $r=2$ niñas, los éxitos deseados por la familia. La variable $X$ representa los fracasos, es decir los niños, hasta que se obtienen los éxitos $r=2$ deseados.
+
+En este caso lo que interesa es $P(\text{familia tenga 4})$, en otras palabras interesa $P(X=2)$, la instrucción para calcular la probabilidad es la siguiente.
+
+```{r}
+dnbinom(x=2, size=2, prob=0.5)
+```
+
+2) Calcular $P(\text{familia tenga al menos 4 hijos})$.
+
+Aquí interesa calcular $P(X \geq 2)=P(X=2)+P(X=3)+\ldots$, como esta probabilidad va hasta infinito, se debe usar el complemento así:
+
+$$P(X \geq 2) = 1 - [P(X=0)+P(X=1)]$$
+y para obtener la probabilidad solicitada se puede usar la función `dnbinom` de la siguiente manera.
+
+```{r}
+1 - sum(dnbinom(x=0:1, size=2, prob=0.5))
+```
+
+Otra forma para obtener la probabilidad solicitada es por medio de la función `pnbinom` de la siguiente manera.
+
+```{r}
+1 - pnbinom(q=1, size=2, prob=0.5)
+```
 
 ### Ejemplo distribución hipergeométrica {-}
+Un lote de partes para ensamblar en una empresa está formado por 100 elementos del proveedor A y 200 elementos del proveedor B. Se selecciona una muestra de 4 partes al azar sin reemplazo de las 300 para una revisión de calidad.
+
+1) Calcular la probabilidad de que todas las 4 partes de la muestra sean del proveedor A.
+
+Aquí se tiene una situación que se puede modelar por medio de una distribución hipergeométrica con $m=100$ éxitos en la población, $n=200$ fracasos en la población y $k=4$ el tamaño de la muestra. El objetivo es calcular $P(X=4)$, para obtener esta probabilidad se usa la siguiente instrucción.
+
+```{r}
+dhyper(x=4, m=100, k=4, n=200)
+```
+
+2) Calcular la probabilidad de que dos o más de las partes sean del proveedor A.
+
+Aquí interesa $P(X \geq 2)$, la instrucción para obtener esta probabilidad es.
+
+```{r}
+sum(dhyper(x=2:4, m=100, k=4, n=200))
+```
 
 ### Ejemplo distribución Poisson {-}
+En una editorial se asume que todo libro de 250 páginas tiene en promedio 50 errores.
 
+1) Encuentre la probabilidad de que en una página cualquiera no se encuentren errores.
+
+Este es un problema de distribución Poisson con tasa promedio de éxitos dada por:
+
+$$\lambda=\frac{50 \quad errores}{libro}=\frac{0.2 \quad errores}{página}$$
+El objetivo es calcular $P(X=0)$, para obtener esta probabilidad de usa la siguiente instrucción.
+
+```{r}
+dpois(x=0, lambda=0.2)
+```
 
