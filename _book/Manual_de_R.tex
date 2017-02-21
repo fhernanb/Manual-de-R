@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-02-12}
+\date{2017-02-21}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -5080,11 +5080,303 @@ responder cada una de las siguientes preguntas.
 
 \chapter{Distribuciones discretas}\label{distribuciones-discretas}
 
-En este capítulo se
+En este capítulo se mostrarán las funciones de \proglang{R} para
+distribuciones discretas.
 
-\chapter{Distribuciones continuas}\label{distribuciones-continuas}
+\section{\texorpdfstring{Tipos de funciones disponibles para
+distribuciones discretas
+\index{distribuciones discretas}}{Tipos de funciones disponibles para distribuciones discretas }}\label{tipos-de-funciones-disponibles-para-distribuciones-discretas}
 
-En este capítulo se
+Para cada distribución discreta hay disponibles 4 funciones, a
+continuación se muestra el listado de funciones y su utilidad.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pxxx}\NormalTok{(q, ...)  }\CommentTok{# Probability mass function, f(x)}
+\KeywordTok{dxxx}\NormalTok{(x, ...)  }\CommentTok{# Cumulative distribution function, F(x)}
+\KeywordTok{qxxx}\NormalTok{(p, ...)  }\CommentTok{# Quantile for P(X <= q) = p}
+\KeywordTok{rxxx}\NormalTok{(n, ...)  }\CommentTok{# Random values generator}
+\end{Highlighting}
+\end{Shaded}
+
+En el espacio de las letras \texttt{xxx} se de debe colocar el nombre de
+la distribución en \proglang{R}, a continuación el listado de nombres
+disponibles para las 5 distribuciones discretas básicas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{binom   }\CommentTok{# Binomial}
+\NormalTok{geo     }\CommentTok{# Geométrica}
+\NormalTok{nbinom  }\CommentTok{# Binomial negativa}
+\NormalTok{hyper   }\CommentTok{# Hipergeométrica}
+\NormalTok{pois    }\CommentTok{# Poisson}
+\end{Highlighting}
+\end{Shaded}
+
+Combinando las funciones y los nombres se tiene un total de 20
+funciones, por ejemplo, para obtener la función de masa de probabilidad
+(\(f(x)\)) de una binomial se usa la función \texttt{dbinom(\ )} y para
+obtener la función acumulada (\(F(x)\)) de una Poisson se usa la función
+\texttt{ppois(\ )}.
+
+\subsection*{Ejemplo distribución
+binomial}\label{ejemplo-distribucion-binomial}
+
+
+\index{binomial} Suponga que un grupo de agentes de tránsito sale a una
+vía principal para revisar el estado de los buses de transporte
+intermunicipal. De datos históricos se sabe que un 10\% de los buses
+generan una mayor cantidad de humo de la permitida. En cada jornada los
+agentes revisan siempre 18 buses, asuma que el estado de un bus es
+independiente del estado de los otros buses.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Calcular la probabilidad de que se encuentren exactamente 2 buses que
+  generan una mayor cantidad de humo de la permitida.
+\end{enumerate}
+
+Aquí se tiene una distribucion \(Binomial(n=18, p=0.1)\) y se desea
+calcular \(P(X=2)\). Para obtener esta probabilidad se usa la siguiente
+instrucción.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dbinom}\NormalTok{(}\DataTypeTok{x=}\DecValTok{2}\NormalTok{, }\DataTypeTok{size=}\DecValTok{18}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2835
+\end{verbatim}
+
+Así \(P(X=2)=0.2835\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Calcular la probabilidad de que el número de buses que sobrepasan el
+  límite de generación de gases sea al menos 4.
+\end{enumerate}
+
+En este caso interesa calcular \(P(X \geq 4)\), para obtener esta
+probabilidad se usa la siguiente instrucción.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(}\KeywordTok{dbinom}\NormalTok{(}\DataTypeTok{x=}\DecValTok{4}\NormalTok{:}\DecValTok{18}\NormalTok{, }\DataTypeTok{size=}\DecValTok{18}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.10}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0982
+\end{verbatim}
+
+Así \(P(X \geq 4)=0.0982\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Calcular la probabilidad de que tres o menos buses emitan gases por
+  encima de lo permitido en la norma.
+\end{enumerate}
+
+En este caso interesa \(P(X\leq3)\) lo cual es \(F(x=3)\), por lo tanto,
+la instrucción para obtener esta probabilidad es
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pbinom}\NormalTok{(}\DataTypeTok{q=}\DecValTok{3}\NormalTok{, }\DataTypeTok{size=}\DecValTok{18}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9018
+\end{verbatim}
+
+Así \(P(X\leq3)=F(x=3)=0.9018\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Dibujar la función de masa de probabilidad.
+\end{enumerate}
+
+Para dibujar la función de masa de probabilidad para una
+\(Binomial(n=18, p=0.1)\) se usa el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\DecValTok{0}\NormalTok{:}\DecValTok{18}  \CommentTok{# Soporte (dominio) de la variable}
+\NormalTok{Probabilidad <-}\StringTok{ }\KeywordTok{dbinom}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{size=}\DecValTok{18}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.1}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{Probabilidad, }
+     \DataTypeTok{type=}\StringTok{'h'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/binom1-1.pdf}
+\caption{\label{fig:binom1}Función de masa de probabilidad para una
+\(Binomial(n=18, p=0.1)\).}
+\end{figure}
+
+En la Figura \ref{fig:binom1} se muestra la función de masa de
+probabilidad para la \(Binomial(n=18, p=0.1)\), de esta figura se
+observa claramente que la mayor parte de la probabilidad está
+concentrada para valores pequeños de \(X\) debido a que la probabilidad
+de éxito individual es \(p=0.10\). Valores de \(X \geq 7\) tienen una
+probabilidad muy pequeña y es por eso que las longitudes de sus barras
+son muy cortas.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Generar con 100 de una distribución \(Binomial(n=18, p=0.1)\) y luego
+  calcular las frecuencias muestrales y compararlas con las
+  probabilidades teóricas.
+\end{enumerate}
+
+La muestra aleatoria se obtiene con la función \texttt{rbinom} y los
+resultados se almacenan en el objeto \texttt{m}, por último se construye
+la tabla de frecuencias relativas, a continuación el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m <-}\StringTok{ }\KeywordTok{rbinom}\NormalTok{(}\DataTypeTok{n=}\DecValTok{100}\NormalTok{, }\DataTypeTok{size=}\DecValTok{18}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.1}\NormalTok{)}
+\NormalTok{m  }\CommentTok{# Para ver lo que hay dentro de m1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] 1 1 3 5 1 1 2 2 0 3 1 0 2 0 3 2 0 3 3 0 2 1 4 1 0
+##  [26] 4 4 3 1 1 3 2 2 4 1 2 0 2 4 1 3 2 1 2 1 3 1 1 1 3
+##  [51] 2 1 1 3 3 2 0 1 1 1 2 1 2 0 3 2 3 3 3 6 2 2 1 2 3
+##  [76] 3 3 1 3 3 4 2 3 0 2 1 3 3 1 1 2 1 2 1 1 0 3 3 1 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{prop.table}\NormalTok{(}\KeywordTok{table}\NormalTok{(m))  }\CommentTok{# Tabla de frecuencia relativa}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## m
+##    0    1    2    3    4    5    6 
+## 0.11 0.31 0.23 0.27 0.06 0.01 0.01
+\end{verbatim}
+
+A pesar de ser una muestra aleatoria de sólo 100 observaciones, se
+observa que las frecuencias relativas obtenidas son muy cercanas a las
+mostradas en la Figura \ref{fig:binom1}.
+
+\subsection*{Ejemplo distribución
+geométrica}\label{ejemplo-distribucion-geometrica}
+
+
+\index{geométrica} En una línea de producción de bombillos se sabe que
+sólo el 1\% de los bombillos son defectuosos. Una máquina automática
+toma un bombillo y lo prueba, si el bombillo enciende, se siguen
+probando los bombillos hasta que se encuentre \textbf{un} bombillo
+defectuoso, ahí se para la línea de producción y se toman los
+correctivos necesarios para mejorar el proceso.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Calcular la probabilidad de que se necesiten probar 125 bombillos para
+  encontrar el primer bombillo defectuoso.
+\end{enumerate}
+
+En la distribución geométrica, la variable \(X\) representa el número de
+fracasos antes de encontrar el único éxito, por lo tanto, en este caso
+el interés es calcular \(P(X=124)\). La instrucción para obtener esta
+probabiliad es la siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dgeom}\NormalTok{(}\DataTypeTok{x=}\DecValTok{124}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.01}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.002876
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Calcular \(P(X \leq 8)\).
+\end{enumerate}
+
+En este caso interesa \(P(X \leq 50)\) lo que equivale a \(F(8)\), la
+instrucción para obtener la probabilidad es la siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pgeom}\NormalTok{(}\DataTypeTok{q=}\DecValTok{50}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.01}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.401
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Encontrar el cuantil \(q\) tal que \(P(X \leq q) = 0.40\).
+\end{enumerate}
+
+En este caso interesa encontrar el cuantil \(q\) que cumpla la condición
+de que hasta \(q\) esté el 40\% de las observaciones, por esa razón se
+usa la función \texttt{qgeom} como se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{qgeom}\NormalTok{(}\DataTypeTok{p=}\FloatTok{0.4}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.01}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 50
+\end{verbatim}
+
+\BeginKnitrBlock{rmdnote}
+Note que las funciones \texttt{pxxx} y \texttt{qxxx} están relacionadas,
+\texttt{pxxx} entrega la probabilidad hasta el cuantil \(q\) mientras
+\texttt{qxxx} entrega el cuantil en el que se acumula \(p\)
+probabilidad.
+\EndKnitrBlock{rmdnote}
+
+\subsection*{Ejemplo distribución binomial
+negativa}\label{ejemplo-distribucion-binomial-negativa}
+\addcontentsline{toc}{subsection}{Ejemplo distribución binomial
+negativa}
+
+\subsection*{Ejemplo distribución
+hipergeométrica}\label{ejemplo-distribucion-hipergeometrica}
+
+
+\subsection*{Ejemplo distribución
+Poisson}\label{ejemplo-distribucion-poisson}
+
 
 \chapter{Pruebas de bondad de ajuste}\label{pruebas-de-bondad-de-ajuste}
 
@@ -5147,8 +5439,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-167-1.pdf}
-\caption{\label{fig:unnamed-chunk-167}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-177-1.pdf}
+\caption{\label{fig:unnamed-chunk-177}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

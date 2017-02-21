@@ -1,16 +1,123 @@
 # Distribuciones discretas
 
-En este capítulo se 
+En este capítulo se mostrarán las funciones de \proglang{R} para distribuciones discretas.
 
+## Tipos de funciones disponibles para distribuciones discretas \index{distribuciones discretas}
+Para cada distribución discreta hay disponibles 4 funciones, a continuación se muestra el listado de funciones y su utilidad.
 
+```{r, eval=F}
+pxxx(q, ...)  # Probability mass function, f(x)
+dxxx(x, ...)  # Cumulative distribution function, F(x)
+qxxx(p, ...)  # Quantile for P(X <= q) = p
+rxxx(n, ...)  # Random values generator
+```
 
+En el espacio de las letras `xxx` se de debe colocar el nombre de la distribución en \proglang{R}, a continuación el listado de nombres disponibles para las 5 distribuciones discretas básicas.
 
+```{r, eval=F}
+binom   # Binomial
+geo     # Geométrica
+nbinom  # Binomial negativa
+hyper   # Hipergeométrica
+pois    # Poisson
+```
 
+Combinando las funciones y los nombres se tiene un total de 20 funciones, por ejemplo, para obtener la función de masa de probabilidad ($f(x)$) de una binomial se usa la función `dbinom( )` y para obtener la función acumulada ($F(x)$) de una Poisson se usa la función `ppois( )`.
 
+### Ejemplo distribución binomial {-}
+\index{binomial} 
+Suponga que un grupo de agentes de tránsito sale a una vía principal para revisar el estado de los buses de transporte intermunicipal. De datos históricos se sabe que un 10\% de los buses generan una mayor cantidad de humo de la permitida. En cada jornada los agentes revisan siempre 18 buses, asuma que el estado de un bus es independiente del estado de los otros buses.
 
+1) Calcular la probabilidad de que se encuentren exactamente 2 buses que generan una mayor cantidad de humo de la permitida.
 
+Aquí se tiene una distribucion $Binomial(n=18, p=0.1)$ y se desea calcular $P(X=2)$. Para obtener esta probabilidad se usa la siguiente instrucción.
 
+```{r}
+dbinom(x=2, size=18, prob=0.10)
+```
 
+Así $P(X=2)=0.2835$.
 
+2) Calcular la probabilidad de que el número de buses que sobrepasan el límite de generación de gases sea al menos 4.
+
+En este caso interesa calcular $P(X \geq 4)$, para obtener esta probabilidad se usa la siguiente instrucción.
+
+```{r}
+sum(dbinom(x=4:18, size=18, prob=0.10))
+```
+
+Así $P(X \geq 4)=0.0982$
+
+3) Calcular la probabilidad de que tres o menos buses emitan gases por encima de lo permitido en la norma.
+
+En este caso interesa $P(X\leq3)$ lo cual es $F(x=3)$, por lo tanto, la instrucción para obtener esta probabilidad es
+
+```{r}
+pbinom(q=3, size=18, prob=0.10)
+```
+
+Así $P(X\leq3)=F(x=3)=0.9018$
+
+4) Dibujar la función de masa de probabilidad.
+
+Para dibujar la función de masa de probabilidad para una $Binomial(n=18, p=0.1)$ se usa el siguiente código.
+
+```{r binom1, fig.cap='Función de masa de probabilidad para una $Binomial(n=18, p=0.1)$.', fig.asp=0.7, fig.width=8}
+x <- 0:18  # Soporte (dominio) de la variable
+Probabilidad <- dbinom(x=x, size=18, prob=0.1)
+plot(x=x, y=Probabilidad, 
+     type='h', las=1, lwd=6)
+```
+
+En la Figura \@ref(fig:binom1) se muestra la función de masa de probabilidad para la $Binomial(n=18, p=0.1)$, de esta figura se observa claramente que la mayor parte de la probabilidad está concentrada para valores pequeños de $X$ debido a que la probabilidad de éxito individual es $p=0.10$. Valores de $X \geq 7$ tienen una probabilidad muy pequeña y es por eso que las longitudes de sus barras son muy cortas.
+
+5) Generar con 100 de una distribución $Binomial(n=18, p=0.1)$ y luego calcular las frecuencias muestrales y compararlas con las probabilidades teóricas.
+
+La muestra aleatoria se obtiene con la función `rbinom` y los resultados se almacenan en el objeto `m`, por último se construye la tabla de frecuencias relativas, a continuación el código usado.
+
+```{r}
+m <- rbinom(n=100, size=18, prob=0.1)
+m  # Para ver lo que hay dentro de m1
+prop.table(table(m))  # Tabla de frecuencia relativa
+```
+A pesar de ser una muestra aleatoria de sólo 100 observaciones, se observa que las frecuencias relativas obtenidas son muy cercanas a las mostradas en la Figura \@ref(fig:binom1).
+
+### Ejemplo distribución geométrica {-}
+\index{geométrica}
+En una línea de producción de bombillos se sabe que sólo el 1\% de los bombillos son defectuosos. Una máquina automática toma un bombillo y lo prueba, si el bombillo enciende, se siguen probando los bombillos hasta que se encuentre __un__ bombillo defectuoso, ahí se para la línea de producción y se toman los correctivos necesarios para mejorar el proceso.
+
+1) Calcular la probabilidad de que se necesiten probar 125 bombillos para encontrar el primer bombillo defectuoso.
+
+En la distribución geométrica, la variable $X$ representa el número de fracasos antes de encontrar el único éxito, por lo tanto, en este caso el interés es calcular $P(X=124)$. La instrucción para obtener esta probabiliad es la siguiente.
+
+```{r}
+dgeom(x=124, prob=0.01)
+```
+
+2) Calcular $P(X \leq 8)$.
+
+En este caso interesa $P(X \leq 50)$ lo que equivale a $F(8)$, la instrucción para obtener la probabilidad es la siguiente.
+
+```{r}
+pgeom(q=50, prob=0.01)
+```
+
+3) Encontrar el cuantil $q$ tal que $P(X \leq q) = 0.40$.
+
+En este caso interesa encontrar el cuantil $q$ que cumpla la condición de que hasta $q$ esté el 40\% de las observaciones, por esa razón se usa la función `qgeom` como se muestra a continuación.
+
+```{r}
+qgeom(p=0.4, prob=0.01)
+```
+
+```{block2, type='rmdnote'}
+Note que las funciones `pxxx` y `qxxx` están relacionadas, `pxxx` entrega la probabilidad hasta el cuantil $q$ mientras `qxxx` entrega el cuantil en el que se acumula $p$ probabilidad.
+```
+
+### Ejemplo distribución binomial negativa {-}
+
+### Ejemplo distribución hipergeométrica {-}
+
+### Ejemplo distribución Poisson {-}
 
 
