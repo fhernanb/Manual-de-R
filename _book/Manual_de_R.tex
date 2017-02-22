@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-02-21}
+\date{2017-02-22}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -5083,19 +5083,19 @@ responder cada una de las siguientes preguntas.
 En este capítulo se mostrarán las funciones de \proglang{R} para
 distribuciones discretas.
 
-\section{\texorpdfstring{Tipos de funciones disponibles para
-distribuciones discretas
-\index{distribuciones discretas}}{Tipos de funciones disponibles para distribuciones discretas }}\label{tipos-de-funciones-disponibles-para-distribuciones-discretas}
+\section{\texorpdfstring{Funciones disponibles para distribuciones
+discretas
+\index{distribuciones discretas}}{Funciones disponibles para distribuciones discretas }}\label{funciones-disponibles-para-distribuciones-discretas}
 
 Para cada distribución discreta hay disponibles 4 funciones, a
 continuación se muestra el listado de funciones y su utilidad.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{pxxx}\NormalTok{(q, ...)  }\CommentTok{# Probability mass function, f(x)}
-\KeywordTok{dxxx}\NormalTok{(x, ...)  }\CommentTok{# Cumulative distribution function, F(x)}
-\KeywordTok{qxxx}\NormalTok{(p, ...)  }\CommentTok{# Quantile for P(X <= q) = p}
-\KeywordTok{rxxx}\NormalTok{(n, ...)  }\CommentTok{# Random values generator}
+\KeywordTok{pxxx}\NormalTok{(q, ...)  }\CommentTok{# Función de masa de probabilidad, f(x)}
+\KeywordTok{dxxx}\NormalTok{(x, ...)  }\CommentTok{# Función de distribución acumulada, F(x)}
+\KeywordTok{qxxx}\NormalTok{(p, ...)  }\CommentTok{# Cuantil para el cual P(X <= q) = p}
+\KeywordTok{rxxx}\NormalTok{(n, ...)  }\CommentTok{# Generador de números aleatorios.}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5115,12 +5115,12 @@ disponibles para las 5 distribuciones discretas básicas.
 
 Combinando las funciones y los nombres se tiene un total de 20
 funciones, por ejemplo, para obtener la función de masa de probabilidad
-(\(f(x)\)) de una binomial se usa la función \texttt{dbinom(\ )} y para
-obtener la función acumulada (\(F(x)\)) de una Poisson se usa la función
-\texttt{ppois(\ )}.
+\(f(x)\) de una binomial se usa la función \texttt{dbinom(\ )} y para
+obtener la función acumulada \(F(x)\) de una Poisson se usa la función
+\texttt{dpois(\ )}.
 
-\subsection*{Ejemplo distribución
-binomial}\label{ejemplo-distribucion-binomial}
+\subsection*{Ejemplo sobre distribución
+binomial}\label{ejemplo-sobre-distribucion-binomial}
 
 
 \index{binomial} Suponga que un grupo de agentes de tránsito sale a una
@@ -5254,7 +5254,7 @@ la tabla de frecuencias relativas, a continuación el código usado.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{m <-}\StringTok{ }\KeywordTok{rbinom}\NormalTok{(}\DataTypeTok{n=}\DecValTok{100}\NormalTok{, }\DataTypeTok{size=}\DecValTok{18}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.1}\NormalTok{)}
-\NormalTok{m  }\CommentTok{# Para ver lo que hay dentro de m1}
+\NormalTok{m  }\CommentTok{# Para ver lo que hay dentro de m}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5281,8 +5281,8 @@ A pesar de ser una muestra aleatoria de sólo 100 observaciones, se
 observa que las frecuencias relativas obtenidas son muy cercanas a las
 mostradas en la Figura \ref{fig:binom1}.
 
-\subsection*{Ejemplo distribución
-geométrica}\label{ejemplo-distribucion-geometrica}
+\subsection*{Ejemplo sobre distribución
+geométrica}\label{ejemplo-sobre-distribucion-geometrica}
 
 
 \index{geométrica} En una línea de producción de bombillos se sabe que
@@ -5365,9 +5365,9 @@ Note que las funciones \texttt{pxxx} y \texttt{qxxx} están relacionadas,
 probabilidad.
 \EndKnitrBlock{rmdnote}
 
-\subsection*{Ejemplo distribución binomial
-negativa}\label{ejemplo-distribucion-binomial-negativa}
-\addcontentsline{toc}{subsection}{Ejemplo distribución binomial
+\subsection*{Ejemplo sobre distribución binomial
+negativa}\label{ejemplo-sobre-distribucion-binomial-negativa}
+\addcontentsline{toc}{subsection}{Ejemplo sobre distribución binomial
 negativa}
 
 Una familia desea tener hijos hasta conseguir \textbf{2 niñas}, la
@@ -5439,9 +5439,10 @@ función \texttt{pnbinom} de la siguiente manera.
 ## [1] 0.5
 \end{verbatim}
 
-\subsection*{Ejemplo distribución
-hipergeométrica}\label{ejemplo-distribucion-hipergeometrica}
-
+\subsection*{Ejemplo sobre distribución
+hipergeométrica}\label{ejemplo-sobre-distribucion-hipergeometrica}
+\addcontentsline{toc}{subsection}{Ejemplo sobre distribución
+hipergeométrica}
 
 Un lote de partes para ensamblar en una empresa está formado por 100
 elementos del proveedor A y 200 elementos del proveedor B. Se selecciona
@@ -5494,8 +5495,8 @@ probabilidad es.
 ## [1] 0.4074
 \end{verbatim}
 
-\subsection*{Ejemplo distribución
-Poisson}\label{ejemplo-distribucion-poisson}
+\subsection*{Ejemplo sobre distribución
+Poisson}\label{ejemplo-sobre-distribucion-poisson}
 
 
 En una editorial se asume que todo libro de 250 páginas tiene en
@@ -5512,7 +5513,7 @@ promedio 50 errores.
 Este es un problema de distribución Poisson con tasa promedio de éxitos
 dada por:
 
-\[\lambda=\frac{50 \quad errores}{libro}=\frac{0.2 \quad errores}{página}\]
+\[\lambda=\frac{50 \quad errores}{libro}=\frac{0.2 \quad errores}{pagina}\]
 El objetivo es calcular \(P(X=0)\), para obtener esta probabilidad de
 usa la siguiente instrucción.
 
@@ -5525,6 +5526,226 @@ usa la siguiente instrucción.
 \begin{verbatim}
 ## [1] 0.8187
 \end{verbatim}
+
+Así \(P(X=0)=0.8187\).
+
+\section{Distribuciones discretas
+generales}\label{distribuciones-discretas-generales}
+
+En la práctica nos podemos encontramos con variables aleatorias
+discretas que no se ajustan a una de las distribuciones mostradas
+anteriormente, en esos casos, es posible manejar ese tipo de variables
+por medio de unas funciones básicas de \proglang{R} como se muestra en
+el siguiente ejemplo.
+
+\subsection*{Ejemplo: variable aleatoria discreta
+general}\label{ejemplo-variable-aleatoria-discreta-general}
+\addcontentsline{toc}{subsection}{Ejemplo: variable aleatoria discreta
+general}
+
+El cangrejo de herradura hembra se caracteriza porque a su caparazón se
+adhieren los machos de la misma especie, en la Figura \ref{fig:crab} se
+muestra una fotografía de este cangrejo. Los investigadores están
+interesado en determinar cual es el patrón de variación del número de
+machos sobre cada hembra, para esto, se recolectó una muestra de hembras
+a las cuales se les observó el color, la condición de la espina, el peso
+en kilogramos, el ancho del caparazón en centímetros y el número de
+satélites o machos sobre el caparazón, la base de datos está disponible
+en el siguiente
+\href{https://raw.githubusercontent.com/fhernanb/datos/master/crab}{enlace}.
+
+\begin{figure}
+
+{\centering \includegraphics{images/crab} 
+
+}
+
+\caption{Fotografía del cangreo de herradura, tomada de http://sccoastalresources.com/home/2016/6/21/a-night-of-horseshoe-crab-tagging.}\label{fig:crab}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Encontrar la distribución de probabilidad para la variable \texttt{Sa}
+  que corresponde al número de machos sobre el caparazón de cada hembra.
+\end{enumerate}
+
+Primero se debe leer la base de datos usando la url suministrada y luego
+se construye la tabla de frecuencia relativa y se almacena en el objeto
+\texttt{t1}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/crab'}
+\NormalTok{crab <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+
+\NormalTok{t1 <-}\StringTok{ }\KeywordTok{prop.table}\NormalTok{(}\KeywordTok{table}\NormalTok{(crab$Sa))}
+\NormalTok{t1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##       0       1       2       3       4       5 
+## 0.35838 0.09249 0.05202 0.10983 0.10983 0.08671 
+##       6       7       8       9      10      11 
+## 0.07514 0.02312 0.03468 0.01734 0.01734 0.00578 
+##      12      14      15 
+## 0.00578 0.00578 0.00578
+\end{verbatim}
+
+La anterior tabla de frecuencias relativas se puede representar
+gráficamente usando el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(t1, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{5}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'Número de satélites'}\NormalTok{,}
+     \DataTypeTok{ylab=}\StringTok{'Proporción'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/pmfcrab-1.pdf}
+\caption{\label{fig:pmfcrab}Función de masa de probabilidad para el número
+de satélites por hembra.}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Sea \(X\) la variable número de satélites por hembra, construir la
+  función \(F(x)\).
+\end{enumerate}
+
+Para construir \(F(x)\) se utiliza la función \texttt{ecdf} o
+\emph{empirical cumulative density function}, a esta función le debe
+ingresar el vector con la información de la variable cuantitativa, a
+continuación del código usado. En la Figura \ref{fig:Fcrab} se muestra
+la función de distribución acumulada para para el número de satélites
+por hembra.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{F <-}\StringTok{ }\KeywordTok{ecdf}\NormalTok{(crab$Sa)}
+\KeywordTok{plot}\NormalTok{(F, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{main=}\StringTok{''}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/Fcrab-1.pdf}
+\caption{\label{fig:Fcrab}Función de distribución acumulada para el número
+de satélites por hembra.}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Calcular \(P(X \leq 9)\).
+\end{enumerate}
+
+Para obtener esta probabilidad se usa el objeto \texttt{F} que es en
+realidad una función, a continuación la instrucción usada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{F}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9595
+\end{verbatim}
+
+Así \(P(X \leq 9)=0.9595\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Calcular \(P(X > 4)\).
+\end{enumerate}
+
+Para obtener esta probabilidad se usa el hecho de que
+\(P(X > 4) = 1 - P(X \leq 4)\), así la instrucción a usar es.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1} \NormalTok{-}\StringTok{ }\KeywordTok{F}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2775
+\end{verbatim}
+
+Por lo tanto \(P(X > 4)=0.2775\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Suponga que el grupo 1 está formado por las hembras cuyo ancho de
+  caparazón es menor o igual al ancho mediano, el grupo 2 está formado
+  por las demás hembras. ¿Será \(F(x)\) diferente para los dos grupos?
+\end{enumerate}
+
+Para realizar esto vamos a particionar el vector \texttt{Sa} en los dos
+grupos de acuerdo a la nueva variable \texttt{grupo} creada como se
+muestra a continuacion.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grupo <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(crab$Wt <=}\StringTok{ }\KeywordTok{median}\NormalTok{(crab$Wt), }\StringTok{'Grupo 1'}\NormalTok{, }\StringTok{'Grupo 2'}\NormalTok{)}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{split}\NormalTok{(}\DataTypeTok{x=}\NormalTok{crab$Sa, }\DataTypeTok{f=}\NormalTok{grupo)}
+\end{Highlighting}
+\end{Shaded}
+
+El objeto \texttt{x} es una lista y para acceder a los vectores allí
+almacenados usamos dos corchetes \texttt{{[}{[}{]}{]}}, uno dentro del
+otro. Luego para calcular \(F(x)\) para los dos grupos se procede así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{F1 <-}\StringTok{ }\KeywordTok{ecdf}\NormalTok{(x[[}\DecValTok{1}\NormalTok{]])}
+\NormalTok{F2 <-}\StringTok{ }\KeywordTok{ecdf}\NormalTok{(x[[}\DecValTok{2}\NormalTok{]])}
+\end{Highlighting}
+\end{Shaded}
+
+Para obtener las dos \(F(x)\) en la misma figura se usa el código
+siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(F1, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{main=}\StringTok{''}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(F2, }\DataTypeTok{col=}\StringTok{'red'}\NormalTok{, }\DataTypeTok{add=}\NormalTok{T)}
+\KeywordTok{legend}\NormalTok{(}\StringTok{'bottomright'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{'Grupo 1'}\NormalTok{, }\StringTok{'Grupo 2'}\NormalTok{),}
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'blue'}\NormalTok{, }\StringTok{'red'}\NormalTok{), }\DataTypeTok{lwd=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/Fcrabs-1.pdf}
+\caption{\label{fig:Fcrabs}Función de distribución acumulada para el número
+de satélites por hembra diferenciando por grupo.}
+\end{figure}
+
+En la Figura \ref{fig:Fcrabs} se muestran las dos \(F(x)\), en color
+azul para el grupo 1 y en color rojo para el grupo 2. Se observa
+claramente que las curvas son diferentes antes de \(x=9\). El hecho de
+que la curva azul esté por encima de la roja para valores menores de 9,
+es decir, \(F_1(x) \geq F_2(x)\), indica que las hembras del grupo 1
+tienden a tener menos satélites que las del grupo 2, esto es coherente
+ya que las del grupo 2 son más grandes en su caparazón.
 
 \chapter{Pruebas de bondad de ajuste}\label{pruebas-de-bondad-de-ajuste}
 
@@ -5587,8 +5808,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-183-1.pdf}
-\caption{\label{fig:unnamed-chunk-183}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-188-1.pdf}
+\caption{\label{fig:unnamed-chunk-188}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
@@ -5648,7 +5869,7 @@ integral usando la función \texttt{integrate}, a continuación el código.
 
 De los anteriores resultados vemos que la aproximación es buena.
 
-\bibliography{packages.bib,book.bib}
+\bibliography{packages,book}
 
 \backmatter
 \printindex
