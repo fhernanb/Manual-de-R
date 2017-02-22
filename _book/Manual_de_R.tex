@@ -5105,17 +5105,18 @@ disponibles para las 5 distribuciones discretas básicas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{binom   }\CommentTok{# Binomial}
-\NormalTok{geo     }\CommentTok{# Geométrica}
-\NormalTok{nbinom  }\CommentTok{# Binomial negativa}
-\NormalTok{hyper   }\CommentTok{# Hipergeométrica}
-\NormalTok{pois    }\CommentTok{# Poisson}
+\NormalTok{binom     }\CommentTok{# Binomial}
+\NormalTok{geo       }\CommentTok{# Geométrica}
+\NormalTok{nbinom    }\CommentTok{# Binomial negativa}
+\NormalTok{hyper     }\CommentTok{# Hipergeométrica}
+\NormalTok{pois      }\CommentTok{# Poisson}
+\NormalTok{multinom  }\CommentTok{# Multinomial}
 \end{Highlighting}
 \end{Shaded}
 
-Combinando las funciones y los nombres se tiene un total de 20
+Combinando las funciones y los nombres se tiene un total de 24
 funciones, por ejemplo, para obtener la función de masa de probabilidad
-\(f(x)\) de una binomial se usa la función \texttt{dbinom(\ )} y para
+\(f(x)\) de una binomial se usa la función \texttt{pbinom(\ )} y para
 obtener la función acumulada \(F(x)\) de una Poisson se usa la función
 \texttt{dpois(\ )}.
 
@@ -5747,6 +5748,183 @@ es decir, \(F_1(x) \geq F_2(x)\), indica que las hembras del grupo 1
 tienden a tener menos satélites que las del grupo 2, esto es coherente
 ya que las del grupo 2 son más grandes en su caparazón.
 
+\chapter{Distribuciones continuas}\label{distribuciones-continuas}
+
+En este capítulo se mostrarán las funciones de \proglang{R} para
+distribuciones continuas.
+
+\section{\texorpdfstring{Funciones disponibles para distribuciones
+continuas
+\index{distribuciones continuas}}{Funciones disponibles para distribuciones continuas }}\label{funciones-disponibles-para-distribuciones-continuas}
+
+Para cada distribución continua hay disponibles 4 funciones, a
+continuación se muestra el listado de funciones y su utilidad.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pxxx}\NormalTok{(q, ...)  }\CommentTok{# Función de masa de probabilidad, f(x)}
+\KeywordTok{dxxx}\NormalTok{(x, ...)  }\CommentTok{# Función de distribución acumulada, F(x)}
+\KeywordTok{qxxx}\NormalTok{(p, ...)  }\CommentTok{# Cuantil para el cual P(X <= q) = p}
+\KeywordTok{rxxx}\NormalTok{(n, ...)  }\CommentTok{# Generador de números aleatorios.}
+\end{Highlighting}
+\end{Shaded}
+
+En el espacio de las letras \texttt{xxx} se de debe colocar el nombre de
+la distribución en \proglang{R}, a continuación el listado de nombres
+disponibles para las 5 distribuciones discretas básicas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{beta     }\CommentTok{# Beta}
+\NormalTok{cauchy   }\CommentTok{# Cauchy}
+\NormalTok{chisq    }\CommentTok{# Chi-cuadrada}
+\NormalTok{exp      }\CommentTok{# Exponencial}
+\NormalTok{f        }\CommentTok{# F}
+\NormalTok{gamma    }\CommentTok{# Gama}
+\NormalTok{lnorm    }\CommentTok{# log-normal}
+\NormalTok{norm     }\CommentTok{# normal}
+\NormalTok{t        }\CommentTok{# t-student}
+\NormalTok{unif     }\CommentTok{# Uniforme}
+\NormalTok{weibull  }\CommentTok{# Weibull}
+\end{Highlighting}
+\end{Shaded}
+
+Combinando las funciones y los nombres se tiene un total de 44
+funciones, por ejemplo, para obtener la función de densidad de
+probabilidad \(f(x)\) de una normal se usa la función \texttt{pnorm(\ )}
+y para obtener la función acumulada \(F(x)\) de una Beta se usa la
+función \texttt{dbeta(\ )}.
+
+\subsection*{Ejemplo sobre distribución
+beta}\label{ejemplo-sobre-distribucion-beta}
+
+
+\index{beta} Considere que una variable aleatoria \(X\) se distribuye
+beta con parámetros \(a=2\) y \(b=5\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Dibuje la densidad de la distribución.
+\end{enumerate}
+
+La función \texttt{dbeta} sirve para obtener la altura de la curva de
+una distribución beta y combinándola con la función \texttt{curve} se
+puede dibujar la densidad solicitada. En la Figura \ref{fig:beta1} se
+presenta la densidad, observe que para la combinación de parámetros
+\(a=2\) y \(b=5\) la distribución es sesgada a la derecha.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{curve}\NormalTok{(}\KeywordTok{dbeta}\NormalTok{(x, }\DataTypeTok{shape1=}\DecValTok{2}\NormalTok{, }\DataTypeTok{shape2=}\DecValTok{5}\NormalTok{), }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+      \DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/beta1-1.pdf}
+\caption{\label{fig:beta1}Función de densidad para una \(Beta(2, 5)\).}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Calcular \(P(0.3 \leq X \leq 0.7)\).
+\end{enumerate}
+
+Para obtener la probabilidad o área bajo la densidad se puede usar la
+función \texttt{integrate}, los límites de la integral se ingresan en
+por medio de los parámetros \texttt{lower} y \texttt{upper}. Si la
+función a integrar tiene parámetros adicionales como en este caso, éstos
+se ingresan luego de los límites de la integral. A continuación el
+código necesario para obtener la probabiliad solicitada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{integrate}\NormalTok{(}\DataTypeTok{f=}\NormalTok{dbeta, }\DataTypeTok{lower=}\FloatTok{0.3}\NormalTok{, }\DataTypeTok{upper=}\FloatTok{0.7}\NormalTok{,}
+          \DataTypeTok{shape1=}\DecValTok{2}\NormalTok{, }\DataTypeTok{shape2=}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 0.4092 with absolute error < 4.5e-15
+\end{verbatim}
+
+Otra forma de obtener la probabilidad solicitada es restando de la
+probabilidad acumulada hasta el límite superior, la probabilidad
+acumulada hasta el límite inferior. Las probabilidades acumuladas hasta
+un valor dado se obtienen con la función \texttt{pbeta}, a continuación
+el código necesario.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pbeta}\NormalTok{(}\DataTypeTok{q=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{shape1=}\DecValTok{2}\NormalTok{, }\DataTypeTok{shape2=}\DecValTok{5}\NormalTok{) -}\StringTok{ }\KeywordTok{pbeta}\NormalTok{(}\DataTypeTok{q=}\FloatTok{0.3}\NormalTok{, }\DataTypeTok{shape1=}\DecValTok{2}\NormalTok{, }\DataTypeTok{shape2=}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.4092
+\end{verbatim}
+
+De ambas formas se obtiene que \(P(0.3 \leq X \leq 0.7)=0.4092\).
+
+\BeginKnitrBlock{rmdnote}
+Recuerde que para distribuciones continuas
+
+\[ P(a < X < b) = P(a \leq X < b) = P(a < X \leq b) = P(a \leq X \leq b)\]
+\EndKnitrBlock{rmdnote}
+
+\subsection*{Ejemplo: variable aleatoria continua
+general}\label{ejemplo-variable-aleatoria-continua-general}
+\addcontentsline{toc}{subsection}{Ejemplo: variable aleatoria continua
+general}
+
+En este ejemplo se retomará la base de datos \texttt{crab} sobre el
+cangrejo de herradura hembra presentado en el capítulo anterior. La base
+de datos \texttt{crab} contiene las siguientes variables: el color del
+caparazón, la condición de la espina, el peso en kilogramos, el ancho
+del caparazón en centímetros y el número de satélites o machos sobre el
+caparazón, la base de datos está disponible en el siguiente
+\href{https://raw.githubusercontent.com/fhernanb/datos/master/crab}{enlace}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Sea \(X\) la variable peso del cangrejo, dibuje la densidad para
+  \(X\).
+\end{enumerate}
+
+Para obtener la densidad muestral de un vector cuantitativo se usa la
+función \texttt{density} y para dibujar la densidad se usa la función
+\texttt{plot}, a continuación el código necesario para dibujar la
+densidad.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/crab'}
+\NormalTok{crab <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(crab$W), }\DataTypeTok{main=}\StringTok{''}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{5}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{'Peso (Kg)'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/crabcont1-1.pdf}
+\caption{\label{fig:crabcont1}Función de densidad para el peso de los
+cangrejos.}
+\end{figure}
+
+En la Figura \ref{fig:crabcont1} se muestra la densidad para la variable
+peso de los cangrejos, esta densidad es bastante simétrica y el
+intervalo de mayor densidad está entre 22 y 30 kilogramos.
+
 \chapter{Pruebas de bondad de ajuste}\label{pruebas-de-bondad-de-ajuste}
 
 En este capítulo se
@@ -5808,8 +5986,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-188-1.pdf}
-\caption{\label{fig:unnamed-chunk-188}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-193-1.pdf}
+\caption{\label{fig:unnamed-chunk-193}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
@@ -5869,7 +6047,7 @@ integral usando la función \texttt{integrate}, a continuación el código.
 
 De los anteriores resultados vemos que la aproximación es buena.
 
-\bibliography{packages,book}
+\bibliography{packages.bib,book.bib}
 
 \backmatter
 \printindex

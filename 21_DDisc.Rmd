@@ -15,14 +15,15 @@ rxxx(n, ...)  # Generador de números aleatorios.
 En el espacio de las letras `xxx` se de debe colocar el nombre de la distribución en \proglang{R}, a continuación el listado de nombres disponibles para las 5 distribuciones discretas básicas.
 
 ```{r, eval=F}
-binom   # Binomial
-geo     # Geométrica
-nbinom  # Binomial negativa
-hyper   # Hipergeométrica
-pois    # Poisson
+binom     # Binomial
+geo       # Geométrica
+nbinom    # Binomial negativa
+hyper     # Hipergeométrica
+pois      # Poisson
+multinom  # Multinomial
 ```
 
-Combinando las funciones y los nombres se tiene un total de 20 funciones, por ejemplo, para obtener la función de masa de probabilidad $f(x)$ de una binomial se usa la función `dbinom( )` y para obtener la función acumulada $F(x)$ de una Poisson se usa la función `dpois( )`.
+Combinando las funciones y los nombres se tiene un total de 24 funciones, por ejemplo, para obtener la función de masa de probabilidad $f(x)$ de una binomial se usa la función `pbinom( )` y para obtener la función acumulada $F(x)$ de una Poisson se usa la función `dpois( )`.
 
 ### Ejemplo sobre distribución binomial {-}
 \index{binomial} 

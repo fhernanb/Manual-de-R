@@ -1,0 +1,93 @@
+# Distribuciones continuas
+
+En este capítulo se mostrarán las funciones de \proglang{R} para distribuciones continuas.
+
+## Funciones disponibles para distribuciones continuas \index{distribuciones continuas}
+
+Para cada distribución continua hay disponibles 4 funciones, a continuación se muestra el listado de funciones y su utilidad.
+
+```{r, eval=FALSE}
+pxxx(q, ...)  # Función de masa de probabilidad, f(x)
+dxxx(x, ...)  # Función de distribución acumulada, F(x)
+qxxx(p, ...)  # Cuantil para el cual P(X <= q) = p
+rxxx(n, ...)  # Generador de números aleatorios.
+```
+
+En el espacio de las letras `xxx` se de debe colocar el nombre de la distribución en \proglang{R}, a continuación el listado de nombres disponibles para las 5 distribuciones discretas básicas.
+
+```{r, eval=FALSE}
+beta     # Beta
+cauchy   # Cauchy
+chisq    # Chi-cuadrada
+exp      # Exponencial
+f        # F
+gamma    # Gama
+lnorm    # log-normal
+norm     # normal
+t        # t-student
+unif     # Uniforme
+weibull  # Weibull
+```
+
+Combinando las funciones y los nombres se tiene un total de 44 funciones, por ejemplo, para obtener la función de densidad de probabilidad $f(x)$ de una normal se usa la función `pnorm( )` y para obtener la función acumulada $F(x)$ de una Beta se usa la función `dbeta( )`.
+
+### Ejemplo sobre distribución beta {-}
+\index{beta} 
+Considere que una variable aleatoria $X$ se distribuye beta con parámetros $a=2$ y $b=5$.
+
+1) Dibuje la densidad de la distribución.
+
+La función `dbeta` sirve para obtener la altura de la curva de una distribución beta y combinándola con la función `curve` se puede dibujar la densidad solicitada. En la Figura \@ref(fig:beta1) se presenta la densidad, observe que para la combinación de parámetros $a=2$ y $b=5$ la distribución es sesgada a la derecha.
+
+```{r beta1, fig.cap='Función de densidad para una $Beta(2, 5)$.', fig.asp=0.7, fig.width=8}
+curve(dbeta(x, shape1=2, shape2=5), lwd=3, las=1,
+      ylab='Densidad')
+```
+
+2) Calcular $P(0.3 \leq X \leq 0.7)$.
+
+Para obtener la probabilidad o área bajo la densidad se puede usar la función `integrate`, los límites de la integral se ingresan en por medio de los parámetros `lower` y `upper`. Si la función a integrar tiene parámetros adicionales como en este caso, éstos se ingresan luego de los límites de la integral. A continuación el código necesario para obtener la probabiliad solicitada.
+
+```{r}
+integrate(f=dbeta, lower=0.3, upper=0.7,
+          shape1=2, shape2=5)
+```
+
+Otra forma de obtener la probabilidad solicitada es restando de la probabilidad acumulada hasta el límite superior, la probabilidad acumulada hasta el límite inferior. Las probabilidades acumuladas hasta un valor dado se obtienen con la función `pbeta`, a continuación el código necesario.
+
+```{r}
+pbeta(q=0.7, shape1=2, shape2=5) - pbeta(q=0.3, shape1=2, shape2=5)
+```
+
+De ambas formas se obtiene que $P(0.3 \leq X \leq 0.7)=0.4092$.
+
+```{block2, type='rmdnote'}
+Recuerde que para distribuciones continuas
+
+$$ P(a < X < b) = P(a \leq X < b) = P(a < X \leq b) = P(a \leq X \leq b)$$
+```
+
+### Ejemplo: variable aleatoria continua general {-}
+En este ejemplo se retomará la base de datos `crab` sobre el cangrejo de herradura hembra presentado en el capítulo anterior. La base de datos `crab` contiene las siguientes variables: el color del caparazón, la condición de la espina, el peso en kilogramos, el ancho del caparazón en centímetros y el número de satélites o machos sobre el caparazón, la base de datos está disponible en el siguiente [enlace](https://raw.githubusercontent.com/fhernanb/datos/master/crab).
+
+1) Sea $X$ la variable peso del cangrejo, dibuje la densidad para $X$.
+
+Para obtener la densidad muestral de un vector cuantitativo se usa la función `density` y para dibujar la densidad se usa la función `plot`, a continuación el código necesario para dibujar la densidad.
+
+```{r crabcont1, fig.cap='Función de densidad para el peso de los cangrejos.', fig.asp=0.7, fig.width=8}
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/crab'
+crab <- read.table(file=url, header=T)
+
+plot(density(crab$W), main='', lwd=5, las=1,
+     xlab='Peso (Kg)', ylab='Densidad')
+```
+
+En la Figura \@ref(fig:crabcont1) se muestra la densidad para la variable peso de los cangrejos, esta densidad es bastante simétrica y el intervalo de mayor densidad está entre 22 y 30 kilogramos.
+
+
+
+
+
+
+
+
