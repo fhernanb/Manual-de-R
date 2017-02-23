@@ -39,7 +39,7 @@ Considere que una variable aleatoria $X$ se distribuye beta con parámetros $a=2
 
 La función `dbeta` sirve para obtener la altura de la curva de una distribución beta y combinándola con la función `curve` se puede dibujar la densidad solicitada. En la Figura \@ref(fig:beta1) se presenta la densidad, observe que para la combinación de parámetros $a=2$ y $b=5$ la distribución es sesgada a la derecha.
 
-```{r beta1, fig.cap='Función de densidad para una $Beta(2, 5)$.', fig.asp=0.7, fig.width=8}
+```{r beta1, fig.cap='Función de densidad para una $Beta(2, 5)$.', fig.asp=0.7, fig.width=6}
 curve(dbeta(x, shape1=2, shape2=5), lwd=3, las=1,
       ylab='Densidad')
 ```
@@ -72,9 +72,9 @@ En este ejemplo se retomará la base de datos `crab` sobre el cangrejo de herrad
 
 1) Sea $X$ la variable peso del cangrejo, dibuje la densidad para $X$.
 
-Para obtener la densidad muestral de un vector cuantitativo se usa la función `density` y para dibujar la densidad se usa la función `plot`, a continuación el código necesario para dibujar la densidad.
+Para obtener la densidad muestral de un vector cuantitativo se usa la función `density`, y para dibujar la densidad se usa la función `plot` aplicada a un objeto obtenido con `density`, a continuación el código necesario para dibujar la densidad.
 
-```{r crabcont1, fig.cap='Función de densidad para el peso de los cangrejos.', fig.asp=0.7, fig.width=8}
+```{r crabcont1, fig.cap='Función de densidad $f(x)$ para el peso de los cangrejos.', fig.asp=0.7, fig.width=6}
 url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/crab'
 crab <- read.table(file=url, header=T)
 
@@ -84,10 +84,61 @@ plot(density(crab$W), main='', lwd=5, las=1,
 
 En la Figura \@ref(fig:crabcont1) se muestra la densidad para la variable peso de los cangrejos, esta densidad es bastante simétrica y el intervalo de mayor densidad está entre 22 y 30 kilogramos.
 
+2) Dibujar $F(x)$ para el peso del cangrejo.
 
+Para dibujar la función $F(x)$ se usa la función `ecdf` y se almacena el resultado en el objeto `F`, luego se dibuja la función deseada usando `plot`. A continuación el código utilizado. En la Figura \@ref(fig:crabcont2) se presenta el dibujo para $F(x)$.
 
+```{r crabcont2, fig.cap='Función acumulada $F(x)$ para el peso de los cangrejos.', fig.asp=0.7, fig.width=6}
+F <- ecdf(crab$W)
+plot(F, main='', xlab='Peso (Kg)', ylab='F(x)', cex=0.5, las=1)
+```
 
+3) Calcular la probabilidad de que un cangrejo hembra tenga un peso inferior o igual a 28 kilogramos.
 
+Para obtener $P(X \leq 28)$ se evalua en la función $F(x)$ el cuantil 28 así.
 
+```{r}
+F(28)
+```
 
+Por lo tanto $P(X \leq 28)=0.7919$.
 
+4) Dibujar la función de densidad para el peso de los cangrejos hembra diferenciando por el color del caparazón.
+
+Como son 4 los colores de los caparazones se deben construir 4 funciones de densidad. Usando la función `split` se puede partir el vector de peso de los cangrejos según su color. Luego se construyen las cuatro densidades usando la función `density` aplicada a cada uno de los pesos, a continuación el código. 
+
+```{r}
+pesos <- split(x=crab$W, f=crab$C)
+f1 <- density(pesos[[1]])
+f2 <- density(pesos[[2]])
+f3 <- density(pesos[[3]])
+f4 <- density(pesos[[4]])
+```
+
+Luego de tener las densidades muestrales se procede a dibujar la primera densidad con `plot`, luego se usa la funció `lines` para agregar a la densidad inicial las restantes densidades. En la Figura \@ref(fig:crabcont3) se muestran las 4 densidades, una por cada color de caparazón.
+
+```{r crabcont3, fig.cap='Función de densidad $f(x)$ para el peso del cangrejo diferenciando por el color.', fig.asp=0.7, fig.width=6}
+plot(f1, main='', las=1, lwd=4,
+     xlim=c(18, 34),
+     xlab='Peso (Kg)', ylab='Densidad')
+lines(f2, lwd=4, col='red')
+lines(f3, lwd=4, col='blue')
+lines(f4, lwd=4, col='orange')
+legend('topright', lwd=4, bty='n',
+       col=c('black', 'red', 'blue', 'orange'),
+       legend=c('Color 1', 'Color 2', 'Color 3', 'Color 4'))
+```
+
+Otra forma para dibujar las densidades es usar el paquete **ggplot2** [@R-ggplot2]. En la Figura \@ref(fig:crabcont4) se muestra el resultado obtenido de correr el siguiente código.
+
+```{r crabcont4, fig.cap='Función de densidad $f(x)$ para el peso del cangrejo diferenciando por el color y usando ggplot2.', fig.asp=0.7, fig.width=6, message=FALSE}
+require(ggplot2)  # Recuerde que primero debe instalarlo
+
+crab$Color <- as.factor(crab$C)  # Para convertir en factor
+
+ggplot(crab, aes(x=W)) + 
+  geom_density(aes(group=Color, fill=Color), alpha=0.3) +
+  xlim(18, 34) + xlab("Peso (Kg)") + ylab("Densidad")
+```
+
+Para aprender más sobre el paquete **ggplot2** se recomienda consultar este [enlace](http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html).

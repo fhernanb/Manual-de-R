@@ -3466,9 +3466,9 @@ cargar el paquete en la sesión actual de \proglang{R} es
 \end{Shaded}
 
 \BeginKnitrBlock{rmdwarning}
-La instalación del paquete con \texttt{install.packages} se hace sólo
-una vez y no más. Cargar el paquete con \texttt{library} en la sesión se
-debe hacer siempre que se vaya a usar el paquete.
+La instalación de un paquete con \texttt{install.packages} se hace sólo
+una vez y no más. Cargar el paquete con \texttt{library} en la sesión
+actual se debe hacer siempre que se vaya a usar el paquete.
 \EndKnitrBlock{rmdwarning}
 
 Luego de haber cargado el paquete \textbf{readxl} se puede usar la
@@ -3479,7 +3479,7 @@ contenida en el archivo BD\_Excel.xlsx.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{hijos <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\KeywordTok{file.choose}\NormalTok{(), }\DataTypeTok{sheet=}\StringTok{'Hijos'}\NormalTok{)}
-\NormalTok{hijos}
+\NormalTok{hijos  }\CommentTok{# Para ver el contenido}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3499,7 +3499,7 @@ contenida en el archivo BD\_Excel.xlsx.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{padres <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{'BD_Excel.xlsx'}\NormalTok{, }\DataTypeTok{sheet=}\StringTok{'Padres'}\NormalTok{)}
-\NormalTok{padres}
+\NormalTok{padres  }\CommentTok{# Para ver el contenido}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5219,12 +5219,12 @@ obtener la función acumulada \(F(x)\) de una Poisson se usa la función
 binomial}\label{ejemplo-sobre-distribucion-binomial}
 
 
-\index{binomial} Suponga que un grupo de agentes de tránsito sale a una
-vía principal para revisar el estado de los buses de transporte
-intermunicipal. De datos históricos se sabe que un 10\% de los buses
-generan una mayor cantidad de humo de la permitida. En cada jornada los
-agentes revisan siempre 18 buses, asuma que el estado de un bus es
-independiente del estado de los otros buses.
+Suponga que un grupo de agentes de tránsito sale a una vía principal
+para revisar el estado de los buses de transporte intermunicipal. De
+datos históricos se sabe que un 10\% de los buses generan una mayor
+cantidad de humo de la permitida. En cada jornada los agentes revisan
+siempre 18 buses, asuma que el estado de un bus es independiente del
+estado de los otros buses.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -5381,12 +5381,12 @@ mostradas en la Figura \ref{fig:binom1}.
 geométrica}\label{ejemplo-sobre-distribucion-geometrica}
 
 
-\index{geométrica} En una línea de producción de bombillos se sabe que
-sólo el 1\% de los bombillos son defectuosos. Una máquina automática
-toma un bombillo y lo prueba, si el bombillo enciende, se siguen
-probando los bombillos hasta que se encuentre \textbf{un} bombillo
-defectuoso, ahí se para la línea de producción y se toman los
-correctivos necesarios para mejorar el proceso.
+En una línea de producción de bombillos se sabe que sólo el 1\% de los
+bombillos son defectuosos. Una máquina automática toma un bombillo y lo
+prueba, si el bombillo enciende, se siguen probando los bombillos hasta
+que se encuentre \textbf{un} bombillo defectuoso, ahí se para la línea
+de producción y se toman los correctivos necesarios para mejorar el
+proceso.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -5995,9 +5995,9 @@ caparazón, la base de datos está disponible en el siguiente
 \end{enumerate}
 
 Para obtener la densidad muestral de un vector cuantitativo se usa la
-función \texttt{density} y para dibujar la densidad se usa la función
-\texttt{plot}, a continuación el código necesario para dibujar la
-densidad.
+función \texttt{density}, y para dibujar la densidad se usa la función
+\texttt{plot} aplicada a un objeto obtenido con \texttt{density}, a
+continuación el código necesario para dibujar la densidad.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6012,13 +6012,144 @@ densidad.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Manual_de_R_files/figure-latex/crabcont1-1.pdf}
-\caption{\label{fig:crabcont1}Función de densidad para el peso de los
-cangrejos.}
+\caption{\label{fig:crabcont1}Función de densidad \(f(x)\) para el peso de
+los cangrejos.}
 \end{figure}
 
 En la Figura \ref{fig:crabcont1} se muestra la densidad para la variable
 peso de los cangrejos, esta densidad es bastante simétrica y el
 intervalo de mayor densidad está entre 22 y 30 kilogramos.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Dibujar \(F(x)\) para el peso del cangrejo.
+\end{enumerate}
+
+Para dibujar la función \(F(x)\) se usa la función \texttt{ecdf} y se
+almacena el resultado en el objeto \texttt{F}, luego se dibuja la
+función deseada usando \texttt{plot}. A continuación el código
+utilizado. En la Figura \ref{fig:crabcont2} se presenta el dibujo para
+\(F(x)\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{F <-}\StringTok{ }\KeywordTok{ecdf}\NormalTok{(crab$W)}
+\KeywordTok{plot}\NormalTok{(F, }\DataTypeTok{main=}\StringTok{''}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'Peso (Kg)'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'F(x)'}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/crabcont2-1.pdf}
+\caption{\label{fig:crabcont2}Función acumulada \(F(x)\) para el peso de los
+cangrejos.}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Calcular la probabilidad de que un cangrejo hembra tenga un peso
+  inferior o igual a 28 kilogramos.
+\end{enumerate}
+
+Para obtener \(P(X \leq 28)\) se evalua en la función \(F(x)\) el
+cuantil 28 así.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{F}\NormalTok{(}\DecValTok{28}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7919
+\end{verbatim}
+
+Por lo tanto \(P(X \leq 28)=0.7919\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Dibujar la función de densidad para el peso de los cangrejos hembra
+  diferenciando por el color del caparazón.
+\end{enumerate}
+
+Como son 4 los colores de los caparazones se deben construir 4 funciones
+de densidad. Usando la función \texttt{split} se puede partir el vector
+de peso de los cangrejos según su color. Luego se construyen las cuatro
+densidades usando la función \texttt{density} aplicada a cada uno de los
+pesos, a continuación el código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pesos <-}\StringTok{ }\KeywordTok{split}\NormalTok{(}\DataTypeTok{x=}\NormalTok{crab$W, }\DataTypeTok{f=}\NormalTok{crab$C)}
+\NormalTok{f1 <-}\StringTok{ }\KeywordTok{density}\NormalTok{(pesos[[}\DecValTok{1}\NormalTok{]])}
+\NormalTok{f2 <-}\StringTok{ }\KeywordTok{density}\NormalTok{(pesos[[}\DecValTok{2}\NormalTok{]])}
+\NormalTok{f3 <-}\StringTok{ }\KeywordTok{density}\NormalTok{(pesos[[}\DecValTok{3}\NormalTok{]])}
+\NormalTok{f4 <-}\StringTok{ }\KeywordTok{density}\NormalTok{(pesos[[}\DecValTok{4}\NormalTok{]])}
+\end{Highlighting}
+\end{Shaded}
+
+Luego de tener las densidades muestrales se procede a dibujar la primera
+densidad con \texttt{plot}, luego se usa la funció \texttt{lines} para
+agregar a la densidad inicial las restantes densidades. En la Figura
+\ref{fig:crabcont3} se muestran las 4 densidades, una por cada color de
+caparazón.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(f1, }\DataTypeTok{main=}\StringTok{''}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{,}
+     \DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{18}\NormalTok{, }\DecValTok{34}\NormalTok{),}
+     \DataTypeTok{xlab=}\StringTok{'Peso (Kg)'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(f2, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\StringTok{'red'}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(f3, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(f4, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\StringTok{'orange'}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\StringTok{'topright'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'black'}\NormalTok{, }\StringTok{'red'}\NormalTok{, }\StringTok{'blue'}\NormalTok{, }\StringTok{'orange'}\NormalTok{),}
+       \DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{'Color 1'}\NormalTok{, }\StringTok{'Color 2'}\NormalTok{, }\StringTok{'Color 3'}\NormalTok{, }\StringTok{'Color 4'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/crabcont3-1.pdf}
+\caption{\label{fig:crabcont3}Función de densidad \(f(x)\) para el peso del
+cangrejo diferenciando por el color.}
+\end{figure}
+
+Otra forma para dibujar las densidades es usar el paquete
+\textbf{ggplot2} \citep{R-ggplot2}. En la Figura \ref{fig:crabcont4} se
+muestra el resultado obtenido de correr el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require}\NormalTok{(ggplot2)  }\CommentTok{# Recuerde que primero debe instalarlo}
+
+\NormalTok{crab$Color <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(crab$C)  }\CommentTok{# Para convertir en factor}
+
+\KeywordTok{ggplot}\NormalTok{(crab, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{W)) +}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{group=}\NormalTok{Color, }\DataTypeTok{fill=}\NormalTok{Color), }\DataTypeTok{alpha=}\FloatTok{0.3}\NormalTok{) +}
+\StringTok{  }\KeywordTok{xlim}\NormalTok{(}\DecValTok{18}\NormalTok{, }\DecValTok{34}\NormalTok{) +}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Peso (Kg)"}\NormalTok{) +}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Densidad"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/crabcont4-1.pdf}
+\caption{\label{fig:crabcont4}Función de densidad \(f(x)\) para el peso del
+cangrejo diferenciando por el color y usando ggplot2.}
+\end{figure}
+
+Para aprender más sobre el paquete \textbf{ggplot2} se recomienda
+consultar este
+\href{http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html}{enlace}.
 
 \chapter{Pruebas de bondad de ajuste}\label{pruebas-de-bondad-de-ajuste}
 
@@ -6081,8 +6212,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-200-1.pdf}
-\caption{\label{fig:unnamed-chunk-200}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-202-1.pdf}
+\caption{\label{fig:unnamed-chunk-202}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

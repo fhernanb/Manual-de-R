@@ -148,31 +148,31 @@ library(readxl)
 ```
 
 ```{block2, type='rmdwarning'}
-La instalación del paquete con `install.packages` se hace sólo una vez y no más. Cargar el paquete con `library` en la sesión se debe hacer siempre que se vaya a usar el paquete.
+La instalación de un paquete con `install.packages` se hace sólo una vez y no más. Cargar el paquete con `library` en la sesión actual se debe hacer siempre que se vaya a usar el paquete.
 ```
 
 Luego de haber cargado el paquete **readxl** se puede usar la función `readxl` para leer la información contenida en las hojas. A continuación el código para crear la base de datos `hijos` contenida en el archivo BD_Excel.xlsx.
 
 ```{r, eval=F}
 hijos <- read_excel(file.choose(), sheet='Hijos')
-hijos
+hijos  # Para ver el contenido
 ```
 
 ```{r, echo=FALSE}
 hijos <- read_excel('BD_Excel.xlsx', sheet='Hijos')
-hijos
+hijos # Para ver el contenido
 ```
 
 A continuación el código para crear la base de datos `padres` contenida en el archivo BD_Excel.xlsx.
 
 ```{r, eval=F}
 padres <- read_excel('BD_Excel.xlsx', sheet='Padres')
-padres
+padres  # Para ver el contenido
 ```
 
 ```{r, echo=FALSE}
 padres <- read_excel('BD_Excel.xlsx', sheet='Padres')
-padres
+padres  # Para ver el contenido
 ```
 
 La función `readxl` tiene otros parámetros adicionales útiles para leer bases de datos, se recomienda consultar la ayuda de la función escribiendo en la consola `help(read.xl)`.

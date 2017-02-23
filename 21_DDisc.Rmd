@@ -26,7 +26,6 @@ multinom  # Multinomial
 Combinando las funciones y los nombres se tiene un total de 24 funciones, por ejemplo, para obtener la función de masa de probabilidad $f(x)$ de una binomial se usa la función `pbinom( )` y para obtener la función acumulada $F(x)$ de una Poisson se usa la función `dpois( )`.
 
 ### Ejemplo sobre distribución binomial {-}
-\index{binomial} 
 Suponga que un grupo de agentes de tránsito sale a una vía principal para revisar el estado de los buses de transporte intermunicipal. De datos históricos se sabe que un 10\% de los buses generan una mayor cantidad de humo de la permitida. En cada jornada los agentes revisan siempre 18 buses, asuma que el estado de un bus es independiente del estado de los otros buses.
 
 1) Calcular la probabilidad de que se encuentren exactamente 2 buses que generan una mayor cantidad de humo de la permitida.
@@ -84,7 +83,6 @@ prop.table(table(m))  # Tabla de frecuencia relativa
 A pesar de ser una muestra aleatoria de sólo 100 observaciones, se observa que las frecuencias relativas obtenidas son muy cercanas a las mostradas en la Figura \@ref(fig:binom1).
 
 ### Ejemplo sobre distribución geométrica {-}
-\index{geométrica}
 En una línea de producción de bombillos se sabe que sólo el 1\% de los bombillos son defectuosos. Una máquina automática toma un bombillo y lo prueba, si el bombillo enciende, se siguen probando los bombillos hasta que se encuentre __un__ bombillo defectuoso, ahí se para la línea de producción y se toman los correctivos necesarios para mejorar el proceso.
 
 1) Calcular la probabilidad de que se necesiten probar 125 bombillos para encontrar el primer bombillo defectuoso.
