@@ -129,6 +129,55 @@ datos <- read.table(file=enlace, header=TRUE)
 
 La base de datos ingresada queda en el marco de datos llamado `datos` y ya está disponible para usarla.
 
+## Lectura de bases de datos en Excel
+Algunas veces los datos están disponibles en un archivo estándar de Excel, y dentro de cada archivo hojas con la información a utilizar. En estos casos se recomienda usar el paquete **readxl**\index{readxl} [@R-readxl] y en particular la función `readxl`. A continuación un ejemplo de cómo proceder en estos casos.
+
+### Ejemplo {-}
+En este [enlace](https://github.com/fhernanb/datos/blob/master/BD_Excel.xlsx) está disponible un archivo de Excel llamado BD_Excel.xlxs, una vez se ha abierto la página donde está alojado el archivo, se debe descargar y guardar en alguna carpeta. El archivo contiene dos bases de datos muy pequeñas, en la primera hoja llamada __Hijos__ está la información de un grupo de niños y en la segunda hoja llamada __Padres__ está la información de los padres. ¿Cómo se pueden leer las dos bases de datos?
+
+Lo primero que se debe hacer es instalar el paquete **readxl**, la instalación de cualquier paquete en un computador se hace una sola vez y éste quedará instalado para ser usado las veces que se requiera. La función para instalar un paquete cualquiera es `install.packages`, a continuación se muestra el código necesario para instalar el paquete **readxl**.
+
+```{r, eval=FALSE}
+install.packages("readxl")
+```
+
+Una vez instalado el paquete es necesario cargarlo, la función para cargar el paquete en la sesión actual de \proglang{R} es `library`. La instrucción para cargar el paquete es la siguiente:
+
+```{r}
+library(readxl)
+```
+
+```{block2, type='rmdwarning'}
+La instalación del paquete con `install.packages` se hace sólo una vez y no más. Cargar el paquete con `library` en la sesión se debe hacer siempre que se vaya a usar el paquete.
+```
+
+Luego de haber cargado el paquete **readxl** se puede usar la función `readxl` para leer la información contenida en las hojas. A continuación el código para crear la base de datos `hijos` contenida en el archivo BD_Excel.xlsx.
+
+```{r, eval=F}
+hijos <- read_excel(file.choose(), sheet='Hijos')
+hijos
+```
+
+```{r, echo=FALSE}
+hijos <- read_excel('BD_Excel.xlsx', sheet='Hijos')
+hijos
+```
+
+A continuación el código para crear la base de datos `padres` contenida en el archivo BD_Excel.xlsx.
+
+```{r, eval=F}
+padres <- read_excel('BD_Excel.xlsx', sheet='Padres')
+padres
+```
+
+```{r, echo=FALSE}
+padres <- read_excel('BD_Excel.xlsx', sheet='Padres')
+padres
+```
+
+La función `readxl` tiene otros parámetros adicionales útiles para leer bases de datos, se recomienda consultar la ayuda de la función escribiendo en la consola `help(read.xl)`.
+
+
 ## EJERCICIOS {-}
 Realice los siguiente ejercicios propuestos.
 

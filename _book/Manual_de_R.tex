@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-02-22}
+\date{2017-02-23}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -3420,6 +3420,101 @@ Para leer la base de datos desde una url usamos el siguiente código.
 La base de datos ingresada queda en el marco de datos llamado
 \texttt{datos} y ya está disponible para usarla.
 
+\section{Lectura de bases de datos en
+Excel}\label{lectura-de-bases-de-datos-en-excel}
+
+Algunas veces los datos están disponibles en un archivo estándar de
+Excel, y dentro de cada archivo hojas con la información a utilizar. En
+estos casos se recomienda usar el paquete \textbf{readxl}\index{readxl}
+\citep{R-readxl} y en particular la función \texttt{readxl}. A
+continuación un ejemplo de cómo proceder en estos casos.
+
+\subsection*{Ejemplo}\label{ejemplo-21}
+
+
+En este
+\href{https://github.com/fhernanb/datos/blob/master/BD_Excel.xlsx}{enlace}
+está disponible un archivo de Excel llamado BD\_Excel.xlxs, una vez se
+ha abierto la página donde está alojado el archivo, se debe descargar y
+guardar en alguna carpeta. El archivo contiene dos bases de datos muy
+pequeñas, en la primera hoja llamada \textbf{Hijos} está la información
+de un grupo de niños y en la segunda hoja llamada \textbf{Padres} está
+la información de los padres. ¿Cómo se pueden leer las dos bases de
+datos?
+
+Lo primero que se debe hacer es instalar el paquete \textbf{readxl}, la
+instalación de cualquier paquete en un computador se hace una sola vez y
+éste quedará instalado para ser usado las veces que se requiera. La
+función para instalar un paquete cualquiera es
+\texttt{install.packages}, a continuación se muestra el código necesario
+para instalar el paquete \textbf{readxl}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"readxl"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Una vez instalado el paquete es necesario cargarlo, la función para
+cargar el paquete en la sesión actual de \proglang{R} es
+\texttt{library}. La instrucción para cargar el paquete es la siguiente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(readxl)}
+\end{Highlighting}
+\end{Shaded}
+
+\BeginKnitrBlock{rmdwarning}
+La instalación del paquete con \texttt{install.packages} se hace sólo
+una vez y no más. Cargar el paquete con \texttt{library} en la sesión se
+debe hacer siempre que se vaya a usar el paquete.
+\EndKnitrBlock{rmdwarning}
+
+Luego de haber cargado el paquete \textbf{readxl} se puede usar la
+función \texttt{readxl} para leer la información contenida en las hojas.
+A continuación el código para crear la base de datos \texttt{hijos}
+contenida en el archivo BD\_Excel.xlsx.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hijos <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\KeywordTok{file.choose}\NormalTok{(), }\DataTypeTok{sheet=}\StringTok{'Hijos'}\NormalTok{)}
+\NormalTok{hijos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Edad Grado    ComicFav
+## 1    8     2    Superman
+## 2    6     1      Batman
+## 3    9     3      Batman
+## 4   10     5 Bob Esponja
+## 5    8     4      Batman
+## 6    9     4 Bob Esponja
+\end{verbatim}
+
+A continuación el código para crear la base de datos \texttt{padres}
+contenida en el archivo BD\_Excel.xlsx.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{padres <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{'BD_Excel.xlsx'}\NormalTok{, }\DataTypeTok{sheet=}\StringTok{'Padres'}\NormalTok{)}
+\NormalTok{padres}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Edad   EstCivil NumHijos
+## 1   45    Soltero        1
+## 2   50     Casado        0
+## 3   35     Casado        3
+## 4   65 Divorciado        1
+\end{verbatim}
+
+La función \texttt{readxl} tiene otros parámetros adicionales útiles
+para leer bases de datos, se recomienda consultar la ayuda de la función
+escribiendo en la consola \texttt{help(read.xl)}.
+
 \section*{EJERCICIOS}\label{ejercicios-3}
 
 
@@ -3761,7 +3856,7 @@ la función es la siguiente.
   globales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Obtener las tablas \texttt{tabla3} y \texttt{tabla4} con los totales
@@ -3843,7 +3938,7 @@ Los parámetros de la función son:
   representación gráfica llamada histograma.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Genere 200 observaciones aleatorias de una distribución normal con media
@@ -3932,7 +4027,7 @@ continuación.
 ## [1] "histogram"
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Construya el vector \texttt{x} con los siguientes elementos: 1.0, 1.2,
@@ -4123,7 +4218,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -4144,7 +4239,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -4176,7 +4271,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -4235,7 +4330,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -4275,7 +4370,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-28}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -4420,7 +4515,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-29}
+\subsection*{Ejemplo}\label{ejemplo-30}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -4452,7 +4547,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-30}
+\subsection*{Ejemplo}\label{ejemplo-31}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -4505,7 +4600,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-31}
+\subsection*{Ejemplo}\label{ejemplo-32}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -4523,7 +4618,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-32}
+\subsection*{Ejemplo}\label{ejemplo-33}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -4579,7 +4674,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-33}
+\subsection*{Ejemplo}\label{ejemplo-34}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -4627,7 +4722,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-34}
+\subsection*{Ejemplo}\label{ejemplo-35}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -4676,7 +4771,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-35}
+\subsection*{Ejemplo}\label{ejemplo-36}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -4773,7 +4868,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-36}
+\subsection*{Ejemplo}\label{ejemplo-37}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -4835,7 +4930,7 @@ Los parámetos de la función son:
   \texttt{kendall} y \texttt{spearman}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-37}
+\subsection*{Ejemplo}\label{ejemplo-38}
 
 
 Calcular el coeficiente de correlación de Pearson para las variables
@@ -4880,7 +4975,7 @@ A continuación el código para generar la Figura \ref{fig:disp}.
 los apartamentos usados.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-38}
+\subsection*{Ejemplo}\label{ejemplo-39}
 
 
 Para las mismas variables del ejemplo anterior calcular los coeficientes
@@ -4918,7 +5013,7 @@ A continuación el código para obtener lo solicitado.
 ## [1] 0.8603
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-39}
+\subsection*{Ejemplo}\label{ejemplo-40}
 
 
 Para la base de datos de apartamentos usados, ¿cuáles de las variables
@@ -5015,7 +5110,7 @@ conocer las diferentes posibilidades recomendamos consultar este enlace:
 \url{https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html}.
 \EndKnitrBlock{rmdtip}
 
-\subsection*{Ejemplo}\label{ejemplo-40}
+\subsection*{Ejemplo}\label{ejemplo-41}
 
 
 Construya dos vectores hipotéticos con el gasto y ahorro de un grupo de
@@ -5968,7 +6063,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-41}
+\subsection*{Ejemplo}\label{ejemplo-42}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -5986,8 +6081,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-193-1.pdf}
-\caption{\label{fig:unnamed-chunk-193}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-200-1.pdf}
+\caption{\label{fig:unnamed-chunk-200}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
@@ -6047,7 +6142,7 @@ integral usando la función \texttt{integrate}, a continuación el código.
 
 De los anteriores resultados vemos que la aproximación es buena.
 
-\bibliography{packages.bib,book.bib}
+\bibliography{packages,book}
 
 \backmatter
 \printindex
