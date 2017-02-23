@@ -6,8 +6,8 @@ En este capítulo se mostrarán las funciones de \proglang{R} para distribucione
 Para cada distribución discreta hay disponibles 4 funciones, a continuación se muestra el listado de funciones y su utilidad.
 
 ```{r, eval=F}
-pxxx(q, ...)  # Función de masa de probabilidad, f(x)
-dxxx(x, ...)  # Función de distribución acumulada, F(x)
+dxxx(x, ...)  # Función de masa de probabilidad, f(x)
+pxxx(q, ...)  # Función de distribución acumulada hasta q, F(x)
 qxxx(p, ...)  # Cuantil para el cual P(X <= q) = p
 rxxx(n, ...)  # Generador de números aleatorios.
 ```

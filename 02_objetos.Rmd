@@ -149,7 +149,7 @@ mimarco
 
 De la salida anterior vemos que el marco de datos tiene 3 variables (columnas) cuyos nombres coinciden con los nombres de los vectores creados anteriormente, los números consecutivos al lado izquierdo son sólo de referencia y permiten identificar la información para cada persona en la base de datos.
 
-### ¿Cómo extraer elementos de un arreglo?
+### ¿Cómo extraer elementos de un marco de datos?
 Para recuperar las variables (columnas) almacenadas en un marco de datos se puede usar el operador `$` o también corchetes `[]`. A continuación algunos ejemplos para entender el uso del operador `$`.
 
 
