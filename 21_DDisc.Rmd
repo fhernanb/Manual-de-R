@@ -25,7 +25,7 @@ multinom  # Multinomial
 
 Combinando las funciones y los nombres se tiene un total de 24 funciones, por ejemplo, para obtener la función de masa de probabilidad $f(x)$ de una binomial se usa la función `pbinom( )` y para obtener la función acumulada $F(x)$ de una Poisson se usa la función `dpois( )`.
 
-### Ejemplo sobre distribución binomial {-}
+### Ejemplo binomial {-}
 Suponga que un grupo de agentes de tránsito sale a una vía principal para revisar el estado de los buses de transporte intermunicipal. De datos históricos se sabe que un 10\% de los buses generan una mayor cantidad de humo de la permitida. En cada jornada los agentes revisan siempre 18 buses, asuma que el estado de un bus es independiente del estado de los otros buses.
 
 1) Calcular la probabilidad de que se encuentren exactamente 2 buses que generan una mayor cantidad de humo de la permitida.
@@ -82,7 +82,7 @@ prop.table(table(m))  # Tabla de frecuencia relativa
 ```
 A pesar de ser una muestra aleatoria de sólo 100 observaciones, se observa que las frecuencias relativas obtenidas son muy cercanas a las mostradas en la Figura \@ref(fig:binom1).
 
-### Ejemplo sobre distribución geométrica {-}
+### Ejemplo geométrica {-}
 En una línea de producción de bombillos se sabe que sólo el 1\% de los bombillos son defectuosos. Una máquina automática toma un bombillo y lo prueba, si el bombillo enciende, se siguen probando los bombillos hasta que se encuentre __un__ bombillo defectuoso, ahí se para la línea de producción y se toman los correctivos necesarios para mejorar el proceso.
 
 1) Calcular la probabilidad de que se necesiten probar 125 bombillos para encontrar el primer bombillo defectuoso.
@@ -113,7 +113,7 @@ qgeom(p=0.4, prob=0.01)
 Note que las funciones `pxxx` y `qxxx` están relacionadas, `pxxx` entrega la probabilidad hasta el cuantil $q$ mientras `qxxx` entrega el cuantil en el que se acumula $p$ probabilidad.
 ```
 
-### Ejemplo sobre distribución binomial negativa {-}
+### Ejemplo binomial negativa {-}
 Una familia desea tener hijos hasta conseguir  __2 niñas__, la probabilidad individual de obtener una niña es 0.5 y se supone que todos los nacimientos son individuales, es decir, un sólo bebé.
 
 1) Calcular la probabilidad de que se necesiten 4 hijos, es decir, 4 nacimientos para consguir las dos niñas.
@@ -143,7 +143,7 @@ Otra forma para obtener la probabilidad solicitada es por medio de la función `
 1 - pnbinom(q=1, size=2, prob=0.5)
 ```
 
-### Ejemplo sobre distribución hipergeométrica {-}
+### Ejemplo hipergeométrica {-}
 Un lote de partes para ensamblar en una empresa está formado por 100 elementos del proveedor A y 200 elementos del proveedor B. Se selecciona una muestra de 4 partes al azar sin reemplazo de las 300 para una revisión de calidad.
 
 1) Calcular la probabilidad de que todas las 4 partes de la muestra sean del proveedor A.
@@ -162,7 +162,7 @@ Aquí interesa $P(X \geq 2)$, la instrucción para obtener esta probabilidad es.
 sum(dhyper(x=2:4, m=100, k=4, n=200))
 ```
 
-### Ejemplo sobre distribución Poisson {-}
+### Ejemplo Poisson {-}
 En una editorial se asume que todo libro de 250 páginas tiene en promedio 50 errores.
 
 1) Encuentre la probabilidad de que en una página cualquiera no se encuentren errores.
@@ -180,7 +180,7 @@ Así $P(X=0)=0.8187$.
 ## Distribuciones discretas generales
 En la práctica nos podemos encontramos con variables aleatorias discretas que no se ajustan a una de las distribuciones mostradas anteriormente, en esos casos, es posible manejar ese tipo de variables por medio de unas funciones básicas de \proglang{R} como se muestra en el siguiente ejemplo.
 
-### Ejemplo: variable aleatoria discreta general {-}
+### Ejemplo {-}
 El cangrejo de herradura hembra se caracteriza porque a su caparazón se adhieren los machos de la misma especie, en la Figura \@ref(fig:crab) se muestra una fotografía de este cangrejo. Los investigadores están interesado en determinar cual es el patrón de variación del número de machos sobre cada hembra, para esto, se recolectó una muestra de hembras a las cuales se les observó el color, la condición de la espina, el peso en kilogramos, el ancho del caparazón en centímetros y el número de satélites o machos sobre el caparazón, la base de datos está disponible en el siguiente [enlace](https://raw.githubusercontent.com/fhernanb/datos/master/crab).
 
 ```{r crab, echo=F, fig.cap='Fotografía del cangreo de herradura, tomada de http://sccoastalresources.com/home/2016/6/21/a-night-of-horseshoe-crab-tagging.', dpi=50, fig.align='center'}

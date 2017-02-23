@@ -2,7 +2,7 @@
 
 En este capítulo se mostrarán las funciones de \proglang{R} para distribuciones continuas.
 
-## Funciones disponibles para distribuciones continuas \index{distribuciones continuas}
+## Funciones disponibles para distribuciones continuas
 
 Para cada distribución continua hay disponibles 4 funciones, a continuación se muestra el listado de funciones y su utilidad.
 
@@ -31,8 +31,8 @@ weibull  # Weibull
 
 Combinando las funciones y los nombres se tiene un total de 44 funciones, por ejemplo, para obtener la función de densidad de probabilidad $f(x)$ de una normal se usa la función `pnorm( )` y para obtener la función acumulada $F(x)$ de una Beta se usa la función `dbeta( )`.
 
-### Ejemplo sobre distribución beta {-}
-\index{beta} 
+### Ejemplo beta {-}
+ 
 Considere que una variable aleatoria $X$ se distribuye beta con parámetros $a=2$ y $b=5$.
 
 1) Dibuje la densidad de la distribución.
@@ -67,7 +67,57 @@ Recuerde que para distribuciones continuas
 $$ P(a < X < b) = P(a \leq X < b) = P(a < X \leq b) = P(a \leq X \leq b)$$
 ```
 
-### Ejemplo: variable aleatoria continua general {-}
+### Ejemplo normal estándar {-}
+Suponga que la variable aleatoria $Z$ se distribuye normal estándar, es decir, $Z \sim N(0, 1)$.
+
+1) Calcular $P(Z < 1.45)$.
+
+Para calcular la probabilidad se usa el siguiente código.
+
+```{r}
+pnorm(q=1.45)
+```
+
+En la Figura \@ref(fig:norm1) se muestra el área sombreada correspondiente a $P(Z < 1.45)$.
+
+2) Calcular $P(Z > -0.37)$.
+
+Para calcular la probabilidad se usa el siguiente código.
+
+```{r}
+1 - pnorm(q=-0.37)
+```
+
+En la Figura \@ref(fig:norm1) se muestra el área sombreada correspondiente a $P(Z > -0.37)$.
+
+3) Calcular $P(-1.56 < Z < 2.58)$.
+
+Para calcular la probabilidad se usa el siguiente código.
+
+```{r}
+pnorm(q=2.58) - pnorm(-1.56)
+```
+
+En la Figura \@ref(fig:norm1) se muestra el área sombreada correspondiente a $P(-1.56 < Z < 2.58)$.
+
+
+```{r norm1, fig.cap='Área sombreada para los ejemplos.', fig.asp=1.1, fig.width=6, echo=FALSE, message=FALSE}
+require(mytools)
+par(mfrow=c(2, 2))
+shadow.normal(lower=-5, upper=1.45, xlab='Z', ylab='Densidad',
+              main='P(Z < 1.45)')
+shadow.normal(lower=-0.37, upper=6, xlab='Z', ylab='Densidad',
+              main='P(Z > -0.37)')
+shadow.normal(lower=-1.56, upper=2.58, xlab='Z', ylab='Densidad',
+              main='P(-1.56 < Z < 2.58)')
+```
+
+## Distribuciones continuas generales
+
+En la práctica nos podemos encontramos con variables aleatorias continuas que no se ajustan a una de las distribuciones mostradas anteriormente, en esos casos, es posible manejar ese tipo de variables por medio de unas funciones básicas de \proglang{R} como se muestra en el siguiente ejemplo.
+
+### Ejemplo {-}
+
 En este ejemplo se retomará la base de datos `crab` sobre el cangrejo de herradura hembra presentado en el capítulo anterior. La base de datos `crab` contiene las siguientes variables: el color del caparazón, la condición de la espina, el peso en kilogramos, el ancho del caparazón en centímetros y el número de satélites o machos sobre el caparazón, la base de datos está disponible en el siguiente [enlace](https://raw.githubusercontent.com/fhernanb/datos/master/crab).
 
 1) Sea $X$ la variable peso del cangrejo, dibuje la densidad para $X$.

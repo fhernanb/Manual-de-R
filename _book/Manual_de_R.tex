@@ -5215,8 +5215,7 @@ funciones, por ejemplo, para obtener la función de masa de probabilidad
 obtener la función acumulada \(F(x)\) de una Poisson se usa la función
 \texttt{dpois(\ )}.
 
-\subsection*{Ejemplo sobre distribución
-binomial}\label{ejemplo-sobre-distribucion-binomial}
+\subsection*{Ejemplo binomial}\label{ejemplo-binomial}
 
 
 Suponga que un grupo de agentes de tránsito sale a una vía principal
@@ -5377,8 +5376,7 @@ A pesar de ser una muestra aleatoria de sólo 100 observaciones, se
 observa que las frecuencias relativas obtenidas son muy cercanas a las
 mostradas en la Figura \ref{fig:binom1}.
 
-\subsection*{Ejemplo sobre distribución
-geométrica}\label{ejemplo-sobre-distribucion-geometrica}
+\subsection*{Ejemplo geométrica}\label{ejemplo-geometrica}
 
 
 En una línea de producción de bombillos se sabe que sólo el 1\% de los
@@ -5461,10 +5459,8 @@ Note que las funciones \texttt{pxxx} y \texttt{qxxx} están relacionadas,
 probabilidad.
 \EndKnitrBlock{rmdnote}
 
-\subsection*{Ejemplo sobre distribución binomial
-negativa}\label{ejemplo-sobre-distribucion-binomial-negativa}
-\addcontentsline{toc}{subsection}{Ejemplo sobre distribución binomial
-negativa}
+\subsection*{Ejemplo binomial negativa}\label{ejemplo-binomial-negativa}
+
 
 Una familia desea tener hijos hasta conseguir \textbf{2 niñas}, la
 probabilidad individual de obtener una niña es 0.5 y se supone que todos
@@ -5535,10 +5531,8 @@ función \texttt{pnbinom} de la siguiente manera.
 ## [1] 0.5
 \end{verbatim}
 
-\subsection*{Ejemplo sobre distribución
-hipergeométrica}\label{ejemplo-sobre-distribucion-hipergeometrica}
-\addcontentsline{toc}{subsection}{Ejemplo sobre distribución
-hipergeométrica}
+\subsection*{Ejemplo hipergeométrica}\label{ejemplo-hipergeometrica}
+
 
 Un lote de partes para ensamblar en una empresa está formado por 100
 elementos del proveedor A y 200 elementos del proveedor B. Se selecciona
@@ -5591,8 +5585,7 @@ probabilidad es.
 ## [1] 0.4074
 \end{verbatim}
 
-\subsection*{Ejemplo sobre distribución
-Poisson}\label{ejemplo-sobre-distribucion-poisson}
+\subsection*{Ejemplo Poisson}\label{ejemplo-poisson}
 
 
 En una editorial se asume que todo libro de 250 páginas tiene en
@@ -5634,10 +5627,8 @@ anteriormente, en esos casos, es posible manejar ese tipo de variables
 por medio de unas funciones básicas de \proglang{R} como se muestra en
 el siguiente ejemplo.
 
-\subsection*{Ejemplo: variable aleatoria discreta
-general}\label{ejemplo-variable-aleatoria-discreta-general}
-\addcontentsline{toc}{subsection}{Ejemplo: variable aleatoria discreta
-general}
+\subsection*{Ejemplo}\label{ejemplo-42}
+
 
 El cangrejo de herradura hembra se caracteriza porque a su caparazón se
 adhieren los machos de la misma especie, en la Figura \ref{fig:crab} se
@@ -5848,9 +5839,8 @@ ya que las del grupo 2 son más grandes en su caparazón.
 En este capítulo se mostrarán las funciones de \proglang{R} para
 distribuciones continuas.
 
-\section{\texorpdfstring{Funciones disponibles para distribuciones
-continuas
-\index{distribuciones continuas}}{Funciones disponibles para distribuciones continuas }}\label{funciones-disponibles-para-distribuciones-continuas}
+\section{Funciones disponibles para distribuciones
+continuas}\label{funciones-disponibles-para-distribuciones-continuas}
 
 Para cada distribución continua hay disponibles 4 funciones, a
 continuación se muestra el listado de funciones y su utilidad.
@@ -5890,12 +5880,11 @@ probabilidad \(f(x)\) de una normal se usa la función \texttt{pnorm(\ )}
 y para obtener la función acumulada \(F(x)\) de una Beta se usa la
 función \texttt{dbeta(\ )}.
 
-\subsection*{Ejemplo sobre distribución
-beta}\label{ejemplo-sobre-distribucion-beta}
+\subsection*{Ejemplo beta}\label{ejemplo-beta}
 
 
-\index{beta} Considere que una variable aleatoria \(X\) se distribuye
-beta con parámetros \(a=2\) y \(b=5\).
+Considere que una variable aleatoria \(X\) se distribuye beta con
+parámetros \(a=2\) y \(b=5\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -5973,10 +5962,97 @@ Recuerde que para distribuciones continuas
 \[ P(a < X < b) = P(a \leq X < b) = P(a < X \leq b) = P(a \leq X \leq b)\]
 \EndKnitrBlock{rmdnote}
 
-\subsection*{Ejemplo: variable aleatoria continua
-general}\label{ejemplo-variable-aleatoria-continua-general}
-\addcontentsline{toc}{subsection}{Ejemplo: variable aleatoria continua
-general}
+\subsection*{Ejemplo normal estándar}\label{ejemplo-normal-estandar}
+
+
+Suponga que la variable aleatoria \(Z\) se distribuye normal estándar,
+es decir, \(Z \sim N(0, 1)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Calcular \(P(Z < 1.45)\).
+\end{enumerate}
+
+Para calcular la probabilidad se usa el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\FloatTok{1.45}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9265
+\end{verbatim}
+
+En la Figura \ref{fig:norm1} se muestra el área sombreada
+correspondiente a \(P(Z < 1.45)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Calcular \(P(Z > -0.37)\).
+\end{enumerate}
+
+Para calcular la probabilidad se usa el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1} \NormalTok{-}\StringTok{ }\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\NormalTok{-}\FloatTok{0.37}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6443
+\end{verbatim}
+
+En la Figura \ref{fig:norm1} se muestra el área sombreada
+correspondiente a \(P(Z > -0.37)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Calcular \(P(-1.56 < Z < 2.58)\).
+\end{enumerate}
+
+Para calcular la probabilidad se usa el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\FloatTok{2.58}\NormalTok{) -}\StringTok{ }\KeywordTok{pnorm}\NormalTok{(-}\FloatTok{1.56}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9357
+\end{verbatim}
+
+En la Figura \ref{fig:norm1} se muestra el área sombreada
+correspondiente a \(P(-1.56 < Z < 2.58)\).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/norm1-1.pdf}
+\caption{\label{fig:norm1}Área sombreada para los ejemplos.}
+\end{figure}
+
+\section{Distribuciones continuas
+generales}\label{distribuciones-continuas-generales}
+
+En la práctica nos podemos encontramos con variables aleatorias
+continuas que no se ajustan a una de las distribuciones mostradas
+anteriormente, en esos casos, es posible manejar ese tipo de variables
+por medio de unas funciones básicas de \proglang{R} como se muestra en
+el siguiente ejemplo.
+
+\subsection*{Ejemplo}\label{ejemplo-43}
+
 
 En este ejemplo se retomará la base de datos \texttt{crab} sobre el
 cangrejo de herradura hembra presentado en el capítulo anterior. La base
@@ -6194,7 +6270,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-42}
+\subsection*{Ejemplo}\label{ejemplo-44}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -6212,8 +6288,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-202-1.pdf}
-\caption{\label{fig:unnamed-chunk-202}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-205-1.pdf}
+\caption{\label{fig:unnamed-chunk-205}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
