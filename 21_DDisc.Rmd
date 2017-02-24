@@ -23,7 +23,7 @@ pois      # Poisson
 multinom  # Multinomial
 ```
 
-Combinando las funciones y los nombres se tiene un total de 24 funciones, por ejemplo, para obtener la función de masa de probabilidad $f(x)$ de una binomial se usa la función `pbinom( )` y para obtener la función acumulada $F(x)$ de una Poisson se usa la función `dpois( )`.
+Combinando las funciones y los nombres se tiene un total de 24 funciones, por ejemplo, para obtener la función de masa de probabilidad $f(x)$ de una binomial se usa la función `dbinom( )` y para obtener la función acumulada $F(x)$ de una Poisson se usa la función `ppois( )`.
 
 ### Ejemplo binomial {-}
 Suponga que un grupo de agentes de tránsito sale a una vía principal para revisar el estado de los buses de transporte intermunicipal. De datos históricos se sabe que un 10\% de los buses generan una mayor cantidad de humo de la permitida. En cada jornada los agentes revisan siempre 18 buses, asuma que el estado de un bus es independiente del estado de los otros buses.
