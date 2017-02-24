@@ -5842,8 +5842,8 @@ distribuciones continuas.
 \section{Funciones disponibles para distribuciones
 continuas}\label{funciones-disponibles-para-distribuciones-continuas}
 
-Para cada distribución continua hay disponibles 4 funciones, a
-continuación se muestra el listado de funciones y su utilidad.
+Para cada distribución continua se tienen 4 funciones, a continuación el
+listado de las funciones y su utilidad.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5854,7 +5854,7 @@ continuación se muestra el listado de funciones y su utilidad.
 \end{Highlighting}
 \end{Shaded}
 
-En el espacio de las letras \texttt{xxx} se de debe colocar el nombre de
+En el lugar de las letras \texttt{xxx} se de debe colocar el nombre de
 la distribución en \proglang{R}, a continuación el listado de nombres
 disponibles para las 11 distribuciones continuas básicas.
 
@@ -5876,9 +5876,9 @@ disponibles para las 11 distribuciones continuas básicas.
 
 Combinando las funciones y los nombres se tiene un total de 44
 funciones, por ejemplo, para obtener la función de densidad de
-probabilidad \(f(x)\) de una normal se usa la función \texttt{pnorm(\ )}
+probabilidad \(f(x)\) de una normal se usa la función \texttt{dnorm(\ )}
 y para obtener la función acumulada \(F(x)\) de una Beta se usa la
-función \texttt{dbeta(\ )}.
+función \texttt{pbeta(\ )}.
 
 \subsection*{Ejemplo beta}\label{ejemplo-beta}
 
@@ -5921,11 +5921,11 @@ presenta la densidad, observe que para la combinación de parámetros
 \end{enumerate}
 
 Para obtener la probabilidad o área bajo la densidad se puede usar la
-función \texttt{integrate}, los límites de la integral se ingresan en
-por medio de los parámetros \texttt{lower} y \texttt{upper}. Si la
-función a integrar tiene parámetros adicionales como en este caso, éstos
-se ingresan luego de los límites de la integral. A continuación el
-código necesario para obtener la probabiliad solicitada.
+función \texttt{integrate}, los límites de la integral se ingresan por
+medio de los parámetros \texttt{lower} y \texttt{upper}. Si la función a
+integrar tiene parámetros adicionales como en este caso, éstos
+parámetros se ingresan luego de los límites de la integral. A
+continuación el código necesario para obtener la probabiliad solicitada.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5938,11 +5938,10 @@ código necesario para obtener la probabiliad solicitada.
 ## 0.4092 with absolute error < 4.5e-15
 \end{verbatim}
 
-Otra forma de obtener la probabilidad solicitada es restando de la
-probabilidad acumulada hasta el límite superior, la probabilidad
-acumulada hasta el límite inferior. Las probabilidades acumuladas hasta
-un valor dado se obtienen con la función \texttt{pbeta}, a continuación
-el código necesario.
+Otra forma de obtener la probabilidad solicitada es restando de
+\(F(x_{max})\) la probabilidad \(F(x_{min})\). Las probabilidades
+acumuladas hasta un valor dado se obtienen con la función
+\texttt{pbeta}, a continuación el código necesario.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6002,10 +6001,10 @@ correspondiente a \(P(Z < 1.45)\).
 
 Para calcular la probabilidad solicitada se usa nuevamente la función
 \texttt{pnorm} evaluada en el cuantil dado. Como el evento de interés es
-\(Z > -0.37\), se obtener el complemento de la probabilidad obtenida con
-\texttt{pnorm(q=-0.37)}, esto debido a que por defecto las
-probabilidades entregadas siempre son a izquierda. A continuación el
-código usado.
+\(Z > -0.37\), la probabilidad solicitada se obtiene como
+\texttt{1\ -\ pnorm(q=-0.37)}, esto debido a que por defecto las
+probabilidades entregadas por la función \texttt{pxxx} son siempre a
+izquierda. A continuación el código usado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6027,12 +6026,12 @@ alternativo para obtener la misma probabilidad.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\NormalTok{-}\DecValTok{037}\NormalTok{, }\DataTypeTok{lower.tail=}\OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\NormalTok{-}\FloatTok{0.37}\NormalTok{, }\DataTypeTok{lower.tail=}\OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1
+## [1] 0.6443
 \end{verbatim}
 
 \begin{enumerate}
@@ -6068,8 +6067,8 @@ correspondiente a \(P(-1.56 < Z < 2.58)\).
   Calcular el cuantil \(q\) para el cual se cumple que \(P(Z<q)=0.95\).
 \end{enumerate}
 
-Para calcular el cuantil en el cual se cumple que \(P(Z<q)=0.95\) usa la
-función \texttt{qnorm}, a continuación el código usado.
+Para calcular el cuantil en el cual se cumple que \(P(Z<q)=0.95\) se usa
+la función \texttt{qnorm}, a continuación el código usado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6080,6 +6079,9 @@ función \texttt{qnorm}, a continuación el código usado.
 \begin{verbatim}
 ## [1] 1.645
 \end{verbatim}
+
+En la Figura \ref{fig:norm1} se muestra el área sombreada
+correspondiente a \(P(Z<q)=0.95\).
 
 \begin{figure}[htbp]
 \centering
@@ -6097,7 +6099,7 @@ trabajando una cola a izquierda o una cola a derecha.
 
 Considere un proceso de elaboración de tornillos en una empresa y
 suponga que el diámetro de los tornillos sigue una distribución normal
-con media de 10 \(mm\) y varianza de 4 \(mm^2\)
+con media de 10 \(mm\) y varianza de 4 \(mm^2\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -6108,9 +6110,9 @@ con media de 10 \(mm\) y varianza de 4 \(mm^2\)
   cumplen las especificaciones?
 \end{enumerate}
 
-Como se solicita probabilidad se debe usar \texttt{pnorm} indicando la
-media y la desviación de la distribución. A continuación el código
-usado.
+Como se solicita probabilidad se debe usar \texttt{pnorm} indicando que
+la media es \(\mu=10\) y la desviación de la distribución es
+\(\sigma=2\). A continuación el código usado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6127,8 +6129,8 @@ usado.
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Un tornillo con un diámetro mayor a 11 mm se puede reprocesar. ¿Cuál
-  es el porcentaje de reprocesos en la empresa?
+  Un tornillo con un diámetro mayor a 11 mm se puede reprocesar y
+  recuperar. ¿Cuál es el porcentaje de reprocesos en la empresa?
 \end{enumerate}
 
 Como se solicita una probabilidad a derecha se usa
@@ -6155,8 +6157,9 @@ continuación el código usado.
   clasificado como desperdicio?
 \end{enumerate}
 
-Aquí interesa encontrar el cuantil tal que \(P(Dia<q)=0.05\), por lo
-tanto se usa la función \texttt{qnorm}. A continuación el código usado.
+Aquí interesa encontrar el cuantil tal que \(P(Diametro<q)=0.05\), por
+lo tanto se usa la función \texttt{qnorm}. A continuación el código
+usado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6178,8 +6181,8 @@ tanto se usa la función \texttt{qnorm}. A continuación el código usado.
   que sea considerado como sobredimensionado?
 \end{enumerate}
 
-Aquí interesa encontrar el cuantil tal que \(P(Dia>q)=0.10\), por lo
-tanto se usa la función \texttt{qnorm} pero incluyendo
+Aquí interesa encontrar el cuantil tal que \(P(Diametro>q)=0.10\), por
+lo tanto se usa la función \texttt{qnorm} pero incluyendo
 \texttt{lower.tail=FALSE} por ser una cola a derecha. A continuación el
 código usado.
 
