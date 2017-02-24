@@ -13,7 +13,7 @@ qxxx(p, ...)  # Cuantil para el cual P(X <= q) = p
 rxxx(n, ...)  # Generador de números aleatorios.
 ```
 
-En el espacio de las letras `xxx` se de debe colocar el nombre de la distribución en \proglang{R}, a continuación el listado de nombres disponibles para las 5 distribuciones discretas básicas.
+En el espacio de las letras `xxx` se de debe colocar el nombre de la distribución en \proglang{R}, a continuación el listado de nombres disponibles para las 11 distribuciones continuas básicas.
 
 ```{r, eval=FALSE}
 beta     # Beta
