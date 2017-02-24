@@ -3,7 +3,7 @@
 En este capítulo se mostrarán las funciones de \proglang{R} para distribuciones discretas.
 
 ## Funciones disponibles para distribuciones discretas \index{distribuciones discretas}
-Para cada distribución discreta hay disponibles 4 funciones, a continuación se muestra el listado de funciones y su utilidad.
+Para cada distribución discreta se tienen 4 funciones, a continuación el listado de funciones y su utilidad.
 
 ```{r, eval=F}
 dxxx(x, ...)  # Función de masa de probabilidad, f(x)
@@ -12,7 +12,7 @@ qxxx(p, ...)  # Cuantil para el cual P(X <= q) = p
 rxxx(n, ...)  # Generador de números aleatorios.
 ```
 
-En el espacio de las letras `xxx` se de debe colocar el nombre de la distribución en \proglang{R}, a continuación el listado de nombres disponibles para las 5 distribuciones discretas básicas.
+En el lugar de las letras `xxx` se de debe colocar el nombre de la distribución en \proglang{R}, a continuación el listado de nombres disponibles para las 6 distribuciones discretas básicas.
 
 ```{r, eval=F}
 binom     # Binomial
