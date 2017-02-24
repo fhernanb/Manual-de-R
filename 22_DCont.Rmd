@@ -72,7 +72,7 @@ Suponga que la variable aleatoria $Z$ se distribuye normal estándar, es decir, 
 
 1) Calcular $P(Z < 1.45)$.
 
-Para calcular la probabilidad se usa el siguiente código.
+Para calcular la probabilidad acumulada hasta un punto dado se usa la función `pnorm` y se evalúa en el cuantil indicado, a continuación el código usado.
 
 ```{r}
 pnorm(q=1.45)
@@ -82,7 +82,7 @@ En la Figura \@ref(fig:norm1) se muestra el área sombreada correspondiente a $P
 
 2) Calcular $P(Z > -0.37)$.
 
-Para calcular la probabilidad se usa el siguiente código.
+Para calcular la probabilidad solicitada se usa nuevamente la función `pnorm` evaluada en el cuantil dado. Como el evento de interés es $Z > -0.37$, se obtener el complemento de la probabilidad obtenida con `pnorm(q=-0.37)`, esto debido a que por defecto las probabilidades entregadas siempre son a izquierda. A continuación el código usado.
 
 ```{r}
 1 - pnorm(q=-0.37)
@@ -90,9 +90,15 @@ Para calcular la probabilidad se usa el siguiente código.
 
 En la Figura \@ref(fig:norm1) se muestra el área sombreada correspondiente a $P(Z > -0.37)$.
 
+Otra forma para obtener la probabilidad solicitada sin hacer la resta es usar el parámetro `lower.tail` para indicar que interesa la probabilidad a la derecha del cuantil dado, a continuación un código alternativo para obtener la misma probabilidad.
+
+```{r}
+pnorm(q=-037, lower.tail=FALSE)
+```
+
 3) Calcular $P(-1.56 < Z < 2.58)$.
 
-Para calcular la probabilidad se usa el siguiente código.
+Para calcular la probabilidad solicitada se obtiene la probabilidad acumulada hasta 2.58 y de ella se resta lo acumulado hasta -1.56, a continuación el código usado.
 
 ```{r}
 pnorm(q=2.58) - pnorm(-1.56)
@@ -100,6 +106,13 @@ pnorm(q=2.58) - pnorm(-1.56)
 
 En la Figura \@ref(fig:norm1) se muestra el área sombreada correspondiente a $P(-1.56 < Z < 2.58)$.
 
+4) Calcular el cuantil $q$ para el cual se cumple que $P(Z<q)=0.95$.
+
+Para calcular el cuantil en el cual se cumple que $P(Z<q)=0.95$ usa la función `qnorm`, a continuación el código usado.
+
+```{r}
+qnorm(p=0.95) 
+```
 
 ```{r norm1, fig.cap='Área sombreada para los ejemplos.', fig.asp=1.1, fig.width=6, echo=FALSE, message=FALSE}
 require(mytools)
@@ -110,7 +123,75 @@ shadow.normal(lower=-0.37, upper=6, xlab='Z', ylab='Densidad',
               main='P(Z > -0.37)')
 shadow.normal(lower=-1.56, upper=2.58, xlab='Z', ylab='Densidad',
               main='P(-1.56 < Z < 2.58)')
+shadow.normal(lower=-6, upper=qnorm(p=0.95), xlab='Z', ylab='Densidad',
+              main='P(Z<q)=0.95')
 ```
+
+```{block2, type='rmdtip'}
+El parámetro `lower.tail` es muy útil para indicar si estamos trabajando una cola a izquierda o una cola a derecha.
+```
+
+### Ejemplo normal general {-}
+Considere un proceso de elaboración de tornillos en una empresa y suponga que el diámetro de los tornillos sigue una distribución normal con media de 10 $mm$ y varianza de 4 $mm^2$
+
+1) Un tornillo se considera que cumple las especificaciones si su diámetro está entre 9 y 11 mm. ¿Qué porcentaje de los tornillos cumplen las especificaciones?
+
+Como se solicita probabilidad se debe usar `pnorm` indicando la media y la desviación de la distribución. A continuación el código usado.
+
+```{r}
+pnorm(q=11, mean=10, sd=2) - pnorm(q=9, mean=10, sd=2)
+```
+
+2) Un tornillo con un diámetro mayor a 11 mm se puede reprocesar. ¿Cuál es el porcentaje de reprocesos en la empresa?
+
+Como se solicita una probabilidad a derecha se usa `lower.tail=FALSE` dentro de la función `pnorm`. A continuación el código usado.
+
+```{r}
+pnorm(q=11, mean=10, sd=2, lower.tail=FALSE)
+```
+
+3) El 5\% de los tornillos más delgados no se pueden reprocesar y por lo tanto son desperdicio. ¿Qué diámetro debe tener un tornillo para ser clasificado como desperdicio?
+
+Aquí interesa encontrar el cuantil tal que $P(Dia<q)=0.05$, por lo tanto se usa la función `qnorm`. A continuación el código usado.
+
+```{r}
+qnorm(p=0.05, mean=10, sd=2)
+```
+
+4) El 10\% de los tornillos más gruesos son considerados como sobredimensionados. ¿cuál es el diámetro mínimo de un tornillo para que sea considerado como sobredimensionado?
+
+Aquí interesa encontrar el cuantil tal que $P(Dia>q)=0.10$, por lo tanto se usa la función `qnorm` pero incluyendo `lower.tail=FALSE` por ser una cola a derecha. A continuación el código usado.
+
+```{r}
+qnorm(p=0.10, mean=10, sd=2, lower.tail=FALSE)
+```
+
+En la Figura \@ref(fig:norm2) se muestran las áreas sombreadas para cada de las anteriores preguntas.
+
+```{r norm2, fig.cap='Área sombreada para el ejemplo de los tornillos.', fig.asp=1.1, fig.width=6, echo=FALSE, message=FALSE}
+require(mytools)
+par(mfrow=c(2, 2))
+shadow.normal(lower=9, upper=11, mu=10, sigma=2, shadow.col='tomato',
+              xlab='Diámetro', ylab='Densidad', k=3,
+              main='P(9 < Diámetro < 11)')
+
+shadow.normal(lower=11, upper=20, mu=10, sigma=2, shadow.col='violetred1',
+              xlab='Diámetro', ylab='Densidad', k=3,
+              main='P(Diámetro > 11)')
+
+shadow.normal(lower=3,
+              upper=qnorm(p=0.05, mean=10, sd=2),
+              mu=10, sigma=2, shadow.col='springgreen3',
+              xlab='Diámetro', ylab='Densidad', k=3,
+              main='P(Diámetro < q) = 5%')
+
+shadow.normal(qnorm(p=0.10, mean=10, sd=2, lower.tail=FALSE),
+              upper=20,
+              mu=10, sigma=2, shadow.col='yellow1',
+              xlab='Diámetro', ylab='Densidad', k=3,
+              main='P(Diámetro > q) = 10%')
+```
+
 
 ## Distribuciones continuas generales
 

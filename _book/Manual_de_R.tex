@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-02-23}
+\date{2017-02-24}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -928,8 +928,8 @@ creados anteriormente, los números consecutivos al lado izquierdo son
 sólo de referencia y permiten identificar la información para cada
 persona en la base de datos.
 
-\subsection{¿Cómo extraer elementos de un
-arreglo?}\label{como-extraer-elementos-de-un-arreglo-1}
+\subsection{¿Cómo extraer elementos de un marco de
+datos?}\label{como-extraer-elementos-de-un-marco-de-datos}
 
 Para recuperar las variables (columnas) almacenadas en un marco de datos
 se puede usar el operador \texttt{\$} o también corchetes
@@ -5187,8 +5187,8 @@ continuación se muestra el listado de funciones y su utilidad.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{pxxx}\NormalTok{(q, ...)  }\CommentTok{# Función de masa de probabilidad, f(x)}
-\KeywordTok{dxxx}\NormalTok{(x, ...)  }\CommentTok{# Función de distribución acumulada, F(x)}
+\KeywordTok{dxxx}\NormalTok{(x, ...)  }\CommentTok{# Función de masa de probabilidad, f(x)}
+\KeywordTok{pxxx}\NormalTok{(q, ...)  }\CommentTok{# Función de distribución acumulada hasta q, F(x)}
 \KeywordTok{qxxx}\NormalTok{(p, ...)  }\CommentTok{# Cuantil para el cual P(X <= q) = p}
 \KeywordTok{rxxx}\NormalTok{(n, ...)  }\CommentTok{# Generador de números aleatorios.}
 \end{Highlighting}
@@ -5847,8 +5847,8 @@ continuación se muestra el listado de funciones y su utilidad.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{pxxx}\NormalTok{(q, ...)  }\CommentTok{# Función de masa de probabilidad, f(x)}
-\KeywordTok{dxxx}\NormalTok{(x, ...)  }\CommentTok{# Función de distribución acumulada, F(x)}
+\KeywordTok{dxxx}\NormalTok{(x, ...)  }\CommentTok{# Función de densidad de probabilidad, f(x)}
+\KeywordTok{pxxx}\NormalTok{(q, ...)  }\CommentTok{# Función de distribución acumulada hasta q, F(x)}
 \KeywordTok{qxxx}\NormalTok{(p, ...)  }\CommentTok{# Cuantil para el cual P(X <= q) = p}
 \KeywordTok{rxxx}\NormalTok{(n, ...)  }\CommentTok{# Generador de números aleatorios.}
 \end{Highlighting}
@@ -5975,7 +5975,9 @@ es decir, \(Z \sim N(0, 1)\).
   Calcular \(P(Z < 1.45)\).
 \end{enumerate}
 
-Para calcular la probabilidad se usa el siguiente código.
+Para calcular la probabilidad acumulada hasta un punto dado se usa la
+función \texttt{pnorm} y se evalúa en el cuantil indicado, a
+continuación el código usado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5998,7 +6000,12 @@ correspondiente a \(P(Z < 1.45)\).
   Calcular \(P(Z > -0.37)\).
 \end{enumerate}
 
-Para calcular la probabilidad se usa el siguiente código.
+Para calcular la probabilidad solicitada se usa nuevamente la función
+\texttt{pnorm} evaluada en el cuantil dado. Como el evento de interés es
+\(Z > -0.37\), se obtener el complemento de la probabilidad obtenida con
+\texttt{pnorm(q=-0.37)}, esto debido a que por defecto las
+probabilidades entregadas siempre son a izquierda. A continuación el
+código usado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6013,6 +6020,21 @@ Para calcular la probabilidad se usa el siguiente código.
 En la Figura \ref{fig:norm1} se muestra el área sombreada
 correspondiente a \(P(Z > -0.37)\).
 
+Otra forma para obtener la probabilidad solicitada sin hacer la resta es
+usar el parámetro \texttt{lower.tail} para indicar que interesa la
+probabilidad a la derecha del cuantil dado, a continuación un código
+alternativo para obtener la misma probabilidad.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\NormalTok{-}\DecValTok{037}\NormalTok{, }\DataTypeTok{lower.tail=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
 \setcounter{enumi}{2}
@@ -6021,7 +6043,9 @@ correspondiente a \(P(Z > -0.37)\).
   Calcular \(P(-1.56 < Z < 2.58)\).
 \end{enumerate}
 
-Para calcular la probabilidad se usa el siguiente código.
+Para calcular la probabilidad solicitada se obtiene la probabilidad
+acumulada hasta 2.58 y de ella se resta lo acumulado hasta -1.56, a
+continuación el código usado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6036,10 +6060,146 @@ Para calcular la probabilidad se usa el siguiente código.
 En la Figura \ref{fig:norm1} se muestra el área sombreada
 correspondiente a \(P(-1.56 < Z < 2.58)\).
 
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Calcular el cuantil \(q\) para el cual se cumple que \(P(Z<q)=0.95\).
+\end{enumerate}
+
+Para calcular el cuantil en el cual se cumple que \(P(Z<q)=0.95\) usa la
+función \texttt{qnorm}, a continuación el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{qnorm}\NormalTok{(}\DataTypeTok{p=}\FloatTok{0.95}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.645
+\end{verbatim}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{Manual_de_R_files/figure-latex/norm1-1.pdf}
 \caption{\label{fig:norm1}Área sombreada para los ejemplos.}
+\end{figure}
+
+\BeginKnitrBlock{rmdtip}
+El parámetro \texttt{lower.tail} es muy útil para indicar si estamos
+trabajando una cola a izquierda o una cola a derecha.
+\EndKnitrBlock{rmdtip}
+
+\subsection*{Ejemplo normal general}\label{ejemplo-normal-general}
+
+
+Considere un proceso de elaboración de tornillos en una empresa y
+suponga que el diámetro de los tornillos sigue una distribución normal
+con media de 10 \(mm\) y varianza de 4 \(mm^2\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Un tornillo se considera que cumple las especificaciones si su
+  diámetro está entre 9 y 11 mm. ¿Qué porcentaje de los tornillos
+  cumplen las especificaciones?
+\end{enumerate}
+
+Como se solicita probabilidad se debe usar \texttt{pnorm} indicando la
+media y la desviación de la distribución. A continuación el código
+usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\DecValTok{11}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{10}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{2}\NormalTok{) -}\StringTok{ }\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\DecValTok{9}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{10}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3829
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Un tornillo con un diámetro mayor a 11 mm se puede reprocesar. ¿Cuál
+  es el porcentaje de reprocesos en la empresa?
+\end{enumerate}
+
+Como se solicita una probabilidad a derecha se usa
+\texttt{lower.tail=FALSE} dentro de la función \texttt{pnorm}. A
+continuación el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\DecValTok{11}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{10}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{lower.tail=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3085
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  El 5\% de los tornillos más delgados no se pueden reprocesar y por lo
+  tanto son desperdicio. ¿Qué diámetro debe tener un tornillo para ser
+  clasificado como desperdicio?
+\end{enumerate}
+
+Aquí interesa encontrar el cuantil tal que \(P(Dia<q)=0.05\), por lo
+tanto se usa la función \texttt{qnorm}. A continuación el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{qnorm}\NormalTok{(}\DataTypeTok{p=}\FloatTok{0.05}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{10}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6.71
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  El 10\% de los tornillos más gruesos son considerados como
+  sobredimensionados. ¿cuál es el diámetro mínimo de un tornillo para
+  que sea considerado como sobredimensionado?
+\end{enumerate}
+
+Aquí interesa encontrar el cuantil tal que \(P(Dia>q)=0.10\), por lo
+tanto se usa la función \texttt{qnorm} pero incluyendo
+\texttt{lower.tail=FALSE} por ser una cola a derecha. A continuación el
+código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{qnorm}\NormalTok{(}\DataTypeTok{p=}\FloatTok{0.10}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{10}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{lower.tail=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12.56
+\end{verbatim}
+
+En la Figura \ref{fig:norm2} se muestran las áreas sombreadas para cada
+de las anteriores preguntas.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/norm2-1.pdf}
+\caption{\label{fig:norm2}Área sombreada para el ejemplo de los tornillos.}
 \end{figure}
 
 \section{Distribuciones continuas
@@ -6288,8 +6448,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-205-1.pdf}
-\caption{\label{fig:unnamed-chunk-205}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-212-1.pdf}
+\caption{\label{fig:unnamed-chunk-212}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
