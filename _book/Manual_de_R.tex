@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-02-24}
+\date{2017-02-26}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1521,7 +1521,7 @@ varias funciones básicas que son útiles para realizar diversas tareas.
 \index{función}
 \index{function}}{¿Qué es una función de ?  }}\label{que-es-una-funcion-de}
 
-En la Figura \ref{fig:machine} se muestra una ilustración de lo que es
+En la Figura \ref{fig:machine1} se muestra una ilustración de lo que es
 una función o máquina general. Hay unas entradas (\emph{inputs}) que
 luego son procesadas dentro de la caja para generar unas salidas
 (\emph{outputs}). Un ejemplo de una función o máquina muy común en
@@ -1534,7 +1534,7 @@ fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa.
 
 }
 
-\caption{Ilustración de una función, tomada de www.mathinsight.org.}\label{fig:machine}
+\caption{Ilustración de una función, tomada de www.mathinsight.org.}\label{fig:machine1}
 \end{figure}
 
 Las funciones en \proglang{R} se caracterizan por un nombre corto y que
@@ -2848,15 +2848,25 @@ condiciones.
 \chapter{\texorpdfstring{Creación de funciones en
 \proglang{R}}{Creación de funciones en }}\label{creacion-de-funciones-en}
 
-En este capítulo se explica cómo crear una función en \proglang{R}.
+En este capítulo se explica cómo crear funciones en \proglang{R} para
+realizar tareas específicas.
 
 \section{\texorpdfstring{Función en \proglang{R}
 \index{función}}{Función en  }}\label{funcion-en}
 
-En el Capítulo \ref{funbas} se dió una explicación de lo que es una
-función de \proglang{R}, se dijo que una función es un conjunto de
-instrucciones que convierten unas entradas (\emph{inputs}) en resultados
-(\emph{outputs}) deseados.
+Una función es un conjunto de instrucciones que convierten las entradas
+(\emph{inputs}) en resultados (\emph{outputs}) deseados. En la Figura
+\ref{fig:machine2} se muestra una ilustración de lo que es una función o
+máquina general.
+
+\begin{figure}
+
+{\centering \includegraphics{images/function_machine} 
+
+}
+
+\caption{Ilustración de una función, tomada de www.mathinsight.org.}\label{fig:machine2}
+\end{figure}
 
 \section{\texorpdfstring{Partes de una función en \proglang{R}
 \index{partes de función}}{Partes de una función en  }}\label{partes-de-una-funcion-en}
@@ -2885,6 +2895,18 @@ Las partes de una función son:
   acostumbra a organizarlos en una lista que puede manejar los
   diferentes tipos de objetos.
 \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nombre_de_funcion <-}\StringTok{ }\NormalTok{function(par1, par2, ...) \{}
+  \NormalTok{cuerpo}
+  \NormalTok{cuerpo}
+  \NormalTok{cuerpo}
+  \NormalTok{cuerpo}
+  \KeywordTok{return}\NormalTok{(resultado)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 A continuación se mostrarán varios ejemplos \textbf{sencillos} para que
 el lector aprenda a construir funciones.
@@ -6451,8 +6473,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-212-1.pdf}
-\caption{\label{fig:unnamed-chunk-212}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-213-1.pdf}
+\caption{\label{fig:unnamed-chunk-213}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
