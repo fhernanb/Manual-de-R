@@ -3139,25 +3139,17 @@ Construir funciones en \proglang{R} que realicen lo solicitado.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Construya una función que reciba dos números reales y que diga cuál es
-  el mayor de ellos.
+  Construya una función que reciba dos números reales \texttt{a} y
+  \texttt{b}, la función debe decir cuál es el mayor de ellos.
 \item
-  Escriba una función llamada media que calcule la media muestral de un
-  vector numérico ingresado a la función. A continuación la fórmula para
-  calcular la media muestral.
+  Escriba una función llamada \texttt{media} que calcule la media
+  muestral de un vector numérico \texttt{x} ingresado a la función. A
+  continuación la fórmula para calcular la media muestral.
 \end{enumerate}
 
-\[\bar{x}=\frac{\sum_{i=1}^n x_i}{n}\] Verifique el desempeño de su
-función comparando con la función \texttt{mean}. Corra el siguiente
-código para hacer la prueba, los resultados deben coincidir.
+\[\bar{x}=\frac{\sum_{i=1}^n x_i}{n}\]
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{n=}\DecValTok{100}\NormalTok{)}
-\KeywordTok{media}\NormalTok{(x)}
-\KeywordTok{mean}\NormalTok{(x)}
-\end{Highlighting}
-\end{Shaded}
+Nota: no puede usar la función \texttt{mean(\ )}.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3169,9 +3161,44 @@ código para hacer la prueba, los resultados deben coincidir.
   la función debe entregar las raíces.
 \item
   Escribir una función que calcule la velocidad de un proyectil dado que
-  el usuario ingresa la distancia Km y el tiempo en minutos. Expresar el
-  resultado en metros/segundo, recuerde que
-  \(velocidad = espacio / tiempo\).
+  el usuario ingresa la distancia recorrida en Km y el tiempo necesario
+  en minutos. Expresar el resultado se debe entregar en metros/segundo,
+  recuerde que
+\end{enumerate}
+
+\[velocidad = \frac{espacio}{tiempo}\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Construya una función que calcule las coordenadas del punto medio
+  \(M\) entre dos puntos \(A\) y \(B\). Vea la Figura \ref{fig:midpoint}
+  para una ilustración. ¿Cuáles cree usted que deben ser los parámetros
+  de entrada de la función?
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics{images/midpoint} 
+
+}
+
+\caption{Ilustración del punto medio entre dos puntos, tomada de https://www.slideshare.net/bigpassy/midpoint-between-two-points}\label{fig:midpoint}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  Escribir una función que reciba dos valores \(a\) y \(b\) y que los
+  intercambie. Es decir, si ingresa \(a=4\) y \(b=9\) que la función
+  entregue \(a=9\) y \(b=4\).
+\item
+  Construya una función a la cual le ingrese el salario por hora y el
+  número de horas trabajadas durante una semana por un trabajador. La
+  función debe calcular el salario neto.
 \end{enumerate}
 
 \chapter{\texorpdfstring{Lectura de bases de datos
@@ -6473,8 +6500,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-213-1.pdf}
-\caption{\label{fig:unnamed-chunk-213}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-212-1.pdf}
+\caption{\label{fig:unnamed-chunk-212}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

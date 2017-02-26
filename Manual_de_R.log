@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.2.24)  26 FEB 2017 18:06
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.2.24)  26 FEB 2017 18:44
 entering extended mode
 **./Manual_de_R.tex
 (Manual_de_R.tex
@@ -1383,12 +1383,17 @@ LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--31
+Underfull \hbox (badness 10000) in paragraph at lines 16--16
+ \TU/lmr/m/n/10 https://www.slideshare.net/bigpassy/midpoint-between-two- 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
  [][] [][][]\TU/lmr/m/n/10 Fotografía del cangreo de herradura, tomada de 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--31
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
  \TU/lmr/m/n/10 http://sccoastalresources.com/home/2016/6/21/a-night-of- 
  []
 
@@ -2485,99 +2490,94 @@ Underfull \hbox (badness 10000) detected at line 3145
 LaTeX Info: Redefining \. on input line 3150.
 LaTeX Info: Redefining \% on input line 3150.
 [52]
-Underfull \hbox (badness 10000) detected at line 3166
+Underfull \hbox (badness 10000) detected at line 3158
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3166
+Underfull \hbox (badness 10000) detected at line 3158
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3171
+Underfull \hbox (badness 10000) detected at line 3163
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3171
+Underfull \hbox (badness 10000) detected at line 3163
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 3177.
-LaTeX Info: Redefining \% on input line 3177.
+
+Underfull \hbox (badness 10000) detected at line 3176
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3176
+[][][]
+ []
+
+File: images/midpoint.png Graphic file (type QTm)
+<use  "images/midpoint.png" >
+Underfull \hbox (badness 10000) detected at line 3195
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3195
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3199
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 3199
+[][][]
+ []
+
+LaTeX Info: Redefining \. on input line 3204.
+LaTeX Info: Redefining \% on input line 3204.
 [53]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Info: Redefining \. on input line 3204.
+LaTeX Info: Redefining \% on input line 3204.
+[54]
+Underfull \vbox (badness 10000) detected at line 3204
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 3204
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 3204
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 3204
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 3204
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 3204
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+Underfull \vbox (badness 10000) detected at line 3204
  []
 
 
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[54
-
-]
-Underfull \vbox (badness 10000) detected at line 3177
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 3177
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3177
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 3177
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3177
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 3177
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3177
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 3177
+Overfull \hbox (336.25pt too wide) detected at line 3204
 []
  []
 
@@ -2590,6 +2590,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [55
 
+
 ]
 File: images/warning.png Graphic file (type QTm)
 <use  "images/warning.png" >
@@ -2597,20 +2598,20 @@ File: images/bloc1.png Graphic file (type QTm)
 <use  "images/bloc1.png" >
 File: images/bloc2.png Graphic file (type QTm)
 <use  "images/bloc2.png" >
-LaTeX Info: Redefining \. on input line 3283.
-LaTeX Info: Redefining \% on input line 3283.
+LaTeX Info: Redefining \. on input line 3310.
+LaTeX Info: Redefining \% on input line 3310.
 [56]
 File: images/tip.png Graphic file (type QTm)
 <use  "images/tip.png" >
-LaTeX Info: Redefining \. on input line 3295.
-LaTeX Info: Redefining \% on input line 3295.
+LaTeX Info: Redefining \. on input line 3322.
+LaTeX Info: Redefining \% on input line 3322.
 [57]
-LaTeX Info: Redefining \. on input line 3369.
-LaTeX Info: Redefining \% on input line 3369.
+LaTeX Info: Redefining \. on input line 3396.
+LaTeX Info: Redefining \% on input line 3396.
 [58]
 File: images/note.png Graphic file (type QTm)
 <use  "images/note.png" >
-Underfull \hbox (badness 1590) in paragraph at lines 3415--3419
+Underfull \hbox (badness 1590) in paragraph at lines 3442--3446
 []\TU/lmr/m/n/10 El usuario puede usar indiferentemente \TU/lmtt/m/n/10 file=\T
 S1/lmtt/m/n/10 '\TU/lmtt/m/n/10 C:/Users/bla/bla\TS1/lmtt/m/n/10 ' \TU/lmr/m/n/
 10 o
@@ -2618,77 +2619,77 @@ S1/lmtt/m/n/10 '\TU/lmtt/m/n/10 C:/Users/bla/bla\TS1/lmtt/m/n/10 ' \TU/lmr/m/n/
 
 File: images/warning.png Graphic file (type QTm)
 <use  "images/warning.png" >
-LaTeX Info: Redefining \. on input line 3433.
-LaTeX Info: Redefining \% on input line 3433.
+LaTeX Info: Redefining \. on input line 3460.
+LaTeX Info: Redefining \% on input line 3460.
 [59]
-LaTeX Info: Redefining \. on input line 3483.
-LaTeX Info: Redefining \% on input line 3483.
+LaTeX Info: Redefining \. on input line 3510.
+LaTeX Info: Redefining \% on input line 3510.
 [60]
 File: images/warning.png Graphic file (type QTm)
 <use  "images/warning.png" >
-LaTeX Info: Redefining \. on input line 3549.
-LaTeX Info: Redefining \% on input line 3549.
+LaTeX Info: Redefining \. on input line 3576.
+LaTeX Info: Redefining \% on input line 3576.
 [61]
-Underfull \hbox (badness 10000) detected at line 3549
+Underfull \hbox (badness 10000) detected at line 3576
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3549
+Underfull \hbox (badness 10000) detected at line 3576
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3583
+Underfull \hbox (badness 10000) detected at line 3610
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3583
+Underfull \hbox (badness 10000) detected at line 3610
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3583--3588
+Underfull \hbox (badness 10000) in paragraph at lines 3610--3615
 []\TU/lmr/m/n/10 En la url [][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][
 ][][][][][][][][] [] [][][] [] [][][][][][][][] []
  []
 
-LaTeX Info: Redefining \. on input line 3590.
-LaTeX Info: Redefining \% on input line 3590.
+LaTeX Info: Redefining \. on input line 3617.
+LaTeX Info: Redefining \% on input line 3617.
 [62]
-Underfull \vbox (badness 10000) detected at line 3590
+Underfull \vbox (badness 10000) detected at line 3617
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3590
+Overfull \hbox (336.25pt too wide) detected at line 3617
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3590
+Underfull \vbox (badness 10000) detected at line 3617
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3590
+Overfull \hbox (336.25pt too wide) detected at line 3617
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3590
+Underfull \vbox (badness 10000) detected at line 3617
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3590
+Overfull \hbox (336.25pt too wide) detected at line 3617
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3590
+Underfull \vbox (badness 10000) detected at line 3617
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3590
+Overfull \hbox (336.25pt too wide) detected at line 3617
 []
  []
 
@@ -2704,179 +2705,179 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ]
 File: images/note.png Graphic file (type QTm)
 <use  "images/note.png" >
-LaTeX Info: Redefining \. on input line 3729.
-LaTeX Info: Redefining \% on input line 3729.
+LaTeX Info: Redefining \. on input line 3756.
+LaTeX Info: Redefining \% on input line 3756.
 [64]
-LaTeX Info: Redefining \. on input line 3790.
-LaTeX Info: Redefining \% on input line 3790.
+LaTeX Info: Redefining \. on input line 3817.
+LaTeX Info: Redefining \% on input line 3817.
 [65]
-LaTeX Info: Redefining \. on input line 3865.
-LaTeX Info: Redefining \% on input line 3865.
+LaTeX Info: Redefining \. on input line 3892.
+LaTeX Info: Redefining \% on input line 3892.
 [66]
 File: images/warning.png Graphic file (type QTm)
 <use  "images/warning.png" >
-LaTeX Info: Redefining \. on input line 3931.
-LaTeX Info: Redefining \% on input line 3931.
+LaTeX Info: Redefining \. on input line 3958.
+LaTeX Info: Redefining \% on input line 3958.
 [67]
-LaTeX Info: Redefining \. on input line 4008.
-LaTeX Info: Redefining \% on input line 4008.
+LaTeX Info: Redefining \. on input line 4035.
+LaTeX Info: Redefining \% on input line 4035.
 [68]
-LaTeX Info: Redefining \. on input line 4050.
-LaTeX Info: Redefining \% on input line 4050.
+LaTeX Info: Redefining \. on input line 4077.
+LaTeX Info: Redefining \% on input line 4077.
 [69]
 File: Manual_de_R_files/figure-latex/dots-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/dots-1.pdf" >
-LaTeX Info: Redefining \. on input line 4084.
-LaTeX Info: Redefining \% on input line 4084.
+LaTeX Info: Redefining \. on input line 4111.
+LaTeX Info: Redefining \% on input line 4111.
 [70]
-LaTeX Info: Redefining \. on input line 4152.
-LaTeX Info: Redefining \% on input line 4152.
+LaTeX Info: Redefining \. on input line 4179.
+LaTeX Info: Redefining \% on input line 4179.
 [71]
-Underfull \hbox (badness 10000) detected at line 4160
+Underfull \hbox (badness 10000) detected at line 4187
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4160
+Underfull \hbox (badness 10000) detected at line 4187
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4163
+Underfull \hbox (badness 10000) detected at line 4190
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4163
+Underfull \hbox (badness 10000) detected at line 4190
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4165
+Underfull \hbox (badness 10000) detected at line 4192
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4165
+Underfull \hbox (badness 10000) detected at line 4192
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4168
+Underfull \hbox (badness 10000) detected at line 4195
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4168
+Underfull \hbox (badness 10000) detected at line 4195
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4171
+Underfull \hbox (badness 10000) detected at line 4198
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4171
+Underfull \hbox (badness 10000) detected at line 4198
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 4174.
-LaTeX Info: Redefining \% on input line 4174.
+LaTeX Info: Redefining \. on input line 4201.
+LaTeX Info: Redefining \% on input line 4201.
 [72]
-Underfull \vbox (badness 10000) detected at line 4174
+Underfull \vbox (badness 10000) detected at line 4201
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4174
+Overfull \hbox (336.25pt too wide) detected at line 4201
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4174
+Underfull \vbox (badness 10000) detected at line 4201
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4174
+Overfull \hbox (336.25pt too wide) detected at line 4201
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4174
+Underfull \vbox (badness 10000) detected at line 4201
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4174
+Overfull \hbox (336.25pt too wide) detected at line 4201
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4174
+Underfull \vbox (badness 10000) detected at line 4201
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4174
+Overfull \hbox (336.25pt too wide) detected at line 4201
 []
  []
 
 Capítulo 8.
 
-Underfull \hbox (badness 10000) detected at line 4189
+Underfull \hbox (badness 10000) detected at line 4216
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4189
+Underfull \hbox (badness 10000) detected at line 4216
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4191
+Underfull \hbox (badness 10000) detected at line 4218
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4191
+Underfull \hbox (badness 10000) detected at line 4218
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4193
+Underfull \hbox (badness 10000) detected at line 4220
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4193
+Underfull \hbox (badness 10000) detected at line 4220
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4195
+Underfull \hbox (badness 10000) detected at line 4222
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4195
+Underfull \hbox (badness 10000) detected at line 4222
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4197
+Underfull \hbox (badness 10000) detected at line 4224
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4197
+Underfull \hbox (badness 10000) detected at line 4224
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4199
+Underfull \hbox (badness 10000) detected at line 4226
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4199
+Underfull \hbox (badness 10000) detected at line 4226
 [][][]
  []
 
@@ -2889,17 +2890,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-LaTeX Info: Redefining \. on input line 4291.
-LaTeX Info: Redefining \% on input line 4291.
+LaTeX Info: Redefining \. on input line 4318.
+LaTeX Info: Redefining \% on input line 4318.
 [74]
-LaTeX Info: Redefining \. on input line 4354.
-LaTeX Info: Redefining \% on input line 4354.
+LaTeX Info: Redefining \. on input line 4381.
+LaTeX Info: Redefining \% on input line 4381.
 [75]
-LaTeX Info: Redefining \. on input line 4404.
-LaTeX Info: Redefining \% on input line 4404.
+LaTeX Info: Redefining \. on input line 4431.
+LaTeX Info: Redefining \% on input line 4431.
 [76]
-LaTeX Info: Redefining \. on input line 4445.
-LaTeX Info: Redefining \% on input line 4445.
+LaTeX Info: Redefining \. on input line 4472.
+LaTeX Info: Redefining \% on input line 4472.
 [77]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2940,149 +2941,149 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [78
 
 ]
-Underfull \vbox (badness 10000) detected at line 4445
+Underfull \vbox (badness 10000) detected at line 4472
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4445
+Overfull \hbox (336.25pt too wide) detected at line 4472
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4445
+Underfull \vbox (badness 10000) detected at line 4472
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4445
+Overfull \hbox (336.25pt too wide) detected at line 4472
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4445
+Underfull \vbox (badness 10000) detected at line 4472
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4445
+Overfull \hbox (336.25pt too wide) detected at line 4472
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4445
+Underfull \vbox (badness 10000) detected at line 4472
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4445
+Overfull \hbox (336.25pt too wide) detected at line 4472
 []
  []
 
 Capítulo 9.
 
-Underfull \hbox (badness 10000) detected at line 4460
+Underfull \hbox (badness 10000) detected at line 4487
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4460
+Underfull \hbox (badness 10000) detected at line 4487
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4462
+Underfull \hbox (badness 10000) detected at line 4489
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4462
+Underfull \hbox (badness 10000) detected at line 4489
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4464
+Underfull \hbox (badness 10000) detected at line 4491
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4464
+Underfull \hbox (badness 10000) detected at line 4491
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4467
+Underfull \hbox (badness 10000) detected at line 4494
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4467
+Underfull \hbox (badness 10000) detected at line 4494
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4470
+Underfull \hbox (badness 10000) detected at line 4497
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4470
+Underfull \hbox (badness 10000) detected at line 4497
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4472
+Underfull \hbox (badness 10000) detected at line 4499
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4472
+Underfull \hbox (badness 10000) detected at line 4499
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4474
+Underfull \hbox (badness 10000) detected at line 4501
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4474
+Underfull \hbox (badness 10000) detected at line 4501
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4476
+Underfull \hbox (badness 10000) detected at line 4503
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4476
+Underfull \hbox (badness 10000) detected at line 4503
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4478
+Underfull \hbox (badness 10000) detected at line 4505
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4478
+Underfull \hbox (badness 10000) detected at line 4505
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4481
+Underfull \hbox (badness 10000) detected at line 4508
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4481
+Underfull \hbox (badness 10000) detected at line 4508
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4484
+Underfull \hbox (badness 10000) detected at line 4511
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4484
+Underfull \hbox (badness 10000) detected at line 4511
 [][][]
  []
 
@@ -3094,27 +3095,27 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [79
 
 ]
-LaTeX Info: Redefining \. on input line 4572.
-LaTeX Info: Redefining \% on input line 4572.
+LaTeX Info: Redefining \. on input line 4599.
+LaTeX Info: Redefining \% on input line 4599.
 [80]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 4607.
-LaTeX Info: Redefining \. on input line 4625.
-LaTeX Info: Redefining \% on input line 4625.
+(Font)              <12> on input line 4634.
+LaTeX Info: Redefining \. on input line 4652.
+LaTeX Info: Redefining \% on input line 4652.
 [81]
-LaTeX Info: Redefining \. on input line 4687.
-LaTeX Info: Redefining \% on input line 4687.
+LaTeX Info: Redefining \. on input line 4714.
+LaTeX Info: Redefining \% on input line 4714.
 [82]
 File: Manual_de_R_files/figure-latex/box1-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/box1-1.pdf" >
-LaTeX Info: Redefining \. on input line 4753.
-LaTeX Info: Redefining \% on input line 4753.
+LaTeX Info: Redefining \. on input line 4780.
+LaTeX Info: Redefining \% on input line 4780.
 [83]
-LaTeX Info: Redefining \. on input line 4788.
-LaTeX Info: Redefining \% on input line 4788.
+LaTeX Info: Redefining \. on input line 4815.
+LaTeX Info: Redefining \% on input line 4815.
 [84]
-LaTeX Info: Redefining \. on input line 4822.
-LaTeX Info: Redefining \% on input line 4822.
+LaTeX Info: Redefining \. on input line 4849.
+LaTeX Info: Redefining \% on input line 4849.
 [85]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -3155,99 +3156,99 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [86
 
 ]
-Underfull \vbox (badness 10000) detected at line 4822
+Underfull \vbox (badness 10000) detected at line 4849
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4822
+Overfull \hbox (336.25pt too wide) detected at line 4849
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4822
+Underfull \vbox (badness 10000) detected at line 4849
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4822
+Overfull \hbox (336.25pt too wide) detected at line 4849
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4822
+Underfull \vbox (badness 10000) detected at line 4849
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4822
+Overfull \hbox (336.25pt too wide) detected at line 4849
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4822
+Underfull \vbox (badness 10000) detected at line 4849
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4822
+Overfull \hbox (336.25pt too wide) detected at line 4849
 []
  []
 
 Capítulo 10.
 
-Underfull \hbox (badness 10000) detected at line 4837
+Underfull \hbox (badness 10000) detected at line 4864
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4837
+Underfull \hbox (badness 10000) detected at line 4864
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4839
+Underfull \hbox (badness 10000) detected at line 4866
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4839
+Underfull \hbox (badness 10000) detected at line 4866
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4841
+Underfull \hbox (badness 10000) detected at line 4868
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4841
+Underfull \hbox (badness 10000) detected at line 4868
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4843
+Underfull \hbox (badness 10000) detected at line 4870
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4843
+Underfull \hbox (badness 10000) detected at line 4870
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4845
+Underfull \hbox (badness 10000) detected at line 4872
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4845
+Underfull \hbox (badness 10000) detected at line 4872
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4847
+Underfull \hbox (badness 10000) detected at line 4874
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4847
+Underfull \hbox (badness 10000) detected at line 4874
 [][][]
  []
 
@@ -3259,41 +3260,41 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [87
 
 ]
-LaTeX Info: Redefining \. on input line 4916.
-LaTeX Info: Redefining \% on input line 4916.
+LaTeX Info: Redefining \. on input line 4943.
+LaTeX Info: Redefining \% on input line 4943.
 [88]
-Underfull \vbox (badness 10000) detected at line 4916
+Underfull \vbox (badness 10000) detected at line 4943
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4916
+Overfull \hbox (336.25pt too wide) detected at line 4943
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4916
+Underfull \vbox (badness 10000) detected at line 4943
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4916
+Overfull \hbox (336.25pt too wide) detected at line 4943
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4916
+Underfull \vbox (badness 10000) detected at line 4943
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4916
+Overfull \hbox (336.25pt too wide) detected at line 4943
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4916
+Underfull \vbox (badness 10000) detected at line 4943
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4916
+Overfull \hbox (336.25pt too wide) detected at line 4943
 []
  []
 
@@ -3309,121 +3310,121 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ]
 File: Manual_de_R_files/figure-latex/disp-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/disp-1.pdf" >
-LaTeX Info: Redefining \. on input line 5008.
-LaTeX Info: Redefining \% on input line 5008.
+LaTeX Info: Redefining \. on input line 5035.
+LaTeX Info: Redefining \% on input line 5035.
 [90]
-Overfull \hbox (20.5pt too wide) in paragraph at lines 5068--5068
+Overfull \hbox (20.5pt too wide) in paragraph at lines 5095--5095
 []\TU/lmtt/m/n/10 ##  $ precio        : num  79 93 100 123 135 140 145 160 160 
 175 ...[] 
  []
 
 
-Overfull \hbox (178.0pt too wide) in paragraph at lines 5068--5068
+Overfull \hbox (178.0pt too wide) in paragraph at lines 5095--5095
 []\TU/lmtt/m/n/10 ##  $ ubicacion     : Factor w/ 7 levels "aburra sur","belen 
 guayabal",..: 5 5 5 5 5 5 5 5 5 5 ...[] 
  []
 
 
-Overfull \hbox (57.25pt too wide) in paragraph at lines 5068--5068
+Overfull \hbox (57.25pt too wide) in paragraph at lines 5095--5095
 []\TU/lmtt/m/n/10 ##  $ balcon        : Factor w/ 2 levels "no","si": 2 2 1 2 2
  1 2 2 2 2 ...[] 
  []
 
 
-Overfull \hbox (57.25pt too wide) in paragraph at lines 5068--5068
+Overfull \hbox (57.25pt too wide) in paragraph at lines 5095--5095
 []\TU/lmtt/m/n/10 ##  $ parqueadero   : Factor w/ 2 levels "no","si": 2 2 1 2 1
  2 2 2 1 2 ...[] 
  []
 
 
-Overfull \hbox (52.0pt too wide) in paragraph at lines 5068--5068
+Overfull \hbox (52.0pt too wide) in paragraph at lines 5095--5095
 []\TU/lmtt/m/n/10 ##  $ administracion: num  0.05 0.069 0 0.13 0 0.12 0.14 0.12
 7 0 0.123 ...[] 
  []
 
 
-Overfull \hbox (57.25pt too wide) in paragraph at lines 5068--5068
+Overfull \hbox (57.25pt too wide) in paragraph at lines 5095--5095
 []\TU/lmtt/m/n/10 ##  $ terminado     : Factor w/ 2 levels "no","si": 1 2 1 1 2
  2 2 2 2 2 ...[] 
  []
 
-LaTeX Info: Redefining \. on input line 5077.
-LaTeX Info: Redefining \% on input line 5077.
+LaTeX Info: Redefining \. on input line 5104.
+LaTeX Info: Redefining \% on input line 5104.
 [91]
 File: Manual_de_R_files/figure-latex/corplot-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/corplot-1.pdf" >
 File: images/tip.png Graphic file (type QTm)
 <use  "images/tip.png" >
-LaTeX Info: Redefining \. on input line 5143.
-LaTeX Info: Redefining \% on input line 5143.
+LaTeX Info: Redefining \. on input line 5170.
+LaTeX Info: Redefining \% on input line 5170.
 [92]
-LaTeX Info: Redefining \. on input line 5184.
-LaTeX Info: Redefining \% on input line 5184.
+LaTeX Info: Redefining \. on input line 5211.
+LaTeX Info: Redefining \% on input line 5211.
 [93]
-Underfull \hbox (badness 10000) detected at line 5184
+Underfull \hbox (badness 10000) detected at line 5211
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5184
+Underfull \hbox (badness 10000) detected at line 5211
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5188
+Underfull \hbox (badness 10000) detected at line 5215
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5188
+Underfull \hbox (badness 10000) detected at line 5215
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5194
+Underfull \hbox (badness 10000) detected at line 5221
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5194
+Underfull \hbox (badness 10000) detected at line 5221
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 5198.
-LaTeX Info: Redefining \% on input line 5198.
+LaTeX Info: Redefining \. on input line 5225.
+LaTeX Info: Redefining \% on input line 5225.
 [94]
-Underfull \vbox (badness 10000) detected at line 5198
+Underfull \vbox (badness 10000) detected at line 5225
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5198
+Overfull \hbox (336.25pt too wide) detected at line 5225
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5198
+Underfull \vbox (badness 10000) detected at line 5225
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5198
+Overfull \hbox (336.25pt too wide) detected at line 5225
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5198
+Underfull \vbox (badness 10000) detected at line 5225
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5198
+Overfull \hbox (336.25pt too wide) detected at line 5225
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5198
+Underfull \vbox (badness 10000) detected at line 5225
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5198
+Overfull \hbox (336.25pt too wide) detected at line 5225
 []
  []
 
@@ -3437,264 +3438,264 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \hbox (badness 10000) detected at line 5254
+Underfull \hbox (badness 10000) detected at line 5281
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5254
+Underfull \hbox (badness 10000) detected at line 5281
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5279
+Underfull \hbox (badness 10000) detected at line 5306
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5279
+Underfull \hbox (badness 10000) detected at line 5306
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5303
+Underfull \hbox (badness 10000) detected at line 5330
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5303
+Underfull \hbox (badness 10000) detected at line 5330
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5327
+Underfull \hbox (badness 10000) detected at line 5354
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5327
+Underfull \hbox (badness 10000) detected at line 5354
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 5333.
-LaTeX Info: Redefining \% on input line 5333.
+LaTeX Info: Redefining \. on input line 5360.
+LaTeX Info: Redefining \% on input line 5360.
 [96]
 File: Manual_de_R_files/figure-latex/binom1-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/binom1-1.pdf" >
-Underfull \hbox (badness 10000) detected at line 5362
+Underfull \hbox (badness 10000) detected at line 5389
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5362
+Underfull \hbox (badness 10000) detected at line 5389
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 5371.
-LaTeX Info: Redefining \% on input line 5371.
+LaTeX Info: Redefining \. on input line 5398.
+LaTeX Info: Redefining \% on input line 5398.
 [97]
-Underfull \hbox (badness 10000) detected at line 5415
+Underfull \hbox (badness 10000) detected at line 5442
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5415
+Underfull \hbox (badness 10000) detected at line 5442
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5439
+Underfull \hbox (badness 10000) detected at line 5466
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5439
+Underfull \hbox (badness 10000) detected at line 5466
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 5445.
-LaTeX Info: Redefining \% on input line 5445.
+LaTeX Info: Redefining \. on input line 5472.
+LaTeX Info: Redefining \% on input line 5472.
 [98]
-Underfull \hbox (badness 10000) detected at line 5460
+Underfull \hbox (badness 10000) detected at line 5487
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5460
+Underfull \hbox (badness 10000) detected at line 5487
 [][][]
  []
 
 File: images/note.png Graphic file (type QTm)
 <use  "images/note.png" >
-Underfull \hbox (badness 10000) detected at line 5495
+Underfull \hbox (badness 10000) detected at line 5522
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5495
+Underfull \hbox (badness 10000) detected at line 5522
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5523
+Underfull \hbox (badness 10000) detected at line 5550
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5523
+Underfull \hbox (badness 10000) detected at line 5550
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 5529.
-LaTeX Info: Redefining \% on input line 5529.
+LaTeX Info: Redefining \. on input line 5556.
+LaTeX Info: Redefining \% on input line 5556.
 [99]
-Underfull \hbox (badness 10000) detected at line 5568
+Underfull \hbox (badness 10000) detected at line 5595
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5568
+Underfull \hbox (badness 10000) detected at line 5595
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5593
+Underfull \hbox (badness 10000) detected at line 5620
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5593
+Underfull \hbox (badness 10000) detected at line 5620
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 5600.
-LaTeX Info: Redefining \% on input line 5600.
+LaTeX Info: Redefining \. on input line 5627.
+LaTeX Info: Redefining \% on input line 5627.
 [100]
-Underfull \hbox (badness 10000) detected at line 5620
+Underfull \hbox (badness 10000) detected at line 5647
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5620
+Underfull \hbox (badness 10000) detected at line 5647
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 5665.
-LaTeX Info: Redefining \% on input line 5665.
+LaTeX Info: Redefining \. on input line 5692.
+LaTeX Info: Redefining \% on input line 5692.
 [101]
 File: images/crab.png Graphic file (type QTm)
 <use  "images/crab.png" >
-Underfull \hbox (badness 10000) in paragraph at lines 5672--5672
+Underfull \hbox (badness 10000) in paragraph at lines 5699--5699
 []\TU/lmr/bx/sc/10 Figura 12.2: |\TU/lmr/m/n/10 Fotografía del cangreo de herra
 dura, tomada de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5672--5672
+Underfull \hbox (badness 10000) in paragraph at lines 5699--5699
 \TU/lmr/m/n/10 http://sccoastalresources.com/home/2016/6/21/a-night-of-horsesho
 e-crab-
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5679
+Underfull \hbox (badness 10000) detected at line 5706
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5679
+Underfull \hbox (badness 10000) detected at line 5706
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 5705.
-LaTeX Info: Redefining \% on input line 5705.
+LaTeX Info: Redefining \. on input line 5732.
+LaTeX Info: Redefining \% on input line 5732.
 [102]
 File: Manual_de_R_files/figure-latex/pmfcrab-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/pmfcrab-1.pdf" >
-Underfull \hbox (badness 10000) detected at line 5729
+Underfull \hbox (badness 10000) detected at line 5756
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5729
+Underfull \hbox (badness 10000) detected at line 5756
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 5740.
-LaTeX Info: Redefining \% on input line 5740.
+LaTeX Info: Redefining \. on input line 5767.
+LaTeX Info: Redefining \% on input line 5767.
 [103]
 File: Manual_de_R_files/figure-latex/Fcrab-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/Fcrab-1.pdf" >
-Underfull \hbox (badness 10000) detected at line 5759
+Underfull \hbox (badness 10000) detected at line 5786
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5759
+Underfull \hbox (badness 10000) detected at line 5786
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5782
+Underfull \hbox (badness 10000) detected at line 5809
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5782
+Underfull \hbox (badness 10000) detected at line 5809
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 5788.
-LaTeX Info: Redefining \% on input line 5788.
+LaTeX Info: Redefining \. on input line 5815.
+LaTeX Info: Redefining \% on input line 5815.
 [104]
-Underfull \hbox (badness 10000) detected at line 5805
+Underfull \hbox (badness 10000) detected at line 5832
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5805
+Underfull \hbox (badness 10000) detected at line 5832
 [][][]
  []
 
 File: Manual_de_R_files/figure-latex/Fcrabs-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/Fcrabs-1.pdf" >
-LaTeX Info: Redefining \. on input line 5859.
-LaTeX Info: Redefining \% on input line 5859.
+LaTeX Info: Redefining \. on input line 5886.
+LaTeX Info: Redefining \% on input line 5886.
 [105]
-LaTeX Info: Redefining \. on input line 5859.
-LaTeX Info: Redefining \% on input line 5859.
+LaTeX Info: Redefining \. on input line 5886.
+LaTeX Info: Redefining \% on input line 5886.
 [106]
-Underfull \vbox (badness 10000) detected at line 5859
+Underfull \vbox (badness 10000) detected at line 5886
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5859
+Overfull \hbox (336.25pt too wide) detected at line 5886
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5859
+Underfull \vbox (badness 10000) detected at line 5886
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5859
+Overfull \hbox (336.25pt too wide) detected at line 5886
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5859
+Underfull \vbox (badness 10000) detected at line 5886
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5859
+Overfull \hbox (336.25pt too wide) detected at line 5886
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5859
+Underfull \vbox (badness 10000) detected at line 5886
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5859
+Overfull \hbox (336.25pt too wide) detected at line 5886
 []
  []
 
@@ -3708,224 +3709,224 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \hbox (badness 10000) detected at line 5915
+Underfull \hbox (badness 10000) detected at line 5942
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5915
+Underfull \hbox (badness 10000) detected at line 5942
 [][][]
  []
 
 File: Manual_de_R_files/figure-latex/beta1-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/beta1-1.pdf" >
-Underfull \hbox (badness 10000) detected at line 5942
+Underfull \hbox (badness 10000) detected at line 5969
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5942
+Underfull \hbox (badness 10000) detected at line 5969
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 5951.
-LaTeX Info: Redefining \% on input line 5951.
+LaTeX Info: Redefining \. on input line 5978.
+LaTeX Info: Redefining \% on input line 5978.
 [108]
 File: images/note.png Graphic file (type QTm)
 <use  "images/note.png" >
-Underfull \hbox (badness 10000) detected at line 5996
+Underfull \hbox (badness 10000) detected at line 6023
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5996
+Underfull \hbox (badness 10000) detected at line 6023
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6021
+Underfull \hbox (badness 10000) detected at line 6048
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6021
+Underfull \hbox (badness 10000) detected at line 6048
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 6030.
-LaTeX Info: Redefining \% on input line 6030.
+LaTeX Info: Redefining \. on input line 6057.
+LaTeX Info: Redefining \% on input line 6057.
 [109]
-Underfull \hbox (badness 10000) detected at line 6064
+Underfull \hbox (badness 10000) detected at line 6091
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6064
+Underfull \hbox (badness 10000) detected at line 6091
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6089
+Underfull \hbox (badness 10000) detected at line 6116
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6089
+Underfull \hbox (badness 10000) detected at line 6116
 [][][]
  []
 
 File: Manual_de_R_files/figure-latex/norm1-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/norm1-1.pdf" >
-LaTeX Info: Redefining \. on input line 6112.
-LaTeX Info: Redefining \% on input line 6112.
+LaTeX Info: Redefining \. on input line 6139.
+LaTeX Info: Redefining \% on input line 6139.
 [110]
 File: images/tip.png Graphic file (type QTm)
 <use  "images/tip.png" >
-LaTeX Info: Redefining \. on input line 6130.
-LaTeX Info: Redefining \% on input line 6130.
+LaTeX Info: Redefining \. on input line 6157.
+LaTeX Info: Redefining \% on input line 6157.
 [111]
-Underfull \hbox (badness 10000) detected at line 6130
+Underfull \hbox (badness 10000) detected at line 6157
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6130
+Underfull \hbox (badness 10000) detected at line 6157
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6154
+Underfull \hbox (badness 10000) detected at line 6181
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6154
+Underfull \hbox (badness 10000) detected at line 6181
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6177
+Underfull \hbox (badness 10000) detected at line 6204
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6177
+Underfull \hbox (badness 10000) detected at line 6204
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6201
+Underfull \hbox (badness 10000) detected at line 6228
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6201
+Underfull \hbox (badness 10000) detected at line 6228
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 6211.
-LaTeX Info: Redefining \% on input line 6211.
+LaTeX Info: Redefining \. on input line 6238.
+LaTeX Info: Redefining \% on input line 6238.
 [112]
 File: Manual_de_R_files/figure-latex/norm2-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/norm2-1.pdf" >
-LaTeX Info: Redefining \. on input line 6238.
-LaTeX Info: Redefining \% on input line 6238.
+LaTeX Info: Redefining \. on input line 6265.
+LaTeX Info: Redefining \% on input line 6265.
 [113]
-Underfull \hbox (badness 10000) detected at line 6254
+Underfull \hbox (badness 10000) detected at line 6281
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6254
+Underfull \hbox (badness 10000) detected at line 6281
 [][][]
  []
 
 File: Manual_de_R_files/figure-latex/crabcont1-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/crabcont1-1.pdf" >
-Underfull \hbox (badness 10000) detected at line 6289
+Underfull \hbox (badness 10000) detected at line 6316
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6289
+Underfull \hbox (badness 10000) detected at line 6316
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 6298.
-LaTeX Info: Redefining \% on input line 6298.
+LaTeX Info: Redefining \. on input line 6325.
+LaTeX Info: Redefining \% on input line 6325.
 [114]
 File: Manual_de_R_files/figure-latex/crabcont2-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/crabcont2-1.pdf" >
-Underfull \hbox (badness 10000) detected at line 6317
+Underfull \hbox (badness 10000) detected at line 6344
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6317
+Underfull \hbox (badness 10000) detected at line 6344
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6341
+Underfull \hbox (badness 10000) detected at line 6368
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6341
+Underfull \hbox (badness 10000) detected at line 6368
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 6351.
-LaTeX Info: Redefining \% on input line 6351.
+LaTeX Info: Redefining \. on input line 6378.
+LaTeX Info: Redefining \% on input line 6378.
 [115]
-Overfull \vbox (1.6784pt too high) detected at line 6379
+Overfull \vbox (1.6784pt too high) detected at line 6406
  []
 
-LaTeX Info: Redefining \. on input line 6379.
-LaTeX Info: Redefining \% on input line 6379.
+LaTeX Info: Redefining \. on input line 6406.
+LaTeX Info: Redefining \% on input line 6406.
 [116]
 File: Manual_de_R_files/figure-latex/crabcont3-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/crabcont3-1.pdf" >
 File: Manual_de_R_files/figure-latex/crabcont4-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/crabcont4-1.pdf" >
-LaTeX Info: Redefining \. on input line 6415.
-LaTeX Info: Redefining \% on input line 6415.
+LaTeX Info: Redefining \. on input line 6442.
+LaTeX Info: Redefining \% on input line 6442.
 [117]
-LaTeX Info: Redefining \. on input line 6415.
-LaTeX Info: Redefining \% on input line 6415.
+LaTeX Info: Redefining \. on input line 6442.
+LaTeX Info: Redefining \% on input line 6442.
 [118]
-Underfull \vbox (badness 10000) detected at line 6415
+Underfull \vbox (badness 10000) detected at line 6442
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6415
+Overfull \hbox (336.25pt too wide) detected at line 6442
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6415
+Underfull \vbox (badness 10000) detected at line 6442
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6415
+Overfull \hbox (336.25pt too wide) detected at line 6442
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6415
+Underfull \vbox (badness 10000) detected at line 6442
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6415
+Overfull \hbox (336.25pt too wide) detected at line 6442
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6415
+Underfull \vbox (badness 10000) detected at line 6442
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6415
+Overfull \hbox (336.25pt too wide) detected at line 6442
 []
  []
 
@@ -3978,38 +3979,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [120
 
 ]
-Underfull \vbox (badness 10000) detected at line 6419
+Underfull \vbox (badness 10000) detected at line 6446
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6419
+Overfull \hbox (336.25pt too wide) detected at line 6446
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6419
+Underfull \vbox (badness 10000) detected at line 6446
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6419
+Overfull \hbox (336.25pt too wide) detected at line 6446
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6419
+Underfull \vbox (badness 10000) detected at line 6446
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6419
+Overfull \hbox (336.25pt too wide) detected at line 6446
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6419
+Underfull \vbox (badness 10000) detected at line 6446
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6419
+Overfull \hbox (336.25pt too wide) detected at line 6446
 []
  []
 
@@ -4022,11 +4023,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [121
 
 ]
-File: Manual_de_R_files/figure-latex/unnamed-chunk-213-1.pdf Graphic file (type
+File: Manual_de_R_files/figure-latex/unnamed-chunk-212-1.pdf Graphic file (type
  QTm)
-<use  "Manual_de_R_files/figure-latex/unnamed-chunk-213-1.pdf" >
-LaTeX Info: Redefining \. on input line 6499.
-LaTeX Info: Redefining \% on input line 6499.
+<use  "Manual_de_R_files/figure-latex/unnamed-chunk-212-1.pdf" >
+LaTeX Info: Redefining \. on input line 6526.
+LaTeX Info: Redefining \% on input line 6526.
 [122] (Manual_de_R.bbl
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -4179,16 +4180,16 @@ LaTeX Info: Redefining \% on input line 130.
 [128
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6542.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 6542.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6569.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 6569.
 (Manual_de_R.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6542.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6542.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6569.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6569.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -4197,10 +4198,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 24088 strings out of 427899
- 428465 string characters out of 3153117
- 567190 words of memory out of 3000000
- 27671 multiletter control sequences out of 15000+200000
+ 24091 strings out of 427899
+ 428510 string characters out of 3153117
+ 567345 words of memory out of 3000000
+ 27673 multiletter control sequences out of 15000+200000
  29119 words of font info for 75 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  53i,9n,92p,10411b,669s stack positions out of 5000i,500n,10000p,200000b,50000s

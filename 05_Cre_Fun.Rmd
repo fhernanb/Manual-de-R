@@ -137,21 +137,30 @@ La función `cat` es muy útil para presentar resultados por pantalla. Consulte 
 ## EJERCICIOS {-}
 Construir funciones en \proglang{R} que realicen lo solicitado.
 
-1. Construya una función que reciba dos números reales y que diga cuál es el mayor de ellos.
+1. Construya una función que reciba dos números reales `a` y `b`, la función debe decir cuál es el mayor de ellos.
 
-2. Escriba una función llamada media que calcule la media muestral de un vector numérico ingresado a la función. A continuación la fórmula para calcular la media muestral.
+2. Escriba una función llamada `media` que calcule la media muestral de un vector numérico `x` ingresado a la función. A continuación la fórmula para calcular la media muestral.
 
 $$\bar{x}=\frac{\sum_{i=1}^n x_i}{n}$$
-Verifique el desempeño de su función comparando con la función `mean`. Corra el siguiente código para hacer la prueba, los resultados deben coincidir.
-```{r, eval=F}
-x <- runif(n=100)
-media(x)
-mean(x)
+
+Nota: no puede usar la función `mean( )`.
+
+3. Construya una función que encuentre las raíces de una ecuación de segundo grado. El usuario debe suministrar los coeficientes `a`, `b` y `c` de la ecuación $ax^2+bx+c=0$ y la función debe entregar las raíces.  
+
+4. Escribir una función que calcule la velocidad de un proyectil dado que el usuario ingresa la distancia recorrida en Km y el tiempo necesario en minutos. Expresar el resultado se debe entregar en metros/segundo, recuerde que
+
+$$velocidad = \frac{espacio}{tiempo}$$
+
+5. Construya una función que calcule las coordenadas del punto medio $M$ entre dos puntos $A$ y $B$. Vea la Figura \@ref(fig:midpoint) para una ilustración. ¿Cuáles cree usted que deben ser los parámetros de entrada de la función?
+
+```{r midpoint, echo=F, fig.cap='Ilustración del punto medio entre dos puntos, tomada de https://www.slideshare.net/bigpassy/midpoint-between-two-points', dpi=600, fig.align='center'}
+knitr::include_graphics("images/midpoint.png")
 ```
 
-3. Construya una función que encuentre las raíces de una ecuación de segundo grado. El usuario debe suministrar los coeficientes `a`, `b` y `c` de la ecuación $ax^2+bx+c=0$ y la función debe entregar las raíces.
+6. Escribir una función que reciba dos valores $a$ y $b$ y que los intercambie. Es decir, si ingresa $a=4$ y $b=9$ que la función entregue $a=9$ y $b=4$.
 
-4. Escribir una función que calcule la velocidad de un proyectil dado que el usuario ingresa la distancia  Km y el tiempo  en minutos. Expresar el resultado en metros/segundo, recuerde que $velocidad = espacio / tiempo$.
+7. Construya una función a la cual le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto.
+
 
 
 
