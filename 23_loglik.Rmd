@@ -1,0 +1,99 @@
+# Verosimilitud
+
+En este capítulo se mostrará como usar \proglang{R} para obtener la función de log-verosimilitud y estimadores por el método de máxima verosimilitud.
+
+## Función de verosimilitud
+La función de verosimilitud para un vector de parámetros $\boldsymbol{\Theta}$ dada una muestra aleatoria $\boldsymbol{x}$ con una distribución asumida se define como:
+
+\begin{equation}
+L(\boldsymbol{\Theta} | \boldsymbol{x}) = \prod_{i=1}^{n}  f(x_i | \boldsymbol{\Theta}),
+(\#eq:lik)
+\end{equation}
+
+donde $x_i$ representa uno de los elementos de la muestra aleatoria y $f$ es la función de masa/densidad de la distribución de la cual se obtuvo $\boldsymbol{x}$.
+
+## Función de log-verosimilitud
+La función de log-verosimilitud $l$ se define como el logaritmo de la función de verosimilitud $L$, es decir
+
+\begin{equation}
+l(\boldsymbol{\Theta} | \boldsymbol{x}) = \log L(\boldsymbol{\Theta} | \boldsymbol{x}) = \sum_{i=1}^{n} \log f(x_i | \boldsymbol{\Theta})
+(\#eq:loglik)
+\end{equation}
+
+### Ejemplo {-}
+Suponga que se tiene el vector `rta` que corresponde a una muestra aleatoria de una distribución binomial con parámetro `size=5` conocido.
+
+```{r}
+rta <- c(2, 2, 1, 1, 1, 1, 0, 2, 1, 2, 1, 0, 1, 2, 1, 0, 0, 2, 2, 1)
+```
+
+1) Calcular el valor de log-verosimilitud $l$ si asumimos que $p=0.30$ en la distribución binomial.
+
+Para obtener el valor de $l$ en el punto $p=0.30$ se aplica la definición dada en la expresión \@ref(eq:loglik). Como el problema trata de una binomial se usa entonces la función de masa `dbinom` evaluada en la muestra `rta`, el parámetro `size` como es conocido se reemplaza por el valor de cinco y en el parámetro `prob` se cambia por 0.3. Como interesa la función de log-verosimilitud se debe incluir `log=TRUE`. A continuación el código necesario. 
+
+```{r}
+sum(dbinom(x=rta, size=5, prob=0.3, log=TRUE))
+```
+
+Por lo tanto $l(\theta)= -24.55$
+
+2) Construir una función llamada `ll` a la cual le ingrese uno o varios valores del parámetro $p$ de la binomial, la función debe entregar el valor de log-verosimilitud en cada uno de los $p$ ingresados.
+
+La función solicitada tiene un cuerpo igual al usado en el numeral anterior. Para asegurar que la función construída pueda recibir un vector de valores de $p$ se vectoriza la función con `Vectorize`, abajo el código usado.
+
+```{r}
+ll <- function(prob) sum(dbinom(x=rta, size=5, prob=prob, log=T))
+ll <- Vectorize(ll)  # Para vectorizar la función
+```
+
+Vamos a probar la función en $p=0.15$ y $p=0.80$.
+
+```{r}
+ll(prob=0.15)  # Individual para p=0.15
+ll(prob=0.80)  # Individual para p=0.30
+ll(prob=c(0.15, 0.80))  # Evaluada en un vector 
+```
+
+3) Dibujar la curva log-verosimilitud $l$.
+
+Para dibujar la curva solicitada se usa el siguiente código.
+
+```{r loglik1, fig.cap='Función de log-verosimilitud para el ejemplo sobre binomial.', fig.asp=0.9, fig.width=4, echo=TRUE}
+curve(ll, lwd=4, col='dodgerblue3',
+      xlab='Probabilidad de éxito',
+      ylab=expression(paste("l(", theta, ")")))
+```
+
+4) Observando la Figura \@ref(fig:loglik1), ¿cuál esl el valor de $p$ que maximiza la función de log-verosimilitud?
+
+Al observar la Figura \@ref(fig:loglik1) se nota que el valor de $p$ que maximiza la función log-verosimilitud está muy cerca de 0.2.
+
+5) ¿Cuál es el valor exacto de $p$ que maximiza la función log-verosimilitud?
+
+En \proglang{R} existe la función `optimize` que sirve para encontrar el valor que __minimiza__ una función en un intervalo dado, sin embargo, aquí interesa es maximimizar la función de log-verosimilitud, por esa razón se construye la función `minusll` que es el negativo de la función `ll` para así poder usar `optimize`. A continuación el código usado.
+
+```{r}
+minusll <- function(x) -ll(x)
+
+optimize(f=minusll, interval=c(0, 1))
+```
+
+Del resultado anterior se observa que cuando $p=0.23$ el valor máximo de log-verosimilitud es 23.32.
+
+### Ejemplo {-}
+Genere una muestra aleatoria de 100 observaciones de una $N(170, 25)$ y 
+
+### Ejemplo {-}
+¿Hay alguna función para obtener directamente el valor que maximiza la función log-verosimilitud?
+
+La respuesta es si. Si la distribución estudiada es una de las distribuciones básicas se puede usar la función `fitdistr` del paquete **MASS**.
+
+```{r}
+require(MASS)  # Sólo se debe cargar
+
+```
+
+
+
+
+

@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-02-26}
+\date{2017-03-01}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -6439,6 +6439,207 @@ Para aprender más sobre el paquete \textbf{ggplot2} se recomienda
 consultar este
 \href{http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html}{enlace}.
 
+\chapter{Verosimilitud}\label{verosimilitud}
+
+En este capítulo se mostrará como usar \proglang{R} para obtener la
+función de log-verosimilitud y estimadores por el método de máxima
+verosimilitud.
+
+\section{Función de verosimilitud}\label{funcion-de-verosimilitud}
+
+La función de verosimilitud para un vector de parámetros
+\(\boldsymbol{\Theta}\) dada una muestra aleatoria \(\boldsymbol{x}\)
+con una distribución asumida se define como:
+
+\begin{equation}
+L(\boldsymbol{\Theta} | \boldsymbol{x}) = \prod_{i=1}^{n}  f(x_i | \boldsymbol{\Theta}),
+\label{eq:lik}
+\end{equation}
+
+donde \(x_i\) representa uno de los elementos de la muestra aleatoria y
+\(f\) es la función de masa/densidad de la distribución de la cual se
+obtuvo \(\boldsymbol{x}\).
+
+\section{Función de
+log-verosimilitud}\label{funcion-de-log-verosimilitud}
+
+La función de log-verosimilitud \(l\) se define como el logaritmo de la
+función de verosimilitud \(L\), es decir
+
+\begin{equation}
+l(\boldsymbol{\Theta} | \boldsymbol{x}) = \log L(\boldsymbol{\Theta} | \boldsymbol{x}) = \sum_{i=1}^{n} \log f(x_i | \boldsymbol{\Theta})
+\label{eq:loglik}
+\end{equation}
+
+\subsection*{Ejemplo}\label{ejemplo-44}
+
+
+Suponga que se tiene el vector \texttt{rta} que corresponde a una
+muestra aleatoria de una distribución binomial con parámetro
+\texttt{size=5} conocido.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rta <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Calcular el valor de log-verosimilitud \(l\) si asumimos que
+  \(p=0.30\) en la distribución binomial.
+\end{enumerate}
+
+Para obtener el valor de \(l\) en el punto \(p=0.30\) se aplica la
+definición dada en la expresión \eqref{eq:loglik}. Como el problema trata
+de una binomial se usa entonces la función de masa \texttt{dbinom}
+evaluada en la muestra \texttt{rta}, el parámetro \texttt{size} como es
+conocido se reemplaza por el valor de cinco y en el parámetro
+\texttt{prob} se cambia por 0.3. Como interesa la función de
+log-verosimilitud se debe incluir \texttt{log=TRUE}. A continuación el
+código necesario.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(}\KeywordTok{dbinom}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rta, }\DataTypeTok{size=}\DecValTok{5}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.3}\NormalTok{, }\DataTypeTok{log=}\OtherTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -24.55
+\end{verbatim}
+
+Por lo tanto \(l(\theta)= -24.55\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Construir una función llamada \texttt{ll} a la cual le ingrese uno o
+  varios valores del parámetro \(p\) de la binomial, la función debe
+  entregar el valor de log-verosimilitud en cada uno de los \(p\)
+  ingresados.
+\end{enumerate}
+
+La función solicitada tiene un cuerpo igual al usado en el numeral
+anterior. Para asegurar que la función construída pueda recibir un
+vector de valores de \(p\) se vectoriza la función con
+\texttt{Vectorize}, abajo el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ll <-}\StringTok{ }\NormalTok{function(prob) }\KeywordTok{sum}\NormalTok{(}\KeywordTok{dbinom}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rta, }\DataTypeTok{size=}\DecValTok{5}\NormalTok{, }\DataTypeTok{prob=}\NormalTok{prob, }\DataTypeTok{log=}\NormalTok{T))}
+\NormalTok{ll <-}\StringTok{ }\KeywordTok{Vectorize}\NormalTok{(ll)  }\CommentTok{# Para vectorizar la función}
+\end{Highlighting}
+\end{Shaded}
+
+Vamos a probar la función en \(p=0.15\) y \(p=0.80\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ll}\NormalTok{(}\DataTypeTok{prob=}\FloatTok{0.15}\NormalTok{)  }\CommentTok{# Individual para p=0.15}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -25.54
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ll}\NormalTok{(}\DataTypeTok{prob=}\FloatTok{0.80}\NormalTok{)  }\CommentTok{# Individual para p=0.30}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -98.46
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ll}\NormalTok{(}\DataTypeTok{prob=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.15}\NormalTok{, }\FloatTok{0.80}\NormalTok{))  }\CommentTok{# Evaluada en un vector }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -25.54 -98.46
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Dibujar la curva log-verosimilitud \(l\).
+\end{enumerate}
+
+Para dibujar la curva solicitada se usa el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{curve}\NormalTok{(ll, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\StringTok{'dodgerblue3'}\NormalTok{,}
+      \DataTypeTok{xlab=}\StringTok{'Probabilidad de éxito'}\NormalTok{,}
+      \DataTypeTok{ylab=}\KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"l("}\NormalTok{, theta, }\StringTok{")"}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/loglik1-1.pdf}
+\caption{\label{fig:loglik1}Función de log-verosimilitud para el ejemplo
+sobre binomial.}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Observando la Figura \ref{fig:loglik1}, ¿cuál esl el valor de \(p\)
+  que maximiza la función de log-verosimilitud?
+\end{enumerate}
+
+Al observar la Figura \ref{fig:loglik1} se nota que el valor de \(p\)
+que maximiza la función log-verosimilitud está muy cerca de 0.2.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  ¿Cuál es el valor exacto de \(p\) que maximiza la función
+  log-verosimilitud?
+\end{enumerate}
+
+En \proglang{R} existe la función \texttt{optimize} que sirve para
+encontrar el valor que \textbf{minimiza} una función en un intervalo
+dado, sin embargo, aquí interesa es maximimizar la función de
+log-verosimilitud, por esa razón se construye la función
+\texttt{minusll} que es el negativo de la función \texttt{ll} para así
+poder usar \texttt{optimize}. A continuación el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{minusll <-}\StringTok{ }\NormalTok{function(x) -}\KeywordTok{ll}\NormalTok{(x)}
+
+\KeywordTok{optimize}\NormalTok{(}\DataTypeTok{f=}\NormalTok{minusll, }\DataTypeTok{interval=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $minimum
+## [1] 0.23
+## 
+## $objective
+## [1] 23.32
+\end{verbatim}
+
+Del resultado anterior se observa que cuando \(p=0.229993\) el valor
+máximo de log-verosimilitud es 23.3246.
+
 \chapter{Pruebas de bondad de ajuste}\label{pruebas-de-bondad-de-ajuste}
 
 En este capítulo se
@@ -6482,7 +6683,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-44}
+\subsection*{Ejemplo}\label{ejemplo-45}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -6500,8 +6701,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-212-1.pdf}
-\caption{\label{fig:unnamed-chunk-212}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-217-1.pdf}
+\caption{\label{fig:unnamed-chunk-217}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
