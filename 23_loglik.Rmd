@@ -20,6 +20,9 @@ l(\boldsymbol{\Theta} | \boldsymbol{x}) = \log L(\boldsymbol{\Theta} | \boldsymb
 (\#eq:loglik)
 \end{equation}
 
+## Método de máximima verosimilitud
+El método de máxima verosimilitud se usa para estimar los parámetros de una distribución. El objetivo de este método es encontrar los valores de $\boldsymbol{\Theta}$ que maximizan $L$ o $l$ y valores encontrados se representan por $\hat{\boldsymbol{\Theta}}$.
+
 ### Ejemplo {-}
 Suponga que se tiene el vector `rta` que corresponde a una muestra aleatoria de una distribución binomial con parámetro `size=5` conocido.
 
@@ -56,7 +59,7 @@ ll(prob=c(0.15, 0.80))  # Evaluada en un vector
 
 3) Dibujar la curva log-verosimilitud $l$.
 
-Para dibujar la curva solicitada se usa el siguiente código.
+En la Figura \@ref(fig:loglik1) se presenta la curva solicitada, para su construcción se usa el siguiente código.
 
 ```{r loglik1, fig.cap='Función de log-verosimilitud para el ejemplo sobre binomial.', fig.asp=0.9, fig.width=4, echo=TRUE}
 curve(ll, lwd=4, col='dodgerblue3',
@@ -70,7 +73,7 @@ Al observar la Figura \@ref(fig:loglik1) se nota que el valor de $p$ que maximiz
 
 5) ¿Cuál es el valor exacto de $p$ que maximiza la función log-verosimilitud?
 
-En \proglang{R} existe la función `optimize` que sirve para encontrar el valor que __minimiza__ una función en un intervalo dado, sin embargo, aquí interesa es maximimizar la función de log-verosimilitud, por esa razón se construye la función `minusll` que es el negativo de la función `ll` para así poder usar `optimize`. A continuación el código usado.
+En \proglang{R} existe la función `optimize` que sirve para encontrar el valor que __minimiza__ una función uniparamétrica en un intervalo dado, sin embargo, aquí interesa es maximimizar la función de log-verosimilitud, por esa razón se construye la función `minusll` que es el negativo de la función `ll` para así poder usar `optimize`. A continuación el código usado. \index{optimize}
 
 ```{r}
 minusll <- function(x) -ll(x)
@@ -81,19 +84,97 @@ optimize(f=minusll, interval=c(0, 1))
 Del resultado anterior se observa que cuando $p=0.23$ el valor máximo de log-verosimilitud es 23.32.
 
 ### Ejemplo {-}
-Genere una muestra aleatoria de 100 observaciones de una $N(170, 25)$ y 
+Suponga que la estatura de una población se puede asumir como una normal $N(170, 25)$. Suponga también que se genera una muestra aleatoria de 50 observaciones de la población con el objetivo de recuperar los valores de la media y varianza poblacionales a partir de la muestra aleatoria.
 
-### Ejemplo {-}
-¿Hay alguna función para obtener directamente el valor que maximiza la función log-verosimilitud?
-
-La respuesta es si. Si la distribución estudiada es una de las distribuciones básicas se puede usar la función `fitdistr` del paquete **MASS**.
+La muestra se va a generar con la función `rnorm` pero antes se fijará una semilla con la intención de que el lector pueda replicar el ejemplo y obtener la misma muestra aleatoria aquí generada, el código para hacerlo es el siguiente.
 
 ```{r}
-require(MASS)  # Sólo se debe cargar
-
+set.seed(1235)  # La semilla es 1235
+y <- rnorm(n=50, mean=170, sd=5)
 ```
 
+1) construya la función de log-verosimilitud para los parámetros de la normal dada la muestra aleatoria `y`.
+
+```{r}
+ll <- function(param) {
+  media <- param[1]  # param es el vector de parámetros
+  desvi <- param[2] 
+  sum(dnorm(x=y, mean=media, sd=desvi, log=TRUE))
+}
+```
+
+```{block2, type='rmdwarning'}
+Siempre que el interés sea encontrar los valores que maximizan una función de log-verosimilitud, los parámetros de la distribución __deben__ ingresar a la función `ll` como un vector. Esto se debe hacer para poder usar las funciones de búsqueda `optim` y `nlminb`.
+```
+
+2) Dibuje la función de log-verosimilitud.
+
+En la Figura \@ref(fig:loglik2) se muestra el gráfico de contornos o de calor para la superficie de log-verosimilitud. De esta figura se nota claramente que los valores que maximizan la superficie están alrededor de $\mu=170$ y $\sigma=5$. Para ver el código usado en la creación de la Figura \@ref(fig:loglik2) se recomienda consultar la sección sobre `contour` en @correa_hernandez.
+
+```{r loglik2, fig.cap='Mapa de calor para la función de log-verosimilitud para el ejemplo sobre normal.', fig.asp=0.6, fig.width=9, echo=FALSE}
+ll1 <- function(a, b) sum(dnorm(x=y, mean=a, sd=b, log=TRUE))
+ll1 <- Vectorize(ll1)
+xx <- seq(from=160, to=180, by=0.5)
+yy <- seq(from=3, to=7, by=0.5)
+zz <- outer(X=xx, Y=yy, ll1)
+filled.contour(x=xx, y=yy, z=zz, nlevels=20,
+               xlab=expression(mu), ylab=expression(sigma),
+               color = topo.colors)
+```
+
+3) Obtenga los valores de $\mu$ y $\sigma$ que maximizan la función de log-verosimilitud.
+
+Para obtener los valores solicitados vamos a usar la función `nlminb` que es un optimizador. A la función `nlminb` se le debe indicar por medio del parámetro `objective` la función que queremos optimizar (minimizar); el parámetro `start` es un vector con los valores iniciales para comenzar la búsqueda de $\mu$ y $\sigma$; los parámetros `lower` y `upper` sirven para delimitar el espacio de búsqueda. A continuación se muestra el código usado para obtener los valores que minimizan a `minusll`, es decir, los valores que maximizar la función de log-verosimilitud. \index{nlminb}
+
+```{r}
+minusll <- function(x) -ll(x)
+nlminb(objective=minusll, start=c(163, 3.4),
+       lower=c(160, 3), upper=c(180, 7))
+```
+
+De la salida anterior podemos observar que los valores óptimos de $\mu$ y $\sigma$ son  170.338 y 5.424 respectivamente, esto coincide con lo observado en la \@ref(fig:loglik2) y con los valores reales de simulación de la muestra. Esto indica que el procedimiento de estimación de parámetros por máxima verosimilitud entrega valores insesgados de los parámetros a estimar.
+
+Un resultado interesante de la salida anterior es que se reporta el valor mínimo que alcanza la función `minusll`, este valor fue de  155.5, por lo tanto, se puede afirmar que el valor máximo de log-verosimilitud es -155.5.
+
+Otros resultados importantes de la salida anterior son el valor de `convergence=0` que indica que la búsqueda fue exitosa; `iterations=13` indica que se realizaron 13 pasos desde el punto inicial `start` hasta las coordenadas de optimización.
 
 
+```{block2, type='rmdnote'}
+En \proglang{R} se tienen dos funciones básicas para optimizar funciones, es decir, para encontrar los valores que minimizan una función dada. Esas dos funciones son `nliminb` y `optim`. Para optimizar en una sola dimensión se usa la función `optimize`.
+```
 
+4) ¿Hay alguna función para obtener directamente el valor que maximiza la función log-verosimilitud?
 
+La respuesta es si. Si la distribución estudiada es una de las distribuciones básicas se puede usar la función `fitdistr` del paquete básico **MASS**. La función `fitdistr` requiere de los datos que se ingresan por medio del parámetro `x`, y de la distribución de los datos que se ingrea por medio del parámetro `densfun`. La función `fitdistr` admite 15 distribuciones diferentes para hacer la búsqueda de los parámetros que caracterizan una distribución, se sugiere consultar la ayuda de la función `fitdistr` escribiendo en la consola `help(fitdistr)`. A continuación el código usado. \index{fitdistr}
+
+```{r, message=FALSE}
+require(MASS)  # El paquete ya está instalado, solo se debe cargar
+res <- fitdistr(x=y, densfun='normal')
+res
+```
+
+El objeto `res` contiene los resultados de usar `fitdistr`. En la primer línea están los valores de los parámetros que maximizan la función de log-verosimilitud, en la parte de abajo, dentro de paréntesis, están los errores estándar o desviaciones de éstos estimadores.
+
+Al objeto `res` es de la clase _fitdistr_ y por lo tanto se le puede aplicar la función genérica `logLik` para obtener el valor de la log-verosimilitud. Se sugiere consultar la ayuda de la función `logLik` escribiendo en la consola `help(logLik)`. A continuación el código para usar `logLik` sobre el objeto `res`.
+
+```{r}
+logLik(res)
+```
+
+De esta última salida se observa que el valor coincide con el obtenido cuando se usó `nlminb`.
+
+## EJERCICIOS {-}
+
+1) Al inicio del Capítulo \@ref(central) se presentó la base de datos sobre medidas del cuerpo, consulte la explicación sobre la base de datos y responda lo siguiente.
+  + Si se asume que la `edad` tiene distribución normal, ¿cuáles son los estimadores de máxima verosimilitud para $\mu$ y $\sigma$?
+  + Como el histograma para la edad muestra un sesgo a la derecha se podría pensar que la distribución gamma sería una buena candidata para explicar las edades observadas. Asumiendo una distribución gamma, ¿cuáles son los estimadores de máxima verosimilitud para los parámetros de forma y escala?
+
+2) En la sección \@ref(crabs) se presentó la base de datos sobre cangrejos hembra, consulte la explicación sobre la base de datos y responda lo siguiente.
+  + Suponga que el número de satélites sobre cada hembra es una variable que se distribuye Poisson. Construya en \proglang{R} la función de log-verosimilitud $l$, dibuje la función $l$ y encuentre el estimador de máxima verosimilitud de $\lambda$.
+  + Repita el ejercicio anterior asumiendo que el número de satélites se distribuye binomial negativo.
+  
+3) Al inicio del Capítulo \@ref(varia) se presentó la base de datos sobre apartamentos usados en Medellín, consulte la explicación sobre la base de datos y responda lo siguiente.
+  + Dibuje una densidad para la variable área del apartamento.
+  + Describa lo encontrado en esa densidad.
+  + ¿Qué distribuciones de 2 parámetros podrían explicar el comportamiento del área de los apartamentos? Mencione al menos 3.
+  + Para cada una de las distribuciones anteriores dibuje un gráfico de contornos o calor para la función de log-verosimilitud y estime los parámetros de la distribución elegida.

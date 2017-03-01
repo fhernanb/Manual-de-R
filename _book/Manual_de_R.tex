@@ -5689,6 +5689,7 @@ en kilogramos, el ancho del caparazón en centímetros y el número de
 satélites o machos sobre el caparazón, la base de datos está disponible
 en el siguiente
 \href{https://raw.githubusercontent.com/fhernanb/datos/master/crab}{enlace}.
+\label{crabs}
 
 \begin{figure}
 
@@ -6471,6 +6472,14 @@ l(\boldsymbol{\Theta} | \boldsymbol{x}) = \log L(\boldsymbol{\Theta} | \boldsymb
 \label{eq:loglik}
 \end{equation}
 
+\section{Método de máximima
+verosimilitud}\label{metodo-de-maximima-verosimilitud}
+
+El método de máxima verosimilitud se usa para estimar los parámetros de
+una distribución. El objetivo de este método es encontrar los valores de
+\(\boldsymbol{\Theta}\) que maximizan \(L\) o \(l\) y valores
+encontrados se representan por \(\hat{\boldsymbol{\Theta}}\).
+
 \subsection*{Ejemplo}\label{ejemplo-44}
 
 
@@ -6576,7 +6585,8 @@ Vamos a probar la función en \(p=0.15\) y \(p=0.80\).
   Dibujar la curva log-verosimilitud \(l\).
 \end{enumerate}
 
-Para dibujar la curva solicitada se usa el siguiente código.
+En la Figura \ref{fig:loglik1} se presenta la curva solicitada, para su
+construcción se usa el siguiente código.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6615,11 +6625,12 @@ que maximiza la función log-verosimilitud está muy cerca de 0.2.
 \end{enumerate}
 
 En \proglang{R} existe la función \texttt{optimize} que sirve para
-encontrar el valor que \textbf{minimiza} una función en un intervalo
-dado, sin embargo, aquí interesa es maximimizar la función de
-log-verosimilitud, por esa razón se construye la función
+encontrar el valor que \textbf{minimiza} una función uniparamétrica en
+un intervalo dado, sin embargo, aquí interesa es maximimizar la función
+de log-verosimilitud, por esa razón se construye la función
 \texttt{minusll} que es el negativo de la función \texttt{ll} para así
 poder usar \texttt{optimize}. A continuación el código usado.
+\index{optimize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6637,8 +6648,283 @@ poder usar \texttt{optimize}. A continuación el código usado.
 ## [1] 23.32
 \end{verbatim}
 
-Del resultado anterior se observa que cuando \(p=0.229993\) el valor
-máximo de log-verosimilitud es 23.3246.
+Del resultado anterior se observa que cuando \(p=0.23\) el valor máximo
+de log-verosimilitud es 23.32.
+
+\subsection*{Ejemplo}\label{ejemplo-45}
+
+
+Suponga que la estatura de una población se puede asumir como una normal
+\(N(170, 25)\). Suponga también que se genera una muestra aleatoria de
+50 observaciones de la población con el objetivo de recuperar los
+valores de la media y varianza poblacionales a partir de la muestra
+aleatoria.
+
+La muestra se va a generar con la función \texttt{rnorm} pero antes se
+fijará una semilla con la intención de que el lector pueda replicar el
+ejemplo y obtener la misma muestra aleatoria aquí generada, el código
+para hacerlo es el siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{1235}\NormalTok{)  }\CommentTok{# La semilla es 1235}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{50}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{170}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  construya la función de log-verosimilitud para los parámetros de la
+  normal dada la muestra aleatoria \texttt{y}.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ll <-}\StringTok{ }\NormalTok{function(param) \{}
+  \NormalTok{media <-}\StringTok{ }\NormalTok{param[}\DecValTok{1}\NormalTok{]  }\CommentTok{# param es el vector de parámetros}
+  \NormalTok{desvi <-}\StringTok{ }\NormalTok{param[}\DecValTok{2}\NormalTok{] }
+  \KeywordTok{sum}\NormalTok{(}\KeywordTok{dnorm}\NormalTok{(}\DataTypeTok{x=}\NormalTok{y, }\DataTypeTok{mean=}\NormalTok{media, }\DataTypeTok{sd=}\NormalTok{desvi, }\DataTypeTok{log=}\OtherTok{TRUE}\NormalTok{))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\BeginKnitrBlock{rmdwarning}
+Siempre que el interés sea encontrar los valores que maximizan una
+función de log-verosimilitud, los parámetros de la distribución
+\textbf{deben} ingresar a la función \texttt{ll} como un vector. Esto se
+debe hacer para poder usar las funciones de búsqueda \texttt{optim} y
+\texttt{nlminb}.
+\EndKnitrBlock{rmdwarning}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Dibuje la función de log-verosimilitud.
+\end{enumerate}
+
+En la Figura \ref{fig:loglik2} se muestra el gráfico de contornos o de
+calor para la superficie de log-verosimilitud. De esta figura se nota
+claramente que los valores que maximizan la superficie están alrededor
+de \(\mu=170\) y \(\sigma=5\). Para ver el código usado en la creación
+de la Figura \ref{fig:loglik2} se recomienda consultar la sección sobre
+\texttt{contour} en \citet{correa_hernandez}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/loglik2-1.pdf}
+\caption{\label{fig:loglik2}Mapa de calor para la función de
+log-verosimilitud para el ejemplo sobre normal.}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Obtenga los valores de \(\mu\) y \(\sigma\) que maximizan la función
+  de log-verosimilitud.
+\end{enumerate}
+
+Para obtener los valores solicitados vamos a usar la función
+\texttt{nlminb} que es un optimizador. A la función \texttt{nlminb} se
+le debe indicar por medio del parámetro \texttt{objective} la función
+que queremos optimizar (minimizar); el parámetro \texttt{start} es un
+vector con los valores iniciales para comenzar la búsqueda de \(\mu\) y
+\(\sigma\); los parámetros \texttt{lower} y \texttt{upper} sirven para
+delimitar el espacio de búsqueda. A continuación se muestra el código
+usado para obtener los valores que minimizan a \texttt{minusll}, es
+decir, los valores que maximizar la función de log-verosimilitud.
+\index{nlminb}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{minusll <-}\StringTok{ }\NormalTok{function(x) -}\KeywordTok{ll}\NormalTok{(x)}
+\KeywordTok{nlminb}\NormalTok{(}\DataTypeTok{objective=}\NormalTok{minusll, }\DataTypeTok{start=}\KeywordTok{c}\NormalTok{(}\DecValTok{163}\NormalTok{, }\FloatTok{3.4}\NormalTok{),}
+       \DataTypeTok{lower=}\KeywordTok{c}\NormalTok{(}\DecValTok{160}\NormalTok{, }\DecValTok{3}\NormalTok{), }\DataTypeTok{upper=}\KeywordTok{c}\NormalTok{(}\DecValTok{180}\NormalTok{, }\DecValTok{7}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $par
+## [1] 170.338   5.424
+## 
+## $objective
+## [1] 155.5
+## 
+## $convergence
+## [1] 0
+## 
+## $iterations
+## [1] 13
+## 
+## $evaluations
+## function gradient 
+##       16       35 
+## 
+## $message
+## [1] "relative convergence (4)"
+\end{verbatim}
+
+De la salida anterior podemos observar que los valores óptimos de
+\(\mu\) y \(\sigma\) son 170.338 y 5.424 respectivamente, esto coincide
+con lo observado en la \ref{fig:loglik2} y con los valores reales de
+simulación de la muestra. Esto indica que el procedimiento de estimación
+de parámetros por máxima verosimilitud entrega valores insesgados de los
+parámetros a estimar.
+
+Un resultado interesante de la salida anterior es que se reporta el
+valor mínimo que alcanza la función \texttt{minusll}, este valor fue de
+155.5, por lo tanto, se puede afirmar que el valor máximo de
+log-verosimilitud es -155.5.
+
+Otros resultados importantes de la salida anterior son el valor de
+\texttt{convergence=0} que indica que la búsqueda fue exitosa;
+\texttt{iterations=13} indica que se realizaron 13 pasos desde el punto
+inicial \texttt{start} hasta las coordenadas de optimización.
+
+\BeginKnitrBlock{rmdnote}
+En \proglang{R} se tienen dos funciones básicas para optimizar
+funciones, es decir, para encontrar los valores que minimizan una
+función dada. Esas dos funciones son \texttt{nliminb} y \texttt{optim}.
+Para optimizar en una sola dimensión se usa la función
+\texttt{optimize}.
+\EndKnitrBlock{rmdnote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  ¿Hay alguna función para obtener directamente el valor que maximiza la
+  función log-verosimilitud?
+\end{enumerate}
+
+La respuesta es si. Si la distribución estudiada es una de las
+distribuciones básicas se puede usar la función \texttt{fitdistr} del
+paquete básico \textbf{MASS}. La función \texttt{fitdistr} requiere de
+los datos que se ingresan por medio del parámetro \texttt{x}, y de la
+distribución de los datos que se ingrea por medio del parámetro
+\texttt{densfun}. La función \texttt{fitdistr} admite 15 distribuciones
+diferentes para hacer la búsqueda de los parámetros que caracterizan una
+distribución, se sugiere consultar la ayuda de la función
+\texttt{fitdistr} escribiendo en la consola \texttt{help(fitdistr)}. A
+continuación el código usado. \index{fitdistr}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require}\NormalTok{(MASS)  }\CommentTok{# El paquete ya está instalado, solo se debe cargar}
+\NormalTok{res <-}\StringTok{ }\KeywordTok{fitdistr}\NormalTok{(}\DataTypeTok{x=}\NormalTok{y, }\DataTypeTok{densfun=}\StringTok{'normal'}\NormalTok{)}
+\NormalTok{res}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      mean        sd   
+##   170.3384     5.4235 
+##  (  0.7670) (  0.5424)
+\end{verbatim}
+
+El objeto \texttt{res} contiene los resultados de usar
+\texttt{fitdistr}. En la primer línea están los valores de los
+parámetros que maximizan la función de log-verosimilitud, en la parte de
+abajo, dentro de paréntesis, están los errores estándar o desviaciones
+de éstos estimadores.
+
+Al objeto \texttt{res} es de la clase \emph{fitdistr} y por lo tanto se
+le puede aplicar la función genérica \texttt{logLik} para obtener el
+valor de la log-verosimilitud. Se sugiere consultar la ayuda de la
+función \texttt{logLik} escribiendo en la consola \texttt{help(logLik)}.
+A continuación el código para usar \texttt{logLik} sobre el objeto
+\texttt{res}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{logLik}\NormalTok{(res)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'log Lik.' -155.5 (df=2)
+\end{verbatim}
+
+De esta última salida se observa que el valor coincide con el obtenido
+cuando se usó \texttt{nlminb}.
+
+\section*{EJERCICIOS}\label{ejercicios-6}
+
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Al inicio del Capítulo \ref{central} se presentó la base de datos
+  sobre medidas del cuerpo, consulte la explicación sobre la base de
+  datos y responda lo siguiente.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Si se asume que la \texttt{edad} tiene distribución normal, ¿cuáles
+  son los estimadores de máxima verosimilitud para \(\mu\) y \(\sigma\)?
+\item
+  Como el histograma para la edad muestra un sesgo a la derecha se
+  podría pensar que la distribución gamma sería una buena candidata para
+  explicar las edades observadas. Asumiendo una distribución gamma,
+  ¿cuáles son los estimadores de máxima verosimilitud para los
+  parámetros de forma y escala?
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  En la sección \ref{crabs} se presentó la base de datos sobre cangrejos
+  hembra, consulte la explicación sobre la base de datos y responda lo
+  siguiente.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Suponga que el número de satélites sobre cada hembra es una variable
+  que se distribuye Poisson. Construya en \proglang{R} la función de
+  log-verosimilitud \(l\), dibuje la función \(l\) y encuentre el
+  estimador de máxima verosimilitud de \(\lambda\).
+\item
+  Repita el ejercicio anterior asumiendo que el número de satélites se
+  distribuye binomial negativo.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Al inicio del Capítulo \ref{varia} se presentó la base de datos sobre
+  apartamentos usados en Medellín, consulte la explicación sobre la base
+  de datos y responda lo siguiente.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Dibuje una densidad para la variable área del apartamento.
+\item
+  Describa lo encontrado en esa densidad.
+\item
+  ¿Qué distribuciones de 2 parámetros podrían explicar el comportamiento
+  del área de los apartamentos? Mencione al menos 3.
+\item
+  Para cada una de las distribuciones anteriores dibuje un gráfico de
+  contornos o calor para la función de log-verosimilitud y estime los
+  parámetros de la distribución elegida.
+\end{itemize}
 
 \chapter{Pruebas de bondad de ajuste}\label{pruebas-de-bondad-de-ajuste}
 
@@ -6683,7 +6969,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-45}
+\subsection*{Ejemplo}\label{ejemplo-46}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -6701,8 +6987,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-217-1.pdf}
-\caption{\label{fig:unnamed-chunk-217}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-224-1.pdf}
+\caption{\label{fig:unnamed-chunk-224}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para
