@@ -109,9 +109,9 @@ Siempre que el interés sea encontrar los valores que maximizan una función de 
 
 2) Dibuje la función de log-verosimilitud.
 
-En la Figura \@ref(fig:loglik2) se muestra el gráfico de contornos o de calor para la superficie de log-verosimilitud. De esta figura se nota claramente que los valores que maximizan la superficie están alrededor de $\mu=170$ y $\sigma=5$. Para ver el código usado en la creación de la Figura \@ref(fig:loglik2) se recomienda consultar la sección sobre `contour` en @correa_hernandez.
+En la Figura \@ref(fig:loglik2) se muestra el gráfico de niveles para la superficie de log-verosimilitud. De esta figura se nota claramente que los valores que maximizan la superficie están alrededor de $\mu=170$ y $\sigma=5$. Para ver el código usado en la creación de la Figura \@ref(fig:loglik2) se recomienda consultar la sección sobre `contour` en @correa_hernandez.
 
-```{r loglik2, fig.cap='Mapa de calor para la función de log-verosimilitud para el ejemplo sobre normal.', fig.asp=0.6, fig.width=9, echo=FALSE}
+```{r loglik2, fig.cap='Gráfico de niveles para la función de log-verosimilitud para el ejemplo sobre normal.', fig.asp=0.6, fig.width=9, echo=FALSE}
 ll1 <- function(a, b) sum(dnorm(x=y, mean=a, sd=b, log=TRUE))
 ll1 <- Vectorize(ll1)
 xx <- seq(from=160, to=180, by=0.5)
