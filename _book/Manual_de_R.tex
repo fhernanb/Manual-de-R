@@ -6906,16 +6906,6 @@ resultados de este ejemplo.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{fit2 <-}\StringTok{ }\KeywordTok{fitdistr}\NormalTok{(}\DataTypeTok{x=}\NormalTok{ma, }\DataTypeTok{densfun=}\StringTok{'gamma'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning in densfun(x, parm[1], parm[2], ...): NaNs
-## produced
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{fit2}
 \end{Highlighting}
 \end{Shaded}
@@ -7046,6 +7036,184 @@ del modelo; siempre el modelo elegido es aquel modelo con el menor valor
 de cualquiera de los criterios de información anteriores.
 \EndKnitrBlock{rmdnote}
 
+\subsection*{Ejemplo}\label{ejemplo-47}
+
+
+¿Será posible explorar entre muchas distribuciones estadísticas aquella
+que mejor explica una variable de interés?
+
+La respuesta es si, se puede usar la función \texttt{fitDist} del
+paquete \textbf{gamlss} \index{gamlss}. Esta función tiene la siguiente
+estructura:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{fitDist}\NormalTok{(y, }\DataTypeTok{k =} \DecValTok{2}\NormalTok{, }
+      \DataTypeTok{type =} \KeywordTok{c}\NormalTok{(}\StringTok{"realAll"}\NormalTok{, }\StringTok{"realline"}\NormalTok{, }\StringTok{"realplus"}\NormalTok{,}
+               \StringTok{"real0to1"}\NormalTok{, }\StringTok{"counts"}\NormalTok{, }\StringTok{"binom"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+El parámetro \texttt{y} sirve para ingresar el vector con la
+información; \texttt{k=2} es la penalización por cada parámetro estimado
+para calcular el \(GAIC\), por defecto es 2; y el parámetro
+\texttt{type} sirve para indicar el tipo de distribución, los posibles
+valores son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{realAll}: para hacer la búsqueda en todas las distribuciones
+  disponibles en \textbf{gamlss}.
+\item
+  \texttt{realline}: para variables en \(\Re\).
+\item
+  \texttt{realplus}: para variables en \(\Re^+\).
+\item
+  \texttt{real0to1}: para variables en el intervalo \((0, 1)\).
+\item
+  \texttt{counts}: para variables de conteo.
+\item
+  \texttt{binom}: para variables de tipo binomial.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Usar la función \texttt{fitDist} para elegir la distribución que mejor
+  se ajusta a los datos simulados en el ejemplo anterior, usar una
+  penalizacion de \(k=2\) para calcular el \(AIC\).
+\end{enumerate}
+
+Se usa la función \texttt{fitDist} con
+\texttt{type=\textquotesingle{}realplus\textquotesingle{}} porque se
+sabe que la muestra aleatoria tiene valores sólo en \(\Re^+\), los
+resultados de almacenan en el objeto \texttt{modelos}. Para obtener la
+lista de los mejores modelos con su respectivo \(BAIC\) se escribe en la
+consola \texttt{modelos\$fits}. Abajo el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require}\NormalTok{(gamlss)}
+\NormalTok{modelos <-}\StringTok{ }\KeywordTok{fitDist}\NormalTok{(}\DataTypeTok{y=}\NormalTok{ma, }\DataTypeTok{type=}\StringTok{'realplus'}\NormalTok{, }\DataTypeTok{k=}\DecValTok{2}\NormalTok{)}
+\NormalTok{modelos$fits}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      GA    WEI3      GG     GIG   BCCGo   BCPEo 
+##   466.0   466.8   468.0   468.0   468.4   469.4 
+##    BCTo  exGAUS   LOGNO      IG     EXP PARETO2 
+##   470.4   471.2   474.6   483.9   494.1   496.1 
+##  IGAMMA 
+##   504.2
+\end{verbatim}
+
+De la lista anterior se observa que la función gamma está en el primer
+lugar con un \(BAIC=466\), valor que coincide con el \(AIC\) obtenido en
+el ejercicio anterior. Esto significa que como la gamma tiene el menor
+\(BAIC\), es la distribución que mejor se ajusta a los datos de la
+muestra, esto coincide con la realidad, ya que la muestra fue generada
+de una distribución gamma.
+
+¿Por queé \(AIC\) y \(BAIC\) coinciden en este ejemplo?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  ¿Cuáles son los valores estimados de los parámetros para la
+  distribución gamma identificada en el paso anterior?
+\end{enumerate}
+
+En \textbf{gamlss} los parámetros de las distribuciones se nombran de
+una forma especial, el parámetro de posición se denomina \(\mu\), el de
+dispersión se denomina \(\sigma\) y los de simetría y curtosis con
+\(\nu\) y \(\tau\). La distribución gamma sólo tiene 2 parámetros y para
+obtener sus valores estimados se usa el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modelos$mu}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.308
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modelos$sigma}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6682
+\end{verbatim}
+
+Si comparamos los anteriores resultados, \(\hat{\mu}= 4.308\) y
+\(\hat{\sigma}=0.6682\), con los encontrados al usar la función
+\texttt{fitdist}, \(\widehat{shape}=2.23978\) y
+\(\widehat{rate}=0.51988\), vemos que no coinciden, esto se debe a que
+la parametrización de la gamma usada por \textbf{gamlss} es diferente a
+la parametrización usada por la base de \proglang{R}. Lo anterior no es
+motivo de preocupación, lo que se recomienda es que el usuario elija una
+de las parametrizaciones y trabaje con ella, no debe mezclarlas.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Dibujar el histograma para la muestra aleatoria y agregar la densidad
+  de la distribución gamma identificada como la distribución que mejor
+  explica el comportamiento de la variable.
+\end{enumerate}
+
+Para hacer lo solicitado se usa la función \texttt{histDist} del paquete
+\textbf{gamlss}, sólo es necesario ingresar los datos y la familia o
+distribución de la densidad requerida. Abajo el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{histDist}\NormalTok{(}\DataTypeTok{y=}\NormalTok{ma, }\DataTypeTok{family=}\NormalTok{GA, }\DataTypeTok{main=}\StringTok{''}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'x'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{,}
+         \DataTypeTok{line.col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{line.wd=}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/histDist1-1.pdf}
+\caption{\label{fig:histDist1}Histograma para la muestra simulada con la
+densidad de una Gamma(mu=4.308, sigma=0.6682).}
+\end{figure}
+
+\begin{verbatim}
+## 
+## Family:  c("GA", "Gamma") 
+## Fitting method: "nlminb" 
+## 
+## Call:  gamlssML(y = y, family = "GA", formula = ma) 
+## 
+## Mu Coefficients:
+## [1]  1.46
+## Sigma Coefficients:
+## [1]  -0.403
+## 
+##  Degrees of Freedom for the fit: 2 Residual Deg. of Freedom   98 
+## Global Deviance:     462 
+##             AIC:     466 
+##             SBC:     471.3
+\end{verbatim}
+
+En la Figura \ref{fig:histDist1} se presenta el histograma para muestra
+aleatoria y la densidad de la gamma que mejor explica estos datos. Se
+observa claramente que la curva de densidad azul acompaña el patrón de
+los datos.
+
 \section*{EJERCICIOS}\label{ejercicios-6}
 
 
@@ -7068,7 +7236,7 @@ de cualquiera de los criterios de información anteriores.
   podría pensar que la distribución gamma sería una buena candidata para
   explicar las edades observadas. Asumiendo una distribución gamma,
   ¿cuáles son los estimadores de máxima verosimilitud para los
-  parámetros de forma y escala?
+  parámetros?
 \item
   ¿Cuál de los dos modelos es más apropiado para explicar la variable de
   interés? Calcule el \(AIC\) para decidir.
@@ -7131,10 +7299,6 @@ de cualquiera de los criterios de información anteriores.
   \end{itemize}
 \end{itemize}
 
-\chapter{Pruebas de bondad de ajuste}\label{pruebas-de-bondad-de-ajuste}
-
-En este capítulo se
-
 \chapter{Aproximación de integrales}\label{aproximacion-de-integrales}
 
 En este capítulo se mostrará cómo aproximar integrales en una y varias
@@ -7174,7 +7338,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-47}
+\subsection*{Ejemplo}\label{ejemplo-48}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -7192,8 +7356,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-231-1.pdf}
-\caption{\label{fig:unnamed-chunk-231}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-234-1.pdf}
+\caption{\label{fig:unnamed-chunk-234}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

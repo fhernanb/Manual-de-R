@@ -183,7 +183,7 @@ fit1
 
 2) Asumiendo que la muestra aleatoria proviene de una gamma estime los parámetros de la distribución.
 
-```{r}
+```{r, warning=FALSE}
 fit2 <- fitdistr(x=ma, densfun='gamma')
 fit2
 ```
@@ -232,6 +232,62 @@ De los resultados anteriores se concluye que entre los dos modelos, el mejor es 
 ```{block2, type='rmdnote'}
 Modelos anidados pueden ser comparados por medio del _global deviance_ ($GD$) dado por $GD=-2 \, \hat{l}$ y modelos no anidados por medio del _Generalized Akaike information criterion_ ($GAIC$) propuesto por @Akaike83 y dado por $GAIC=-2 \, \hat{l} + \# \, df$ siendo $\#$ el valor de penalidad por cada parámetro adicional en el modelo; cuando $\# = 2$, el $GAIC$ coincide con el $AIC$ y el _Schwarz Bayesian criterion_ ($SBC$) propuesto por @Schwarz se dá cuando el valor de penalidad es $\# = \log(n)$ donde $n$ es el número de observaciones del modelo; siempre el modelo elegido es aquel modelo con el menor valor de cualquiera de los criterios de información anteriores.
 ```
+
+### Ejemplo {-}
+¿Será posible explorar entre muchas distribuciones estadísticas aquella que mejor explica una variable de interés?
+
+La respuesta es si, se puede usar la función `fitDist` del paquete **gamlss** \index{gamlss}. Esta función tiene la siguiente estructura:
+
+```{r, eval=FALSE}
+fitDist(y, k = 2, 
+      type = c("realAll", "realline", "realplus",
+               "real0to1", "counts", "binom"))
+```
+
+El parámetro `y` sirve para ingresar el vector con la información; `k=2` es la penalización por cada parámetro estimado para calcular el $GAIC$, por defecto es 2; y el parámetro `type` sirve para indicar el tipo de distribución, los posibles valores son:
+
+- `realAll`: para hacer la búsqueda en todas las distribuciones disponibles en **gamlss**.
+- `realline`: para variables en $\Re$.
+- `realplus`: para variables en $\Re^+$.
+- `real0to1`: para variables en el intervalo $(0, 1)$.
+- `counts`: para variables de conteo.
+- `binom`: para variables de tipo binomial.
+
+1) Usar la función `fitDist` para elegir la distribución que mejor se ajusta a los datos simulados en el ejemplo anterior, usar una penalizacion de $k=2$ para calcular el $AIC$.
+
+Se usa la función `fitDist` con `type='realplus'` porque se sabe que la muestra aleatoria tiene valores sólo en $\Re^+$, los resultados de almacenan en el objeto `modelos`. Para obtener la lista de los mejores modelos con su respectivo $BAIC$ se escribe en la consola `modelos$fits`. Abajo el código usado.
+
+```{r, message=FALSE, warning=FALSE}
+require(gamlss)
+modelos <- fitDist(y=ma, type='realplus', k=2)
+modelos$fits
+```
+
+De la lista anterior se observa que la función gamma está en el primer lugar con un $BAIC=466$, valor que coincide con el $AIC$ obtenido en el ejercicio anterior. Esto significa que como la gamma tiene el menor $BAIC$, es la distribución que mejor se ajusta a los datos de la muestra, esto coincide con la realidad, ya que la muestra fue generada de una distribución gamma.
+
+¿Por queé $AIC$ y $BAIC$ coinciden en este ejemplo?
+
+2) ¿Cuáles son los valores estimados de los parámetros para la distribución gamma identificada en el paso anterior?
+
+En **gamlss** los parámetros de las distribuciones se nombran de una forma especial, el parámetro de posición se denomina $\mu$, el de dispersión se denomina $\sigma$ y los de simetría y curtosis con $\nu$ y $\tau$. La distribución gamma sólo tiene 2 parámetros y para obtener sus valores estimados se usa el siguiente código.
+
+```{r}
+modelos$mu
+modelos$sigma
+```
+
+Si comparamos los anteriores resultados, $\hat{\mu}= 4.308$ y $\hat{\sigma}=0.6682$, con los encontrados al usar la función `fitdist`, $\widehat{shape}=2.23978$ y $\widehat{rate}=0.51988$, vemos que no coinciden, esto se debe a que la parametrización de la gamma usada por **gamlss** es diferente a la parametrización usada por la base de \proglang{R}. Lo anterior no es motivo de preocupación, lo que se recomienda es que el usuario elija una de las parametrizaciones y trabaje con ella, no debe mezclarlas.
+
+3) Dibujar el histograma para la muestra aleatoria y agregar la densidad de la distribución gamma identificada como la distribución que mejor explica el comportamiento de la variable.
+
+Para hacer lo solicitado se usa la función `histDist` del paquete **gamlss**, sólo es necesario ingresar los datos y la familia o distribución de la densidad requerida. Abajo el código usado.
+
+```{r histDist1, fig.cap='Histograma para la muestra simulada con la densidad de una Gamma(mu=4.308, sigma=0.6682).', fig.asp=0.6, fig.width=9}
+histDist(y=ma, family=GA, main='', xlab='x', ylab='Densidad',
+         line.col='blue', line.wd=4)
+```
+
+En la Figura \@ref(fig:histDist1) se presenta el histograma para muestra aleatoria y la densidad de la gamma que mejor explica estos datos. Se observa claramente que la curva de densidad azul acompaña el patrón de los datos.
 
 ## EJERCICIOS {-}
 
