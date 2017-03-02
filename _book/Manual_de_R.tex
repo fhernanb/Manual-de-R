@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-03-01}
+\date{2017-03-02}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -6854,6 +6854,198 @@ A continuación el código para usar \texttt{logLik} sobre el objeto
 De esta última salida se observa que el valor coincide con el obtenido
 cuando se usó \texttt{nlminb}.
 
+\subsection*{Ejemplo}\label{ejemplo-46}
+
+
+Generar \(n=100\) observaciones de una gamma con parámetro de forma
+igual a 5 y parámetro de tasa igual a 0.5 y luego responder las
+preguntas.
+
+Para generar la muestra aleatoria \texttt{ma} solicitada se fijó la
+semilla con el objetivo de que el lector pueda obtener los mismos
+resultados de este ejemplo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n <-}\StringTok{ }\DecValTok{100}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{12345}\NormalTok{)}
+\NormalTok{ma <-}\StringTok{ }\KeywordTok{rgamma}\NormalTok{(}\DataTypeTok{n=}\NormalTok{n, }\DataTypeTok{shape=}\DecValTok{2}\NormalTok{, }\DataTypeTok{rate=}\FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Asumiendo que la muestra aleatoria proviene de una normal (lo cual es
+  incorrecto) estime los parámetros de la distribución
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit1 <-}\StringTok{ }\KeywordTok{fitdistr}\NormalTok{(}\DataTypeTok{x=}\NormalTok{ma, }\DataTypeTok{densfun=}\StringTok{'normal'}\NormalTok{)}
+\NormalTok{fit1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     mean      sd  
+##   4.3083   2.8085 
+##  (0.2808) (0.1986)
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Asumiendo que la muestra aleatoria proviene de una gamma estime los
+  parámetros de la distribución.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit2 <-}\StringTok{ }\KeywordTok{fitdistr}\NormalTok{(}\DataTypeTok{x=}\NormalTok{ma, }\DataTypeTok{densfun=}\StringTok{'gamma'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in densfun(x, parm[1], parm[2], ...): NaNs
+## produced
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     shape     rate  
+##   2.23978   0.51988 
+##  (0.29620) (0.07703)
+\end{verbatim}
+
+En la salida anterior están los valores estimados de los parámetros de
+la distribución por el método de máxima verosimilitud, observe la
+cercanía de éstos con los verdaderos valores de 2 y 0.5 para forma y
+tasa respectivamente.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Dibuje dos qqplot, uno asumiendo distribución gamma y el otro
+  distribución gamma. ¿Cuál distribución se ajusta mejor a los datos
+  simulados?
+\end{enumerate}
+
+Para dibujar el qqplot se usa la función genérica \texttt{qqplot},
+recomendamos consultar \citet{hernandez_correa} para los detalles de
+cómo usar esta función. Al usar \texttt{qqplot} para obtener el qqplot
+normal y gamma es necesario indicar los valores
+\(\hat{\boldsymbol{\Theta}}\) obtenidos en el numeral anterior, por eso
+es que en el código mostrado a continuación aparece
+\texttt{mean=4.3083,\ sd=2.8085} en el qqplot normal y
+\texttt{shape=2.23978,\ rate=0.51988} en el qqplot gamma.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+
+\KeywordTok{qqplot}\NormalTok{(}\DataTypeTok{y=}\NormalTok{ma, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{,}
+       \DataTypeTok{x=}\KeywordTok{qnorm}\NormalTok{(}\KeywordTok{ppoints}\NormalTok{(n), }\DataTypeTok{mean=}\FloatTok{4.3083}\NormalTok{, }\DataTypeTok{sd=}\FloatTok{2.8085}\NormalTok{),}
+       \DataTypeTok{main=}\StringTok{'Normal Q-Q Plot'}\NormalTok{,}
+       \DataTypeTok{xlab=}\StringTok{'Theoretical Quantiles'}\NormalTok{,}
+       \DataTypeTok{ylab=}\StringTok{'Sample Quantiles'}\NormalTok{)}
+
+\KeywordTok{qqplot}\NormalTok{(}\DataTypeTok{y=}\NormalTok{ma, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{,}
+       \DataTypeTok{x=}\KeywordTok{qgamma}\NormalTok{(}\KeywordTok{ppoints}\NormalTok{(n), }\DataTypeTok{shape=}\FloatTok{2.23978}\NormalTok{, }\DataTypeTok{rate=}\FloatTok{0.51988}\NormalTok{),}
+       \DataTypeTok{main=}\StringTok{'Gamma Q-Q Plot'}\NormalTok{,}
+       \DataTypeTok{xlab=}\StringTok{'Theoretical Quantiles'}\NormalTok{,}
+       \DataTypeTok{ylab=}\StringTok{'Sample Quantiles'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/normgamma-1.pdf}
+\caption{\label{fig:normgamma}Gráfico cuantil cuantil normal y gamma para la
+muestra simulada.}
+\end{figure}
+
+En la Figura \ref{fig:normgamma} se muestran los qqplot solicitados. Se
+observa claramente que al asumir normalidad (lo cual es incorrecto), los
+puntos del qqplot no están alineados, mientras que al asumir
+distribución gamma (lo cual es correcto), los puntos si están alineados.
+De esta figura se concluye que la muestra \texttt{ma} puede provenir de
+una \(Gamma(2.23978, 0.51988)\).
+
+\BeginKnitrBlock{rmdtip}
+Para obtener el gráfico cuantil cuantil bajo normalidad se puede usar
+directamente la función \texttt{qqnorm}, consultar
+\citet{hernandez_correa} para mayores detalles.
+\EndKnitrBlock{rmdtip}
+
+\BeginKnitrBlock{rmdwarning}
+En este ejemplo se eligió la mejor distribución entre dos candidatas
+usando una herramienta gráfica, lo que se recomienda usar algún método
+menos subjetivo (cuantitativo) para tomar decisiones.
+\EndKnitrBlock{rmdwarning}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Para comparar modelos se puede utilizar el \emph{Akaike information
+  criterion} (\(AIC\)) propuesto por \citet{Akaike74} que sirve para
+  medir la calidad relativa de los modelos estadísticos, la expresión
+  para calcular el indicador es \(AIC=-2 \, \hat{l}+2 \, df\), donde
+  \(\hat{l}\) corresponde al valor de \(\log\)-verosimilitud y \(df\)
+  corresponde al número de parámetros estimados del modelo. Siempre el
+  modelo elegido es aquel modelo con el menor valor de \(AIC\). Calcular
+  el \(AIC\) para los modelos asumidos normal y gamma.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{-}\DecValTok{2} \NormalTok{*}\StringTok{ }\KeywordTok{logLik}\NormalTok{(fit1) +}\StringTok{ }\DecValTok{2} \NormalTok{*}\StringTok{ }\DecValTok{2}  \CommentTok{# AIC para modelo normal}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'log Lik.' 494.3 (df=2)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{-}\DecValTok{2} \NormalTok{*}\StringTok{ }\KeywordTok{logLik}\NormalTok{(fit2) +}\StringTok{ }\DecValTok{2} \NormalTok{*}\StringTok{ }\DecValTok{2}  \CommentTok{# AIC para modelo gamma}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'log Lik.' 466 (df=2)
+\end{verbatim}
+
+De los resultados anteriores se concluye que entre los dos modelos, el
+mejor es el gamma porque su \(AIC=466\) es el menor de toos los \(AIC\).
+
+\BeginKnitrBlock{rmdnote}
+Modelos anidados pueden ser comparados por medio del \emph{global
+deviance} (\(GD\)) dado por \(GD=-2 \, \hat{l}\) y modelos no anidados
+por medio del \emph{Generalized Akaike information criterion} (\(GAIC\))
+propuesto por \citet{Akaike83} y dado por
+\(GAIC=-2 \, \hat{l} + \# \, df\) siendo \(\#\) el valor de penalidad
+por cada parámetro adicional en el modelo; cuando \(\# = 2\), el
+\(GAIC\) coincide con el \(AIC\) y el \emph{Schwarz Bayesian criterion}
+(\(SBC\)) propuesto por \citet{Schwarz} se dá cuando el valor de
+penalidad es \(\# = \log(n)\) donde \(n\) es el número de observaciones
+del modelo; siempre el modelo elegido es aquel modelo con el menor valor
+de cualquiera de los criterios de información anteriores.
+\EndKnitrBlock{rmdnote}
+
 \section*{EJERCICIOS}\label{ejercicios-6}
 
 
@@ -6877,6 +7069,9 @@ cuando se usó \texttt{nlminb}.
   explicar las edades observadas. Asumiendo una distribución gamma,
   ¿cuáles son los estimadores de máxima verosimilitud para los
   parámetros de forma y escala?
+\item
+  ¿Cuál de los dos modelos es más apropiado para explicar la variable de
+  interés? Calcule el \(AIC\) para decidir.
 \end{itemize}
 
 \begin{enumerate}
@@ -6899,6 +7094,9 @@ cuando se usó \texttt{nlminb}.
 \item
   Repita el ejercicio anterior asumiendo que el número de satélites se
   distribuye binomial negativo.
+\item
+  ¿Cuál de los dos modelos es más apropiado para explicar la variable de
+  interés? Calcule el \(AIC\) para decidir.
 \end{itemize}
 
 \begin{enumerate}
@@ -6924,6 +7122,13 @@ cuando se usó \texttt{nlminb}.
   Para cada una de las distribuciones anteriores dibuje un gráfico de
   contornos o calor para la función de log-verosimilitud y estime los
   parámetros de la distribución elegida.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ¿Cuál de los dos modelos es más apropiado para explicar la variable
+    de interés? Calcule el \(AIC\) para decidir.
+  \end{itemize}
 \end{itemize}
 
 \chapter{Pruebas de bondad de ajuste}\label{pruebas-de-bondad-de-ajuste}
@@ -6969,7 +7174,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-46}
+\subsection*{Ejemplo}\label{ejemplo-47}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -6987,8 +7192,8 @@ moda \(x_0\).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-224-1.pdf}
-\caption{\label{fig:unnamed-chunk-224}Perfil de la función f(x).}
+\includegraphics{Manual_de_R_files/figure-latex/unnamed-chunk-231-1.pdf}
+\caption{\label{fig:unnamed-chunk-231}Perfil de la función f(x).}
 \end{figure}
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para

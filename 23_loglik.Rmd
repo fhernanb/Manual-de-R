@@ -163,18 +163,91 @@ logLik(res)
 
 De esta última salida se observa que el valor coincide con el obtenido cuando se usó `nlminb`.
 
+### Ejemplo {-}
+Generar $n=100$ observaciones de una gamma con parámetro de forma igual a 5 y parámetro de tasa igual a 0.5 y luego responder las preguntas.
+
+Para generar la muestra aleatoria `ma` solicitada se fijó la semilla con el objetivo de que el lector pueda obtener los mismos resultados de este ejemplo.
+
+```{r}
+n <- 100
+set.seed(12345)
+ma <- rgamma(n=n, shape=2, rate=0.5)
+```
+
+1) Asumiendo que la muestra aleatoria proviene de una normal (lo cual es incorrecto) estime los parámetros de la distribución
+
+```{r}
+fit1 <- fitdistr(x=ma, densfun='normal')
+fit1
+```
+
+2) Asumiendo que la muestra aleatoria proviene de una gamma estime los parámetros de la distribución.
+
+```{r}
+fit2 <- fitdistr(x=ma, densfun='gamma')
+fit2
+```
+
+En la salida anterior están los valores estimados de los parámetros de la distribución por el método de máxima verosimilitud, observe la cercanía de éstos con los verdaderos valores de 2 y 0.5 para forma y tasa respectivamente.
+
+3) Dibuje dos qqplot, uno asumiendo distribución gamma y el otro distribución gamma. ¿Cuál distribución se ajusta mejor a los datos simulados?
+
+Para dibujar el qqplot se usa la función genérica `qqplot`, recomendamos consultar @hernandez_correa para los detalles de cómo usar esta función. Al usar `qqplot` para obtener el qqplot normal y gamma es necesario indicar los valores $\hat{\boldsymbol{\Theta}}$ obtenidos en el numeral anterior, por eso es que en el código mostrado a continuación aparece `mean=4.3083, sd=2.8085` en el qqplot normal y `shape=2.23978, rate=0.51988` en el qqplot gamma.
+
+```{r normgamma, fig.cap='Gráfico cuantil cuantil normal y gamma para la muestra simulada.', fig.asp=0.6, fig.width=9}
+par(mfrow=c(1, 2))
+
+qqplot(y=ma, pch=19,
+       x=qnorm(ppoints(n), mean=4.3083, sd=2.8085),
+       main='Normal Q-Q Plot',
+       xlab='Theoretical Quantiles',
+       ylab='Sample Quantiles')
+
+qqplot(y=ma, pch=19,
+       x=qgamma(ppoints(n), shape=2.23978, rate=0.51988),
+       main='Gamma Q-Q Plot',
+       xlab='Theoretical Quantiles',
+       ylab='Sample Quantiles')
+```
+
+En la Figura \@ref(fig:normgamma) se muestran los qqplot solicitados. Se observa claramente que al asumir normalidad (lo cual es incorrecto), los puntos del qqplot no están alineados, mientras que al asumir distribución gamma (lo cual es correcto), los puntos si están alineados. De esta figura se concluye que la muestra `ma` puede provenir de una $Gamma(2.23978, 0.51988)$.
+
+```{block2, type='rmdtip'}
+Para obtener el gráfico cuantil cuantil bajo normalidad se puede usar directamente la función `qqnorm`, consultar @hernandez_correa para mayores detalles.
+```
+
+```{block2, type='rmdwarning'}
+En este ejemplo se eligió la mejor distribución entre dos candidatas usando una herramienta gráfica, lo que se recomienda usar algún método menos subjetivo (cuantitativo) para tomar decisiones. 
+```
+
+4) Para comparar modelos se puede utilizar el _Akaike information criterion_ ($AIC$) propuesto por @Akaike74 que sirve para medir la calidad relativa de los modelos estadísticos, la expresión para calcular el indicador es $AIC=-2 \, \hat{l}+2 \, df$, donde $\hat{l}$ corresponde al valor de $\log$-verosimilitud y $df$ corresponde al número de parámetros estimados del modelo. Siempre el modelo elegido es aquel modelo con el menor valor de $AIC$. Calcular el $AIC$ para los modelos asumidos normal y gamma.
+
+```{r}
+-2 * logLik(fit1) + 2 * 2  # AIC para modelo normal
+-2 * logLik(fit2) + 2 * 2  # AIC para modelo gamma
+```
+
+De los resultados anteriores se concluye que entre los dos modelos, el mejor es el gamma porque su $AIC=466$ es el menor de toos los $AIC$.
+
+```{block2, type='rmdnote'}
+Modelos anidados pueden ser comparados por medio del _global deviance_ ($GD$) dado por $GD=-2 \, \hat{l}$ y modelos no anidados por medio del _Generalized Akaike information criterion_ ($GAIC$) propuesto por @Akaike83 y dado por $GAIC=-2 \, \hat{l} + \# \, df$ siendo $\#$ el valor de penalidad por cada parámetro adicional en el modelo; cuando $\# = 2$, el $GAIC$ coincide con el $AIC$ y el _Schwarz Bayesian criterion_ ($SBC$) propuesto por @Schwarz se dá cuando el valor de penalidad es $\# = \log(n)$ donde $n$ es el número de observaciones del modelo; siempre el modelo elegido es aquel modelo con el menor valor de cualquiera de los criterios de información anteriores.
+```
+
 ## EJERCICIOS {-}
 
 1) Al inicio del Capítulo \@ref(central) se presentó la base de datos sobre medidas del cuerpo, consulte la explicación sobre la base de datos y responda lo siguiente.
   + Si se asume que la `edad` tiene distribución normal, ¿cuáles son los estimadores de máxima verosimilitud para $\mu$ y $\sigma$?
-  + Como el histograma para la edad muestra un sesgo a la derecha se podría pensar que la distribución gamma sería una buena candidata para explicar las edades observadas. Asumiendo una distribución gamma, ¿cuáles son los estimadores de máxima verosimilitud para los parámetros de forma y escala?
+  + Como el histograma para la edad muestra un sesgo a la derecha se podría pensar que la distribución gamma sería una buena candidata para explicar las edades observadas. Asumiendo una distribución gamma, ¿cuáles son los estimadores de máxima verosimilitud para los parámetros?
+  + ¿Cuál de los dos modelos es más apropiado para explicar la variable de interés? Calcule el $AIC$ para decidir.
 
 2) En la sección \@ref(crabs) se presentó la base de datos sobre cangrejos hembra, consulte la explicación sobre la base de datos y responda lo siguiente.
   + Suponga que el número de satélites sobre cada hembra es una variable que se distribuye Poisson. Construya en \proglang{R} la función de log-verosimilitud $l$, dibuje la función $l$ y encuentre el estimador de máxima verosimilitud de $\lambda$.
   + Repita el ejercicio anterior asumiendo que el número de satélites se distribuye binomial negativo.
+  + ¿Cuál de los dos modelos es más apropiado para explicar la variable de interés? Calcule el $AIC$ para decidir.
   
 3) Al inicio del Capítulo \@ref(varia) se presentó la base de datos sobre apartamentos usados en Medellín, consulte la explicación sobre la base de datos y responda lo siguiente.
   + Dibuje una densidad para la variable área del apartamento.
   + Describa lo encontrado en esa densidad.
   + ¿Qué distribuciones de 2 parámetros podrían explicar el comportamiento del área de los apartamentos? Mencione al menos 3.
   + Para cada una de las distribuciones anteriores dibuje un gráfico de contornos o calor para la función de log-verosimilitud y estime los parámetros de la distribución elegida.
+    + ¿Cuál de los dos modelos es más apropiado para explicar la variable de interés? Calcule el $AIC$ para decidir.
