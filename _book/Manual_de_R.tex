@@ -6567,7 +6567,8 @@ vector de valores de \(p\) se vectoriza la función con
 \end{Highlighting}
 \end{Shaded}
 
-Vamos a probar la función en \(p=0.15\) y \(p=0.80\).
+Vamos a probar la función en \(p=0.15\) y \(p=0.80\) para saber si la
+función \texttt{ll} está vectorizada.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6581,7 +6582,7 @@ Vamos a probar la función en \(p=0.15\) y \(p=0.80\).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ll}\NormalTok{(}\DataTypeTok{prob=}\FloatTok{0.80}\NormalTok{)  }\CommentTok{# Individual para p=0.30}
+\KeywordTok{ll}\NormalTok{(}\DataTypeTok{prob=}\FloatTok{0.80}\NormalTok{)  }\CommentTok{# Individual para p=0.80}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6598,6 +6599,13 @@ Vamos a probar la función en \(p=0.15\) y \(p=0.80\).
 \begin{verbatim}
 ## [1] -25.54 -98.46
 \end{verbatim}
+
+\BeginKnitrBlock{rmdwarning}
+La mayoría de las funciones en \proglang{R} creadas por los usuarios
+quedan vectorizadas otras no. La función \texttt{ll} no estaba
+vectorizada y por esa razón se necesitó usa \texttt{Vectorize}. No abuse
+de la función \texttt{Vectorize}, sólo úsela cuando sea necesario.
+\EndKnitrBlock{rmdwarning}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}

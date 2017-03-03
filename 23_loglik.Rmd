@@ -49,12 +49,16 @@ ll <- function(prob) sum(dbinom(x=rta, size=5, prob=prob, log=T))
 ll <- Vectorize(ll)  # Para vectorizar la función
 ```
 
-Vamos a probar la función en $p=0.15$ y $p=0.80$.
+Vamos a probar la función en $p=0.15$ y $p=0.80$ para saber si la función `ll` está vectorizada.
 
 ```{r}
 ll(prob=0.15)  # Individual para p=0.15
-ll(prob=0.80)  # Individual para p=0.30
+ll(prob=0.80)  # Individual para p=0.80
 ll(prob=c(0.15, 0.80))  # Evaluada en un vector 
+```
+
+```{block2, type='rmdwarning'}
+La mayoría de las funciones en \proglang{R} creadas por los usuarios quedan vectorizadas otras no. La función `ll` no estaba vectorizada y por esa razón se necesitó usa `Vectorize`. No abuse de la función `Vectorize`, sólo úsela cuando sea necesario.
 ```
 
 3) Dibujar la curva log-verosimilitud $l$.
