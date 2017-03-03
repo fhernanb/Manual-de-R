@@ -31,13 +31,15 @@ lapply(c(), function(pkg) {
 
 # Prefacio {-}
 
-Este libro fue creado con la intención de apoyar el aprendizaje del lenguaje de programación \proglang{R} en estudiantes de pregrado, especialización, maestría e investigadores, que necesiten realizar análisis estadísticos. En este libro se explica de una forma sencilla la utilidad de la principales funciones para realizar diversos análisis estadísticos, las cuestiones sobre creación de gráficos estadísticos no son abordadas en el presente libro, recomendamos consultar @hernandez_correa.
+Este libro fue creado con la intención de apoyar el aprendizaje del lenguaje de programación \proglang{R} en estudiantes de pregrado, especialización, maestría e investigadores, que necesiten realizar análisis estadísticos. En este libro se explica de una forma sencilla la utilidad de la principales funciones para realizar análisis estadísticos.
+
+El presente material está en proceso de elaboración, si el lector desea tener la última versión del libro recomendamos consultar la versión alojada en el repositorio de GitHub diponible en eñ siguiente enlace: https://github.com/fhernanb/Manual-de-R/blob/master/_book/Manual_de_R.pdf
 
 ## Estructura del libro {-}
 
 El libro está estructurado de la siguiente manera.
 
-En el capítulo \@ref(central) se muestra como obtener las diversas medidas de tendencial central para variables cuantitativas, el capítulo \@ref(varia) muestra como calcular las medidas de variabilidad, en el capítulo \@ref(posi) se ilustra cómo usar las funciones para obtener medidas de posición y en el capítulo \@ref(correl) se muestra como obtener medidas de correlación entre pares de variables.
+En el capítulo \@ref(intro) se presenta una breve introducción sobre el lenguaje de programación \proglang{R}; en el capítulo \@ref(objetos) se explican los tipos de objetos más comunes en \proglang{R}; en el capítulo \@ref(estilo) se muestran las normas de estilo sugeridas para escribir código en \proglang{R}; el capítulo \@ref(funbas) presenta las funciones básicas que todo usuario debe conocer para usar con éxito \proglang{R}; el capítulo \@ref(creafun) trata sobre cómo crear funciones; el capítulo \@ref(read) muestra como leer bases de datos desde \proglang{R}; en el capítulo \@ref(tablas) se ilustra la forma para construir tablas de frecuencia; en el capítulo \@ref(central) se muestra como obtener las diversas medidas de tendencial central para variables cuantitativas, el capítulo \@ref(varia) muestra como calcular las medidas de variabilidad, en el capítulo \@ref(posi) se ilustra cómo usar las funciones para obtener medidas de posición; en el capítulo \@ref(correl) se muestra como obtener medidas de correlación entre pares de variables; en los capítulos \@ref(discretas) y \@ref(continuas) se tratan los temas de distribuciones discretas y continuas; en el capítulo \@ref(loglik) se aborda el tema de verosimilitud; en el capítulo \@ref(aproxint) se muestra el tema de aproximación de integrales.
 
 ## Información del software y convenciones {-}
 
