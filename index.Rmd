@@ -33,7 +33,7 @@ lapply(c(), function(pkg) {
 
 Este libro fue creado con la intención de apoyar el aprendizaje del lenguaje de programación \proglang{R} en estudiantes de pregrado, especialización, maestría e investigadores, que necesiten realizar análisis estadísticos. En este libro se explica de una forma sencilla la utilidad de la principales funciones para realizar análisis estadísticos.
 
-El presente material está en proceso de elaboración, si el lector desea tener la última versión del libro recomendamos consultar la versión alojada en el repositorio de GitHub diponible en eñ siguiente enlace: https://github.com/fhernanb/Manual-de-R/blob/master/_book/Manual_de_R.pdf
+El presente material está en proceso de elaboración, si el lector desea tener la última versión del libro recomendamos consultar la versión alojada en el repositorio de GitHub diponible en el siguiente enlace: https://github.com/fhernanb/Manual-de-R/blob/master/_book/Manual_de_R.pdf
 
 ## Estructura del libro {-}
 
