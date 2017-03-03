@@ -1,4 +1,4 @@
-# Aproximación de integrales
+# Aproximación de integrales \label{aproxint}
 
 En este capítulo se mostrará cómo aproximar integrales en una y varias dimensiones.
 
@@ -31,22 +31,27 @@ I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 Calcular la integral de $f(x)=\exp \left( -(x-1.5)^2 \right)$ en $\Re$ utilizando la aproximación de Laplace.
 
 Primero vamos a dibujar la función $f(x)$ para ver en dónde está su moda $x_0$.
-```{r, fig.height=3, fig.width=4, fig.cap='Perfil de la función f(x).'}
+```{r aprox1, fig.height=3, fig.width=4, fig.cap='Perfil de la función f(x).'}
 fun <- function(x) exp(-(x-1.5)^2)
 curve(fun, from=-5, to=5, ylab='f(x)', las=1)
 ```
 
 Visualmente se nota que la moda está cerca del valor 1.5 y para determinar numéricamente el valor de la moda $x_0$ se usa la función `optimize`, los resultados se almacenan en el objeto `res`. El valor de la moda corresponde al elemento `maximum` del objeto `res`.
+
 ```{r}
 res <- optimize(fun, interval=c(-10, 10), maximum=TRUE)
 res
 ```
+
 Para determinar el valor de $c$ de la expresión \ref{aprox_laplace} se utiliza el siguiente código.
+
 ```{r, message=FALSE}
 require("numDeriv")
 constant <- - as.numeric(hessian(fun, res$maximum))
 ```
+
 Para obtener la aproximación de la integral se usa la expresión \ref{aprox_laplace} y para tener un punto de comparación se evalua la integral usando la función `integrate`, a continuación el código.
+
 ```{r}
 fun(res$maximum) * sqrt(2*pi/constant)
 

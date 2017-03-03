@@ -1,4 +1,4 @@
-# Verosimilitud
+# Verosimilitud \label{loglik}
 
 En este capítulo se mostrará como usar \proglang{R} para obtener la función de log-verosimilitud y estimadores por el método de máxima verosimilitud.
 
