@@ -124,7 +124,7 @@ filled.contour(x=xx, y=yy, z=zz, nlevels=20,
 
 3) Obtenga los valores de $\mu$ y $\sigma$ que maximizan la función de log-verosimilitud.
 
-Para obtener los valores solicitados vamos a usar la función `nlminb` que es un optimizador. A la función `nlminb` se le debe indicar por medio del parámetro `objective` la función que queremos optimizar (minimizar); el parámetro `start` es un vector con los valores iniciales para comenzar la búsqueda de $\mu$ y $\sigma$; los parámetros `lower` y `upper` sirven para delimitar el espacio de búsqueda. A continuación se muestra el código usado para obtener los valores que minimizan a `minusll`, es decir, los valores que maximizar la función de log-verosimilitud. \index{nlminb}
+Para obtener los valores solicitados vamos a usar la función `nlminb` que es un optimizador. A la función `nlminb` se le debe indicar por medio del parámetro `objective` la función que queremos optimizar (minimizar); el parámetro `start` es un vector con los valores iniciales para comenzar la búsqueda de $\mu$ y $\sigma$; los parámetros `lower` y `upper` sirven para delimitar el espacio de búsqueda. A continuación se muestra el código usado para obtener los valores que minimizan a `minusll`, es decir, los valores que maximizan la función de log-verosimilitud. \index{nlminb}
 
 ```{r}
 minusll <- function(x) -ll(x)
@@ -164,7 +164,7 @@ logLik(res)
 De esta última salida se observa que el valor coincide con el obtenido cuando se usó `nlminb`.
 
 ### Ejemplo {-}
-Generar $n=100$ observaciones de una gamma con parámetro de forma igual a 5 y parámetro de tasa igual a 0.5 y luego responder las preguntas.
+Generar $n=100$ observaciones de una gamma con parámetro de forma igual a 2 y parámetro de tasa igual a 0.5 y luego responder las preguntas.
 
 Para generar la muestra aleatoria `ma` solicitada se fijó la semilla con el objetivo de que el lector pueda obtener los mismos resultados de este ejemplo.
 
@@ -306,4 +306,4 @@ En la Figura \@ref(fig:histDist1) se presenta el histograma para muestra aleator
   + Describa lo encontrado en esa densidad.
   + ¿Qué distribuciones de 2 parámetros podrían explicar el comportamiento del área de los apartamentos? Mencione al menos 3.
   + Para cada una de las distribuciones anteriores dibuje un gráfico de contornos o calor para la función de log-verosimilitud y estime los parámetros de la distribución elegida.
-    + ¿Cuál de los dos modelos es más apropiado para explicar la variable de interés? Calcule el $AIC$ para decidir.
+  + ¿Cuál de los dos modelos es más apropiado para explicar la variable de interés? Calcule el $AIC$ para decidir.
