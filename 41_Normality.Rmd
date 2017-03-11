@@ -163,17 +163,21 @@ Se debe tener cuidado al concluir con un QQplot, lo que para una persona puede e
 ```
 
 ## Pruebas de normalidad
-Las pruebas de normalidad tiene el siguiente conjunto de hipótesis:
+Una forma menos subjetiva de explorar la normalidad de un conjunto de datos es por medio de las pruebas de normalidad. Las hipótesis para las pruebas de normalidad son:
 
-$$
-H_0: \text{la muestra proviene de una población normal.}
-$$
-$$
-H_A: \text{la muestra NO proviene de una población normal.}
-$$
+\begin{equation}
+\begin{split}
+&H_0: \text{la muestra proviene de una población normal.} \\
+&H_A: \text{la muestra NO proviene de una población normal.}
+\end{split}
+\end{equation}
 
+En la literatura estadística se reportan varias pruebas, algunas de ellas se listan a continuación.
 
-
+1. Prueba Shapiro-Wilk.
+2. Prueba Anderson-Darling.
+3. Prueba Cramer-von Mises.
+4. Prueba 
 
 
 

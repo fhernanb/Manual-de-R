@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.2.24)  11 MAR 2017 18:12
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.2.24)  11 MAR 2017 18:39
 entering extended mode
 **./Manual_de_R.tex
 (Manual_de_R.tex
@@ -4344,11 +4344,30 @@ LaTeX Info: Redefining \% on input line 7717.
 [143]
 File: images/warning.png Graphic file (type QTm)
 <use  "images/warning.png" >
-LaTeX Info: Redefining \. on input line 7729.
-LaTeX Info: Redefining \% on input line 7729.
+LaTeX Info: Redefining \. on input line 7730.
+LaTeX Info: Redefining \% on input line 7730.
 [144]
-LaTeX Info: Redefining \. on input line 7733.
-LaTeX Info: Redefining \% on input line 7733.
+Underfull \hbox (badness 10000) detected at line 7743
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7743
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7745
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7745
+[][][]
+ []
+
+LaTeX Info: Redefining \. on input line 7747.
+LaTeX Info: Redefining \% on input line 7747.
 [145]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -4389,38 +4408,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [146
 
 ]
-Underfull \vbox (badness 10000) detected at line 7733
+Underfull \vbox (badness 10000) detected at line 7747
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7733
+Overfull \hbox (336.25pt too wide) detected at line 7747
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7733
+Underfull \vbox (badness 10000) detected at line 7747
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7733
+Overfull \hbox (336.25pt too wide) detected at line 7747
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7733
+Underfull \vbox (badness 10000) detected at line 7747
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7733
+Overfull \hbox (336.25pt too wide) detected at line 7747
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7733
+Underfull \vbox (badness 10000) detected at line 7747
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7733
+Overfull \hbox (336.25pt too wide) detected at line 7747
 []
  []
 
@@ -4435,8 +4454,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ]
 File: Manual_de_R_files/figure-latex/aprox1-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/aprox1-1.pdf" >
-LaTeX Info: Redefining \. on input line 7814.
-LaTeX Info: Redefining \% on input line 7814.
+LaTeX Info: Redefining \. on input line 7828.
+LaTeX Info: Redefining \% on input line 7828.
 [148] (Manual_de_R.bbl
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -4589,16 +4608,16 @@ LaTeX Info: Redefining \% on input line 137.
 [154
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7857.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7857.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7871.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 7871.
 (Manual_de_R.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7857.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7857.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7871.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7871.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -4613,6 +4632,6 @@ Here is how much of TeX's memory you used:
  27753 multiletter control sequences out of 15000+200000
  39908 words of font info for 84 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 53i,9n,92p,10411b,669s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 53i,17n,92p,10411b,669s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on Manual_de_R.pdf (170 pages).
