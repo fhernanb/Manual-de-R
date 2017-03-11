@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-03-03}
+\date{2017-03-11}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -6270,6 +6270,12 @@ código usado.
 En la Figura \ref{fig:norm2} se muestran las áreas sombreadas para cada
 de las anteriores preguntas.
 
+\begin{verbatim}
+## Warning in library(package, lib.loc = lib.loc,
+## character.only = TRUE, logical.return = TRUE, : there
+## is no package called 'mytools'
+\end{verbatim}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{Manual_de_R_files/figure-latex/norm2-1.pdf}
@@ -7324,6 +7330,405 @@ los datos.
   ¿Cuál de los dos modelos es más apropiado para explicar la variable de
   interés? Calcule el \(AIC\) para decidir.
 \end{itemize}
+
+\chapter{\texorpdfstring{Estudiando la normalidad
+\label{normalidad}}{Estudiando la normalidad }}\label{estudiando-la-normalidad}
+
+En este capítulo se mostrará cómo utilizar \proglang{R} para estudiar la
+normalidad univariada de una muestra aleatoria.
+
+\section{Consideraciones iniciales}\label{consideraciones-iniciales}
+
+En estadística hay una gran cantidad de modelos, pruebas y
+procedimientos que tienen como supuesto la normalidad, por lo tanto, se
+hace necesario contar con herramientas que nos guíen para responder si
+se cumple o no el supuesto de normalidad.
+
+Para estudiar si una muestra aleatoria proviene de una población con
+distribución normal se disponen de tres herramientas que se listan a
+continuación.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Histograma y/o densidad.
+\item
+  Gráficos cuantil cuantil (QQplot).
+\item
+  Pruebas de hipótesis.
+\end{enumerate}
+
+Al construir un histograma y/o densidad para la variable de interés se
+puede evaluar visualmente la simetría de la distribución de los datos.
+Si se observa una violación clara de la simetría (sesgo a uno de los
+lados) o si se observa una distribución con más de una moda, eso sería
+indicio de que la muestra no proviene de una población normal. Por otra
+parte, si se observa simetría en los datos, esto NO garantiza que la
+muestra aleatoria proviene de una población normal y se hace necesario
+recurrir a otras herramientas específicas para estudiar normalidad como
+lo son los gráficos QQplot y pruebas de hipótesis.
+
+A continuación se presentan varias secciones donde se profundiza sobre
+el uso de cada de las tres herramientas anteriormente listadas para
+estudiar la normalidad.
+
+\section{Histograma y densidad}\label{histograma-y-densidad}
+
+El histograma y el gráfico de densidad son herramientas muy útiles
+porque sirven para mostrar la distribución, la simetría, el sesgo,
+variabilidad, moda, mediana y observaciones atípicas de un conjunto de
+datos. Para explorar la normalidad de un conjunto de datos lo que se
+busca es que el histograma o gráfico de densidad presenten un patrón más
+o menos simétrico. Para obtener detalles de la construcción de
+histogramas y gráficos de densidad se recomienda consultar
+\citet{hernandez_correa}.
+
+A continuación se presentan dos ejemplos, uno con datos simulados y otro
+con datos reales para mostrar la utilidad del histograma y gráfico de
+densidad al explorar la normalidad.
+
+\subsection*{Ejemplo densidad con datos
+simulados}\label{ejemplo-densidad-con-datos-simulados}
+
+
+Simular 4 muestra aleatorias de una \(N(0, 1)\) con tamaños de muestra
+\(n\)=10, 100, 1000 y 10000, para cada una de ellas construir los
+gráficos de densidad.
+
+A continuación se presenta el código necesario para construir la Figura
+\ref{fig:normalidad1}. Se define el vector \texttt{n} con los valores
+del tamaño de muestra y luego dentro de una sentencia \texttt{for} se
+simula cada muestra y se dibuja su densidad.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\NormalTok{n <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{1000}\NormalTok{, }\DecValTok{10000}\NormalTok{)}
+\NormalTok{for (i in n) \{}
+  \NormalTok{x <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(i)}
+  \KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(x), }\DataTypeTok{main=}\KeywordTok{bquote}\NormalTok{(~}\StringTok{ }\NormalTok{n ==}\StringTok{ }\NormalTok{.(i)),}
+       \DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue3'}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'x'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/normalidad1-1.pdf}
+\caption{\label{fig:normalidad1}Densidad para 4 muestras de una N(0, 1) con
+diferente tamaño de muestra.}
+\end{figure}
+
+De la Figura \ref{fig:normalidad1} se observa que, a pesar de haber
+generado las muestra de una normal estándar, las densidades para las
+muestras aleatorias no son perfectamente simétricas, sólo para el caso
+de tamaño de muestra \(n=10000\) la densidad muestral fue bastante
+simétrica. Esto significa que el gráfico de densidad se debe usar con
+precaución para decidir sobre la normalidad de un conjunto de datos,
+como regla práctica se aconseja lo siguiente:
+
+\begin{itemize}
+\tightlist
+\item
+  Si la densidad muestral es muy pero muy asimétrica se debe desconfiar
+  de la normalidad de los datos.
+\item
+  Si la densidad muestral es más o menos simétrica, se deben usar otras
+  herramientas como QQplot o pruebas de hipótesis para obtener una mejor
+  conclusión.
+\end{itemize}
+
+\BeginKnitrBlock{rmdwarning}
+Si un histograma o densidad es muy asimétrico o sesgado, es evidencia en
+contra de la normalidad de los datos. Si el histograma o densidad
+presentan simetría, esto no es garantía de la normalidad de los datos.
+\EndKnitrBlock{rmdwarning}
+
+\subsection*{Ejemplo densidad del peso
+corporal}\label{ejemplo-densidad-del-peso-corporal}
+
+
+Considerando la base de datos \textbf{medidas del cuerpo} presentada en
+el Capítulo \ref{central}, se desea saber si el peso corporal, tanto de
+hombres y mujeres, tiene una distribución normal.
+
+Para hacer la exploración lo primero es cargar la base de datos usando
+el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+La variable \texttt{peso} del objeto \texttt{datos} contiene la
+información sobre el peso corporal de ambos sexos, debemos entonces
+partir o dividir esta información diferenciando entre hombres y mujeres,
+para esto usamos la función \texttt{split} de la siguiente forma.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pesos <-}\StringTok{ }\KeywordTok{split}\NormalTok{(datos$peso, datos$sexo)}
+\NormalTok{pesos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Hombre
+##  [1] 87.3 80.0 82.3 73.6 74.1 85.9 73.2 76.3 65.9 90.9
+## [11] 89.1 62.3 82.7 79.1 98.2 84.1 83.2 83.2
+## 
+## $Mujer
+##  [1] 51.6 59.0 49.2 63.0 53.6 59.0 47.6 69.8 66.8 75.2
+## [11] 55.2 54.2 62.5 42.0 50.0 49.8 49.2 73.2
+\end{verbatim}
+
+El objeto \texttt{pesos} es una lista con dos elementos, el primero
+contiene los pesos de los hombres mientras que el segundo contiene los
+pesos de las mujeres. Note que \texttt{pesos} es un objeto mientras que
+\texttt{peso} es el nombre usado para la variable peso corporal en la
+base de datos.
+
+Para explorar la normalidad de los pesos se dibujan dos densidades, una
+para el peso de hombres y otra para el peso de las mujeres, a
+continuación el código utilizado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(pesos$Hombre), }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{,}
+     \DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{110}\NormalTok{), }\DataTypeTok{main=}\StringTok{''}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{'Peso (kg)'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(pesos$Mujer), }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'deeppink'}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\StringTok{'topleft'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{'Hombres'}\NormalTok{, }\StringTok{'Mujeres'}\NormalTok{),}
+       \DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'blue'}\NormalTok{, }\StringTok{'deeppink'}\NormalTok{), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/normalidad2-1.pdf}
+\caption{\label{fig:normalidad2}Densidad para el peso corporal de hombres y
+mujeres.}
+\end{figure}
+
+En la Figura \ref{fig:normalidad2} se muestran las dos densidades, en la
+figura no se observa una evidencia clara de sesgo, lo que se observa es
+que la densidad para los hombres es un poco más simétrica que la
+densidad para las mujeres. De estos resultados no se puede rechazar la
+premisa de que pesos corporales provienen de una distribución normal, lo
+recomendable es construir QQplot y aplicar prueba de hipótesis.
+
+\section{Gráficos cuantil cuantil}\label{graficos-cuantil-cuantil}
+
+Los gráficos cuantil cuantil (QQplot) son una herramienta gráfica para
+explorar si un conjunto de datos o muestra proviene de una población con
+cierta distribución, en particular aquí nos interesan para estudiar la
+normalidad de un conjunto de datos. La función \texttt{qqnorm} sirve
+para construir el QQplot y la función \texttt{qqline} agrega una línea
+de referencia que ayuda a interpretar el gráfico QQplot, para obtener
+una explicación de cómo construir este gráfico se recomienda ver el
+video disponible en este
+\href{https://www.youtube.com/watch?v=kx_o9rnI4DE}{enlace}. En la Figura
+\ref{fig:normalidad3} se muestra un ejemplo de un QQplot y de sus
+partes, los puntos y la línea de referencia. Si se tuviese una muestra
+distribuída perfectamente normal, se esperaría que los puntos estuviesen
+perfectamente alineados con la línea de referencia, sin embargo, las
+muestran con las que se trabajan en la práctica casi nunca presentan
+este comportamiento aún si fueron obtenidas de una población normal. En
+la práctica se aceptan alejamientos del patrón lineal para aceptar que
+los datos si provienen de una población normal.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/normalidad3-1.pdf}
+\caption{\label{fig:normalidad3}Ejemplo de un QQplot.}
+\end{figure}
+
+A continuación se presentan tres ejemplos, dos con datos simulados y
+otro con datos reales para mostrar la utilidad del qqplot al explorar la
+normalidad.
+
+\subsection*{Ejemplo 1 QQplot con datos
+simulados}\label{ejemplo-1-qqplot-con-datos-simulados}
+
+
+Simular 4 muestra aleatorias de una \(N(0, 1)\) con tamaños de muestra
+\(n\)=10, 30, 50 y 100, para cada una de ellas construir el QQplot.
+
+A continuación se presenta el código necesario para construir la Figura
+\ref{fig:normalidad4}. Se define el vector \texttt{n} con los valores
+del tamaño de muestra y luego dentro de una sentencia \texttt{for} se
+simula cada muestra \texttt{x} y se dibuja su QQplot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\NormalTok{n <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{)}
+\NormalTok{for (i in n) \{}
+  \NormalTok{x <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(i)}
+  \KeywordTok{qqnorm}\NormalTok{(x, }\DataTypeTok{main=}\KeywordTok{bquote}\NormalTok{(~}\StringTok{ }\NormalTok{n ==}\StringTok{ }\NormalTok{.(i)))}
+  \KeywordTok{qqline}\NormalTok{(x)  }\CommentTok{# Para agregar la linea de referencia}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/normalidad4-1.pdf}
+\caption{\label{fig:normalidad4}QQplot para 4 muestras de una N(0, 1) con
+diferente tamaño de muestra.}
+\end{figure}
+
+La Figura \ref{fig:normalidad4} muestra que, a pesar de haber simulado
+cada muestra \texttt{x} de un \(N(0, 1)\), los puntos no se alinean de
+forma perfecta, esto significa que en la práctica se debe ser prudente
+con su uso, un alejamiento del patrón lineal NO significa que la muestra
+no provenga de una población normal.
+
+\subsection*{Ejemplo QQplot para peso
+corporal}\label{ejemplo-qqplot-para-peso-corporal}
+
+
+Retomando la base de datos \textbf{medidas del cuerpo} presentada en el
+Capítulo \ref{central}, se desea saber si el peso corporal, tanto de
+hombres y mujeres, tiene una distribución normal usando QQplots.
+
+Para hacer la exploración lo primero es cargar la base de datos si aún
+no se ha cargado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+La variable \texttt{peso} del objeto \texttt{datos} contiene la
+información sobre el peso corporal de ambos sexos, debemos entonces
+partir o dividir esta información diferenciando entre hombres y mujeres,
+para esto usamos la función \texttt{split} de la siguiente forma.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pesos <-}\StringTok{ }\KeywordTok{split}\NormalTok{(datos$peso, datos$sexo)}
+\NormalTok{pesos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Hombre
+##  [1] 87.3 80.0 82.3 73.6 74.1 85.9 73.2 76.3 65.9 90.9
+## [11] 89.1 62.3 82.7 79.1 98.2 84.1 83.2 83.2
+## 
+## $Mujer
+##  [1] 51.6 59.0 49.2 63.0 53.6 59.0 47.6 69.8 66.8 75.2
+## [11] 55.2 54.2 62.5 42.0 50.0 49.8 49.2 73.2
+\end{verbatim}
+
+El objeto \texttt{pesos} es una lista con dos elementos, el primero
+contiene los pesos de los hombres mientras que el segundo contiene los
+pesos de las mujeres. Note que \texttt{pesos} es un objeto mientras que
+\texttt{peso} es el nombre usado para la variable peso corporal en la
+base de datos.
+
+Para explorar la normalidad de los pesos se dibujan dos densidades, una
+para el peso de hombres y otra para el peso de las mujeres, a
+continuación el código utilizado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{qqnorm}\NormalTok{(pesos$Hombre, }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{,}
+       \DataTypeTok{main=}\StringTok{'QQplot para peso de hombres'}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(pesos$Hombre)}
+
+\KeywordTok{qqnorm}\NormalTok{(pesos$Mujer, }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{,}
+       \DataTypeTok{main=}\StringTok{'QQplot para peso de mujeres'}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(pesos$Mujer)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/normalidad5-1.pdf}
+\caption{\label{fig:normalidad5}QQplot para el peso corporal de hombres y
+mujeres.}
+\end{figure}
+
+La Figura \ref{fig:normalidad5} muestra el QQplot para el peso corporal
+de hombres y mujeres, de la figura se observa que los puntos no están
+tan desalineados, lo cual cual nos lleva a no rechazar la hipótesis de
+normalidad.
+
+\BeginKnitrBlock{rmdwarning}
+Se debe interpretar con precaución el QQplot, del ejemplo con datos
+simulados se vió que a pesar de haber generado las muestras de una
+\(N(0,1)\) los QQplot no siempre están perfectamente alineados.
+\EndKnitrBlock{rmdwarning}
+
+\subsection*{Ejemplo 2 QQplot con datos
+simulados}\label{ejemplo-2-qqplot-con-datos-simulados}
+
+
+Simular 1 muestra aleatoria con \(n=50\) de cada una de las siguientes
+poblaciones Poisson(5), NBinom(5, 0.5), Gamma(2, 3) y Weibull(1, 3),
+para cada una de las muestras construir el QQplot para explorar la
+normalidad de las muestras.
+
+Las muestras de cada una de las poblaciones se generan con las funciones
+\texttt{rpois}, \texttt{rnbinom}, \texttt{rgamma} y \texttt{rweibull}
+especificando los parámetros. A continuación el código necesario para
+obtener los QQplot solicitados.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m1 <-}\StringTok{ }\KeywordTok{rpois}\NormalTok{(}\DataTypeTok{n=}\DecValTok{50}\NormalTok{, }\DataTypeTok{lambda=}\DecValTok{5}\NormalTok{)}
+\NormalTok{m2 <-}\StringTok{ }\KeywordTok{rnbinom}\NormalTok{(}\DataTypeTok{n=}\DecValTok{50}\NormalTok{, }\DataTypeTok{size=}\DecValTok{5}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.35}\NormalTok{)}
+\NormalTok{m3 <-}\StringTok{ }\KeywordTok{rgamma}\NormalTok{(}\DataTypeTok{n=}\DecValTok{50}\NormalTok{, }\DataTypeTok{shape=}\DecValTok{2}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{3}\NormalTok{)}
+\NormalTok{m4 <-}\StringTok{ }\KeywordTok{rweibull}\NormalTok{(}\DataTypeTok{n=}\DecValTok{50}\NormalTok{, }\DataTypeTok{shape=}\DecValTok{1}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{3}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{qqnorm}\NormalTok{(m1, }\DataTypeTok{main=}\StringTok{'Poisson(5)'}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(m1)}
+\KeywordTok{qqnorm}\NormalTok{(m2, }\DataTypeTok{main=}\StringTok{'NBinom(5, 0.35)'}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(m1)}
+\KeywordTok{qqnorm}\NormalTok{(m3, }\DataTypeTok{main=}\StringTok{'Gamma(2, 3)'}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(m1)}
+\KeywordTok{qqnorm}\NormalTok{(m4, }\DataTypeTok{main=}\StringTok{'Weibull(1, 3)'}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(m1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/normalidad6-1.pdf}
+\caption{\label{fig:normalidad6}QQplot para muestras generadas de
+poblaciones Poisson, Binomial Negativa, Gamma y Weibull.}
+\end{figure}
+
+En la Figura \ref{fig:normalidad6} se muestran los cuatro QQplot para
+cada una de las muestras generadas de las distribuciones indicadas. Se
+observa claramente que los puntos del QQplot no está alineados, esto es
+una clara evidencia de que las muestras NO provienen de poblaciones
+normales. Otro aspecto interesante a resaltar es el patrón de escalera
+que se observa para las muestras generadas de poblaciones discretas
+(Poisson y Binomial Negativa).
+
+\BeginKnitrBlock{rmdwarning}
+Se debe tener cuidado al concluir con un QQplot, lo que para una persona
+puede estar alineado, para otra puede no estarlo. El QQplot es un
+gráfico exploratorio de normalidad.
+\EndKnitrBlock{rmdwarning}
+
+\section{Pruebas de normalidad}\label{pruebas-de-normalidad}
+
+Todas las pruebas de normalidad tiene el siguiente conjunto de
+hipótesis: \[
+H_0: \text{la muestra proviene de una población normal.}
+\] \[
+H_A: \text{la muestra NO proviene de una población normal.}
+\]
 
 \chapter{\texorpdfstring{Aproximación de integrales
 \label{aproxint}}{Aproximación de integrales }}\label{aproximacion-de-integrales}

@@ -117,7 +117,7 @@ qnorm(p=0.95)
 En la Figura \@ref(fig:norm1) se muestra el área sombreada correspondiente a $P(Z<q)=0.95$.
 
 ```{r norm1, fig.cap='Área sombreada para los ejemplos.', fig.asp=1.1, fig.width=6, echo=FALSE, message=FALSE}
-require(mytools)
+require(usefultools)
 par(mfrow=c(2, 2))
 shadow.normal(lower=-5, upper=1.45, xlab='Z', ylab='Densidad',
               main='P(Z < 1.45)')
