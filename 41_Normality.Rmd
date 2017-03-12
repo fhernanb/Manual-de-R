@@ -1,6 +1,6 @@
 # Estudiando la normalidad \label{normalidad}
 
-En este capítulo se mostrará cómo utilizar \proglang{R} para estudiar la normalidad univariada de una muestra aleatoria.
+En este capítulo se mostrará cómo utilizar las herramientas de \proglang{R} para estudiar la normalidad univariada de un conjunto de datos.
 
 ## Consideraciones iniciales
 En estadística hay una gran cantidad de modelos, pruebas y procedimientos que tienen como supuesto la normalidad, por lo tanto, se hace necesario contar con herramientas que nos guíen para responder si se cumple o no el supuesto de normalidad.
@@ -18,12 +18,12 @@ A continuación se presentan varias secciones donde se profundiza sobre el uso d
 ## Histograma y densidad
 El histograma y el gráfico de densidad son herramientas muy útiles porque sirven para mostrar la distribución, la simetría, el sesgo, variabilidad, moda, mediana y observaciones atípicas de un conjunto de datos. Para explorar la normalidad de un conjunto de datos lo que se busca es que el histograma o gráfico de densidad presenten un patrón más o menos simétrico. Para obtener detalles de la construcción de histogramas y gráficos de densidad se recomienda consultar @hernandez_correa.
 
-A continuación se presentan dos ejemplos, uno con datos simulados y otro con datos reales para mostrar la utilidad del histograma y gráfico de densidad al explorar la normalidad.
+A continuación se presentan dos ejemplos, uno con datos simulados y otro con datos reales, con los cuales se muestra la utilidad del histograma y gráfico de densidad al explorar la normalidad.
 
 ### Ejemplo densidad con datos simulados {-}
-Simular 4 muestra aleatorias de una $N(0, 1)$ con tamaños de muestra $n$=10, 100, 1000 y 10000, para cada una de ellas construir los gráficos de densidad.
+Simular 4 muestra aleatorias de una $N(0, 1)$ con tamaños de muestra $n$=10, 100, 1000 y 10000; para cada una de las muestras construir los gráficos de densidad y analizar si son simétricos.
 
-A continuación se presenta el código necesario para construir la Figura \@ref(fig:normalidad1). Se define el vector `n` con los valores del tamaño de muestra y luego dentro de una sentencia `for` se simula cada muestra y se dibuja su densidad.
+Lo primero que se debe hacer es definir el vector `n` con los valores de los tamaños de muestra, luego dentro de una sentencia `for` se simula cada muestra y se dibuja su densidad.
 
 ```{r normalidad1, fig.cap='Densidad para 4 muestras de una N(0, 1) con diferente tamaño de muestra.', fig.asp=0.7, fig.width=8}
 par(mfrow=c(2, 2))
@@ -35,7 +35,7 @@ for (i in n) {
 }
 ```
 
-De la Figura \@ref(fig:normalidad1) se observa que, a pesar de haber generado las muestra de una normal estándar, las densidades para las muestras aleatorias no son perfectamente simétricas, sólo para el caso de tamaño de muestra $n=10000$ la densidad muestral fue bastante simétrica. Esto significa que el gráfico de densidad se debe usar con precaución para decidir sobre la normalidad de un conjunto de datos, como regla práctica se aconseja lo siguiente:
+En la Figura \@ref(fig:normalidad1) se muestran las cuatro densidades, de esta figura se observa que, a pesar de haber generado las muestras de una normal estándar, las densidades no son perfectamente simétricas, sólo para el caso de tamaño de muestra $n=10000$ la densidad muestral fue bastante simétrica. Esto significa que el gráfico de densidad se debe usar con precaución para decidir sobre la normalidad de un conjunto de datos, como regla práctica se aconseja lo siguiente:
 
 - Si la densidad muestral es muy pero muy asimétrica se debe desconfiar de la normalidad de los datos.
 - Si la densidad muestral es más o menos simétrica, se deben usar otras herramientas como QQplot o pruebas de hipótesis para obtener una mejor conclusión.
@@ -56,7 +56,7 @@ datos <- read.table(file=url, header=T)
 La variable `peso` del objeto `datos` contiene la información sobre el peso corporal de ambos sexos, debemos entonces partir o dividir esta información diferenciando entre hombres y mujeres, para esto usamos la función `split` de la siguiente forma. 
 ```{r}
 pesos <- split(datos$peso, datos$sexo)
-pesos
+pesos  # Para ver los elementos de la lista pesos
 ```
 
 El objeto `pesos` es una lista con dos elementos, el primero contiene los pesos de los hombres mientras que el segundo contiene los pesos de las mujeres. Note que `pesos` es un objeto mientras que `peso` es el nombre usado para la variable peso corporal en la base de datos.
@@ -73,20 +73,22 @@ legend('topleft', legend=c('Hombres', 'Mujeres'),
 
 En la Figura \@ref(fig:normalidad2) se muestran las dos densidades, en la figura no se observa una evidencia clara de sesgo, lo que se observa es que la densidad para los hombres es un poco más simétrica que la densidad para las mujeres. De estos resultados no se puede rechazar la premisa de que pesos corporales provienen de una distribución normal, lo recomendable es construir QQplot y aplicar prueba de hipótesis.
 
-## Gráficos cuantil cuantil
-Los gráficos cuantil cuantil (QQplot) son una herramienta gráfica para explorar si un conjunto de datos o muestra proviene de una población con cierta distribución, en particular aquí nos interesan para estudiar la normalidad de un conjunto de datos. La función `qqnorm` sirve para construir el QQplot y la función `qqline` agrega una línea de referencia que ayuda a interpretar el gráfico QQplot, para obtener una explicación de cómo construir este gráfico se recomienda ver el video disponible en este [enlace](https://www.youtube.com/watch?v=kx_o9rnI4DE). En la Figura \@ref(fig:normalidad3) se muestra un ejemplo de un QQplot y de sus partes, los puntos y la línea de referencia. Si se tuviese una muestra distribuída perfectamente normal, se esperaría que los puntos estuviesen perfectamente alineados con la línea de referencia, sin embargo, las muestran con las que se trabajan en la práctica casi nunca presentan este comportamiento aún si fueron obtenidas de una población normal. En la práctica se aceptan alejamientos del patrón lineal para aceptar que los datos si provienen de una población normal.
+## Gráficos cuantil cuantil \index{QQplot} \index{qqnorm} \index{qqline}
+Los gráficos cuantil cuantil (QQplot) son una herramienta gráfica para explorar si un conjunto de datos o muestra proviene de una población con cierta distribución, en particular aquí nos interesan para estudiar la normalidad de un conjunto de datos. La función `qqnorm` sirve para construir el QQplot y la función `qqline` agrega una línea de referencia que ayuda a interpretar el gráfico QQplot, para obtener una explicación de cómo construir este gráfico se recomienda ver el video disponible en este [enlace](https://www.youtube.com/watch?v=kx_o9rnI4DE).
+
+En la Figura \@ref(fig:normalidad3) se muestra un ejemplo de un QQplot y de sus partes, los puntos y la línea de referencia. Si se tuviese una muestra distribuída perfectamente normal, se esperaría que los puntos estuviesen perfectamente alineados con la línea de referencia, sin embargo, las muestran con las que se trabajan en la práctica casi nunca presentan este comportamiento aún si fueron obtenidas de una población normal. En la práctica se aceptan alejamientos del patrón lineal para aceptar que los datos si provienen de una población normal.
 
 ```{r normalidad3, fig.cap='Ejemplo de un QQplot.', fig.asp=1, fig.width=4, echo=FALSE}
 qqnorm(qnorm(ppoints(15)), las=1, main='', pch=19, col='tomato', cex=1.3)
 qqline(qnorm(ppoints(15)), col='blue', lwd=2)
 ```
 
-A continuación se presentan tres ejemplos, dos con datos simulados y otro con datos reales para mostrar la utilidad del qqplot al explorar la normalidad.
+A continuación se presentan cuatro ejemplos, dos con datos simulados y otro con datos reales para mostrar la utilidad del qqplot al explorar la normalidad.
 
 ### Ejemplo 1 QQplot con datos simulados {-}
 Simular 4 muestra aleatorias de una $N(0, 1)$ con tamaños de muestra $n$=10, 30, 50 y 100, para cada una de ellas construir el QQplot.
 
-A continuación se presenta el código necesario para construir la Figura \@ref(fig:normalidad4). Se define el vector `n` con los valores del tamaño de muestra y luego dentro de una sentencia `for` se simula cada muestra `x` y se dibuja su QQplot.
+Lo primero que se debe hacer es definir el vector `n` con los valores del tamaño de muestra, luego dentro de una sentencia `for` se simula cada muestra `x` y por último se dibuja el QQplot para cada muestra, a continuación el código utilizado.
 
 ```{r normalidad4, fig.cap='QQplot para 4 muestras de una N(0, 1) con diferente tamaño de muestra.', fig.asp=1, fig.width=6}
 par(mfrow=c(2, 2))
@@ -98,7 +100,34 @@ for (i in n) {
 }
 ```
 
-La Figura \@ref(fig:normalidad4) muestra que, a pesar de haber simulado cada muestra `x` de un $N(0, 1)$, los puntos no se alinean de forma perfecta, esto significa que en la práctica se debe ser prudente con su uso, un alejamiento del patrón lineal NO significa que la muestra no provenga de una población normal.
+La Figura \@ref(fig:normalidad4) muestra que, a pesar de haber simulado cada muestra `x` de una $N(0, 1)$, los puntos no se alinean de forma perfecta, esto significa que en la práctica se debe ser prudente con la interpretación de un QQplot, un alejamiento del patrón lineal NO significa que la muestra no provenga de una población normal.
+
+### Ejemplo 2 QQplot con datos simulados {-}
+Simular 1 muestra aleatoria con $n=50$ de cada una de las siguientes poblaciones Poisson(5), NBinom(5, 0.5), Gamma(2, 3) y Weibull(1, 3), para cada una de las muestras construir el QQplot para explorar la normalidad de las muestras.
+
+Las muestras de cada una de las poblaciones se generan con las funciones `rpois`, `rnbinom`, `rgamma` y `rweibull` especificando los parámetros. A continuación el código necesario para obtener los QQplot solicitados.
+
+```{r normalidad6, fig.cap='QQplot para muestras generadas de poblaciones Poisson, Binomial Negativa, Gamma y Weibull.', fig.asp=1, fig.width=6}
+m1 <- rpois(n=50, lambda=5)
+m2 <- rnbinom(n=50, size=5, prob=0.35)
+m3 <- rgamma(n=50, shape=2, scale=3)
+m4 <- rweibull(n=50, shape=1, scale=3)
+par(mfrow=c(2, 2))
+qqnorm(m1, main='Poisson(5)')
+qqline(m1)
+qqnorm(m2, main='NBinom(5, 0.35)')
+qqline(m1)
+qqnorm(m3, main='Gamma(2, 3)')
+qqline(m1)
+qqnorm(m4, main='Weibull(1, 3)')
+qqline(m1)
+```
+
+En la Figura \@ref(fig:normalidad6) se muestran los cuatro QQplot para cada una de las muestras generadas de las distribuciones indicadas. Se observa claramente que los puntos del QQplot no está alineados, esto es una clara evidencia de que las muestras NO provienen de poblaciones normales. Otro aspecto interesante a resaltar es el patrón de escalera que se observa para las muestras generadas de poblaciones discretas (Poisson y Binomial Negativa).
+
+```{block2, type='rmdwarning'}
+Se debe tener cuidado al concluir con un QQplot, lo que para una persona puede estar alineado, para otra puede no estarlo. El QQplot es un gráfico exploratorio de normalidad.
+```
 
 ### Ejemplo QQplot para peso corporal {-}
 Retomando la base de datos __medidas del cuerpo__ presentada en el Capítulo \@ref(central), se desea saber si el peso corporal, tanto de hombres y mujeres, tiene una distribución normal usando QQplots.
@@ -135,35 +164,27 @@ La Figura \@ref(fig:normalidad5) muestra el QQplot para el peso corporal de homb
 Se debe interpretar con precaución el QQplot, del ejemplo con datos simulados se vió que a pesar de haber generado las muestras de una $N(0,1)$ los QQplot no siempre están perfectamente alineados.
 ```
 
-### Ejemplo 2 QQplot con datos simulados {-}
-Simular 1 muestra aleatoria con $n=50$ de cada una de las siguientes poblaciones Poisson(5), NBinom(5, 0.5), Gamma(2, 3) y Weibull(1, 3), para cada una de las muestras construir el QQplot para explorar la normalidad de las muestras.
+### Ejemplo QQplot con bandas {-}
+Construir QQplot con bandas de confianza para el peso corporal de hombres y mujeres con los datos del ejemplo anterior. ¿Se puede afirma que los pesos corporales provienen de una distribución normal?
 
-Las muestras de cada una de las poblaciones se generan con las funciones `rpois`, `rnbinom`, `rgamma` y `rweibull` especificando los parámetros. A continuación el código necesario para obtener los QQplot solicitados.
+Para construir este tipo de QQplot se usa la función `qqplot` del paquete **car**. A continuación el código para construir el gráfico solicitado.
 
-```{r normalidad6, fig.cap='QQplot para muestras generadas de poblaciones Poisson, Binomial Negativa, Gamma y Weibull.', fig.asp=1, fig.width=6}
-m1 <- rpois(n=50, lambda=5)
-m2 <- rnbinom(n=50, size=5, prob=0.35)
-m3 <- rgamma(n=50, shape=2, scale=3)
-m4 <- rweibull(n=50, shape=1, scale=3)
-par(mfrow=c(2, 2))
-qqnorm(m1, main='Poisson(5)')
-qqline(m1)
-qqnorm(m2, main='NBinom(5, 0.35)')
-qqline(m1)
-qqnorm(m3, main='Gamma(2, 3)')
-qqline(m1)
-qqnorm(m4, main='Weibull(1, 3)')
-qqline(m1)
+```{r normalidad7, fig.cap='QQplot con bandas de confianza para el peso corporal de hombres y mujeres.', fig.asp=0.7, fig.width=8, message=FALSE}
+require(car)
+par(mfrow=c(1, 2))
+qqPlot(pesos$Hombre, pch=20, ylab='Peso (Kg)',
+       main='QQplot para peso de hombres')
+
+qqPlot(pesos$Mujer, pch=20, ylab='Peso (Kg)',
+       main='QQplot para peso de mujeres')
 ```
 
-En la Figura \@ref(fig:normalidad6) se muestran los cuatro QQplot para cada una de las muestras generadas de las distribuciones indicadas. Se observa claramente que los puntos del QQplot no está alineados, esto es una clara evidencia de que las muestras NO provienen de poblaciones normales. Otro aspecto interesante a resaltar es el patrón de escalera que se observa para las muestras generadas de poblaciones discretas (Poisson y Binomial Negativa).
+En la Figura \@ref(fig:normalidad7) se muestra el QQplot solicitado, como los puntos del QQplot están dentro de las bandas se puede aceptar que los pesos corporales provienen de una población normal. 
 
-```{block2, type='rmdwarning'}
-Se debe tener cuidado al concluir con un QQplot, lo que para una persona puede estar alineado, para otra puede no estarlo. El QQplot es un gráfico exploratorio de normalidad.
-```
+La función `qqPlot` tiene varios parámetros adicionales que recomendamos consultar en la ayuda de la función `help(qqPlot)`.
 
 ## Pruebas de normalidad
-Una forma menos subjetiva de explorar la normalidad de un conjunto de datos es por medio de las pruebas de normalidad. Las hipótesis para las pruebas de normalidad son:
+Una forma menos subjetiva de explorar la normalidad de un conjunto de datos es por medio de las pruebas de normalidad. Las hipótesis para este tipo de pruebas son:
 
 \begin{equation}
 \begin{split}
@@ -174,15 +195,15 @@ Una forma menos subjetiva de explorar la normalidad de un conjunto de datos es p
 
 En la literatura estadística se reportan varias pruebas, algunas de ellas se listan a continuación.
 
-1. Prueba Shapiro-Wilk.
-2. Prueba Anderson-Darling (del paquete **nortest**).
-3. Prueba Cramer-von Mises (del paquete **nortest**).
-4. Prueba Lilliefors (Kolmogorov-Smirnov) (del paquete **nortest**).
-5. Prueba Pearson chi-square (del paquete **nortest**).
-6. Prueba Shapiro-Francia (del paquete **nortest**).
+1. Prueba Shapiro-Wilk con la función `shapiro.test`.
+2. Prueba Anderson-Darling con la función `ad.test` del paquete **nortest**.
+3. Prueba Cramer-von Mises con la función `cvm.test` del paquete **nortest**.
+4. Prueba Lilliefors (Kolmogorov-Smirnov) con la función `lillie.test` del paquete **nortest**.
+5. Prueba Pearson chi-square con la función `pearson.test` del paquete **nortest**.
+6. Prueba Shapiro-Francia con la función `sf.test` del paquete **nortest**).
 
-### Ejemplo con datos simulados
-Generar una muestra aleatoria con $n=100$ de una $N(150, 25)$ y aplicar las pruebas Shapiro-Wilk y Anderson-Darling con un nivel de significancia del 3\%.
+### Ejemplo con datos simulados {-}
+Generar una muestra aleatoria con $n=100$ de una $N(150, 25)$ y aplicar las pruebas de normalidad Shapiro-Wilk y Anderson-Darling con un nivel de significancia del 3\%.
 
 Lo primero es generar la muestra aleatoria `x` así:
 ```{r}
@@ -200,17 +221,17 @@ De la salida anterior se tiene que el valor-P para la prueba fue de `r round(sha
 Para aplicar la prueba Anderson-Darling se usa la función `ad.test` al vector `x` así:
 
 ```{r, message=FALSE}
-require(nortest)  # Se debe instalar antes nortest
+require(nortest)  # Se debe haber instalado nortest
 ad.test(x)
 ```
 
 De la salida anterior se tiene que el valor-P para la prueba fue de `r round(ad.test(x)$p.value, 1)` y que es mayor al nivel de significancia 3\%, esto indica que no hay evidencias para rechazar la hipótesis nula de normalidad.
 
 
-### Ejemplo QQplot para peso corporal {-}
-Retomando la base de datos __medidas del cuerpo__ presentada en el Capítulo \@ref(central), se desea saber si el peso corporal, tanto de hombres y mujeres, tiene una distribución normal usando pruebas de normalidad, usar nivel de significancia 5\%.
+### Ejemplo normalidad para peso corporal {-}
+Retomando la base de datos __medidas del cuerpo__ presentada en el Capítulo \@ref(central), se desea saber si el peso corporal, tanto de hombres y mujeres, tiene una distribución normal usando las pruebas normalidad Shapiro-Wilks y Anderson-Darling con un nivel de significancia del 5\%.
 
-Para hacer la exploración lo primero es cargar la base de datos si aún no se ha cargado.
+Lo primero es cargar la base de datos si aún no se ha cargado.
 ```{r}
 url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
 datos <- read.table(file=url, header=T)
@@ -222,11 +243,28 @@ pesos <- split(datos$peso, datos$sexo)
 pesos
 ```
 
-Para aplicar la prueba Shapiro-Wilk se usa la función `shapiro.test` a la lista `pesos` por medio de la función `lapply`, a continuación el código usado.
+Para aplicar la prueba Shapiro-Wilk se usa la función `shapiro.test`. Como el objeto `pesos` es una lista se debe usar la función `lapply` para aplicar `shapiro.test` a la lista, a continuación el código usado.
 ```{r}
 lapply(pesos, shapiro.test)
 ```
 
 De la salida anterior se observa que ambos valores-P fueron mayores al nivel de significancia 5\%, por lo tanto, se puede concluir que ambas muestras provienen de poblaciones con distribución normal.
+
+Para aplicar la prueba Anderson-Darling se usa la función `ad.test` del paquete **nortest**. Como el objeto `pesos` es una lista se debe usar la función `lapply` para aplicar `ad.test` a la lista, a continuación el código usado.
+```{r}
+require(nortest) # Se debe haber instalado nortest
+lapply(pesos, shapiro.test)
+```
+
+De la salida anterior se observa que ambos valores-P fueron mayores al nivel de significancia 5\%, por lo tanto, se puede concluir que ambas muestras provienen de poblaciones con distribución normal.
+
+Al usar las pruebas Shapiro-Wilks y Anderson-Darling se concluye que no hay evidencias para pensar que los pesos corporales de hombres y mujeres no provienen de una población normal.
+
+## EJERCICIOS {-}
+
+1. Para la base de datos __medidas del cuerpo__ presentada en el Capítulo \@ref(central), explorar si la variable estatura, diferenciada por hombres y mujeres, tiene una distribución normal.
+
+
+
 
 
