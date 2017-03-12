@@ -175,10 +175,58 @@ Una forma menos subjetiva de explorar la normalidad de un conjunto de datos es p
 En la literatura estadística se reportan varias pruebas, algunas de ellas se listan a continuación.
 
 1. Prueba Shapiro-Wilk.
-2. Prueba Anderson-Darling.
-3. Prueba Cramer-von Mises.
-4. Prueba 
+2. Prueba Anderson-Darling (del paquete **nortest**).
+3. Prueba Cramer-von Mises (del paquete **nortest**).
+4. Prueba Lilliefors (Kolmogorov-Smirnov) (del paquete **nortest**).
+5. Prueba Pearson chi-square (del paquete **nortest**).
+6. Prueba Shapiro-Francia (del paquete **nortest**).
+
+### Ejemplo con datos simulados
+Generar una muestra aleatoria con $n=100$ de una $N(150, 25)$ y aplicar las pruebas Shapiro-Wilk y Anderson-Darling con un nivel de significancia del 3\%.
+
+Lo primero es generar la muestra aleatoria `x` así:
+```{r}
+x <- rnorm(n=100, mean=150, sd=5)
+```
+
+Para aplicar la prueba Shapiro-Wilk se usa la función `shapiro.test` al vector `x` así:
+
+```{r}
+shapiro.test(x)
+```
+
+De la salida anterior se tiene que el valor-P para la prueba fue de `r round(shapiro.test(x)$p.value, 1)` y que es mayor al nivel de significancia 3\%, lo cual indica que no hay evidencias para rechazar la hipótesis nula de normalidad.
+
+Para aplicar la prueba Anderson-Darling se usa la función `ad.test` al vector `x` así:
+
+```{r, message=FALSE}
+require(nortest)  # Se debe instalar antes nortest
+ad.test(x)
+```
+
+De la salida anterior se tiene que el valor-P para la prueba fue de `r round(ad.test(x)$p.value, 1)` y que es mayor al nivel de significancia 3\%, esto indica que no hay evidencias para rechazar la hipótesis nula de normalidad.
 
 
+### Ejemplo QQplot para peso corporal {-}
+Retomando la base de datos __medidas del cuerpo__ presentada en el Capítulo \@ref(central), se desea saber si el peso corporal, tanto de hombres y mujeres, tiene una distribución normal usando pruebas de normalidad, usar nivel de significancia 5\%.
+
+Para hacer la exploración lo primero es cargar la base de datos si aún no se ha cargado.
+```{r}
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
+datos <- read.table(file=url, header=T)
+```
+
+La variable `peso` del objeto `datos` contiene la información sobre el peso corporal de ambos sexos, debemos entonces partir o dividir esta información diferenciando entre hombres y mujeres, para esto usamos la función `split` de la siguiente forma. 
+```{r}
+pesos <- split(datos$peso, datos$sexo)
+pesos
+```
+
+Para aplicar la prueba Shapiro-Wilk se usa la función `shapiro.test` a la lista `pesos` por medio de la función `lapply`, a continuación el código usado.
+```{r}
+lapply(pesos, shapiro.test)
+```
+
+De la salida anterior se observa que ambos valores-P fueron mayores al nivel de significancia 5\%, por lo tanto, se puede concluir que ambas muestras provienen de poblaciones con distribución normal.
 
 

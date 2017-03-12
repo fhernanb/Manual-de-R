@@ -7739,10 +7739,150 @@ ellas se listan a continuación.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   Prueba Shapiro-Wilk.
 \item
+  Prueba Anderson-Darling (del paquete \textbf{nortest}).
+\item
+  Prueba Cramer-von Mises (del paquete \textbf{nortest}).
+\item
+  Prueba Lilliefors (Kolmogorov-Smirnov) (del paquete \textbf{nortest}).
+\item
+  Prueba Pearson chi-square (del paquete \textbf{nortest}).
+\item
+  Prueba Shapiro-Francia (del paquete \textbf{nortest}).
 \end{enumerate}
+
+\subsection{Ejemplo con datos
+simulados}\label{ejemplo-con-datos-simulados}
+
+Generar una muestra aleatoria con \(n=100\) de una \(N(150, 25)\) y
+aplicar las pruebas Shapiro-Wilk y Anderson-Darling con un nivel de
+significancia del 3\%.
+
+Lo primero es generar la muestra aleatoria \texttt{x} así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{100}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{150}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Para aplicar la prueba Shapiro-Wilk se usa la función
+\texttt{shapiro.test} al vector \texttt{x} así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{shapiro.test}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  x
+## W = 0.98, p-value = 0.2
+\end{verbatim}
+
+De la salida anterior se tiene que el valor-P para la prueba fue de 0.2
+y que es mayor al nivel de significancia 3\%, lo cual indica que no hay
+evidencias para rechazar la hipótesis nula de normalidad.
+
+Para aplicar la prueba Anderson-Darling se usa la función
+\texttt{ad.test} al vector \texttt{x} así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require}\NormalTok{(nortest)  }\CommentTok{# Se debe instalar antes nortest}
+\KeywordTok{ad.test}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Anderson-Darling normality test
+## 
+## data:  x
+## A = 0.6, p-value = 0.1
+\end{verbatim}
+
+De la salida anterior se tiene que el valor-P para la prueba fue de 0.1
+y que es mayor al nivel de significancia 3\%, esto indica que no hay
+evidencias para rechazar la hipótesis nula de normalidad.
+
+\subsection*{Ejemplo QQplot para peso
+corporal}\label{ejemplo-qqplot-para-peso-corporal-1}
+
+
+Retomando la base de datos \textbf{medidas del cuerpo} presentada en el
+Capítulo \ref{central}, se desea saber si el peso corporal, tanto de
+hombres y mujeres, tiene una distribución normal usando pruebas de
+normalidad, usar nivel de significancia 5\%.
+
+Para hacer la exploración lo primero es cargar la base de datos si aún
+no se ha cargado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+La variable \texttt{peso} del objeto \texttt{datos} contiene la
+información sobre el peso corporal de ambos sexos, debemos entonces
+partir o dividir esta información diferenciando entre hombres y mujeres,
+para esto usamos la función \texttt{split} de la siguiente forma.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pesos <-}\StringTok{ }\KeywordTok{split}\NormalTok{(datos$peso, datos$sexo)}
+\NormalTok{pesos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Hombre
+##  [1] 87.3 80.0 82.3 73.6 74.1 85.9 73.2 76.3 65.9 90.9
+## [11] 89.1 62.3 82.7 79.1 98.2 84.1 83.2 83.2
+## 
+## $Mujer
+##  [1] 51.6 59.0 49.2 63.0 53.6 59.0 47.6 69.8 66.8 75.2
+## [11] 55.2 54.2 62.5 42.0 50.0 49.8 49.2 73.2
+\end{verbatim}
+
+Para aplicar la prueba Shapiro-Wilk se usa la función
+\texttt{shapiro.test} a la lista \texttt{pesos} por medio de la función
+\texttt{lapply}, a continuación el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{lapply}\NormalTok{(pesos, shapiro.test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Hombre
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  X[[i]]
+## W = 0.98, p-value = 0.9
+## 
+## 
+## $Mujer
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  X[[i]]
+## W = 0.95, p-value = 0.4
+\end{verbatim}
+
+De la salida anterior se observa que ambos valores-P fueron mayores al
+nivel de significancia 5\%, por lo tanto, se puede concluir que ambas
+muestras provienen de poblaciones con distribución normal.
 
 \chapter{\texorpdfstring{Aproximación de integrales
 \label{aproxint}}{Aproximación de integrales }}\label{aproximacion-de-integrales}
