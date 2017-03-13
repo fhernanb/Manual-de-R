@@ -8461,7 +8461,7 @@ de los hombres, a partir de un qqplot y un histograma
        \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos'}\NormalTok{,}
        \DataTypeTok{ylab=}\StringTok{'Cuantiles muestrales'}\NormalTok{)}
 \KeywordTok{hist}\NormalTok{(hombres$altura, }\DataTypeTok{freq=}\OtherTok{TRUE}\NormalTok{,}
-     \DataTypeTok{main=}\StringTok{'Histograma de altura de hombres'}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{'Histograma para la altura de hombres'}\NormalTok{,}
      \DataTypeTok{xlab=}\StringTok{'Altura (cm)'}\NormalTok{,}
      \DataTypeTok{ylab=}\StringTok{'Frecuencia'}\NormalTok{)}
 \end{Highlighting}
@@ -8474,12 +8474,18 @@ de los hombres, a partir de un qqplot y un histograma
 mujeres.}
 \end{figure}
 
-Al aplicar la prueba Shapiro Wilk a la muestra de alturas de los hombres
-se obtuvo un valor-P de 0.3599
+En la Figura \ref{fig:ic1} se muestra el QQplot e histograma para la
+variable altura, de estas figuras no se observa un claro patrón normal,
+sin embargo, al aplicar la prueba Shapiro-Wilk a la muestra de alturas
+de los hombres se obtuvo un valor-P de 0.3599, por lo tanto se asume que
+la muestra de alturas provienen de una población normal.
 
-Posterior a la descripción de la variable se usa la función
-\texttt{t.test} sobre la variable de interés: altura de los hombres. A
-continuación se muestra el código
+Una vez chequeado el supuesto de normalidad se puede usar la función
+\texttt{t.test} sobre la variable de interés para construir el intervalo
+de confianza. El resultado de usar\texttt{t.test} es una lista, uno de
+los elementos de esa lista es justamente el intevalo de confianza y para
+extraerlo es que se usa \texttt{\$conf.int} al final de la instrucción.
+A continuación se muestra el código utilizado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8495,7 +8501,7 @@ continuación se muestra el código
 
 A partir del resultado obtenido se puede concluir, con un nivel de
 confianza del 90\%, que la altura promedio de los estudiantes hombres se
-encuentra entre 176.438 cm y 181.7172 cm.
+encuentra entre 176.4 cm y 181.7 cm.
 
 \subsection{Intervalo de confianza bilateral para la diferencia de
 medias de muestras
@@ -8503,13 +8509,24 @@ independientes}\label{intervalo-de-confianza-bilateral-para-la-diferencia-de-med
 
 Para calcular intervalos de confianza bilaterales para la diferencia de
 medias de muestras independientes a partir de la función \texttt{t.test}
-es necesario definir 5 argumentos: \texttt{x} considera la variable de
-interés en la muestra 1, \texttt{y} la variable de interés en la muestra
-2, \texttt{paired\ =\ FALSE} indica que el intervalo de confianza se
-hará para muestras independientes, en el caso de que sean dependientes
-este argumento será \texttt{paired\ =\ TRUE},
-\texttt{var.equal\ =\ FALSE} indica que las varianzas son desconocidas y
-diferentes y \texttt{conf.level} corresponde al nivel de confianza.
+es necesario definir 5 argumentos:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x} considera la variable de interés en la muestra 1,
+\item
+  \texttt{y} la variable de interés en la muestra 2,
+\item
+  \texttt{paired\ =\ FALSE} indica que el intervalo de confianza se hará
+  para muestras independientes, en el caso de que sean dependientes este
+  argumento será \texttt{paired\ =\ TRUE},
+\item
+  \texttt{var.equal\ =\ FALSE} indica que las varianzas son desconocidas
+  y diferentes y
+\item
+  \texttt{conf.level} corresponde al nivel de confianza.
+\end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-54}
 
@@ -8577,7 +8594,9 @@ las mujeres. A continuación se muestra el código
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x =} \NormalTok{hombres$altura, }\DataTypeTok{y =} \NormalTok{mujeres$altura, }\DataTypeTok{paired=}\OtherTok{FALSE}\NormalTok{,   }\DataTypeTok{var.equal=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)$conf.int}
+\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{hombres$altura, }\DataTypeTok{y=}\NormalTok{mujeres$altura,}
+       \DataTypeTok{paired=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{var.equal=}\OtherTok{FALSE}\NormalTok{,}
+       \DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)$conf.int}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8653,8 +8672,10 @@ objeto \texttt{Diferencia}, como sigue a continuación:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{Antes   <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{81}\NormalTok{, }\DecValTok{87}\NormalTok{, }\DecValTok{86}\NormalTok{, }\DecValTok{82}\NormalTok{, }\DecValTok{90}\NormalTok{, }\DecValTok{86}\NormalTok{, }\DecValTok{96}\NormalTok{, }\DecValTok{73}\NormalTok{, }\DecValTok{74}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{72}\NormalTok{, }\DecValTok{80}\NormalTok{, }\DecValTok{66}\NormalTok{, }\DecValTok{72}\NormalTok{, }\DecValTok{56}\NormalTok{, }\DecValTok{82}\NormalTok{)}
-\NormalTok{Despues <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{78}\NormalTok{, }\DecValTok{91}\NormalTok{, }\DecValTok{78}\NormalTok{, }\DecValTok{78}\NormalTok{, }\DecValTok{84}\NormalTok{, }\DecValTok{67}\NormalTok{, }\DecValTok{92}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{58}\NormalTok{, }\DecValTok{62}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{58}\NormalTok{, }\DecValTok{66}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{73}\NormalTok{)}
+\NormalTok{Antes   <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{81}\NormalTok{, }\DecValTok{87}\NormalTok{, }\DecValTok{86}\NormalTok{, }\DecValTok{82}\NormalTok{, }\DecValTok{90}\NormalTok{, }\DecValTok{86}\NormalTok{, }\DecValTok{96}\NormalTok{, }\DecValTok{73}\NormalTok{,}
+             \DecValTok{74}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{72}\NormalTok{, }\DecValTok{80}\NormalTok{, }\DecValTok{66}\NormalTok{, }\DecValTok{72}\NormalTok{, }\DecValTok{56}\NormalTok{, }\DecValTok{82}\NormalTok{)}
+\NormalTok{Despues <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{78}\NormalTok{, }\DecValTok{91}\NormalTok{, }\DecValTok{78}\NormalTok{, }\DecValTok{78}\NormalTok{, }\DecValTok{84}\NormalTok{, }\DecValTok{67}\NormalTok{, }\DecValTok{92}\NormalTok{, }\DecValTok{70}\NormalTok{,}
+             \DecValTok{58}\NormalTok{, }\DecValTok{62}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{58}\NormalTok{, }\DecValTok{66}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{73}\NormalTok{)}
 \NormalTok{Diferencia <-}\StringTok{ }\NormalTok{Antes -}\StringTok{ }\NormalTok{Despues}
 \end{Highlighting}
 \end{Shaded}
@@ -8695,7 +8716,7 @@ A continuación se muestra el código
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x =} \NormalTok{Antes, }\DataTypeTok{y =} \NormalTok{Despues, }\DataTypeTok{paired=}\OtherTok{TRUE}\NormalTok{,  }\DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)$conf.int}
+\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Antes, }\DataTypeTok{y=}\NormalTok{Despues, }\DataTypeTok{paired=}\OtherTok{TRUE}\NormalTok{,  }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)$conf.int}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8730,7 +8751,9 @@ de confianza unilateral superior del \(90\%\) para la media
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{18}\NormalTok{, }\DataTypeTok{sd =}\DecValTok{3}\NormalTok{), }\DataTypeTok{alternative =} \StringTok{"greater"}\NormalTok{, }\DataTypeTok{conf.level =} \FloatTok{0.90}\NormalTok{)$conf.int}
+\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{18}\NormalTok{, }\DataTypeTok{sd =}\DecValTok{3}\NormalTok{),}
+       \DataTypeTok{alternative =} \StringTok{"greater"}\NormalTok{,}
+       \DataTypeTok{conf.level =} \FloatTok{0.90}\NormalTok{)$conf.int}
 \end{Highlighting}
 \end{Shaded}
 

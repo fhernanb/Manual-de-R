@@ -49,24 +49,30 @@ qqPlot(hombres$altura, pch=19,
        xlab='Cuantiles teóricos',
        ylab='Cuantiles muestrales')
 hist(hombres$altura, freq=TRUE,
-     main='Histograma de altura de hombres',
+     main='Histograma para la altura de hombres',
      xlab='Altura (cm)',
      ylab='Frecuencia')
 ```
 
-Al aplicar la prueba Shapiro Wilk a la muestra de alturas de los hombres se obtuvo un valor-P de `r round(shapiro.test(hombres$altura)$p.value, 4)`
+En la Figura \@ref(fig:ic1) se muestra el QQplot e histograma para la variable altura, de estas figuras no se observa un claro patrón normal, sin embargo, al aplicar la prueba Shapiro-Wilk a la muestra de alturas de los hombres se obtuvo un valor-P de `r round(shapiro.test(hombres$altura)$p.value, 4)`, por lo tanto se asume que la muestra de alturas provienen de una población normal.
 
-Posterior a la descripción de la variable se usa la función `t.test` sobre la variable de interés: altura de los hombres. A continuación se muestra el código
+Una vez chequeado el supuesto de normalidad se puede usar la función `t.test` sobre la variable de interés para construir el intervalo de confianza. El resultado de usar`t.test` es una lista, uno de los elementos de esa lista es justamente el intevalo de confianza y para extraerlo es que se usa `$conf.int`  al final de la instrucción. A continuación se muestra el código utilizado.
  
 ```{r}
 t.test(x=hombres$altura, conf.level=0.90)$conf.int
 ```
 
-A partir del resultado obtenido se puede concluir, con un nivel de confianza del 90%, que la altura promedio de los estudiantes hombres se encuentra entre 176.438 cm y 181.7172 cm. 
+A partir del resultado obtenido se puede concluir, con un nivel de confianza del 90%, que la altura promedio de los estudiantes hombres se encuentra entre 176.4 cm y 181.7 cm. 
 
 ### Intervalo de confianza bilateral para la diferencia de medias de muestras independientes 
 
-Para calcular intervalos de confianza bilaterales para la diferencia de medias de muestras independientes a partir de la función `t.test` es necesario definir 5 argumentos: `x` considera la variable de interés en la muestra 1, `y` la variable de interés en la muestra 2, `paired = FALSE` indica que el intervalo de confianza se hará para muestras independientes, en el caso de que sean dependientes este argumento será `paired = TRUE`, `var.equal = FALSE` indica que las varianzas son desconocidas y diferentes y `conf.level` corresponde al nivel de confianza. 
+Para calcular intervalos de confianza bilaterales para la diferencia de medias de muestras independientes a partir de la función `t.test` es necesario definir 5 argumentos:
+
+- `x` considera la variable de interés en la muestra 1,
+- `y` la variable de interés en la muestra 2,
+- `paired = FALSE` indica que el intervalo de confianza se hará para muestras independientes, en el caso de que sean dependientes este argumento será `paired = TRUE`,
+- `var.equal = FALSE` indica que las varianzas son desconocidas y diferentes y
+- `conf.level` corresponde al nivel de confianza. 
 
 ### Ejemplo {-}
 Se quiere saber si existe diferencia estadísticamente significativa entre las alturas de los hombres y las mujeres, para lo cual es necesario obtener un intervalo de confianza del $95\%$ para la diferencia de las altura promedio de los hombres y de las mujeres. 
@@ -110,7 +116,9 @@ De los gráficos observados se puede concluir que las alturas de los estudiantes
 Posterior a la descripción de la variable se usa la función `t.test` sobre la variable de interés: altura de los hombres y de las mujeres. A continuación se muestra el código
  
 ```{r}
-t.test(x = hombres$altura, y = mujeres$altura, paired=FALSE,   var.equal=FALSE, conf.level = 0.95)$conf.int
+t.test(x=hombres$altura, y=mujeres$altura,
+       paired=FALSE, var.equal=FALSE,
+       conf.level = 0.95)$conf.int
 ```
 
 A partir del resultado obtenido se puede concluir, con un nivel de confianza del $95\%$, que la altura promedio de los estudiantes hombres es superior a la de las mujeres ya que el intervalo de confianza no incluye el cero y por ser positivos sus limites se puede afirmar con un nivel de confianza del $95\%$ que $\mu_1 > \mu_2$.
@@ -139,8 +147,10 @@ Los desórdenes musculoesqueléticos del cuello y hombro son comunes entre emple
 Para calcular el intervalo de confianza, primero se crean dos subconjuntos de datos y se alojan en los objetos `Antes` y `Despues` y luego se calcula la diferencia y se aloja en el objeto `Diferencia`, como sigue a continuación:
 
 ```{r}
-Antes   <- c(81, 87, 86, 82, 90, 86, 96, 73, 74, 75, 72, 80, 66, 72, 56, 82)
-Despues <- c(78, 91, 78, 78, 84, 67, 92, 70, 58, 62, 70, 58, 66, 60, 65, 73)
+Antes   <- c(81, 87, 86, 82, 90, 86, 96, 73,
+             74, 75, 72, 80, 66, 72, 56, 82)
+Despues <- c(78, 91, 78, 78, 84, 67, 92, 70,
+             58, 62, 70, 58, 66, 60, 65, 73)
 Diferencia <- Antes - Despues
 ```
 
@@ -164,7 +174,7 @@ De los gráficos se observa que la diferencia de los tiempos sigue una distribuc
 Posterior a la descripción de la variable se usa la función `t.test` sobre la variable de interés: diferencia de los tiempos. A continuación se muestra el código
  
 ```{r}
-t.test(x = Antes, y = Despues, paired=TRUE,  conf.level = 0.95)$conf.int
+t.test(x=Antes, y=Despues, paired=TRUE,  conf.level=0.95)$conf.int
 ```
 
 A partir del resultado obtenido se puede concluir, con un nivel de confianza del $95\%$, que el tiempo promedio verdadero durante el cual la elevación es de menos de $30°$ luego del cambio difiere de lo que era antes del mismo. Los valores del intervalo de confianza, $2.362371< \mu_D < 11.137629$,  indican que $\mu_D>0$, es decir $\mu_Antes - \mu_Despues>0$ y por lo tanto $\mu_Antes > \mu_Despues$.
@@ -178,7 +188,9 @@ En la función `t.test`, el argumento `x` indica la variable de interés para la
 Simule una muestra aleatoria de una $N(18, 3)$  y calcule un intervalo de confianza unilateral superior del $90\%$ para la media
  
 ```{r}
-t.test(x = rnorm(50, mean = 18, sd =3), alternative = "greater", conf.level = 0.90)$conf.int
+t.test(x = rnorm(50, mean = 18, sd =3),
+       alternative = "greater",
+       conf.level = 0.90)$conf.int
 ```
 
 A partir del resultado obtenido se puede concluir, con un nivel de confianza del $90\%$, que el valor promedio de la variable de interés queda en el intervalo $(17. 1162, \infty)$. 
