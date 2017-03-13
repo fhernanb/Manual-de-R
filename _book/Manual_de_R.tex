@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-03-12}
+\date{2017-03-13}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -2862,6 +2862,305 @@ condiciones.
   Autos que pesen más de 2500 libras y tengan transmisión manual.
 \end{enumerate}
 
+\chapter{\texorpdfstring{Instrucciones de control
+\label{bucles}}{Instrucciones de control }}\label{instrucciones-de-control}
+
+En \proglang{R} se disponen de varias instrucciones de control para
+facilitar los procedimientos que un usuario debe realizar. A
+continuación se explican esas instrucciones de control.
+
+\section{\texorpdfstring{Instrucción \texttt{if}
+\index{if}}{Instrucción if }}\label{instruccion-if}
+
+Esta instrucción sirve para realizar un conjunto de operaciones
+\textbf{si} se cumple cierta condición. A continuación se muestra la
+estructura básica de uso.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{if (condicion) \{}
+  \NormalTok{operación }\DecValTok{1}
+  \NormalTok{operación }\DecValTok{2}
+  \NormalTok{...}
+  \NormalTok{operación final}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Ejemplo}\label{ejemplo-15}
+
+
+Una secretaria recibe la información del salario básico semanal de un
+empleado y las horas trabajadas durante la semana por ese empleado. El
+salario básico es la remuneración por 40 horas de labor por semana, las
+horas extra son pagadas a ciencuenta mil pesos. Escriba el procedimiento
+en \proglang{R} que debe usar la secretaria para calcular el salario
+semanal de un empleado que trabajó 45 horas y tiene salario básico de un
+millon de pesos.
+
+El código para calcular el salario final del empleado es el siguiente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sal <-}\StringTok{ }\DecValTok{1}  \CommentTok{# Salario básico por semana}
+\NormalTok{hlab <-}\StringTok{ }\DecValTok{45}   \CommentTok{# Horas laboradas por semana}
+
+\NormalTok{if(hlab >}\StringTok{ }\DecValTok{40}\NormalTok{) \{}
+  \NormalTok{hext <-}\StringTok{ }\NormalTok{hlab -}\StringTok{ }\DecValTok{40}
+  \NormalTok{salext <-}\StringTok{ }\NormalTok{hext *}\StringTok{ }\FloatTok{0.05}
+  \NormalTok{sal <-}\StringTok{ }\NormalTok{sal +}\StringTok{ }\NormalTok{salext}
+\NormalTok{\}}
+
+\NormalTok{sal  }\CommentTok{# Salario semanal}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.25
+\end{verbatim}
+
+\section{\texorpdfstring{Instrucción \texttt{if} \texttt{else}
+\index{else}}{Instrucción if else }}\label{instruccion-if-else}
+
+Esta instrucción sirve para realizar un conjunto de operaciones cuando
+\textbf{NO} se cumple cierta condición evaluada por un \texttt{if}. A
+continuación se muestra la estructura básica de uso.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{if (condicion) \{}
+  \NormalTok{operación }\DecValTok{1}
+  \NormalTok{operación }\DecValTok{2}
+  \NormalTok{...}
+  \NormalTok{operación final}
+\NormalTok{\}}
+\NormalTok{else \{}
+  \NormalTok{operación }\DecValTok{1}
+  \NormalTok{operación }\DecValTok{2}
+  \NormalTok{...}
+  \NormalTok{operación final}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{\texorpdfstring{Instrucción \texttt{ifelse}
+\index{ifelse}}{Instrucción ifelse }}\label{instruccion-ifelse}
+
+Se recomienda usar la instrucción \texttt{ifelse} cuando hay una sola
+instrucción para el caso \texttt{if} y para el caso \texttt{else}. A
+continuación se muestra la estructura básica de uso.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ifelse}\NormalTok{(condición, operación SI cumple, operación NO cumple)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Ejemplo}\label{ejemplo-16}
+
+
+Suponga que usted recibe un vector de números enteros, escriba un
+procedimiento que diga si cada elemento del vector es par o impar.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{8}\NormalTok{, -}\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+
+\KeywordTok{ifelse}\NormalTok{(x %%}\StringTok{ }\DecValTok{2} \NormalTok{==}\StringTok{ }\DecValTok{0}\NormalTok{, }\StringTok{'Es par'}\NormalTok{, }\StringTok{'Es impar'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Es impar" "Es impar" "Es par"   "Es par"  
+## [5] "Es par"   "Es impar"
+\end{verbatim}
+
+\section{\texorpdfstring{Instrucción \texttt{for}
+\index{for}}{Instrucción for }}\label{instruccion-for}
+
+La instrucción \texttt{for} es muy útil para repetir un procedimiento
+cierta cantidad de veces. A continuación se muestra la estructura básica
+de uso.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{for (i in secuencia) \{}
+  \NormalTok{operación }\DecValTok{1}
+  \NormalTok{operación }\DecValTok{2}
+  \NormalTok{...}
+  \NormalTok{operación final}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Ejemplo}\label{ejemplo-17}
+
+
+Escriba un procedimiento para crear 10 muestras de tamaño 100 de una
+distribución uniforme entre uno y tres. Para cada una de las muestra, se
+debe contar el número de elementos de la muestra que fueron mayores o
+iguales a 2.5.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nrep <-}\StringTok{ }\DecValTok{10}  \CommentTok{# Número de repeticiones}
+\NormalTok{n <-}\StringTok{ }\DecValTok{100}    \CommentTok{# Tamaño de la muestra}
+\NormalTok{conteo <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(nrep)  }\CommentTok{# Vector para almacenar el conteo}
+
+\NormalTok{for (i in }\DecValTok{1}\NormalTok{:nrep) \{}
+  \NormalTok{x <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{n=}\NormalTok{n, }\DataTypeTok{min=}\DecValTok{1}\NormalTok{, }\DataTypeTok{max=}\DecValTok{3}\NormalTok{)}
+  \NormalTok{conteo[i] <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x >=}\StringTok{ }\FloatTok{2.5}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{conteo  }\CommentTok{# Para obtener el conteo}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 24 37 28 26 30 18 29 23 19 19
+\end{verbatim}
+
+\section{\texorpdfstring{Instrucción \texttt{while}
+\index{while}}{Instrucción while }}\label{instruccion-while}
+
+La instrucción \texttt{while} es muy útil para repetir un procedimiento
+siempre que se cumple una condición. A continuación se muestra la
+estructura básica de uso.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{while (condición) \{}
+  \NormalTok{operación }\DecValTok{1}
+  \NormalTok{operación }\DecValTok{2}
+  \NormalTok{...}
+  \NormalTok{operación final}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Ejemplo}\label{ejemplo-18}
+
+
+Suponga que se lanza una moneda en la cual el resultado es cara o sello.
+Escribir un procedimiento que simule lanzamientos hasta que el número de
+caras obtenidas sea 5. El procedimiento debe entregar el historial de
+lanzamientos.
+
+Para simular el lanzamiento de \textbf{una} moneda se puede usar la
+función \texttt{sample} y definiendo el vector \texttt{resultados} con
+\texttt{size=1} para simular un lanzamiento, a continuación el código y
+tres pruebas ilustrativas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{resultados <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'Cara'}\NormalTok{, }\StringTok{'Sello'}\NormalTok{)}
+\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x=}\NormalTok{resultados, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{)  }\CommentTok{# Prueba 1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Cara"
+\end{verbatim}
+
+Una vez seamos capaces de simular un lanzamiento podemos escribir el
+procedimiento para generar tantos lanzamientos hasta que se cumpla la
+condición. El código mostrado abajo permite hacer lo solicitado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{num.lanza <-}\StringTok{ }\DecValTok{0}     \CommentTok{# Contador de lanzamientos}
+\NormalTok{num.caras <-}\StringTok{ }\DecValTok{0}     \CommentTok{# Contados de caras obtenidas}
+\NormalTok{historial <-}\StringTok{ }\OtherTok{NULL}  \CommentTok{# Vector vacío para almacenar}
+
+\NormalTok{while (num.caras <}\StringTok{ }\DecValTok{5}\NormalTok{) \{}
+  \NormalTok{res <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x=}\NormalTok{resultados, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{)}
+  \NormalTok{num.lanza <-}\StringTok{ }\NormalTok{num.lanza +}\StringTok{ }\DecValTok{1}
+  \NormalTok{historial[num.lanza] <-}\StringTok{ }\NormalTok{res}
+  \NormalTok{if (res ==}\StringTok{ 'Cara'}\NormalTok{) \{}
+    \NormalTok{num.caras <-}\StringTok{ }\NormalTok{num.caras +}\StringTok{ }\DecValTok{1}
+  \NormalTok{\}}
+\NormalTok{\}}
+
+\NormalTok{historial}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Cara"  "Sello" "Sello" "Sello" "Cara"  "Sello"
+##  [7] "Sello" "Cara"  "Sello" "Sello" "Cara"  "Sello"
+## [13] "Cara"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{num.lanza}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 13
+\end{verbatim}
+
+\BeginKnitrBlock{rmdnote}
+La instrucción \texttt{for} se usa cuando sabemos el número de veces que
+se debe repetir el procedimiento, mientras que la instrucción
+\texttt{while} se usa cuando debemos repetir un procedimiento cuando se
+cumpla una condición.
+\EndKnitrBlock{rmdnote}
+
+\section{\texorpdfstring{Instrucción \texttt{repeat}
+\index{repeat}}{Instrucción repeat }}\label{instruccion-repeat}
+
+La instrucción \texttt{while} es muy útil para repetir un procedimiento
+siempre que se cumple una condición. A continuación se muestra la
+estructura básica de uso.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{repeat \{}
+  \NormalTok{operación }\DecValTok{1}
+  \NormalTok{operación }\DecValTok{2}
+  \NormalTok{...}
+  \NormalTok{operación final}
+  \NormalTok{if (condición) break}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Ejemplo}\label{ejemplo-19}
+
+
+Escribir un procedimiento para ir aumentando de uno en uno el valor de
+\texttt{x} hasta que \texttt{x} sea igual a siete El procedimiento debe
+imprimir por pantalla la secuencia de valores de \texttt{x}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\DecValTok{3}  \CommentTok{# Valor de inicio}
+
+\NormalTok{repeat \{}
+   \KeywordTok{print}\NormalTok{(x)}
+   \NormalTok{x <-}\StringTok{  }\NormalTok{x +}\StringTok{ }\DecValTok{1}
+   \NormalTok{if (x ==}\StringTok{ }\DecValTok{8}\NormalTok{) \{}
+     \NormalTok{break}
+   \NormalTok{\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+\end{verbatim}
+
+\BeginKnitrBlock{rmdtip}
+La instrucción \texttt{break} sirve para salir de un procedimiento
+iterativo.
+\EndKnitrBlock{rmdtip}
+
 \chapter{\texorpdfstring{Creación de funciones en \proglang{R}
 \label{creafun}}{Creación de funciones en  }}\label{creacion-de-funciones-en}
 
@@ -2928,7 +3227,7 @@ Las partes de una función son:
 A continuación se mostrarán varios ejemplos \textbf{sencillos} para que
 el lector aprenda a construir funciones.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Construir una función que reciba dos números y que entregue la suma de
@@ -3004,7 +3303,7 @@ continuación se muestra el código para reescribir la función.
 ## [1] 10
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Construir una función que genere números aleatorios entre cero y uno
@@ -3043,7 +3342,7 @@ solicitado. A continuación el código de la función.
 ## [1] 8
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Construir una función que, dado un número entero positivo (cota)
@@ -3086,13 +3385,13 @@ Probando la función con cota de uno.
 
 \begin{verbatim}
 ## $vector
-## [1] 0.001137 0.391203 0.462495 0.388144
+## [1] 0.7704 0.6568
 ## 
 ## $suma
-## [1] 1.243
+## [1] 1.427
 ## 
 ## $cantidad
-## [1] 4
+## [1] 2
 \end{verbatim}
 
 Probando la función con cota de tres.
@@ -3105,16 +3404,16 @@ Probando la función con cota de tres.
 
 \begin{verbatim}
 ## $vector
-## [1] 0.4025 0.1790 0.9517 0.4537 0.3268 0.9654
+## [1] 0.5174 0.7786 0.6926 0.8071 0.2143
 ## 
 ## $suma
-## [1] 3.279
+## [1] 3.01
 ## 
 ## $cantidad
-## [1] 6
+## [1] 5
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Construya una función que reciba dos números de la recta real y que
@@ -3216,7 +3515,99 @@ Nota: no puede usar la función \texttt{mean(\ )}.
   Construya una función a la cual le ingrese el salario por hora y el
   número de horas trabajadas durante una semana por un trabajador. La
   función debe calcular el salario neto.
+\item
+  Construya una función llamada \texttt{precio} que calcule el precio
+  total de sacar A fotocopias y B impresiones, sabiendo que los precios
+  son 50 y 100 pesos para A y B respectivamente si el cliente es un
+  estudiante, y de 75 y 150 para A y B si el cliente es un profesor. La
+  función debe tener dos argumentos cuantitativos (\texttt{A} y
+  \texttt{B}) y el argumento lógico \texttt{estudiante} que por defecto
+  tenga el valor de \texttt{TRUE}. Use la estructura mostrada abajo.
 \end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{precio <-}\StringTok{ }\NormalTok{function(A, B, }\DataTypeTok{estudiante=}\OtherTok{TRUE}\NormalTok{) \{}
+  \NormalTok{...}
+  \NormalTok{...}
+  \NormalTok{...}
+  \KeywordTok{return}\NormalTok{(precio.total)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  Construya una función llamada \texttt{salario} que le ingrese el
+  salario por hora y el número de horas trabajadas durante una semana
+  por un trabajador. La función debe calcular el salario neto semanal,
+  teniendo en cuenta que si el número de horas trabajadas durante la
+  semana es mayor de 48, esas horas de demás se consideran horas extras
+  y tienen un 35\% de recargo. Imprima el salario neto. Use la
+  estructura mostrada abajo.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{salario <-}\StringTok{ }\NormalTok{function(num.horas, valor.hora) \{}
+  \NormalTok{...}
+  \NormalTok{...}
+  \NormalTok{...}
+  \KeywordTok{return}\NormalTok{(salario.neto)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  Construya una función llamada \texttt{nota} que calcule la nota
+  obtenida por un alumno en una evaluación de tres puntos cuya
+  ponderación o importancia son 20\%, 30\% y 50\% para los puntos I, II
+  y III respectivamente. Adicionalmente la función debe generar un
+  mensaje sobre si el estudiante aprobó la evaluación o no. El usuario
+  debe ingresar las notas individuales de los tres puntos y la función
+  debe entregar la nota final de la evaluación. Use la estructura
+  mostrada abajo.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nota <-}\StringTok{ }\NormalTok{function(p1, p2, p3) \{}
+  \NormalTok{...}
+  \NormalTok{...}
+  \NormalTok{...}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{10}
+\tightlist
+\item
+  Escriba una función llamada \texttt{minimo} que permita obtener el
+  valor mínimo de un vector numérico. No puede usar ninguna de las
+  funciones básicas de R como \texttt{which.min()},
+  \texttt{which.max()}, \texttt{order()}, \texttt{min(\ )},
+  \texttt{max(\ )}, \texttt{sort(\ )} u \texttt{order(\ )}. Use la
+  estructura mostrada abajo.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{minimo <-}\StringTok{ }\NormalTok{function(x) \{}
+  \NormalTok{...}
+  \NormalTok{...}
+  \KeywordTok{return}\NormalTok{(minimo)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \chapter{\texorpdfstring{Lectura de bases de datos
 \index{lectura de bases de datos}
@@ -3377,7 +3768,7 @@ Los argumentos de la función \texttt{read.table} son:
   \texttt{dec}: símbolo con el cual están indicados los decimales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Crear la base de datos del Cuadro \ref{tab:dt1} en Excel y bloc de notas
@@ -3468,7 +3859,7 @@ Un error frecuente es escribir la dirección o ubicación del archivo
 usando \texttt{\textbackslash{}}, lo correcto es usar \texttt{/}.
 \EndKnitrBlock{rmdwarning}
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Leer la base de datos sobre apartamentos usados en la ciudad de Medellín
@@ -3496,7 +3887,7 @@ estos casos se recomienda usar el paquete \textbf{readxl}\index{readxl}
 \citep{R-readxl} y en particular la función \texttt{readxl}. A
 continuación un ejemplo de cómo proceder en estos casos.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 En este
@@ -3924,7 +4315,7 @@ la función es la siguiente.
   globales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Obtener las tablas \texttt{tabla3} y \texttt{tabla4} con los totales
@@ -4006,7 +4397,7 @@ Los parámetros de la función son:
   representación gráfica llamada histograma.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Genere 200 observaciones aleatorias de una distribución normal con media
@@ -4035,10 +4426,10 @@ continuación el código utilizado.
 ## [1] 155 160 165 170 175 180 185
 ## 
 ## $counts
-## [1]  6 17 67 83 26  1
+## [1]  4 31 61 70 26  8
 ## 
 ## $density
-## [1] 0.006 0.017 0.067 0.083 0.026 0.001
+## [1] 0.004 0.031 0.061 0.070 0.026 0.008
 ## 
 ## $mids
 ## [1] 157.5 162.5 167.5 172.5 177.5 182.5
@@ -4077,10 +4468,10 @@ continuación.
 ## [1] 150 170 180 190
 ## 
 ## $counts
-## [1]  90 109   1
+## [1] 96 96  8
 ## 
 ## $density
-## [1] 0.0225 0.0545 0.0005
+## [1] 0.024 0.048 0.004
 ## 
 ## $mids
 ## [1] 160 175 185
@@ -4095,7 +4486,7 @@ continuación.
 ## [1] "histogram"
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Construya el vector \texttt{x} con los siguientes elementos: 1.0, 1.2,
@@ -4286,7 +4677,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-30}
 
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
@@ -4307,7 +4698,7 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-31}
 
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
@@ -4339,7 +4730,7 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-32}
 
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
@@ -4398,7 +4789,7 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-28}
+\subsection*{Ejemplo}\label{ejemplo-33}
 
 
 Calcular la edad mediana para los estudiantes de la base de datos.
@@ -4438,7 +4829,7 @@ La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-29}
+\subsection*{Ejemplo}\label{ejemplo-34}
 
 
 Calcular la moda para la variable edad de la base de datos de
@@ -4583,7 +4974,7 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-30}
+\subsection*{Ejemplo}\label{ejemplo-35}
 
 
 Suponga que queremos obtener el rango para la variable precio de los
@@ -4615,7 +5006,7 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-31}
+\subsection*{Ejemplo}\label{ejemplo-36}
 
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
@@ -4668,7 +5059,7 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-32}
+\subsection*{Ejemplo}\label{ejemplo-37}
 
 
 Suponga que queremos obtener la desviación estándar muestral para la
@@ -4686,7 +5077,7 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-33}
+\subsection*{Ejemplo}\label{ejemplo-38}
 
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
@@ -4742,7 +5133,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-34}
+\subsection*{Ejemplo}\label{ejemplo-39}
 
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
@@ -4790,7 +5181,7 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-35}
+\subsection*{Ejemplo}\label{ejemplo-40}
 
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
@@ -4839,7 +5230,7 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-36}
+\subsection*{Ejemplo}\label{ejemplo-41}
 
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
@@ -4936,7 +5327,7 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-37}
+\subsection*{Ejemplo}\label{ejemplo-42}
 
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
@@ -4998,7 +5389,7 @@ Los parámetos de la función son:
   \texttt{kendall} y \texttt{spearman}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-38}
+\subsection*{Ejemplo}\label{ejemplo-43}
 
 
 Calcular el coeficiente de correlación de Pearson para las variables
@@ -5043,7 +5434,7 @@ A continuación el código para generar la Figura \ref{fig:disp}.
 los apartamentos usados.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-39}
+\subsection*{Ejemplo}\label{ejemplo-44}
 
 
 Para las mismas variables del ejemplo anterior calcular los coeficientes
@@ -5081,7 +5472,7 @@ A continuación el código para obtener lo solicitado.
 ## [1] 0.8603
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-40}
+\subsection*{Ejemplo}\label{ejemplo-45}
 
 
 Para la base de datos de apartamentos usados, ¿cuáles de las variables
@@ -5178,7 +5569,7 @@ conocer las diferentes posibilidades recomendamos consultar este enlace:
 \url{https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html}.
 \EndKnitrBlock{rmdtip}
 
-\subsection*{Ejemplo}\label{ejemplo-41}
+\subsection*{Ejemplo}\label{ejemplo-46}
 
 
 Construya dos vectores hipotéticos con el gasto y ahorro de un grupo de
@@ -5423,10 +5814,10 @@ la tabla de frecuencias relativas, a continuación el código usado.
 \end{Shaded}
 
 \begin{verbatim}
-##   [1] 1 1 3 5 1 1 2 2 0 3 1 0 2 0 3 2 0 3 3 0 2 1 4 1 0
-##  [26] 4 4 3 1 1 3 2 2 4 1 2 0 2 4 1 3 2 1 2 1 3 1 1 1 3
-##  [51] 2 1 1 3 3 2 0 1 1 1 2 1 2 0 3 2 3 3 3 6 2 2 1 2 3
-##  [76] 3 3 1 3 3 4 2 3 0 2 1 3 3 1 1 2 1 2 1 1 0 3 3 1 3
+##   [1] 4 1 3 4 2 3 1 0 3 2 1 4 1 1 1 3 0 5 0 3 5 3 2 3 1
+##  [26] 1 2 4 1 3 2 2 3 2 2 3 2 3 0 2 2 2 1 1 3 1 1 1 1 1
+##  [51] 1 1 1 3 1 2 4 4 7 2 4 0 1 2 1 1 2 3 2 1 3 1 1 2 3
+##  [76] 5 1 5 0 1 2 1 4 1 1 2 1 2 0 2 2 3 3 0 1 1 3 2 3 0
 \end{verbatim}
 
 \begin{Shaded}
@@ -5437,8 +5828,8 @@ la tabla de frecuencias relativas, a continuación el código usado.
 
 \begin{verbatim}
 ## m
-##    0    1    2    3    4    5    6 
-## 0.11 0.31 0.23 0.27 0.06 0.01 0.01
+##    0    1    2    3    4    5    7 
+## 0.09 0.34 0.24 0.20 0.08 0.04 0.01
 \end{verbatim}
 
 A pesar de ser una muestra aleatoria de sólo 100 observaciones, se
@@ -5696,7 +6087,7 @@ anteriormente, en esos casos, es posible manejar ese tipo de variables
 por medio de unas funciones básicas de \proglang{R} como se muestra en
 el siguiente ejemplo.
 
-\subsection*{Ejemplo}\label{ejemplo-42}
+\subsection*{Ejemplo}\label{ejemplo-47}
 
 
 El cangrejo de herradura hembra se caracteriza porque a su caparazón se
@@ -6291,7 +6682,7 @@ anteriormente, en esos casos, es posible manejar ese tipo de variables
 por medio de unas funciones básicas de \proglang{R} como se muestra en
 el siguiente ejemplo.
 
-\subsection*{Ejemplo}\label{ejemplo-43}
+\subsection*{Ejemplo}\label{ejemplo-48}
 
 
 En este ejemplo se retomará la base de datos \texttt{crab} sobre el
@@ -6508,7 +6899,7 @@ una distribución. El objetivo de este método es encontrar los valores de
 \(\boldsymbol{\Theta}\) que maximizan \(L\) o \(l\) y valores
 encontrados se representan por \(\hat{\boldsymbol{\Theta}}\).
 
-\subsection*{Ejemplo}\label{ejemplo-44}
+\subsection*{Ejemplo}\label{ejemplo-49}
 
 
 Suponga que se tiene el vector \texttt{rta} que corresponde a una
@@ -6687,7 +7078,7 @@ poder usar \texttt{optimize}. A continuación el código usado.
 Del resultado anterior se observa que cuando \(p=0.23\) el valor máximo
 de log-verosimilitud es 23.32.
 
-\subsection*{Ejemplo}\label{ejemplo-45}
+\subsection*{Ejemplo}\label{ejemplo-50}
 
 
 Suponga que la estatura de una población se puede asumir como una normal
@@ -6890,7 +7281,7 @@ A continuación el código para usar \texttt{logLik} sobre el objeto
 De esta última salida se observa que el valor coincide con el obtenido
 cuando se usó \texttt{nlminb}.
 
-\subsection*{Ejemplo}\label{ejemplo-46}
+\subsection*{Ejemplo}\label{ejemplo-51}
 
 
 Generar \(n=100\) observaciones de una gamma con parámetro de forma
@@ -7072,7 +7463,7 @@ del modelo; siempre el modelo elegido es aquel modelo con el menor valor
 de cualquiera de los criterios de información anteriores.
 \EndKnitrBlock{rmdnote}
 
-\subsection*{Ejemplo}\label{ejemplo-47}
+\subsection*{Ejemplo}\label{ejemplo-52}
 
 
 ¿Será posible explorar entre muchas distribuciones estadísticas aquella
@@ -8029,7 +8420,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-48}
+\subsection*{Ejemplo}\label{ejemplo-53}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en

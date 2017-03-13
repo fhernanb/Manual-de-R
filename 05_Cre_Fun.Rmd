@@ -161,6 +161,45 @@ knitr::include_graphics("images/midpoint.png")
 
 7. Construya una función a la cual le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto.
 
+8. Construya una función llamada `precio` que calcule el precio total de sacar A fotocopias y B impresiones, sabiendo que los precios son 50 y 100 pesos para A y B respectivamente si el cliente es un estudiante, y de 75 y 150 para A y B si el cliente es un profesor. La función debe tener dos argumentos cuantitativos (`A` y `B`) y el argumento lógico `estudiante` que por defecto tenga el valor de `TRUE`. Use la estructura mostrada abajo.
 
+```{r, eval=FALSE}
+precio <- function(A, B, estudiante=TRUE) {
+  ...
+  ...
+  ...
+  return(precio.total)
+}
+```
 
+9. Construya una función llamada `salario` que le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto semanal, teniendo en cuenta que si el número de horas trabajadas durante la semana es mayor de 48, esas horas de demás se consideran horas extras y tienen un 35\% de recargo. Imprima el salario neto. Use la estructura mostrada abajo.
+
+```{r, eval=FALSE}
+salario <- function(num.horas, valor.hora) {
+  ...
+  ...
+  ...
+  return(salario.neto)
+}
+```
+
+10. Construya una función llamada `nota` que calcule la nota obtenida por un alumno en una evaluación de tres puntos cuya ponderación o importancia son 20\%, 30\% y 50\% para los puntos I, II y III respectivamente. Adicionalmente la función debe generar un mensaje sobre si el estudiante aprobó la evaluación o no. El usuario debe ingresar las notas individuales de los tres puntos y la función debe entregar la nota final de la evaluación. Use la estructura mostrada abajo.
+
+```{r, eval=FALSE}
+nota <- function(p1, p2, p3) {
+  ...
+  ...
+  ...
+}
+```
+
+11. Escriba una función llamada `minimo` que permita obtener el valor mínimo de un vector numérico. No puede usar ninguna de las funciones básicas de R como `which.min()`, `which.max()`, `order()`, `min( )`, `max( )`, `sort( )` u `order( )`. Use la estructura mostrada abajo.
+
+```{r, eval=FALSE}
+minimo <- function(x) {
+  ...
+  ...
+  return(minimo)
+}
+```
 
