@@ -1,0 +1,280 @@
+# Intervalos de confianza
+
+En este capítulo se muestran las funciones que hay disponibles en \proglang{R} para construir intervalos de confianza para:
+
+1. la media,
+2. la proporción,
+3. la varianza,
+4. la diferencia de medias para muestras independientes y dependientes,
+5. la diferencia de proporciones, y 
+6. la razón de varianzas.
+
+Para ilustrar el uso de las funciones se utilizará la base de datos __medidas del cuerpo__ presentada en el Capítulo \@ref(central). 
+
+## Función `t.test`
+
+La función `t.test` se usa para calcular intervalos de confianza para la media y diferencia de medias, con muestras independientes y dependientes. La función y sus argumentos son los siguientes:
+
+```{r, eval=FALSE}
+t.test(x, y = NULL,
+       alternative = c("two.sided", "less", "greater"),
+       mu = 0, paired = FALSE, var.equal = FALSE,
+       conf.level = 0.95, ...)
+```
+
+### Intervalo de confianza bilateral para la media 
+
+Para calcular intervalos de confianza bilaterales para la media a partir de la función `t.test` es necesario definir 2 argumentos: `x`, y `conf.level`. Los demás argumentos se usan cuando se desea obtener intervalos de confianza para diferencia de media con muestras independientes y dependientes o pareadas. 
+
+En el argumento `x` se indica la variable cuantitativa de interés para la cual se quiere construir el intervalo de confianza, en el argumento `conf.level` se define el nivel de confianza el cual debe ser un valor decimal.
+
+### Ejemplo {-}
+Suponga que se quiere obtener un intervalo de confianza bilateral del 90% para la altura promedio de los hombres de la base de datos __medidas del cuerpo__. 
+
+Para calcular el intervalo de confianza, primero se carga la base de datos usando la url apropiada, luego se crea un subconjunto de `datos` y se aloja en el objeto `hombres` como sigue a continuación:
+
+```{r}
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
+datos <- read.table(file=url, header=T)
+hombres <- datos[datos$sexo=="Hombre", ]
+```
+
+Una vez leídos los datos, se analiza la normalidad de la variable altura de los hombres, a partir de un qqplot y un histograma
+
+```{r ic1, fig.cap='Densidad para el peso corporal de hombres y mujeres.', fig.asp=0.5, fig.width=8}
+par(mfrow=c(1, 2))
+require(car)
+qqPlot(hombres$altura, pch=19,
+       main='QQplot para la altura de hombres',
+       xlab='Cuantiles teóricos',
+       ylab='Cuantiles muestrales')
+hist(hombres$altura, freq=TRUE,
+     main='Histograma de altura de hombres',
+     xlab='Altura (cm)',
+     ylab='Frecuencia')
+```
+
+Al aplicar la prueba Shapiro Wilk a la muestra de alturas de los hombres se obtuvo un valor-P de `r round(shapiro.test(hombres$altura)$p.value, 4)`
+
+Posterior a la descripción de la variable se usa la función `t.test` sobre la variable de interés: altura de los hombres. A continuación se muestra el código
+ 
+```{r}
+t.test(x=hombres$altura, conf.level=0.90)$conf.int
+```
+
+A partir del resultado obtenido se puede concluir, con un nivel de confianza del 90%, que la altura promedio de los estudiantes hombres se encuentra entre 176.438 cm y 181.7172 cm. 
+
+### Intervalo de confianza bilateral para la diferencia de medias de muestras independientes 
+
+Para calcular intervalos de confianza bilaterales para la diferencia de medias de muestras independientes a partir de la función `t.test` es necesario definir 5 argumentos: `x` considera la variable de interés en la muestra 1, `y` la variable de interés en la muestra 2, `paired = FALSE` indica que el intervalo de confianza se hará para muestras independientes, en el caso de que sean dependientes este argumento será `paired = TRUE`, `var.equal = FALSE` indica que las varianzas son desconocidas y diferentes y `conf.level` corresponde al nivel de confianza. 
+
+### Ejemplo {-}
+Se quiere saber si existe diferencia estadísticamente significativa entre las alturas de los hombres y las mujeres, para lo cual es necesario obtener un intervalo de confianza del $95\%$ para la diferencia de las altura promedio de los hombres y de las mujeres. 
+
+Para calcular el intervalo de confianza, primero se carga la base de datos usando la url apropiada, luego se crean dos subconjuntos de datos y se alojan en los objetos `hombres` y `mujeres`, como sigue a continuación:
+
+```{r}
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
+datos <- read.table(file=url, header=T)
+hombres <- datos[datos$sexo=="Hombre",]
+mujeres <- datos[datos$sexo=="Mujer",]
+```
+
+Una vez leídos los datos, se analiza la normalidad de la variable altura de los hombres y las mujeres, a partir de un qqplot y un histograma
+
+```{r ic2, fig.cap='Densidad para el peso corporal de hombres y mujeres.', fig.asp=0.7, fig.width=8}
+par(mfrow=c(2,2))
+qqplot(y=hombres$altura, pch=19,
+       x=qnorm(ppoints(length(hombres$altura))),
+       main='QQ Plot' ,
+       xlab='Cuantiles teóricos' ,
+       ylab='Cuantiles muestrales')
+hist(hombres$altura,
+     main='Histograma de altura de hombres' ,
+     xlab='Altura' ,
+     ylab='Frecuencia')
+
+qqplot(y=mujeres$altura, pch=19,
+       x=qnorm(ppoints(length(mujeres$altura))),
+       main='QQ Plot ' ,
+       xlab='Cuantiles teóricos' ,
+       ylab='Cuantiles muestrales')
+hist(mujeres$altura,
+     main='Histograma de altura de mujeres' ,
+     xlab='Altura' ,
+     ylab='Frecuencia')
+```
+
+De los gráficos observados se puede concluir que las alturas de los estudiantes hombres y mujeres siguen una distribución normal. 
+
+Posterior a la descripción de la variable se usa la función `t.test` sobre la variable de interés: altura de los hombres y de las mujeres. A continuación se muestra el código
+ 
+```{r}
+t.test(x = hombres$altura, y = mujeres$altura, paired=FALSE,   var.equal=FALSE, conf.level = 0.95)$conf.int
+```
+
+A partir del resultado obtenido se puede concluir, con un nivel de confianza del $95\%$, que la altura promedio de los estudiantes hombres es superior a la de las mujeres ya que el intervalo de confianza no incluye el cero y por ser positivos sus limites se puede afirmar con un nivel de confianza del $95\%$ que $\mu_1 > \mu_2$.
+
+### Intervalo de confianza bilateral para la diferencia de medias de muestras dependientes 
+
+Para calcular intervalos de confianza bilaterales para la diferencia de medias de muestras dependientes a partir de la función `t.test` es necesario definir 4 argumentos: `x` considera la variable de interés en la muestra 1, `y` la variable de interés en la muestra 2, `paired = TRUE` indica que el intervalo de confianza se hará para muestras dependientes, y `conf.level` corresponde al nivel de confianza. 
+
+### Ejemplo {-}
+Los desórdenes musculoesqueléticos del cuello y hombro son comunes entre empleados de oficina que realizan tareas repetitivas mediante pantallas de visualización. Se reportaron los datos de un estudio para determinar si condiciones de trabajo más variadas habrían tenido algún impacto en el movimiento del brazo. Los datos que siguen se obtuvieron de una muestra de $n=16$ sujetos. Cada observación es la cantidad de tiempo, expresada como una proporción de tiempo total observado, durante el cual la elevación del brazo fue de menos de $30°$. Las dos mediciones de cada sujeto se obtuvieron con una separación de 18 meses. Durante este período, las condiciones de trabajo cambiaron y se permitió que los sujetos realizaran una variedad más amplia de tareas. ¿Sugieren los datos que el tiempo promedio verdadero durante el cual la elevación es de menos de $30°$ luego del cambio difiere de lo que era antes del mismo? Calcular un intervalo de confianza del $95\%$ para responder la pregunta.
+
+
+|Sujeto     |1  |2  |3  |4  |5  |6  |7  |8  |
+|-----------|:--|:--|:--|:--|:--|:--|:--|:--| 
+|Antes      |81 |87 |86 |82 |90 |86 |96 |73 |
+|Después    |78 |91 |78 |78 |84 |67 |92 |70 |
+|Diferencia |3  |-4 |8  |4  |6  |19 |4  |3  |
+
+|Sujeto     |9  |10 |11 |12 |13 |14 |15 |16 |
+|-----------|:--|:--|:--|:--|:--|:--|:--|:--| 
+|Antes      |74 |75 |72 |80 |66 |72 |56 |82 |
+|Después    |58 |62 |70 |58 |66 |60 |65 |73 |
+|Diferencia |16 |13 |2  |22 |0  |12 |-9 |9  |
+
+
+Para calcular el intervalo de confianza, primero se crean dos subconjuntos de datos y se alojan en los objetos `Antes` y `Despues` y luego se calcula la diferencia y se aloja en el objeto `Diferencia`, como sigue a continuación:
+
+```{r}
+Antes   <- c(81, 87, 86, 82, 90, 86, 96, 73, 74, 75, 72, 80, 66, 72, 56, 82)
+Despues <- c(78, 91, 78, 78, 84, 67, 92, 70, 58, 62, 70, 58, 66, 60, 65, 73)
+Diferencia <- Antes - Despues
+```
+
+En seguida se analiza la normalidad de la variable tiempo antes y después de los cambios en las condiciones de trabajo, a partir de un qqplot y un histograma
+
+```{r ic3, fig.cap='Densidad para el peso corporal de hombres y mujeres.', fig.asp=0.7, fig.width=8}
+par(mfrow=c(1,2))
+qqplot(y=Diferencia, pch=19,
+       x=qnorm(ppoints(length(Diferencia))),
+       main='QQ Plot' ,
+       xlab='Cuantiles teóricos' ,
+       ylab='Cuantiles muestrales')
+hist(Diferencia,
+     main='Histograma de diferencia de tiempo' ,
+     xlab='Diferencia de tiempo' ,
+     ylab='Frecuencia')
+```
+
+De los gráficos se observa que la diferencia de los tiempos sigue una distribución normal, debido a que en el qq plot se observa un patron lineal y el histograma muestra una forma cercana a la simétrica. 
+
+Posterior a la descripción de la variable se usa la función `t.test` sobre la variable de interés: diferencia de los tiempos. A continuación se muestra el código
+ 
+```{r}
+t.test(x = Antes, y = Despues, paired=TRUE,  conf.level = 0.95)$conf.int
+```
+
+A partir del resultado obtenido se puede concluir, con un nivel de confianza del $95\%$, que el tiempo promedio verdadero durante el cual la elevación es de menos de $30°$ luego del cambio difiere de lo que era antes del mismo. Los valores del intervalo de confianza, $2.362371< \mu_D < 11.137629$,  indican que $\mu_D>0$, es decir $\mu_Antes - \mu_Despues>0$ y por lo tanto $\mu_Antes > \mu_Despues$.
+
+
+### Intervalo de confianza unilateral para la media 
+
+En la función `t.test`, el argumento `x` indica la variable de interés para la cual se quiere calcular el intervalo de confianza para la media, el argumento `alternative = "less"` define el tipo de prueba, en este caso unilateral inferior, y el argumento `conf.level` define el nivel de confianza con el cual se quiere calcular el intervalo.
+
+### Ejemplo 
+Simule una muestra aleatoria de una $N(18, 3)$  y calcule un intervalo de confianza unilateral superior del $90\%$ para la media
+ 
+```{r}
+t.test(x = rnorm(50, mean = 18, sd =3), alternative = "greater", conf.level = 0.90)$conf.int
+```
+
+A partir del resultado obtenido se puede concluir, con un nivel de confianza del $90\%$, que el valor promedio de la variable de interés queda en el intervalo $(17. 1162, \infty)$. 
+
+
+## Función `Var.test`
+
+La función `Var.test` se usa para calcular intervalos de confianza para la varianza. La función y sus argumentos son los siguientes:
+
+```{r, eval=FALSE}
+require(usefultools)
+Var.test(x, alternative = "two.sided", null.value = 1, conf.level = 0.95)
+``` 
+
+### Intervalo de confianza bilateral para la varianza
+
+Para calcular intervalos de confianza bilaterales para la varianza a partir de la función `Var.test` es necesario definir 2 argumentos: `x` considera la variable de interés, y `conf.level` corresponde al nivel de confianza. 
+
+### Ejemplo {-}
+Considerando la información del ejemplo de Intervalos de confianza bilaterales para la media, construir un intervalo de confianza del 98% para la varianza de la altura de los estudiantes hombres
+
+```{r, eval=FALSE}
+require(usefultools)
+Var.test(x = hombres$altura, conf.level = 0.98)$conf.int
+``` 
+
+El intervalo de confianza del $98\%$ indica que la varianza de la estatura de los estudiantes hombres se encuentra entre 21.08 y 109.93 $cm^{2}$.
+
+## Función `var.test`
+
+La función `var.test` se usa para calcular intervalos de confianza para la razón de varianzas. La función y sus argumentos son los siguientes:
+
+```{r, eval=FALSE}
+var.test(x, y, ratio = 1,
+         alternative = c("two.sided", "less", "greater"),
+         conf.level = 0.95, ...)
+```         
+
+### Intervalo de confianza bilateral para la razón de varianzas
+
+Para calcular intervalos de confianza bilaterales para la razón de varianzas a partir de la función `var.test` es necesario definir 3 argumentos: `x` considera la variable de interés en la muestra 1, `y` la variable de interés en la muestra 2, y `conf.level` corresponde al nivel de confianza. 
+
+### Ejemplo {-}
+Usando la información  del ejemplo de diferencia de medias para muestras independientes se quiere obtener un intervalo de confianza del $95\%$ para la razón de las varianzas de las alturas de los estudiantes hombres y mujeres.
+
+```{r}
+var.test(x = hombres$altura, y = mujeres$altura, conf.level = 0.95)$conf.int
+```         
+El intervalo de confianza del $95\%$ indica que la razón de varianzas se encuentra entre 0.23 y 1.66. Puesto que el intervalo de confianza incluye el 1 se concluye que las varianzas de las alturas de los hombres y las mujeres son diferentes. 
+
+## Función `prop.test`
+
+La función `prop.test` se usa para calcular intervalos de confianza para la porporción y diferencia de proporciones. La función y sus argumentos son los siguientes:
+
+```{r, eval=FALSE}
+prop.test(x, n, p = NULL,
+          alternative = c("two.sided", "less", "greater"),
+          conf.level = 0.95, correct = TRUE)
+``` 
+
+### Intervalo de confianza bilateral para la proporción
+
+Para calcular intervalos de confianza bilaterales para la proporción a partir de la función `prop.test` es necesario definir 3 argumentos: `x` considera el conteo de éxitos, `n` indica el número de eventos o de forma equivalente corresponde a la longitud de la variable que se quiere analizar, y `conf.level` corresponde al nivel de confianza. 
+
+
+### Ejemplo {-}
+
+Se quiere obtener un intervalo de confianza bilateral del $95\%$ para la proporción de estudiantes que tienen alturas de más de 170 cm. 
+
+```{r, eval=FALSE}
+require(usefultools)
+exitos <- sum(ifelse(hombres$altura > 170, 1,0))
+prop.test(x = exitos, n= length(hombres$altura), conf.level = 0.95)$conf.int
+``` 
+
+A partir del resultado obtenido se puede concluir, con un nivel de confianza del $95\%$, que la proporción de estudiantes hombres que tienen más de 170 cm se encuentra entre 0.63 y 0.98. 
+
+### Intervalo de confianza bilateral para la diferencia de proporciones
+
+
+Para calcular intervalos de confianza bilaterales para la proporción a partir de la función `prop.test` es necesario definir 3 argumentos: `x` considera un vector del conteo de éxitos de las dos muestras, `n` indica el número de eventos de las dos muestras, y `conf.level` corresponde al nivel de confianza. 
+
+
+### Ejemplo {-}
+Obtener un intervalo de confianza bilateral del $95\%$ para la diferencia de proporciones de estudiantes hombres y mujeres que tienen alturas de más de 170 cm. 
+
+```{r, eval=FALSE}
+require(usefultools)
+exitos.h <- sum(ifelse(hombres$altura > 170, 1,0))
+exitos.m <- sum(ifelse(mujeres$altura > 170, 1,0))
+n.h <- length(hombres$altura)
+n.m <- length(mujeres$altura)
+
+prop.test(x = c(exitos.h, exitos.m), n= c(n.h, n.m), conf.level = 0.95)$conf.int
+``` 
+
+A partir del resultado obtenido se puede concluir, con un nivel de confianza del $95\%$, que la diferencia de proporciones de estudiantes hombres y mujeres que tienen más de 170 cm se encuentra entre 0.30 y 0.91. Los valores de los limites de confianza indican que $p_1-p_2>0$, por lo que se concluye que $p_1>p_2$, es decir la proporción de estudiantes hombres que tienen alturas de más de 170 cm es superior a la proporción de estudiantes mujeres que tienen alturas de más de 170 cm.
+
+
