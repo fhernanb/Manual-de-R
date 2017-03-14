@@ -1,0 +1,16 @@
+# Prueba de hipótesis.
+
+En este capítulo se muestran las funciones que hay disponibles en \proglang{R} para realizar prueba de hipótesis para:
+
+1. la media,
+2. la proporción,
+3. la varianza,
+4. la diferencia de medias para muestras independientes y dependientes (o pareadas),
+5. la diferencia de proporciones, y 
+6. la razón de varianzas.
+
+Para ilustrar el uso de las funciones se utilizará la base de datos __medidas del cuerpo__ presentada en el Capítulo \@ref(central). 
+
+```{block2, type='rmdwarning'}
+Capítulo en construcción, revíselo más tarde para verlo completo.
+```

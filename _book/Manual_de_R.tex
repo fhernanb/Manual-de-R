@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-03-13}
+\date{2017-03-14}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -8389,7 +8389,8 @@ En este capítulo se muestran las funciones que hay disponibles en
 \item
   la varianza,
 \item
-  la diferencia de medias para muestras independientes y dependientes,
+  la diferencia de medias para muestras independientes y dependientes (o
+  pareadas),
 \item
   la diferencia de proporciones, y
 \item
@@ -8404,7 +8405,8 @@ Para ilustrar el uso de las funciones se utilizará la base de datos
 
 La función \texttt{t.test} se usa para calcular intervalos de confianza
 para la media y diferencia de medias, con muestras independientes y
-dependientes. La función y sus argumentos son los siguientes:
+dependientes (o pareadas). La función y sus argumentos son los
+siguientes:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8415,19 +8417,24 @@ dependientes. La función y sus argumentos son los siguientes:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Intervalo de confianza bilateral para la
-media}\label{intervalo-de-confianza-bilateral-para-la-media}
+\subsection{\texorpdfstring{Intervalo de confianza bilateral para la
+media
+\(\mu\)}{Intervalo de confianza bilateral para la media \textbackslash{}mu}}\label{intervalo-de-confianza-bilateral-para-la-media-mu}
 
 Para calcular intervalos de confianza bilaterales para la media a partir
 de la función \texttt{t.test} es necesario definir 2 argumentos:
-\texttt{x}, y \texttt{conf.level}. Los demás argumentos se usan cuando
-se desea obtener intervalos de confianza para diferencia de media con
-muestras independientes y dependientes o pareadas.
 
-En el argumento \texttt{x} se indica la variable cuantitativa de interés
-para la cual se quiere construir el intervalo de confianza, en el
-argumento \texttt{conf.level} se define el nivel de confianza el cual
-debe ser un valor decimal.
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico con los datos.
+\item
+  \texttt{conf.level}: nivel de confianza a usar, por defecto es 0.95.
+\end{itemize}
+
+Los demás argumentos se usan cuando se desea obtener intervalos de
+confianza para diferencia de media con muestras independientes y
+dependientes (o pareadas).
 
 \subsection*{Ejemplo}\label{ejemplo-53}
 
@@ -8450,12 +8457,12 @@ continuación:
 \end{Shaded}
 
 Una vez leídos los datos, se analiza la normalidad de la variable altura
-de los hombres, a partir de un qqplot y un histograma
+de los hombres, a partir de un QQplot y un histograma
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
-\KeywordTok{require}\NormalTok{(car)}
+\KeywordTok{require}\NormalTok{(car)  }\CommentTok{# Debe instalar antes el paquete car}
 \KeywordTok{qqPlot}\NormalTok{(hombres$altura, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{,}
        \DataTypeTok{main=}\StringTok{'QQplot para la altura de hombres'}\NormalTok{,}
        \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos'}\NormalTok{,}
@@ -8470,19 +8477,18 @@ de los hombres, a partir de un qqplot y un histograma
 \begin{figure}[htbp]
 \centering
 \includegraphics{Manual_de_R_files/figure-latex/ic1-1.pdf}
-\caption{\label{fig:ic1}Densidad para el peso corporal de hombres y
-mujeres.}
+\caption{\label{fig:ic1}QQplot e histograma para la altura de los hombres.}
 \end{figure}
 
 En la Figura \ref{fig:ic1} se muestra el QQplot e histograma para la
 variable altura, de estas figuras no se observa un claro patrón normal,
 sin embargo, al aplicar la prueba Shapiro-Wilk a la muestra de alturas
-de los hombres se obtuvo un valor-P de 0.3599, por lo tanto se asume que
-la muestra de alturas provienen de una población normal.
+de los hombres se obtuvo un valor-P de 0.3599, por lo tanto, se asume
+que la muestra de alturas provienen de una población normal.
 
 Una vez chequeado el supuesto de normalidad se puede usar la función
 \texttt{t.test} sobre la variable de interés para construir el intervalo
-de confianza. El resultado de usar\texttt{t.test} es una lista, uno de
+de confianza. El resultado de usar \texttt{t.test} es una lista, uno de
 los elementos de esa lista es justamente el intevalo de confianza y para
 extraerlo es que se usa \texttt{\$conf.int} al final de la instrucción.
 A continuación se muestra el código utilizado.
@@ -8503,94 +8509,91 @@ A partir del resultado obtenido se puede concluir, con un nivel de
 confianza del 90\%, que la altura promedio de los estudiantes hombres se
 encuentra entre 176.4 cm y 181.7 cm.
 
-\subsection{Intervalo de confianza bilateral para la diferencia de
-medias de muestras
-independientes}\label{intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-de-muestras-independientes}
+\subsection{\texorpdfstring{Intervalo de confianza bilateral para la
+diferencia de medias (\(\mu_1-\mu_2\)) de muestras
+independientes}{Intervalo de confianza bilateral para la diferencia de medias (\textbackslash{}mu\_1-\textbackslash{}mu\_2) de muestras independientes}}\label{intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-independientes}
 
-Para calcular intervalos de confianza bilaterales para la diferencia de
-medias de muestras independientes a partir de la función \texttt{t.test}
-es necesario definir 5 argumentos:
+Para construir intervalos de confianza bilaterales para la diferencia de
+medias (\(\mu_1-\mu_2\)) de muestras independientes se usa la función
+\texttt{t.test} y es necesario definir 5 argumentos:
 
 \begin{itemize}
 \tightlist
 \item
-  \texttt{x} considera la variable de interés en la muestra 1,
+  \texttt{x}: vector numérico con la información de la muestra 1,
 \item
-  \texttt{y} la variable de interés en la muestra 2,
+  \texttt{y}: vector numérico con la información de la muestra 2,
 \item
-  \texttt{paired\ =\ FALSE} indica que el intervalo de confianza se hará
-  para muestras independientes, en el caso de que sean dependientes este
-  argumento será \texttt{paired\ =\ TRUE},
+  \texttt{paired=FALSE}: indica que el intervalo de confianza se hará
+  para muestras independientes, en el caso de que sean dependientes (o
+  pareadas) este argumento será \texttt{paired=TRUE},
 \item
-  \texttt{var.equal\ =\ FALSE} indica que las varianzas son desconocidas
-  y diferentes y
+  \texttt{var.equal=FALSE}: indica que las varianzas son desconocidas y
+  diferentes, si la varianzas se pueden considerar iguales se coloca
+  \texttt{var.equal=TRUE}.
 \item
-  \texttt{conf.level} corresponde al nivel de confianza.
+  \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-54}
 
 
 Se quiere saber si existe diferencia estadísticamente significativa
-entre las alturas de los hombres y las mujeres, para lo cual es
-necesario obtener un intervalo de confianza del \(95\%\) para la
-diferencia de las altura promedio de los hombres y de las mujeres.
+entre las alturas de los hombres y las mujeres. Para responder esto se
+va a construir un intervalo de confianza del \(95\%\) para la diferencia
+de las altura promedio de los hombres y de las mujeres
+(\(\mu_{hombres}-\mu_{mujeres}\)).
 
-Para calcular el intervalo de confianza, primero se carga la base de
+Para construir el intervalo de confianza, primero se carga la base de
 datos usando la url apropiada, luego se crean dos subconjuntos de datos
-y se alojan en los objetos \texttt{hombres} y \texttt{mujeres}, como
+y se alojan en los objetos \texttt{hombres} y \texttt{mujeres} como
 sigue a continuación:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
-\NormalTok{hombres <-}\StringTok{ }\NormalTok{datos[datos$sexo==}\StringTok{"Hombre"}\NormalTok{,]}
-\NormalTok{mujeres <-}\StringTok{ }\NormalTok{datos[datos$sexo==}\StringTok{"Mujer"}\NormalTok{,]}
+\NormalTok{hombres <-}\StringTok{ }\NormalTok{datos[datos$sexo==}\StringTok{"Hombre"}\NormalTok{, ]}
+\NormalTok{mujeres <-}\StringTok{ }\NormalTok{datos[datos$sexo==}\StringTok{"Mujer"}\NormalTok{, ]}
 \end{Highlighting}
 \end{Shaded}
 
 Una vez leídos los datos, se analiza la normalidad de la variable altura
-de los hombres y las mujeres, a partir de un qqplot y un histograma
+de los hombres y las mujeres, a partir de un QQplot y un histograma
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\KeywordTok{qqplot}\NormalTok{(}\DataTypeTok{y=}\NormalTok{hombres$altura, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{,}
-       \DataTypeTok{x=}\KeywordTok{qnorm}\NormalTok{(}\KeywordTok{ppoints}\NormalTok{(}\KeywordTok{length}\NormalTok{(hombres$altura))),}
-       \DataTypeTok{main=}\StringTok{'QQ Plot'} \NormalTok{,}
-       \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos'} \NormalTok{,}
-       \DataTypeTok{ylab=}\StringTok{'Cuantiles muestrales'}\NormalTok{)}
-\KeywordTok{hist}\NormalTok{(hombres$altura,}
-     \DataTypeTok{main=}\StringTok{'Histograma de altura de hombres'} \NormalTok{,}
-     \DataTypeTok{xlab=}\StringTok{'Altura'} \NormalTok{,}
-     \DataTypeTok{ylab=}\StringTok{'Frecuencia'}\NormalTok{)}
+\KeywordTok{require}\NormalTok{(car)  }\CommentTok{# Debe instalar antes el paquete car}
+\KeywordTok{qqPlot}\NormalTok{(hombres$altura, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{main=}\StringTok{'QQplot'}\NormalTok{,}
+       \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Cuantiles muestrales'}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(hombres$altura, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'Altura'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Frecuencia'}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{'Histograma para la altura de hombres'}\NormalTok{)}
 
-\KeywordTok{qqplot}\NormalTok{(}\DataTypeTok{y=}\NormalTok{mujeres$altura, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{,}
-       \DataTypeTok{x=}\KeywordTok{qnorm}\NormalTok{(}\KeywordTok{ppoints}\NormalTok{(}\KeywordTok{length}\NormalTok{(mujeres$altura))),}
-       \DataTypeTok{main=}\StringTok{'QQ Plot '} \NormalTok{,}
-       \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos'} \NormalTok{,}
-       \DataTypeTok{ylab=}\StringTok{'Cuantiles muestrales'}\NormalTok{)}
-\KeywordTok{hist}\NormalTok{(mujeres$altura,}
-     \DataTypeTok{main=}\StringTok{'Histograma de altura de mujeres'} \NormalTok{,}
-     \DataTypeTok{xlab=}\StringTok{'Altura'} \NormalTok{,}
-     \DataTypeTok{ylab=}\StringTok{'Frecuencia'}\NormalTok{)}
+\KeywordTok{qqPlot}\NormalTok{(mujeres$altura, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{main=}\StringTok{'QQplot'}\NormalTok{,}
+       \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Cuantiles muestrales'}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(mujeres$altura, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'Altura'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Frecuencia'}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{'Histograma para la altura de mujeres'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Manual_de_R_files/figure-latex/ic2-1.pdf}
-\caption{\label{fig:ic2}Densidad para el peso corporal de hombres y
+\caption{\label{fig:ic2}QQplot e histograma para la altura de hombres y
 mujeres.}
 \end{figure}
 
-De los gráficos observados se puede concluir que las alturas de los
-estudiantes hombres y mujeres siguen una distribución normal.
+De la Figura \ref{fig:ic2} se puede concluir que las alturas de los
+estudiantes hombres y mujeres siguen una distribución normal. Al aplicar
+la prueba Shapiro-Wilk para estudiar la normalidad de la altura se
+encontró un valor-P de 0.3599 para el grupo de hombres y un valor-P de
+0.5921 para el grupo de mujeres, esto confirma que se cumple el supuesto
+de normalidad.
 
-Posterior a la descripción de la variable se usa la función
-\texttt{t.test} sobre la variable de interés: altura de los hombres y de
-las mujeres. A continuación se muestra el código
+Como se cumple el supuesto de normalidad se puede usar la función
+\texttt{t.test} para construir el intervalo de confianza requerido. A
+continuación se muestra el código
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8606,23 +8609,32 @@ las mujeres. A continuación se muestra el código
 ## [1] 0.95
 \end{verbatim}
 
-A partir del resultado obtenido se puede concluir, con un nivel de
-confianza del \(95\%\), que la altura promedio de los estudiantes
-hombres es superior a la de las mujeres ya que el intervalo de confianza
-no incluye el cero y por ser positivos sus limites se puede afirmar con
-un nivel de confianza del \(95\%\) que \(\mu_1 > \mu_2\).
+A partir del intervalo de confianza anterior se puede concluir, con un
+nivel de confianza del \(95\%\), que la altura promedio de los hombres
+es superior a la altura promedio de las mujeres, ya que el intervalo de
+confianza \textbf{NO} incluye el cero y por ser positivos sus limites se
+puede afirmar con un nivel de confianza del \(95\%\) que
+\(\mu_{hombres} > \mu_{mujeres}\).
 
-\subsection{Intervalo de confianza bilateral para la diferencia de
-medias de muestras
-dependientes}\label{intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-de-muestras-dependientes}
+\subsection{\texorpdfstring{Intervalo de confianza bilateral para la
+diferencia de medias (\(\mu_1-\mu_2\)) de muestras dependientes o
+pareadas}{Intervalo de confianza bilateral para la diferencia de medias (\textbackslash{}mu\_1-\textbackslash{}mu\_2) de muestras dependientes o pareadas}}\label{intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-dependientes-o-pareadas}
 
-Para calcular intervalos de confianza bilaterales para la diferencia de
+Para construir intervalos de confianza bilaterales para la diferencia de
 medias de muestras dependientes a partir de la función \texttt{t.test}
-es necesario definir 4 argumentos: \texttt{x} considera la variable de
-interés en la muestra 1, \texttt{y} la variable de interés en la muestra
-2, \texttt{paired\ =\ TRUE} indica que el intervalo de confianza se hará
-para muestras dependientes, y \texttt{conf.level} corresponde al nivel
-de confianza.
+es necesario definir 4 argumentos:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico con la información de la muestra 1,
+\item
+  \texttt{y}: vector numérico con la información de la muestra 2,
+  \texttt{paired=TRUE} indica que el intervalo de confianza se hará para
+  muestras dependientes o pareadas.
+\item
+  \texttt{conf.level}: nivel de confianza.
+\end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-55}
 
@@ -8634,12 +8646,12 @@ si condiciones de trabajo más variadas habrían tenido algún impacto en
 el movimiento del brazo. Los datos que siguen se obtuvieron de una
 muestra de \(n=16\) sujetos. Cada observación es la cantidad de tiempo,
 expresada como una proporción de tiempo total observado, durante el cual
-la elevación del brazo fue de menos de \(30°\). Las dos mediciones de
+la elevación del brazo fue de menos de 30 grados. Las dos mediciones de
 cada sujeto se obtuvieron con una separación de 18 meses. Durante este
 período, las condiciones de trabajo cambiaron y se permitió que los
 sujetos realizaran una variedad más amplia de tareas. ¿Sugieren los
 datos que el tiempo promedio verdadero durante el cual la elevación es
-de menos de \(30°\) luego del cambio difiere de lo que era antes del
+de menos de 30 grados luego del cambio difiere de lo que era antes del
 mismo? Calcular un intervalo de confianza del \(95\%\) para responder la
 pregunta.
 
@@ -8665,7 +8677,7 @@ Diferencia & 16 & 13 & 2 & 22 & 0 & 12 & -9 & 9\tabularnewline
 \bottomrule
 \end{longtable}
 
-Para calcular el intervalo de confianza, primero se crean dos
+Para construir el intervalo de confianza, primero se crean dos
 subconjuntos de datos y se alojan en los objetos \texttt{Antes} y
 \texttt{Despues} y luego se calcula la diferencia y se aloja en el
 objeto \texttt{Diferencia}, como sigue a continuación:
@@ -8934,6 +8946,36 @@ hombres y mujeres que tienen más de 170 cm se encuentra entre 0.30 y
 por lo que se concluye que \(p_1>p_2\), es decir la proporción de
 estudiantes hombres que tienen alturas de más de 170 cm es superior a la
 proporción de estudiantes mujeres que tienen alturas de más de 170 cm.
+
+\chapter{Prueba de hipótesis.}\label{prueba-de-hipotesis.}
+
+En este capítulo se muestran las funciones que hay disponibles en
+\proglang{R} para realizar prueba de hipótesis para:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  la media,
+\item
+  la proporción,
+\item
+  la varianza,
+\item
+  la diferencia de medias para muestras independientes y dependientes (o
+  pareadas),
+\item
+  la diferencia de proporciones, y
+\item
+  la razón de varianzas.
+\end{enumerate}
+
+Para ilustrar el uso de las funciones se utilizará la base de datos
+\textbf{medidas del cuerpo} presentada en el Capítulo \ref{central}.
+
+\BeginKnitrBlock{rmdwarning}
+Capítulo en construcción, revíselo más tarde para verlo completo.
+\EndKnitrBlock{rmdwarning}
 
 \chapter{\texorpdfstring{Aproximación de integrales
 \label{aproxint}}{Aproximación de integrales }}\label{aproximacion-de-integrales}

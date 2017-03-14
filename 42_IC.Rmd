@@ -5,7 +5,7 @@ En este capítulo se muestran las funciones que hay disponibles en \proglang{R} 
 1. la media,
 2. la proporción,
 3. la varianza,
-4. la diferencia de medias para muestras independientes y dependientes,
+4. la diferencia de medias para muestras independientes y dependientes (o pareadas),
 5. la diferencia de proporciones, y 
 6. la razón de varianzas.
 
@@ -13,7 +13,7 @@ Para ilustrar el uso de las funciones se utilizará la base de datos __medidas d
 
 ## Función `t.test`
 
-La función `t.test` se usa para calcular intervalos de confianza para la media y diferencia de medias, con muestras independientes y dependientes. La función y sus argumentos son los siguientes:
+La función `t.test` se usa para calcular intervalos de confianza para la media y diferencia de medias, con muestras independientes y dependientes (o pareadas). La función y sus argumentos son los siguientes:
 
 ```{r, eval=FALSE}
 t.test(x, y = NULL,
@@ -22,11 +22,14 @@ t.test(x, y = NULL,
        conf.level = 0.95, ...)
 ```
 
-### Intervalo de confianza bilateral para la media 
+### Intervalo de confianza bilateral para la media $\mu$
 
-Para calcular intervalos de confianza bilaterales para la media a partir de la función `t.test` es necesario definir 2 argumentos: `x`, y `conf.level`. Los demás argumentos se usan cuando se desea obtener intervalos de confianza para diferencia de media con muestras independientes y dependientes o pareadas. 
+Para calcular intervalos de confianza bilaterales para la media a partir de la función `t.test` es necesario definir 2 argumentos:
 
-En el argumento `x` se indica la variable cuantitativa de interés para la cual se quiere construir el intervalo de confianza, en el argumento `conf.level` se define el nivel de confianza el cual debe ser un valor decimal.
+- `x`: vector numérico con los datos.
+- `conf.level`: nivel de confianza a usar, por defecto es 0.95.
+
+Los demás argumentos se usan cuando se desea obtener intervalos de confianza para diferencia de media con muestras independientes y dependientes (o pareadas). 
 
 ### Ejemplo {-}
 Suponga que se quiere obtener un intervalo de confianza bilateral del 90% para la altura promedio de los hombres de la base de datos __medidas del cuerpo__. 
@@ -39,11 +42,11 @@ datos <- read.table(file=url, header=T)
 hombres <- datos[datos$sexo=="Hombre", ]
 ```
 
-Una vez leídos los datos, se analiza la normalidad de la variable altura de los hombres, a partir de un qqplot y un histograma
+Una vez leídos los datos, se analiza la normalidad de la variable altura de los hombres, a partir de un QQplot y un histograma
 
-```{r ic1, fig.cap='Densidad para el peso corporal de hombres y mujeres.', fig.asp=0.5, fig.width=8}
+```{r ic1, fig.cap='QQplot e histograma para la altura de los hombres.', fig.asp=0.5, fig.width=8}
 par(mfrow=c(1, 2))
-require(car)
+require(car)  # Debe instalar antes el paquete car
 qqPlot(hombres$altura, pch=19,
        main='QQplot para la altura de hombres',
        xlab='Cuantiles teóricos',
@@ -54,9 +57,9 @@ hist(hombres$altura, freq=TRUE,
      ylab='Frecuencia')
 ```
 
-En la Figura \@ref(fig:ic1) se muestra el QQplot e histograma para la variable altura, de estas figuras no se observa un claro patrón normal, sin embargo, al aplicar la prueba Shapiro-Wilk a la muestra de alturas de los hombres se obtuvo un valor-P de `r round(shapiro.test(hombres$altura)$p.value, 4)`, por lo tanto se asume que la muestra de alturas provienen de una población normal.
+En la Figura \@ref(fig:ic1) se muestra el QQplot e histograma para la variable altura, de estas figuras no se observa un claro patrón normal, sin embargo, al aplicar la prueba Shapiro-Wilk a la muestra de alturas de los hombres se obtuvo un valor-P de `r round(shapiro.test(hombres$altura)$p.value, 4)`, por lo tanto, se asume que la muestra de alturas provienen de una población normal.
 
-Una vez chequeado el supuesto de normalidad se puede usar la función `t.test` sobre la variable de interés para construir el intervalo de confianza. El resultado de usar`t.test` es una lista, uno de los elementos de esa lista es justamente el intevalo de confianza y para extraerlo es que se usa `$conf.int`  al final de la instrucción. A continuación se muestra el código utilizado.
+Una vez chequeado el supuesto de normalidad se puede usar la función `t.test` sobre la variable de interés para construir el intervalo de confianza. El resultado de usar `t.test` es una lista, uno de los elementos de esa lista es justamente el intevalo de confianza y para extraerlo es que se usa `$conf.int`  al final de la instrucción. A continuación se muestra el código utilizado.
  
 ```{r}
 t.test(x=hombres$altura, conf.level=0.90)$conf.int
@@ -64,56 +67,47 @@ t.test(x=hombres$altura, conf.level=0.90)$conf.int
 
 A partir del resultado obtenido se puede concluir, con un nivel de confianza del 90%, que la altura promedio de los estudiantes hombres se encuentra entre 176.4 cm y 181.7 cm. 
 
-### Intervalo de confianza bilateral para la diferencia de medias de muestras independientes 
+### Intervalo de confianza bilateral para la diferencia de medias ($\mu_1-\mu_2$) de muestras independientes 
 
-Para calcular intervalos de confianza bilaterales para la diferencia de medias de muestras independientes a partir de la función `t.test` es necesario definir 5 argumentos:
+Para construir intervalos de confianza bilaterales para la diferencia de medias ($\mu_1-\mu_2$) de muestras independientes se usa la función `t.test` y es necesario definir 5 argumentos:
 
-- `x` considera la variable de interés en la muestra 1,
-- `y` la variable de interés en la muestra 2,
-- `paired = FALSE` indica que el intervalo de confianza se hará para muestras independientes, en el caso de que sean dependientes este argumento será `paired = TRUE`,
-- `var.equal = FALSE` indica que las varianzas son desconocidas y diferentes y
-- `conf.level` corresponde al nivel de confianza. 
+- `x`: vector numérico con la información de la muestra 1,
+- `y`: vector numérico con la información de la muestra 2,
+- `paired=FALSE`: indica que el intervalo de confianza se hará para muestras independientes, en el caso de que sean dependientes (o pareadas) este argumento será `paired=TRUE`,
+- `var.equal=FALSE`: indica que las varianzas son desconocidas y diferentes, si la varianzas se pueden considerar iguales se coloca `var.equal=TRUE`.
+- `conf.level`: nivel de confianza. 
 
 ### Ejemplo {-}
-Se quiere saber si existe diferencia estadísticamente significativa entre las alturas de los hombres y las mujeres, para lo cual es necesario obtener un intervalo de confianza del $95\%$ para la diferencia de las altura promedio de los hombres y de las mujeres. 
+Se quiere saber si existe diferencia estadísticamente significativa entre las alturas de los hombres y las mujeres. Para responder esto se va a construir un intervalo de confianza del $95\%$ para la diferencia de las altura promedio de los hombres y de las mujeres ($\mu_{hombres}-\mu_{mujeres}$). 
 
-Para calcular el intervalo de confianza, primero se carga la base de datos usando la url apropiada, luego se crean dos subconjuntos de datos y se alojan en los objetos `hombres` y `mujeres`, como sigue a continuación:
+Para construir el intervalo de confianza, primero se carga la base de datos usando la url apropiada, luego se crean dos subconjuntos de datos y se alojan en los objetos `hombres` y `mujeres` como sigue a continuación:
 
 ```{r}
 url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
 datos <- read.table(file=url, header=T)
-hombres <- datos[datos$sexo=="Hombre",]
-mujeres <- datos[datos$sexo=="Mujer",]
+hombres <- datos[datos$sexo=="Hombre", ]
+mujeres <- datos[datos$sexo=="Mujer", ]
 ```
 
-Una vez leídos los datos, se analiza la normalidad de la variable altura de los hombres y las mujeres, a partir de un qqplot y un histograma
+Una vez leídos los datos, se analiza la normalidad de la variable altura de los hombres y las mujeres, a partir de un QQplot y un histograma
 
-```{r ic2, fig.cap='Densidad para el peso corporal de hombres y mujeres.', fig.asp=0.7, fig.width=8}
+```{r ic2, fig.cap='QQplot e histograma para la altura de hombres y mujeres.', fig.asp=0.9, fig.width=8}
 par(mfrow=c(2,2))
-qqplot(y=hombres$altura, pch=19,
-       x=qnorm(ppoints(length(hombres$altura))),
-       main='QQ Plot' ,
-       xlab='Cuantiles teóricos' ,
-       ylab='Cuantiles muestrales')
-hist(hombres$altura,
-     main='Histograma de altura de hombres' ,
-     xlab='Altura' ,
-     ylab='Frecuencia')
+require(car)  # Debe instalar antes el paquete car
+qqPlot(hombres$altura, pch=19, las=1, main='QQplot',
+       xlab='Cuantiles teóricos', ylab='Cuantiles muestrales')
+hist(hombres$altura, las=1, xlab='Altura', ylab='Frecuencia',
+     main='Histograma para la altura de hombres')
 
-qqplot(y=mujeres$altura, pch=19,
-       x=qnorm(ppoints(length(mujeres$altura))),
-       main='QQ Plot ' ,
-       xlab='Cuantiles teóricos' ,
-       ylab='Cuantiles muestrales')
-hist(mujeres$altura,
-     main='Histograma de altura de mujeres' ,
-     xlab='Altura' ,
-     ylab='Frecuencia')
+qqPlot(mujeres$altura, pch=19, las=1, main='QQplot',
+       xlab='Cuantiles teóricos', ylab='Cuantiles muestrales')
+hist(mujeres$altura, las=1, xlab='Altura', ylab='Frecuencia',
+     main='Histograma para la altura de mujeres')
 ```
 
-De los gráficos observados se puede concluir que las alturas de los estudiantes hombres y mujeres siguen una distribución normal. 
+De la Figura \@ref(fig:ic2) se puede concluir que las alturas de los estudiantes hombres y mujeres siguen una distribución normal. Al aplicar la prueba Shapiro-Wilk para estudiar la normalidad de la altura se encontró un valor-P de `r round(shapiro.test(hombres$altura)$p.value, 4)` para el grupo de hombres y un valor-P de `r round(shapiro.test(mujeres$altura)$p.value, 4)` para el grupo de mujeres, esto confirma que se cumple el supuesto de normalidad.
 
-Posterior a la descripción de la variable se usa la función `t.test` sobre la variable de interés: altura de los hombres y de las mujeres. A continuación se muestra el código
+Como se cumple el supuesto de normalidad se puede usar la función `t.test` para construir el intervalo de confianza requerido. A continuación se muestra el código
  
 ```{r}
 t.test(x=hombres$altura, y=mujeres$altura,
@@ -121,14 +115,19 @@ t.test(x=hombres$altura, y=mujeres$altura,
        conf.level = 0.95)$conf.int
 ```
 
-A partir del resultado obtenido se puede concluir, con un nivel de confianza del $95\%$, que la altura promedio de los estudiantes hombres es superior a la de las mujeres ya que el intervalo de confianza no incluye el cero y por ser positivos sus limites se puede afirmar con un nivel de confianza del $95\%$ que $\mu_1 > \mu_2$.
+A partir del intervalo de confianza anterior se puede concluir, con un nivel de confianza del $95\%$, que la altura promedio de los hombres es superior a la altura promedio de las mujeres, ya que el intervalo de confianza __NO__ incluye el cero y por ser positivos sus limites se puede afirmar con un nivel de confianza del $95\%$ que $\mu_{hombres} > \mu_{mujeres}$.
 
-### Intervalo de confianza bilateral para la diferencia de medias de muestras dependientes 
+### Intervalo de confianza bilateral para la diferencia de medias ($\mu_1-\mu_2$) de muestras dependientes o pareadas
 
-Para calcular intervalos de confianza bilaterales para la diferencia de medias de muestras dependientes a partir de la función `t.test` es necesario definir 4 argumentos: `x` considera la variable de interés en la muestra 1, `y` la variable de interés en la muestra 2, `paired = TRUE` indica que el intervalo de confianza se hará para muestras dependientes, y `conf.level` corresponde al nivel de confianza. 
+Para construir intervalos de confianza bilaterales para la diferencia de medias de muestras dependientes a partir de la función `t.test` es necesario definir 4 argumentos:
+
+- `x`: vector numérico con la información de la muestra 1,
+- `y`: vector numérico con la información de la muestra 2,
+`paired=TRUE` indica que el intervalo de confianza se hará para muestras dependientes o pareadas.
+- `conf.level`: nivel de confianza. 
 
 ### Ejemplo {-}
-Los desórdenes musculoesqueléticos del cuello y hombro son comunes entre empleados de oficina que realizan tareas repetitivas mediante pantallas de visualización. Se reportaron los datos de un estudio para determinar si condiciones de trabajo más variadas habrían tenido algún impacto en el movimiento del brazo. Los datos que siguen se obtuvieron de una muestra de $n=16$ sujetos. Cada observación es la cantidad de tiempo, expresada como una proporción de tiempo total observado, durante el cual la elevación del brazo fue de menos de $30°$. Las dos mediciones de cada sujeto se obtuvieron con una separación de 18 meses. Durante este período, las condiciones de trabajo cambiaron y se permitió que los sujetos realizaran una variedad más amplia de tareas. ¿Sugieren los datos que el tiempo promedio verdadero durante el cual la elevación es de menos de $30°$ luego del cambio difiere de lo que era antes del mismo? Calcular un intervalo de confianza del $95\%$ para responder la pregunta.
+Los desórdenes musculoesqueléticos del cuello y hombro son comunes entre empleados de oficina que realizan tareas repetitivas mediante pantallas de visualización. Se reportaron los datos de un estudio para determinar si condiciones de trabajo más variadas habrían tenido algún impacto en el movimiento del brazo. Los datos que siguen se obtuvieron de una muestra de $n=16$ sujetos. Cada observación es la cantidad de tiempo, expresada como una proporción de tiempo total observado, durante el cual la elevación del brazo fue de menos de 30 grados. Las dos mediciones de cada sujeto se obtuvieron con una separación de 18 meses. Durante este período, las condiciones de trabajo cambiaron y se permitió que los sujetos realizaran una variedad más amplia de tareas. ¿Sugieren los datos que el tiempo promedio verdadero durante el cual la elevación es de menos de 30 grados luego del cambio difiere de lo que era antes del mismo? Calcular un intervalo de confianza del $95\%$ para responder la pregunta.
 
 
 |Sujeto     |1  |2  |3  |4  |5  |6  |7  |8  |
@@ -144,7 +143,7 @@ Los desórdenes musculoesqueléticos del cuello y hombro son comunes entre emple
 |Diferencia |16 |13 |2  |22 |0  |12 |-9 |9  |
 
 
-Para calcular el intervalo de confianza, primero se crean dos subconjuntos de datos y se alojan en los objetos `Antes` y `Despues` y luego se calcula la diferencia y se aloja en el objeto `Diferencia`, como sigue a continuación:
+Para construir el intervalo de confianza primero se crean dos vectores con los datos y se nombran `Antes` y `Despues`, luego se calcula la diferencia y se aloja en el vector `Diferencia`, como sigue a continuación:
 
 ```{r}
 Antes   <- c(81, 87, 86, 82, 90, 86, 96, 73,
