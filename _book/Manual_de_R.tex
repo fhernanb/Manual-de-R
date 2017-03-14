@@ -8651,8 +8651,8 @@ cada sujeto se obtuvieron con una separación de 18 meses. Durante este
 período, las condiciones de trabajo cambiaron y se permitió que los
 sujetos realizaran una variedad más amplia de tareas. ¿Sugieren los
 datos que el tiempo promedio verdadero durante el cual la elevación es
-de menos de 30 grados luego del cambio difiere de lo que era antes del
-mismo? Calcular un intervalo de confianza del \(95\%\) para responder la
+de menos de 30 grados luego del cambio difiere de lo que era antes?
+Calcular un intervalo de confianza del \(95\%\) para responder la
 pregunta.
 
 \begin{longtable}[]{@{}lllllllll@{}}
@@ -8677,10 +8677,10 @@ Diferencia & 16 & 13 & 2 & 22 & 0 & 12 & -9 & 9\tabularnewline
 \bottomrule
 \end{longtable}
 
-Para construir el intervalo de confianza, primero se crean dos
-subconjuntos de datos y se alojan en los objetos \texttt{Antes} y
-\texttt{Despues} y luego se calcula la diferencia y se aloja en el
-objeto \texttt{Diferencia}, como sigue a continuación:
+Para construir el intervalo de confianza primero se crean dos vectores
+con los datos y se nombran \texttt{Antes} y \texttt{Despues}, luego se
+calcula la diferencia y se aloja en el vector \texttt{Diferencia}, como
+sigue a continuación:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8692,43 +8692,38 @@ objeto \texttt{Diferencia}, como sigue a continuación:
 \end{Highlighting}
 \end{Shaded}
 
-En seguida se analiza la normalidad de la variable tiempo antes y
-después de los cambios en las condiciones de trabajo, a partir de un
-qqplot y un histograma
+En seguida se analiza la normalidad de la variable Diferencia de los
+cambios en las condiciones de trabajo, a partir de un qqplot y un
+histograma
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\KeywordTok{qqplot}\NormalTok{(}\DataTypeTok{y=}\NormalTok{Diferencia, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{,}
-       \DataTypeTok{x=}\KeywordTok{qnorm}\NormalTok{(}\KeywordTok{ppoints}\NormalTok{(}\KeywordTok{length}\NormalTok{(Diferencia))),}
-       \DataTypeTok{main=}\StringTok{'QQ Plot'} \NormalTok{,}
-       \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos'} \NormalTok{,}
-       \DataTypeTok{ylab=}\StringTok{'Cuantiles muestrales'}\NormalTok{)}
-\KeywordTok{hist}\NormalTok{(Diferencia,}
-     \DataTypeTok{main=}\StringTok{'Histograma de diferencia de tiempo'} \NormalTok{,}
-     \DataTypeTok{xlab=}\StringTok{'Diferencia de tiempo'} \NormalTok{,}
-     \DataTypeTok{ylab=}\StringTok{'Frecuencia'}\NormalTok{)}
+\KeywordTok{require}\NormalTok{(car)}
+\KeywordTok{qqPlot}\NormalTok{(Diferencia, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{main=}\StringTok{'QQplot para Diferencias'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }
+       \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Cuantiles muestrales'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(Diferencia), }\DataTypeTok{main=}\StringTok{'Densidad para Diferencias'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{'Diferencia de tiempo'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Manual_de_R_files/figure-latex/ic3-1.pdf}
-\caption{\label{fig:ic3}Densidad para el peso corporal de hombres y
-mujeres.}
+\caption{\label{fig:ic3}QQplot y densidad para Diferencias.}
 \end{figure}
 
-De los gráficos se observa que la diferencia de los tiempos sigue una
-distribución normal, debido a que en el qq plot se observa un patron
-lineal y el histograma muestra una forma cercana a la simétrica.
+De la Figura \ref{fig:ic3} se observa que la diferencia de los tiempos
+sigue una distribución normal, debido a que en el QQplot se observa un
+patron lineal y el histograma muestra una forma cercana a la simétrica.
 
-Posterior a la descripción de la variable se usa la función
-\texttt{t.test} sobre la variable de interés: diferencia de los tiempos.
-A continuación se muestra el código
+Luego de chequear la normalidad de la variable Diferencia se usa la
+función \texttt{t.test} para construir el intervalo. A continuación se
+muestra el código utilizado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Antes, }\DataTypeTok{y=}\NormalTok{Despues, }\DataTypeTok{paired=}\OtherTok{TRUE}\NormalTok{,  }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)$conf.int}
+\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Antes, }\DataTypeTok{y=}\NormalTok{Despues, }\DataTypeTok{paired=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)$conf.int}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8738,34 +8733,32 @@ A continuación se muestra el código
 ## [1] 0.95
 \end{verbatim}
 
-A partir del resultado obtenido se puede concluir, con un nivel de
+A partir del resultado obtenido se puede concluir con un nivel de
 confianza del \(95\%\), que el tiempo promedio verdadero durante el cual
-la elevación es de menos de \(30°\) luego del cambio difiere de lo que
+la elevación es de menos de 30 grados luego del cambio difiere de lo que
 era antes del mismo. Los valores del intervalo de confianza,
-\(2.362371< \mu_D < 11.137629\), indican que \(\mu_D>0\), es decir
-\(\mu_Antes - \mu_Despues>0\) y por lo tanto
-\(\mu_Antes > \mu_Despues\).
+\(2.362< \mu_D < 11.138\), indican que \(\mu_{antes} - \mu_{despues}>0\)
+y por lo tanto \(\mu_{antes} > \mu_{despues}\).
 
-\subsection{Intervalo de confianza unilateral para la
-media}\label{intervalo-de-confianza-unilateral-para-la-media}
+\subsection{\texorpdfstring{Intervalo de confianza unilateral para la
+media
+\(\mu\)}{Intervalo de confianza unilateral para la media \textbackslash{}mu}}\label{intervalo-de-confianza-unilateral-para-la-media-mu}
 
-En la función \texttt{t.test}, el argumento \texttt{x} indica la
-variable de interés para la cual se quiere calcular el intervalo de
-confianza para la media, el argumento \texttt{alternative\ =\ "less"}
-define el tipo de prueba, en este caso unilateral inferior, y el
-argumento \texttt{conf.level} define el nivel de confianza con el cual
-se quiere calcular el intervalo.
+Para construir intervalos de confianza unilaterales se usa el argumento
+\texttt{alternative\ =\ \textquotesingle{}less\textquotesingle{}} o
+\texttt{alternative=\textquotesingle{}greater\textquotesingle{}}, a
+continuación un ejemplo.
 
-\subsection{Ejemplo}\label{ejemplo-56}
+\subsection*{Ejemplo}\label{ejemplo-56}
+
 
 Simule una muestra aleatoria de una \(N(18, 3)\) y calcule un intervalo
 de confianza unilateral superior del \(90\%\) para la media
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{18}\NormalTok{, }\DataTypeTok{sd =}\DecValTok{3}\NormalTok{),}
-       \DataTypeTok{alternative =} \StringTok{"greater"}\NormalTok{,}
-       \DataTypeTok{conf.level =} \FloatTok{0.90}\NormalTok{)$conf.int}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{18}\NormalTok{, }\DataTypeTok{sd =}\DecValTok{3}\NormalTok{)}
+\KeywordTok{t.test}\NormalTok{(x, }\DataTypeTok{alternative =} \StringTok{"greater"}\NormalTok{, }\DataTypeTok{conf.level =} \FloatTok{0.90}\NormalTok{)$conf.int}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8775,43 +8768,57 @@ de confianza unilateral superior del \(90\%\) para la media
 ## [1] 0.9
 \end{verbatim}
 
-A partir del resultado obtenido se puede concluir, con un nivel de
-confianza del \(90\%\), que el valor promedio de la variable de interés
-queda en el intervalo \((17. 1162, \infty)\).
+En el resultado anterior se muestra el intervalo de confianza
+unilateral.
 
 \section{\texorpdfstring{Función
 \texttt{Var.test}}{Función Var.test}}\label{funcion-var.test}
 
-La función \texttt{Var.test} se usa para calcular intervalos de
-confianza para la varianza. La función y sus argumentos son los
-siguientes:
+Para construir intervalos de confianza para la varianza se usa la
+función \texttt{Var.test} del paquete \textbf{usefultools} disponible en
+el repositorio \href{https://github.com/}{GitHub}.
+
+Para instalar el paquete \textbf{usefultools} desde GitHub se debe
+copiar el siguiente código en \proglang{R}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{require}\NormalTok{(usefultools)}
-\KeywordTok{Var.test}\NormalTok{(x, }\DataTypeTok{alternative =} \StringTok{"two.sided"}\NormalTok{, }\DataTypeTok{null.value =} \DecValTok{1}\NormalTok{, }\DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
+\NormalTok{if (!}\KeywordTok{require}\NormalTok{(}\StringTok{'devtools'}\NormalTok{)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{'devtools'}\NormalTok{)}
+\NormalTok{devtools::}\KeywordTok{install_github}\NormalTok{(}\StringTok{'fhernanb/usefultools'}\NormalTok{, }\DataTypeTok{force=}\OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Intervalo de confianza bilateral para la
-varianza}\label{intervalo-de-confianza-bilateral-para-la-varianza}
+Una vez instalado \textbf{usefultools} se puede usar la función
+\texttt{Var.test}.
 
-Para calcular intervalos de confianza bilaterales para la varianza a
-partir de la función \texttt{Var.test} es necesario definir 2
-argumentos: \texttt{x} considera la variable de interés, y
-\texttt{conf.level} corresponde al nivel de confianza.
+\subsection{\texorpdfstring{Intervalo de confianza bilateral para la
+varianza
+\(\sigma^2\)}{Intervalo de confianza bilateral para la varianza \textbackslash{}sigma\^{}2}}\label{intervalo-de-confianza-bilateral-para-la-varianza-sigma2}
+
+Para calcular intervalos de confianza bilaterales para la varianza
+\(\sigma^2\) a partir de la función \texttt{Var.test} es necesario
+definir 2 argumentos:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico con la información de la muestra,
+\item
+  \texttt{conf.level}: nivel de confianza.
+\end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-57}
 
 
 Considerando la información del ejemplo de Intervalos de confianza
 bilaterales para la media, construir un intervalo de confianza del 98\%
-para la varianza de la altura de los estudiantes hombres
+para la varianza de la altura de los estudiantes hombres.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{require}\NormalTok{(usefultools)}
-\KeywordTok{Var.test}\NormalTok{(}\DataTypeTok{x =} \NormalTok{hombres$altura, }\DataTypeTok{conf.level =} \FloatTok{0.98}\NormalTok{)$conf.int}
+\KeywordTok{require}\NormalTok{(usefultools)  }\CommentTok{# Para cargar el paquete}
+\NormalTok{res <-}\StringTok{ }\KeywordTok{Var.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{hombres$altura, }\DataTypeTok{conf.level=}\FloatTok{0.98}\NormalTok{)}
+\NormalTok{res$conf.int}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8828,20 +8835,28 @@ los siguientes:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{var.test}\NormalTok{(x, y, }\DataTypeTok{ratio =} \DecValTok{1}\NormalTok{,}
-         \DataTypeTok{alternative =} \KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{),}
-         \DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{, ...)}
+\KeywordTok{var.test}\NormalTok{(x, y, }\DataTypeTok{ratio=}\DecValTok{1}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{, }
+         \DataTypeTok{alternative=}\KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Intervalo de confianza bilateral para la razón de
-varianzas}\label{intervalo-de-confianza-bilateral-para-la-razon-de-varianzas}
+\subsection{\texorpdfstring{Intervalo de confianza bilateral para la
+razón de varianzas
+\(\sigma_1^2 / \sigma_2^2\)}{Intervalo de confianza bilateral para la razón de varianzas \textbackslash{}sigma\_1\^{}2 / \textbackslash{}sigma\_2\^{}2}}\label{intervalo-de-confianza-bilateral-para-la-razon-de-varianzas-sigma_12-sigma_22}
 
 Para calcular intervalos de confianza bilaterales para la razón de
 varianzas a partir de la función \texttt{var.test} es necesario definir
-3 argumentos: \texttt{x} considera la variable de interés en la muestra
-1, \texttt{y} la variable de interés en la muestra 2, y
-\texttt{conf.level} corresponde al nivel de confianza.
+3 argumentos:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico con la información de la muestra 1,
+\item
+  \texttt{y}: vector numérico con la información de la muestra 2,
+\item
+  \texttt{conf.level}: nivel de confianza.
+\end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-58}
 
@@ -8853,7 +8868,8 @@ y mujeres.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{var.test}\NormalTok{(}\DataTypeTok{x =} \NormalTok{hombres$altura, }\DataTypeTok{y =} \NormalTok{mujeres$altura, }\DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)$conf.int}
+\KeywordTok{var.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{hombres$altura, }\DataTypeTok{y=}\NormalTok{mujeres$altura,}
+         \DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)$conf.int}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8864,9 +8880,19 @@ y mujeres.
 \end{verbatim}
 
 El intervalo de confianza del \(95\%\) indica que la razón de varianzas
-se encuentra entre 0.23 y 1.66. Puesto que el intervalo de confianza
+se encuentra entre 0.2327 y 1.6633. Puesto que el intervalo de confianza
 incluye el 1 se concluye que las varianzas de las alturas de los hombres
 y las mujeres son diferentes.
+
+\BeginKnitrBlock{rmdwarning}
+¿Notó que las funciones \texttt{Var.test} y \texttt{var.test} son
+diferentes?
+
+\texttt{Var.test} sirve para construir IC para \(\sigma^2\).
+
+\texttt{var.test} sirve para construir IC para
+\(\sigma_1^2 / \sigma_2^2\).
+\EndKnitrBlock{rmdwarning}
 
 \section{\texorpdfstring{Función
 \texttt{prop.test}}{Función prop.test}}\label{funcion-prop.test}
@@ -8877,14 +8903,15 @@ sus argumentos son los siguientes:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{prop.test}\NormalTok{(x, n, }\DataTypeTok{p =} \OtherTok{NULL}\NormalTok{,}
-          \DataTypeTok{alternative =} \KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{),}
-          \DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{, }\DataTypeTok{correct =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{prop.test}\NormalTok{(x, n, }\DataTypeTok{p=}\OtherTok{NULL}\NormalTok{,}
+          \DataTypeTok{alternative=}\KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{),}
+          \DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{, }\DataTypeTok{correct=}\OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Intervalo de confianza bilateral para la
-proporción}\label{intervalo-de-confianza-bilateral-para-la-proporcion}
+\subsection{\texorpdfstring{Intervalo de confianza bilateral para la
+proporción
+\(p\)}{Intervalo de confianza bilateral para la proporción p}}\label{intervalo-de-confianza-bilateral-para-la-proporcion-p}
 
 Para calcular intervalos de confianza bilaterales para la proporción a
 partir de la función \texttt{prop.test} es necesario definir 3
@@ -8896,56 +8923,84 @@ nivel de confianza.
 \subsection*{Ejemplo}\label{ejemplo-59}
 
 
-Se quiere obtener un intervalo de confianza bilateral del \(95\%\) para
-la proporción de estudiantes que tienen alturas de más de 170 cm.
+El gerente de una estación de televisión debe determinar en la ciudad
+qué porcentaje de casas tienen más de un televisor. Una muestra
+aleatoria de 500 casas revela que 275 tienen dos o más televisores.
+¿Cuál es el intervalo de confianza del 90\% para estimar la proporción
+de todas las casas que tienen dos o más televisores?
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{require}\NormalTok{(usefultools)}
-\NormalTok{exitos <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\KeywordTok{ifelse}\NormalTok{(hombres$altura >}\StringTok{ }\DecValTok{170}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\KeywordTok{prop.test}\NormalTok{(}\DataTypeTok{x =} \NormalTok{exitos, }\DataTypeTok{n=} \KeywordTok{length}\NormalTok{(hombres$altura), }\DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)$conf.int}
+\KeywordTok{prop.test}\NormalTok{(}\DataTypeTok{x=}\DecValTok{275}\NormalTok{, }\DataTypeTok{n=}\DecValTok{500}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.90}\NormalTok{)$conf.int}
 \end{Highlighting}
 \end{Shaded}
 
-A partir del resultado obtenido se puede concluir, con un nivel de
-confianza del \(95\%\), que la proporción de estudiantes hombres que
-tienen más de 170 cm se encuentra entre 0.63 y 0.98.
+\begin{verbatim}
+## [1] 0.5122 0.5872
+## attr(,"conf.level")
+## [1] 0.9
+\end{verbatim}
 
-\subsection{Intervalo de confianza bilateral para la diferencia de
-proporciones}\label{intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones}
+A partir del resultado obtenido se puede concluir, con un nivel de
+confianza del \(90\%\), que la proporción \(p\) de casas que tienen dos
+o más televisores se encuentra entre 0.5122 y 0.5872.
+
+\subsection{\texorpdfstring{Intervalo de confianza bilateral para la
+diferencia de proporciones
+\(p_1 - p_2\)}{Intervalo de confianza bilateral para la diferencia de proporciones p\_1 - p\_2}}\label{intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2}
 
 Para calcular intervalos de confianza bilaterales para la proporción a
 partir de la función \texttt{prop.test} es necesario definir 3
-argumentos: \texttt{x} considera un vector del conteo de éxitos de las
-dos muestras, \texttt{n} indica el número de eventos de las dos
-muestras, y \texttt{conf.level} corresponde al nivel de confianza.
+argumentos:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector con el conteo de éxitos de las dos muestras,
+\item
+  \texttt{n}: vector con el número de ensayos,
+\item
+  \texttt{conf.level}: al nivel de confianza.
+\end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-60}
 
 
-Obtener un intervalo de confianza bilateral del \(95\%\) para la
-diferencia de proporciones de estudiantes hombres y mujeres que tienen
-alturas de más de 170 cm.
+Se quiere determinar si un cambio en el método de fabricación de una
+piezas ha sido efectivo o no. Para esta comparación se tomaron 2
+muestras, una antes y otra después del cambio en el proceso y los
+resultados obtenidos son los siguientes.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Num piezas & Antes & Después\tabularnewline
+\midrule
+\endhead
+Defectuosas & 75 & 80\tabularnewline
+Analizadas & 1500 & 2000\tabularnewline
+\bottomrule
+\end{longtable}
+
+Construir un intervalo de confianza del 90\% para decidir si el cambio
+tuvo efecto positivo o no.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{require}\NormalTok{(usefultools)}
-\NormalTok{exitos.h <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\KeywordTok{ifelse}\NormalTok{(hombres$altura >}\StringTok{ }\DecValTok{170}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\NormalTok{exitos.m <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\KeywordTok{ifelse}\NormalTok{(mujeres$altura >}\StringTok{ }\DecValTok{170}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\NormalTok{n.h <-}\StringTok{ }\KeywordTok{length}\NormalTok{(hombres$altura)}
-\NormalTok{n.m <-}\StringTok{ }\KeywordTok{length}\NormalTok{(mujeres$altura)}
-
-\KeywordTok{prop.test}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{c}\NormalTok{(exitos.h, exitos.m), }\DataTypeTok{n=} \KeywordTok{c}\NormalTok{(n.h, n.m), }\DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)$conf.int}
+\KeywordTok{prop.test}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(}\DecValTok{75}\NormalTok{, }\DecValTok{80}\NormalTok{), }\DataTypeTok{n=}\KeywordTok{c}\NormalTok{(}\DecValTok{1500}\NormalTok{, }\DecValTok{2000}\NormalTok{), }\DataTypeTok{conf.level=}\FloatTok{0.90}\NormalTok{)$conf.int}
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## [1] -0.002315  0.022315
+## attr(,"conf.level")
+## [1] 0.9
+\end{verbatim}
+
 A partir del resultado obtenido se puede concluir, con un nivel de
-confianza del \(95\%\), que la diferencia de proporciones de estudiantes
-hombres y mujeres que tienen más de 170 cm se encuentra entre 0.30 y
-0.91. Los valores de los limites de confianza indican que \(p_1-p_2>0\),
-por lo que se concluye que \(p_1>p_2\), es decir la proporción de
-estudiantes hombres que tienen alturas de más de 170 cm es superior a la
-proporción de estudiantes mujeres que tienen alturas de más de 170 cm.
+confianza del \(90\%\), que la diferencia de proporción de defectos
+(\(p_1 - p_2\)) se encuentra entre -0.002315 y 0.022315. Como el cero
+está dentro del intervalo se concluye que el cambio en el método de
+fabricación no ha disminuído el porcentaje de defectos.
 
 \chapter{Prueba de hipótesis.}\label{prueba-de-hipotesis.}
 
