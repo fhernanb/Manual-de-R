@@ -9,8 +9,87 @@ En este capítulo se muestran las funciones que hay disponibles en \proglang{R} 
 5. la diferencia de proporciones, y 
 6. la razón de varianzas.
 
-Para ilustrar el uso de las funciones se utilizará la base de datos __medidas del cuerpo__ presentada en el Capítulo \@ref(central). 
 
-```{block2, type='rmdwarning'}
-Capítulo en construcción, revíselo más tarde para verlo completo.
+## Prueba de hipótesis para $\mu$ de una población normal
+
+### Ejemplo {-}
+Para verificar si el proceso de llenado de bolsas de café con 500  gramos está operando correctamente se toman aleatoriamente muestras de tamaño diez cada cuatro horas. Una muestra de bolsas está compuesta por las siguientes observaciones:
+
+502, 501, 497, 491, 496, 501, 502, 500, 489, 490.
+
+¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un nivel de significancia del 5%.
+
+
+Lo primero es explorar si la muestra proviene de una distribución normal, para eso ingresamos los datos y usamos la función `ad.test` como se muestra a continuación.
+
+```{r}
+contenido <- c(510, 492, 494, 498, 492,
+               496, 502, 491, 507, 496) 
+
+require(nortest) # Se debe haber instalado antes nortest
+ad.test(contenido)
 ```
+
+Como el valor-P de la prueba Anderson-Darlin es 20% y mayor que 5%, se puede asumir que la muestra proviene de una población normal, así nos interesa probar lo siguiente:
+
+$$H_0: \mu = 500 \quad km$$
+$$H_1: \mu \neq 500 \quad km$$
+La prueba de hipótesis se puede realizar usando la función `t.test` por medio del siguiente código.
+
+```{r}
+t.test(contenido, alternative='two.sided',
+       conf.level=0.95, mu=500)
+```
+
+Como el valor-P es 30% y mayor que el nivel de significancia 5%, no se rechaza la hipótesis nula, es decir, las evidencias no son suficientes para afirmar que el proceso de llenando no está cumpliendo con lo impreso en la envoltura. 
+
+
+## Prueba de hipótesis para $\mu$ con muestras grandes
+
+### Ejemplo {-}
+Se afirma que los automóviles recorren en promedio más de 20000 kilómetros por año pero usted cree que el promedio es en realidad menor. Para probar tal afirmación se pide a una muestra de 100 propietarios de automóviles seleccionada de manera aleatoria que lleven un registro de los kilómetros que recorren. 
+
+¿Estaría usted de acuerdo con esta afirmación, si la muestra aleatoria indicara un promedio de 23500 kilómetros y una desviación estándar de 3900 kilómetros? Utilice un valor P en su conclusión y use una significancia del 3%.
+
+En este problema interesa
+
+$$H_0: \mu \ge 2000 \quad km$$
+$$H_1: \mu < 2000 \quad km$$
+Para calcular el estadístico y su valor-P se usa el siguiente código.
+```{r}
+xbarra <- 19500  # Datos del problema
+desvia <- 3900
+n <- 100
+mu <- 20000
+
+est <- (xbarra - mu) / (desvia / sqrt(n))
+est  # Para obtener el valor del estadístico
+pnorm(est)  # Para obtener el valor-P
+```
+Como el valor-P es mayor que el nivel de significancia, no hay evidencias suficientes para pensar que ha disminuido el recorrido anual de los autos.
+
+## Prueba de hipótesis para $p$
+
+### Ejemplo {-}
+Un fabricante de un quitamanchas afirma que su producto quita 90% de todas las manchas. Para poner a prueba esta afirmación se toman 200 camisetas manchadas de las cuales a solo 174  les desapareció la mancha. Pruebe la afirmación del fabricante a un nivel $\alpha=0.05$.
+
+En este problema interesa probar lo siguiente:
+
+$$H_0: p = 0.90$$
+$$H_1: p < 0.90$$
+La función `prop.test` se puede usar para realizar la prueba anterior.
+```{r}
+prop.test(x=174, n=200, p=0.9, alternative='less',
+          conf.level=0.95, correct=FALSE)
+```
+
+Como el valor-P es mayor que $\alpha$ no se rechaza la hipótesis nula y se puede asumir que el productor del detergente está diciendo la verdad.
+
+Para entender lo que reporta la función `prop.test` se recomienda revisar este [enlace](https://www.r-bloggers.com/one-proportion-z-test-in-r/).
+
+## Prueba de hipótesis para $\sigma^2$
+
+### Ejemplo {-}
+
+
+
