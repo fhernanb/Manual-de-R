@@ -2,12 +2,12 @@
 
 En este capítulo se muestran las funciones que hay disponibles en \proglang{R} para realizar prueba de hipótesis para:
 
-1. la media,
-2. la proporción,
-3. la varianza,
-4. la diferencia de medias para muestras independientes y dependientes (o pareadas),
-5. la diferencia de proporciones, y 
-6. la razón de varianzas.
+1. la media $\mu$,
+2. la proporción $p$,
+3. la varianza $\sigma^2$,
+4. la diferencia de medias $\mu_1-\mu_2$ para muestras independientes y dependientes (o pareadas),
+5. la diferencia de proporciones $p_1 - p_2$, y 
+6. la razón de varianzas $\sigma_1^2 / \sigma_2^2$.
 
 
 ## Prueba de hipótesis para $\mu$ de una población normal
@@ -90,6 +90,79 @@ Para entender lo que reporta la función `prop.test` se recomienda revisar este 
 ## Prueba de hipótesis para $\sigma^2$
 
 ### Ejemplo {-}
+
+## Prueba de hipótesis para el cociente de varianzas $\sigma_1^2 / \sigma_2^2$
+
+### Ejemplo {-}
+Se realiza un estudio para comparar dos tratamientos que se aplicarán a frijoles crudos con el objetivo de reducir el tiempo de cocción.  El tratamiento T1 es a base de bicarbonato de sodio, el T2 es a base de cloruro de sodio o sal común. La variable respuesta es el tiempo de cocción en minutos. Los datos se muestran en la tabla. ¿Son las varianzas de los tiempos iguales o diferentes? Usar $\alpha=0.03$.
+
+T1: 76, 85, 74, 78, 82, 75, 82.
+
+T2: 57, 67, 55, 64, 61, 63, 63.
+
+En este problema interesa probar:
+
+$$H_0: \sigma_1^2 / \sigma_2^2 = 1$$
+$$H_1: \sigma_1^2 / \sigma_2^2 \neq 1$$
+
+Para ingresar los datos se hace lo siguiente:
+
+```{r}
+T1 <- c(76, 85, 74,78, 82, 75, 82) 
+T2 <- c(57, 67, 55, 64, 61, 63, 63)
+```
+
+Primero se debe explorar si las muestras provienen de una población normal, para esto se construyen los QQplot.
+
+```{r frijoles1, fig.cap='QQplot para los tiempos de cocción.', fig.asp=0.8, fig.width=6}
+q1 <- qqnorm(T1, plot.it=FALSE)
+q2 <- qqnorm(T2, plot.it=FALSE)
+plot(range(q1$x, q2$x), range(q1$y, q2$y), type="n", las=1,
+     xlab='Theoretical Quantiles', ylab='Sample Quantiles')
+points(q1, pch=19)
+points(q2, col="red", pch=19)
+qqline(T1)
+qqline(T2, col="red")
+legend('topleft', legend=c('T1', 'T2'), bty='n',
+       col=c('black', 'red'), pch=19)
+```
+
+A continuación el código para aplicar la prueba de normalidad Kolmogorov-Smirnov, a continuación el código usado. 
+```{r}
+require(nortest)
+lillie.test(T1)$p.value
+lillie.test(T2)$p.value
+```
+
+Del QQplot mostrado en la Figura \@ref(fig:cocvar1) y las pruebas de normalidad se observa que se pueden asumir poblaciones normales.
+
+La función `var.test` se puede usar para probar $H_0$, a continuación el código para realizar la prueba.
+
+```{r}
+var.test(T1, T2, ratio=1, alternative="two.sided",
+         conf.level=0.95)
+```
+
+Como el valor-P es 0.9897 (reportado como 1), muy superior al nivel $\alpha$ de significancia, se puede concluir que las varianzas son similares.
+
+## Prueba de hipótesis para la diferencia de medias $\mu_1-\mu_2$ con varianzas iguales
+
+### Ejemplo {-}
+Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los tiempos de cocción de los fríjoles con T1 y T2? Usar un nivel de significancia del 3%.
+
+
+```{r frijoles2, fig.cap='Boxplot para los tiempos de cocción dato el tratamiento.', fig.asp=0.8, fig.width=4}
+datos <- data.frame(tiempo=c(T1, T2), trat=rep(1:2, each=7))
+boxplot(tiempo ~ trat, data=datos, las=1,
+        xlab='Tratamiento', ylab='Tiempo (min)')
+```
+
+
+```{r}
+t.test(T1, T2, alternative="two.sided", mu=0, 
+       paired=FALSE, var.equal=TRUE, conf.level=0.97)
+```
+
 
 
 

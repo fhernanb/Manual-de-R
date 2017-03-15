@@ -2,12 +2,12 @@
 
 En este capítulo se muestran las funciones que hay disponibles en \proglang{R} para construir intervalos de confianza para:
 
-1. la media,
-2. la proporción,
-3. la varianza,
-4. la diferencia de medias para muestras independientes y dependientes (o pareadas),
-5. la diferencia de proporciones, y 
-6. la razón de varianzas.
+1. la media $\mu$,
+2. la proporción $p$,
+3. la varianza $\sigma^2$,
+4. la diferencia de medias $\mu_1-\mu_2$ para muestras independientes y dependientes (o pareadas),
+5. la diferencia de proporciones $p_1 - p_2$, y 
+6. la razón de varianzas $\sigma_1^2 / \sigma_2^2$.
 
 Para ilustrar el uso de las funciones se utilizará la base de datos __medidas del cuerpo__ presentada en el Capítulo \@ref(central). 
 

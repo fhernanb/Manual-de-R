@@ -8389,18 +8389,18 @@ En este capítulo se muestran las funciones que hay disponibles en
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  la media,
+  la media \(\mu\),
 \item
-  la proporción,
+  la proporción \(p\),
 \item
-  la varianza,
+  la varianza \(\sigma^2\),
 \item
-  la diferencia de medias para muestras independientes y dependientes (o
-  pareadas),
+  la diferencia de medias \(\mu_1-\mu_2\) para muestras independientes y
+  dependientes (o pareadas),
 \item
-  la diferencia de proporciones, y
+  la diferencia de proporciones \(p_1 - p_2\), y
 \item
-  la razón de varianzas.
+  la razón de varianzas \(\sigma_1^2 / \sigma_2^2\).
 \end{enumerate}
 
 Para ilustrar el uso de las funciones se utilizará la base de datos
@@ -9017,18 +9017,18 @@ En este capítulo se muestran las funciones que hay disponibles en
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  la media,
+  la media \(\mu\),
 \item
-  la proporción,
+  la proporción \(p\),
 \item
-  la varianza,
+  la varianza \(\sigma^2\),
 \item
-  la diferencia de medias para muestras independientes y dependientes (o
-  pareadas),
+  la diferencia de medias \(\mu_1-\mu_2\) para muestras independientes y
+  dependientes (o pareadas),
 \item
-  la diferencia de proporciones, y
+  la diferencia de proporciones \(p_1 - p_2\), y
 \item
-  la razón de varianzas.
+  la razón de varianzas \(\sigma_1^2 / \sigma_2^2\).
 \end{enumerate}
 
 \section{\texorpdfstring{Prueba de hipótesis para \(\mu\) de una
@@ -9208,6 +9208,164 @@ revisar este
 \subsection*{Ejemplo}\label{ejemplo-64}
 
 
+\section{\texorpdfstring{Prueba de hipótesis para el cociente de
+varianzas
+\(\sigma_1^2 / \sigma_2^2\)}{Prueba de hipótesis para el cociente de varianzas \textbackslash{}sigma\_1\^{}2 / \textbackslash{}sigma\_2\^{}2}}\label{prueba-de-hipotesis-para-el-cociente-de-varianzas-sigma_12-sigma_22}
+
+\subsection*{Ejemplo}\label{ejemplo-65}
+
+
+Se realiza un estudio para comparar dos tratamientos que se aplicarán a
+frijoles crudos con el objetivo de reducir el tiempo de cocción. El
+tratamiento T1 es a base de bicarbonato de sodio, el T2 es a base de
+cloruro de sodio o sal común. La variable respuesta es el tiempo de
+cocción en minutos. Los datos se muestran en la tabla. ¿Son las
+varianzas de los tiempos iguales o diferentes? Usar \(\alpha=0.03\).
+
+T1: 76, 85, 74, 78, 82, 75, 82.
+
+T2: 57, 67, 55, 64, 61, 63, 63.
+
+En este problema interesa probar:
+
+\[H_0: \sigma_1^2 / \sigma_2^2 = 1\]
+\[H_1: \sigma_1^2 / \sigma_2^2 \neq 1\]
+
+Para ingresar los datos se hace lo siguiente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{T1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{76}\NormalTok{, }\DecValTok{85}\NormalTok{, }\DecValTok{74}\NormalTok{,}\DecValTok{78}\NormalTok{, }\DecValTok{82}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{82}\NormalTok{) }
+\NormalTok{T2 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{57}\NormalTok{, }\DecValTok{67}\NormalTok{, }\DecValTok{55}\NormalTok{, }\DecValTok{64}\NormalTok{, }\DecValTok{61}\NormalTok{, }\DecValTok{63}\NormalTok{, }\DecValTok{63}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Primero se debe explorar si las muestras provienen de una población
+normal, para esto se construyen los QQplot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{q1 <-}\StringTok{ }\KeywordTok{qqnorm}\NormalTok{(T1, }\DataTypeTok{plot.it=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{q2 <-}\StringTok{ }\KeywordTok{qqnorm}\NormalTok{(T2, }\DataTypeTok{plot.it=}\OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{range}\NormalTok{(q1$x, q2$x), }\KeywordTok{range}\NormalTok{(q1$y, q2$y), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{'Theoretical Quantiles'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Sample Quantiles'}\NormalTok{)}
+\KeywordTok{points}\NormalTok{(q1, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
+\KeywordTok{points}\NormalTok{(q2, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(T1)}
+\KeywordTok{qqline}\NormalTok{(T2, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\StringTok{'topleft'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{'T1'}\NormalTok{, }\StringTok{'T2'}\NormalTok{), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'black'}\NormalTok{, }\StringTok{'red'}\NormalTok{), }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/frijoles1-1.pdf}
+\caption{\label{fig:frijoles1}QQplot para los tiempos de cocción.}
+\end{figure}
+
+A continuación el código para aplicar la prueba de normalidad
+Kolmogorov-Smirnov, a continuación el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require}\NormalTok{(nortest)}
+\KeywordTok{lillie.test}\NormalTok{(T1)$p.value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5205
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{lillie.test}\NormalTok{(T2)$p.value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3953
+\end{verbatim}
+
+Del QQplot mostrado en la Figura \ref{fig:cocvar1} y las pruebas de
+normalidad se observa que se pueden asumir poblaciones normales.
+
+La función \texttt{var.test} se puede usar para probar \(H_0\), a
+continuación el código para realizar la prueba.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var.test}\NormalTok{(T1, T2, }\DataTypeTok{ratio=}\DecValTok{1}\NormalTok{, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{,}
+         \DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  F test to compare two variances
+## 
+## data:  T1 and T2
+## F = 1, num df = 6, denom df = 6, p-value = 1
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.1737 5.8839
+## sample estimates:
+## ratio of variances 
+##              1.011
+\end{verbatim}
+
+Como el valor-P es 0.9897 (reportado como 1), muy superior al nivel
+\(\alpha\) de significancia, se puede concluir que las varianzas son
+similares.
+
+\section{\texorpdfstring{Prueba de hipótesis para la diferencia de
+medias \(\mu_1-\mu_2\) con varianzas
+iguales}{Prueba de hipótesis para la diferencia de medias \textbackslash{}mu\_1-\textbackslash{}mu\_2 con varianzas iguales}}\label{prueba-de-hipotesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales}
+
+\subsection*{Ejemplo}\label{ejemplo-66}
+
+
+Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los
+tiempos de cocción de los fríjoles con T1 y T2? Usar un nivel de
+significancia del 3\%.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{tiempo=}\KeywordTok{c}\NormalTok{(T1, T2), }\DataTypeTok{trat=}\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{2}\NormalTok{, }\DataTypeTok{each=}\DecValTok{7}\NormalTok{))}
+\KeywordTok{boxplot}\NormalTok{(tiempo ~}\StringTok{ }\NormalTok{trat, }\DataTypeTok{data=}\NormalTok{datos, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+        \DataTypeTok{xlab=}\StringTok{'Tratamiento'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Tiempo (min)'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/frijoles2-1.pdf}
+\caption{\label{fig:frijoles2}Boxplot para los tiempos de cocción dato el
+tratamiento.}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t.test}\NormalTok{(T1, T2, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{, }\DataTypeTok{mu=}\DecValTok{0}\NormalTok{, }
+       \DataTypeTok{paired=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{var.equal=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.97}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Two Sample t-test
+## 
+## data:  T1 and T2
+## t = 7.8, df = 12, p-value = 5e-06
+## alternative hypothesis: true difference in means is not equal to 0
+## 97 percent confidence interval:
+##  11.95 22.91
+## sample estimates:
+## mean of x mean of y 
+##     78.86     61.43
+\end{verbatim}
+
 \chapter{\texorpdfstring{Aproximación de integrales
 \label{aproxint}}{Aproximación de integrales }}\label{aproximacion-de-integrales}
 
@@ -9248,7 +9406,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-65}
+\subsection*{Ejemplo}\label{ejemplo-67}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en

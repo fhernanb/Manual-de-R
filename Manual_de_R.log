@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.2.24)  15 MAR 2017 12:58
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.2.24)  15 MAR 2017 18:56
 entering extended mode
 **./Manual_de_R.tex
 (Manual_de_R.tex
@@ -4811,83 +4811,78 @@ LaTeX Info: Redefining \% on input line 9118.
 LaTeX Info: Redefining \. on input line 9169.
 LaTeX Info: Redefining \% on input line 9169.
 [173]
-LaTeX Info: Redefining \. on input line 9211.
-LaTeX Info: Redefining \% on input line 9211.
+LaTeX Info: Redefining \. on input line 9224.
+LaTeX Info: Redefining \% on input line 9224.
 [174]
-LaTeX Info: Redefining \. on input line 9211.
-LaTeX Info: Redefining \% on input line 9211.
+LaTeX Info: Redefining \. on input line 9259.
+LaTeX Info: Redefining \% on input line 9259.
 [175]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+File: Manual_de_R_files/figure-latex/frijoles1-1.pdf Graphic file (type QTm)
+<use  "Manual_de_R_files/figure-latex/frijoles1-1.pdf" >
+
+LaTeX Warning: Reference `fig:cocvar1' on page 176 undefined on input line 9291
+.
+
+LaTeX Info: Redefining \. on input line 9297.
+LaTeX Info: Redefining \% on input line 9297.
+[176]
+Overfull \hbox (20.5pt too wide) in paragraph at lines 9316--9316
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true ratio of variances is not equ
+al to 1[] 
+ []
+
+File: Manual_de_R_files/figure-latex/frijoles2-1.pdf Graphic file (type QTm)
+<use  "Manual_de_R_files/figure-latex/frijoles2-1.pdf" >
+LaTeX Info: Redefining \. on input line 9367.
+LaTeX Info: Redefining \% on input line 9367.
+
+Overfull \hbox (29.47415pt too wide) has occurred while \output is active
+ [][][][]  \TU/lmr/m/it/10 18.6Prueba de hipótesis para la diferencia de medias
+ $\OML/lmm/m/it/10 ^^V[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 ^^V[]$ \TU/lmr/m
+/it/10 con varianzas iguales  \TU/lmr/m/n/10 177
+ []
+
+[177]
+Overfull \hbox (25.75pt too wide) in paragraph at lines 9367--9367
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true difference in means is not eq
+ual to 0[] 
+ []
+
+LaTeX Info: Redefining \. on input line 9369.
+LaTeX Info: Redefining \% on input line 9369.
+[178]
+Underfull \vbox (badness 10000) detected at line 9369
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 9369
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 9369
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 9369
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 9369
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 9369
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+Underfull \vbox (badness 10000) detected at line 9369
  []
 
 
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[176
-
-]
-Underfull \vbox (badness 10000) detected at line 9211
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 9211
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 9211
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 9211
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 9211
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 9211
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 9211
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 9211
+Overfull \hbox (336.25pt too wide) detected at line 9369
 []
  []
 
@@ -4897,104 +4892,18 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[177
+[179
+
 
 ]
 File: Manual_de_R_files/figure-latex/aprox1-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/aprox1-1.pdf" >
-LaTeX Info: Redefining \. on input line 9292.
-LaTeX Info: Redefining \% on input line 9292.
-[178] (Manual_de_R.bbl
+LaTeX Info: Redefining \. on input line 9450.
+LaTeX Info: Redefining \% on input line 9450.
+[180] (Manual_de_R.bbl
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-[179]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[180
-
-]
-Underfull \vbox (badness 10000) detected at line 1
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 1
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 1
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 1
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 1
-[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 1
-[]
- []
-
-)
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[181
-
-]
+[181]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -5033,6 +4942,93 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [182
 
+]
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1
+[]
+ []
+
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[183
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[184
+
 ] (Manual_de_R.ind
 Underfull \hbox (badness 10000) detected at line 1
 []
@@ -5047,39 +5043,42 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[183
+[185
 
 
 ]
 LaTeX Info: Redefining \. on input line 149.
 LaTeX Info: Redefining \% on input line 149.
-[184
+[186
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9335.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 9335.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9493.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 9493.
 (Manual_de_R.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 9335.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 9335.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 9493.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 9493.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 24296 strings out of 427899
- 432818 string characters out of 3153117
- 584166 words of memory out of 3000000
- 27855 multiletter control sequences out of 15000+200000
+ 24307 strings out of 427899
+ 433158 string characters out of 3153117
+ 585801 words of memory out of 3000000
+ 27864 multiletter control sequences out of 15000+200000
  51954 words of font info for 99 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  53i,17n,92p,10411b,669s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Manual_de_R.pdf (200 pages).
+Output written on Manual_de_R.pdf (202 pages).
