@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-03-15}
+\date{2017-03-16}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -6661,12 +6661,6 @@ código usado.
 En la Figura \ref{fig:norm2} se muestran las áreas sombreadas para cada
 de las anteriores preguntas.
 
-\begin{verbatim}
-## Warning in library(package, lib.loc = lib.loc,
-## character.only = TRUE, logical.return = TRUE, : there
-## is no package called 'mytools'
-\end{verbatim}
-
 \begin{figure}[htbp]
 \centering
 \includegraphics{Manual_de_R_files/figure-latex/norm2-1.pdf}
@@ -9297,7 +9291,7 @@ continuación el código para realizar la prueba.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{var.test}\NormalTok{(T1, T2, }\DataTypeTok{ratio=}\DecValTok{1}\NormalTok{, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{,}
-         \DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)}
+         \DataTypeTok{conf.level=}\FloatTok{0.97}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -9308,8 +9302,8 @@ continuación el código para realizar la prueba.
 ## data:  T1 and T2
 ## F = 1, num df = 6, denom df = 6, p-value = 1
 ## alternative hypothesis: true ratio of variances is not equal to 1
-## 95 percent confidence interval:
-##  0.1737 5.8839
+## 97 percent confidence interval:
+##  0.1405 7.2756
 ## sample estimates:
 ## ratio of variances 
 ##              1.011
@@ -9319,11 +9313,119 @@ Como el valor-P es 0.9897 (reportado como 1), muy superior al nivel
 \(\alpha\) de significancia, se puede concluir que las varianzas son
 similares.
 
+\subsection*{Ejemplo}\label{ejemplo-66}
+
+
+El arsénico en agua potable es un posible riesgo para la salud. Un
+artículo reciente reportó concentraciones de arsénico en agua potable en
+partes por billón (ppb) para 10 comunidades urbanas y 10 comunidades
+rurales. Los datos son los siguientes:
+
+Urbana: 3, 7, 25, 10, 15, 6, 12, 25, 15, 7
+
+Rural: 48, 44, 40, 38, 33, 21, 20, 12, 1, 18
+
+¿Son las varianzas de las concentraciones iguales o diferentes? Usar
+\(\alpha=0.07\).
+
+En este problema interesa probar:
+
+\[H_0: \sigma_1^2 / \sigma_2^2 = 1\]
+\[H_1: \sigma_1^2 / \sigma_2^2 \neq 1\]
+
+Para ingresar los datos se hace lo siguiente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{urb <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\NormalTok{rur <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{48}\NormalTok{, }\DecValTok{44}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{38}\NormalTok{, }\DecValTok{33}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{18}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Primero se debe explorar si las muestras provienen de una población
+normal, para esto se construyen los QQplot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{q1 <-}\StringTok{ }\KeywordTok{qqnorm}\NormalTok{(urb, }\DataTypeTok{plot.it=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{q2 <-}\StringTok{ }\KeywordTok{qqnorm}\NormalTok{(rur, }\DataTypeTok{plot.it=}\OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{range}\NormalTok{(q1$x, q2$x), }\KeywordTok{range}\NormalTok{(q1$y, q2$y), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{'Theoretical Quantiles'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Sample Quantiles'}\NormalTok{)}
+\KeywordTok{points}\NormalTok{(q1, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
+\KeywordTok{points}\NormalTok{(q2, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(urb)}
+\KeywordTok{qqline}\NormalTok{(rur, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\StringTok{'topleft'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{'Urbana'}\NormalTok{, }\StringTok{'Rural'}\NormalTok{), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'black'}\NormalTok{, }\StringTok{'red'}\NormalTok{), }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/ars1-1.pdf}
+\caption{\label{fig:ars1}QQplot para las concentraciones de arsénico.}
+\end{figure}
+
+A continuación el código para aplicar la prueba de normalidad
+Kolmogorov-Smirnov, a continuación el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require}\NormalTok{(nortest)}
+\KeywordTok{lillie.test}\NormalTok{(urb)$p.value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5522
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{lillie.test}\NormalTok{(rur)$p.value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.625
+\end{verbatim}
+
+Del QQplot mostrado en la Figura \ref{fig:ars1} y las pruebas de
+normalidad se observa que se pueden asumir poblaciones normales.
+
+La función \texttt{var.test} se puede usar para probar \(H_0\), a
+continuación el código para realizar la prueba.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var.test}\NormalTok{(urb, rur, }\DataTypeTok{ratio=}\DecValTok{1}\NormalTok{, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{,}
+         \DataTypeTok{conf.level=}\FloatTok{0.93}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  F test to compare two variances
+## 
+## data:  urb and rur
+## F = 0.25, num df = 9, denom df = 9, p-value =
+## 0.05
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 93 percent confidence interval:
+##  0.06871 0.89041
+## sample estimates:
+## ratio of variances 
+##             0.2473
+\end{verbatim}
+
+Como el valor-P es menor que \(\alpha=0.07\) de significancia, se puede
+concluir que las varianzas no son iguales.
+
 \section{\texorpdfstring{Prueba de hipótesis para la diferencia de
 medias \(\mu_1-\mu_2\) con varianzas
 iguales}{Prueba de hipótesis para la diferencia de medias \textbackslash{}mu\_1-\textbackslash{}mu\_2 con varianzas iguales}}\label{prueba-de-hipotesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales}
 
-\subsection*{Ejemplo}\label{ejemplo-66}
+\subsection*{Ejemplo}\label{ejemplo-67}
 
 
 Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los
@@ -9341,7 +9443,7 @@ significancia del 3\%.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Manual_de_R_files/figure-latex/frijoles2-1.pdf}
-\caption{\label{fig:frijoles2}Boxplot para los tiempos de cocción dato el
+\caption{\label{fig:frijoles2}Boxplot para los tiempos de cocción dado el
 tratamiento.}
 \end{figure}
 
@@ -9364,6 +9466,54 @@ tratamiento.}
 ## sample estimates:
 ## mean of x mean of y 
 ##     78.86     61.43
+\end{verbatim}
+
+\section{\texorpdfstring{Prueba de hipótesis para la diferencia de
+medias \(\mu_1-\mu_2\) con varianzas
+diferentes}{Prueba de hipótesis para la diferencia de medias \textbackslash{}mu\_1-\textbackslash{}mu\_2 con varianzas diferentes}}\label{prueba-de-hipotesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes}
+
+\subsection*{Ejemplo}\label{ejemplo-68}
+
+
+Retomando el ejemplo de la concentración de arsénico en el agua,
+¿existen diferencias entre las concentraciones de arsénico de la zona
+urbana y rual? Usar un nivel de significancia del 7\%.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Concentracion=}\KeywordTok{c}\NormalTok{(urb, rur),}
+                    \DataTypeTok{Zona=}\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{'Urbana'}\NormalTok{, }\StringTok{'Rural'}\NormalTok{), }\DataTypeTok{each=}\DecValTok{10}\NormalTok{))}
+\KeywordTok{boxplot}\NormalTok{(Concentracion ~}\StringTok{ }\NormalTok{Zona, }\DataTypeTok{data=}\NormalTok{datos, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+        \DataTypeTok{xlab=}\StringTok{'Zona'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Concentración arsénico (ppb)'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/ars2-1.pdf}
+\caption{\label{fig:ars2}Boxplot para las concentaciones de arsénico dada la
+zona.}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t.test}\NormalTok{(urb, rur, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{, }\DataTypeTok{mu=}\DecValTok{0}\NormalTok{, }
+       \DataTypeTok{paired=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{var.equal=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.93}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  urb and rur
+## t = -2.8, df = 13, p-value = 0.02
+## alternative hypothesis: true difference in means is not equal to 0
+## 93 percent confidence interval:
+##  -25.688  -4.312
+## sample estimates:
+## mean of x mean of y 
+##      12.5      27.5
 \end{verbatim}
 
 \chapter{\texorpdfstring{Aproximación de integrales
@@ -9406,7 +9556,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-67}
+\subsection*{Ejemplo}\label{ejemplo-69}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
