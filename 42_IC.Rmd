@@ -282,7 +282,7 @@ prop.test(x=275, n=500, conf.level=0.90)$conf.int
 A partir del resultado obtenido se puede concluir, con un nivel de confianza del $90\%$, que la proporción $p$ de casas que tienen dos o más televisores se encuentra entre 0.5122 y 0.5872. 
 
 ### Intervalo de confianza bilateral para la diferencia de proporciones $p_1 - p_2$
-Para calcular intervalos de confianza bilaterales para la proporción a partir de la función `prop.test` es necesario definir 3 argumentos:
+Para construir intervalos de confianza bilaterales para la proporción a partir de la función `prop.test` es necesario definir 3 argumentos:
 
 - `x`: vector con el conteo de éxitos de las dos muestras,
 - `n`: vector con el número de ensayos,

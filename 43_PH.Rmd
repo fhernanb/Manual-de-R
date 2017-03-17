@@ -1,4 +1,4 @@
-# Prueba de hipótesis.
+# Prueba de hipótesis. \index{prueba de hipótesis}
 
 En este capítulo se muestran las funciones que hay disponibles en \proglang{R} para realizar prueba de hipótesis para:
 
@@ -130,7 +130,7 @@ Los argumentos a definir dentro de `Var.test` para hacer la prueba son:
 - `null.value`: valor de referencia de la prueba.
 - `conf.level`: nivel de confianza (opcional).
 
-Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en \proglang{R}:
+Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en la consola de \proglang{R}:
 
 ```{r, eval=FALSE}
 if (!require('devtools')) install.packages('devtools')
@@ -138,7 +138,7 @@ devtools::install_github('fhernanb/usefultools', force=TRUE)
 ```
 
 ### Ejemplo {-}
-Para verificar si el proceso de llenado de bolsas de café está operando con la variabilidad permitida se toman aleatoriamente muestras de tamaño diez cada cuatro horas. Una muestra de bolsas está compuesta por las siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489, 490. El proceso de llenado está bajo control si presenta un varianza de 40 $gramos^2$ o menos. ¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un nivel de significancia del 5%.
+Para verificar si el proceso de llenado de bolsas de café está operando con la variabilidad permitida se toman aleatoriamente muestras de tamaño diez cada cuatro horas. Una muestra de bolsas está compuesta por las siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489, 490. El proceso de llenado está bajo control si presenta un varianza de 40 o menos. ¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un nivel de significancia del 5%.
 
 En un ejemplo anterior se comprobó que la muestra proviene de una población normal.
 
@@ -153,13 +153,31 @@ contenido <- c(510, 492, 494, 498, 492,
                496, 502, 491, 507, 496)
 
 require(usefultools)  # Ya debe estar instalado
-Var.test(x=contenido, alternative='greater', null.value=40, conf.level=0.95)
+Var.test(x=contenido, alternative='greater',
+         null.value=40, conf.level=0.95)
 ```
 
 Como el valor-P es mayor que el nivel de significancia 5%, no se rechaza la hipótesis nula, es decir, las evidencias no son suficientes para afirmar que la varianza del proceso de llenado es mayor que 40 unidades. 
 
 
 ## Prueba de hipótesis para el cociente de varianzas $\sigma_1^2 / \sigma_2^2$
+Para realizar este tipo de prueba se puede usar la función `t.test` que tiene la siguiente estructura.
+
+```{r, eval=FALSE}
+t.test(x, y = NULL,
+       alternative = c("two.sided", "less", "greater"),
+       mu = 0, paired = FALSE, var.equal = FALSE,
+       conf.level = 0.95, ...)
+```
+
+Los argumentos a definir dentro de `t.test` para hacer la prueba son:
+
+- `x`: vector numérico con la información de la muestra 1,
+- `y`: vector numérico con la información de la muestra 2,
+- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
+- `mu`: valor de referencia de la prueba.
+- `var.equal=FALSE`: indica que las varianzas son desconocidas y diferentes, si la varianzas se pueden considerar iguales se coloca `var.equal=TRUE`.
+- `conf.level`: nivel de confianza (opcional).
 
 ### Ejemplo {-}
 Se realiza un estudio para comparar dos tratamientos que se aplicarán a frijoles crudos con el objetivo de reducir el tiempo de cocción.  El tratamiento T1 es a base de bicarbonato de sodio, el T2 es a base de cloruro de sodio o sal común. La variable respuesta es el tiempo de cocción en minutos. Los datos se muestran en la tabla. ¿Son las varianzas de los tiempos iguales o diferentes? Usar $\alpha=0.03$.
@@ -180,29 +198,29 @@ T1 <- c(76, 85, 74,78, 82, 75, 82)
 T2 <- c(57, 67, 55, 64, 61, 63, 63)
 ```
 
-Primero se debe explorar si las muestras provienen de una población normal, para esto se construyen los QQplot.
+Primero se debe explorar si las muestras provienen de una población normal y para esto se construyen los QQplot que se muestran en la Figura \@ref(fig:frijoles1).
 
-```{r frijoles1, fig.cap='QQplot para los tiempos de cocción.', fig.asp=0.8, fig.width=6}
+```{r frijoles1, fig.cap='QQplot para los tiempos de cocción.', fig.asp=1, fig.width=4}
 q1 <- qqnorm(T1, plot.it=FALSE)
 q2 <- qqnorm(T2, plot.it=FALSE)
 plot(range(q1$x, q2$x), range(q1$y, q2$y), type="n", las=1,
      xlab='Theoretical Quantiles', ylab='Sample Quantiles')
 points(q1, pch=19)
 points(q2, col="red", pch=19)
-qqline(T1)
-qqline(T2, col="red")
+qqline(T1, lty='dashed')
+qqline(T2, col="red", lty="dashed")
 legend('topleft', legend=c('T1', 'T2'), bty='n',
        col=c('black', 'red'), pch=19)
 ```
 
-A continuación el código para aplicar la prueba de normalidad Kolmogorov-Smirnov, a continuación el código usado. 
+A continuación el código para aplicar la prueba de normalidad Kolmogorov-Smirnov. 
 ```{r}
-require(nortest)
+require(nortest)  # Se debe tener instalado
 lillie.test(T1)$p.value
 lillie.test(T2)$p.value
 ```
 
-Del QQplot mostrado en la Figura \@ref(fig:frijoles1) y las pruebas de normalidad se observa que se pueden asumir poblaciones normales.
+Del QQplot mostrado en la Figura \@ref(fig:frijoles1) y las pruebas de normalidad se observa que se puede asumir que las poblaciones son normales.
 
 La función `var.test` se puede usar para probar $H_0$, a continuación el código para realizar la prueba.
 
@@ -234,24 +252,24 @@ urb <- c(3, 7, 25, 10, 15, 6, 12, 25, 15, 7)
 rur <- c(48, 44, 40, 38, 33, 21, 20, 12, 1, 18)
 ```
 
-Primero se debe explorar si las muestras provienen de una población normal, para esto se construyen los QQplot.
+Primero se debe explorar si las muestras provienen de una población normal, para esto se construyen los QQplot mostrados en la Figura \@ref(fig:ars1).
 
-```{r ars1, fig.cap='QQplot para las concentraciones de arsénico.', fig.asp=0.8, fig.width=6}
+```{r ars1, fig.cap='QQplot para las concentraciones de arsénico.', fig.asp=1, fig.width=4}
 q1 <- qqnorm(urb, plot.it=FALSE)
 q2 <- qqnorm(rur, plot.it=FALSE)
 plot(range(q1$x, q2$x), range(q1$y, q2$y), type="n", las=1,
      xlab='Theoretical Quantiles', ylab='Sample Quantiles')
-points(q1, pch=19)
-points(q2, col="red", pch=19)
-qqline(urb)
-qqline(rur, col="red")
+points(q1, pch=19, col='slateblue3')
+points(q2, col="seagreen4", pch=19)
+qqline(urb, col='slateblue3')
+qqline(rur, col="seagreen4")
 legend('topleft', legend=c('Urbana', 'Rural'), bty='n',
-       col=c('black', 'red'), pch=19)
+       col=c('slateblue3', 'seagreen4'), pch=19)
 ```
 
 A continuación el código para aplicar la prueba de normalidad Kolmogorov-Smirnov, a continuación el código usado. 
 ```{r}
-require(nortest)
+require(nortest)  # Se debe tener instalado
 lillie.test(urb)$p.value
 lillie.test(rur)$p.value
 ```
@@ -267,12 +285,37 @@ var.test(urb, rur, ratio=1, alternative="two.sided",
 
 Como el valor-P es menor que $\alpha=0.07$ de significancia, se puede concluir que las varianzas no son iguales.
 
+```{block2, type='rmdwarning'}
+¿Notó que las funciones `Var.test` y `var.test` son diferentes?
+
+`Var.test` sirve para prueba de hipótesis para $\sigma^2$.
+
+`var.test` sirve para prueba de hipótesis para $\sigma_1^2 / \sigma_2^2$.
+```
 
 ## Prueba de hipótesis para la diferencia de medias $\mu_1-\mu_2$ con varianzas iguales
+Para realizar este tipo de prueba se puede usar la función `t.test` que tiene la siguiente estructura.
+
+```{r, eval=FALSE}
+t.test(x, y = NULL,
+       alternative = c("two.sided", "less", "greater"),
+       mu = 0, paired = FALSE, var.equal = FALSE,
+       conf.level = 0.95, ...)
+```
+
+Los argumentos a definir dentro de `t.test` para hacer la prueba son:
+
+- `x`: vector numérico con la información de la muestra 1,
+- `y`: vector numérico con la información de la muestra 2,
+- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
+- `mu`: valor de referencia de la prueba.
+- `var.equal=TRUE`: indica que las varianzas son desconocidas pero iguales.
+- `conf.level`: nivel de confianza (opcional).
 
 ### Ejemplo {-}
 Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los tiempos de cocción de los fríjoles con T1 y T2? Usar un nivel de significancia del 3%.
 
+Primero se construirá un boxplot comparativo para los tiempos de cocción diferenciando por el tratamiento que recibieron. Abajo el código para obtener en este caso el boxplot. En la Figura \@ref(fig:frijoles2) se muestra el boxplot, de esta figura se observa que las cajas de los boxplot no se traslapan, esto es un indicio de que las medias poblacionales, $\mu_1$ y $\mu_2$, son diferentes, se observa también que el boxplot para el tratamiento T1 está por encima del T2.
 
 ```{r frijoles2, fig.cap='Boxplot para los tiempos de cocción dado el tratamiento.', fig.asp=1, fig.width=4}
 datos <- data.frame(tiempo=c(T1, T2), trat=rep(1:2, each=7))
@@ -280,17 +323,27 @@ boxplot(tiempo ~ trat, data=datos, las=1,
         xlab='Tratamiento', ylab='Tiempo (min)')
 ```
 
+En este problema interesa estudiar el siguiente conjunto de hipótesis.
 
+$$H_0: \mu_1  - \mu_2 = 0$$
+$$H_1: \mu_1  - \mu_2 \neq 0$$
+
+El código para realizar la prueba es el siguiente:
 ```{r}
-t.test(T1, T2, alternative="two.sided", mu=0, 
+t.test(x=T1, y=T2, alternative="two.sided", mu=0, 
        paired=FALSE, var.equal=TRUE, conf.level=0.97)
 ```
 
+De la prueba se obtiene un valor-P muy pequeño, por lo tanto, podemos concluir que si hay diferencias significativas entre los tiempos promedios de cocción con T1 y T2, resultado que ya se sospechaba al observar la Figura \@ref(fig:frijoles2).
+
+Si el objetivo fuese elegir el tratamiento que minimice los tiempos de cocción se recomendaría el tratamiento T2, remojo de fríjoles en agua con sal.
 
 ## Prueba de hipótesis para la diferencia de medias $\mu_1-\mu_2$ con varianzas diferentes
 
 ### Ejemplo {-}
 Retomando el ejemplo de la concentración de arsénico en el agua, ¿existen diferencias entre las concentraciones de arsénico de la zona urbana y rual? Usar un nivel de significancia del 7%.
+
+Primero se construirá un boxplot comparativo para las concentraciones de arsénico diferenciando por la zona donde se tomaron las muestras. Abajo el código para obtener en este caso el boxplot. En la Figura \@ref(fig:ars2) se muestra el boxplot, de esta figura se observa que las cajas de los boxplot no se traslapan, esto es un indicio de que las medias poblacionales, $\mu_1$ y $\mu_2$, son diferentes, se observa también que el boxplot para la zona rural está por encima del de la zona urbana.
 
 ```{r ars2, fig.cap='Boxplot para las concentaciones de arsénico dada la zona.', fig.asp=1, fig.width=4}
 datos <- data.frame(Concentracion=c(urb, rur),
@@ -299,10 +352,91 @@ boxplot(Concentracion ~ Zona, data=datos, las=1,
         xlab='Zona', ylab='Concentración arsénico (ppb)')
 ```
 
+En este problema interesa estudiar el siguiente conjunto de hipótesis.
+
+$$H_0: \mu_1  - \mu_2 = 0$$
+$$H_1: \mu_1  - \mu_2 \neq 0$$
+
+El código para realizar la prueba es el siguiente:
 
 ```{r}
-t.test(urb, rur, alternative="two.sided", mu=0, 
+t.test(x=urb, y=rur, alternative="two.sided", mu=0, 
        paired=FALSE, var.equal=FALSE, conf.level=0.93)
 ```
+
+De la prueba se obtiene un valor-P pequeño, por lo tanto, podemos concluir que si hay diferencias significativas entre las concentraciones de arsénico del agua entre las dos zonas, resultado que ya se sospechaba al observar la Figura \@ref(fig:ars2). La zona que presenta mayor concentración media de arsénico en el agua es la rural.
+
+```{block2, type='rmdtip'}
+Para todas las pruebas se incluyó un intervalo de confianza, revise si la conclusión obtenida con el IC coincide con la obtenida con PH.
+```
+
+## Prueba de hipótesis para la diferencia de proporciones $p_1 - p_2$
+Para realizar pruebas de hipótesis para la proporción se usa la función `prop.test` y es necesario definir los siguientes argumentos:
+
+- `x`: vector con el conteo de éxitos de las dos muestras,
+- `n`: vector con el número de ensayos de las dos muestras,
+- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
+- `p`: valor de referencia de la prueba.
+- `conf.level`: nivel de confianza. 
+
+### Ejemplo {-}
+Se quiere determinar si un cambio en el método de fabricación de una piezas ha sido efectivo o no. Para esta comparación se tomaron 2 muestras, una antes y otra después del cambio en el proceso y los resultados obtenidos son los siguientes.
+
+Num piezas  | Antes  | Después
+------------|------- | -------------
+Defectuosas | 75     | 80
+Analizadas  | 1500   | 2000
+
+Realizar una prueba de hipótesis con un nivel de significancia del 10%.
+
+En este problema interesa estudiar el siguiente conjunto de hipótesis.
+
+$$H_0: p_{antes}  - p_{despues} = 0$$
+$$H_1: p_{antes}  - p_{despues} > 0$$
+
+Para realizar la prueba se usa la función `prop.test` como se muestra a continuación.
+
+```{r, eval=TRUE}
+prop.test(x=c(75, 80), n=c(1500, 2000),
+          alternative='greater', conf.level=0.90)
+``` 
+
+Del reporte anterior se observa que el Valor-P es 9%, por lo tanto no hay evidencias suficientes para pensar que el porcentaje de defectuosos después del cambio ha disminuído.
+
+
+## Prueba de hipótesis para la diferencia de medias pareadas
+
+### Ejemplo {-}
+Diez individuos participaron de programa para perder peso corporal por medio de una dieta. Los voluntarios fueron pesados antes y después de haber participado del programa y los datos en libras aparecen abajo. ¿Hay evidencia que soporte la afirmación de la dieta disminuye el peso medio de los participantes? Usar nivel de significancia del 5%.
+
+Sujeto| 001 002 003 004 005 006 007 008 009 010
+------|-----------------------------------------
+Antes|   195 213 247 201 187 210 215 246 294 310
+Después| 187 195 221 190 175 197 199 221 278 285
+
+Primero se debe explorar si las diferencias de peso (antes-después) provienen de una población normal, para esto se construye el QQplot mostrados en la Figura \@ref(fig:pesos1). De la figura no se observa un alejamiento serio de la recta de referencia, por lo tanto se puede asumir que las diferencias se distribuyen en forma aproximadamente normal.
+
+```{r pesos1, fig.cap='QQplot para las diferencias de peso.', fig.asp=1, fig.width=3.5, echo=FALSE}
+antes <- c(195, 213, 247, 201, 187, 210, 215, 246, 294, 310)
+despu <- c(187, 195, 221, 190, 175, 197, 199, 221, 278, 285)
+dif <- antes - despu
+qqnorm(dif, pch=19, main='')
+qqline(dif)
+```
+
+En este problema interesa estudiar el siguiente conjunto de hipótesis.
+
+$$H_0: \mu_{antes}  - \mu_{despues} = 0$$
+$$H_1: \mu_{antes}  - \mu_{despues} > 0$$
+
+El código para realizar la prueba es el siguiente:
+
+```{r}
+t.test(x=antes, y=despu, alternative="greater", mu=0, 
+       paired=TRUE, conf.level=0.95)
+```
+
+De la prueba se obtiene un valor-P pequeño, por lo tanto, podemos concluir que el peso $\mu_{antes}$ es mayor que $\mu_{despues}$, en otras palabras, la dieta si ayudó a disminuir el peso corporal.
+
 
 
