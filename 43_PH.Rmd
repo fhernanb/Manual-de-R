@@ -11,11 +11,24 @@ En este capítulo se muestran las funciones que hay disponibles en \proglang{R} 
 
 
 ## Prueba de hipótesis para $\mu$ de una población normal
+Para realizar este tipo de prueba se puede usar la función `t.test` que tiene la siguiente estructura.
+
+```{r, eval=FALSE}
+t.test(x, y = NULL,
+       alternative = c("two.sided", "less", "greater"),
+       mu = 0, paired = FALSE, var.equal = FALSE,
+       conf.level = 0.95, ...)
+```
+
+Los argumentos a definir dentro de `t.test` para hacer la prueba son:
+
+- `x`: vector numérico con los datos.
+- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
+- `mu`: valor de referencia de la prueba.
+- `conf.level`: nivel de confianza (opcional).
 
 ### Ejemplo {-}
-Para verificar si el proceso de llenado de bolsas de café con 500  gramos está operando correctamente se toman aleatoriamente muestras de tamaño diez cada cuatro horas. Una muestra de bolsas está compuesta por las siguientes observaciones:
-
-502, 501, 497, 491, 496, 501, 502, 500, 489, 490.
+Para verificar si el proceso de llenado de bolsas de café con 500  gramos está operando correctamente se toman aleatoriamente muestras de tamaño diez cada cuatro horas. Una muestra de bolsas está compuesta por las siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489, 490.
 
 ¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un nivel de significancia del 5%.
 
@@ -30,10 +43,10 @@ require(nortest) # Se debe haber instalado antes nortest
 ad.test(contenido)
 ```
 
-Como el valor-P de la prueba Anderson-Darlin es 20% y mayor que 5%, se puede asumir que la muestra proviene de una población normal, así nos interesa probar lo siguiente:
+Como el valor-P de la prueba Anderson-Darling es 20% y mayor que 5%, se puede asumir que la muestra proviene de una población normal, así nos interesa probar lo siguiente:
 
-$$H_0: \mu = 500 \quad km$$
-$$H_1: \mu \neq 500 \quad km$$
+$$H_0: \mu = 500 \quad gr$$
+$$H_1: \mu \neq 500 \quad gr$$
 La prueba de hipótesis se puede realizar usando la función `t.test` por medio del siguiente código.
 
 ```{r}
@@ -49,13 +62,13 @@ Como el valor-P es 30% y mayor que el nivel de significancia 5%, no se rechaza l
 ### Ejemplo {-}
 Se afirma que los automóviles recorren en promedio más de 20000 kilómetros por año pero usted cree que el promedio es en realidad menor. Para probar tal afirmación se pide a una muestra de 100 propietarios de automóviles seleccionada de manera aleatoria que lleven un registro de los kilómetros que recorren. 
 
-¿Estaría usted de acuerdo con esta afirmación, si la muestra aleatoria indicara un promedio de 23500 kilómetros y una desviación estándar de 3900 kilómetros? Utilice un valor P en su conclusión y use una significancia del 3%.
+¿Estaría usted de acuerdo con esta afirmación, si la muestra aleatoria indicara un promedio de 19500 kilómetros y una desviación estándar de 3900 kilómetros? Utilice un valor P en su conclusión y use una significancia del 3%.
 
 En este problema interesa
 
 $$H_0: \mu \ge 2000 \quad km$$
 $$H_1: \mu < 2000 \quad km$$
-Para calcular el estadístico y su valor-P se usa el siguiente código.
+Para este tipo de pruebas no hay una función de \proglang{R}, en necesario escribir el código como se haría manualmente, a continuación las instrucciones para calcular el estadístico y su valor-P.
 ```{r}
 xbarra <- 19500  # Datos del problema
 desvia <- 3900
@@ -68,10 +81,26 @@ pnorm(est)  # Para obtener el valor-P
 ```
 Como el valor-P es mayor que el nivel de significancia, no hay evidencias suficientes para pensar que ha disminuido el recorrido anual de los autos.
 
-## Prueba de hipótesis para $p$
+## Prueba de hipótesis para la propoción $p$
+Para realizar este tipo de prueba se puede usar la función `prop.test` que tiene la siguiente estructura.
+
+```{r, eval=FALSE}
+prop.test(x, n, p = NULL,
+          alternative = c("two.sided", "less", "greater"),
+          conf.level = 0.95, correct = TRUE)
+```
+
+Los argumentos a definir dentro de `prop.test` para hacer la prueba son:
+
+- `x`: número de éxitos en la muestra.
+- `n`: número de observaciones en la muestra.
+- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
+- `p`: valor de referencia de la prueba.
+- `correct`: valor lógico para indicar si se usa la corrección de Yate.
+- `conf.level`: nivel de confianza (opcional).
 
 ### Ejemplo {-}
-Un fabricante de un quitamanchas afirma que su producto quita 90% de todas las manchas. Para poner a prueba esta afirmación se toman 200 camisetas manchadas de las cuales a solo 174  les desapareció la mancha. Pruebe la afirmación del fabricante a un nivel $\alpha=0.05$.
+Un fabricante de un quitamanchas afirma que su producto quita 90% de todas las manchas. Para poner a prueba esta afirmación se toman 200 camisetas manchadas de las cuales a solo 174 les desapareció la mancha. Pruebe la afirmación del fabricante a un nivel $\alpha=0.05$.
 
 En este problema interesa probar lo siguiente:
 
@@ -87,9 +116,48 @@ Como el valor-P es mayor que $\alpha$ no se rechaza la hipótesis nula y se pued
 
 Para entender lo que reporta la función `prop.test` se recomienda revisar este [enlace](https://www.r-bloggers.com/one-proportion-z-test-in-r/).
 
-## Prueba de hipótesis para $\sigma^2$
+## Prueba de hipótesis para la varianza $\sigma^2$ de una población normal
+Para realizar este tipo de prueba se usa la función `Var.test` del paquete **usefultools** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/). La función `Var.test` tiene la siguiente estructura.
+
+```{r, eval=FALSE}
+Var.test(x, alternative = "two.sided", null.value = 1, conf.level = 0.95)
+```
+
+Los argumentos a definir dentro de `Var.test` para hacer la prueba son:
+
+- `x`: vector numérico con los datos.
+- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
+- `null.value`: valor de referencia de la prueba.
+- `conf.level`: nivel de confianza (opcional).
+
+Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en \proglang{R}:
+
+```{r, eval=FALSE}
+if (!require('devtools')) install.packages('devtools')
+devtools::install_github('fhernanb/usefultools', force=TRUE)
+```
 
 ### Ejemplo {-}
+Para verificar si el proceso de llenado de bolsas de café está operando con la variabilidad permitida se toman aleatoriamente muestras de tamaño diez cada cuatro horas. Una muestra de bolsas está compuesta por las siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489, 490. El proceso de llenado está bajo control si presenta un varianza de 40 $gramos^2$ o menos. ¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un nivel de significancia del 5%.
+
+En un ejemplo anterior se comprobó que la muestra proviene de una población normal.
+
+En este ejemplo nos interesa estudiar el siguiente conjunto de hipótesis
+
+$$H_0: \sigma^2 \leq 40$$
+$$H_1: \sigma^2 > 40$$
+La prueba de hipótesis se puede realizar usando la función `t.test` por medio del siguiente código.
+
+```{r}
+contenido <- c(510, 492, 494, 498, 492,
+               496, 502, 491, 507, 496)
+
+require(usefultools)  # Ya debe estar instalado
+Var.test(x=contenido, alternative='greater', null.value=40, conf.level=0.95)
+```
+
+Como el valor-P es mayor que el nivel de significancia 5%, no se rechaza la hipótesis nula, es decir, las evidencias no son suficientes para afirmar que la varianza del proceso de llenado es mayor que 40 unidades. 
+
 
 ## Prueba de hipótesis para el cociente de varianzas $\sigma_1^2 / \sigma_2^2$
 
@@ -134,7 +202,7 @@ lillie.test(T1)$p.value
 lillie.test(T2)$p.value
 ```
 
-Del QQplot mostrado en la Figura \@ref(fig:cocvar1) y las pruebas de normalidad se observa que se pueden asumir poblaciones normales.
+Del QQplot mostrado en la Figura \@ref(fig:frijoles1) y las pruebas de normalidad se observa que se pueden asumir poblaciones normales.
 
 La función `var.test` se puede usar para probar $H_0$, a continuación el código para realizar la prueba.
 

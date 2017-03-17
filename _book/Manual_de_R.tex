@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-03-16}
+\date{2017-03-17}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -8960,7 +8960,7 @@ argumentos:
 \item
   \texttt{n}: vector con el número de ensayos,
 \item
-  \texttt{conf.level}: al nivel de confianza.
+  \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-60}
@@ -9029,15 +9029,43 @@ En este capítulo se muestran las funciones que hay disponibles en
 población
 normal}{Prueba de hipótesis para \textbackslash{}mu de una población normal}}\label{prueba-de-hipotesis-para-mu-de-una-poblacion-normal}
 
+Para realizar este tipo de prueba se puede usar la función
+\texttt{t.test} que tiene la siguiente estructura.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t.test}\NormalTok{(x, }\DataTypeTok{y =} \OtherTok{NULL}\NormalTok{,}
+       \DataTypeTok{alternative =} \KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{),}
+       \DataTypeTok{mu =} \DecValTok{0}\NormalTok{, }\DataTypeTok{paired =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{var.equal =} \OtherTok{FALSE}\NormalTok{,}
+       \DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos a definir dentro de \texttt{t.test} para hacer la prueba
+son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico con los datos.
+\item
+  \texttt{alternative}: tipo de hipótesis alterna. Los valores
+  disponibles son \texttt{"two.sided"} cuando la alterna es \(\neq\),
+  \texttt{"less"} para el caso \(<\) y \texttt{"greater"} para \(>\).
+\item
+  \texttt{mu}: valor de referencia de la prueba.
+\item
+  \texttt{conf.level}: nivel de confianza (opcional).
+\end{itemize}
+
 \subsection*{Ejemplo}\label{ejemplo-61}
 
 
 Para verificar si el proceso de llenado de bolsas de café con 500 gramos
 está operando correctamente se toman aleatoriamente muestras de tamaño
 diez cada cuatro horas. Una muestra de bolsas está compuesta por las
-siguientes observaciones:
-
-502, 501, 497, 491, 496, 501, 502, 500, 489, 490.
+siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489,
+490.
 
 ¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un
 nivel de significancia del 5\%.
@@ -9064,11 +9092,11 @@ normal, para eso ingresamos los datos y usamos la función
 ## A = 0.49, p-value = 0.2
 \end{verbatim}
 
-Como el valor-P de la prueba Anderson-Darlin es 20\% y mayor que 5\%, se
-puede asumir que la muestra proviene de una población normal, así nos
+Como el valor-P de la prueba Anderson-Darling es 20\% y mayor que 5\%,
+se puede asumir que la muestra proviene de una población normal, así nos
 interesa probar lo siguiente:
 
-\[H_0: \mu = 500 \quad km\] \[H_1: \mu \neq 500 \quad km\] La prueba de
+\[H_0: \mu = 500 \quad gr\] \[H_1: \mu \neq 500 \quad gr\] La prueba de
 hipótesis se puede realizar usando la función \texttt{t.test} por medio
 del siguiente código.
 
@@ -9111,14 +9139,16 @@ automóviles seleccionada de manera aleatoria que lleven un registro de
 los kilómetros que recorren.
 
 ¿Estaría usted de acuerdo con esta afirmación, si la muestra aleatoria
-indicara un promedio de 23500 kilómetros y una desviación estándar de
+indicara un promedio de 19500 kilómetros y una desviación estándar de
 3900 kilómetros? Utilice un valor P en su conclusión y use una
 significancia del 3\%.
 
 En este problema interesa
 
-\[H_0: \mu \ge 2000 \quad km\] \[H_1: \mu < 2000 \quad km\] Para
-calcular el estadístico y su valor-P se usa el siguiente código.
+\[H_0: \mu \ge 2000 \quad km\] \[H_1: \mu < 2000 \quad km\] Para este
+tipo de pruebas no hay una función de \proglang{R}, en necesario
+escribir el código como se haría manualmente, a continuación las
+instrucciones para calcular el estadístico y su valor-P.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9150,8 +9180,41 @@ Como el valor-P es mayor que el nivel de significancia, no hay
 evidencias suficientes para pensar que ha disminuido el recorrido anual
 de los autos.
 
-\section{\texorpdfstring{Prueba de hipótesis para
-\(p\)}{Prueba de hipótesis para p}}\label{prueba-de-hipotesis-para-p}
+\section{\texorpdfstring{Prueba de hipótesis para la propoción
+\(p\)}{Prueba de hipótesis para la propoción p}}\label{prueba-de-hipotesis-para-la-propocion-p}
+
+Para realizar este tipo de prueba se puede usar la función
+\texttt{prop.test} que tiene la siguiente estructura.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{prop.test}\NormalTok{(x, n, }\DataTypeTok{p =} \OtherTok{NULL}\NormalTok{,}
+          \DataTypeTok{alternative =} \KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{),}
+          \DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{, }\DataTypeTok{correct =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos a definir dentro de \texttt{prop.test} para hacer la
+prueba son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: número de éxitos en la muestra.
+\item
+  \texttt{n}: número de observaciones en la muestra.
+\item
+  \texttt{alternative}: tipo de hipótesis alterna. Los valores
+  disponibles son \texttt{"two.sided"} cuando la alterna es \(\neq\),
+  \texttt{"less"} para el caso \(<\) y \texttt{"greater"} para \(>\).
+\item
+  \texttt{p}: valor de referencia de la prueba.
+\item
+  \texttt{correct}: valor lógico para indicar si se usa la corrección de
+  Yate.
+\item
+  \texttt{conf.level}: nivel de confianza (opcional).
+\end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-63}
 
@@ -9196,11 +9259,94 @@ Para entender lo que reporta la función \texttt{prop.test} se recomienda
 revisar este
 \href{https://www.r-bloggers.com/one-proportion-z-test-in-r/}{enlace}.
 
-\section{\texorpdfstring{Prueba de hipótesis para
-\(\sigma^2\)}{Prueba de hipótesis para \textbackslash{}sigma\^{}2}}\label{prueba-de-hipotesis-para-sigma2}
+\section{\texorpdfstring{Prueba de hipótesis para la varianza
+\(\sigma^2\) de una población
+normal}{Prueba de hipótesis para la varianza \textbackslash{}sigma\^{}2 de una población normal}}\label{prueba-de-hipotesis-para-la-varianza-sigma2-de-una-poblacion-normal}
+
+Para realizar este tipo de prueba se usa la función \texttt{Var.test}
+del paquete \textbf{usefultools} \citep{R-usefultools} disponible en el
+repositorio \href{https://github.com/}{GitHub}. La función
+\texttt{Var.test} tiene la siguiente estructura.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{Var.test}\NormalTok{(x, }\DataTypeTok{alternative =} \StringTok{"two.sided"}\NormalTok{, }\DataTypeTok{null.value =} \DecValTok{1}\NormalTok{, }\DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos a definir dentro de \texttt{Var.test} para hacer la
+prueba son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico con los datos.
+\item
+  \texttt{alternative}: tipo de hipótesis alterna. Los valores
+  disponibles son \texttt{"two.sided"} cuando la alterna es \(\neq\),
+  \texttt{"less"} para el caso \(<\) y \texttt{"greater"} para \(>\).
+\item
+  \texttt{null.value}: valor de referencia de la prueba.
+\item
+  \texttt{conf.level}: nivel de confianza (opcional).
+\end{itemize}
+
+Para instalar el paquete \textbf{usefultools} desde GitHub se debe
+copiar el siguiente código en \proglang{R}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{if (!}\KeywordTok{require}\NormalTok{(}\StringTok{'devtools'}\NormalTok{)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{'devtools'}\NormalTok{)}
+\NormalTok{devtools::}\KeywordTok{install_github}\NormalTok{(}\StringTok{'fhernanb/usefultools'}\NormalTok{, }\DataTypeTok{force=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \subsection*{Ejemplo}\label{ejemplo-64}
 
+
+Para verificar si el proceso de llenado de bolsas de café está operando
+con la variabilidad permitida se toman aleatoriamente muestras de tamaño
+diez cada cuatro horas. Una muestra de bolsas está compuesta por las
+siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489,
+490. El proceso de llenado está bajo control si presenta un varianza de
+40 \(gramos^2\) o menos. ¿Está el proceso llenando bolsas conforme lo
+dice la envoltura? Use un nivel de significancia del 5\%.
+
+En un ejemplo anterior se comprobó que la muestra proviene de una
+población normal.
+
+En este ejemplo nos interesa estudiar el siguiente conjunto de hipótesis
+
+\[H_0: \sigma^2 \leq 40\] \[H_1: \sigma^2 > 40\] La prueba de hipótesis
+se puede realizar usando la función \texttt{t.test} por medio del
+siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{contenido <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{510}\NormalTok{, }\DecValTok{492}\NormalTok{, }\DecValTok{494}\NormalTok{, }\DecValTok{498}\NormalTok{, }\DecValTok{492}\NormalTok{,}
+               \DecValTok{496}\NormalTok{, }\DecValTok{502}\NormalTok{, }\DecValTok{491}\NormalTok{, }\DecValTok{507}\NormalTok{, }\DecValTok{496}\NormalTok{)}
+
+\KeywordTok{require}\NormalTok{(usefultools)  }\CommentTok{# Ya debe estar instalado}
+\KeywordTok{Var.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{contenido, }\DataTypeTok{alternative=}\StringTok{'greater'}\NormalTok{, }\DataTypeTok{null.value=}\DecValTok{40}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     One sample variance test   
+## 
+## Data: contenido 
+## X-square =  9.64 , df =  9 , p-value = 0.380407222978092 
+## Alternative hypothesis: true variance is greater than 40 
+## 95 percent confidence interval 
+## Inf 22.79 
+## Sample variance 
+## 42.84
+\end{verbatim}
+
+Como el valor-P es mayor que el nivel de significancia 5\%, no se
+rechaza la hipótesis nula, es decir, las evidencias no son suficientes
+para afirmar que la varianza del proceso de llenado es mayor que 40
+unidades.
 
 \section{\texorpdfstring{Prueba de hipótesis para el cociente de
 varianzas
@@ -9282,7 +9428,7 @@ Kolmogorov-Smirnov, a continuación el código usado.
 ## [1] 0.3953
 \end{verbatim}
 
-Del QQplot mostrado en la Figura \ref{fig:cocvar1} y las pruebas de
+Del QQplot mostrado en la Figura \ref{fig:frijoles1} y las pruebas de
 normalidad se observa que se pueden asumir poblaciones normales.
 
 La función \texttt{var.test} se puede usar para probar \(H_0\), a

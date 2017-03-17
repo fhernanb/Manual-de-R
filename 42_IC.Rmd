@@ -192,9 +192,9 @@ En el resultado anterior se muestra el intervalo de confianza unilateral.
 
 ## Función `Var.test`
 
-Para construir intervalos de confianza para la varianza se usa la función `Var.test` del paquete **usefultools** disponible en el repositorio [GitHub](https://github.com/).
+Para construir intervalos de confianza para la varianza se usa la función `Var.test` del paquete **usefultools** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/).
 
-Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en \proglang{R}:
+Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en la consola de \proglang{R}:
 
 ```{r, eval=FALSE}
 if (!require('devtools')) install.packages('devtools')
@@ -286,7 +286,7 @@ Para calcular intervalos de confianza bilaterales para la proporción a partir d
 
 - `x`: vector con el conteo de éxitos de las dos muestras,
 - `n`: vector con el número de ensayos,
-- `conf.level`: al nivel de confianza. 
+- `conf.level`: nivel de confianza. 
 
 
 ### Ejemplo {-}
