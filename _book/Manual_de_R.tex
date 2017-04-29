@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-03-17}
+\date{2017-04-28}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -3942,13 +3942,15 @@ contenida en el archivo BD\_Excel.xlsx.
 \end{Shaded}
 
 \begin{verbatim}
-##   Edad Grado    ComicFav
-## 1    8     2    Superman
-## 2    6     1      Batman
-## 3    9     3      Batman
-## 4   10     5 Bob Esponja
-## 5    8     4      Batman
-## 6    9     4 Bob Esponja
+## # A tibble: 6 × 3
+##    Edad Grado    ComicFav
+##   <dbl> <dbl>       <chr>
+## 1     8     2    Superman
+## 2     6     1      Batman
+## 3     9     3      Batman
+## 4    10     5 Bob Esponja
+## 5     8     4      Batman
+## 6     9     4 Bob Esponja
 \end{verbatim}
 
 A continuación el código para crear la base de datos \texttt{padres}
@@ -3962,11 +3964,13 @@ contenida en el archivo BD\_Excel.xlsx.
 \end{Shaded}
 
 \begin{verbatim}
-##   Edad   EstCivil NumHijos
-## 1   45    Soltero        1
-## 2   50     Casado        0
-## 3   35     Casado        3
-## 4   65 Divorciado        1
+## # A tibble: 4 × 3
+##    Edad   EstCivil NumHijos
+##   <dbl>      <chr>    <dbl>
+## 1    45    Soltero        1
+## 2    50     Casado        0
+## 3    35     Casado        3
+## 4    65 Divorciado        1
 \end{verbatim}
 
 La función \texttt{readxl} tiene otros parámetros adicionales útiles
@@ -6661,6 +6665,12 @@ código usado.
 En la Figura \ref{fig:norm2} se muestran las áreas sombreadas para cada
 de las anteriores preguntas.
 
+\begin{verbatim}
+## Warning in library(package, lib.loc = lib.loc,
+## character.only = TRUE, logical.return = TRUE, : there
+## is no package called 'mytools'
+\end{verbatim}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{Manual_de_R_files/figure-latex/norm2-1.pdf}
@@ -8123,15 +8133,6 @@ solicitado.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{require}\NormalTok{(car)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'car' was built under R version 3.3.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
 \KeywordTok{qqPlot}\NormalTok{(pesos$Hombre, }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Peso (Kg)'}\NormalTok{,}
        \DataTypeTok{main=}\StringTok{'QQplot para peso de hombres'}\NormalTok{)}
@@ -8223,10 +8224,10 @@ Para aplicar la prueba Shapiro-Wilk se usa la función
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  x
-## W = 0.98, p-value = 0.2
+## W = 0.99, p-value = 0.4
 \end{verbatim}
 
-De la salida anterior se tiene que el valor-P para la prueba fue de 0.2
+De la salida anterior se tiene que el valor-P para la prueba fue de 0.4
 y que es mayor al nivel de significancia 3\%, lo cual indica que no hay
 evidencias para rechazar la hipótesis nula de normalidad.
 
@@ -8245,10 +8246,10 @@ Para aplicar la prueba Anderson-Darling se usa la función
 ##  Anderson-Darling normality test
 ## 
 ## data:  x
-## A = 0.6, p-value = 0.1
+## A = 0.41, p-value = 0.3
 \end{verbatim}
 
-De la salida anterior se tiene que el valor-P para la prueba fue de 0.1
+De la salida anterior se tiene que el valor-P para la prueba fue de 0.3
 y que es mayor al nivel de significancia 3\%, esto indica que no hay
 evidencias para rechazar la hipótesis nula de normalidad.
 
@@ -8763,7 +8764,7 @@ de confianza unilateral superior del \(90\%\) para la media
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 17.29   Inf
+## [1] 18.01   Inf
 ## attr(,"conf.level")
 ## [1] 0.9
 \end{verbatim}
