@@ -1,6 +1,4 @@
-# Manual de R
-
-Este es el repositorio del libro __Manual de R__.
+Esta página corresponde al repositorio del libro __Manual de R__.
 
 <img src="images/portada.png" width="180">
 
