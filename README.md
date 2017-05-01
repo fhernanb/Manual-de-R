@@ -2,5 +2,6 @@ Esta página corresponde al repositorio del libro __Manual de R__. Para descarga
 
 <img src="images/portada.png" width="180">
 
+align:center"><img src ="images/portada.png" width="180" /></div>
 
 
