@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-04-28}
+\date{2017-07-26}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -480,7 +480,7 @@ opciones que vienen por defecto.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion2} 
+{\centering \includegraphics[width=0.5\linewidth]{images/instalacion2} 
 
 }
 
@@ -501,7 +501,7 @@ apariencia del acceso directo para ingresar a \proglang{R}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/rlogo} 
+{\centering \includegraphics[width=0.33\linewidth]{images/rlogo} 
 
 }
 
@@ -3942,7 +3942,7 @@ contenida en el archivo BD\_Excel.xlsx.
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 6 × 3
+## # A tibble: 6 x 3
 ##    Edad Grado    ComicFav
 ##   <dbl> <dbl>       <chr>
 ## 1     8     2    Superman
@@ -3964,7 +3964,7 @@ contenida en el archivo BD\_Excel.xlsx.
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 4 × 3
+## # A tibble: 4 x 3
 ##    Edad   EstCivil NumHijos
 ##   <dbl>      <chr>    <dbl>
 ## 1    45    Soltero        1
@@ -7627,7 +7627,9 @@ densidad de una Gamma(mu=4.308, sigma=0.6682).}
 ## Family:  c("GA", "Gamma") 
 ## Fitting method: "nlminb" 
 ## 
-## Call:  gamlssML(y = y, family = "GA", formula = ma) 
+## Call:  
+## gamlssML(formula = ma, family = "GA", data = sys.parent()) 
+## 
 ## 
 ## Mu Coefficients:
 ## [1]  1.46
