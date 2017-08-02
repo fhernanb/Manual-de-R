@@ -150,11 +150,10 @@ Nota: no puede usar la función `mean( )`.
 4. Escribir una función que calcule la velocidad de un proyectil dado que el usuario ingresa la distancia recorrida en Km y el tiempo necesario en minutos. Expresar el resultado se debe entregar en metros/segundo, recuerde que
 
 $$velocidad = \frac{espacio}{tiempo}$$
-
 5. Construya una función que calcule las coordenadas del punto medio $M$ entre dos puntos $A$ y $B$. Vea la Figura \@ref(fig:midpoint) para una ilustración. ¿Cuáles cree usted que deben ser los parámetros de entrada de la función?
 
 ```{r midpoint, echo=F, fig.cap='Ilustración del punto medio entre dos puntos, tomada de https://www.slideshare.net/bigpassy/midpoint-between-two-points', dpi=600, fig.align='center'}
-knitr::include_graphics("images/midpoint.png")
+knitr::include_graphics("images/midpoint")
 ```
 
 6. Escribir una función que reciba dos valores $a$ y $b$ y que los intercambie. Es decir, si ingresa $a=4$ y $b=9$ que la función entregue $a=9$ y $b=4$.

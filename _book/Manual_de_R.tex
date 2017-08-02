@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-07-26}
+\date{2017-08-02}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -425,7 +425,7 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 \begin{figure}
 
-{\centering \includegraphics{images/Robert_Roos} 
+{\centering \includegraphics[width=2.4in]{images/Robert_Roos} 
 
 }
 
@@ -443,7 +443,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics{images/cran} 
+{\centering \includegraphics[width=4.54in]{images/cran} 
 
 }
 
@@ -461,7 +461,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion1} 
+{\centering \includegraphics[width=5.31in]{images/instalacion1} 
 
 }
 
@@ -519,7 +519,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics{images/Rpantallazo} 
+{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
 
 }
 
@@ -1547,7 +1547,7 @@ fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa.
 
 \begin{figure}
 
-{\centering \includegraphics{images/function_machine} 
+{\centering \includegraphics[width=2in]{images/function_machine} 
 
 }
 
@@ -3177,7 +3177,7 @@ máquina general.
 
 \begin{figure}
 
-{\centering \includegraphics{images/function_machine} 
+{\centering \includegraphics[width=50in]{images/function_machine} 
 
 }
 
@@ -3482,18 +3482,10 @@ Nota: no puede usar la función \texttt{mean(\ )}.
   recuerde que
 \end{enumerate}
 
-\[velocidad = \frac{espacio}{tiempo}\]
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{4}
-\tightlist
-\item
-  Construya una función que calcule las coordenadas del punto medio
-  \(M\) entre dos puntos \(A\) y \(B\). Vea la Figura \ref{fig:midpoint}
-  para una ilustración. ¿Cuáles cree usted que deben ser los parámetros
-  de entrada de la función?
-\end{enumerate}
+\[velocidad = \frac{espacio}{tiempo}\] 5. Construya una función que
+calcule las coordenadas del punto medio \(M\) entre dos puntos \(A\) y
+\(B\). Vea la Figura \ref{fig:midpoint} para una ilustración. ¿Cuáles
+cree usted que deben ser los parámetros de entrada de la función?
 
 \begin{figure}
 
@@ -3666,7 +3658,7 @@ tipo de archivo a \textbf{csv (delimitado por comas)}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/excel1} 
+{\centering \includegraphics[width=3.12in]{images/excel1} 
 
 }
 
@@ -3693,7 +3685,7 @@ inicio de esa línea número 5.
 
 \begin{figure}
 
-{\centering \includegraphics{images/bloc1} 
+{\centering \includegraphics[width=3.03in]{images/bloc1} 
 
 }
 
@@ -3709,7 +3701,7 @@ claramente se nota la organización de la información.
 
 \begin{figure}
 
-{\centering \includegraphics{images/bloc2} 
+{\centering \includegraphics[width=3.05in]{images/bloc2} 
 
 }
 
@@ -10061,6 +10053,44 @@ integral usando la función \texttt{integrate}, a continuación el código.
 \end{verbatim}
 
 De los anteriores resultados vemos que la aproximación es buena.
+
+\chapter{\texorpdfstring{Curiosidades
+\label{curio}}{Curiosidades }}\label{curiosidades}
+
+En este capítulo se mostrarán algunos procedimientos de \proglang{R}
+para solucionar problemas frecuentes.
+
+\section{¿Cómo verificar si un paquete no está instalado para instalarlo
+de forma
+automática?}\label{como-verificar-si-un-paquete-no-esta-instalado-para-instalarlo-de-forma-automatica}
+
+Muchas veces compartimos código de \proglang{R} con otros colegas y si
+ellos no tienen instalados ciertos paquetes el código no funcionará.
+Para evitar ese problema podemos colocar al inicio del código unas
+líneas que chequeen si ciertos paquetes están instalados o no, si están
+instalados, se cargan esos paquetes y caso contrario, el código instala
+los paquetes y luego los carga, todo de forma automática sin que el
+usuario tenga que identificar los paquetes que le faltan.
+
+\subsection*{Ejemplo}\label{ejemplo-72}
+
+
+El código mostrado abajo revisa si los paquetes \texttt{knitr},
+\texttt{png} y \texttt{markdown} están instalados e instala los ausentes
+y luego carga todos los paquetes que estén en el vector
+\texttt{packages}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{packages <-}\StringTok{  }\KeywordTok{c}\NormalTok{(}\StringTok{"knitr"}\NormalTok{, }\StringTok{"png"}\NormalTok{, }\StringTok{"markdown"}\NormalTok{)}
+\NormalTok{package.check <-}\StringTok{ }\KeywordTok{lapply}\NormalTok{(packages, }\DataTypeTok{FUN =} \NormalTok{function(x) \{}
+  \NormalTok{if (!}\KeywordTok{require}\NormalTok{(x, }\DataTypeTok{character.only =} \OtherTok{TRUE}\NormalTok{)) \{}
+    \KeywordTok{install.packages}\NormalTok{(x, }\DataTypeTok{dependencies =} \OtherTok{TRUE}\NormalTok{)}
+    \KeywordTok{library}\NormalTok{(x, }\DataTypeTok{character.only =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{\}}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
 
 \bibliography{packages,book}
 

@@ -184,7 +184,7 @@ En la práctica nos podemos encontramos con variables aleatorias discretas que n
 El cangrejo de herradura hembra se caracteriza porque a su caparazón se adhieren los machos de la misma especie, en la Figura \@ref(fig:crab) se muestra una fotografía de este cangrejo. Los investigadores están interesado en determinar cual es el patrón de variación del número de machos sobre cada hembra, para esto, se recolectó una muestra de hembras a las cuales se les observó el color, la condición de la espina, el peso en kilogramos, el ancho del caparazón en centímetros y el número de satélites o machos sobre el caparazón, la base de datos está disponible en el siguiente [enlace](https://raw.githubusercontent.com/fhernanb/datos/master/crab). \label{crabs}
 
 ```{r crab, echo=F, fig.cap='Fotografía del cangreo de herradura, tomada de http://sccoastalresources.com/home/2016/6/21/a-night-of-horseshoe-crab-tagging.', dpi=50, fig.align='center'}
-knitr::include_graphics("images/crab.png")
+knitr::include_graphics("images/crab")
 ```
 
 1) Encontrar la distribución de probabilidad para la variable `Sa` que corresponde al número de machos sobre el caparazón de cada hembra.
