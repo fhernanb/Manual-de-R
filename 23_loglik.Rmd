@@ -27,7 +27,8 @@ El método de máxima verosimilitud se usa para estimar los parámetros de una d
 Suponga que se tiene el vector `rta` que corresponde a una muestra aleatoria de una distribución binomial con parámetro `size=5` conocido.
 
 ```{r}
-rta <- c(2, 2, 1, 1, 1, 1, 0, 2, 1, 2, 1, 0, 1, 2, 1, 0, 0, 2, 2, 1)
+rta <- c(2, 2, 1, 1, 1, 1, 0, 2, 1, 2,
+         1, 0, 1, 2, 1, 0, 0, 2, 2, 1)
 ```
 
 1) Calcular el valor de log-verosimilitud $l$ si asumimos que $p=0.30$ en la distribución binomial.

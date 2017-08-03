@@ -5,7 +5,7 @@ En este capítulo se explica cómo crear funciones en \proglang{R} para realizar
 ## Función en \proglang{R} \index{función}
 Una función es un conjunto de instrucciones que convierten las entradas (_inputs_) en resultados (_outputs_) deseados. En la Figura \@ref(fig:machine2) se muestra una ilustración de lo que es una función o máquina general.
 
-```{r machine2, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org.', dpi=10, fig.align='center'}
+```{r machine2, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org.', dpi=250, fig.align='center'}
 knitr::include_graphics("images/function_machine.png")
 ```
 
@@ -150,17 +150,11 @@ Nota: no puede usar la función `mean( )`.
 4. Escribir una función que calcule la velocidad de un proyectil dado que el usuario ingresa la distancia recorrida en Km y el tiempo necesario en minutos. Expresar el resultado se debe entregar en metros/segundo, recuerde que
 
 $$velocidad = \frac{espacio}{tiempo}$$
-5. Construya una función que calcule las coordenadas del punto medio $M$ entre dos puntos $A$ y $B$. Vea la Figura \@ref(fig:midpoint) para una ilustración. ¿Cuáles cree usted que deben ser los parámetros de entrada de la función?
+5. Escribir una función que reciba dos valores $a$ y $b$ y que los intercambie. Es decir, si ingresa $a=4$ y $b=9$ que la función entregue $a=9$ y $b=4$.
 
-```{r midpoint, echo=F, fig.cap='Ilustración del punto medio entre dos puntos, tomada de https://www.slideshare.net/bigpassy/midpoint-between-two-points', dpi=600, fig.align='center'}
-knitr::include_graphics("images/midpoint")
-```
+6. Construya una función a la cual le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto.
 
-6. Escribir una función que reciba dos valores $a$ y $b$ y que los intercambie. Es decir, si ingresa $a=4$ y $b=9$ que la función entregue $a=9$ y $b=4$.
-
-7. Construya una función a la cual le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto.
-
-8. Construya una función llamada `precio` que calcule el precio total de sacar A fotocopias y B impresiones, sabiendo que los precios son 50 y 100 pesos para A y B respectivamente si el cliente es un estudiante, y de 75 y 150 para A y B si el cliente es un profesor. La función debe tener dos argumentos cuantitativos (`A` y `B`) y el argumento lógico `estudiante` que por defecto tenga el valor de `TRUE`. Use la estructura mostrada abajo.
+7. Construya una función llamada `precio` que calcule el precio total de sacar A fotocopias y B impresiones, sabiendo que los precios son 50 y 100 pesos para A y B respectivamente si el cliente es un estudiante, y de 75 y 150 para A y B si el cliente es un profesor. La función debe tener dos argumentos cuantitativos (`A` y `B`) y el argumento lógico `estudiante` que por defecto tenga el valor de `TRUE`. Use la estructura mostrada abajo.
 
 ```{r, eval=FALSE}
 precio <- function(A, B, estudiante=TRUE) {
@@ -171,7 +165,7 @@ precio <- function(A, B, estudiante=TRUE) {
 }
 ```
 
-9. Construya una función llamada `salario` que le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto semanal, teniendo en cuenta que si el número de horas trabajadas durante la semana es mayor de 48, esas horas de demás se consideran horas extras y tienen un 35\% de recargo. Imprima el salario neto. Use la estructura mostrada abajo.
+8. Construya una función llamada `salario` que le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto semanal, teniendo en cuenta que si el número de horas trabajadas durante la semana es mayor de 48, esas horas de demás se consideran horas extras y tienen un 35\% de recargo. Imprima el salario neto. Use la estructura mostrada abajo.
 
 ```{r, eval=FALSE}
 salario <- function(num.horas, valor.hora) {
@@ -182,7 +176,7 @@ salario <- function(num.horas, valor.hora) {
 }
 ```
 
-10. Construya una función llamada `nota` que calcule la nota obtenida por un alumno en una evaluación de tres puntos cuya ponderación o importancia son 20\%, 30\% y 50\% para los puntos I, II y III respectivamente. Adicionalmente la función debe generar un mensaje sobre si el estudiante aprobó la evaluación o no. El usuario debe ingresar las notas individuales de los tres puntos y la función debe entregar la nota final de la evaluación. Use la estructura mostrada abajo.
+9. Construya una función llamada `nota` que calcule la nota obtenida por un alumno en una evaluación de tres puntos cuya ponderación o importancia son 20\%, 30\% y 50\% para los puntos I, II y III respectivamente. Adicionalmente la función debe generar un mensaje sobre si el estudiante aprobó la evaluación o no. El usuario debe ingresar las notas individuales de los tres puntos y la función debe entregar la nota final de la evaluación. Use la estructura mostrada abajo.
 
 ```{r, eval=FALSE}
 nota <- function(p1, p2, p3) {
@@ -192,7 +186,7 @@ nota <- function(p1, p2, p3) {
 }
 ```
 
-11. Escriba una función llamada `minimo` que permita obtener el valor mínimo de un vector numérico. No puede usar ninguna de las funciones básicas de R como `which.min()`, `which.max()`, `order()`, `min( )`, `max( )`, `sort( )` u `order( )`. Use la estructura mostrada abajo.
+10. Escriba una función llamada `minimo` que permita obtener el valor mínimo de un vector numérico. No puede usar ninguna de las funciones básicas de R como `which.min()`, `which.max()`, `order()`, `min( )`, `max( )`, `sort( )` u `order( )`. Use la estructura mostrada abajo.
 
 ```{r, eval=FALSE}
 minimo <- function(x) {
@@ -201,4 +195,11 @@ minimo <- function(x) {
   return(minimo)
 }
 ```
+
+11. Construya una función que calcule las coordenadas del punto medio $M$ entre dos puntos $A$ y $B$. Vea la Figura \@ref(fig:midpoint) para una ilustración. ¿Cuáles cree usted que deben ser los parámetros de entrada de la función?
+
+```{r midpoint, echo=F, fig.cap='Ilustración del punto medio entre dos puntos, tomada de https://www.slideshare.net/bigpassy/midpoint-between-two-points', dpi=10, fig.align='center'}
+knitr::include_graphics("images/midpoint")
+```
+
 

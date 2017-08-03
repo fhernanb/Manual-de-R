@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-08-02}
+\date{2017-08-03}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -3177,7 +3177,7 @@ máquina general.
 
 \begin{figure}
 
-{\centering \includegraphics[width=50in]{images/function_machine} 
+{\centering \includegraphics[width=2in]{images/function_machine} 
 
 }
 
@@ -3482,27 +3482,13 @@ Nota: no puede usar la función \texttt{mean(\ )}.
   recuerde que
 \end{enumerate}
 
-\[velocidad = \frac{espacio}{tiempo}\] 5. Construya una función que
-calcule las coordenadas del punto medio \(M\) entre dos puntos \(A\) y
-\(B\). Vea la Figura \ref{fig:midpoint} para una ilustración. ¿Cuáles
-cree usted que deben ser los parámetros de entrada de la función?
-
-\begin{figure}
-
-{\centering \includegraphics{images/midpoint} 
-
-}
-
-\caption{Ilustración del punto medio entre dos puntos, tomada de https://www.slideshare.net/bigpassy/midpoint-between-two-points}\label{fig:midpoint}
-\end{figure}
+\[velocidad = \frac{espacio}{tiempo}\] 5. Escribir una función que
+reciba dos valores \(a\) y \(b\) y que los intercambie. Es decir, si
+ingresa \(a=4\) y \(b=9\) que la función entregue \(a=9\) y \(b=4\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{5}
-\item
-  Escribir una función que reciba dos valores \(a\) y \(b\) y que los
-  intercambie. Es decir, si ingresa \(a=4\) y \(b=9\) que la función
-  entregue \(a=9\) y \(b=4\).
 \item
   Construya una función a la cual le ingrese el salario por hora y el
   número de horas trabajadas durante una semana por un trabajador. La
@@ -3530,7 +3516,7 @@ cree usted que deben ser los parámetros de entrada de la función?
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{8}
+\setcounter{enumi}{7}
 \tightlist
 \item
   Construya una función llamada \texttt{salario} que le ingrese el
@@ -3555,7 +3541,7 @@ cree usted que deben ser los parámetros de entrada de la función?
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{9}
+\setcounter{enumi}{8}
 \tightlist
 \item
   Construya una función llamada \texttt{nota} que calcule la nota
@@ -3580,7 +3566,7 @@ cree usted que deben ser los parámetros de entrada de la función?
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{10}
+\setcounter{enumi}{9}
 \tightlist
 \item
   Escriba una función llamada \texttt{minimo} que permita obtener el
@@ -3600,6 +3586,26 @@ cree usted que deben ser los parámetros de entrada de la función?
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{10}
+\tightlist
+\item
+  Construya una función que calcule las coordenadas del punto medio
+  \(M\) entre dos puntos \(A\) y \(B\). Vea la Figura \ref{fig:midpoint}
+  para una ilustración. ¿Cuáles cree usted que deben ser los parámetros
+  de entrada de la función?
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics{images/midpoint} 
+
+}
+
+\caption{Ilustración del punto medio entre dos puntos, tomada de https://www.slideshare.net/bigpassy/midpoint-between-two-points}\label{fig:midpoint}
+\end{figure}
 
 \chapter{\texorpdfstring{Lectura de bases de datos
 \index{lectura de bases de datos}
@@ -6904,7 +6910,8 @@ muestra aleatoria de una distribución binomial con parámetro
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{rta <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{rta <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{,}
+         \DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
