@@ -221,7 +221,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-08-03}
+\date{2017-08-15}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -6893,8 +6893,8 @@ l(\boldsymbol{\Theta} | \boldsymbol{x}) = \log L(\boldsymbol{\Theta} | \boldsymb
 \label{eq:loglik}
 \end{equation}
 
-\section{Método de máximima
-verosimilitud}\label{metodo-de-maximima-verosimilitud}
+\section{Método de máxima verosimilitud para estimar
+parámetros}\label{metodo-de-maxima-verosimilitud-para-estimar-parametros}
 
 El método de máxima verosimilitud se usa para estimar los parámetros de
 una distribución. El objetivo de este método es encontrar los valores de
@@ -7246,7 +7246,7 @@ continuación el código usado. \index{fitdistr}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{require}\NormalTok{(MASS)  }\CommentTok{# El paquete ya está instalado, solo se debe cargar}
+\KeywordTok{require}\NormalTok{(MASS) }\CommentTok{# El paquete ya está instalado, solo se debe cargar}
 \NormalTok{res <-}\StringTok{ }\KeywordTok{fitdistr}\NormalTok{(}\DataTypeTok{x=}\NormalTok{y, }\DataTypeTok{densfun=}\StringTok{'normal'}\NormalTok{)}
 \NormalTok{res}
 \end{Highlighting}
@@ -7645,6 +7645,115 @@ En la Figura \ref{fig:histDist1} se presenta el histograma para muestra
 aleatoria y la densidad de la gamma que mejor explica estos datos. Se
 observa claramente que la curva de densidad azul acompaña el patrón de
 los datos.
+
+\section{Método de máxima verosimilitud para estimar parámetros en
+modelos de
+regresión}\label{metodo-de-maxima-verosimilitud-para-estimar-parametros-en-modelos-de-regresion}
+
+En la sección anterior se estudió cómo estimar los parámetros de una
+distribución, en este capítulo se aprenderá a estimar los parámetros de
+un modelo de regresión general.
+
+\subsection*{Ejemplo}\label{ejemplo-53}
+
+
+Considere el modelo de regresión mostrado abajo. Simule 1000
+observaciones del modelo y use la función \texttt{optim} para estimar
+los parámetros del modelo.
+
+\begin{align*}
+y_i &\sim N(\mu_i, \sigma^2), \\
+\mu_i &= -2 + 3 x_1, \\
+\sigma &= 5, \\
+x_1 &\sim U(-5, 6).
+\end{align*}
+
+El código mostrado a continuación permite simular un conjunto de valores
+con la estructura anteior.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n <-}\StringTok{ }\DecValTok{1000}
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{n=}\NormalTok{n, -}\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\NormalTok{n, }\DataTypeTok{mean=}\NormalTok{-}\DecValTok{2} \NormalTok{+}\StringTok{ }\DecValTok{3} \NormalTok{*}\StringTok{ }\NormalTok{x1, }\DataTypeTok{sd=}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+El vector de parámetros del modelo anterior es
+\(\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top\),
+el primer elemento corresponde al intercepto, el segundo a la pendiente
+y el último a la desviación..
+
+A continuación se define la función de \textbf{menos} log-verosimilitud
+para el modelo anterior. A pesar de que nos interesa maximizar la
+función de log-verosimilitud hemos creado su negativo, esto porque la
+mayoría de las funciones de optimización minimizan y no maximizan;
+maximizar \(f(x)\) es equivalente a minimizar \(-f(x)\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{minusll <-}\StringTok{ }\NormalTok{function(theta, y, x1) \{}
+  \NormalTok{media <-}\StringTok{ }\NormalTok{theta[}\DecValTok{1}\NormalTok{] +}\StringTok{ }\NormalTok{theta[}\DecValTok{2}\NormalTok{] *}\StringTok{ }\NormalTok{x1  }\CommentTok{# Se define la media}
+  \NormalTok{desvi <-}\StringTok{ }\NormalTok{theta[}\DecValTok{3}\NormalTok{]                  }\CommentTok{# Se define la desviación.}
+  \NormalTok{-}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\KeywordTok{dnorm}\NormalTok{(}\DataTypeTok{x=}\NormalTok{y, }\DataTypeTok{mean=}\NormalTok{media, }\DataTypeTok{sd=}\NormalTok{desvi, }\DataTypeTok{log=}\OtherTok{TRUE}\NormalTok{))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Ahora vamos a usar la función \texttt{optim} para encontrar los valores
+que maximizan la función de log-verosimilitud, el código para hacer eso
+se muestra a continuación. En el parámetro \texttt{par} se coloca un
+vector de posibles valores de \(\boldsymbol{\Theta}\) para iniciar la
+búsqueda, en \texttt{fn} se coloca la función de interés, en
+\texttt{lower} y \texttt{upper} se colocan vectores que indican los
+límites de búsqueda de cada parámetro, los \(\beta_k\) pueden variar
+entre \(-\infty\) y \(\infty\) mientras que el parámetro \(\sigma\) toma
+valores en el intervalo \((0, \infty)\). Como la función
+\texttt{minusll} tiene argumentos adicionales \texttt{y} e \texttt{x1},
+estos pasan a la función \texttt{optim} al final como se muestra en el
+código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res <-}\StringTok{ }\KeywordTok{optim}\NormalTok{(}\DataTypeTok{par=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{fn=}\NormalTok{minusll,}
+             \DataTypeTok{method=}\StringTok{'L-BFGS-B'}\NormalTok{,}
+             \DataTypeTok{lower=}\KeywordTok{c}\NormalTok{(-}\OtherTok{Inf}\NormalTok{, -}\OtherTok{Inf}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+             \DataTypeTok{upper=}\KeywordTok{c}\NormalTok{(}\OtherTok{Inf}\NormalTok{, }\OtherTok{Inf}\NormalTok{, }\OtherTok{Inf}\NormalTok{), }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{x1=}\NormalTok{x1)}
+\end{Highlighting}
+\end{Shaded}
+
+En el objeto \texttt{res} está el resultado de la optimización, para
+explorar los resultados usamos
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $par
+## [1] -1.905  3.080  5.014
+## 
+## $value
+## [1] 3031
+## 
+## $counts
+## function gradient 
+##       19       19 
+## 
+## $convergence
+## [1] 0
+## 
+## $message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+\end{verbatim}
+
+De la salida anterior se observa que el vector de parámetros estimado es
+-1.9046, 3.0796, 5.0142 y que el valor de la máxima log-verosimilitud
+fue de 3031.2092. Vemos entonces que el vector estimado está muy cerca
+del verdadero
+\(\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top\).
 
 \section*{EJERCICIOS}\label{ejercicios-6}
 
@@ -8225,10 +8334,10 @@ Para aplicar la prueba Shapiro-Wilk se usa la función
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  x
-## W = 0.99, p-value = 0.4
+## W = 0.99, p-value = 0.9
 \end{verbatim}
 
-De la salida anterior se tiene que el valor-P para la prueba fue de 0.4
+De la salida anterior se tiene que el valor-P para la prueba fue de 0.9
 y que es mayor al nivel de significancia 3\%, lo cual indica que no hay
 evidencias para rechazar la hipótesis nula de normalidad.
 
@@ -8247,10 +8356,10 @@ Para aplicar la prueba Anderson-Darling se usa la función
 ##  Anderson-Darling normality test
 ## 
 ## data:  x
-## A = 0.41, p-value = 0.3
+## A = 0.2, p-value = 0.9
 \end{verbatim}
 
-De la salida anterior se tiene que el valor-P para la prueba fue de 0.3
+De la salida anterior se tiene que el valor-P para la prueba fue de 0.9
 y que es mayor al nivel de significancia 3\%, esto indica que no hay
 evidencias para rechazar la hipótesis nula de normalidad.
 
@@ -8438,7 +8547,7 @@ Los demás argumentos se usan cuando se desea obtener intervalos de
 confianza para diferencia de media con muestras independientes y
 dependientes (o pareadas).
 
-\subsection*{Ejemplo}\label{ejemplo-53}
+\subsection*{Ejemplo}\label{ejemplo-54}
 
 
 Suponga que se quiere obtener un intervalo de confianza bilateral del
@@ -8537,7 +8646,7 @@ medias (\(\mu_1-\mu_2\)) de muestras independientes se usa la función
   \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-54}
+\subsection*{Ejemplo}\label{ejemplo-55}
 
 
 Se quiere saber si existe diferencia estadísticamente significativa
@@ -8638,7 +8747,7 @@ es necesario definir 4 argumentos:
   \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-55}
+\subsection*{Ejemplo}\label{ejemplo-56}
 
 
 Los desórdenes musculoesqueléticos del cuello y hombro son comunes entre
@@ -8751,7 +8860,7 @@ Para construir intervalos de confianza unilaterales se usa el argumento
 \texttt{alternative=\textquotesingle{}greater\textquotesingle{}}, a
 continuación un ejemplo.
 
-\subsection*{Ejemplo}\label{ejemplo-56}
+\subsection*{Ejemplo}\label{ejemplo-57}
 
 
 Simule una muestra aleatoria de una \(N(18, 3)\) y calcule un intervalo
@@ -8765,7 +8874,7 @@ de confianza unilateral superior del \(90\%\) para la media
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 18.01   Inf
+## [1]  17 Inf
 ## attr(,"conf.level")
 ## [1] 0.9
 \end{verbatim}
@@ -8810,7 +8919,7 @@ definir 2 argumentos:
   \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-57}
+\subsection*{Ejemplo}\label{ejemplo-58}
 
 
 Considerando la información del ejemplo de Intervalos de confianza
@@ -8861,7 +8970,7 @@ varianzas a partir de la función \texttt{var.test} es necesario definir
   \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-58}
+\subsection*{Ejemplo}\label{ejemplo-59}
 
 
 Usando la información del ejemplo de diferencia de medias para muestras
@@ -8923,7 +9032,7 @@ el número de eventos o de forma equivalente corresponde a la longitud de
 la variable que se quiere analizar, y \texttt{conf.level} corresponde al
 nivel de confianza.
 
-\subsection*{Ejemplo}\label{ejemplo-59}
+\subsection*{Ejemplo}\label{ejemplo-60}
 
 
 El gerente de una estación de televisión debe determinar en la ciudad
@@ -8966,7 +9075,7 @@ argumentos:
   \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-60}
+\subsection*{Ejemplo}\label{ejemplo-61}
 
 
 Se quiere determinar si un cambio en el método de fabricación de una
@@ -9062,7 +9171,7 @@ son:
   \texttt{conf.level}: nivel de confianza (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-61}
+\subsection*{Ejemplo}\label{ejemplo-62}
 
 
 Para verificar si el proceso de llenado de bolsas de café con 500 gramos
@@ -9133,7 +9242,7 @@ impreso en la envoltura.
 \section{\texorpdfstring{Prueba de hipótesis para \(\mu\) con muestras
 grandes}{Prueba de hipótesis para \textbackslash{}mu con muestras grandes}}\label{prueba-de-hipotesis-para-mu-con-muestras-grandes}
 
-\subsection*{Ejemplo}\label{ejemplo-62}
+\subsection*{Ejemplo}\label{ejemplo-63}
 
 
 Se afirma que los automóviles recorren en promedio más de 20000
@@ -9220,7 +9329,7 @@ prueba son:
   \texttt{conf.level}: nivel de confianza (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-63}
+\subsection*{Ejemplo}\label{ejemplo-64}
 
 
 Un fabricante de un quitamanchas afirma que su producto quita 90\% de
@@ -9305,7 +9414,7 @@ copiar el siguiente código en la consola de \proglang{R}:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-64}
+\subsection*{Ejemplo}\label{ejemplo-65}
 
 
 Para verificar si el proceso de llenado de bolsas de café está operando
@@ -9392,7 +9501,7 @@ son:
   \texttt{conf.level}: nivel de confianza (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-65}
+\subsection*{Ejemplo}\label{ejemplo-66}
 
 
 Se realiza un estudio para comparar dos tratamientos que se aplicarán a
@@ -9501,7 +9610,7 @@ Como el valor-P es 0.9897 (reportado como 1), muy superior al nivel
 \(\alpha\) de significancia, se puede concluir que las varianzas son
 similares.
 
-\subsection*{Ejemplo}\label{ejemplo-66}
+\subsection*{Ejemplo}\label{ejemplo-67}
 
 
 El arsénico en agua potable es un posible riesgo para la salud. Un
@@ -9658,7 +9767,7 @@ son:
   \texttt{conf.level}: nivel de confianza (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-67}
+\subsection*{Ejemplo}\label{ejemplo-68}
 
 
 Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los
@@ -9728,7 +9837,7 @@ con sal.
 medias \(\mu_1-\mu_2\) con varianzas
 diferentes}{Prueba de hipótesis para la diferencia de medias \textbackslash{}mu\_1-\textbackslash{}mu\_2 con varianzas diferentes}}\label{prueba-de-hipotesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes}
 
-\subsection*{Ejemplo}\label{ejemplo-68}
+\subsection*{Ejemplo}\label{ejemplo-69}
 
 
 Retomando el ejemplo de la concentración de arsénico en el agua,
@@ -9821,7 +9930,7 @@ Para realizar pruebas de hipótesis para la proporción se usa la función
   \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-69}
+\subsection*{Ejemplo}\label{ejemplo-70}
 
 
 Se quiere determinar si un cambio en el método de fabricación de una
@@ -9878,7 +9987,7 @@ después del cambio ha disminuído.
 \section{Prueba de hipótesis para la diferencia de medias
 pareadas}\label{prueba-de-hipotesis-para-la-diferencia-de-medias-pareadas}
 
-\subsection*{Ejemplo}\label{ejemplo-70}
+\subsection*{Ejemplo}\label{ejemplo-71}
 
 
 Diez individuos participaron de programa para perder peso corporal por
@@ -9982,7 +10091,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-71}
+\subsection*{Ejemplo}\label{ejemplo-72}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -10079,7 +10188,7 @@ instalados, se cargan esos paquetes y caso contrario, el código instala
 los paquetes y luego los carga, todo de forma automática sin que el
 usuario tenga que identificar los paquetes que le faltan.
 
-\subsection*{Ejemplo}\label{ejemplo-72}
+\subsection*{Ejemplo}\label{ejemplo-73}
 
 
 El código mostrado abajo revisa si los paquetes \texttt{knitr},
