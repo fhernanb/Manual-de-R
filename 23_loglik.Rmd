@@ -316,7 +316,7 @@ y <- rnorm(n=n, mean=-2 + 3 * x1, sd=5)
 ```
 
 
-El vector de parámetros del modelo anterior es $\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top$, el primer elemento corresponde al intercepto, el segundo a la pendiente y el último a la desviación..
+El vector de parámetros del modelo anterior es $\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top$, el primer elemento corresponde al intercepto, el segundo a la pendiente y el último a la desviación.
 
 A continuación se define la función de __menos__ log-verosimilitud para el modelo anterior. A pesar de que nos interesa maximizar la función de log-verosimilitud hemos creado su negativo, esto porque la mayoría de las funciones de optimización minimizan y no maximizan; maximizar $f(x)$ es equivalente a minimizar $-f(x)$.
 
@@ -331,20 +331,44 @@ minusll <- function(theta, y, x1) {
 Ahora vamos a usar la función `optim` para encontrar los valores que maximizan la función de log-verosimilitud, el código para hacer eso se muestra a continuación. En el parámetro `par` se coloca un vector de posibles valores de $\boldsymbol{\Theta}$ para iniciar la búsqueda, en `fn` se coloca la función de interés, en `lower` y `upper` se colocan vectores que indican los límites de búsqueda de cada parámetro, los $\beta_k$ pueden variar entre $-\infty$ y $\infty$ mientras que el parámetro $\sigma$ toma valores en el intervalo $(0, \infty)$. Como la función `minusll` tiene argumentos adicionales `y` e `x1`, estos pasan a la función `optim` al final como se muestra en el código.
 
 ```{r}
-res <- optim(par=c(0, 0, 1), fn=minusll,
-             method='L-BFGS-B',
-             lower=c(-Inf, -Inf, 0),
-             upper=c(Inf, Inf, Inf), y=y, x1=x1)
+res1 <- optim(par=c(0, 0, 1), fn=minusll,
+              method='L-BFGS-B',
+              lower=c(-Inf, -Inf, 0),
+              upper=c(Inf, Inf, Inf), y=y, x1=x1)
 ```
 
-En el objeto `res` está el resultado de la optimización, para explorar los resultados usamos
+En el objeto `res1` está el resultado de la optimización, para explorar los resultados usamos
 
 ```{r}
-res
+res1
 ```
 
-De la salida anterior se observa que el vector de parámetros estimado es `r res$par` y que el valor de la máxima log-verosimilitud fue de `r res$value`. Vemos entonces que el vector estimado está muy cerca del verdadero $\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top$.
+De la salida anterior se observa que el vector de parámetros estimado es `r res1$par` y que el valor de la máxima log-verosimilitud fue de `r res1$value`. Vemos entonces que el vector estimado está muy cerca del verdadero $\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top$.
 
+En algunas ocasiones es mejor hacer la búsqueda de los parámetros en el intervalo $(-\infty, \infty)$ que en una región limitada como por ejemplo $(0, \infty)$ o $(-1, 1)$, ya que las funciones de búsqueda podrían tener problemas en los límites numéricos. 
+Una estrategia usual en este tipo de casos es aplicar una transformación apropiada al parámetro que tiene el dominio limitado. En el presente ejemplo $\sigma$ sólo puede tomar valores mayores que cero y una transformación de tipo $\log$ podría ser muy útil ya que $\log$ relaciona los reales positivos con todos los reales. La transformación para este problema sería $\log(\sigma)=\beta_3$ o escrita de forma inversa $\sigma=\exp(\beta_3)$. El nuevo parámetro $\beta_3$ puede variar en $(-\infty, \infty)$ pero al ser transformado por la función exponencial este se volvería un valor apropiado para $\sigma$. Para implementar esta variación lo único que se debe hacer es modificar la línea 3 de la función `minusll` como se muestra a continuación:
+
+```{r}
+minusll <- function(theta, y, x1) {
+  media <- theta[1] + theta[2] * x1  
+  desvi <- exp(theta[3])  # <<<<<---- El cambio fue aquí
+  - sum(dnorm(x=y, mean=media, sd=desvi, log=TRUE))
+}
+```
+
+Para hacer la búsqueda se procede de forma similar, abajo el código necesario.
+
+```{r}
+res2 <- optim(par=c(0, 0, 0), fn=minusll, y=y, x1=x1)
+```
+
+Para obtener los valores ajustados y almacenados en el objeto `res2` usamos el siguiente código.
+
+```{r}
+c(res2$par[1:2], exp(res2$par[3]))
+```
+
+De la salida anterior se observa que el vector estimado está muy cerca del verdadero $\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top$.
 
 ## EJERCICIOS {-}
 
@@ -364,3 +388,15 @@ De la salida anterior se observa que el vector de parámetros estimado es `r res
   + ¿Qué distribuciones de 2 parámetros podrían explicar el comportamiento del área de los apartamentos? Mencione al menos 3.
   + Para cada una de las distribuciones anteriores dibuje un gráfico de contornos o calor para la función de log-verosimilitud y estime los parámetros de la distribución elegida.
   + ¿Cuál de los dos modelos es más apropiado para explicar la variable de interés? Calcule el $AIC$ para decidir.
+  
+4) Simule el siguiente modelo de regresión.
+
+\begin{align*}
+y_i &\sim Gamma(shape_i, scale_i), \\
+shape_i &= -2 + 3 x_1, \\
+scale_i &= 5 - 2 x_2, \\
+x_1 &\sim U(-5, 6), \\
+x_2 &\sim Poisson(\lambda=3)-
+\end{align*}
+
+
