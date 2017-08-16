@@ -389,14 +389,19 @@ De la salida anterior se observa que el vector estimado está muy cerca del verd
   + Para cada una de las distribuciones anteriores dibuje un gráfico de contornos o calor para la función de log-verosimilitud y estime los parámetros de la distribución elegida.
   + ¿Cuál de los dos modelos es más apropiado para explicar la variable de interés? Calcule el $AIC$ para decidir.
   
-4) Simule el siguiente modelo de regresión.
+4) Considere el siguiente modelo de regresión.
 
 \begin{align*}
 y_i &\sim Gamma(shape_i, scale_i), \\
-shape_i &= -2 + 3 x_1, \\
-scale_i &= 5 - 2 x_2, \\
-x_1 &\sim U(-5, 6), \\
-x_2 &\sim Poisson(\lambda=3)-
+\log(shape_i) &= 3 - 7 x_1, \\
+\log(scale_i) &= 3 - 1 x_2, \\
+x_1 &\sim U(0, 1), \\
+x_2 &\sim Poisson(\lambda=3)
 \end{align*}
 
+  + Simule 100 observaciones del modelo anterior.
+  + Escriba el vector de parámetros del problema.
+  + Construya la función `minusll` para el problema.
+  + Use la función `optim` para estimar los parámetros del problema.
+  
 
