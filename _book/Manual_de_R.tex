@@ -230,7 +230,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-08-16}
+\date{2017-08-25}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -6958,21 +6958,17 @@ Por lo tanto \(l(\theta)= -24.55\)
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Construir una función llamada \texttt{ll} a la cual le ingrese uno o
-  varios valores del parámetro \(p\) de la binomial, la función debe
-  entregar el valor de log-verosimilitud en cada uno de los \(p\)
-  ingresados.
+  Construir una función llamada \texttt{ll} a la cual le ingrese valores
+  del parámetro \(p\) de la binomial y que la función entregue el valor
+  de log-verosimilitud.
 \end{enumerate}
 
 La función solicitada tiene un cuerpo igual al usado en el numeral
-anterior. Para asegurar que la función construída pueda recibir un
-vector de valores de \(p\) se vectoriza la función con
-\texttt{Vectorize}, abajo el código usado.
+anterior, a continuación el código necesario para crearla.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{ll <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(prob) }\KeywordTok{sum}\NormalTok{(}\KeywordTok{dbinom}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rta, }\DataTypeTok{size=}\DecValTok{5}\NormalTok{, }\DataTypeTok{prob=}\NormalTok{prob, }\DataTypeTok{log=}\NormalTok{T))}
-\NormalTok{ll <-}\StringTok{ }\KeywordTok{Vectorize}\NormalTok{(ll)  }\CommentTok{# Para vectorizar la función}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6999,23 +6995,6 @@ función \texttt{ll} está vectorizada.
 ## [1] -98.46
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ll}\NormalTok{(}\DataTypeTok{prob=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.15}\NormalTok{, }\FloatTok{0.80}\NormalTok{))  }\CommentTok{# Evaluada en un vector }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] -25.54 -98.46
-\end{verbatim}
-
-\BeginKnitrBlock{rmdwarning}
-La mayoría de las funciones en \proglang{R} creadas por los usuarios
-quedan vectorizadas otras no. La función \texttt{ll} no estaba
-vectorizada y por esa razón se necesitó usa \texttt{Vectorize}. No abuse
-de la función \texttt{Vectorize}, sólo úsela cuando sea necesario.
-\EndKnitrBlock{rmdwarning}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
 \setcounter{enumi}{2}
@@ -7024,16 +7003,7 @@ de la función \texttt{Vectorize}, sólo úsela cuando sea necesario.
   Dibujar la curva log-verosimilitud \(l\).
 \end{enumerate}
 
-En la Figura \ref{fig:loglik1} se presenta la curva solicitada, para su
-construcción se usa el siguiente código.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{curve}\NormalTok{(ll, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\StringTok{'dodgerblue3'}\NormalTok{,}
-      \DataTypeTok{xlab=}\StringTok{'Probabilidad de éxito'}\NormalTok{,}
-      \DataTypeTok{ylab=}\KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"l("}\NormalTok{, theta, }\StringTok{")"}\NormalTok{)))}
-\end{Highlighting}
-\end{Shaded}
+En la Figura \ref{fig:loglik1} se presenta la curva solicitada.
 
 \begin{figure}
 \centering
