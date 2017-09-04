@@ -185,7 +185,7 @@ De la anterior salida se observa que sólo 3 de las 5 personas cumplen ambas con
 
 \index{with}
 ```{block2, type='rmdtip'}
-La función `with` es útil porque nos permite realizar algún procedimiento __CON__ un objeto, escribiendo menos y de una forma más natural.
+La función `with` es útil porque nos permite realizar algún procedimiento en relación de un objeto, escribiendo menos y de una forma más natural.
 ```
 
 Una forma alternativa para escribir lo anterior usando la función `with` es la siguiente.
