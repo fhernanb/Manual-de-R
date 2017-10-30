@@ -98,7 +98,7 @@ Los argumentos a definir dentro de `prop.test` para hacer la prueba son:
 - `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
 - `p`: valor de referencia de la prueba.
 - `correct`: valor lógico para indicar si se usa la corrección de Yate.
-- `conf.level`: nivel de confianza (opcional).
+- `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
 ### Ejemplo {-}
 Un fabricante de un quitamanchas afirma que su producto quita 90% de todas las manchas. Para poner a prueba esta afirmación se toman 200 camisetas manchadas de las cuales a solo 174 les desapareció la mancha. Pruebe la afirmación del fabricante a un nivel $\alpha=0.05$.
@@ -129,7 +129,7 @@ Los argumentos a definir dentro de `Var.test` para hacer la prueba son:
 - `x`: vector numérico con los datos.
 - `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
 - `null.value`: valor de referencia de la prueba.
-- `conf.level`: nivel de confianza (opcional).
+- `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
 Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en la consola de \proglang{R}:
 
@@ -178,7 +178,7 @@ Los argumentos a definir dentro de `t.test` para hacer la prueba son:
 - `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
 - `mu`: valor de referencia de la prueba.
 - `var.equal=FALSE`: indica que las varianzas son desconocidas y diferentes, si la varianzas se pueden considerar iguales se coloca `var.equal=TRUE`.
-- `conf.level`: nivel de confianza (opcional).
+- `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
 ### Ejemplo {-}
 Se realiza un estudio para comparar dos tratamientos que se aplicarán a frijoles crudos con el objetivo de reducir el tiempo de cocción.  El tratamiento T1 es a base de bicarbonato de sodio, el T2 es a base de cloruro de sodio o sal común. La variable respuesta es el tiempo de cocción en minutos. Los datos se muestran en la tabla. ¿Son las varianzas de los tiempos iguales o diferentes? Usar $\alpha=0.03$.
@@ -311,7 +311,7 @@ Los argumentos a definir dentro de `t.test` para hacer la prueba son:
 - `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
 - `mu`: valor de referencia de la prueba.
 - `var.equal=TRUE`: indica que las varianzas son desconocidas pero iguales.
-- `conf.level`: nivel de confianza (opcional).
+- `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
 ### Ejemplo {-}
 Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los tiempos de cocción de los fríjoles con T1 y T2? Usar un nivel de significancia del 3%.
@@ -378,7 +378,7 @@ Para realizar pruebas de hipótesis para la proporción se usa la función `prop
 - `n`: vector con el número de ensayos de las dos muestras,
 - `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
 - `p`: valor de referencia de la prueba.
-- `conf.level`: nivel de confianza. 
+- `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
 ### Ejemplo {-}
 Se quiere determinar si un cambio en el método de fabricación de una piezas ha sido efectivo o no. Para esta comparación se tomaron 2 muestras, una antes y otra después del cambio en el proceso y los resultados obtenidos son los siguientes.
