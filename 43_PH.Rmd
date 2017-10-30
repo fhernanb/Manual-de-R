@@ -63,24 +63,24 @@ Como el valor-P es 30% y mayor que el nivel de significancia 5%, no se rechaza l
 ### Ejemplo {-}
 Se afirma que los automóviles recorren en promedio más de 20000 kilómetros por año pero usted cree que el promedio es en realidad menor. Para probar tal afirmación se pide a una muestra de 100 propietarios de automóviles seleccionada de manera aleatoria que lleven un registro de los kilómetros que recorren. 
 
-¿Estaría usted de acuerdo con esta afirmación, si la muestra aleatoria indicara un promedio de 19500 kilómetros y una desviación estándar de 3900 kilómetros? Utilice un valor P en su conclusión y use una significancia del 3%.
+¿Estaría usted de acuerdo con la afirmación si la muestra aleatoria indicara un promedio de 19500 kilómetros y una desviación estándar de 3900 kilómetros? Utilice un valor P en su conclusión y use una significancia del 3%.
 
-En este problema interesa
+En este problema interesa:
 
-$$H_0: \mu \ge 2000 \quad km$$
-$$H_1: \mu < 2000 \quad km$$
-Para este tipo de pruebas no hay una función de \proglang{R}, en necesario escribir el código como se haría manualmente, a continuación las instrucciones para calcular el estadístico y su valor-P.
+$$H_0: \mu \ge 20000 \quad km$$
+$$H_1: \mu < 20000 \quad km$$
+Para este tipo de pruebas no hay una función de \proglang{R} que haga los cálculos, por esta razón uno mismo debe escribir una líneas de código para obtener los resultados deseados, a continuación las instrucciones para calcular el estadístico y su valor-P.
 ```{r}
 xbarra <- 19500  # Datos del problema
-desvia <- 3900
-n <- 100
-mu <- 20000
+desvia <- 3900   # Datos del problema
+n <- 100         # Datos del problema
+mu <- 20000      # Media de referencia
 
 est <- (xbarra - mu) / (desvia / sqrt(n))
 est  # Para obtener el valor del estadístico
 pnorm(est)  # Para obtener el valor-P
 ```
-Como el valor-P es mayor que el nivel de significancia, no hay evidencias suficientes para pensar que ha disminuido el recorrido anual de los autos.
+Como el valor-P es mayor que el nivel de significancia 3%, no hay evidencias suficientes para pensar que ha disminuido el recorrido anual promedio de los autos.
 
 ## Prueba de hipótesis para la propoción $p$
 Para realizar este tipo de prueba se puede usar la función `prop.test` que tiene la siguiente estructura.

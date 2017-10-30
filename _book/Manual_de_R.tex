@@ -9326,24 +9326,25 @@ Para probar tal afirmación se pide a una muestra de 100 propietarios de
 automóviles seleccionada de manera aleatoria que lleven un registro de
 los kilómetros que recorren.
 
-¿Estaría usted de acuerdo con esta afirmación, si la muestra aleatoria
+¿Estaría usted de acuerdo con la afirmación si la muestra aleatoria
 indicara un promedio de 19500 kilómetros y una desviación estándar de
 3900 kilómetros? Utilice un valor P en su conclusión y use una
 significancia del 3\%.
 
-En este problema interesa
+En este problema interesa:
 
-\[H_0: \mu \ge 2000 \quad km\] \[H_1: \mu < 2000 \quad km\] Para este
-tipo de pruebas no hay una función de \proglang{R}, en necesario
-escribir el código como se haría manualmente, a continuación las
-instrucciones para calcular el estadístico y su valor-P.
+\[H_0: \mu \ge 20000 \quad km\] \[H_1: \mu < 20000 \quad km\] Para este
+tipo de pruebas no hay una función de \proglang{R} que haga los
+cálculos, por esta razón uno mismo debe escribir una líneas de código
+para obtener los resultados deseados, a continuación las instrucciones
+para calcular el estadístico y su valor-P.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{xbarra <-}\StringTok{ }\DecValTok{19500}  \CommentTok{# Datos del problema}
-\NormalTok{desvia <-}\StringTok{ }\DecValTok{3900}
-\NormalTok{n <-}\StringTok{ }\DecValTok{100}
-\NormalTok{mu <-}\StringTok{ }\DecValTok{20000}
+\NormalTok{desvia <-}\StringTok{ }\DecValTok{3900}   \CommentTok{# Datos del problema}
+\NormalTok{n <-}\StringTok{ }\DecValTok{100}         \CommentTok{# Datos del problema}
+\NormalTok{mu <-}\StringTok{ }\DecValTok{20000}      \CommentTok{# Media de referencia}
 
 \NormalTok{est <-}\StringTok{ }\NormalTok{(xbarra }\OperatorTok{-}\StringTok{ }\NormalTok{mu) }\OperatorTok{/}\StringTok{ }\NormalTok{(desvia }\OperatorTok{/}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(n))}
 \NormalTok{est  }\CommentTok{# Para obtener el valor del estadístico}
@@ -9364,9 +9365,9 @@ instrucciones para calcular el estadístico y su valor-P.
 ## [1] 0.09991
 \end{verbatim}
 
-Como el valor-P es mayor que el nivel de significancia, no hay
+Como el valor-P es mayor que el nivel de significancia 3\%, no hay
 evidencias suficientes para pensar que ha disminuido el recorrido anual
-de los autos.
+promedio de los autos.
 
 \section{\texorpdfstring{Prueba de hipótesis para la propoción
 \(p\)}{Prueba de hipótesis para la propoción p}}\label{prueba-de-hipotesis-para-la-propocion-p}
@@ -9401,7 +9402,8 @@ prueba son:
   \texttt{correct}: valor lógico para indicar si se usa la corrección de
   Yate.
 \item
-  \texttt{conf.level}: nivel de confianza (opcional).
+  \texttt{conf.level}: nivel de confianza para reportar el intervalo de
+  confianza asociado (opcional).
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-64}
@@ -9476,7 +9478,8 @@ prueba son:
 \item
   \texttt{null.value}: valor de referencia de la prueba.
 \item
-  \texttt{conf.level}: nivel de confianza (opcional).
+  \texttt{conf.level}: nivel de confianza para reportar el intervalo de
+  confianza asociado (opcional).
 \end{itemize}
 
 Para instalar el paquete \textbf{usefultools} desde GitHub se debe
@@ -9573,7 +9576,8 @@ son:
   diferentes, si la varianzas se pueden considerar iguales se coloca
   \texttt{var.equal=TRUE}.
 \item
-  \texttt{conf.level}: nivel de confianza (opcional).
+  \texttt{conf.level}: nivel de confianza para reportar el intervalo de
+  confianza asociado (opcional).
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-66}
@@ -9839,7 +9843,8 @@ son:
   \texttt{var.equal=TRUE}: indica que las varianzas son desconocidas
   pero iguales.
 \item
-  \texttt{conf.level}: nivel de confianza (opcional).
+  \texttt{conf.level}: nivel de confianza para reportar el intervalo de
+  confianza asociado (opcional).
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-68}
@@ -10002,7 +10007,8 @@ Para realizar pruebas de hipótesis para la proporción se usa la función
 \item
   \texttt{p}: valor de referencia de la prueba.
 \item
-  \texttt{conf.level}: nivel de confianza.
+  \texttt{conf.level}: nivel de confianza para reportar el intervalo de
+  confianza asociado (opcional).
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-70}
