@@ -230,7 +230,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2017-09-04}
+\date{2017-10-30}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -434,7 +434,7 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.4in]{images/Robert_Roos} 
+{\centering \includegraphics{images/Robert_Roos} 
 
 }
 
@@ -452,7 +452,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.54in]{images/cran} 
+{\centering \includegraphics{images/cran} 
 
 }
 
@@ -470,7 +470,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=5.31in]{images/instalacion1} 
+{\centering \includegraphics{images/instalacion1} 
 
 }
 
@@ -528,7 +528,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
+{\centering \includegraphics{images/Rpantallazo} 
 
 }
 
@@ -1556,7 +1556,7 @@ fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2in]{images/function_machine} 
+{\centering \includegraphics{images/function_machine} 
 
 }
 
@@ -3186,7 +3186,7 @@ máquina general.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2in]{images/function_machine} 
+{\centering \includegraphics{images/function_machine} 
 
 }
 
@@ -3673,7 +3673,7 @@ tipo de archivo a \textbf{csv (delimitado por comas)}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.12in]{images/excel1} 
+{\centering \includegraphics{images/excel1} 
 
 }
 
@@ -3700,7 +3700,7 @@ inicio de esa línea número 5.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.03in]{images/bloc1} 
+{\centering \includegraphics{images/bloc1} 
 
 }
 
@@ -3716,7 +3716,7 @@ claramente se nota la organización de la información.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.05in]{images/bloc2} 
+{\centering \includegraphics{images/bloc2} 
 
 }
 
@@ -5555,6 +5555,15 @@ código para obtener su representación gráfica.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(}\StringTok{'corrplot'}\NormalTok{)  }\CommentTok{# Para cargar el paquete corrplot}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## corrplot 0.84 loaded
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{corrplot.mixed}\NormalTok{(M)}
 \end{Highlighting}
 \end{Shaded}
@@ -7513,10 +7522,10 @@ consola \texttt{modelos\$fits}. Abajo el código usado.
 \begin{verbatim}
 ##      GA    WEI3      GG     GIG   BCCGo   BCPEo 
 ##   466.0   466.8   468.0   468.0   468.4   469.4 
-##    BCTo  exGAUS   LOGNO      IG     EXP PARETO2 
-##   470.4   471.2   474.6   483.9   494.1   496.1 
-##  IGAMMA 
-##   504.2
+##     GB2    BCTo  exGAUS   LOGNO      IG     EXP 
+##   470.0   470.4   471.2   474.6   483.9   494.1 
+## PARETO2  IGAMMA 
+##   496.1   504.2
 \end{verbatim}
 
 De la lista anterior se observa que la función gamma está en el primer
@@ -9223,12 +9232,14 @@ son:
   \texttt{x}: vector numérico con los datos.
 \item
   \texttt{alternative}: tipo de hipótesis alterna. Los valores
-  disponibles son \texttt{"two.sided"} cuando la alterna es \(\neq\),
-  \texttt{"less"} para el caso \(<\) y \texttt{"greater"} para \(>\).
+  disponibles son \texttt{"two.sided"} cuando la hipótesis alterna es
+  \(\neq\), \texttt{"less"} para el caso \(<\) y \texttt{"greater"} para
+  \(>\).
 \item
   \texttt{mu}: valor de referencia de la prueba.
 \item
-  \texttt{conf.level}: nivel de confianza (opcional).
+  \texttt{conf.level}: nivel de confianza para reportar el intervalo de
+  confianza asociado (opcional).
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-62}
@@ -9244,8 +9255,9 @@ siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489,
 nivel de significancia del 5\%.
 
 Lo primero es explorar si la muestra proviene de una distribución
-normal, para eso ingresamos los datos y usamos la función
-\texttt{ad.test} como se muestra a continuación.
+normal, para eso ingresamos los datos y aplicamos la prueba
+Anderson-Darling por medio de la función \texttt{ad.test} como se
+muestra a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9265,9 +9277,12 @@ normal, para eso ingresamos los datos y usamos la función
 ## A = 0.49, p-value = 0.2
 \end{verbatim}
 
-Como el valor-P de la prueba Anderson-Darling es 20\% y mayor que 5\%,
-se puede asumir que la muestra proviene de una población normal, así nos
-interesa probar lo siguiente:
+Como el valor-P de la prueba Anderson-Darling es 20\% y mayor que el
+nivel de significancia del 5\%, se puede asumir que la muestra proviene
+de una población normal.
+
+Luego de haber explorado la normalidad retornamos al problema de interés
+que se puede resumir así:
 
 \[H_0: \mu = 500 \quad gr\] \[H_1: \mu \neq 500 \quad gr\] La prueba de
 hipótesis se puede realizar usando la función \texttt{t.test} por medio

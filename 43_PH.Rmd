@@ -23,17 +23,16 @@ t.test(x, y = NULL,
 Los argumentos a definir dentro de `t.test` para hacer la prueba son:
 
 - `x`: vector numérico con los datos.
-- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
+- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la hipótesis alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
 - `mu`: valor de referencia de la prueba.
-- `conf.level`: nivel de confianza (opcional).
+- `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
 ### Ejemplo {-}
 Para verificar si el proceso de llenado de bolsas de café con 500  gramos está operando correctamente se toman aleatoriamente muestras de tamaño diez cada cuatro horas. Una muestra de bolsas está compuesta por las siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489, 490.
 
 ¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un nivel de significancia del 5%.
 
-
-Lo primero es explorar si la muestra proviene de una distribución normal, para eso ingresamos los datos y usamos la función `ad.test` como se muestra a continuación.
+Lo primero es explorar si la muestra proviene de una distribución normal, para eso ingresamos los datos y aplicamos la prueba Anderson-Darling por medio de la función `ad.test` como se muestra a continuación.
 
 ```{r}
 contenido <- c(510, 492, 494, 498, 492,
@@ -43,7 +42,9 @@ require(nortest) # Se debe haber instalado antes nortest
 ad.test(contenido)
 ```
 
-Como el valor-P de la prueba Anderson-Darling es 20% y mayor que 5%, se puede asumir que la muestra proviene de una población normal, así nos interesa probar lo siguiente:
+Como el valor-P de la prueba Anderson-Darling es 20% y mayor que el nivel de significancia del 5%, se puede asumir que la muestra proviene de una población normal.
+
+Luego de haber explorado la normalidad retornamos al problema de interés que se puede resumir así:
 
 $$H_0: \mu = 500 \quad gr$$
 $$H_1: \mu \neq 500 \quad gr$$
