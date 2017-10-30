@@ -9254,6 +9254,8 @@ siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489,
 ¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un
 nivel de significancia del 5\%.
 
+\emph{Solución}
+
 Lo primero es explorar si la muestra proviene de una distribución
 normal, para eso ingresamos los datos y aplicamos la prueba
 Anderson-Darling por medio de la función \texttt{ad.test} como se
@@ -9330,6 +9332,8 @@ los kilómetros que recorren.
 indicara un promedio de 19500 kilómetros y una desviación estándar de
 3900 kilómetros? Utilice un valor P en su conclusión y use una
 significancia del 3\%.
+
+\emph{Solución}
 
 En este problema interesa:
 
@@ -9414,6 +9418,8 @@ todas las manchas. Para poner a prueba esta afirmación se toman 200
 camisetas manchadas de las cuales a solo 174 les desapareció la mancha.
 Pruebe la afirmación del fabricante a un nivel \(\alpha=0.05\).
 
+\emph{Solución}
+
 En este problema interesa probar lo siguiente:
 
 \[H_0: p = 0.90\] \[H_1: p < 0.90\] La función \texttt{prop.test} se
@@ -9460,7 +9466,8 @@ repositorio \href{https://github.com/}{GitHub}. La función
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{Var.test}\NormalTok{(x, }\DataTypeTok{alternative =} \StringTok{"two.sided"}\NormalTok{, }\DataTypeTok{null.value =} \DecValTok{1}\NormalTok{, }\DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
+\KeywordTok{Var.test}\NormalTok{(x, }\DataTypeTok{alternative =} \StringTok{"two.sided"}\NormalTok{,}
+         \DataTypeTok{null.value =} \DecValTok{1}\NormalTok{, }\DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -9503,13 +9510,16 @@ siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489,
 40 o menos. ¿Está el proceso llenando bolsas conforme lo dice la
 envoltura? Use un nivel de significancia del 5\%.
 
+\emph{Solución}
+
 En un ejemplo anterior se comprobó que la muestra proviene de una
-población normal.
+población normal así que se puede proceder con la prueba de hipótesis
+sobre \(\sigma^2\).
 
 En este ejemplo nos interesa estudiar el siguiente conjunto de hipótesis
 
 \[H_0: \sigma^2 \leq 40\] \[H_1: \sigma^2 > 40\] La prueba de hipótesis
-se puede realizar usando la función \texttt{t.test} por medio del
+se puede realizar usando la función \texttt{Var.test} por medio del
 siguiente código.
 
 \begin{Shaded}
@@ -9545,19 +9555,18 @@ varianzas
 \(\sigma_1^2 / \sigma_2^2\)}{Prueba de hipótesis para el cociente de varianzas \textbackslash{}sigma\_1\^{}2 / \textbackslash{}sigma\_2\^{}2}}\label{prueba-de-hipotesis-para-el-cociente-de-varianzas-sigma_12-sigma_22}
 
 Para realizar este tipo de prueba se puede usar la función
-\texttt{t.test} que tiene la siguiente estructura.
+\texttt{var.test} que tiene la siguiente estructura.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{t.test}\NormalTok{(x, }\DataTypeTok{y =} \OtherTok{NULL}\NormalTok{,}
-       \DataTypeTok{alternative =} \KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{),}
-       \DataTypeTok{mu =} \DecValTok{0}\NormalTok{, }\DataTypeTok{paired =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{var.equal =} \OtherTok{FALSE}\NormalTok{,}
-       \DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{, ...)}
+\KeywordTok{var.test}\NormalTok{(x, y, }\DataTypeTok{ratio =} \DecValTok{1}\NormalTok{,}
+         \DataTypeTok{alternative =} \KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{),}
+         \DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{, ...)}
 \end{Highlighting}
 \end{Shaded}
 
-Los argumentos a definir dentro de \texttt{t.test} para hacer la prueba
-son:
+Los argumentos a definir dentro de \texttt{var.test} para hacer la
+prueba son:
 
 \begin{itemize}
 \tightlist
@@ -9566,15 +9575,12 @@ son:
 \item
   \texttt{y}: vector numérico con la información de la muestra 2,
 \item
+  \texttt{ratio}: valor de referencia de la prueba.
+\item
   \texttt{alternative}: tipo de hipótesis alterna. Los valores
-  disponibles son \texttt{"two.sided"} cuando la alterna es \(\neq\),
-  \texttt{"less"} para el caso \(<\) y \texttt{"greater"} para \(>\).
-\item
-  \texttt{mu}: valor de referencia de la prueba.
-\item
-  \texttt{var.equal=FALSE}: indica que las varianzas son desconocidas y
-  diferentes, si la varianzas se pueden considerar iguales se coloca
-  \texttt{var.equal=TRUE}.
+  disponibles son \texttt{"two.sided"} cuando la hipótesis alterna es
+  \(\neq\), \texttt{"less"} para el caso \(<\) y \texttt{"greater"} para
+  \(>\).
 \item
   \texttt{conf.level}: nivel de confianza para reportar el intervalo de
   confianza asociado (opcional).
@@ -9587,17 +9593,22 @@ Se realiza un estudio para comparar dos tratamientos que se aplicarán a
 frijoles crudos con el objetivo de reducir el tiempo de cocción. El
 tratamiento T1 es a base de bicarbonato de sodio, el T2 es a base de
 cloruro de sodio o sal común. La variable respuesta es el tiempo de
-cocción en minutos. Los datos se muestran en la tabla. ¿Son las
-varianzas de los tiempos iguales o diferentes? Usar \(\alpha=0.03\).
+cocción en minutos. Los datos se muestran abajo. ¿Son las varianzas de
+los tiempos iguales o diferentes? Usar \(\alpha=0.03\).
 
-T1: 76, 85, 74, 78, 82, 75, 82.
+\textbf{T}1: 76, 85, 74, 78, 82, 75, 82.
 
-T2: 57, 67, 55, 64, 61, 63, 63.
+\textbf{T2}: 57, 67, 55, 64, 61, 63, 63.
 
-En este problema interesa probar:
+\emph{Solución}
 
-\[H_0: \sigma_1^2 / \sigma_2^2 = 1\]
-\[H_1: \sigma_1^2 / \sigma_2^2 \neq 1\]
+En este problema interesa probar si las varianzas poblacionales son
+iguales o no, por esta razón el cociente de
+\(\sigma_{T1}^2 / \sigma_{T2}^2\) se iguala al valor de 1 que será el
+valor de referencia de la prueba.
+
+\[H_0: \sigma_{T1}^2 / \sigma_{T2}^2 = 1\]
+\[H_1: \sigma_{T1}^2 / \sigma_{T2}^2 \neq 1\]
 
 Para ingresar los datos se hace lo siguiente:
 
@@ -9610,6 +9621,7 @@ Para ingresar los datos se hace lo siguiente:
 
 Primero se debe explorar si las muestras provienen de una población
 normal y para esto se construyen los QQplot que se muestran en la Figura
+\ref{fig:frijoles1}, a continuación el código para generar la Figura
 \ref{fig:frijoles1}.
 
 \begin{Shaded}
@@ -9633,8 +9645,13 @@ normal y para esto se construyen los QQplot que se muestran en la Figura
 \caption{\label{fig:frijoles1}QQplot para los tiempos de cocción.}
 \end{figure}
 
+De la Figura \ref{fig:frijoles1} se observa que los puntos están
+bastante alineados lo cual nos lleva a pensar que las muestras si
+provienen de una población normal, para estar más seguros se aplicará
+una prueba formal para estudiar la normalidad.
+
 A continuación el código para aplicar la prueba de normalidad
-Kolmogorov-Smirnov.
+Kolmogorov-Smirnov a cada una de las muestras.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9686,7 +9703,7 @@ continuación el código para realizar la prueba.
 \end{verbatim}
 
 Como el valor-P es 0.9897 (reportado como 1), muy superior al nivel
-\(\alpha\) de significancia, se puede concluir que las varianzas son
+\(\alpha\) de significancia 3\%, se puede concluir que las varianzas son
 similares.
 
 \subsection*{Ejemplo}\label{ejemplo-67}
@@ -9694,20 +9711,22 @@ similares.
 
 El arsénico en agua potable es un posible riesgo para la salud. Un
 artículo reciente reportó concentraciones de arsénico en agua potable en
-partes por billón (ppb) para 10 comunidades urbanas y 10 comunidades
+partes por billón (ppb) para diez comunidades urbanas y diez comunidades
 rurales. Los datos son los siguientes:
 
 Urbana: 3, 7, 25, 10, 15, 6, 12, 25, 15, 7
 
 Rural: 48, 44, 40, 38, 33, 21, 20, 12, 1, 18
 
+\emph{Solución}
+
 ¿Son las varianzas de las concentraciones iguales o diferentes? Usar
 \(\alpha=0.07\).
 
 En este problema interesa probar:
 
-\[H_0: \sigma_1^2 / \sigma_2^2 = 1\]
-\[H_1: \sigma_1^2 / \sigma_2^2 \neq 1\]
+\[H_0: \sigma_{Urb}^2 / \sigma_{Rur}^2 = 1\]
+\[H_1: \sigma_{Urb}^2 / \sigma_{Rur}^2 \neq 1\]
 
 Para ingresar los datos se hace lo siguiente:
 
@@ -9721,21 +9740,6 @@ Para ingresar los datos se hace lo siguiente:
 Primero se debe explorar si las muestras provienen de una población
 normal, para esto se construyen los QQplot mostrados en la Figura
 \ref{fig:ars1}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{q1 <-}\StringTok{ }\KeywordTok{qqnorm}\NormalTok{(urb, }\DataTypeTok{plot.it=}\OtherTok{FALSE}\NormalTok{)}
-\NormalTok{q2 <-}\StringTok{ }\KeywordTok{qqnorm}\NormalTok{(rur, }\DataTypeTok{plot.it=}\OtherTok{FALSE}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{range}\NormalTok{(q1}\OperatorTok{$}\NormalTok{x, q2}\OperatorTok{$}\NormalTok{x), }\KeywordTok{range}\NormalTok{(q1}\OperatorTok{$}\NormalTok{y, q2}\OperatorTok{$}\NormalTok{y), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
-     \DataTypeTok{xlab=}\StringTok{'Theoretical Quantiles'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Sample Quantiles'}\NormalTok{)}
-\KeywordTok{points}\NormalTok{(q1, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{col=}\StringTok{'slateblue3'}\NormalTok{)}
-\KeywordTok{points}\NormalTok{(q2, }\DataTypeTok{col=}\StringTok{"seagreen4"}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
-\KeywordTok{qqline}\NormalTok{(urb, }\DataTypeTok{col=}\StringTok{'slateblue3'}\NormalTok{)}
-\KeywordTok{qqline}\NormalTok{(rur, }\DataTypeTok{col=}\StringTok{"seagreen4"}\NormalTok{)}
-\KeywordTok{legend}\NormalTok{(}\StringTok{'topleft'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{'Urbana'}\NormalTok{, }\StringTok{'Rural'}\NormalTok{), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
-       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'slateblue3'}\NormalTok{, }\StringTok{'seagreen4'}\NormalTok{), }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{figure}
 \centering
