@@ -188,7 +188,7 @@ Los argumentos a definir dentro de `var.test` para hacer la prueba son:
 - `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
 ### Ejemplo {-}
-Se realiza un estudio para comparar dos tratamientos que se aplicarán a frijoles crudos con el objetivo de reducir el tiempo de cocción.  El tratamiento T1 es a base de bicarbonato de sodio, el T2 es a base de cloruro de sodio o sal común. La variable respuesta es el tiempo de cocción en minutos. Los datos se muestran abajo. ¿Son las varianzas de los tiempos iguales o diferentes? Usar $\alpha=0.03$.
+Se realiza un estudio para comparar dos tratamientos que se aplicarán a frijoles crudos con el objetivo de reducir el tiempo de cocción.  El tratamiento T1 es a base de bicarbonato de sodio, el T2 es a base de cloruro de sodio o sal común. La variable respuesta es el tiempo de cocción en minutos. Los datos se muestran abajo. ¿Son las varianzas de los tiempos iguales o diferentes? Usar $\alpha=0.05$.
 
 **T**1: 76, 85, 74, 78, 82, 75, 82.
 
@@ -241,7 +241,7 @@ var.test(T1, T2, ratio=1, alternative="two.sided",
          conf.level=0.97)
 ```
 
-Como el valor-P es 0.9897 (reportado como 1), muy superior al nivel $\alpha$ de significancia 3%, se puede concluir que las varianzas son similares.
+Como el valor-P es 0.9897 (reportado como 1), muy superior al nivel $\alpha$ de significancia 5%, se puede concluir que las varianzas son similares.
 
 ### Ejemplo {-}
 El arsénico en agua potable es un posible riesgo para la salud. Un artículo reciente reportó concentraciones de arsénico en agua potable en partes por billón (ppb) para diez comunidades urbanas y diez comunidades rurales. Los datos son los siguientes:
@@ -327,7 +327,7 @@ Los argumentos a definir dentro de `t.test` para hacer la prueba son:
 - `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
 ### Ejemplo {-}
-Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los tiempos de cocción de los fríjoles con T1 y T2? Usar un nivel de significancia del 3%.
+Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los tiempos de cocción de los fríjoles con T1 y T2? Usar un nivel de significancia del 5%.
 
 Primero se construirá un boxplot comparativo para los tiempos de cocción diferenciando por el tratamiento que recibieron. Abajo el código para obtener en este caso el boxplot. En la Figura \@ref(fig:frijoles2) se muestra el boxplot, de esta figura se observa que las cajas de los boxplot no se traslapan, esto es un indicio de que las medias poblacionales, $\mu_1$ y $\mu_2$, son diferentes, se observa también que el boxplot para el tratamiento T1 está por encima del T2.
 
