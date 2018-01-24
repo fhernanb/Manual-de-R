@@ -9927,7 +9927,7 @@ diferentes}{Prueba de hipótesis para la diferencia de medias \textbackslash{}mu
 
 Retomando el ejemplo de la concentración de arsénico en el agua,
 ¿existen diferencias entre las concentraciones de arsénico de la zona
-urbana y rual? Usar un nivel de significancia del 7\%.
+urbana y rural? Usar un nivel de significancia del 5\%.
 
 Primero se construirá un boxplot comparativo para las concentraciones de
 arsénico diferenciando por la zona donde se tomaron las muestras. Abajo
@@ -9963,7 +9963,7 @@ El código para realizar la prueba es el siguiente:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{t.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{urb, }\DataTypeTok{y=}\NormalTok{rur, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{, }\DataTypeTok{mu=}\DecValTok{0}\NormalTok{, }
-       \DataTypeTok{paired=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{var.equal=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.93}\NormalTok{)}
+       \DataTypeTok{paired=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{var.equal=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -9974,8 +9974,8 @@ El código para realizar la prueba es el siguiente:
 ## data:  urb and rur
 ## t = -2.8, df = 13, p-value = 0.02
 ## alternative hypothesis: true difference in means is not equal to 0
-## 93 percent confidence interval:
-##  -25.688  -4.312
+## 95 percent confidence interval:
+##  -26.694  -3.306
 ## sample estimates:
 ## mean of x mean of y 
 ##      12.5      27.5

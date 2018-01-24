@@ -355,7 +355,7 @@ Si el objetivo fuese elegir el tratamiento que minimice los tiempos de cocción 
 ## Prueba de hipótesis para la diferencia de medias $\mu_1-\mu_2$ con varianzas diferentes
 
 ### Ejemplo {-}
-Retomando el ejemplo de la concentración de arsénico en el agua, ¿existen diferencias entre las concentraciones de arsénico de la zona urbana y rual? Usar un nivel de significancia del 7%.
+Retomando el ejemplo de la concentración de arsénico en el agua, ¿existen diferencias entre las concentraciones de arsénico de la zona urbana y rural? Usar un nivel de significancia del 5%.
 
 Primero se construirá un boxplot comparativo para las concentraciones de arsénico diferenciando por la zona donde se tomaron las muestras. Abajo el código para obtener en este caso el boxplot. En la Figura \@ref(fig:ars2) se muestra el boxplot, de esta figura se observa que las cajas de los boxplot no se traslapan, esto es un indicio de que las medias poblacionales, $\mu_1$ y $\mu_2$, son diferentes, se observa también que el boxplot para la zona rural está por encima del de la zona urbana.
 
@@ -375,7 +375,7 @@ El código para realizar la prueba es el siguiente:
 
 ```{r}
 t.test(x=urb, y=rur, alternative="two.sided", mu=0, 
-       paired=FALSE, var.equal=FALSE, conf.level=0.93)
+       paired=FALSE, var.equal=FALSE, conf.level=0.95)
 ```
 
 De la prueba se obtiene un valor-P pequeño, por lo tanto, podemos concluir que si hay diferencias significativas entre las concentraciones de arsénico del agua entre las dos zonas, resultado que ya se sospechaba al observar la Figura \@ref(fig:ars2). La zona que presenta mayor concentración media de arsénico en el agua es la rural.
