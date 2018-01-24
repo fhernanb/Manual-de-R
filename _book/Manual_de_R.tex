@@ -230,7 +230,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2018-01-23}
+\date{2018-01-24}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -9684,7 +9684,7 @@ continuación el código para realizar la prueba.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{var.test}\NormalTok{(T1, T2, }\DataTypeTok{ratio=}\DecValTok{1}\NormalTok{, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{,}
-         \DataTypeTok{conf.level=}\FloatTok{0.97}\NormalTok{)}
+         \DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -9695,16 +9695,16 @@ continuación el código para realizar la prueba.
 ## data:  T1 and T2
 ## F = 1, num df = 6, denom df = 6, p-value = 1
 ## alternative hypothesis: true ratio of variances is not equal to 1
-## 97 percent confidence interval:
-##  0.1405 7.2756
+## 95 percent confidence interval:
+##  0.1737 5.8839
 ## sample estimates:
 ## ratio of variances 
 ##              1.011
 \end{verbatim}
 
-Como el valor-P es 0.9897 (reportado como 1), muy superior al nivel
-\(\alpha\) de significancia 5\%, se puede concluir que las varianzas son
-similares.
+Como el valor-P es 0.9897 (reportado como 1 en la salida anterior), muy
+superior al nivel \(\alpha\) de significancia 5\%, se puede concluir que
+las varianzas son similares.
 
 \subsection*{Ejemplo}\label{ejemplo-67}
 
@@ -9721,7 +9721,7 @@ Rural: 48, 44, 40, 38, 33, 21, 20, 12, 1, 18
 \emph{Solución}
 
 ¿Son las varianzas de las concentraciones iguales o diferentes? Usar
-\(\alpha=0.07\).
+\(\alpha=0.05\).
 
 En este problema interesa probar:
 
@@ -9780,7 +9780,7 @@ continuación el código para realizar la prueba.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{var.test}\NormalTok{(urb, rur, }\DataTypeTok{ratio=}\DecValTok{1}\NormalTok{, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{,}
-         \DataTypeTok{conf.level=}\FloatTok{0.93}\NormalTok{)}
+         \DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -9792,23 +9792,24 @@ continuación el código para realizar la prueba.
 ## F = 0.25, num df = 9, denom df = 9, p-value =
 ## 0.05
 ## alternative hypothesis: true ratio of variances is not equal to 1
-## 93 percent confidence interval:
-##  0.06871 0.89041
+## 95 percent confidence interval:
+##  0.06144 0.99582
 ## sample estimates:
 ## ratio of variances 
 ##             0.2473
 \end{verbatim}
 
-Como el valor-P es menor que \(\alpha=0.07\) de significancia, se puede
+Como el valor-P es 0.0494 (reportado como 0.05 en la salida anterior) y
+es menor que el nivel de significancia \(\alpha=0.05\), se puede
 concluir que las varianzas no son iguales.
 
 \BeginKnitrBlock{rmdwarning}
 ¿Notó que las funciones \texttt{Var.test} y \texttt{var.test} son
 diferentes?
 
-\texttt{Var.test} sirve para prueba de hipótesis para \(\sigma^2\).
+\texttt{Var.test} sirve para prueba de hipótesis sobre \(\sigma^2\).
 
-\texttt{var.test} sirve para prueba de hipótesis para
+\texttt{var.test} sirve para prueba de hipótesis sobre
 \(\sigma_1^2 / \sigma_2^2\).
 \EndKnitrBlock{rmdwarning}
 

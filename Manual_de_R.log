@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.1.16)  23 JAN 2018 16:19
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.1.16)  24 JAN 2018 10:51
 entering extended mode
 **./Manual_de_R.tex
 (Manual_de_R.tex
@@ -4822,23 +4822,23 @@ ual to 1[]
 
 File: images/warning.png Graphic file (type QTm)
 <use  "images/warning.png" >
-Underfull \hbox (badness 1783) in paragraph at lines 9841--9845
+LaTeX Info: Redefining \. on input line 9842.
+LaTeX Info: Redefining \% on input line 9842.
+[180]
+Underfull \hbox (badness 1783) in paragraph at lines 9842--9846
 []\EU1/lmtt/m/n/10 alternative\EU1/lmr/m/n/10 : tipo de hipótesis alterna. Los 
 valores disponibles son
  []
 
-LaTeX Info: Redefining \. on input line 9845.
-LaTeX Info: Redefining \% on input line 9845.
-[180]
 File: Manual_de_R_files/figure-latex/frijoles2-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/frijoles2-1.pdf" >
-Overfull \hbox (6.5pt too wide) in paragraph at lines 9909--9909
+Overfull \hbox (6.5pt too wide) in paragraph at lines 9910--9910
 []\EU1/lmtt/m/n/10 ## alternative hypothesis: true difference in means is not e
 qual to 0[] 
  []
 
-LaTeX Info: Redefining \. on input line 9909.
-LaTeX Info: Redefining \% on input line 9909.
+LaTeX Info: Redefining \. on input line 9910.
+LaTeX Info: Redefining \% on input line 9910.
 
 Overfull \hbox (29.47415pt too wide) has occurred while \output is active
  [][][][]  \EU1/lmr/m/it/10 18.6Prueba de hipótesis para la diferencia de media
@@ -4847,18 +4847,18 @@ s $\OML/lmm/m/it/10 ^^V[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 ^^V[]$ \EU1/lmr
  []
 
 [181]
-LaTeX Info: Redefining \. on input line 9931.
-LaTeX Info: Redefining \% on input line 9931.
+LaTeX Info: Redefining \. on input line 9932.
+LaTeX Info: Redefining \% on input line 9932.
 [182]
 File: Manual_de_R_files/figure-latex/ars2-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/ars2-1.pdf" >
-Overfull \hbox (6.5pt too wide) in paragraph at lines 9981--9981
+Overfull \hbox (6.5pt too wide) in paragraph at lines 9982--9982
 []\EU1/lmtt/m/n/10 ## alternative hypothesis: true difference in means is not e
 qual to 0[] 
  []
 
-LaTeX Info: Redefining \. on input line 9981.
-LaTeX Info: Redefining \% on input line 9981.
+LaTeX Info: Redefining \. on input line 9982.
+LaTeX Info: Redefining \% on input line 9982.
 
 Overfull \hbox (41.86417pt too wide) has occurred while \output is active
  [][][][]  \EU1/lmr/m/it/10 18.7Prueba de hipótesis para la diferencia de media
@@ -4869,65 +4869,65 @@ s $\OML/lmm/m/it/10 ^^V[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 ^^V[]$ \EU1/lmr
 [183]
 File: images/tip.png Graphic file (type QTm)
 <use  "images/tip.png" >
-LaTeX Info: Redefining \. on input line 10004.
-LaTeX Info: Redefining \% on input line 10004.
+LaTeX Info: Redefining \. on input line 10005.
+LaTeX Info: Redefining \% on input line 10005.
 [184]
-Underfull \hbox (badness 1783) in paragraph at lines 10008--10012
+Underfull \hbox (badness 1783) in paragraph at lines 10009--10013
 []\EU1/lmtt/m/n/10 alternative\EU1/lmr/m/n/10 : tipo de hipótesis alterna. Los 
 valores disponibles son
  []
 
-LaTeX Info: Redefining \. on input line 10066.
-LaTeX Info: Redefining \% on input line 10066.
+LaTeX Info: Redefining \. on input line 10067.
+LaTeX Info: Redefining \% on input line 10067.
 [185]
 File: Manual_de_R_files/figure-latex/pesos1-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/pesos1-1.pdf" >
-LaTeX Info: Redefining \. on input line 10114.
-LaTeX Info: Redefining \% on input line 10114.
+LaTeX Info: Redefining \. on input line 10115.
+LaTeX Info: Redefining \% on input line 10115.
 [186]
-Overfull \hbox (8.25pt too wide) in paragraph at lines 10133--10133
+Overfull \hbox (8.25pt too wide) in paragraph at lines 10134--10134
 []\EU1/lmtt/m/n/10 ## alternative hypothesis: true difference in means is great
 er than 0[] 
  []
 
-LaTeX Info: Redefining \. on input line 10139.
-LaTeX Info: Redefining \% on input line 10139.
+LaTeX Info: Redefining \. on input line 10140.
+LaTeX Info: Redefining \% on input line 10140.
 [187]
-LaTeX Info: Redefining \. on input line 10139.
-LaTeX Info: Redefining \% on input line 10139.
+LaTeX Info: Redefining \. on input line 10140.
+LaTeX Info: Redefining \% on input line 10140.
 [188]
-Underfull \vbox (badness 10000) detected at line 10139
+Underfull \vbox (badness 10000) detected at line 10140
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10139
+Overfull \hbox (336.25pt too wide) detected at line 10140
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10139
+Underfull \vbox (badness 10000) detected at line 10140
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10139
+Overfull \hbox (336.25pt too wide) detected at line 10140
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10139
+Underfull \vbox (badness 10000) detected at line 10140
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10139
+Overfull \hbox (336.25pt too wide) detected at line 10140
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10139
+Underfull \vbox (badness 10000) detected at line 10140
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10139
+Overfull \hbox (336.25pt too wide) detected at line 10140
 []
  []
 
@@ -4943,11 +4943,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ]
 File: Manual_de_R_files/figure-latex/aprox1-1.pdf Graphic file (type QTm)
 <use  "Manual_de_R_files/figure-latex/aprox1-1.pdf" >
-LaTeX Info: Redefining \. on input line 10220.
-LaTeX Info: Redefining \% on input line 10220.
+LaTeX Info: Redefining \. on input line 10221.
+LaTeX Info: Redefining \% on input line 10221.
 [190]
-LaTeX Info: Redefining \. on input line 10258.
-LaTeX Info: Redefining \% on input line 10258.
+LaTeX Info: Redefining \. on input line 10259.
+LaTeX Info: Redefining \% on input line 10259.
 [191]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -4988,38 +4988,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [192
 
 ]
-Underfull \vbox (badness 10000) detected at line 10258
+Underfull \vbox (badness 10000) detected at line 10259
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10258
+Overfull \hbox (336.25pt too wide) detected at line 10259
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10258
+Underfull \vbox (badness 10000) detected at line 10259
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10258
+Overfull \hbox (336.25pt too wide) detected at line 10259
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10258
+Underfull \vbox (badness 10000) detected at line 10259
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10258
+Overfull \hbox (336.25pt too wide) detected at line 10259
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10258
+Underfull \vbox (badness 10000) detected at line 10259
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 10258
+Overfull \hbox (336.25pt too wide) detected at line 10259
 []
  []
 
@@ -5180,16 +5180,16 @@ LaTeX Info: Redefining \% on input line 150.
 [198
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 10301.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 10301.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 10302.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 10302.
 (Manual_de_R.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 10301.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 10301.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 10302.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 10302.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
