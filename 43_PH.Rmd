@@ -428,15 +428,25 @@ Sujeto| 001 002 003 004 005 006 007 008 009 010
 Antes|   195 213 247 201 187 210 215 246 294 310
 Después| 187 195 221 190 175 197 199 221 278 285
 
-Primero se debe explorar si las diferencias de peso (antes-después) provienen de una población normal, para esto se construye el QQplot mostrados en la Figura \@ref(fig:pesos1). De la figura no se observa un alejamiento serio de la recta de referencia, por lo tanto se puede asumir que las diferencias se distribuyen en forma aproximadamente normal.
+Primero se debe explorar si las diferencias de peso (antes-después) provienen de una población normal, para esto se construye el QQplot mostrado en la Figura \@ref(fig:pesos1). De la figura no se observa un alejamiento serio de la recta de referencia, por lo tanto se puede asumir que las diferencias se distribuyen en forma aproximadamente normal.
 
-```{r pesos1, fig.cap='QQplot para las diferencias de peso.', fig.asp=1, fig.width=3.5, echo=FALSE}
+```{r pesos1, fig.cap='QQplot para las diferencias de peso.', fig.asp=1, fig.width=3.5}
 antes <- c(195, 213, 247, 201, 187, 210, 215, 246, 294, 310)
 despu <- c(187, 195, 221, 190, 175, 197, 199, 221, 278, 285)
 dif <- antes - despu
 qqnorm(dif, pch=19, main='')
 qqline(dif)
 ```
+
+Se puede aplicar la prueba de normalidad Kolmogorov-Smirnov para estudiar si las diferencias `dif` provienen de una población normal, esto se puede realizar por medio del siguiente código.
+
+```{r}
+require(nortest)
+lillie.test(dif)
+```
+
+De la salida anterior se observa que el valor-P de la prueba es grande por lo tanto se puede asumir que las diferencias se distribuyen en forma aproximadamente normal. 
+
 
 En este problema interesa estudiar el siguiente conjunto de hipótesis.
 

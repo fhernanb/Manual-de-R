@@ -10094,16 +10094,49 @@ Después & 187 195 221 190 175 197 199 221 278 285\tabularnewline
 
 Primero se debe explorar si las diferencias de peso (antes-después)
 provienen de una población normal, para esto se construye el QQplot
-mostrados en la Figura \ref{fig:pesos1}. De la figura no se observa un
+mostrado en la Figura \ref{fig:pesos1}. De la figura no se observa un
 alejamiento serio de la recta de referencia, por lo tanto se puede
 asumir que las diferencias se distribuyen en forma aproximadamente
 normal.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{antes <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{195}\NormalTok{, }\DecValTok{213}\NormalTok{, }\DecValTok{247}\NormalTok{, }\DecValTok{201}\NormalTok{, }\DecValTok{187}\NormalTok{, }\DecValTok{210}\NormalTok{, }\DecValTok{215}\NormalTok{, }\DecValTok{246}\NormalTok{, }\DecValTok{294}\NormalTok{, }\DecValTok{310}\NormalTok{)}
+\NormalTok{despu <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{187}\NormalTok{, }\DecValTok{195}\NormalTok{, }\DecValTok{221}\NormalTok{, }\DecValTok{190}\NormalTok{, }\DecValTok{175}\NormalTok{, }\DecValTok{197}\NormalTok{, }\DecValTok{199}\NormalTok{, }\DecValTok{221}\NormalTok{, }\DecValTok{278}\NormalTok{, }\DecValTok{285}\NormalTok{)}
+\NormalTok{dif <-}\StringTok{ }\NormalTok{antes }\OperatorTok{-}\StringTok{ }\NormalTok{despu}
+\KeywordTok{qqnorm}\NormalTok{(dif, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{main=}\StringTok{''}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(dif)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}
 \centering
 \includegraphics{Manual_de_R_files/figure-latex/pesos1-1.pdf}
 \caption{\label{fig:pesos1}QQplot para las diferencias de peso.}
 \end{figure}
+
+Se puede aplicar la prueba de normalidad Kolmogorov-Smirnov para
+estudiar si las diferencias \texttt{dif} provienen de una población
+normal, esto se puede realizar por medio del siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require}\NormalTok{(nortest)}
+\KeywordTok{lillie.test}\NormalTok{(dif)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  dif
+## D = 0.19, p-value = 0.4
+\end{verbatim}
+
+De la salida anterior se observa que el valor-P de la prueba es grande
+por lo tanto se puede asumir que las diferencias se distribuyen en forma
+aproximadamente normal.
 
 En este problema interesa estudiar el siguiente conjunto de hipótesis.
 
