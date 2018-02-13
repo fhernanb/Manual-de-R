@@ -180,7 +180,7 @@ subset(mimarco, subset=deporte == TRUE)
 
 Si queremos el marco de datos `mimarco` sólo con las personas mayores o iguales a 17 años usamos el siguiente código.
 ```{r}
-subset(mimarco, subset=edad >= TRUE)
+subset(mimarco, subset=edad >= 17)
 ```
 
 Si queremos el submarco con deporte y comic de las personas menores de 20 años usamos el siguiente código.

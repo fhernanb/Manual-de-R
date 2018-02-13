@@ -230,7 +230,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2018-01-24}
+\date{2018-02-13}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1040,15 +1040,13 @@ mayores o iguales a 17 años usamos el siguiente código.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{subset}\NormalTok{(mimarco, }\DataTypeTok{subset=}\NormalTok{edad }\OperatorTok{>=}\StringTok{ }\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{subset}\NormalTok{(mimarco, }\DataTypeTok{subset=}\NormalTok{edad }\OperatorTok{>=}\StringTok{ }\DecValTok{17}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ##   edad deporte comic.fav
-## 1   15    TRUE      <NA>
 ## 2   19    TRUE  Superman
-## 3   13      NA    Batman
 ## 5   20    TRUE    Batman
 \end{verbatim}
 
@@ -3937,27 +3935,25 @@ actual se debe hacer siempre que se vaya a usar el paquete.
 \EndKnitrBlock{rmdwarning}
 
 Luego de haber cargado el paquete \textbf{readxl} se puede usar la
-función \texttt{readxl} para leer la información contenida en las hojas.
-A continuación el código para crear la base de datos \texttt{hijos}
-contenida en el archivo BD\_Excel.xlsx.
+función \texttt{read\_xl} para leer la información contenida en las
+hojas. A continuación el código para crear la base de datos
+\texttt{hijos} contenida en el archivo BD\_Excel.xlsx.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{hijos <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\KeywordTok{file.choose}\NormalTok{(), }\DataTypeTok{sheet=}\StringTok{'Hijos'}\NormalTok{)}
-\NormalTok{hijos  }\CommentTok{# Para ver el contenido}
+\KeywordTok{as.data.frame}\NormalTok{(hijos)  }\CommentTok{# Para ver el contenido}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 6 x 3
-##    Edad Grado    ComicFav
-##   <dbl> <dbl>       <chr>
-## 1     8     2    Superman
-## 2     6     1      Batman
-## 3     9     3      Batman
-## 4    10     5 Bob Esponja
-## 5     8     4      Batman
-## 6     9     4 Bob Esponja
+##   Edad Grado    ComicFav
+## 1    8     2    Superman
+## 2    6     1      Batman
+## 3    9     3      Batman
+## 4   10     5 Bob Esponja
+## 5    8     4      Batman
+## 6    9     4 Bob Esponja
 \end{verbatim}
 
 A continuación el código para crear la base de datos \texttt{padres}
@@ -3966,23 +3962,21 @@ contenida en el archivo BD\_Excel.xlsx.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{padres <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{'BD_Excel.xlsx'}\NormalTok{, }\DataTypeTok{sheet=}\StringTok{'Padres'}\NormalTok{)}
-\NormalTok{padres  }\CommentTok{# Para ver el contenido}
+\KeywordTok{as.data.frame}\NormalTok{(padres)  }\CommentTok{# Para ver el contenido}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 4 x 3
-##    Edad   EstCivil NumHijos
-##   <dbl>      <chr>    <dbl>
-## 1    45    Soltero        1
-## 2    50     Casado        0
-## 3    35     Casado        3
-## 4    65 Divorciado        1
+##   Edad   EstCivil NumHijos
+## 1   45    Soltero        1
+## 2   50     Casado        0
+## 3   35     Casado        3
+## 4   65 Divorciado        1
 \end{verbatim}
 
-La función \texttt{readxl} tiene otros parámetros adicionales útiles
-para leer bases de datos, se recomienda consultar la ayuda de la función
-escribiendo en la consola \texttt{help(read.xl)}.
+La función \texttt{read\_excel} tiene otros parámetros adicionales
+útiles para leer bases de datos, se recomienda consultar la ayuda de la
+función escribiendo en la consola \texttt{help(read\_excel)}.
 
 \section*{EJERCICIOS}\label{ejercicios-3}
 
