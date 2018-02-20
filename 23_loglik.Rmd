@@ -174,7 +174,7 @@ set.seed(12345)
 ma <- rgamma(n=n, shape=2, rate=0.5)
 ```
 
-1) Asumiendo que la muestra aleatoria proviene de una normal (lo cual es incorrecto) estime los parámetros de la distribución
+1) Asumiendo que la muestra aleatoria proviene de una normal (lo cual es incorrecto) estime los parámetros de la distribución normal.
 
 ```{r}
 fit1 <- fitdistr(x=ma, densfun='normal')
@@ -190,7 +190,7 @@ fit2
 
 En la salida anterior están los valores estimados de los parámetros de la distribución por el método de máxima verosimilitud, observe la cercanía de éstos con los verdaderos valores de 2 y 0.5 para forma y tasa respectivamente.
 
-3) Dibuje dos qqplot, uno asumiendo distribución gamma y el otro distribución gamma. ¿Cuál distribución se ajusta mejor a los datos simulados?
+3) Dibuje dos qqplot, uno asumiendo distribución normal y el otro distribución gamma. ¿Cuál distribución se ajusta mejor a los datos simulados?
 
 Para dibujar el qqplot se usa la función genérica `qqplot`, recomendamos consultar @hernandez_correa para los detalles de cómo usar esta función. Al usar `qqplot` para obtener el qqplot normal y gamma es necesario indicar los valores $\hat{\boldsymbol{\Theta}}$ obtenidos en el numeral anterior, por eso es que en el código mostrado a continuación aparece `mean=4.3083, sd=2.8085` en el qqplot normal y `shape=2.23978, rate=0.51988` en el qqplot gamma.
 
