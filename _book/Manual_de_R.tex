@@ -230,7 +230,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2018-02-22}
+\date{2018-03-26}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -5553,6 +5553,11 @@ código para obtener su representación gráfica.
 \end{Shaded}
 
 \begin{verbatim}
+## Warning: package 'corrplot' was built under R version
+## 3.4.4
+\end{verbatim}
+
+\begin{verbatim}
 ## corrplot 0.84 loaded
 \end{verbatim}
 
@@ -9367,10 +9372,107 @@ Como el valor-P es mayor que el nivel de significancia 3\%, no hay
 evidencias suficientes para pensar que ha disminuido el recorrido anual
 promedio de los autos.
 
-\section{\texorpdfstring{Prueba de hipótesis para la propoción
-\(p\)}{Prueba de hipótesis para la propoción p}}\label{prueba-de-hipotesis-para-la-propocion-p}
+\section{\texorpdfstring{Prueba de hipótesis para la proporción
+\(p\)}{Prueba de hipótesis para la proporción p}}\label{prueba-de-hipotesis-para-la-proporcion-p}
 
-Para realizar este tipo de prueba se puede usar la función
+Existen varias pruebas para estudiar la propoción \(p\) de una
+distribución binomial, a continuación el listado de las más comunes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Prueba de Wald,
+\item
+  Prueba \(\Chi^2\) de Pearson,
+\item
+  Prueba binomial exacta.
+\end{enumerate}
+
+\subsection{Prueba de Wald}\label{prueba-de-wald}
+
+Esta prueba se recomienda usar cuando se tiene un tamaño de muestra
+\(n\) suficientemente grande para poder usar la distribución normal para
+aproximar la distribución binomial.
+
+En esta prueba el estadístico está dado por
+
+\[z=\frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}},\] donde \(\hat{p}\)
+es la proporción muestral calculada como el cociente entre el número de
+éxitos \(x\) observados en los \(n\) ensayos y \(p_0\) es el valor de
+referencia de las hipótesis. El estadístico \(z\) tiene distribución
+\(N(0, 1)\) cuando \(n \to \infty\).
+
+Para realizar esta prueba en \proglang{R} no hay una función y debemos
+escribir la líneas de código para obtener el estadístico y el valor-P de
+la prueba. A continuación se muestra un ejemplo de cómo proceder para
+aplicar la prueba de Wald.
+
+\subsection*{Ejemplo}\label{ejemplo-64}
+
+
+Un fabricante de un quitamanchas afirma que su producto quita 90\% de
+todas las manchas. Para poner a prueba esta afirmación se toman 200
+camisetas manchadas de las cuales a solo 174 les desapareció la mancha.
+Pruebe la afirmación del fabricante a un nivel \(\alpha=0.05\).
+
+\emph{Solución}
+
+En este problema interesa probar lo siguiente:
+
+\[H_0: p = 0.90\]
+
+\[H_1: p < 0.90\]
+
+Del anterior conjunto de hipótesis se observa que el valor de referencia
+de la prueba es \(p_0=0.90\). De la información inicial se tiene que de
+las \(n=200\) pruebas se observó que en \(x=174\) la mancha desapareció,
+con esta información se puede calcular el estadístico \(z\) así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z <-}\StringTok{ }\NormalTok{(}\DecValTok{174}\OperatorTok{/}\DecValTok{200} \OperatorTok{-}\StringTok{ }\FloatTok{0.90}\NormalTok{) }\OperatorTok{/}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(}\FloatTok{0.90} \OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\FloatTok{0.90}\NormalTok{) }\OperatorTok{/}\StringTok{ }\DecValTok{200}\NormalTok{)}
+\NormalTok{z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -1.414
+\end{verbatim}
+
+Para obtener el valor-P de la prueba debemos tener en cuenta el sentido
+en la hipótesis alternativa \(H_1: p < 0.90\), por esa razón el valor-P
+será \(P(Z<z)\) y para obtenerlo usamos el siguiente código
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\NormalTok{z, }\DataTypeTok{lower.tail=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.07865
+\end{verbatim}
+
+El valor-P obtenido se puede representar gráficamente en la Figura
+\ref{fig:wald1}.
+
+Como el valor-P obtenido fue mayor que el nivel de significancia
+\(\alpha=0.05\) se concluye que no hay evidencias suficientes para
+rechazar la hipótesis nula.
+
+\begin{figure}
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/wald1-1.pdf}
+\caption{\label{fig:wald1}Representación del Valor-P para la prueba Wald.}
+\end{figure}
+
+\newpage
+
+\subsection{\texorpdfstring{Prueba \(\Chi^2\) de
+Pearson}{Prueba \textbackslash{}Chi\^{}2 de Pearson}}\label{prueba-chi2-de-pearson}
+
+Para realizar la prueba \(\Chi^2\) de Pearson se puede usar la función
 \texttt{prop.test} que tiene la siguiente estructura.
 
 \begin{Shaded}
@@ -9398,13 +9500,13 @@ prueba son:
   \texttt{p}: valor de referencia de la prueba.
 \item
   \texttt{correct}: valor lógico para indicar si se usa la corrección de
-  Yate.
+  Yates.
 \item
   \texttt{conf.level}: nivel de confianza para reportar el intervalo de
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-64}
+\subsection*{Ejemplo}\label{ejemplo-65}
 
 
 Un fabricante de un quitamanchas afirma que su producto quita 90\% de
@@ -9441,13 +9543,14 @@ puede usar para realizar la prueba anterior.
 ## 0.87
 \end{verbatim}
 
-Como el valor-P es mayor que \(\alpha\) no se rechaza la hipótesis nula
-y se puede asumir que el productor del detergente está diciendo la
-verdad.
+Como el valor-P (con valor de 0.07865 pero repotado en la salida como
+0.08) es mayor que \(\alpha\) no se rechaza la hipótesis nula y se
+concluye que no hay evidencias suficientes para rechazar la hipótesis
+nula.
 
-Para entender lo que reporta la función \texttt{prop.test} se recomienda
-revisar este
-\href{https://www.r-bloggers.com/one-proportion-z-test-in-r/}{enlace}.
+\subsection{Prueba binomial exacta}\label{prueba-binomial-exacta}
+
+hola
 
 \section{\texorpdfstring{Prueba de hipótesis para la varianza
 \(\sigma^2\) de una población
@@ -9493,7 +9596,7 @@ copiar el siguiente código en la consola de \proglang{R}:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-65}
+\subsection*{Ejemplo}\label{ejemplo-66}
 
 
 Para verificar si el proceso de llenado de bolsas de café está operando
@@ -9580,7 +9683,7 @@ prueba son:
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-66}
+\subsection*{Ejemplo}\label{ejemplo-67}
 
 
 Se realiza un estudio para comparar dos tratamientos que se aplicarán a
@@ -9700,7 +9803,7 @@ Como el valor-P es 0.9897 (reportado como 1 en la salida anterior), muy
 superior al nivel \(\alpha\) de significancia 5\%, se puede concluir que
 las varianzas son similares.
 
-\subsection*{Ejemplo}\label{ejemplo-67}
+\subsection*{Ejemplo}\label{ejemplo-68}
 
 
 El arsénico en agua potable es un posible riesgo para la salud. Un
@@ -9846,7 +9949,7 @@ son:
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-68}
+\subsection*{Ejemplo}\label{ejemplo-69}
 
 
 Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los
@@ -9916,7 +10019,7 @@ con sal.
 medias \(\mu_1-\mu_2\) con varianzas
 diferentes}{Prueba de hipótesis para la diferencia de medias \textbackslash{}mu\_1-\textbackslash{}mu\_2 con varianzas diferentes}}\label{prueba-de-hipotesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes}
 
-\subsection*{Ejemplo}\label{ejemplo-69}
+\subsection*{Ejemplo}\label{ejemplo-70}
 
 
 Retomando el ejemplo de la concentración de arsénico en el agua,
@@ -10010,7 +10113,7 @@ Para realizar pruebas de hipótesis para la proporción se usa la función
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-70}
+\subsection*{Ejemplo}\label{ejemplo-71}
 
 
 Se quiere determinar si un cambio en el método de fabricación de una
@@ -10067,7 +10170,7 @@ después del cambio ha disminuído.
 \section{Prueba de hipótesis para la diferencia de medias
 pareadas}\label{prueba-de-hipotesis-para-la-diferencia-de-medias-pareadas}
 
-\subsection*{Ejemplo}\label{ejemplo-71}
+\subsection*{Ejemplo}\label{ejemplo-72}
 
 
 Diez individuos participaron de programa para perder peso corporal por
@@ -10204,7 +10307,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-72}
+\subsection*{Ejemplo}\label{ejemplo-73}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -10301,7 +10404,7 @@ instalados, se cargan esos paquetes y caso contrario, el código instala
 los paquetes y luego los carga, todo de forma automática sin que el
 usuario tenga que identificar los paquetes que le faltan.
 
-\subsection*{Ejemplo}\label{ejemplo-73}
+\subsection*{Ejemplo}\label{ejemplo-74}
 
 
 El código mostrado abajo revisa si los paquetes \texttt{knitr},

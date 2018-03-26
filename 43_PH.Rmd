@@ -86,8 +86,66 @@ pnorm(est)  # Para obtener el valor-P
 ```
 Como el valor-P es mayor que el nivel de significancia 3%, no hay evidencias suficientes para pensar que ha disminuido el recorrido anual promedio de los autos.
 
-## Prueba de hipótesis para la propoción $p$
-Para realizar este tipo de prueba se puede usar la función `prop.test` que tiene la siguiente estructura.
+## Prueba de hipótesis para la proporción $p$
+Existen varias pruebas para estudiar la propoción $p$ de una distribución binomial, a continuación el listado de las más comunes.
+
+1. Prueba de Wald,
+2. Prueba $\Chi^2$ de Pearson,
+3. Prueba binomial exacta.
+
+### Prueba de Wald
+Esta prueba se recomienda usar cuando se tiene un tamaño de muestra $n$ suficientemente grande para poder usar la distribución normal para aproximar la distribución binomial.
+
+En esta prueba el estadístico está dado por
+
+$$z=\frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}},$$
+donde $\hat{p}$ es la proporción muestral calculada como el cociente entre el número de éxitos $x$ observados en los $n$ ensayos y $p_0$ es el valor de referencia de las hipótesis. El estadístico $z$ tiene distribución $N(0, 1)$ cuando $n \to \infty$.
+
+Para realizar esta prueba en \proglang{R} no hay una función y debemos escribir la líneas de código para obtener el estadístico y el valor-P de la prueba. A continuación se muestra un ejemplo de cómo proceder para aplicar la prueba de Wald.
+
+### Ejemplo {-}
+Un fabricante de un quitamanchas afirma que su producto quita 90% de todas las manchas. Para poner a prueba esta afirmación se toman 200 camisetas manchadas de las cuales a solo 174 les desapareció la mancha. Pruebe la afirmación del fabricante a un nivel $\alpha=0.05$.
+
+*Solución*
+
+En este problema interesa probar lo siguiente:
+
+$$H_0: p = 0.90$$
+
+$$H_1: p < 0.90$$
+
+Del anterior conjunto de hipótesis se observa que el valor de referencia de la prueba es $p_0=0.90$. De la información inicial se tiene que de las $n=200$ pruebas se observó que en $x=174$ la mancha desapareció, con esta información se puede calcular el estadístico $z$ así:
+
+```{r}
+z <- (174/200 - 0.90) / sqrt(0.90 * (1 - 0.90) / 200)
+z
+```
+
+Para obtener el valor-P de la prueba debemos tener en cuenta el sentido en la hipótesis alternativa $H_1: p < 0.90$, por esa razón el valor-P será $P(Z<z)$ y para obtenerlo usamos el siguiente código
+
+```{r}
+pnorm(q=z, lower.tail=TRUE)
+```
+
+El valor-P obtenido se puede representar gráficamente en la Figura \@ref(fig:wald1).
+
+Como el valor-P obtenido fue mayor que el nivel de significancia $\alpha=0.05$ se concluye que no hay evidencias suficientes para rechazar la hipótesis nula.
+
+```{r wald1, fig.cap='Representación del Valor-P para la prueba Wald.', fig.height=4, fig.width=6, echo=FALSE}
+require(usefultools)
+shadow.normal(lower=-4, upper=z, axes=FALSE, 
+              ylab='', xlab='Z')
+axis(1)
+text(x=z, y=0.01, -1.414, col='red', cex=0.8)
+arrows(x0=-1.8, y0=0.05, x1=-3, y1=0.2)
+valorP <- round(pnorm(z), 4)
+text(x=-3, y=0.24, valorP, col='blue', cex=0.8)
+```
+
+\newpage
+
+### Prueba $\Chi^2$ de Pearson
+Para realizar la prueba $\Chi^2$ de Pearson se puede usar la función `prop.test` que tiene la siguiente estructura.
 
 ```{r, eval=FALSE}
 prop.test(x, n, p = NULL,
@@ -101,7 +159,7 @@ Los argumentos a definir dentro de `prop.test` para hacer la prueba son:
 - `n`: número de observaciones en la muestra.
 - `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
 - `p`: valor de referencia de la prueba.
-- `correct`: valor lógico para indicar si se usa la corrección de Yate.
+- `correct`: valor lógico para indicar si se usa la corrección de Yates.
 - `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
 ### Ejemplo {-}
@@ -119,9 +177,10 @@ prop.test(x=174, n=200, p=0.9, alternative='less',
           conf.level=0.95, correct=FALSE)
 ```
 
-Como el valor-P es mayor que $\alpha$ no se rechaza la hipótesis nula y se puede asumir que el productor del detergente está diciendo la verdad.
+Como el valor-P (con valor de 0.07865 pero repotado en la salida como 0.08) es mayor que $\alpha$ no se rechaza la hipótesis nula y se concluye que no hay evidencias suficientes para rechazar la hipótesis nula.
 
-Para entender lo que reporta la función `prop.test` se recomienda revisar este [enlace](https://www.r-bloggers.com/one-proportion-z-test-in-r/).
+### Prueba binomial exacta
+hola
 
 ## Prueba de hipótesis para la varianza $\sigma^2$ de una población normal
 Para realizar este tipo de prueba se usa la función `Var.test` del paquete **usefultools** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/). La función `Var.test` tiene la siguiente estructura.
