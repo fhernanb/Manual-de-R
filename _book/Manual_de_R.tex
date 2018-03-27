@@ -9182,8 +9182,8 @@ confianza del \(90\%\), que la diferencia de proporción de defectos
 está dentro del intervalo se concluye que el cambio en el método de
 fabricación no ha disminuído el porcentaje de defectos.
 
-\chapter{\texorpdfstring{Prueba de hipótesis.
-\index{prueba de hipótesis}}{Prueba de hipótesis. }}\label{prueba-de-hipotesis.}
+\chapter{\texorpdfstring{Prueba de hipótesis
+\index{prueba de hipótesis}}{Prueba de hipótesis }}\label{prueba-de-hipotesis}
 
 En este capítulo se muestran las funciones que hay disponibles en
 \proglang{R} para realizar prueba de hipótesis para:
@@ -9257,8 +9257,9 @@ nivel de significancia del 5\%.
 
 Lo primero es explorar si la muestra proviene de una distribución
 normal, para eso ingresamos los datos y aplicamos la prueba
-Anderson-Darling por medio de la función \texttt{ad.test} como se
-muestra a continuación.
+Anderson-Darling por medio de la función \texttt{ad.test} disponible en
+el paquete \textbf{nortest} \citep{R-nortest} como se muestra a
+continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9382,11 +9383,13 @@ distribución binomial, a continuación el listado de las más comunes.
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Prueba de Wald,
+  Prueba de \href{https://en.wikipedia.org/wiki/Wald_test}{Wald},
 \item
-  Prueba \(\Chi^2\) de Pearson,
+  Prueba \(\Chi^2\) de
+  \href{https://en.wikipedia.org/wiki/Pearson\%27s_chi-squared_test\#Fairness_of_dice}{Pearson},
 \item
-  Prueba binomial exacta.
+  Prueba \href{https://en.wikipedia.org/wiki/Binomial_test}{binomial
+  exacta}.
 \end{enumerate}
 
 \subsection{Prueba de Wald}\label{prueba-de-wald}
@@ -9420,9 +9423,7 @@ Pruebe la afirmación del fabricante a un nivel \(\alpha=0.05\).
 
 En este problema interesa probar lo siguiente:
 
-\[H_0: p = 0.90\]
-
-\[H_1: p < 0.90\]
+\[H_0: p = 0.90\] \[H_1: p < 0.90\]
 
 Del anterior conjunto de hipótesis se observa que el valor de referencia
 de la prueba es \(p_0=0.90\). De la información inicial se tiene que de
@@ -9432,7 +9433,7 @@ con esta información se puede calcular el estadístico \(z\) así:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{z <-}\StringTok{ }\NormalTok{(}\DecValTok{174}\OperatorTok{/}\DecValTok{200} \OperatorTok{-}\StringTok{ }\FloatTok{0.90}\NormalTok{) }\OperatorTok{/}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(}\FloatTok{0.90} \OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\FloatTok{0.90}\NormalTok{) }\OperatorTok{/}\StringTok{ }\DecValTok{200}\NormalTok{)}
-\NormalTok{z}
+\NormalTok{z  }\CommentTok{# Para obtener el valor del estadístico}
 \end{Highlighting}
 \end{Shaded}
 
@@ -9446,7 +9447,7 @@ será \(P(Z<z)\) y para obtenerlo usamos el siguiente código
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\NormalTok{z, }\DataTypeTok{lower.tail=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{pnorm}\NormalTok{(}\DataTypeTok{q=}\NormalTok{z, }\DataTypeTok{lower.tail=}\OtherTok{TRUE}\NormalTok{)  }\CommentTok{# Para obtener el valor-P}
 \end{Highlighting}
 \end{Shaded}
 
@@ -9472,7 +9473,7 @@ rechazar la hipótesis nula.
 \subsection{\texorpdfstring{Prueba \(\Chi^2\) de
 Pearson}{Prueba \textbackslash{}Chi\^{}2 de Pearson}}\label{prueba-chi2-de-pearson}
 
-Para realizar la prueba \(\Chi^2\) de Pearson se puede usar la función
+Para realizar la prueba \(\Chi^2\) de Pearson se usa la función
 \texttt{prop.test} que tiene la siguiente estructura.
 
 \begin{Shaded}
@@ -9518,8 +9519,8 @@ Pruebe la afirmación del fabricante a un nivel \(\alpha=0.05\).
 
 En este problema interesa probar lo siguiente:
 
-\[H_0: p = 0.90\] \[H_1: p < 0.90\] La función \texttt{prop.test} se
-puede usar para realizar la prueba anterior.
+\[H_0: p = 0.90\] \[H_1: p < 0.90\] La forma de usar la función
+\texttt{prop.test} para realizar la prueba se muestra a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9550,7 +9551,77 @@ nula.
 
 \subsection{Prueba binomial exacta}\label{prueba-binomial-exacta}
 
-hola
+Para realizar la prueba binomial exacta se usa la función
+\texttt{binom.test} que tiene la siguiente estructura.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{binom.test}\NormalTok{(x, n, }\DataTypeTok{p =} \FloatTok{0.5}\NormalTok{,}
+           \DataTypeTok{alternative =} \KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{),}
+           \DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos a definir dentro de \texttt{binom.test} para hacer la
+prueba son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: número de éxitos en la muestra.
+\item
+  \texttt{n}: número de observaciones en la muestra.
+\item
+  \texttt{alternative}: tipo de hipótesis alterna. Los valores
+  disponibles son \texttt{"two.sided"} cuando la alterna es \(\neq\),
+  \texttt{"less"} para el caso \(<\) y \texttt{"greater"} para \(>\).
+\item
+  \texttt{p}: valor de referencia de la prueba.
+\item
+  \texttt{conf.level}: nivel de confianza para reportar el intervalo de
+  confianza asociado (opcional).
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-66}
+
+
+Un asadero de pollos asegura que 90\% de sus órdenes se entregan en
+menos de 10 minutos. En una muestra de 20 órdenes, 17 se entregaron
+dentro de ese lapso. ¿Puede concluirse en el nivel de significancia
+0.05, que menos de 90\% de las órdenes se entregan en menos de 10
+minutos?
+
+\emph{Solución}
+
+En este problema interesa probar lo siguiente:
+
+\[H_0: p = 0.90\] \[H_1: p < 0.90\] La forma de usar la función
+\texttt{binom.test} para realizar la prueba se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{binom.test}\NormalTok{(}\DataTypeTok{x=}\DecValTok{17}\NormalTok{, }\DataTypeTok{n=}\DecValTok{20}\NormalTok{, }\DataTypeTok{p=}\FloatTok{0.9}\NormalTok{, }\DataTypeTok{alternative=}\StringTok{"less"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Exact binomial test
+## 
+## data:  17 and 20
+## number of successes = 17, number of trials = 20,
+## p-value = 0.3
+## alternative hypothesis: true probability of success is less than 0.9
+## 95 percent confidence interval:
+##  0.0000 0.9578
+## sample estimates:
+## probability of success 
+##                   0.85
+\end{verbatim}
+
+Como el valor-P (reportado como 0.3 pero con valor de 0.3231) es mayor
+que \(\alpha\) no se rechaza la hipótesis nula y se concluye que no hay
+evidencias suficientes para rechazar la hipótesis nula.
 
 \section{\texorpdfstring{Prueba de hipótesis para la varianza
 \(\sigma^2\) de una población
@@ -9596,7 +9667,7 @@ copiar el siguiente código en la consola de \proglang{R}:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-66}
+\subsection*{Ejemplo}\label{ejemplo-67}
 
 
 Para verificar si el proceso de llenado de bolsas de café está operando
@@ -9683,7 +9754,7 @@ prueba son:
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-67}
+\subsection*{Ejemplo}\label{ejemplo-68}
 
 
 Se realiza un estudio para comparar dos tratamientos que se aplicarán a
@@ -9693,7 +9764,7 @@ cloruro de sodio o sal común. La variable respuesta es el tiempo de
 cocción en minutos. Los datos se muestran abajo. ¿Son las varianzas de
 los tiempos iguales o diferentes? Usar \(\alpha=0.05\).
 
-\textbf{T}1: 76, 85, 74, 78, 82, 75, 82.
+\textbf{T1}: 76, 85, 74, 78, 82, 75, 82.
 
 \textbf{T2}: 57, 67, 55, 64, 61, 63, 63.
 
@@ -9803,7 +9874,7 @@ Como el valor-P es 0.9897 (reportado como 1 en la salida anterior), muy
 superior al nivel \(\alpha\) de significancia 5\%, se puede concluir que
 las varianzas son similares.
 
-\subsection*{Ejemplo}\label{ejemplo-68}
+\subsection*{Ejemplo}\label{ejemplo-69}
 
 
 El arsénico en agua potable es un posible riesgo para la salud. Un
@@ -9811,9 +9882,9 @@ artículo reciente reportó concentraciones de arsénico en agua potable en
 partes por billón (ppb) para diez comunidades urbanas y diez comunidades
 rurales. Los datos son los siguientes:
 
-Urbana: 3, 7, 25, 10, 15, 6, 12, 25, 15, 7
+\textbf{Urbana}: 3, 7, 25, 10, 15, 6, 12, 25, 15, 7
 
-Rural: 48, 44, 40, 38, 33, 21, 20, 12, 1, 18
+\textbf{Rural}: 48, 44, 40, 38, 33, 21, 20, 12, 1, 18
 
 \emph{Solución}
 
@@ -9949,7 +10020,7 @@ son:
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-69}
+\subsection*{Ejemplo}\label{ejemplo-70}
 
 
 Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los
@@ -10019,7 +10090,7 @@ con sal.
 medias \(\mu_1-\mu_2\) con varianzas
 diferentes}{Prueba de hipótesis para la diferencia de medias \textbackslash{}mu\_1-\textbackslash{}mu\_2 con varianzas diferentes}}\label{prueba-de-hipotesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes}
 
-\subsection*{Ejemplo}\label{ejemplo-70}
+\subsection*{Ejemplo}\label{ejemplo-71}
 
 
 Retomando el ejemplo de la concentración de arsénico en el agua,
@@ -10113,7 +10184,7 @@ Para realizar pruebas de hipótesis para la proporción se usa la función
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-71}
+\subsection*{Ejemplo}\label{ejemplo-72}
 
 
 Se quiere determinar si un cambio en el método de fabricación de una
@@ -10170,7 +10241,7 @@ después del cambio ha disminuído.
 \section{Prueba de hipótesis para la diferencia de medias
 pareadas}\label{prueba-de-hipotesis-para-la-diferencia-de-medias-pareadas}
 
-\subsection*{Ejemplo}\label{ejemplo-72}
+\subsection*{Ejemplo}\label{ejemplo-73}
 
 
 Diez individuos participaron de programa para perder peso corporal por
@@ -10307,7 +10378,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-73}
+\subsection*{Ejemplo}\label{ejemplo-74}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -10404,7 +10475,7 @@ instalados, se cargan esos paquetes y caso contrario, el código instala
 los paquetes y luego los carga, todo de forma automática sin que el
 usuario tenga que identificar los paquetes que le faltan.
 
-\subsection*{Ejemplo}\label{ejemplo-74}
+\subsection*{Ejemplo}\label{ejemplo-75}
 
 
 El código mostrado abajo revisa si los paquetes \texttt{knitr},

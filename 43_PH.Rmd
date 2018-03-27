@@ -1,4 +1,4 @@
-# Prueba de hipótesis. \index{prueba de hipótesis}
+# Prueba de hipótesis \index{prueba de hipótesis}
 
 En este capítulo se muestran las funciones que hay disponibles en \proglang{R} para realizar prueba de hipótesis para:
 
@@ -34,7 +34,7 @@ Para verificar si el proceso de llenado de bolsas de café con 500  gramos está
 
 *Solución*
 
-Lo primero es explorar si la muestra proviene de una distribución normal, para eso ingresamos los datos y aplicamos la prueba Anderson-Darling por medio de la función `ad.test` como se muestra a continuación.
+Lo primero es explorar si la muestra proviene de una distribución normal, para eso ingresamos los datos y aplicamos la prueba Anderson-Darling por medio de la función `ad.test` disponible en el paquete **nortest** [@R-nortest] como se muestra a continuación.
 
 ```{r}
 contenido <- c(510, 492, 494, 498, 492,
@@ -89,9 +89,9 @@ Como el valor-P es mayor que el nivel de significancia 3%, no hay evidencias suf
 ## Prueba de hipótesis para la proporción $p$
 Existen varias pruebas para estudiar la propoción $p$ de una distribución binomial, a continuación el listado de las más comunes.
 
-1. Prueba de Wald,
-2. Prueba $\Chi^2$ de Pearson,
-3. Prueba binomial exacta.
+1. Prueba de [Wald](https://en.wikipedia.org/wiki/Wald_test),
+2. Prueba $\Chi^2$ de [Pearson](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test#Fairness_of_dice),
+3. Prueba [binomial exacta](https://en.wikipedia.org/wiki/Binomial_test).
 
 ### Prueba de Wald
 Esta prueba se recomienda usar cuando se tiene un tamaño de muestra $n$ suficientemente grande para poder usar la distribución normal para aproximar la distribución binomial.
@@ -111,20 +111,19 @@ Un fabricante de un quitamanchas afirma que su producto quita 90% de todas las m
 En este problema interesa probar lo siguiente:
 
 $$H_0: p = 0.90$$
-
 $$H_1: p < 0.90$$
 
 Del anterior conjunto de hipótesis se observa que el valor de referencia de la prueba es $p_0=0.90$. De la información inicial se tiene que de las $n=200$ pruebas se observó que en $x=174$ la mancha desapareció, con esta información se puede calcular el estadístico $z$ así:
 
 ```{r}
 z <- (174/200 - 0.90) / sqrt(0.90 * (1 - 0.90) / 200)
-z
+z  # Para obtener el valor del estadístico
 ```
 
 Para obtener el valor-P de la prueba debemos tener en cuenta el sentido en la hipótesis alternativa $H_1: p < 0.90$, por esa razón el valor-P será $P(Z<z)$ y para obtenerlo usamos el siguiente código
 
 ```{r}
-pnorm(q=z, lower.tail=TRUE)
+pnorm(q=z, lower.tail=TRUE)  # Para obtener el valor-P
 ```
 
 El valor-P obtenido se puede representar gráficamente en la Figura \@ref(fig:wald1).
@@ -145,7 +144,7 @@ text(x=-3, y=0.24, valorP, col='blue', cex=0.8)
 \newpage
 
 ### Prueba $\Chi^2$ de Pearson
-Para realizar la prueba $\Chi^2$ de Pearson se puede usar la función `prop.test` que tiene la siguiente estructura.
+Para realizar la prueba $\Chi^2$ de Pearson se usa la función `prop.test` que tiene la siguiente estructura.
 
 ```{r, eval=FALSE}
 prop.test(x, n, p = NULL,
@@ -171,7 +170,8 @@ En este problema interesa probar lo siguiente:
 
 $$H_0: p = 0.90$$
 $$H_1: p < 0.90$$
-La función `prop.test` se puede usar para realizar la prueba anterior.
+La forma de usar la función `prop.test` para realizar la prueba se muestra a continuación.
+
 ```{r}
 prop.test(x=174, n=200, p=0.9, alternative='less',
           conf.level=0.95, correct=FALSE)
@@ -180,7 +180,38 @@ prop.test(x=174, n=200, p=0.9, alternative='less',
 Como el valor-P (con valor de 0.07865 pero repotado en la salida como 0.08) es mayor que $\alpha$ no se rechaza la hipótesis nula y se concluye que no hay evidencias suficientes para rechazar la hipótesis nula.
 
 ### Prueba binomial exacta
-hola
+Para realizar la prueba binomial exacta se usa la función `binom.test` que tiene la siguiente estructura.
+
+```{r, eval=FALSE}
+binom.test(x, n, p = 0.5,
+           alternative = c("two.sided", "less", "greater"),
+           conf.level = 0.95)
+```
+
+Los argumentos a definir dentro de `binom.test` para hacer la prueba son:
+
+- `x`: número de éxitos en la muestra.
+- `n`: número de observaciones en la muestra.
+- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
+- `p`: valor de referencia de la prueba.
+- `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
+
+### Ejemplo {-}
+Un asadero de pollos asegura que 90% de sus órdenes se entregan en menos de 10 minutos. En una muestra de 20 órdenes, 17 se entregaron dentro de ese lapso. ¿Puede concluirse en el nivel de significancia 0.05, que menos de 90% de las órdenes se entregan en menos de 10 minutos?
+
+*Solución*
+
+En este problema interesa probar lo siguiente:
+
+$$H_0: p = 0.90$$
+$$H_1: p < 0.90$$
+La forma de usar la función `binom.test` para realizar la prueba se muestra a continuación.
+
+```{r}
+binom.test(x=17, n=20, p=0.9, alternative="less")
+```
+
+Como el valor-P (reportado como 0.3 pero con valor de 0.3231) es mayor que $\alpha$ no se rechaza la hipótesis nula y se concluye que no hay evidencias suficientes para rechazar la hipótesis nula.
 
 ## Prueba de hipótesis para la varianza $\sigma^2$ de una población normal
 Para realizar este tipo de prueba se usa la función `Var.test` del paquete **usefultools** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/). La función `Var.test` tiene la siguiente estructura.
@@ -249,7 +280,7 @@ Los argumentos a definir dentro de `var.test` para hacer la prueba son:
 ### Ejemplo {-}
 Se realiza un estudio para comparar dos tratamientos que se aplicarán a frijoles crudos con el objetivo de reducir el tiempo de cocción.  El tratamiento T1 es a base de bicarbonato de sodio, el T2 es a base de cloruro de sodio o sal común. La variable respuesta es el tiempo de cocción en minutos. Los datos se muestran abajo. ¿Son las varianzas de los tiempos iguales o diferentes? Usar $\alpha=0.05$.
 
-**T**1: 76, 85, 74, 78, 82, 75, 82.
+**T1**: 76, 85, 74, 78, 82, 75, 82.
 
 **T2**: 57, 67, 55, 64, 61, 63, 63.
 
@@ -305,9 +336,9 @@ Como el valor-P es 0.9897 (reportado como 1 en la salida anterior), muy superior
 ### Ejemplo {-}
 El arsénico en agua potable es un posible riesgo para la salud. Un artículo reciente reportó concentraciones de arsénico en agua potable en partes por billón (ppb) para diez comunidades urbanas y diez comunidades rurales. Los datos son los siguientes:
 
-Urbana: 3, 7, 25, 10, 15, 6, 12, 25, 15, 7
+**Urbana**: 3, 7, 25, 10, 15, 6, 12, 25, 15, 7
 
-Rural: 48, 44, 40, 38, 33, 21, 20, 12, 1, 18
+**Rural**: 48, 44, 40, 38, 33, 21, 20, 12, 1, 18
 
 *Solución*
 
