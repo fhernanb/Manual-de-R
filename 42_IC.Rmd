@@ -153,7 +153,7 @@ Despues <- c(78, 91, 78, 78, 84, 67, 92, 70,
 Diferencia <- Antes - Despues
 ```
 
-En seguida se analiza la normalidad de la variable Diferencia de los cambios en las condiciones de trabajo, a partir de un qqplot y un histograma
+En seguida se analiza la normalidad de la variable `Diferencia` de los cambios en las condiciones de trabajo, a partir de un qqplot y una densidad.
 
 ```{r ic3, fig.cap='QQplot y densidad para Diferencias.', fig.asp=0.5, fig.width=8}
 par(mfrow=c(1,2))
@@ -164,15 +164,15 @@ plot(density(Diferencia), main='Densidad para Diferencias', las=1,
      xlab='Diferencia de tiempo', ylab='Densidad')
 ```
 
-De la Figura \@ref(fig:ic3) se observa que la diferencia de los tiempos sigue una distribución normal, debido a que en el QQplot se observa un patron lineal y el histograma muestra una forma cercana a la simétrica. 
+De la Figura \@ref(fig:ic3) se observa que la diferencia de los tiempos sigue una distribución normal, debido a que en el QQplot se observa un patron lineal y la densidad muestra una forma cercana a la simétrica. 
 
-Luego de chequear la normalidad de la variable Diferencia se usa la función `t.test` para construir el intervalo. A continuación se muestra el código utilizado.
+Luego de chequear la normalidad de la variable `Diferencia` se usa la función `t.test` para construir el intervalo. A continuación se muestra el código utilizado.
  
 ```{r}
 t.test(x=Antes, y=Despues, paired=TRUE, conf.level=0.95)$conf.int
 ```
 
-A partir del resultado obtenido se puede concluir con un nivel de confianza del $95\%$, que el tiempo promedio verdadero durante el cual la elevación es de menos de 30 grados luego del cambio difiere de lo que era antes del mismo. Los valores del intervalo de confianza, $2.362< \mu_D < 11.138$,  indican que $\mu_{antes} - \mu_{despues}>0$ y por lo tanto $\mu_{antes} > \mu_{despues}$.
+A partir del resultado obtenido se puede concluir con un nivel de confianza del $95\%$, que el tiempo promedio verdadero durante el cual la elevación es de menos de 30 grados luego del cambio difiere de lo que era antes del mismo. Como el intervalo de confianza es $2.362< \mu_D < 11.138$, esto indica que $\mu_{antes} - \mu_{despues}>0$ y por lo tanto $\mu_{antes} > \mu_{despues}$.
 
 
 ### Intervalo de confianza unilateral para la media $\mu$
@@ -246,7 +246,7 @@ var.test(x=hombres$altura, y=mujeres$altura,
          conf.level=0.95)$conf.int
 ```         
 
-El intervalo de confianza del $95\%$ indica que la razón de varianzas se encuentra entre 0.2327 y 1.6633. Puesto que el intervalo de confianza incluye el 1 se concluye que las varianzas de las alturas de los hombres y las mujeres son diferentes.
+El intervalo de confianza del $95\%$ indica que la razón de varianzas se encuentra entre 0.2327 y 1.6633. Puesto que el intervalo de confianza incluye el 1 se concluye que las varianzas de las alturas de los hombres y las mujeres son iguales.
 
 ```{block2, type='rmdwarning'}
 ¿Notó que las funciones `Var.test` y `var.test` son diferentes?

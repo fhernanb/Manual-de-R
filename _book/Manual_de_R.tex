@@ -230,7 +230,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2018-03-26}
+\date{2018-04-04}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -5553,11 +5553,6 @@ código para obtener su representación gráfica.
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: package 'corrplot' was built under R version
-## 3.4.4
-\end{verbatim}
-
-\begin{verbatim}
 ## corrplot 0.84 loaded
 \end{verbatim}
 
@@ -8871,9 +8866,9 @@ sigue a continuación:
 \end{Highlighting}
 \end{Shaded}
 
-En seguida se analiza la normalidad de la variable Diferencia de los
-cambios en las condiciones de trabajo, a partir de un qqplot y un
-histograma
+En seguida se analiza la normalidad de la variable \texttt{Diferencia}
+de los cambios en las condiciones de trabajo, a partir de un qqplot y
+una densidad.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8894,11 +8889,11 @@ histograma
 
 De la Figura \ref{fig:ic3} se observa que la diferencia de los tiempos
 sigue una distribución normal, debido a que en el QQplot se observa un
-patron lineal y el histograma muestra una forma cercana a la simétrica.
+patron lineal y la densidad muestra una forma cercana a la simétrica.
 
-Luego de chequear la normalidad de la variable Diferencia se usa la
-función \texttt{t.test} para construir el intervalo. A continuación se
-muestra el código utilizado.
+Luego de chequear la normalidad de la variable \texttt{Diferencia} se
+usa la función \texttt{t.test} para construir el intervalo. A
+continuación se muestra el código utilizado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8915,9 +8910,10 @@ muestra el código utilizado.
 A partir del resultado obtenido se puede concluir con un nivel de
 confianza del \(95\%\), que el tiempo promedio verdadero durante el cual
 la elevación es de menos de 30 grados luego del cambio difiere de lo que
-era antes del mismo. Los valores del intervalo de confianza,
-\(2.362< \mu_D < 11.138\), indican que \(\mu_{antes} - \mu_{despues}>0\)
-y por lo tanto \(\mu_{antes} > \mu_{despues}\).
+era antes del mismo. Como el intervalo de confianza es
+\(2.362< \mu_D < 11.138\), esto indica que
+\(\mu_{antes} - \mu_{despues}>0\) y por lo tanto
+\(\mu_{antes} > \mu_{despues}\).
 
 \subsection{\texorpdfstring{Intervalo de confianza unilateral para la
 media
@@ -9062,7 +9058,7 @@ y mujeres.
 El intervalo de confianza del \(95\%\) indica que la razón de varianzas
 se encuentra entre 0.2327 y 1.6633. Puesto que el intervalo de confianza
 incluye el 1 se concluye que las varianzas de las alturas de los hombres
-y las mujeres son diferentes.
+y las mujeres son iguales.
 
 \BeginKnitrBlock{rmdwarning}
 ¿Notó que las funciones \texttt{Var.test} y \texttt{var.test} son
