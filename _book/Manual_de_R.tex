@@ -230,7 +230,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2018-04-04}
+\date{2018-06-13}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -7514,12 +7514,14 @@ consola \texttt{modelos\$fits}. Abajo el código usado.
 \end{Shaded}
 
 \begin{verbatim}
-##      GA    WEI3      GG     GIG   BCCGo   BCPEo 
-##   466.0   466.8   468.0   468.0   468.4   469.4 
-##     GB2    BCTo  exGAUS   LOGNO      IG     EXP 
-##   470.0   470.4   471.2   474.6   483.9   494.1 
-## PARETO2  IGAMMA 
-##   496.1   504.2
+##       GA     WEI3     WEI2      WEI       GG      GIG 
+##    466.0    466.8    466.8    466.8    468.0    468.0 
+##    BCCGo     BCCG     BCPE    BCPEo      GB2     BCTo 
+##    468.4    468.4    469.4    469.4    470.0    470.4 
+##      BCT   exGAUS   LOGNO2    LOGNO       IG      EXP 
+##    470.4    471.2    474.6    474.6    483.9    494.1 
+## PARETO2o       GP  PARETO2   IGAMMA 
+##    496.1    496.1    496.1    504.2
 \end{verbatim}
 
 De la lista anterior se observa que la función gamma está en el primer
@@ -8309,7 +8311,15 @@ solicitado.
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
 \KeywordTok{qqPlot}\NormalTok{(pesos}\OperatorTok{$}\NormalTok{Hombre, }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Peso (Kg)'}\NormalTok{,}
        \DataTypeTok{main=}\StringTok{'QQplot para peso de hombres'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## [1] 12 15
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{qqPlot}\NormalTok{(pesos}\OperatorTok{$}\NormalTok{Mujer, }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Peso (Kg)'}\NormalTok{,}
        \DataTypeTok{main=}\StringTok{'QQplot para peso de mujeres'}\NormalTok{)}
 \end{Highlighting}
@@ -8321,6 +8331,10 @@ solicitado.
 \caption{\label{fig:normalidad7}QQplot con bandas de confianza para el peso
 corporal de hombres y mujeres.}
 \end{figure}
+
+\begin{verbatim}
+## [1] 10 18
+\end{verbatim}
 
 En la Figura \ref{fig:normalidad7} se muestra el QQplot solicitado, como
 los puntos del QQplot están dentro de las bandas se puede aceptar que
@@ -8641,10 +8655,19 @@ de los hombres, a partir de un QQplot y un histograma
        \DataTypeTok{main=}\StringTok{'QQplot para la altura de hombres'}\NormalTok{,}
        \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos',}
 \StringTok{       ylab='}\NormalTok{Cuantiles muestrales}\StringTok{')}
-\StringTok{hist(hombres$altura, freq=TRUE,}
-\StringTok{     main='}\NormalTok{Histograma para la altura de hombres}\StringTok{',}
-\StringTok{     xlab='}\KeywordTok{Altura}\NormalTok{ (cm)}\StringTok{',}
-\StringTok{     ylab='}\NormalTok{Frecuencia}\StringTok{')}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(hombres}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{freq=}\OtherTok{TRUE}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{'Histograma para la altura de hombres'}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{'Altura (cm)'}\NormalTok{,}
+     \DataTypeTok{ylab=}\StringTok{'Frecuencia'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8741,11 +8764,29 @@ de los hombres y las mujeres, a partir de un QQplot y un histograma
 \KeywordTok{require}\NormalTok{(car)  }\CommentTok{# Debe instalar antes el paquete car}
 \KeywordTok{qqPlot}\NormalTok{(hombres}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{main=}\StringTok{'QQplot'}\NormalTok{,}
        \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos', ylab='}\NormalTok{Cuantiles muestrales}\StringTok{')}
-\StringTok{hist(hombres$altura, las=1, xlab='}\NormalTok{Altura}\StringTok{', ylab='}\NormalTok{Frecuencia}\StringTok{',}
-\StringTok{     main='}\NormalTok{Histograma para la altura de hombres}\StringTok{')}
+\end{Highlighting}
+\end{Shaded}
 
-\StringTok{qqPlot(mujeres$altura, pch=19, las=1, main='}\NormalTok{QQplot}\StringTok{',}
-\StringTok{       xlab='}\NormalTok{Cuantiles teóricos', }\DataTypeTok{ylab=}\StringTok{'Cuantiles muestrales'}\NormalTok{)}
+\begin{verbatim}
+## [1] 5 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(hombres}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'Altura'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Frecuencia'}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{'Histograma para la altura de hombres'}\NormalTok{)}
+
+\KeywordTok{qqPlot}\NormalTok{(mujeres}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{main=}\StringTok{'QQplot'}\NormalTok{,}
+       \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos', ylab='}\NormalTok{Cuantiles muestrales}\StringTok{')}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 16  9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{hist}\NormalTok{(mujeres}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'Altura'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Frecuencia'}\NormalTok{,}
      \DataTypeTok{main=}\StringTok{'Histograma para la altura de mujeres'}\NormalTok{)}
 \end{Highlighting}
@@ -8876,8 +8917,17 @@ una densidad.
 \KeywordTok{require}\NormalTok{(car)}
 \KeywordTok{qqPlot}\NormalTok{(Diferencia, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{main=}\StringTok{'QQplot para Diferencias'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }
        \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos', ylab='}\NormalTok{Cuantiles muestrales}\StringTok{')}
-\StringTok{plot(density(Diferencia), main='}\NormalTok{Densidad para Diferencias}\StringTok{', las=1,}
-\StringTok{     xlab='}\NormalTok{Diferencia de tiempo}\StringTok{', ylab='}\NormalTok{Densidad}\StringTok{')}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 15 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(Diferencia), }\DataTypeTok{main=}\StringTok{'Densidad para Diferencias'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{'Diferencia de tiempo'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8997,6 +9047,10 @@ para la varianza de la altura de los estudiantes hombres.
 \NormalTok{res}\OperatorTok{$}\NormalTok{conf.int}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## [1]  21.08 109.93
+\end{verbatim}
 
 El intervalo de confianza del \(98\%\) indica que la varianza de la
 estatura de los estudiantes hombres se encuentra entre 21.08 y 109.93
@@ -9698,15 +9752,14 @@ siguiente código.
 \end{Shaded}
 
 \begin{verbatim}
-##     One sample variance test   
+##        X-squared test for variance   
 ## 
-## Data: contenido 
-## X-square =  9.64 , df =  9 , p-value = 0.380407222978092 
+## X-squared =  9.64 , df =  9 , p-value =  0.380407222978092 
 ## Alternative hypothesis: true variance is greater than 40 
-## 95 percent confidence interval 
-## Inf 22.79 
+## 95 percent confidence interval: 
+##   0 116 
 ## Sample variance 
-## 42.84
+##   42.84
 \end{verbatim}
 
 Como el valor-P es mayor que el nivel de significancia 5\%, no se

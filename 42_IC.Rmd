@@ -213,7 +213,7 @@ Para calcular intervalos de confianza bilaterales para la varianza $\sigma^2$ a 
 ### Ejemplo {-}
 Considerando la información del ejemplo de Intervalos de confianza bilaterales para la media, construir un intervalo de confianza del 98\% para la varianza de la altura de los estudiantes hombres.
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 require(usefultools)  # Para cargar el paquete
 res <- Var.test(x=hombres$altura, conf.level=0.98)
 res$conf.int
