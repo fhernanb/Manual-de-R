@@ -1,4 +1,4 @@
-# Tipos de objetos \index{objetos} \label{objetos}
+# Tipos de objetos \label{objetos} \index{objetos}
 
 En \proglang{R} existen varios tipos de objectos que permiten que el usuario pueda almacenar la información para realizar procedimientos estadísticos y gráficos. Los principales objetos en \proglang{R} son vectores, matrices, arreglos, marcos de datos y listas. A continuación se presentan las características de estos objetos y la forma para crearlos.
 

@@ -171,7 +171,7 @@ qnorm(p=0.10, mean=10, sd=2, lower.tail=FALSE)
 En la Figura \@ref(fig:norm2) se muestran las áreas sombreadas para cada de las anteriores preguntas.
 
 ```{r norm2, fig.cap='Área sombreada para el ejemplo de los tornillos.', fig.asp=1.1, fig.width=6, echo=FALSE, message=FALSE}
-require(mytools)
+require(usefultools)
 par(mfrow=c(2, 2))
 shadow.normal(lower=9, upper=11, mu=10, sigma=2, shadow.col='tomato',
               xlab='Diámetro', ylab='Densidad', k=3,
@@ -187,7 +187,7 @@ shadow.normal(lower=3,
               xlab='Diámetro', ylab='Densidad', k=3,
               main='P(Diámetro < q) = 5%')
 
-shadow.normal(qnorm(p=0.10, mean=10, sd=2, lower.tail=FALSE),
+shadow.normal(lower=qnorm(p=0.10, mean=10, sd=2, lower.tail=FALSE),
               upper=20,
               mu=10, sigma=2, shadow.col='yellow1',
               xlab='Diámetro', ylab='Densidad', k=3,
