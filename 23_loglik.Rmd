@@ -24,14 +24,18 @@ l(\boldsymbol{\Theta} | \boldsymbol{x}) = \log L(\boldsymbol{\Theta} | \boldsymb
 El método de máxima verosimilitud se usa para estimar los parámetros de una distribución. El objetivo de este método es encontrar los valores de $\boldsymbol{\Theta}$ que maximizan $L$ o $l$ y valores encontrados se representan por $\hat{\boldsymbol{\Theta}}$.
 
 ### Ejemplo {-}
-Suponga que se tiene el vector `rta` que corresponde a una muestra aleatoria de una distribución binomial con parámetro `size=5` conocido.
+En este ejemplo vamos a considerar la distribución binomial cuya función de masa de probabilidad está dada por:
+
+$$f(x)=P(X=x)=\binom{n}{x} p^x (1-p)^{n-x}, \quad 0<p<1, \quad n \leq 1, 2, \ldots, \quad 0 \leq x \leq n$$
+
+Suponga que se tiene el vector `rta` que corresponde a una muestra aleatoria de una distribución binomial con parámetro $n=5$ conocido.
 
 ```{r}
 rta <- c(2, 2, 1, 1, 1, 1, 0, 2, 1, 2,
          1, 0, 1, 2, 1, 0, 0, 2, 2, 1)
 ```
 
-1) Calcular el valor de log-verosimilitud $l$ si asumimos que $p=0.30$ en la distribución binomial.
+1) Calcular el valor de log-verosimilitud $l$ si asumiendo que $p=0.30$ en la distribución binomial.
 
 Para obtener el valor de $l$ en el punto $p=0.30$ se aplica la definición dada en la expresión \@ref(eq:loglik). Como el problema trata de una binomial se usa entonces la función de masa `dbinom` evaluada en la muestra `rta`, el parámetro `size` como es conocido se reemplaza por el valor de cinco y en el parámetro `prob` se cambia por 0.3. Como interesa la función de log-verosimilitud se debe incluir `log=TRUE`. A continuación el código necesario. 
 
@@ -49,22 +53,42 @@ La función solicitada tiene un cuerpo igual al usado en el numeral anterior, a 
 ll <- function(prob) sum(dbinom(x=rta, size=5, prob=prob, log=T))
 ```
 
-Vamos a probar la función en $p=0.15$ y $p=0.80$ para saber si la función `ll` está vectorizada.
+Vamos a probar la función en dos valores arbitrarios $p=0.15$ y $p=0.80$ que pertenezcan al dominio del parámetro $p$ de la distribución binomial.
 
 ```{r}
 ll(prob=0.15)  # Individual para p=0.15
 ll(prob=0.80)  # Individual para p=0.80
 ```
+El valor de log-verosimilitud para $p=0.15$ fue de -25.54 mientras que para $p=0.80$ fue de -98.46.
 
-3) Dibujar la curva log-verosimilitud $l$.
+Vamos ahora a chequear si la función `ll` está vectorizada y para esto usamos el código mostrado a continuación y deberíamos obtener un vector con los valores `c(-25.54, -98.56)`.
+
+```{r}
+ll(prob=c(0.15, 0.80))
+```
+
+No obtuvimos el resultado esperado, eso significa que nuestra función no está vectorizada. Ese problema lo podemos solucionar así:
+
+```{r}
+ll <- Vectorize(ll)
+ll(prob=c(0.15, 0.80))
+```
+
+Vemos que ahora que cuando se ingresa un vector a la función `ll` se obtiene un vector.
+
+```{block2, type='rmdnote'}
+Necesitamos que la función `ll` esté vectorizada para poder dibujarla y para poder optimizarla.
+```
+
+3) Dibujar la curva log-verosimilitud $l$, en el eje X debe estar el parámetro $p$ del cual depende la función de log-verosimilitud.
 
 En la Figura \@ref(fig:loglik1) se presenta la curva solicitada.
 
 ```{r loglik1, fig.cap='Función de log-verosimilitud para el ejemplo sobre binomial.', fig.asp=0.9, fig.width=4, echo=FALSE}
-ll <- Vectorize(ll) 
 curve(ll, lwd=4, col='dodgerblue3',
-      xlab='Probabilidad de éxito',
+      xlab='Probabilidad de éxito (p)', las=1,
       ylab=expression(paste("l(", theta, ")")))
+grid()
 ```
 
 4) Observando la Figura \@ref(fig:loglik1), ¿cuál esl el valor de $p$ que maximiza la función de log-verosimilitud?
@@ -93,7 +117,7 @@ set.seed(1235)  # La semilla es 1235
 y <- rnorm(n=50, mean=170, sd=5)
 ```
 
-1) construya la función de log-verosimilitud para los parámetros de la normal dada la muestra aleatoria `y`.
+1) Construya la función de log-verosimilitud para los parámetros de la normal dada la muestra aleatoria `y`.
 
 ```{r}
 ll <- function(param) {
@@ -107,7 +131,7 @@ ll <- function(param) {
 Siempre que el interés sea encontrar los valores que maximizan una función de log-verosimilitud, los parámetros de la distribución __deben__ ingresar a la función `ll` como un vector. Esto se debe hacer para poder usar las funciones de búsqueda `optim` y `nlminb`.
 ```
 
-2) Dibuje la función de log-verosimilitud.
+2) Dibujar la función de log-verosimilitud.
 
 En la Figura \@ref(fig:loglik2) se muestra el gráfico de niveles para la superficie de log-verosimilitud. De esta figura se nota claramente que los valores que maximizan la superficie están alrededor de $\mu=170$ y $\sigma=5$. Para ver el código usado en la creación de la Figura \@ref(fig:loglik2) se recomienda consultar la sección sobre `contour` en @hernandez_correa.
 
@@ -145,7 +169,7 @@ En \proglang{R} se tienen dos funciones básicas para optimizar funciones, es de
 
 4) ¿Hay alguna función para obtener directamente el valor que maximiza la función log-verosimilitud?
 
-La respuesta es si. Si la distribución estudiada es una de las distribuciones básicas se puede usar la función `fitdistr` del paquete básico **MASS**. La función `fitdistr` requiere de los datos que se ingresan por medio del parámetro `x`, y de la distribución de los datos que se ingrea por medio del parámetro `densfun`. La función `fitdistr` admite 15 distribuciones diferentes para hacer la búsqueda de los parámetros que caracterizan una distribución, se sugiere consultar la ayuda de la función `fitdistr` escribiendo en la consola `help(fitdistr)`. A continuación el código usado. \index{fitdistr}
+La respuesta es si. Si la distribución estudiada es una de las distribuciones básicas se puede usar la función `fitdistr` del paquete básico **MASS**. La función `fitdistr` requiere de los datos que se ingresan por medio del parámetro `x`, y de la distribución de los datos que se ingresa por medio del parámetro `densfun`. La función `fitdistr` admite 15 distribuciones diferentes para hacer la búsqueda de los parámetros que caracterizan una distribución, se sugiere consultar la ayuda de la función `fitdistr` escribiendo en la consola `help(fitdistr)`. A continuación el código usado. \index{fitdistr}
 
 ```{r, message=FALSE}
 require(MASS) # El paquete ya está instalado, solo se debe cargar
