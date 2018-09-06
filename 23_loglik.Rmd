@@ -344,6 +344,40 @@ $$
 
 Una curvatura grande $I(\hat{\theta})$ está asociada con un gran pico en la función de log-verosimilitud y eso significa una menor incertidumbre sobre el parámetro $\theta$ [@pawitan_2013].
 
+### Ejemplo {-}
+Suponga que se desea estudiar una variable que tiene distribución Poisson con parámetro $\lambda$ desconocido. Suponga además que se tienen dos situciones:
+
+- Un solo valor 5 para estimar $\lambda$.
+- Cuatro valores 5, 10, 6 y 15 para estimar $\lambda$.
+
+Dibujar la función $l(\lambda)$ para ambos casos e identificar la curvatura.
+
+A continuación el código para evaluar la función $l(\lambda)$ para cada caso.
+
+```{r}
+# Caso 1
+w <- c(5)
+ll1 <- function(lambda) sum(dpois(x=w, lambda=lambda, log=T))
+ll1 <- Vectorize(ll1)
+
+# Caso 2
+y <- c(5, 10, 6, 15)
+ll2 <- function(lambda) sum(dpois(x=y, lambda=lambda, log=T))
+ll2 <- Vectorize(ll2)
+```
+
+En la Figura \@ref(fig:loglikpoisson) se muestran las dos curvas $l(\lambda)$ para cada uno de los casos. De la figura se observa claramente que cuando se tienen 4 observaciones la curva es más puntiaguda y por lo tanto menor incertibumbre sobre el parámetro $\lambda$ a estimar.
+
+```{r loglikpoisson, fig.cap='Curvas de log-verosimilitud para los dos casos.', fig.height=4, fig.width=5, echo=FALSE}
+upper <- 25
+curve(ll1, from=0, to=upper, las=1, ylim=c(-20, 0),
+      xlab=expression(lambda), lwd=5, col='blue3',
+      ylab=expression(paste("l(", lambda, ")")))
+curve(ll2, from=0, to=upper, add=TRUE, lwd=5, col='tomato')
+legend('topright', legend=c('Con 5', 'Con 5, 10, 6 y 15'),
+       lwd=3, col=c('blue3', 'tomato'), bty='n')
+```
+
 ## Método de máxima verosimilitud para estimar parámetros en modelos de regresión
 En la sección anterior se estudió cómo estimar los parámetros de una distribución, en este capítulo se aprenderá a estimar los parámetros de un modelo de regresión general.
 

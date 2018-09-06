@@ -7691,6 +7691,54 @@ Una curvatura grande \(I(\hat{\theta})\) está asociada con un gran pico
 en la función de log-verosimilitud y eso significa una menor
 incertidumbre sobre el parámetro \(\theta\) \citep{pawitan_2013}.
 
+\subsection*{Ejemplo}\label{ejemplo-53}
+
+
+Suponga que se desea estudiar una variable que tiene distribución
+Poisson con parámetro \(\lambda\) desconocido. Suponga además que se
+tienen dos situciones:
+
+\begin{itemize}
+\tightlist
+\item
+  Un solo valor 5 para estimar \(\lambda\).
+\item
+  Cuatro valores 5, 10, 6 y 15 para estimar \(\lambda\).
+\end{itemize}
+
+Dibujar la función \(l(\lambda)\) para ambos casos e identificar la
+curvatura.
+
+A continuación el código para evaluar la función \(l(\lambda)\) para
+cada caso.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Caso 1}
+\NormalTok{w <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\NormalTok{ll1 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(lambda) }\KeywordTok{sum}\NormalTok{(}\KeywordTok{dpois}\NormalTok{(}\DataTypeTok{x=}\NormalTok{w, }\DataTypeTok{lambda=}\NormalTok{lambda, }\DataTypeTok{log=}\NormalTok{T))}
+\NormalTok{ll1 <-}\StringTok{ }\KeywordTok{Vectorize}\NormalTok{(ll1)}
+
+\CommentTok{# Caso 2}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{15}\NormalTok{)}
+\NormalTok{ll2 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(lambda) }\KeywordTok{sum}\NormalTok{(}\KeywordTok{dpois}\NormalTok{(}\DataTypeTok{x=}\NormalTok{y, }\DataTypeTok{lambda=}\NormalTok{lambda, }\DataTypeTok{log=}\NormalTok{T))}
+\NormalTok{ll2 <-}\StringTok{ }\KeywordTok{Vectorize}\NormalTok{(ll2)}
+\end{Highlighting}
+\end{Shaded}
+
+En la Figura \ref{fig:loglikpoisson} se muestran las dos curvas
+\(l(\lambda)\) para cada uno de los casos. De la figura se observa
+claramente que cuando se tienen 4 observaciones la curva es más
+puntiaguda y por lo tanto menor incertibumbre sobre el parámetro
+\(\lambda\) a estimar.
+
+\begin{figure}
+\centering
+\includegraphics{Manual_de_R_files/figure-latex/loglikpoisson-1.pdf}
+\caption{\label{fig:loglikpoisson}Curvas de log-verosimilitud para los dos
+casos.}
+\end{figure}
+
 \section{Método de máxima verosimilitud para estimar parámetros en
 modelos de
 regresión}\label{metodo-de-maxima-verosimilitud-para-estimar-parametros-en-modelos-de-regresion}
@@ -7699,7 +7747,7 @@ En la sección anterior se estudió cómo estimar los parámetros de una
 distribución, en este capítulo se aprenderá a estimar los parámetros de
 un modelo de regresión general.
 
-\subsection*{Ejemplo}\label{ejemplo-53}
+\subsection*{Ejemplo}\label{ejemplo-54}
 
 
 Considere el modelo de regresión mostrado abajo. Simule 1000
@@ -8683,7 +8731,7 @@ Los demás argumentos se usan cuando se desea obtener intervalos de
 confianza para diferencia de media con muestras independientes y
 dependientes (o pareadas).
 
-\subsection*{Ejemplo}\label{ejemplo-54}
+\subsection*{Ejemplo}\label{ejemplo-55}
 
 
 Suponga que se quiere obtener un intervalo de confianza bilateral del
@@ -8791,7 +8839,7 @@ medias (\(\mu_1-\mu_2\)) de muestras independientes se usa la función
   \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-55}
+\subsection*{Ejemplo}\label{ejemplo-56}
 
 
 Se quiere saber si existe diferencia estadísticamente significativa
@@ -8910,7 +8958,7 @@ es necesario definir 4 argumentos:
   \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-56}
+\subsection*{Ejemplo}\label{ejemplo-57}
 
 
 Los desórdenes musculoesqueléticos del cuello y hombro son comunes entre
@@ -9033,7 +9081,7 @@ Para construir intervalos de confianza unilaterales se usa el argumento
 \texttt{alternative=\textquotesingle{}greater\textquotesingle{}}, a
 continuación un ejemplo.
 
-\subsection*{Ejemplo}\label{ejemplo-57}
+\subsection*{Ejemplo}\label{ejemplo-58}
 
 
 Simule una muestra aleatoria de una \(N(18, 3)\) y calcule un intervalo
@@ -9092,7 +9140,7 @@ definir 2 argumentos:
   \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-58}
+\subsection*{Ejemplo}\label{ejemplo-59}
 
 
 Considerando la información del ejemplo de Intervalos de confianza
@@ -9149,7 +9197,7 @@ varianzas a partir de la función \texttt{var.test} es necesario definir
   \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-59}
+\subsection*{Ejemplo}\label{ejemplo-60}
 
 
 Usando la información del ejemplo de diferencia de medias para muestras
@@ -9211,7 +9259,7 @@ el número de eventos o de forma equivalente corresponde a la longitud de
 la variable que se quiere analizar, y \texttt{conf.level} corresponde al
 nivel de confianza.
 
-\subsection*{Ejemplo}\label{ejemplo-60}
+\subsection*{Ejemplo}\label{ejemplo-61}
 
 
 El gerente de una estación de televisión debe determinar en la ciudad
@@ -9254,7 +9302,7 @@ argumentos:
   \texttt{conf.level}: nivel de confianza.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-61}
+\subsection*{Ejemplo}\label{ejemplo-62}
 
 
 Se quiere determinar si un cambio en el método de fabricación de una
@@ -9351,7 +9399,7 @@ son:
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-62}
+\subsection*{Ejemplo}\label{ejemplo-63}
 
 
 Para verificar si el proceso de llenado de bolsas de café con 500 gramos
@@ -9429,7 +9477,7 @@ impreso en la envoltura.
 \section{\texorpdfstring{Prueba de hipótesis para \(\mu\) con muestras
 grandes}{Prueba de hipótesis para \textbackslash{}mu con muestras grandes}}\label{prueba-de-hipotesis-para-mu-con-muestras-grandes}
 
-\subsection*{Ejemplo}\label{ejemplo-63}
+\subsection*{Ejemplo}\label{ejemplo-64}
 
 
 Se afirma que los automóviles recorren en promedio más de 20000
@@ -9521,7 +9569,7 @@ líneas de código para obtener el estadístico y el valor-P de la prueba.
 A continuación se muestra un ejemplo de cómo proceder para aplicar la
 prueba de Wald.
 
-\subsection*{Ejemplo}\label{ejemplo-64}
+\subsection*{Ejemplo}\label{ejemplo-65}
 
 
 Un fabricante de un quitamanchas afirma que su producto quita 90\% de
@@ -9617,7 +9665,7 @@ prueba son:
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-65}
+\subsection*{Ejemplo}\label{ejemplo-66}
 
 
 Un fabricante de un quitamanchas afirma que su producto quita 90\% de
@@ -9692,7 +9740,7 @@ prueba son:
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-66}
+\subsection*{Ejemplo}\label{ejemplo-67}
 
 
 Un asadero de pollos asegura que 90\% de sus órdenes se entregan en
@@ -9777,7 +9825,7 @@ copiar el siguiente código en la consola de R:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-67}
+\subsection*{Ejemplo}\label{ejemplo-68}
 
 
 Para verificar si el proceso de llenado de bolsas de café está operando
@@ -9866,7 +9914,7 @@ prueba son:
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-68}
+\subsection*{Ejemplo}\label{ejemplo-69}
 
 
 Se realiza un estudio para comparar dos tratamientos que se aplicarán a
@@ -9986,7 +10034,7 @@ Como el valor-P es 0.9897 (reportado como 1 en la salida anterior), muy
 superior al nivel \(\alpha\) de significancia 5\%, se puede concluir que
 las varianzas son similares.
 
-\subsection*{Ejemplo}\label{ejemplo-69}
+\subsection*{Ejemplo}\label{ejemplo-70}
 
 
 El arsénico en agua potable es un posible riesgo para la salud. Un
@@ -10132,7 +10180,7 @@ son:
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-70}
+\subsection*{Ejemplo}\label{ejemplo-71}
 
 
 Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los
@@ -10202,7 +10250,7 @@ con sal.
 medias \(\mu_1-\mu_2\) con varianzas
 diferentes}{Prueba de hipótesis para la diferencia de medias \textbackslash{}mu\_1-\textbackslash{}mu\_2 con varianzas diferentes}}\label{prueba-de-hipotesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes}
 
-\subsection*{Ejemplo}\label{ejemplo-71}
+\subsection*{Ejemplo}\label{ejemplo-72}
 
 
 Retomando el ejemplo de la concentración de arsénico en el agua,
@@ -10296,7 +10344,7 @@ Para realizar pruebas de hipótesis para la proporción se usa la función
   confianza asociado (opcional).
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-72}
+\subsection*{Ejemplo}\label{ejemplo-73}
 
 
 Se quiere determinar si un cambio en el método de fabricación de una
@@ -10353,7 +10401,7 @@ después del cambio ha disminuído.
 \section{Prueba de hipótesis para la diferencia de medias
 pareadas}\label{prueba-de-hipotesis-para-la-diferencia-de-medias-pareadas}
 
-\subsection*{Ejemplo}\label{ejemplo-73}
+\subsection*{Ejemplo}\label{ejemplo-74}
 
 
 Diez individuos participaron de programa para perder peso corporal por
@@ -10489,7 +10537,7 @@ f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\fra
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 \end{equation}
 
-\subsection*{Ejemplo}\label{ejemplo-74}
+\subsection*{Ejemplo}\label{ejemplo-75}
 
 
 Calcular la integral de \(f(x)=\exp \left( -(x-1.5)^2 \right)\) en
@@ -10585,7 +10633,7 @@ se cargan esos paquetes y caso contrario, el código instala los paquetes
 y luego los carga, todo de forma automática sin que el usuario tenga que
 identificar los paquetes que le faltan.
 
-\subsection*{Ejemplo}\label{ejemplo-75}
+\subsection*{Ejemplo}\label{ejemplo-76}
 
 
 El código mostrado abajo revisa si los paquetes \texttt{knitr},
