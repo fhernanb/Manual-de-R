@@ -1,4 +1,4 @@
-# Medidas de correlación \label{correl}
+# Medidas de correlación {#correl}
 
 En este capítulo se mostrará cómo obtener el coeficiente de correlación lineal para variables cuantitativas.
 
@@ -98,7 +98,7 @@ cor(gasto, ahorro, use='complete.obs')
 
 
 ## EJERCICIOS {-}
-Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
+Use funciones o procedimientos (varias líneas) de R para responder cada una de las siguientes preguntas.
 
 1. Para cada uno de los estratos socioeconómicos, calcular el coeficiente de correlación lineal de Pearson para las variables precio y área de la base de datos de los apartamentos usados.
 

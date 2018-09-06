@@ -1,6 +1,6 @@
-# Intervalos de confianza
+# Intervalos de confianza {#ic}
 
-En este capítulo se muestran las funciones que hay disponibles en \proglang{R} para construir intervalos de confianza para:
+En este capítulo se muestran las funciones que hay disponibles en R para construir intervalos de confianza para:
 
 1. la media $\mu$,
 2. la proporción $p$,
@@ -194,7 +194,7 @@ En el resultado anterior se muestra el intervalo de confianza unilateral.
 
 Para construir intervalos de confianza para la varianza se usa la función `Var.test` del paquete **usefultools** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/).
 
-Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en la consola de \proglang{R}:
+Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en la consola de R:
 
 ```{r, eval=FALSE}
 if (!require('devtools')) install.packages('devtools')

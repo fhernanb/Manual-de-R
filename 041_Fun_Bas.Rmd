@@ -1,15 +1,15 @@
-# Funciones básicas de \proglang{R} \label{funbas}
+# Funciones básicas de R {#funbas}
 
 En este capítulo se presentará lo que es una función y se mostrarán varias funciones básicas que son útiles para realizar diversas tareas.
 
-## ¿Qué es una función de \proglang{R}? \index{función} \index{function}
+## ¿Qué es una función de R? \index{función} \index{function}
 En la Figura \@ref(fig:machine1) se muestra una ilustración de lo que es una función o máquina general. Hay unas entradas (_inputs_) que luego son procesadas dentro de la caja para generar unas salidas (_outputs_). Un ejemplo de una función o máquina muy común en nuestras casas es la licuadora. Si a una licuadora le ingresamos leche, fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa. 
 
 ```{r machine1, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org.', dpi=250, fig.align='center'}
 knitr::include_graphics("images/function_machine.png")
 ```
 
-Las funciones en \proglang{R} se caracterizan por un nombre corto y que dé una idea de lo que hace la función. Los elementos que pueden ingresar (_inputs_) a la función se llaman __parámetros__ y se ubican dentro de paréntesis, el cuerpo de la función se ubica dentro de llaves y es ahí donde se procesan los _inputs_ para convertirlos en _outputs_, a continuación se muestra la estructura general de una función.
+Las funciones en R se caracterizan por un nombre corto y que dé una idea de lo que hace la función. Los elementos que pueden ingresar (_inputs_) a la función se llaman __parámetros__ y se ubican dentro de paréntesis, el cuerpo de la función se ubica dentro de llaves y es ahí donde se procesan los _inputs_ para convertirlos en _outputs_, a continuación se muestra la estructura general de una función.
 
 ```{r, eval=F}
 nombre_de_funcion(parametro1, parametro2, ...) {
@@ -28,7 +28,7 @@ mean(notas)
 ```
 
 ## Operadores de asignación \index{asignación}
-En \proglang{R} se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.
+En R se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.
 
 - `<-` este es el operador de asignación a izquierda, es el más usado y recomendado.
 - `->` este es el operador de asignación a derecha, no es frecuente su uso.
@@ -51,7 +51,7 @@ Aunque una asignación se puede hacer de tres formas diferentes, se recomienda s
 ```
 
 ## Operaciones básicas \index{operaciones básicas}
-En \proglang{R} se pueden hacer diversas operaciones usando operadores binarios. Este tipo de operadores se denomina binarios porque actuan entre dos objetos, a continuación el listado.
+En R se pueden hacer diversas operaciones usando operadores binarios. Este tipo de operadores se denomina binarios porque actuan entre dos objetos, a continuación el listado.
 
 - `+` operador binario para sumar.
 - `-` operador binario para restar.
@@ -78,7 +78,7 @@ a ^ b  # Para potencia
 ```
 
 ## Pruebas lógicas \index{pruebas lógicas}
-En \proglang{R} se puede verificar si un objeto cumple una condición dada, a continuación el listado de las pruebas usuales.
+En R se puede verificar si un objeto cumple una condición dada, a continuación el listado de las pruebas usuales.
 
 - `<` para saber si un número es menor que otro.
 - `>` para saber si un número es mayor que otro.
@@ -138,7 +138,7 @@ Note que la condición `mimarco$edad >= 15` se debe ubicar __antes__ de la coma 
 ```
 
 ## Operadores lógicos \index{operadores lógicos}
-En \proglang{R} están disponibles los operadores lógicos negación, conjunción y disyunción. A continuación el listado de los operadores entre los elementos `x` e `y`.
+En R están disponibles los operadores lógicos negación, conjunción y disyunción. A continuación el listado de los operadores entre los elementos `x` e `y`.
 
 ```{r, eval=F}
 !x  # Negación de x
@@ -197,7 +197,7 @@ with(mimarco, mimarco[edad >= 15 & deporte == TRUE, ])
 Al usar `with` sólo se tuvo que escribir el objeto `mimarco` dos veces. Cuando hay muchas condiciones o cuando el objeto tiene un nombre largo es aconsejable usar `with`.
 
 ## Funciones sobre vectores
-En \proglang{R} podemos destacar las siguientes funciones básicas sobre vectores numéricos.
+En R podemos destacar las siguientes funciones básicas sobre vectores numéricos.
 
 \index{min} \index{max} \index{legth} \index{range} \index{sum} \index{prod} \index{which.min} \index{which.max}  
 
@@ -270,7 +270,7 @@ abs(-3.6)
 ```
 
 ## Función `seq` \index{seq} \index{secuencias}
-En \proglang{R} podemos crear secuencias de números de una forma sencilla usando la función `seq`, la estructura de esta función es:
+En R podemos crear secuencias de números de una forma sencilla usando la función `seq`, la estructura de esta función es:
 
 ```{r, eval=F}
 seq(from=1, to=1, by, length.out)
@@ -299,7 +299,7 @@ seq(from=1, to=9, by=pi) # stays below 'end'
 ```
 
 ```{block2, type='rmdnote'}
-En \proglang{R} existe el operador binario `:` que sirve para construir secuencias de uno en uno fácilmente.
+En R existe el operador binario `:` que sirve para construir secuencias de uno en uno fácilmente.
 ```
 
 Revise los siguientes ejemplos para entender el funcionamiento del operador `:`.
@@ -312,7 +312,7 @@ pi:6  # real sequence
 ```
 
 ## Función `rep` \index{rep} \index{repeticiones}
-En \proglang{R} podemos crear repeticiones usando la función `rep`, la estructura de esta función es:
+En R podemos crear repeticiones usando la función `rep`, la estructura de esta función es:
 
 ```{r, eval=F}
 rep(x, times=1, length.out=NA, each=1)
@@ -408,7 +408,7 @@ rank(x)
 
 
 ## EJERCICIOS {-}
-Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
+Use funciones o procedimientos (varias líneas) de R para responder cada una de las siguientes preguntas.
 
 
 1. ¿Qué cantidad de dinero sobra al repartir 10000\$ entre 3 personas?
@@ -433,27 +433,11 @@ Use funciones o procedimientos (varias líneas) de \proglang{R} para responder c
 20. Which is the country with the lowest literacy rate?
 21. ¿Qué valor de verdad tiene la siguiente afirmación? "Los resultados de la función `floor` y `trunc` son siempre los mismos".
 
-En \proglang{R} hay unas bases de datos incluídas, una de ellas es la base de datos llamada `mtcars`. Para conocer las variables que están en `mtcars` usted puede escribir en la consola `?mtcars` o también `help(mtcars)`. De la base `mtcars` obtenga bases de datos que cumplan las siguientes condiciones.
+En R hay unas bases de datos incluídas, una de ellas es la base de datos llamada `mtcars`. Para conocer las variables que están en `mtcars` usted puede escribir en la consola `?mtcars` o también `help(mtcars)`. De la base `mtcars` obtenga bases de datos que cumplan las siguientes condiciones.
 
 22. Autos que tengan un rendimiento menor a 18 millas por galón de combustible.
 23. Autos que tengan 4 cilindros.
 24. Autos que pesen más de 2500 libras y tengan transmisión manual.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

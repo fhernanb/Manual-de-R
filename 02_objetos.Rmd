@@ -1,10 +1,10 @@
-# Tipos de objetos \label{objetos} \index{objetos}
+# Tipos de objetos {#objetos}
 
-En \proglang{R} existen varios tipos de objectos que permiten que el usuario pueda almacenar la información para realizar procedimientos estadísticos y gráficos. Los principales objetos en \proglang{R} son vectores, matrices, arreglos, marcos de datos y listas. A continuación se presentan las características de estos objetos y la forma para crearlos.
+En R existen varios tipos de objectos que permiten que el usuario pueda almacenar la información para realizar procedimientos estadísticos y gráficos. Los principales objetos en R son vectores, matrices, arreglos, marcos de datos y listas. A continuación se presentan las características de estos objetos y la forma para crearlos.
 
 ## Vectores \index{vector} \label{vector}
 
-Los vectores vectores son arreglos ordenados en los cuales se puede almacenar información de tipo numérico (variable cuantitativa), alfanumérico (variable cualitativa) o lógico (`TRUE` o `FALSE`), pero no mezclas de éstos. La función de \proglang{R} para crear un vector es `c()` y que significa concatenar; dentro de los paréntesis de esta función se ubica la información a almacenar. Una vez construído el vector se acostumbra a etiquetarlo con un nombre corto y representativo de la información que almacena, la asignación se hace por medio del operador `<-` entre el nombre y el vector.
+Los vectores vectores son arreglos ordenados en los cuales se puede almacenar información de tipo numérico (variable cuantitativa), alfanumérico (variable cualitativa) o lógico (`TRUE` o `FALSE`), pero no mezclas de éstos. La función de R para crear un vector es `c()` y que significa concatenar; dentro de los paréntesis de esta función se ubica la información a almacenar. Una vez construído el vector se acostumbra a etiquetarlo con un nombre corto y representativo de la información que almacena, la asignación se hace por medio del operador `<-` entre el nombre y el vector.
 
 A continuación se presenta un ejemplo de cómo crear tres vectores que contienen las respuestas de cinco personas a tres preguntas que se les realizaron.
 
@@ -24,7 +24,7 @@ Cuando se usa `NA` para representar una información \textit{Not Available} no s
 Es posible usar comillas sencillas `'foo'` o comillas dobles `"foo"` para ingresar valores de una variable cualitativa.
 ```
 
-Si se desea ver lo que está almacenado en cada uno de estos vectores, se debe escribir en la consola de \proglang{R} el nombre de uno de los objetos y luego se presiona la tecla \textit{enter} o \textit{intro}, al realizar esto lo que se obtiene se muestra a continuación.
+Si se desea ver lo que está almacenado en cada uno de estos vectores, se debe escribir en la consola de R el nombre de uno de los objetos y luego se presiona la tecla \textit{enter} o \textit{intro}, al realizar esto lo que se obtiene se muestra a continuación.
 
 ```{r}
 edad
@@ -261,7 +261,7 @@ Al manipular listas con `$` y `[[]]` se obtienen los objetos ahí almacenados, a
 
 
 ## EJERCICIOS {-}
-Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
+Use funciones o procedimientos (varias líneas) de R para responder cada una de las siguientes preguntas.
 
 1. Construya un vector con la primeras 20 letras MAYÚSCULAS usando la función LETTERS.
 

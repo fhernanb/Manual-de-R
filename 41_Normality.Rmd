@@ -1,6 +1,6 @@
-# Estudiando la normalidad \label{normalidad}
+# Estudiando la normalidad {#normalidad}
 
-En este capítulo se mostrará cómo utilizar las herramientas de \proglang{R} para estudiar la normalidad univariada de un conjunto de datos.
+En este capítulo se mostrará cómo utilizar las herramientas de R para estudiar la normalidad univariada de un conjunto de datos.
 
 ## Consideraciones iniciales
 En estadística hay una gran cantidad de modelos, pruebas y procedimientos que tienen como supuesto la normalidad, por lo tanto, se hace necesario contar con herramientas que nos guíen para responder si se cumple o no el supuesto de normalidad.

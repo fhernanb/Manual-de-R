@@ -1,14 +1,14 @@
-# Lectura de bases de datos \index{lectura de bases de datos} \label{read}
+# Lectura de bases de datos {#read}
 
-En este capítulo se mostrará cómo leer una base de datos externa hacia \proglang{R}.
+En este capítulo se mostrará cómo leer una base de datos externa hacia R.
 
 ## ¿En qué formato almacenar una base de datos? \index{.csv} \index{.txt}
-Usualmente los archivos con la información para ser leídos por \proglang{R} se pueden almacenar en formato:
+Usualmente los archivos con la información para ser leídos por R se pueden almacenar en formato:
 
 - plano con extensión __.txt__ o, 
 - Excel con extensión __.csv__. 
 
-En las secciones siguientes se mostrará cómo almacenar datos en los dos formatos para ser leídos en \proglang{R}. En el Cuadro \@ref(tab:dt1) se presenta una base de datos pequeña, tres observaciones y tres variables, que nos servirá como ejemplo para mostrar cómo se debe almacenar la información.
+En las secciones siguientes se mostrará cómo almacenar datos en los dos formatos para ser leídos en R. En el Cuadro \@ref(tab:dt1) se presenta una base de datos pequeña, tres observaciones y tres variables, que nos servirá como ejemplo para mostrar cómo se debe almacenar la información.
 
 ```{r dt1, echo=F}
 Edad <- c(35, 46, 23)
@@ -49,7 +49,7 @@ Una buena práctica es usar la barra tabuladora para separar, eso permite que la
 ```
 
 ## Función `read.table` \index{read.table}
-La función `read.table` se puede usar para leer bases de datos hacia \proglang{R}. La estructura de la función con los parámetros más comunes de uso es la siguiente.
+La función `read.table` se puede usar para leer bases de datos hacia R. La estructura de la función con los parámetros más comunes de uso es la siguiente.
 
 ```{r, eval=F}
 read.table(file, header, sep, dec)
@@ -66,7 +66,7 @@ Los argumentos de la función `read.table` son:
 - `dec`: símbolo con el cual están indicados los decimales.
 
 ### Ejemplo {-}
-Crear la base de datos del Cuadro \@ref(tab:dt1) en Excel y bloc de notas para practicar la lectura de base de datos desde \proglang{R}.
+Crear la base de datos del Cuadro \@ref(tab:dt1) en Excel y bloc de notas para practicar la lectura de base de datos desde R.
 
 Lo primero que se debe hacer para realizar lo solicitado es construir tres archivos (uno de Excel y dos bloc de notas) igual a los mostrados en las figuras \@ref(fig:excel1), \@ref(fig:bloc1) y \@ref(fig:bloc2), vamos a suponer que los nombres para cada uno de ellos son `base1.csv`, `base2.txt` y `base3.txt` respectivamente.
 
@@ -80,7 +80,7 @@ datos <- read.table(file='C:/Users/Hernandez/Desktop/base1.csv',
 datos
 ```
 
-La dirección `file='C:/Users/Hernandez/Desktop/base1.csv'` le indica a \proglang{R} en qué lugar del computador debe buscar el archivo, note que se debe usar el símbolo `/` para que sea un dirección válida. Substituya la dirección del código anterior con la dirección donde se encuentra su archivo para que pueda leer la base de datos.
+La dirección `file='C:/Users/Hernandez/Desktop/base1.csv'` le indica a R en qué lugar del computador debe buscar el archivo, note que se debe usar el símbolo `/` para que sea un dirección válida. Substituya la dirección del código anterior con la dirección donde se encuentra su archivo para que pueda leer la base de datos.
 
 Si no se conoce la ubicación del archivo a leer o si la dirección es muy extensa, se puede usar `file.choose()` para que se abra una ventana y así adjuntar manualmente el archivo. A continuación se muestra el código para hacerlo de esta manera.
 
@@ -141,7 +141,7 @@ Lo primero que se debe hacer es instalar el paquete **readxl**, la instalación 
 install.packages("readxl")
 ```
 
-Una vez instalado el paquete es necesario cargarlo, la función para cargar el paquete en la sesión actual de \proglang{R} es `library`. La instrucción para cargar el paquete es la siguiente:
+Una vez instalado el paquete es necesario cargarlo, la función para cargar el paquete en la sesión actual de R es `library`. La instrucción para cargar el paquete es la siguiente:
 
 ```{r}
 library(readxl)

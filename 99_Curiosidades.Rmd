@@ -1,9 +1,9 @@
-# Curiosidades \label{curio}
+# Curiosidades {#curio}
 
-En este capítulo se mostrarán algunos procedimientos de \proglang{R} para solucionar problemas frecuentes.
+En este capítulo se mostrarán algunos procedimientos de R para solucionar problemas frecuentes.
 
 ## ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?
-Muchas veces compartimos código de \proglang{R} con otros colegas y si ellos no tienen instalados ciertos paquetes el código no funcionará. Para evitar ese problema podemos colocar al inicio del código unas líneas que chequeen si ciertos paquetes están instalados o no, si están instalados, se cargan esos paquetes y caso contrario, el código instala los paquetes y luego los carga, todo de forma automática sin que el usuario tenga que identificar los paquetes que le faltan.
+Muchas veces compartimos código de R con otros colegas y si ellos no tienen instalados ciertos paquetes el código no funcionará. Para evitar ese problema podemos colocar al inicio del código unas líneas que chequeen si ciertos paquetes están instalados o no, si están instalados, se cargan esos paquetes y caso contrario, el código instala los paquetes y luego los carga, todo de forma automática sin que el usuario tenga que identificar los paquetes que le faltan.
 
 ### Ejemplo {-}
 El código mostrado abajo revisa si los paquetes `knitr`, `png` y `markdown` están instalados e instala los ausentes y luego carga todos los paquetes que estén en el vector `packages`.

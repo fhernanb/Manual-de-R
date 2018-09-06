@@ -1,6 +1,6 @@
-# Prueba de hipótesis \index{prueba de hipótesis}
+# Prueba de hipótesis {#ph}
 
-En este capítulo se muestran las funciones que hay disponibles en \proglang{R} para realizar prueba de hipótesis para:
+En este capítulo se muestran las funciones que hay disponibles en R para realizar prueba de hipótesis para:
 
 1. la media $\mu$,
 2. la proporción $p$,
@@ -73,7 +73,7 @@ En este problema interesa:
 
 $$H_0: \mu \ge 20000 \quad km$$
 $$H_1: \mu < 20000 \quad km$$
-Para este tipo de pruebas no hay una función de \proglang{R} que haga los cálculos, por esta razón uno mismo debe escribir una líneas de código para obtener los resultados deseados, a continuación las instrucciones para calcular el estadístico y su valor-P.
+Para este tipo de pruebas no hay una función de R que haga los cálculos, por esta razón uno mismo debe escribir una líneas de código para obtener los resultados deseados, a continuación las instrucciones para calcular el estadístico y su valor-P.
 ```{r}
 xbarra <- 19500  # Datos del problema
 desvia <- 3900   # Datos del problema
@@ -101,7 +101,7 @@ En esta prueba el estadístico está dado por
 $$z=\frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}},$$
 donde $\hat{p}$ es la proporción muestral calculada como el cociente entre el número de éxitos $x$ observados en los $n$ ensayos y $p_0$ es el valor de referencia de las hipótesis. El estadístico $z$ tiene distribución $N(0, 1)$ cuando $n \to \infty$.
 
-Para realizar esta prueba en \proglang{R} no hay una función y debemos escribir la líneas de código para obtener el estadístico y el valor-P de la prueba. A continuación se muestra un ejemplo de cómo proceder para aplicar la prueba de Wald.
+Para realizar esta prueba en R no hay una función y debemos escribir la líneas de código para obtener el estadístico y el valor-P de la prueba. A continuación se muestra un ejemplo de cómo proceder para aplicar la prueba de Wald.
 
 ### Ejemplo {-}
 Un fabricante de un quitamanchas afirma que su producto quita 90% de todas las manchas. Para poner a prueba esta afirmación se toman 200 camisetas manchadas de las cuales a solo 174 les desapareció la mancha. Pruebe la afirmación del fabricante a un nivel $\alpha=0.05$.
@@ -228,7 +228,7 @@ Los argumentos a definir dentro de `Var.test` para hacer la prueba son:
 - `null.value`: valor de referencia de la prueba.
 - `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
-Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en la consola de \proglang{R}:
+Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en la consola de R:
 
 ```{r, eval=FALSE}
 if (!require('devtools')) install.packages('devtools')

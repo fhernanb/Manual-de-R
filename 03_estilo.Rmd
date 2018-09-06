@@ -1,6 +1,6 @@
-# Guía de estilo \label{estilo}
+# Guía de estilo {#estilo}
 
-Así como en el español existen reglas ortográficas, la escritura de códigos en \proglang{R} también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo \index{guía de estilo} es importante para que el código creado por usted sea fácilmente entendido por sus lectores @rpackages. No existe una única y mejor guía de estilo para escritura en \proglang{R}, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada \href{https://google.github.io/styleguide/Rguide.xml}{\textit{Google's R style guide}}.
+Así como en el español existen reglas ortográficas, la escritura de códigos en R también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo \index{guía de estilo} es importante para que el código creado por usted sea fácilmente entendido por sus lectores @rpackages. No existe una única y mejor guía de estilo para escritura en R, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada \href{https://google.github.io/styleguide/Rguide.xml}{\textit{Google's R style guide}}.
 
 ## Nombres de los archivos
 Se sugiere que el nombre usado para nombrar un archivo tenga sentido y que termine con extensión .R. A continuación dos ejemplos de como nombrar mal y bien un archivo.

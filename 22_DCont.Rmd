@@ -1,6 +1,6 @@
-# Distribuciones continuas \label{continuas}
+# Distribuciones continuas {#continuas}
 
-En este capítulo se mostrarán las funciones de \proglang{R} para distribuciones continuas.
+En este capítulo se mostrarán las funciones de R para distribuciones continuas.
 
 ## Funciones disponibles para distribuciones continuas
 
@@ -13,7 +13,7 @@ qxxx(p, ...)  # Cuantil para el cual P(X <= q) = p
 rxxx(n, ...)  # Generador de números aleatorios.
 ```
 
-En el lugar de las letras `xxx` se de debe colocar el nombre de la distribución en \proglang{R}, a continuación el listado de nombres disponibles para las 11 distribuciones continuas básicas.
+En el lugar de las letras `xxx` se de debe colocar el nombre de la distribución en R, a continuación el listado de nombres disponibles para las 11 distribuciones continuas básicas.
 
 ```{r, eval=FALSE}
 beta     # Beta
@@ -197,7 +197,7 @@ shadow.normal(lower=qnorm(p=0.10, mean=10, sd=2, lower.tail=FALSE),
 
 ## Distribuciones continuas generales
 
-En la práctica nos podemos encontramos con variables aleatorias continuas que no se ajustan a una de las distribuciones mostradas anteriormente, en esos casos, es posible manejar ese tipo de variables por medio de unas funciones básicas de \proglang{R} como se muestra en el siguiente ejemplo.
+En la práctica nos podemos encontramos con variables aleatorias continuas que no se ajustan a una de las distribuciones mostradas anteriormente, en esos casos, es posible manejar ese tipo de variables por medio de unas funciones básicas de R como se muestra en el siguiente ejemplo.
 
 ### Ejemplo {-}
 

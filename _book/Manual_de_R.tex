@@ -230,7 +230,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2018-08-31}
+\date{2018-09-06}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -264,10 +264,10 @@ Gracias a Dios por todo lo que me ha dado.
 
 
 Este libro fue creado con la intención de apoyar el aprendizaje del
-lenguaje de programación \proglang{R} en estudiantes de pregrado,
-especialización, maestría e investigadores, que necesiten realizar
-análisis estadísticos. En este libro se explica de una forma sencilla la
-utilidad de la principales funciones para realizar análisis estadístico.
+lenguaje de programación R en estudiantes de pregrado, especialización,
+maestría e investigadores, que necesiten realizar análisis estadísticos.
+En este libro se explica de una forma sencilla la utilidad de la
+principales funciones para realizar análisis estadístico.
 
 El presente material está en proceso de elaboración, si el lector desea
 tener la última versión del libro recomendamos consultar la versión
@@ -280,40 +280,38 @@ alojada en el repositorio de GitHub diponible en el siguiente enlace:
 El libro está estructurado de la siguiente manera.
 
 En el capítulo \ref{intro} se presenta una breve introducción sobre el
-lenguaje de programación \proglang{R}; en el capítulo \ref{objetos} se
-explican los tipos de objetos más comunes en \proglang{R}; en el
-capítulo \ref{estilo} se muestran las normas de estilo sugeridas para
-escribir código en \proglang{R}; el capítulo \ref{funbas} presenta las
-funciones básicas que todo usuario debe conocer para usar con éxito
-\proglang{R}; el capítulo \ref{creafun} trata sobre cómo crear
-funciones; el capítulo \ref{read} muestra como leer bases de datos desde
-\proglang{R}; en el capítulo \ref{tablas} se ilustra la forma para
-construir tablas de frecuencia; en el capítulo \ref{central} se muestra
-como obtener las diversas medidas de tendencial central para variables
-cuantitativas, el capítulo \ref{varia} muestra como calcular las medidas
-de variabilidad, en el capítulo \ref{posi} se ilustra cómo usar las
-funciones para obtener medidas de posición; en el capítulo \ref{correl}
-se muestra como obtener medidas de correlación entre pares de variables;
-en los capítulos \ref{discretas} y \ref{continuas} se tratan los temas
-de distribuciones discretas y continuas; en el capítulo \ref{loglik} se
-aborda el tema de verosimilitud; en el capítulo \ref{aproxint} se
-muestra el tema de aproximación de integrales.
+lenguaje de programación R; en el capítulo \ref{objetos} se explican los
+tipos de objetos más comunes en R; en el capítulo \ref{estilo} se
+muestran las normas de estilo sugeridas para escribir código en R; el
+capítulo \ref{funbas} presenta las funciones básicas que todo usuario
+debe conocer para usar con éxito R; el capítulo \ref{creafun} trata
+sobre cómo crear funciones; el capítulo \ref{read} muestra como leer
+bases de datos desde R; en el capítulo \ref{tablas} se ilustra la forma
+para construir tablas de frecuencia; en el capítulo \ref{central} se
+muestra como obtener las diversas medidas de tendencial central para
+variables cuantitativas, el capítulo \ref{varia} muestra como calcular
+las medidas de variabilidad, en el capítulo \ref{posi} se ilustra cómo
+usar las funciones para obtener medidas de posición; en el capítulo
+\ref{correl} se muestra como obtener medidas de correlación entre pares
+de variables; en los capítulos \ref{discretas} y \ref{continuas} se
+tratan los temas de distribuciones discretas y continuas; en el capítulo
+\ref{loglik} se aborda el tema de verosimilitud; en el capítulo
+\ref{aproxint} se muestra el tema de aproximación de integrales.
 
 \section*{Información del software y
 convenciones}\label{informacion-del-software-y-convenciones}
 
 
-Para realizar este libro se usaron los paquetes de \proglang{R}
+Para realizar este libro se usaron los paquetes de R
 \textbf{knitr}\index{knitr} \citep{xie2015} y
 \textbf{bookdown}\index{bookdown} \citep{R-bookdown}, estos paquetes
-permiten construir todo el libro desde \proglang{R} y sirven para
-incluir código que se ejecute de forma automática incluyendo las salidas
-y gráficos.
+permiten construir todo el libro desde R y sirven para incluir código
+que se ejecute de forma automática incluyendo las salidas y gráficos.
 
 En todo el libro se presentarán códigos que el lector puede copiar y
-pegar en su consola de \proglang{R} para obtener los mismos resultados
-aquí presentados. Los códigos se destacan en una caja de color beis (o
-beige) similar a la mostrada a continuación.
+pegar en su consola de R para obtener los mismos resultados aquí
+presentados. Los códigos se destacan en una caja de color beis (o beige)
+similar a la mostrada a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -391,25 +389,24 @@ Facultad de Ingeniería.
 
 \section{Orígenes} \label{sec:origenes}
 
-\proglang{R} es un lenguaje de programación usado para realizar
-procedimientos estadísticos y gráficos de alto nivel, este lenguaje fue
-creado en 1993 por los profesores e investigadores Robert Gentleman y
-Ross Ihaka. Inicialmente el lenguaje se usó para apoyar los cursos que
-tenían a su cargo los profesores, pero luego de ver la utilidad de la
-herramienta desarrollada, decidieron colocar copias de \proglang{R} en
-StatLib. A partir de 1995 el código fuente de \proglang{R} está
-disponible bajo licencia GNU GPL para sistemas operativos Windows,
-Macintosh y distribuciones Unix/Linux. La comunidad de usuarios de
-\proglang{R} en el mundo es muy grande y los usuarios cuentan con
-diferentes espacios para interactuar, a continuación una lista no
-exhaustiva de los sitios más populares relacionados con \proglang{R}:
+R es un lenguaje de programación usado para realizar procedimientos
+estadísticos y gráficos de alto nivel, este lenguaje fue creado en 1993
+por los profesores e investigadores Robert Gentleman y Ross Ihaka.
+Inicialmente el lenguaje se usó para apoyar los cursos que tenían a su
+cargo los profesores, pero luego de ver la utilidad de la herramienta
+desarrollada, decidieron colocar copias de R en StatLib. A partir de
+1995 el código fuente de R está disponible bajo licencia GNU GPL para
+sistemas operativos Windows, Macintosh y distribuciones Unix/Linux. La
+comunidad de usuarios de R en el mundo es muy grande y los usuarios
+cuentan con diferentes espacios para interactuar, a continuación una
+lista no exhaustiva de los sitios más populares relacionados con R:
 
 \begin{itemize}
 \tightlist
 \item
   \href{https://www.r-bloggers.com/}{Rbloggers}.
 \item
-  \href{http://r-es.org/}{Comunidad hispana de \proglang{R}}.
+  \href{http://r-es.org/}{Comunidad hispana de R}.
 \item
   \href{http://r.789695.n4.nabble.com/}{Nabble}.
 \item
@@ -420,12 +417,12 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
   \href{http://stats.stackexchange.com/questions/tagged/r}{Cross
   Validated}.
 \item
-  \href{https://stat.ethz.ch/mailman/listinfo/r-help}{\proglang{R}-Help
-  Mailing List}.
+  \href{https://stat.ethz.ch/mailman/listinfo/r-help}{R-Help Mailing
+  List}.
 \item
   \href{http://blog.revolutionanalytics.com/}{Revolutions}.
 \item
-  \href{https://www.r-statistics.com/}{\proglang{R}-statistics blog}.
+  \href{https://www.r-statistics.com/}{R-statistics blog}.
 \item
   \href{https://rdatamining.wordpress.com/}{RDataMining}.
 \end{itemize}
@@ -441,12 +438,12 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 \section{Descarga e instalación} \label{sec:descarga}
 
-Para realizar la instalación de \proglang{R} usted debe visitar la
-página del CRAN (\textit{Comprehensive R Archive Network}) disponible en
-este \href{https://cran.r-project.org/}{enlace}. Una vez ingrese a la
-página encontrará un cuadro similar al mostrado en la Figura
-\ref{fig:cran} donde aparecen los enlaces de la instalación para los
-sistemas operativos Linux, Mac y Windows.
+Para realizar la instalación de R usted debe visitar la página del CRAN
+(\textit{Comprehensive R Archive Network}) disponible en este
+\href{https://cran.r-project.org/}{enlace}. Una vez ingrese a la página
+encontrará un cuadro similar al mostrado en la Figura \ref{fig:cran}
+donde aparecen los enlaces de la instalación para los sistemas
+operativos Linux, Mac y Windows.
 
 \begin{figure}
 
@@ -457,8 +454,8 @@ sistemas operativos Linux, Mac y Windows.
 \caption{Página del Cran.}\label{fig:cran}
 \end{figure}
 
-Supongamos que se desea instalar \proglang{R} en Windows, para esto se
-debe dar clic sobre el hiperenlace
+Supongamos que se desea instalar R en Windows, para esto se debe dar
+clic sobre el hiperenlace
 \textcolor{BurntOrange}{Download R for Windows} de la Figura
 \ref{fig:cran}. Una vez hecho esto se abrirá una página con el contenido
 mostrado en la Figura \ref{fig:inst1}. Una vez ingrese a esa nueva
@@ -477,13 +474,12 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 Luego de esto se abrirá otra página con un encabezado similar al
 mostrado en la Figura \ref{fig:inst2}, al momento de capturar la figura
-la versión actual de \proglang{R} era 3.2.5 pero seguramente en este
-momento usted tendrá disponible una versión actualizada. Una vez allí
-uste debe dar clic sobre
-\textcolor{BurntOrange}{Download R 3.2.5 for Windows} como es señalado
-por la flecha verde. Luego de esto se descargará el instalador
-\proglang{R} en el computador el cual deberá ser instalado con las
-opciones que vienen por defecto.
+la versión actual de R era 3.2.5 pero seguramente en este momento usted
+tendrá disponible una versión actualizada. Una vez allí uste debe dar
+clic sobre \textcolor{BurntOrange}{Download R 3.2.5 for Windows} como es
+señalado por la flecha verde. Luego de esto se descargará el instalador
+R en el computador el cual deberá ser instalado con las opciones que
+vienen por defecto.
 
 \begin{figure}
 
@@ -494,17 +490,16 @@ opciones que vienen por defecto.
 \caption{Página de descarga.}\label{fig:inst2}
 \end{figure}
 
-Se recomienda observar el siguiente video didáctico de instalación de
-\proglang{R} disponible en este
-\href{http://tinyurl.com/jd7b9ks}{enlace} para facilitar la tarea de
-instalación.
+Se recomienda observar el siguiente video didáctico de instalación de R
+disponible en este \href{http://tinyurl.com/jd7b9ks}{enlace} para
+facilitar la tarea de instalación.
 
 \section{Apariencia del programa} \label{sec:apariencia}
 
-Una vez que esté instalado \proglang{R} en su computador, usted podrá
-acceder a él por la lista de programas o por medio del acceso directo
-que quedó en el escritorio, en la Figura \ref{fig:rlogo} se muestra la
-apariencia del acceso directo para ingresar a \proglang{R}.
+Una vez que esté instalado R en su computador, usted podrá acceder a él
+por la lista de programas o por medio del acceso directo que quedó en el
+escritorio, en la Figura \ref{fig:rlogo} se muestra la apariencia del
+acceso directo para ingresar a R.
 
 \begin{figure}
 
@@ -515,14 +510,14 @@ apariencia del acceso directo para ingresar a \proglang{R}.
 \caption{Apariencia del acceso directo para ingresar a R.}\label{fig:rlogo}
 \end{figure}
 
-Al abrir \proglang{R} aparecerá en la pantalla de su computador algo
-similar a lo que está en la Figura \ref{fig:pantalla}. La ventana
-izquierda se llama consola y es donde se ingresan las instrucciones, una
-vez que se construye un gráfico se activa otra ventana llamada ventana
-gráfica. Cualquier usuario puede modificar la posición y tamaños de
-estas ventanas, puede cambiar el tipo y tamaño de las letras en la
-consola, para hacer esto se deben explorar las opciones de
-\textit{editar} en la barra de herramientas.
+Al abrir R aparecerá en la pantalla de su computador algo similar a lo
+que está en la Figura \ref{fig:pantalla}. La ventana izquierda se llama
+consola y es donde se ingresan las instrucciones, una vez que se
+construye un gráfico se activa otra ventana llamada ventana gráfica.
+Cualquier usuario puede modificar la posición y tamaños de estas
+ventanas, puede cambiar el tipo y tamaño de las letras en la consola,
+para hacer esto se deben explorar las opciones de \textit{editar} en la
+barra de herramientas.
 
 \begin{figure}
 
@@ -533,15 +528,13 @@ consola, para hacer esto se deben explorar las opciones de
 \caption{Apariencia de R.}\label{fig:pantalla}
 \end{figure}
 
-\chapter{\texorpdfstring{Tipos de objetos \label{objetos}
-\index{objetos}}{Tipos de objetos  }}\label{tipos-de-objetos}
+\chapter{Tipos de objetos}\label{objetos}
 
-En \proglang{R} existen varios tipos de objectos que permiten que el
-usuario pueda almacenar la información para realizar procedimientos
-estadísticos y gráficos. Los principales objetos en \proglang{R} son
-vectores, matrices, arreglos, marcos de datos y listas. A continuación
-se presentan las características de estos objetos y la forma para
-crearlos.
+En R existen varios tipos de objectos que permiten que el usuario pueda
+almacenar la información para realizar procedimientos estadísticos y
+gráficos. Los principales objetos en R son vectores, matrices, arreglos,
+marcos de datos y listas. A continuación se presentan las
+características de estos objetos y la forma para crearlos.
 
 \section{\texorpdfstring{Vectores \index{vector}
 \label{vector}}{Vectores  }}\label{vectores}
@@ -549,13 +542,12 @@ crearlos.
 Los vectores vectores son arreglos ordenados en los cuales se puede
 almacenar información de tipo numérico (variable cuantitativa),
 alfanumérico (variable cualitativa) o lógico (\texttt{TRUE} o
-\texttt{FALSE}), pero no mezclas de éstos. La función de \proglang{R}
-para crear un vector es \texttt{c()} y que significa concatenar; dentro
-de los paréntesis de esta función se ubica la información a almacenar.
-Una vez construído el vector se acostumbra a etiquetarlo con un nombre
-corto y representativo de la información que almacena, la asignación se
-hace por medio del operador \texttt{\textless{}-} entre el nombre y el
-vector.
+\texttt{FALSE}), pero no mezclas de éstos. La función de R para crear un
+vector es \texttt{c()} y que significa concatenar; dentro de los
+paréntesis de esta función se ubica la información a almacenar. Una vez
+construído el vector se acostumbra a etiquetarlo con un nombre corto y
+representativo de la información que almacena, la asignación se hace por
+medio del operador \texttt{\textless{}-} entre el nombre y el vector.
 
 A continuación se presenta un ejemplo de cómo crear tres vectores que
 contienen las respuestas de cinco personas a tres preguntas que se les
@@ -595,9 +587,9 @@ Es posible usar comillas sencillas
 \EndKnitrBlock{rmdnote}
 
 Si se desea ver lo que está almacenado en cada uno de estos vectores, se
-debe escribir en la consola de \proglang{R} el nombre de uno de los
-objetos y luego se presiona la tecla \textit{enter} o \textit{intro}, al
-realizar esto lo que se obtiene se muestra a continuación.
+debe escribir en la consola de R el nombre de uno de los objetos y luego
+se presiona la tecla \textit{enter} o \textit{intro}, al realizar esto
+lo que se obtiene se muestra a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1285,8 +1277,8 @@ obtiene una lista.
 \section*{EJERCICIOS}\label{ejercicios}
 
 
-Use funciones o procedimientos (varias líneas) de \proglang{R} para
-responder cada una de las siguientes preguntas.
+Use funciones o procedimientos (varias líneas) de R para responder cada
+una de las siguientes preguntas.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1319,16 +1311,15 @@ responder cada una de las siguientes preguntas.
 \end{Highlighting}
 \end{Shaded}
 
-\chapter{\texorpdfstring{Guía de estilo
-\label{estilo}}{Guía de estilo }}\label{guia-de-estilo}
+\chapter{Guía de estilo}\label{estilo}
 
 Así como en el español existen reglas ortográficas, la escritura de
-códigos en \proglang{R} también tiene unas reglas que se recomienda
-seguir para evitar confusiones. Tener una buena guía de estilo
+códigos en R también tiene unas reglas que se recomienda seguir para
+evitar confusiones. Tener una buena guía de estilo
 \index{guía de estilo} es importante para que el código creado por usted
 sea fácilmente entendido por sus lectores \citet{rpackages}. No existe
-una única y mejor guía de estilo para escritura en \proglang{R}, sin
-embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada
+una única y mejor guía de estilo para escritura en R, sin embargo aquí
+vamos a mostrar unas sugerencias basadas en la guía llamada
 \href{https://google.github.io/styleguide/Rguide.xml}{\textit{Google's R style guide}}.
 
 \section{Nombres de los archivos}\label{nombres-de-los-archivos}
@@ -1533,15 +1524,13 @@ A pesar de la anterior advertencia es posible que en este libro usemos
 el \texttt{;} en algunas ocasiones, si lo hacemos es para ahorrar
 espacio en la presentación del código.
 
-\chapter{\texorpdfstring{Funciones básicas de \proglang{R}
-\label{funbas}}{Funciones básicas de  }}\label{funciones-basicas-de}
+\chapter{Funciones básicas de R}\label{funbas}
 
 En este capítulo se presentará lo que es una función y se mostrarán
 varias funciones básicas que son útiles para realizar diversas tareas.
 
-\section{\texorpdfstring{¿Qué es una función de \proglang{R}?
-\index{función}
-\index{function}}{¿Qué es una función de ?  }}\label{que-es-una-funcion-de}
+\section{\texorpdfstring{¿Qué es una función de R? \index{función}
+\index{function}}{¿Qué es una función de R?  }}\label{que-es-una-funcion-de-r}
 
 En la Figura \ref{fig:machine1} se muestra una ilustración de lo que es
 una función o máquina general. Hay unas entradas (\emph{inputs}) que
@@ -1559,8 +1548,8 @@ fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa.
 \caption{Ilustración de una función, tomada de www.mathinsight.org.}\label{fig:machine1}
 \end{figure}
 
-Las funciones en \proglang{R} se caracterizan por un nombre corto y que
-dé una idea de lo que hace la función. Los elementos que pueden ingresar
+Las funciones en R se caracterizan por un nombre corto y que dé una idea
+de lo que hace la función. Los elementos que pueden ingresar
 (\emph{inputs}) a la función se llaman \textbf{parámetros} y se ubican
 dentro de paréntesis, el cuerpo de la función se ubica dentro de llaves
 y es ahí donde se procesan los \emph{inputs} para convertirlos en
@@ -1598,8 +1587,8 @@ promedio.
 \section{\texorpdfstring{Operadores de asignación
 \index{asignación}}{Operadores de asignación }}\label{operadores-de-asignacion}
 
-En \proglang{R} se pueden hacer asignación de varias formas, a
-continuación se presentan los operadores disponibles para tal fin.
+En R se pueden hacer asignación de varias formas, a continuación se
+presentan los operadores disponibles para tal fin.
 
 \begin{itemize}
 \tightlist
@@ -1641,9 +1630,9 @@ recomienda sólo usar el símbolo \texttt{\textless{}-}.
 \section{\texorpdfstring{Operaciones básicas
 \index{operaciones básicas}}{Operaciones básicas }}\label{operaciones-basicas}
 
-En \proglang{R} se pueden hacer diversas operaciones usando operadores
-binarios. Este tipo de operadores se denomina binarios porque actuan
-entre dos objetos, a continuación el listado.
+En R se pueden hacer diversas operaciones usando operadores binarios.
+Este tipo de operadores se denomina binarios porque actuan entre dos
+objetos, a continuación el listado.
 
 \begin{itemize}
 \tightlist
@@ -1753,8 +1742,8 @@ funciones.
 \section{\texorpdfstring{Pruebas lógicas
 \index{pruebas lógicas}}{Pruebas lógicas }}\label{pruebas-logicas}
 
-En \proglang{R} se puede verificar si un objeto cumple una condición
-dada, a continuación el listado de las pruebas usuales.
+En R se puede verificar si un objeto cumple una condición dada, a
+continuación el listado de las pruebas usuales.
 
 \begin{itemize}
 \tightlist
@@ -1914,9 +1903,9 @@ cumplen con la condición.
 \section{\texorpdfstring{Operadores lógicos
 \index{operadores lógicos}}{Operadores lógicos }}\label{operadores-logicos}
 
-En \proglang{R} están disponibles los operadores lógicos negación,
-conjunción y disyunción. A continuación el listado de los operadores
-entre los elementos \texttt{x} e \texttt{y}.
+En R están disponibles los operadores lógicos negación, conjunción y
+disyunción. A continuación el listado de los operadores entre los
+elementos \texttt{x} e \texttt{y}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2063,8 +2052,8 @@ objeto tiene un nombre largo es aconsejable usar \texttt{with}.
 
 \section{Funciones sobre vectores}\label{funciones-sobre-vectores}
 
-En \proglang{R} podemos destacar las siguientes funciones básicas sobre
-vectores numéricos.
+En R podemos destacar las siguientes funciones básicas sobre vectores
+numéricos.
 
 \index{min} \index{max} \index{legth} \index{range} \index{sum}
 \index{prod} \index{which.min} \index{which.max}
@@ -2346,9 +2335,8 @@ A continuación algunos ejemplos de las anteriores funciones.
 \section{\texorpdfstring{Función \texttt{seq} \index{seq}
 \index{secuencias}}{Función seq  }}\label{funcion-seq}
 
-En \proglang{R} podemos crear secuencias de números de una forma
-sencilla usando la función \texttt{seq}, la estructura de esta función
-es:
+En R podemos crear secuencias de números de una forma sencilla usando la
+función \texttt{seq}, la estructura de esta función es:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2420,8 +2408,8 @@ continuación.
 \end{verbatim}
 
 \BeginKnitrBlock{rmdnote}
-En \proglang{R} existe el operador binario \texttt{:} que sirve para
-construir secuencias de uno en uno fácilmente.
+En R existe el operador binario \texttt{:} que sirve para construir
+secuencias de uno en uno fácilmente.
 \EndKnitrBlock{rmdnote}
 
 Revise los siguientes ejemplos para entender el funcionamiento del
@@ -2470,8 +2458,8 @@ operador \texttt{:}.
 \section{\texorpdfstring{Función \texttt{rep} \index{rep}
 \index{repeticiones}}{Función rep  }}\label{funcion-rep}
 
-En \proglang{R} podemos crear repeticiones usando la función
-\texttt{rep}, la estructura de esta función es:
+En R podemos crear repeticiones usando la función \texttt{rep}, la
+estructura de esta función es:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2782,8 +2770,8 @@ se ordenaran de menor a mayor.
 \section*{EJERCICIOS}\label{ejercicios-1}
 
 
-Use funciones o procedimientos (varias líneas) de \proglang{R} para
-responder cada una de las siguientes preguntas.
+Use funciones o procedimientos (varias líneas) de R para responder cada
+una de las siguientes preguntas.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2847,12 +2835,11 @@ responder cada una de las siguientes preguntas.
   mismos''.
 \end{enumerate}
 
-En \proglang{R} hay unas bases de datos incluídas, una de ellas es la
-base de datos llamada \texttt{mtcars}. Para conocer las variables que
-están en \texttt{mtcars} usted puede escribir en la consola
-\texttt{?mtcars} o también \texttt{help(mtcars)}. De la base
-\texttt{mtcars} obtenga bases de datos que cumplan las siguientes
-condiciones.
+En R hay unas bases de datos incluídas, una de ellas es la base de datos
+llamada \texttt{mtcars}. Para conocer las variables que están en
+\texttt{mtcars} usted puede escribir en la consola \texttt{?mtcars} o
+también \texttt{help(mtcars)}. De la base \texttt{mtcars} obtenga bases
+de datos que cumplan las siguientes condiciones.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2867,12 +2854,11 @@ condiciones.
   Autos que pesen más de 2500 libras y tengan transmisión manual.
 \end{enumerate}
 
-\chapter{\texorpdfstring{Instrucciones de control
-\label{bucles}}{Instrucciones de control }}\label{instrucciones-de-control}
+\chapter{Instrucciones de control}\label{bucles}
 
-En \proglang{R} se disponen de varias instrucciones de control para
-facilitar los procedimientos que un usuario debe realizar. A
-continuación se explican esas instrucciones de control.
+En R se disponen de varias instrucciones de control para facilitar los
+procedimientos que un usuario debe realizar. A continuación se explican
+esas instrucciones de control.
 
 \section{\texorpdfstring{Instrucción \texttt{if}
 \index{if}}{Instrucción if }}\label{instruccion-if}
@@ -2899,9 +2885,9 @@ Una secretaria recibe la información del salario básico semanal de un
 empleado y las horas trabajadas durante la semana por ese empleado. El
 salario básico es la remuneración por 40 horas de labor por semana, las
 horas extra son pagadas a ciencuenta mil pesos. Escriba el procedimiento
-en \proglang{R} que debe usar la secretaria para calcular el salario
-semanal de un empleado que trabajó 45 horas y tiene salario básico de un
-millon de pesos.
+en R que debe usar la secretaria para calcular el salario semanal de un
+empleado que trabajó 45 horas y tiene salario básico de un millon de
+pesos.
 
 El código para calcular el salario final del empleado es el siguiente:
 
@@ -3166,14 +3152,13 @@ La instrucción \texttt{break} sirve para salir de un procedimiento
 iterativo.
 \EndKnitrBlock{rmdtip}
 
-\chapter{\texorpdfstring{Creación de funciones en \proglang{R}
-\label{creafun}}{Creación de funciones en  }}\label{creacion-de-funciones-en}
+\chapter{Creación de funciones en R}\label{creafun}
 
-En este capítulo se explica cómo crear funciones en \proglang{R} para
-realizar tareas específicas.
+En este capítulo se explica cómo crear funciones en R para realizar
+tareas específicas.
 
-\section{\texorpdfstring{Función en \proglang{R}
-\index{función}}{Función en  }}\label{funcion-en}
+\section{\texorpdfstring{Función en R
+\index{función}}{Función en R }}\label{funcion-en-r}
 
 Una función es un conjunto de instrucciones que convierten las entradas
 (\emph{inputs}) en resultados (\emph{outputs}) deseados. En la Figura
@@ -3189,8 +3174,8 @@ máquina general.
 \caption{Ilustración de una función, tomada de www.mathinsight.org}\label{fig:machine2}
 \end{figure}
 
-\section{\texorpdfstring{Partes de una función en \proglang{R}
-\index{partes de función}}{Partes de una función en  }}\label{partes-de-una-funcion-en}
+\section{\texorpdfstring{Partes de una función en R
+\index{partes de función}}{Partes de una función en R }}\label{partes-de-una-funcion-en-r}
 
 Las partes de una función son:
 
@@ -3244,10 +3229,9 @@ la función. La función suma recibe dos parámetros, \texttt{x} representa
 el primer valor ingresado mientras que \texttt{y} representa el segundo.
 El cuerpo de la función está formado por dos líneas, en la primera se
 crea el objeto \texttt{resultado} en el cual se almanacena el valor de
-la suma, en la segunda línea se le indica a \proglang{R} que queremos
-que retorne el valor de la suma almacenada en el objeto
-\texttt{resultado}. A continuación se muestra el código para crear la
-función solicitada.
+la suma, en la segunda línea se le indica a R que queremos que retorne
+el valor de la suma almacenada en el objeto \texttt{resultado}. A
+continuación se muestra el código para crear la función solicitada.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3274,9 +3258,9 @@ continuación el código necesario.
 
 Para funciones simples como la anterior es posible escribirlas en forma
 más compacta. Es posible reducir el cuerpo de la función de 2 líneas a
-sólo una línea solicitándole a \proglang{R} que retorne directamente la
-suma sin almacenarla en ningún objeto. A continuación la función
-\texttt{suma} modificada.
+sólo una línea solicitándole a R que retorne directamente la suma sin
+almacenarla en ningún objeto. A continuación la función \texttt{suma}
+modificada.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3455,7 +3439,7 @@ pantalla. Consulte la ayuda de la función para ver otros ejemplos.
 \section*{EJERCICIOS}\label{ejercicios-2}
 
 
-Construir funciones en \proglang{R} que realicen lo solicitado.
+Construir funciones en R que realicen lo solicitado.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3612,19 +3596,17 @@ ingresa \(a=4\) y \(b=9\) que la función entregue \(a=9\) y \(b=4\).
 \caption{Ilustración del punto medio entre dos puntos, tomada de https://www.slideshare.net/bigpassy/midpoint-between-two-points}\label{fig:midpoint}
 \end{figure}
 
-\chapter{\texorpdfstring{Lectura de bases de datos
-\index{lectura de bases de datos}
-\label{read}}{Lectura de bases de datos  }}\label{lectura-de-bases-de-datos}
+\chapter{Lectura de bases de datos}\label{read}
 
 En este capítulo se mostrará cómo leer una base de datos externa hacia
-\proglang{R}.
+R.
 
 \section{\texorpdfstring{¿En qué formato almacenar una base de datos?
 \index{.csv}
 \index{.txt}}{¿En qué formato almacenar una base de datos?  }}\label{en-que-formato-almacenar-una-base-de-datos}
 
-Usualmente los archivos con la información para ser leídos por
-\proglang{R} se pueden almacenar en formato:
+Usualmente los archivos con la información para ser leídos por R se
+pueden almacenar en formato:
 
 \begin{itemize}
 \tightlist
@@ -3635,10 +3617,9 @@ Usualmente los archivos con la información para ser leídos por
 \end{itemize}
 
 En las secciones siguientes se mostrará cómo almacenar datos en los dos
-formatos para ser leídos en \proglang{R}. En el Cuadro \ref{tab:dt1} se
-presenta una base de datos pequeña, tres observaciones y tres variables,
-que nos servirá como ejemplo para mostrar cómo se debe almacenar la
-información.
+formatos para ser leídos en R. En el Cuadro \ref{tab:dt1} se presenta
+una base de datos pequeña, tres observaciones y tres variables, que nos
+servirá como ejemplo para mostrar cómo se debe almacenar la información.
 
 \begin{table}
 
@@ -3728,8 +3709,8 @@ que la información se vea ordenada.
 \index{read.table}}{Función read.table }}\label{funcion-read.table}
 
 La función \texttt{read.table} se puede usar para leer bases de datos
-hacia \proglang{R}. La estructura de la función con los parámetros más
-comunes de uso es la siguiente.
+hacia R. La estructura de la función con los parámetros más comunes de
+uso es la siguiente.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3775,7 +3756,7 @@ Los argumentos de la función \texttt{read.table} son:
 
 
 Crear la base de datos del Cuadro \ref{tab:dt1} en Excel y bloc de notas
-para practicar la lectura de base de datos desde \proglang{R}.
+para practicar la lectura de base de datos desde R.
 
 Lo primero que se debe hacer para realizar lo solicitado es construir
 tres archivos (uno de Excel y dos bloc de notas) igual a los mostrados
@@ -3800,11 +3781,10 @@ siguiente código.
 
 La dirección
 \texttt{file=\textquotesingle{}C:/Users/Hernandez/Desktop/base1.csv\textquotesingle{}}
-le indica a \proglang{R} en qué lugar del computador debe buscar el
-archivo, note que se debe usar el símbolo \texttt{/} para que sea un
-dirección válida. Substituya la dirección del código anterior con la
-dirección donde se encuentra su archivo para que pueda leer la base de
-datos.
+le indica a R en qué lugar del computador debe buscar el archivo, note
+que se debe usar el símbolo \texttt{/} para que sea un dirección válida.
+Substituya la dirección del código anterior con la dirección donde se
+encuentra su archivo para que pueda leer la base de datos.
 
 Si no se conoce la ubicación del archivo a leer o si la dirección es muy
 extensa, se puede usar \texttt{file.choose()} para que se abra una
@@ -3917,8 +3897,8 @@ para instalar el paquete \textbf{readxl}.
 \end{Shaded}
 
 Una vez instalado el paquete es necesario cargarlo, la función para
-cargar el paquete en la sesión actual de \proglang{R} es
-\texttt{library}. La instrucción para cargar el paquete es la siguiente:
+cargar el paquete en la sesión actual de R es \texttt{library}. La
+instrucción para cargar el paquete es la siguiente:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4026,14 +4006,11 @@ Si & Lectura & 2 & NA\\
   leer la base de datos.
 \end{enumerate}
 
-\chapter{\texorpdfstring{Tablas de frecuencia
-\index{tablas de frecuencia}
-\label{tablas}}{Tablas de frecuencia  }}\label{tablas-de-frecuencia}
+\chapter{Tablas de frecuencia}\label{tablas}
 
-Las tablas de frecuencia son muy utilizadas en estadística y
-\proglang{R} permite crear tablas de una forma sencilla. En este
-capítulo se explican las principales funciones para la elaboración de
-tablas.
+Las tablas de frecuencia son muy utilizadas en estadística y R permite
+crear tablas de una forma sencilla. En este capítulo se explican las
+principales funciones para la elaboración de tablas.
 
 \section{\texorpdfstring{Tabla de contingencia con \texttt{table}
 \index{table}}{Tabla de contingencia con table }}\label{tabla-de-contingencia-con-table}
@@ -4586,8 +4563,8 @@ frecuencia.
 \section*{EJERCICIOS}\label{ejercicios-4}
 
 
-Use funciones o procedimientos (varias líneas) de \proglang{R} para
-responder cada una de las siguientes preguntas.
+Use funciones o procedimientos (varias líneas) de R para responder cada
+una de las siguientes preguntas.
 
 En el Cuadro \ref{tab:toy} se presenta una base de datos sencilla. Lea
 la base de datos usando la funcion \texttt{read.table} y construya lo
@@ -4611,11 +4588,10 @@ que se solicita a continuación.
   ¿Qué porcentaje de los que corren no fuman?
 \end{enumerate}
 
-\chapter{\texorpdfstring{Medidas de tendencia central
-\label{central}}{Medidas de tendencia central }}\label{medidas-de-tendencia-central}
+\chapter{Medidas de tendencia central}\label{central}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de
-tendencia central con \proglang{R}.
+tendencia central con R.
 
 Para ilustrar el uso de las funciones se utilizará una base de datos
 llamada \textbf{medidas del cuerpo}, esta base de datos cuenta con 6
@@ -4882,11 +4858,10 @@ ordenar la tabla usando la función \texttt{sort} de la siguiente manera:
 De esta manera se ve fácilmente que la variable edad es unimodal con
 valor de 25 años.
 
-\chapter{\texorpdfstring{Medidas de variabilidad
-\label{varia}}{Medidas de variabilidad }}\label{medidas-de-variabilidad}
+\chapter{Medidas de variabilidad}\label{varia}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de
-variabilidad con \proglang{R}.
+variabilidad con R.
 
 Para ilustrar el uso de las funciones se utilizará la base de datos
 llamada \textbf{aptos2015}, esta base de datos cuenta con 11 variables
@@ -5259,11 +5234,10 @@ eso se usa el siguiente código.
 ## [1] 0.9274
 \end{verbatim}
 
-\chapter{\texorpdfstring{Medidas de posición
-\label{posi}}{Medidas de posición }}\label{medidas-de-posicion}
+\chapter{Medidas de posición}\label{posi}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de
-posición con \proglang{R}.
+posición con R.
 
 Para ilustrar el uso de las funciones se utilizará una base de datos
 llamada \textbf{medidas del cuerpo}, esta base de datos cuenta con 6
@@ -5353,8 +5327,7 @@ solicitadas es el siguiente.
 ## 155.2 172.7 180.3
 \end{verbatim}
 
-\chapter{\texorpdfstring{Medidas de correlación
-\label{correl}}{Medidas de correlación }}\label{medidas-de-correlacion}
+\chapter{Medidas de correlación}\label{correl}
 
 En este capítulo se mostrará cómo obtener el coeficiente de correlación
 lineal para variables cuantitativas.
@@ -5624,8 +5597,8 @@ usó \texttt{use=\textquotesingle{}complete.obs\textquotesingle{}}.
 \section*{EJERCICIOS}\label{ejercicios-5}
 
 
-Use funciones o procedimientos (varias líneas) de \proglang{R} para
-responder cada una de las siguientes preguntas.
+Use funciones o procedimientos (varias líneas) de R para responder cada
+una de las siguientes preguntas.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -5644,11 +5617,10 @@ responder cada una de las siguientes preguntas.
   ejercicio anterior.
 \end{enumerate}
 
-\chapter{\texorpdfstring{Distribuciones discretas
-\label{discretas}}{Distribuciones discretas }}\label{distribuciones-discretas}
+\chapter{Distribuciones discretas}\label{discretas}
 
-En este capítulo se mostrarán las funciones de \proglang{R} para
-distribuciones discretas.
+En este capítulo se mostrarán las funciones de R para distribuciones
+discretas.
 
 \section{\texorpdfstring{Funciones disponibles para distribuciones
 discretas
@@ -5667,8 +5639,8 @@ listado de funciones y su utilidad.
 \end{Shaded}
 
 En el lugar de las letras \texttt{xxx} se de debe colocar el nombre de
-la distribución en \proglang{R}, a continuación el listado de nombres
-disponibles para las 6 distribuciones discretas básicas.
+la distribución en R, a continuación el listado de nombres disponibles
+para las 6 distribuciones discretas básicas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6096,8 +6068,8 @@ generales}\label{distribuciones-discretas-generales}
 En la práctica nos podemos encontramos con variables aleatorias
 discretas que no se ajustan a una de las distribuciones mostradas
 anteriormente, en esos casos, es posible manejar ese tipo de variables
-por medio de unas funciones básicas de \proglang{R} como se muestra en
-el siguiente ejemplo.
+por medio de unas funciones básicas de R como se muestra en el siguiente
+ejemplo.
 
 \subsection*{Ejemplo}\label{ejemplo-47}
 
@@ -6307,11 +6279,10 @@ es decir, \(F_1(x) \geq F_2(x)\), indica que las hembras del grupo 1
 tienden a tener menos satélites que las del grupo 2, esto es coherente
 ya que las del grupo 2 son más grandes en su caparazón.
 
-\chapter{\texorpdfstring{Distribuciones continuas
-\label{continuas}}{Distribuciones continuas }}\label{distribuciones-continuas}
+\chapter{Distribuciones continuas}\label{continuas}
 
-En este capítulo se mostrarán las funciones de \proglang{R} para
-distribuciones continuas.
+En este capítulo se mostrarán las funciones de R para distribuciones
+continuas.
 
 \section{Funciones disponibles para distribuciones
 continuas}\label{funciones-disponibles-para-distribuciones-continuas}
@@ -6329,8 +6300,8 @@ listado de las funciones y su utilidad.
 \end{Shaded}
 
 En el lugar de las letras \texttt{xxx} se de debe colocar el nombre de
-la distribución en \proglang{R}, a continuación el listado de nombres
-disponibles para las 11 distribuciones continuas básicas.
+la distribución en R, a continuación el listado de nombres disponibles
+para las 11 distribuciones continuas básicas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6685,8 +6656,8 @@ generales}\label{distribuciones-continuas-generales}
 En la práctica nos podemos encontramos con variables aleatorias
 continuas que no se ajustan a una de las distribuciones mostradas
 anteriormente, en esos casos, es posible manejar ese tipo de variables
-por medio de unas funciones básicas de \proglang{R} como se muestra en
-el siguiente ejemplo.
+por medio de unas funciones básicas de R como se muestra en el siguiente
+ejemplo.
 
 \subsection*{Ejemplo}\label{ejemplo-48}
 
@@ -6864,8 +6835,7 @@ Para aprender más sobre el paquete \textbf{ggplot2} se recomienda
 consultar este
 \href{http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html}{enlace}.
 
-\chapter{\texorpdfstring{Verosimilitud
-\label{loglik}}{Verosimilitud }}\label{verosimilitud}
+\chapter{Verosimilitud}\label{loglik}
 
 En este capítulo se mostrará como usar \proglang{R} para obtener la
 función de log-verosimilitud y estimadores por el método de máxima
@@ -7119,8 +7089,13 @@ para hacerlo es el siguiente.
 \begin{Highlighting}[]
 \KeywordTok{set.seed}\NormalTok{(}\DecValTok{1235}\NormalTok{)  }\CommentTok{# La semilla es 1235}
 \NormalTok{y <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{50}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{170}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{5}\NormalTok{)}
+\NormalTok{y[}\DecValTok{1}\OperatorTok{:}\DecValTok{7}\NormalTok{]  }\CommentTok{# Para ver los primeros siete valores generados}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## [1] 166.5 163.6 174.9 170.6 170.6 178.5 170.2
+\end{verbatim}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -7939,12 +7914,10 @@ x_2 &\sim Poisson(\lambda=3)
   problema.
 \end{itemize}
 
-\chapter{\texorpdfstring{Estudiando la normalidad
-\label{normalidad}}{Estudiando la normalidad }}\label{estudiando-la-normalidad}
+\chapter{Estudiando la normalidad}\label{normalidad}
 
-En este capítulo se mostrará cómo utilizar las herramientas de
-\proglang{R} para estudiar la normalidad univariada de un conjunto de
-datos.
+En este capítulo se mostrará cómo utilizar las herramientas de R para
+estudiar la normalidad univariada de un conjunto de datos.
 
 \section{Consideraciones iniciales}\label{consideraciones-iniciales}
 
@@ -8600,10 +8573,10 @@ no provienen de una población normal.
   por hombres y mujeres, tiene una distribución normal.
 \end{enumerate}
 
-\chapter{Intervalos de confianza}\label{intervalos-de-confianza}
+\chapter{Intervalos de confianza}\label{ic}
 
-En este capítulo se muestran las funciones que hay disponibles en
-\proglang{R} para construir intervalos de confianza para:
+En este capítulo se muestran las funciones que hay disponibles en R para
+construir intervalos de confianza para:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -9043,7 +9016,7 @@ función \texttt{Var.test} del paquete \textbf{usefultools}
 \href{https://github.com/}{GitHub}.
 
 Para instalar el paquete \textbf{usefultools} desde GitHub se debe
-copiar el siguiente código en la consola de \proglang{R}:
+copiar el siguiente código en la consola de R:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9272,11 +9245,10 @@ confianza del \(90\%\), que la diferencia de proporción de defectos
 está dentro del intervalo se concluye que el cambio en el método de
 fabricación no ha disminuído el porcentaje de defectos.
 
-\chapter{\texorpdfstring{Prueba de hipótesis
-\index{prueba de hipótesis}}{Prueba de hipótesis }}\label{prueba-de-hipotesis}
+\chapter{Prueba de hipótesis}\label{ph}
 
-En este capítulo se muestran las funciones que hay disponibles en
-\proglang{R} para realizar prueba de hipótesis para:
+En este capítulo se muestran las funciones que hay disponibles en R para
+realizar prueba de hipótesis para:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -9428,10 +9400,10 @@ significancia del 3\%.
 En este problema interesa:
 
 \[H_0: \mu \ge 20000 \quad km\] \[H_1: \mu < 20000 \quad km\] Para este
-tipo de pruebas no hay una función de \proglang{R} que haga los
-cálculos, por esta razón uno mismo debe escribir una líneas de código
-para obtener los resultados deseados, a continuación las instrucciones
-para calcular el estadístico y su valor-P.
+tipo de pruebas no hay una función de R que haga los cálculos, por esta
+razón uno mismo debe escribir una líneas de código para obtener los
+resultados deseados, a continuación las instrucciones para calcular el
+estadístico y su valor-P.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9496,10 +9468,10 @@ es la proporción muestral calculada como el cociente entre el número de
 referencia de las hipótesis. El estadístico \(z\) tiene distribución
 \(N(0, 1)\) cuando \(n \to \infty\).
 
-Para realizar esta prueba en \proglang{R} no hay una función y debemos
-escribir la líneas de código para obtener el estadístico y el valor-P de
-la prueba. A continuación se muestra un ejemplo de cómo proceder para
-aplicar la prueba de Wald.
+Para realizar esta prueba en R no hay una función y debemos escribir la
+líneas de código para obtener el estadístico y el valor-P de la prueba.
+A continuación se muestra un ejemplo de cómo proceder para aplicar la
+prueba de Wald.
 
 \subsection*{Ejemplo}\label{ejemplo-64}
 
@@ -9748,7 +9720,7 @@ prueba son:
 \end{itemize}
 
 Para instalar el paquete \textbf{usefultools} desde GitHub se debe
-copiar el siguiente código en la consola de \proglang{R}:
+copiar el siguiente código en la consola de R:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10430,8 +10402,7 @@ De la prueba se obtiene un valor-P pequeño, por lo tanto, podemos
 concluir que el peso \(\mu_{antes}\) es mayor que \(\mu_{despues}\), en
 otras palabras, la dieta si ayudó a disminuir el peso corporal.
 
-\chapter{\texorpdfstring{Aproximación de integrales
-\label{aproxint}}{Aproximación de integrales }}\label{aproximacion-de-integrales}
+\chapter{Aproximación de integrales}\label{aproxint}
 
 En este capítulo se mostrará cómo aproximar integrales en una y varias
 dimensiones.
@@ -10549,23 +10520,22 @@ integral usando la función \texttt{integrate}, a continuación el código.
 
 De los anteriores resultados vemos que la aproximación es buena.
 
-\chapter{\texorpdfstring{Curiosidades
-\label{curio}}{Curiosidades }}\label{curiosidades}
+\chapter{Curiosidades}\label{curio}
 
-En este capítulo se mostrarán algunos procedimientos de \proglang{R}
-para solucionar problemas frecuentes.
+En este capítulo se mostrarán algunos procedimientos de R para
+solucionar problemas frecuentes.
 
 \section{¿Cómo verificar si un paquete no está instalado para instalarlo
 de forma
 automática?}\label{como-verificar-si-un-paquete-no-esta-instalado-para-instalarlo-de-forma-automatica}
 
-Muchas veces compartimos código de \proglang{R} con otros colegas y si
-ellos no tienen instalados ciertos paquetes el código no funcionará.
-Para evitar ese problema podemos colocar al inicio del código unas
-líneas que chequeen si ciertos paquetes están instalados o no, si están
-instalados, se cargan esos paquetes y caso contrario, el código instala
-los paquetes y luego los carga, todo de forma automática sin que el
-usuario tenga que identificar los paquetes que le faltan.
+Muchas veces compartimos código de R con otros colegas y si ellos no
+tienen instalados ciertos paquetes el código no funcionará. Para evitar
+ese problema podemos colocar al inicio del código unas líneas que
+chequeen si ciertos paquetes están instalados o no, si están instalados,
+se cargan esos paquetes y caso contrario, el código instala los paquetes
+y luego los carga, todo de forma automática sin que el usuario tenga que
+identificar los paquetes que le faltan.
 
 \subsection*{Ejemplo}\label{ejemplo-75}
 

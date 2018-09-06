@@ -1,6 +1,6 @@
-# Instrucciones de control \label{bucles}
+# Instrucciones de control {#bucles}
 
-En \proglang{R} se disponen de varias instrucciones de control para facilitar los procedimientos que un usuario debe realizar. A continuación se explican esas instrucciones de control.
+En R se disponen de varias instrucciones de control para facilitar los procedimientos que un usuario debe realizar. A continuación se explican esas instrucciones de control.
 
 ## Instrucción `if` \index{if}
 Esta instrucción sirve para realizar un conjunto de operaciones __si__ se cumple cierta condición. A continuación se muestra la estructura básica de uso.
@@ -15,7 +15,7 @@ if (condicion) {
 ```
 
 ### Ejemplo {-}
-Una secretaria recibe la información del salario básico semanal de un empleado y las horas trabajadas durante la semana por ese empleado. El salario básico es la remuneración por 40 horas de labor por semana, las horas extra son pagadas a ciencuenta mil pesos. Escriba el procedimiento en \proglang{R} que debe usar la secretaria para calcular el salario semanal de un empleado que trabajó 45 horas y tiene salario básico de un millon de pesos.
+Una secretaria recibe la información del salario básico semanal de un empleado y las horas trabajadas durante la semana por ese empleado. El salario básico es la remuneración por 40 horas de labor por semana, las horas extra son pagadas a ciencuenta mil pesos. Escriba el procedimiento en R que debe usar la secretaria para calcular el salario semanal de un empleado que trabajó 45 horas y tiene salario básico de un millon de pesos.
 
 El código para calcular el salario final del empleado es el siguiente:
 ```{r}

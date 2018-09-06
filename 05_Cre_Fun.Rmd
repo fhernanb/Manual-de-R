@@ -1,15 +1,15 @@
-# Creación de funciones en \proglang{R} \label{creafun}
+# Creación de funciones en R {#creafun}
 
-En este capítulo se explica cómo crear funciones en \proglang{R} para realizar tareas específicas.
+En este capítulo se explica cómo crear funciones en R para realizar tareas específicas.
 
-## Función en \proglang{R} \index{función}
+## Función en R \index{función}
 Una función es un conjunto de instrucciones que convierten las entradas (_inputs_) en resultados (_outputs_) deseados. En la Figura \@ref(fig:machine2) se muestra una ilustración de lo que es una función o máquina general.
 
 ```{r machine2, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org', dpi=250, fig.align='center'}
 knitr::include_graphics("images/function_machine.png")
 ```
 
-## Partes de una función en \proglang{R} \index{partes de función}
+## Partes de una función en R \index{partes de función}
 Las partes de una función son:
 
 - Entradas: o llamadas también __argumentos__, sirven para ingresar información necesaria para realizar el procedimiento de la función. Los argumentos pueden estar vacíos y a la espera de que el usuario ingrese valores, o pueden tener valores por defecto, esto significa que si el usuario no ingresa una valor al función usará el valor por defecto. Una función puede tener o no argumentos de entrada, en los ejemplos se mostrarán estos casos.
@@ -32,7 +32,7 @@ A continuación se mostrarán varios ejemplos __sencillos__ para que el lector a
 ### Ejemplo {-}
 Construir una función que reciba dos números y que entregue la suma de estos números.
 
-Lo primero es elegir un nombre apropiado para la función, aquí se usó el nombre `suma` porque así se tiene una idea clara de lo que hace la función. La función suma recibe dos parámetros, `x` representa el primer valor ingresado mientras que `y` representa el segundo. El cuerpo de la función está formado por dos líneas, en la primera se crea el objeto `resultado` en el cual se almanacena el valor de la suma, en la segunda línea se le indica a \proglang{R} que queremos que retorne el valor de la suma almacenada en el objeto `resultado`. A continuación se muestra el código para crear la función solicitada.
+Lo primero es elegir un nombre apropiado para la función, aquí se usó el nombre `suma` porque así se tiene una idea clara de lo que hace la función. La función suma recibe dos parámetros, `x` representa el primer valor ingresado mientras que `y` representa el segundo. El cuerpo de la función está formado por dos líneas, en la primera se crea el objeto `resultado` en el cual se almanacena el valor de la suma, en la segunda línea se le indica a R que queremos que retorne el valor de la suma almacenada en el objeto `resultado`. A continuación se muestra el código para crear la función solicitada.
 
 ```{r}
 suma <- function(x, y) {
@@ -47,7 +47,7 @@ Para usar la función creada sólo se debe ejecutar, vamos a obtener la suma de 
 suma(x=4, y=6)
 ```
 
-Para funciones simples como la anterior es posible escribirlas en forma más compacta. Es posible reducir el cuerpo de la función de 2 líneas a sólo una línea solicitándole a \proglang{R} que retorne directamente la suma sin almacenarla en ningún objeto. A continuación la función `suma` modificada.
+Para funciones simples como la anterior es posible escribirlas en forma más compacta. Es posible reducir el cuerpo de la función de 2 líneas a sólo una línea solicitándole a R que retorne directamente la suma sin almacenarla en ningún objeto. A continuación la función `suma` modificada.
 
 ```{r}
 suma <- function(x, y) {
@@ -135,7 +135,7 @@ La función `cat` es muy útil para presentar resultados por pantalla. Consulte 
 ```
 
 ## EJERCICIOS {-}
-Construir funciones en \proglang{R} que realicen lo solicitado.
+Construir funciones en R que realicen lo solicitado.
 
 1. Construya una función que reciba dos números reales `a` y `b`, la función debe decir cuál es el mayor de ellos.
 

@@ -1,4 +1,4 @@
-# Verosimilitud \label{loglik}
+# Verosimilitud {#loglik}
 
 En este capítulo se mostrará como usar \proglang{R} para obtener la función de log-verosimilitud y estimadores por el método de máxima verosimilitud.
 
@@ -115,6 +115,7 @@ La muestra se va a generar con la función `rnorm` pero antes se fijará una sem
 ```{r}
 set.seed(1235)  # La semilla es 1235
 y <- rnorm(n=50, mean=170, sd=5)
+y[1:7]  # Para ver los primeros siete valores generados
 ```
 
 1) Construya la función de log-verosimilitud para los parámetros de la normal dada la muestra aleatoria `y`.

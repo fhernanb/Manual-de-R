@@ -1,6 +1,6 @@
-# Medidas de variabilidad \label{varia}
+# Medidas de variabilidad {#varia}
 
-En este capítulo se mostrará cómo obtener las diferentes medidas de variabilidad con \proglang{R}.
+En este capítulo se mostrará cómo obtener las diferentes medidas de variabilidad con R.
 
 Para ilustrar el uso de las funciones se utilizará la base de datos llamada __aptos2015__, esta base de datos cuenta con 11 variables registradas a apartamentos usados en la ciudad de Medellín. Las variables de la base de datos son: 
 

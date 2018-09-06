@@ -1,6 +1,6 @@
-# Distribuciones discretas \label{discretas}
+# Distribuciones discretas {#discretas}
 
-En este capítulo se mostrarán las funciones de \proglang{R} para distribuciones discretas.
+En este capítulo se mostrarán las funciones de R para distribuciones discretas.
 
 ## Funciones disponibles para distribuciones discretas \index{distribucionecs discretas}
 Para cada distribución discreta se tienen 4 funciones, a continuación el listado de funciones y su utilidad.
@@ -12,7 +12,7 @@ qxxx(p, ...)  # Cuantil para el cual P(X <= q) = p
 rxxx(n, ...)  # Generador de números aleatorios.
 ```
 
-En el lugar de las letras `xxx` se de debe colocar el nombre de la distribución en \proglang{R}, a continuación el listado de nombres disponibles para las 6 distribuciones discretas básicas.
+En el lugar de las letras `xxx` se de debe colocar el nombre de la distribución en R, a continuación el listado de nombres disponibles para las 6 distribuciones discretas básicas.
 
 ```{r, eval=F}
 binom     # Binomial
@@ -178,7 +178,7 @@ dpois(x=0, lambda=0.2)
 Así $P(X=0)=0.8187$.
 
 ## Distribuciones discretas generales
-En la práctica nos podemos encontramos con variables aleatorias discretas que no se ajustan a una de las distribuciones mostradas anteriormente, en esos casos, es posible manejar ese tipo de variables por medio de unas funciones básicas de \proglang{R} como se muestra en el siguiente ejemplo.
+En la práctica nos podemos encontramos con variables aleatorias discretas que no se ajustan a una de las distribuciones mostradas anteriormente, en esos casos, es posible manejar ese tipo de variables por medio de unas funciones básicas de R como se muestra en el siguiente ejemplo.
 
 ### Ejemplo {-}
 El cangrejo de herradura hembra se caracteriza porque su caparazón se adhieren los machos de la misma especie, en la Figura \@ref(fig:crab) se muestra una fotografía de este cangrejo. Los investigadores están interesado en determinar cual es el patrón de variación del número de machos sobre cada hembra, para esto, se recolectó una muestra de hembras a las cuales se les observó el color, la condición de la espina, el peso en kilogramos, el ancho del caparazón en centímetros y el número de satélites o machos sobre el caparazón, la base de datos está disponible en el siguiente [enlace](https://raw.githubusercontent.com/fhernanb/datos/master/crab). \label{crabs}

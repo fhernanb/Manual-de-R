@@ -1,7 +1,7 @@
 
-# Medidas de tendencia central \label{central}
+# Medidas de tendencia central {#central}
 
-En este capítulo se mostrará cómo obtener las diferentes medidas de tendencia central con \proglang{R}.
+En este capítulo se mostrará cómo obtener las diferentes medidas de tendencia central con R.
 
 Para ilustrar el uso de las funciones se utilizará una base de datos llamada __medidas del cuerpo__, esta base de datos cuenta con 6 variables registradas a un grupo de 36 estudiantes de la universidad. Las variables son: 
 
