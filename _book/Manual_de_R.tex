@@ -6837,11 +6837,23 @@ consultar este
 
 \chapter{Verosimilitud}\label{loglik}
 
-En este capítulo se mostrará como usar \proglang{R} para obtener la
-función de log-verosimilitud y estimadores por el método de máxima
-verosimilitud.
+En este capítulo se mostrará como usar R para obtener la función de
+log-verosimilitud y estimadores por el método de máxima verosimilitud.
 
 \section{Función de verosimilitud}\label{funcion-de-verosimilitud}
+
+El concepto de verosimilitud fue propuesto por \citet{Fisher22} en el
+contexto de estimación de parámetros. En la Figura \ref{fig:fisher} se
+muestra una fotografía de Ronald Aylmer Fisher.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\linewidth]{images/Fisher} 
+
+}
+
+\caption{Fotografía de Ronald Aylmer Fisher (1890-1962).}\label{fig:fisher}
+\end{figure}
 
 La función de verosimilitud para un vector de parámetros
 \(\boldsymbol{\Theta}\) dada una muestra aleatoria \(\boldsymbol{x}\)
@@ -7195,11 +7207,11 @@ decir, los valores que maximizan la función de log-verosimilitud.
 \end{verbatim}
 
 De la salida anterior podemos observar que los valores óptimos de
-\(\mu\) y \(\sigma\) son 170.338 y 5.424 respectivamente, esto coincide
-con lo observado en la \ref{fig:loglik2} y con los valores reales de
-simulación de la muestra. Esto indica que el procedimiento de estimación
-de parámetros por máxima verosimilitud entrega valores insesgados de los
-parámetros a estimar.
+\(\mu\) y \(\sigma\) son 170.338 y 5.424 respectivamente, resultado que
+coincide con lo observado en la Figura \ref{fig:loglik2} y con los
+valores reales de simulación de la muestra. Esto indica que el
+procedimiento de estimación de parámetros por máxima verosimilitud
+entrega valores insesgados de los parámetros a estimar.
 
 Un resultado interesante de la salida anterior es que se reporta el
 valor mínimo que alcanza la función \texttt{minusll}, este valor fue de
@@ -7452,13 +7464,14 @@ Modelos anidados pueden ser comparados por medio del \emph{global
 deviance} (\(GD\)) dado por \(GD=-2 \, \hat{l}\) y modelos no anidados
 por medio del \emph{Generalized Akaike information criterion} (\(GAIC\))
 propuesto por \citet{Akaike83} y dado por
-\(GAIC=-2 \, \hat{l} + \# \, df\) siendo \(\#\) el valor de penalidad
-por cada parámetro adicional en el modelo; cuando \(\# = 2\), el
-\(GAIC\) coincide con el \(AIC\) y el \emph{Schwarz Bayesian criterion}
-(\(SBC\)) propuesto por \citet{Schwarz} se dá cuando el valor de
-penalidad es \(\# = \log(n)\) donde \(n\) es el número de observaciones
-del modelo; siempre el modelo elegido es aquel modelo con el menor valor
-de cualquiera de los criterios de información anteriores.
+\(GAIC=-2 \, \hat{l} + \sharp \, df\) siendo \(\sharp\) el valor de
+penalidad por cada parámetro adicional en el modelo; cuando
+\(\sharp = 2\), el \(GAIC\) coincide con el \(AIC\) y el \emph{Schwarz
+Bayesian criterion} (\(SBC\)) propuesto por \citet{Schwarz} se dá cuando
+el valor de penalidad es \(\sharp = \log(n)\) donde \(n\) es el número
+de observaciones del modelo; siempre el modelo elegido es aquel modelo
+con el menor valor de cualquiera de los criterios de información
+anteriores.
 \EndKnitrBlock{rmdnote}
 
 \subsection*{Ejemplo}\label{ejemplo-52}
@@ -7642,6 +7655,41 @@ En la Figura \ref{fig:histDist1} se presenta el histograma para muestra
 aleatoria y la densidad de la gamma que mejor explica estos datos. Se
 observa claramente que la curva de densidad azul acompaña el patrón de
 los datos.
+
+\section{Score e Información de
+Fisher}\label{score-e-informacion-de-fisher}
+
+En esta sección se explican los conceptos y utilidad de la función Score
+y la Información de Fisher.
+
+\subsection{Score e Información de Fisher en el caso
+univariado.}\label{score-e-informacion-de-fisher-en-el-caso-univariado.}
+
+La función Score denotada por \(S(\theta)\) se define como la primera
+derivada de la función de log-verosimilitud así:
+
+\[
+S(\theta) \equiv \frac{\partial}{\partial \theta} l(\theta)
+\]
+
+y el estimador de máxima verosimilitud \(\hat{\theta}\) se encuentra
+solucionando la igualdad
+
+\[
+S(\theta) = 0
+\]
+
+En el valor máximo \(\hat{\theta}\) la curva \(l(\theta)\) es cóncava
+hacia abajo y por lo tanto la segunda derivada es negativa, así la
+curvatura \(I(\theta)\) se define como
+
+\[
+I(\theta) \equiv - \frac{\partial^2}{\partial \theta^2} l(\theta)
+\]
+
+Una curvatura grande \(I(\hat{\theta})\) está asociada con un gran pico
+en la función de log-verosimilitud y eso significa una menor
+incertidumbre sobre el parámetro \(\theta\) \citep{pawitan_2013}.
 
 \section{Método de máxima verosimilitud para estimar parámetros en
 modelos de

@@ -1,8 +1,14 @@
 # Verosimilitud {#loglik}
 
-En este capítulo se mostrará como usar \proglang{R} para obtener la función de log-verosimilitud y estimadores por el método de máxima verosimilitud.
+En este capítulo se mostrará como usar R para obtener la función de log-verosimilitud y estimadores por el método de máxima verosimilitud.
 
 ## Función de verosimilitud
+El concepto de verosimilitud fue propuesto por @Fisher22 en el contexto de estimación de parámetros. En la Figura \@ref(fig:fisher) se muestra una fotografía de Ronald Aylmer Fisher.
+
+```{r fisher, echo=FALSE, fig.cap='Fotografía de Ronald Aylmer Fisher (1890-1962).', dpi=400, fig.align='center', out.width = '40%'}
+knitr::include_graphics("images/Fisher.png")
+```
+
 La función de verosimilitud para un vector de parámetros $\boldsymbol{\Theta}$ dada una muestra aleatoria $\boldsymbol{x}$ con una distribución asumida se define como:
 
 \begin{equation}
@@ -157,7 +163,7 @@ nlminb(objective=minusll, start=c(163, 3.4),
        lower=c(160, 3), upper=c(180, 7))
 ```
 
-De la salida anterior podemos observar que los valores óptimos de $\mu$ y $\sigma$ son  170.338 y 5.424 respectivamente, esto coincide con lo observado en la \@ref(fig:loglik2) y con los valores reales de simulación de la muestra. Esto indica que el procedimiento de estimación de parámetros por máxima verosimilitud entrega valores insesgados de los parámetros a estimar.
+De la salida anterior podemos observar que los valores óptimos de $\mu$ y $\sigma$ son  170.338 y 5.424 respectivamente, resultado que coincide con lo observado en la Figura \@ref(fig:loglik2) y con los valores reales de simulación de la muestra. Esto indica que el procedimiento de estimación de parámetros por máxima verosimilitud entrega valores insesgados de los parámetros a estimar.
 
 Un resultado interesante de la salida anterior es que se reporta el valor mínimo que alcanza la función `minusll`, este valor fue de  155.5, por lo tanto, se puede afirmar que el valor máximo de log-verosimilitud es -155.5.
 
@@ -255,7 +261,7 @@ En este ejemplo se eligió la mejor distribución entre dos candidatas usando un
 De los resultados anteriores se concluye que entre los dos modelos, el mejor es el gamma porque su $AIC=466$ es el menor de toos los $AIC$.
 
 ```{block2, type='rmdnote'}
-Modelos anidados pueden ser comparados por medio del _global deviance_ ($GD$) dado por $GD=-2 \, \hat{l}$ y modelos no anidados por medio del _Generalized Akaike information criterion_ ($GAIC$) propuesto por @Akaike83 y dado por $GAIC=-2 \, \hat{l} + \# \, df$ siendo $\#$ el valor de penalidad por cada parámetro adicional en el modelo; cuando $\# = 2$, el $GAIC$ coincide con el $AIC$ y el _Schwarz Bayesian criterion_ ($SBC$) propuesto por @Schwarz se dá cuando el valor de penalidad es $\# = \log(n)$ donde $n$ es el número de observaciones del modelo; siempre el modelo elegido es aquel modelo con el menor valor de cualquiera de los criterios de información anteriores.
+Modelos anidados pueden ser comparados por medio del _global deviance_ ($GD$) dado por $GD=-2 \, \hat{l}$ y modelos no anidados por medio del _Generalized Akaike information criterion_ ($GAIC$) propuesto por @Akaike83 y dado por $GAIC=-2 \, \hat{l} + \sharp \, df$ siendo $\sharp$ el valor de penalidad por cada parámetro adicional en el modelo; cuando $\sharp = 2$, el $GAIC$ coincide con el $AIC$ y el _Schwarz Bayesian criterion_ ($SBC$) propuesto por @Schwarz se dá cuando el valor de penalidad es $\sharp = \log(n)$ donde $n$ es el número de observaciones del modelo; siempre el modelo elegido es aquel modelo con el menor valor de cualquiera de los criterios de información anteriores.
 ```
 
 ### Ejemplo {-}
@@ -313,6 +319,30 @@ histDist(y=ma, family=GA, main='', xlab='x', ylab='Densidad',
 ```
 
 En la Figura \@ref(fig:histDist1) se presenta el histograma para muestra aleatoria y la densidad de la gamma que mejor explica estos datos. Se observa claramente que la curva de densidad azul acompaña el patrón de los datos.
+
+## Score e Información de Fisher
+En esta sección se explican los conceptos y utilidad de la función Score y la Información de Fisher.
+
+### Score e Información de Fisher en el caso univariado.
+La función Score denotada por $S(\theta)$ se define como la primera derivada de la función de log-verosimilitud así:
+
+$$
+S(\theta) \equiv \frac{\partial}{\partial \theta} l(\theta)
+$$
+
+y el estimador de máxima verosimilitud $\hat{\theta}$ se encuentra solucionando la igualdad
+
+$$
+S(\theta) = 0
+$$
+
+En el valor máximo $\hat{\theta}$ la curva $l(\theta)$ es cóncava hacia abajo y por lo tanto la segunda derivada es negativa, así la curvatura $I(\theta)$ se define como 
+
+$$
+I(\theta) \equiv - \frac{\partial^2}{\partial \theta^2} l(\theta)
+$$
+
+Una curvatura grande $I(\hat{\theta})$ está asociada con un gran pico en la función de log-verosimilitud y eso significa una menor incertidumbre sobre el parámetro $\theta$ [@pawitan_2013].
 
 ## Método de máxima verosimilitud para estimar parámetros en modelos de regresión
 En la sección anterior se estudió cómo estimar los parámetros de una distribución, en este capítulo se aprenderá a estimar los parámetros de un modelo de regresión general.
