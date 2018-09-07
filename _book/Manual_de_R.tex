@@ -230,7 +230,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2018-09-06}
+\date{2018-09-07}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -6855,9 +6855,18 @@ muestra una fotografía de Ronald Aylmer Fisher.
 \caption{Fotografía de Ronald Aylmer Fisher (1890-1962).}\label{fig:fisher}
 \end{figure}
 
+\BeginKnitrBlock{rmdnote}
+Asumiendo un modelo estadístico parametrizado por una cantidad fija y
+desconocida \(\theta\), la verosimilitud \(L(\theta)\) es la
+probabilidad de los datos observados \(x\) como una función de
+\(\theta\) \citep{pawitan_2013}. Si la variable de interés es discreta
+se usa la probabilidad y si es continua se usa la densidad para obtener
+la verosimilitud.
+\EndKnitrBlock{rmdnote}
+
 La función de verosimilitud para un vector de parámetros
 \(\boldsymbol{\Theta}\) dada una muestra aleatoria \(\boldsymbol{x}\)
-con una distribución asumida se define como:
+con una distribución asumida se define usualmente como:
 
 \begin{equation}
 L(\boldsymbol{\Theta} | \boldsymbol{x}) = \prod_{i=1}^{n}  f(x_i | \boldsymbol{\Theta}),
@@ -7689,7 +7698,11 @@ I(\theta) \equiv - \frac{\partial^2}{\partial \theta^2} l(\theta)
 
 Una curvatura grande \(I(\hat{\theta})\) está asociada con un gran pico
 en la función de log-verosimilitud y eso significa una menor
-incertidumbre sobre el parámetro \(\theta\) \citep{pawitan_2013}.
+incertidumbre sobre el parámetro \(\theta\) \citep{pawitan_2013}. En
+particular la varianza del estimador de máxima verosimilitud está dada
+por
+
+\[Var(\hat{\theta})=I^{-1}(\hat{\theta})\]
 
 \subsection*{Ejemplo}\label{ejemplo-53}
 
