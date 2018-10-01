@@ -1,6 +1,6 @@
 # Creación de funciones en R {#creafun}
 
-En este capítulo se explica cómo crear funciones en R para realizar tareas específicas.
+En este capítulo se explica cómo crear funciones en R.
 
 ## Función en R \index{función}
 Una función es un conjunto de instrucciones que convierten las entradas (_inputs_) en resultados (_outputs_) deseados. En la Figura \@ref(fig:machine2) se muestra una ilustración de lo que es una función o máquina general.
