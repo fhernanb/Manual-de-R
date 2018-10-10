@@ -15,7 +15,7 @@ lof: yes
 site: bookdown::bookdown_site
 description: "This is an R manual."
 github-repo: yihui/bookdown-crc
-cover-image: images/portada.png
+cover-image: "images/portada.png"
 ---
 
 ```{r setup, include=FALSE}
