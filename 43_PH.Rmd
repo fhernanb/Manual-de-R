@@ -214,14 +214,14 @@ binom.test(x=17, n=20, p=0.9, alternative="less")
 Como el valor-P (reportado como 0.3 pero con valor de 0.3231) es mayor que $\alpha$ no se rechaza la hipótesis nula y se concluye que no hay evidencias suficientes para rechazar la hipótesis nula.
 
 ## Prueba de hipótesis para la varianza $\sigma^2$ de una población normal
-Para realizar este tipo de prueba se usa la función `Var.test` del paquete **usefultools** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/). La función `Var.test` tiene la siguiente estructura.
+Para realizar este tipo de prueba se usa la función `var.test` del paquete **usefultools** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/). La función `var.test` tiene la siguiente estructura.
 
 ```{r, eval=FALSE}
-Var.test(x, alternative = "two.sided",
+var.test(x, alternative = "two.sided",
          null.value = 1, conf.level = 0.95)
 ```
 
-Los argumentos a definir dentro de `Var.test` para hacer la prueba son:
+Los argumentos a definir dentro de `var.test` para hacer la prueba son:
 
 - `x`: vector numérico con los datos.
 - `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
@@ -246,14 +246,14 @@ En este ejemplo nos interesa estudiar el siguiente conjunto de hipótesis
 
 $$H_0: \sigma^2 \leq 40$$
 $$H_1: \sigma^2 > 40$$
-La prueba de hipótesis se puede realizar usando la función `Var.test` por medio del siguiente código.
+La prueba de hipótesis se puede realizar usando la función `var.test` por medio del siguiente código.
 
 ```{r}
 contenido <- c(510, 492, 494, 498, 492,
                496, 502, 491, 507, 496)
 
 require(usefultools)  # Ya debe estar instalado
-Var.test(x=contenido, alternative='greater',
+var.test(x=contenido, alternative='greater',
          null.value=40, conf.level=0.95)
 ```
 
@@ -261,21 +261,8 @@ Como el valor-P es mayor que el nivel de significancia 5%, no se rechaza la hip�
 
 
 ## Prueba de hipótesis para el cociente de varianzas $\sigma_1^2 / \sigma_2^2$
-Para realizar este tipo de prueba se puede usar la función `var.test` que tiene la siguiente estructura.
+Para realizar este tipo de prueba se puede usar la función `var.test`.
 
-```{r, eval=FALSE}
-var.test(x, y, ratio = 1,
-         alternative = c("two.sided", "less", "greater"),
-         conf.level = 0.95, ...)
-```
-
-Los argumentos a definir dentro de `var.test` para hacer la prueba son:
-
-- `x`: vector numérico con la información de la muestra 1,
-- `y`: vector numérico con la información de la muestra 2,
-- `ratio`: valor de referencia de la prueba.
-- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la hipótesis alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
-- `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
 ### Ejemplo {-}
 Se realiza un estudio para comparar dos tratamientos que se aplicarán a frijoles crudos con el objetivo de reducir el tiempo de cocción.  El tratamiento T1 es a base de bicarbonato de sodio, el T2 es a base de cloruro de sodio o sal común. La variable respuesta es el tiempo de cocción en minutos. Los datos se muestran abajo. ¿Son las varianzas de los tiempos iguales o diferentes? Usar $\alpha=0.05$.
@@ -327,7 +314,7 @@ Del QQplot mostrado en la Figura \@ref(fig:frijoles1) y las pruebas de normalida
 La función `var.test` se puede usar para probar $H_0$, a continuación el código para realizar la prueba.
 
 ```{r}
-var.test(T1, T2, ratio=1, alternative="two.sided",
+var.test(T1, T2, null.value=1, alternative="two.sided",
          conf.level=0.95)
 ```
 
@@ -383,16 +370,16 @@ Del QQplot mostrado en la Figura \@ref(fig:ars1) y las pruebas de normalidad se 
 La función `var.test` se puede usar para probar $H_0$, a continuación el código para realizar la prueba.
 
 ```{r}
-var.test(urb, rur, ratio=1, alternative="two.sided",
+var.test(urb, rur, null.value=1, alternative="two.sided",
          conf.level=0.95)
 ```
 
 Como el valor-P es `r var.test(urb, rur)$p.value` (reportado como 0.05 en la salida anterior) y es menor que el nivel de significancia $\alpha=0.05$, se puede concluir que las varianzas no son iguales.
 
 ```{block2, type='rmdwarning'}
-¿Notó que las funciones `Var.test` y `var.test` son diferentes?
+¿Notó que las funciones `var.test` y `var.test` son diferentes?
 
-`Var.test` sirve para prueba de hipótesis sobre $\sigma^2$.
+`var.test` sirve para prueba de hipótesis sobre $\sigma^2$.
 
 `var.test` sirve para prueba de hipótesis sobre $\sigma_1^2 / \sigma_2^2$.
 ```

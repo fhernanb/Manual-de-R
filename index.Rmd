@@ -13,9 +13,9 @@ colorlinks: yes
 lot: yes
 lof: yes
 site: bookdown::bookdown_site
-description: "A book example for a Chapman & Hall book."
+description: "This is an R manual."
 github-repo: yihui/bookdown-crc
-#cover-image: images/cover.jpg
+cover-image: images/portada.png
 ---
 
 ```{r setup, include=FALSE}

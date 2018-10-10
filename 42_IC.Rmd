@@ -190,9 +190,9 @@ t.test(x, alternative = "greater", conf.level = 0.90)$conf.int
 En el resultado anterior se muestra el intervalo de confianza unilateral. 
 
 
-## Función `Var.test`
+## Función `var.test`
 
-Para construir intervalos de confianza para la varianza se usa la función `Var.test` del paquete **usefultools** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/).
+Para construir intervalos de confianza para la varianza se usa la función `var.test` del paquete **usefultools** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/).
 
 Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en la consola de R:
 
@@ -201,11 +201,11 @@ if (!require('devtools')) install.packages('devtools')
 devtools::install_github('fhernanb/usefultools', force=TRUE)
 ```
 
-Una vez instalado **usefultools** se puede usar la función `Var.test`.
+Una vez instalado **usefultools** se puede usar la función `var.test`.
 
 ### Intervalo de confianza bilateral para la varianza $\sigma^2$
 
-Para calcular intervalos de confianza bilaterales para la varianza $\sigma^2$ a partir de la función `Var.test` es necesario definir 2 argumentos:
+Para calcular intervalos de confianza bilaterales para la varianza $\sigma^2$ a partir de la función `var.test` es necesario definir 2 argumentos:
 
 - `x`: vector numérico con la información de la muestra,
 - `conf.level`: nivel de confianza. 
@@ -215,18 +215,14 @@ Considerando la información del ejemplo de Intervalos de confianza bilaterales 
 
 ```{r, eval=TRUE}
 require(usefultools)  # Para cargar el paquete
-res <- Var.test(x=hombres$altura, conf.level=0.98)
+res <- var.test(x=hombres$altura, conf.level=0.98)
 res$conf.int
 ``` 
 
 El intervalo de confianza del $98\%$ indica que la varianza de la estatura de los estudiantes hombres se encuentra entre 21.08 y 109.93 $cm^{2}$.
 
-## Función `var.test`
-
-La función `var.test` se usa para calcular intervalos de confianza para la razón de varianzas. La función y sus argumentos son los siguientes:
-
 ```{r, eval=FALSE}
-var.test(x, y, ratio=1, conf.level=0.95, 
+var.test(x, y, null.value=1, conf.level=0.95, 
          alternative=c("two.sided", "less", "greater"))
 ```         
 
@@ -249,9 +245,9 @@ var.test(x=hombres$altura, y=mujeres$altura,
 El intervalo de confianza del $95\%$ indica que la razón de varianzas se encuentra entre 0.2327 y 1.6633. Puesto que el intervalo de confianza incluye el 1 se concluye que las varianzas de las alturas de los hombres y las mujeres son iguales.
 
 ```{block2, type='rmdwarning'}
-¿Notó que las funciones `Var.test` y `var.test` son diferentes?
+¿Notó que las funciones `var.test` y `var.test` son diferentes?
 
-`Var.test` sirve para construir IC para $\sigma^2$.
+`var.test` sirve para construir IC para $\sigma^2$.
 
 `var.test` sirve para construir IC para $\sigma_1^2 / \sigma_2^2$.
 ```

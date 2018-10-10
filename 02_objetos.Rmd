@@ -134,7 +134,7 @@ miarray[, 3,]  # No se coloca nada en las primeras posiciones
 ```
 
 
-## Marco de datos \index{marco de datos} \index{data.frame} \label{marcodatos} \label{marcodatos}
+## Marco de datos \index{marco de datos} \index{data.frame}
 El marco de datos marco de datos o _data frame_ es uno de los objetos más utilizados porque permite agrupar vectores con información de diferente tipo (numérica, alfanumérica o lógica) en un mismo objeto, la única restricción es que los vectores deben tener la misma longitud. Para crear un marco de datos se usa la función `data.frame( )`, como ejemplo vamos a crear un marco de datos con los vectores `edad`, `deporte` y `comic.fav` definidos anteriormente.
 
 ```{r}

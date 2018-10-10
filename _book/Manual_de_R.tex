@@ -230,7 +230,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2018-10-01}
+\date{2018-10-09}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -429,7 +429,7 @@ lista no exhaustiva de los sitios más populares relacionados con R:
 
 \begin{figure}
 
-{\centering \includegraphics{images/Robert_Roos} 
+{\centering \includegraphics[width=2.4in]{images/Robert_Roos} 
 
 }
 
@@ -447,7 +447,7 @@ operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics{images/cran} 
+{\centering \includegraphics[width=4.54in]{images/cran} 
 
 }
 
@@ -465,7 +465,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion1} 
+{\centering \includegraphics[width=5.31in]{images/instalacion1} 
 
 }
 
@@ -521,7 +521,7 @@ barra de herramientas.
 
 \begin{figure}
 
-{\centering \includegraphics{images/Rpantallazo} 
+{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
 
 }
 
@@ -901,8 +901,7 @@ siguiente código.
 \end{verbatim}
 
 \section{\texorpdfstring{Marco de datos \index{marco de datos}
-\index{data.frame} \label{marcodatos}
-\label{marcodatos}}{Marco de datos    }}\label{marco-de-datos}
+\index{data.frame}}{Marco de datos  }}\label{marco-de-datos}
 
 El marco de datos marco de datos o \emph{data frame} es uno de los
 objetos más utilizados porque permite agrupar vectores con información
@@ -1541,7 +1540,7 @@ fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa.
 
 \begin{figure}
 
-{\centering \includegraphics{images/function_machine} 
+{\centering \includegraphics[width=2in]{images/function_machine} 
 
 }
 
@@ -3166,7 +3165,7 @@ máquina general.
 
 \begin{figure}
 
-{\centering \includegraphics{images/function_machine} 
+{\centering \includegraphics[width=2in]{images/function_machine} 
 
 }
 
@@ -3588,7 +3587,7 @@ ingresa \(a=4\) y \(b=9\) que la función entregue \(a=9\) y \(b=4\).
 
 \begin{figure}
 
-{\centering \includegraphics{images/midpoint} 
+{\centering \includegraphics[width=63.8in]{images/midpoint} 
 
 }
 
@@ -3649,7 +3648,7 @@ tipo de archivo a \textbf{csv (delimitado por comas)}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/excel1} 
+{\centering \includegraphics[width=3.12in]{images/excel1} 
 
 }
 
@@ -3676,7 +3675,7 @@ inicio de esa línea número 5.
 
 \begin{figure}
 
-{\centering \includegraphics{images/bloc1} 
+{\centering \includegraphics[width=3.03in]{images/bloc1} 
 
 }
 
@@ -3692,7 +3691,7 @@ claramente se nota la organización de la información.
 
 \begin{figure}
 
-{\centering \includegraphics{images/bloc2} 
+{\centering \includegraphics[width=3.05in]{images/bloc2} 
 
 }
 
@@ -6087,7 +6086,7 @@ en el siguiente
 
 \begin{figure}
 
-{\centering \includegraphics{images/crab} 
+{\centering \includegraphics[width=6in]{images/crab} 
 
 }
 
@@ -9116,10 +9115,10 @@ En el resultado anterior se muestra el intervalo de confianza
 unilateral.
 
 \section{\texorpdfstring{Función
-\texttt{Var.test}}{Función Var.test}}\label{funcion-var.test}
+\texttt{var.test}}{Función var.test}}\label{funcion-var.test}
 
 Para construir intervalos de confianza para la varianza se usa la
-función \texttt{Var.test} del paquete \textbf{usefultools}
+función \texttt{var.test} del paquete \textbf{usefultools}
 \citep{R-usefultools} disponible en el repositorio
 \href{https://github.com/}{GitHub}.
 
@@ -9134,14 +9133,14 @@ copiar el siguiente código en la consola de R:
 \end{Shaded}
 
 Una vez instalado \textbf{usefultools} se puede usar la función
-\texttt{Var.test}.
+\texttt{var.test}.
 
 \subsection{\texorpdfstring{Intervalo de confianza bilateral para la
 varianza
 \(\sigma^2\)}{Intervalo de confianza bilateral para la varianza \textbackslash{}sigma\^{}2}}\label{intervalo-de-confianza-bilateral-para-la-varianza-sigma2}
 
 Para calcular intervalos de confianza bilaterales para la varianza
-\(\sigma^2\) a partir de la función \texttt{Var.test} es necesario
+\(\sigma^2\) a partir de la función \texttt{var.test} es necesario
 definir 2 argumentos:
 
 \begin{itemize}
@@ -9162,7 +9161,7 @@ para la varianza de la altura de los estudiantes hombres.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{require}\NormalTok{(usefultools)  }\CommentTok{# Para cargar el paquete}
-\NormalTok{res <-}\StringTok{ }\KeywordTok{Var.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{hombres}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{conf.level=}\FloatTok{0.98}\NormalTok{)}
+\NormalTok{res <-}\StringTok{ }\KeywordTok{var.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{hombres}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{conf.level=}\FloatTok{0.98}\NormalTok{)}
 \NormalTok{res}\OperatorTok{$}\NormalTok{conf.int}
 \end{Highlighting}
 \end{Shaded}
@@ -9177,16 +9176,9 @@ El intervalo de confianza del \(98\%\) indica que la varianza de la
 estatura de los estudiantes hombres se encuentra entre 21.08 y 109.93
 \(cm^{2}\).
 
-\section{\texorpdfstring{Función
-\texttt{var.test}}{Función var.test}}\label{funcion-var.test-1}
-
-La función \texttt{var.test} se usa para calcular intervalos de
-confianza para la razón de varianzas. La función y sus argumentos son
-los siguientes:
-
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{var.test}\NormalTok{(x, y, }\DataTypeTok{ratio=}\DecValTok{1}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{, }
+\KeywordTok{var.test}\NormalTok{(x, y, }\DataTypeTok{null.value=}\DecValTok{1}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{, }
          \DataTypeTok{alternative=}\KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
@@ -9236,10 +9228,10 @@ incluye el 1 se concluye que las varianzas de las alturas de los hombres
 y las mujeres son iguales.
 
 \BeginKnitrBlock{rmdwarning}
-¿Notó que las funciones \texttt{Var.test} y \texttt{var.test} son
+¿Notó que las funciones \texttt{var.test} y \texttt{var.test} son
 diferentes?
 
-\texttt{Var.test} sirve para construir IC para \(\sigma^2\).
+\texttt{var.test} sirve para construir IC para \(\sigma^2\).
 
 \texttt{var.test} sirve para construir IC para
 \(\sigma_1^2 / \sigma_2^2\).
@@ -9797,19 +9789,19 @@ evidencias suficientes para rechazar la hipótesis nula.
 \(\sigma^2\) de una población
 normal}{Prueba de hipótesis para la varianza \textbackslash{}sigma\^{}2 de una población normal}}\label{prueba-de-hipotesis-para-la-varianza-sigma2-de-una-poblacion-normal}
 
-Para realizar este tipo de prueba se usa la función \texttt{Var.test}
+Para realizar este tipo de prueba se usa la función \texttt{var.test}
 del paquete \textbf{usefultools} \citep{R-usefultools} disponible en el
 repositorio \href{https://github.com/}{GitHub}. La función
-\texttt{Var.test} tiene la siguiente estructura.
+\texttt{var.test} tiene la siguiente estructura.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{Var.test}\NormalTok{(x, }\DataTypeTok{alternative =} \StringTok{"two.sided"}\NormalTok{,}
+\KeywordTok{var.test}\NormalTok{(x, }\DataTypeTok{alternative =} \StringTok{"two.sided"}\NormalTok{,}
          \DataTypeTok{null.value =} \DecValTok{1}\NormalTok{, }\DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Los argumentos a definir dentro de \texttt{Var.test} para hacer la
+Los argumentos a definir dentro de \texttt{var.test} para hacer la
 prueba son:
 
 \begin{itemize}
@@ -9857,7 +9849,7 @@ sobre \(\sigma^2\).
 En este ejemplo nos interesa estudiar el siguiente conjunto de hipótesis
 
 \[H_0: \sigma^2 \leq 40\] \[H_1: \sigma^2 > 40\] La prueba de hipótesis
-se puede realizar usando la función \texttt{Var.test} por medio del
+se puede realizar usando la función \texttt{var.test} por medio del
 siguiente código.
 
 \begin{Shaded}
@@ -9866,7 +9858,7 @@ siguiente código.
                \DecValTok{496}\NormalTok{, }\DecValTok{502}\NormalTok{, }\DecValTok{491}\NormalTok{, }\DecValTok{507}\NormalTok{, }\DecValTok{496}\NormalTok{)}
 
 \KeywordTok{require}\NormalTok{(usefultools)  }\CommentTok{# Ya debe estar instalado}
-\KeywordTok{Var.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{contenido, }\DataTypeTok{alternative=}\StringTok{'greater'}\NormalTok{,}
+\KeywordTok{var.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{contenido, }\DataTypeTok{alternative=}\StringTok{'greater'}\NormalTok{,}
          \DataTypeTok{null.value=}\DecValTok{40}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -9895,36 +9887,7 @@ varianzas
 \(\sigma_1^2 / \sigma_2^2\)}{Prueba de hipótesis para el cociente de varianzas \textbackslash{}sigma\_1\^{}2 / \textbackslash{}sigma\_2\^{}2}}\label{prueba-de-hipotesis-para-el-cociente-de-varianzas-sigma_12-sigma_22}
 
 Para realizar este tipo de prueba se puede usar la función
-\texttt{var.test} que tiene la siguiente estructura.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{var.test}\NormalTok{(x, y, }\DataTypeTok{ratio =} \DecValTok{1}\NormalTok{,}
-         \DataTypeTok{alternative =} \KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{),}
-         \DataTypeTok{conf.level =} \FloatTok{0.95}\NormalTok{, ...)}
-\end{Highlighting}
-\end{Shaded}
-
-Los argumentos a definir dentro de \texttt{var.test} para hacer la
-prueba son:
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{x}: vector numérico con la información de la muestra 1,
-\item
-  \texttt{y}: vector numérico con la información de la muestra 2,
-\item
-  \texttt{ratio}: valor de referencia de la prueba.
-\item
-  \texttt{alternative}: tipo de hipótesis alterna. Los valores
-  disponibles son \texttt{"two.sided"} cuando la hipótesis alterna es
-  \(\neq\), \texttt{"less"} para el caso \(<\) y \texttt{"greater"} para
-  \(>\).
-\item
-  \texttt{conf.level}: nivel de confianza para reportar el intervalo de
-  confianza asociado (opcional).
-\end{itemize}
+\texttt{var.test}.
 
 \subsection*{Ejemplo}\label{ejemplo-69}
 
@@ -10023,7 +9986,7 @@ continuación el código para realizar la prueba.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{var.test}\NormalTok{(T1, T2, }\DataTypeTok{ratio=}\DecValTok{1}\NormalTok{, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{,}
+\KeywordTok{var.test}\NormalTok{(T1, T2, }\DataTypeTok{null.value=}\DecValTok{1}\NormalTok{, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{,}
          \DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -10032,9 +9995,9 @@ continuación el código para realizar la prueba.
 ## 
 ##  F test to compare two variances
 ## 
-## data:  T1 and T2
+## data:  varx = 17.4761904761905 , nx = 7 , vary = 17.2857142857143 and ny = 7
 ## F = 1, num df = 6, denom df = 6, p-value = 1
-## alternative hypothesis: true ratio of variances is not equal to 1
+## alternative hypothesis: true  is not equal to 1
 ## 95 percent confidence interval:
 ##  0.1737 5.8839
 ## sample estimates:
@@ -10119,7 +10082,7 @@ continuación el código para realizar la prueba.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{var.test}\NormalTok{(urb, rur, }\DataTypeTok{ratio=}\DecValTok{1}\NormalTok{, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{,}
+\KeywordTok{var.test}\NormalTok{(urb, rur, }\DataTypeTok{null.value=}\DecValTok{1}\NormalTok{, }\DataTypeTok{alternative=}\StringTok{"two.sided"}\NormalTok{,}
          \DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -10128,10 +10091,10 @@ continuación el código para realizar la prueba.
 ## 
 ##  F test to compare two variances
 ## 
-## data:  urb and rur
+## data:  varx = 58.2777777777778 , nx = 10 , vary = 235.611111111111 and ny = 10
 ## F = 0.25, num df = 9, denom df = 9, p-value =
 ## 0.05
-## alternative hypothesis: true ratio of variances is not equal to 1
+## alternative hypothesis: true  is not equal to 1
 ## 95 percent confidence interval:
 ##  0.06144 0.99582
 ## sample estimates:
@@ -10144,10 +10107,10 @@ es menor que el nivel de significancia \(\alpha=0.05\), se puede
 concluir que las varianzas no son iguales.
 
 \BeginKnitrBlock{rmdwarning}
-¿Notó que las funciones \texttt{Var.test} y \texttt{var.test} son
+¿Notó que las funciones \texttt{var.test} y \texttt{var.test} son
 diferentes?
 
-\texttt{Var.test} sirve para prueba de hipótesis sobre \(\sigma^2\).
+\texttt{var.test} sirve para prueba de hipótesis sobre \(\sigma^2\).
 
 \texttt{var.test} sirve para prueba de hipótesis sobre
 \(\sigma_1^2 / \sigma_2^2\).
