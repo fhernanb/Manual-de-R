@@ -112,9 +112,9 @@ x[x >= 12]  # Se solicitan los valores que cumplen la condición
 ```
 
 ### Ejemplo {-}
-Retome el marco de datos `mimarco` construído en la sección \@ref(marcodatos) y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años.
+Retome el marco de datos `mimarco` construído en la sección 2.4 y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años.
 
-Inicialmente vamos a construir nuevamente el objeto `mimarco` de la sección \@ref(marcodatos) usando el siguiente código.
+Inicialmente vamos a construir nuevamente el objeto `mimarco` de la sección 2.4 usando el siguiente código.
 
 ```{r}
 mimarco <- data.frame(edad = c(15, 19, 13, NA, 20), 
@@ -173,7 +173,7 @@ x < 4 && y > 5  # Conjunción vectorial
 Note las diferencias entre los dos últimos ejemplos, cuando se usa `&` se hace una prueba término a término y el resultado es un vector, cuando se usa `&&` se aplica la conjunción al vector de resultados obtenido con `&`.
 
 ### Ejemplo {-}
-Retome el marco de datos `mimarco` construído en la sección \@ref(marcodatos) y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años y que practican deporte.
+Retome el marco de datos `mimarco` construído en la sección 2.4 y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años y que practican deporte.
 
 Aquí interesa extraer la información de los individuos que cumplen dos condiciones simultáneamente, aquellos con edad $\geq$ 15 y que SI practiquen deporte. El código necesario para obtener la información solicitada es el siguiente.
 

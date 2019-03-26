@@ -150,21 +150,36 @@ mimarco
 De la salida anterior vemos que el marco de datos tiene 3 variables (columnas) cuyos nombres coinciden con los nombres de los vectores creados anteriormente, los números consecutivos al lado izquierdo son sólo de referencia y permiten identificar la información para cada persona en la base de datos.
 
 ### ¿Cómo extraer elementos de un marco de datos?
-Para recuperar las variables (columnas) almacenadas en un marco de datos se puede usar el operador `$` o también corchetes `[]`. A continuación algunos ejemplos para entender el uso del operador `$`.
+Para recuperar las variables (columnas) almacenadas en un marco de datos se puede usar el operador `$`, corchetes simples `[]` o corchetes dobles `[[]]`. A continuación algunos ejemplos para entender las diferencias entre estas opciones.
 
 
 ### Ejemplo {-}
-Si queremos extraer la variable `deporte` del marco de datos `mimarco` usamos el siguiente código.
+Si queremos extraer la variable `deporte` del marco de datos `mimarco` como un vector usamos el siguiente código.
 ```{r}
 mimarco$deporte  # Se recomienda si el nombre es corto
 ```
 
-Otra forma de recuperar la variable `deporte` es indicando la columna donde se encuentra la variable
+Otra forma de recuperar la variable `deporte` como vector es indicando el número de la columna donde se encuentra la variable.
 ```{r}
 mimarco[, 2]  # Se recomienda si recordamos su ubicacion
 ```
 
-Si queremos la `edad` de las personas que están en las posiciones 2 hasta 4 usamos el siguiente código.
+Otra forma de extraer la variable `deporte` como vector es usando `[[]]` y dentro el nombre de la variable.
+```{r}
+mimarco[["deporte"]]
+```
+
+Si usamos `mimarco["deporte"]` el resultado es la variable `deporte` pero en forma de marco de datos, no en forma vectorial.
+```{r}
+mimarco["deporte"]
+```
+
+Si queremos extraer un marco de datos sólo con las variables deporte y edad podemos usar el siguiente código.
+```{r}
+mimarco[c("deporte", "edad")]
+```
+
+Por otra, si queremos la `edad` de las personas que están en las posiciones 2 hasta 4 usamos el siguiente código.
 ```{r}
 mimarco[2:4, 1]
 ```

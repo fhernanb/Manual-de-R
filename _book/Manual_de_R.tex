@@ -230,7 +230,7 @@
 \title{Manual de R}
 \author{Freddy Hernández Barajas\\
 Olga Cecilia Usuga Manco}
-\date{2018-10-09}
+\date{2019-03-26}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -429,7 +429,7 @@ lista no exhaustiva de los sitios más populares relacionados con R:
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.4in]{images/Robert_Roos} 
+{\centering \includegraphics{images/Robert_Roos} 
 
 }
 
@@ -447,7 +447,7 @@ operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.54in]{images/cran} 
+{\centering \includegraphics{images/cran} 
 
 }
 
@@ -465,7 +465,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=5.31in]{images/instalacion1} 
+{\centering \includegraphics{images/instalacion1} 
 
 }
 
@@ -521,7 +521,7 @@ barra de herramientas.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
+{\centering \includegraphics{images/Rpantallazo} 
 
 }
 
@@ -947,15 +947,15 @@ persona en la base de datos.
 datos?}\label{como-extraer-elementos-de-un-marco-de-datos}
 
 Para recuperar las variables (columnas) almacenadas en un marco de datos
-se puede usar el operador \texttt{\$} o también corchetes
-\texttt{{[}{]}}. A continuación algunos ejemplos para entender el uso
-del operador \texttt{\$}.
+se puede usar el operador \texttt{\$}, corchetes simples \texttt{{[}{]}}
+o corchetes dobles \texttt{{[}{[}{]}{]}}. A continuación algunos
+ejemplos para entender las diferencias entre estas opciones.
 
 \subsection*{Ejemplo}\label{ejemplo-3}
 
 
 Si queremos extraer la variable \texttt{deporte} del marco de datos
-\texttt{mimarco} usamos el siguiente código.
+\texttt{mimarco} como un vector usamos el siguiente código.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -967,8 +967,8 @@ Si queremos extraer la variable \texttt{deporte} del marco de datos
 ## [1]  TRUE  TRUE    NA FALSE  TRUE
 \end{verbatim}
 
-Otra forma de recuperar la variable \texttt{deporte} es indicando la
-columna donde se encuentra la variable
+Otra forma de recuperar la variable \texttt{deporte} como vector es
+indicando el número de la columna donde se encuentra la variable.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -980,8 +980,57 @@ columna donde se encuentra la variable
 ## [1]  TRUE  TRUE    NA FALSE  TRUE
 \end{verbatim}
 
-Si queremos la \texttt{edad} de las personas que están en las posiciones
-2 hasta 4 usamos el siguiente código.
+Otra forma de extraer la variable \texttt{deporte} como vector es usando
+\texttt{{[}{[}{]}{]}} y dentro el nombre de la variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mimarco[[}\StringTok{"deporte"}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  TRUE  TRUE    NA FALSE  TRUE
+\end{verbatim}
+
+Si usamos \texttt{mimarco{[}"deporte"{]}} el resultado es la variable
+\texttt{deporte} pero en forma de marco de datos, no en forma vectorial.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mimarco[}\StringTok{"deporte"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   deporte
+## 1    TRUE
+## 2    TRUE
+## 3      NA
+## 4   FALSE
+## 5    TRUE
+\end{verbatim}
+
+Si queremos extraer un marco de datos sólo con las variables deporte y
+edad podemos usar el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mimarco[}\KeywordTok{c}\NormalTok{(}\StringTok{"deporte"}\NormalTok{, }\StringTok{"edad"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   deporte edad
+## 1    TRUE   15
+## 2    TRUE   19
+## 3      NA   13
+## 4   FALSE   NA
+## 5    TRUE   20
+\end{verbatim}
+
+Por otra, si queremos la \texttt{edad} de las personas que están en las
+posiciones 2 hasta 4 usamos el siguiente código.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1316,7 +1365,7 @@ Así como en el español existen reglas ortográficas, la escritura de
 códigos en R también tiene unas reglas que se recomienda seguir para
 evitar confusiones. Tener una buena guía de estilo
 \index{guía de estilo} es importante para que el código creado por usted
-sea fácilmente entendido por sus lectores \citet{rpackages}. No existe
+sea fácilmente entendido por sus lectores \citep{rpackages}. No existe
 una única y mejor guía de estilo para escritura en R, sin embargo aquí
 vamos a mostrar unas sugerencias basadas en la guía llamada
 \href{https://google.github.io/styleguide/Rguide.xml}{\textit{Google's R style guide}}.
@@ -1540,7 +1589,7 @@ fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2in]{images/function_machine} 
+{\centering \includegraphics{images/function_machine} 
 
 }
 
@@ -1838,12 +1887,12 @@ necesario se muestra a continuación.
 \subsection*{Ejemplo}\label{ejemplo-7}
 
 
-Retome el marco de datos \texttt{mimarco} construído en la sección
-\ref{marcodatos} y use una prueba lógica para extraer la información de
-las personas que tienen una edad superior o igual a 15 años.
+Retome el marco de datos \texttt{mimarco} construído en la sección 2.4 y
+use una prueba lógica para extraer la información de las personas que
+tienen una edad superior o igual a 15 años.
 
 Inicialmente vamos a construir nuevamente el objeto \texttt{mimarco} de
-la sección \ref{marcodatos} usando el siguiente código.
+la sección 2.4 usando el siguiente código.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1996,10 +2045,9 @@ resultados obtenido con \texttt{\&}.
 \subsection*{Ejemplo}\label{ejemplo-8}
 
 
-Retome el marco de datos \texttt{mimarco} construído en la sección
-\ref{marcodatos} y use una prueba lógica para extraer la información de
-las personas que tienen una edad superior o igual a 15 años y que
-practican deporte.
+Retome el marco de datos \texttt{mimarco} construído en la sección 2.4 y
+use una prueba lógica para extraer la información de las personas que
+tienen una edad superior o igual a 15 años y que practican deporte.
 
 Aquí interesa extraer la información de los individuos que cumplen dos
 condiciones simultáneamente, aquellos con edad \(\geq\) 15 y que SI
@@ -3165,7 +3213,7 @@ máquina general.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2in]{images/function_machine} 
+{\centering \includegraphics{images/function_machine} 
 
 }
 
@@ -3587,7 +3635,7 @@ ingresa \(a=4\) y \(b=9\) que la función entregue \(a=9\) y \(b=4\).
 
 \begin{figure}
 
-{\centering \includegraphics[width=63.8in]{images/midpoint} 
+{\centering \includegraphics{images/midpoint} 
 
 }
 
@@ -3619,11 +3667,11 @@ formatos para ser leídos en R. En el Cuadro \ref{tab:dt1} se presenta
 una base de datos pequeña, tres observaciones y tres variables, que nos
 servirá como ejemplo para mostrar cómo se debe almacenar la información.
 
-\begin{table}
+\begin{table}[t]
 
 \caption{\label{tab:dt1}Ejemplo de una base de datos simple.}
 \centering
-\begin{tabular}[t]{rll}
+\begin{tabular}{rll}
 \toprule
 Edad & Fuma & Pais\\
 \midrule
@@ -3648,7 +3696,7 @@ tipo de archivo a \textbf{csv (delimitado por comas)}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.12in]{images/excel1} 
+{\centering \includegraphics{images/excel1} 
 
 }
 
@@ -3675,7 +3723,7 @@ inicio de esa línea número 5.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.03in]{images/bloc1} 
+{\centering \includegraphics{images/bloc1} 
 
 }
 
@@ -3691,7 +3739,7 @@ claramente se nota la organización de la información.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.05in]{images/bloc2} 
+{\centering \includegraphics{images/bloc2} 
 
 }
 
@@ -3970,11 +4018,11 @@ Realice los siguiente ejercicios propuestos.
   Cuadro \ref{tab:toy} fuente.
 \end{enumerate}
 
-\begin{table}
+\begin{table}[t]
 
 \caption{\label{tab:toy}Base de datos para practicar lectura.}
 \centering
-\begin{tabular}[t]{llrr}
+\begin{tabular}{llrr}
 \toprule
 Fuma & Pasatiempo & Num\_hermanos & Mesada\\
 \midrule
@@ -6086,7 +6134,7 @@ en el siguiente
 
 \begin{figure}
 
-{\centering \includegraphics[width=6in]{images/crab} 
+{\centering \includegraphics{images/crab} 
 
 }
 
@@ -7542,6 +7590,16 @@ consola \texttt{modelos\$fits}. Abajo el código usado.
 \begin{Highlighting}[]
 \KeywordTok{require}\NormalTok{(gamlss)}
 \NormalTok{modelos <-}\StringTok{ }\KeywordTok{fitDist}\NormalTok{(}\DataTypeTok{y=}\NormalTok{ma, }\DataTypeTok{type=}\StringTok{'realplus'}\NormalTok{, }\DataTypeTok{k=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in solve.default(oout$hessian) : 
+##   Lapack routine dgesv: system is exactly singular: U[4,4] = 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{modelos}\OperatorTok{$}\NormalTok{fits}
 \end{Highlighting}
 \end{Shaded}
@@ -9118,22 +9176,50 @@ unilateral.
 \texttt{var.test}}{Función var.test}}\label{funcion-var.test}
 
 Para construir intervalos de confianza para la varianza se usa la
-función \texttt{var.test} del paquete \textbf{usefultools}
+función \texttt{var.test} del paquete \textbf{stests}
 \citep{R-usefultools} disponible en el repositorio
 \href{https://github.com/}{GitHub}.
 
-Para instalar el paquete \textbf{usefultools} desde GitHub se debe
-copiar el siguiente código en la consola de R:
+Para instalar el paquete \textbf{stests} desde GitHub se debe copiar el
+siguiente código en la consola de R:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \ControlFlowTok{if}\NormalTok{ (}\OperatorTok{!}\KeywordTok{require}\NormalTok{(}\StringTok{'devtools'}\NormalTok{)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{'devtools'}\NormalTok{)}
-\NormalTok{devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{'fhernanb/usefultools'}\NormalTok{, }\DataTypeTok{force=}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{'fhernanb/stests'}\NormalTok{, }\DataTypeTok{force=}\OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Una vez instalado \textbf{usefultools} se puede usar la función
-\texttt{var.test}.
+Una vez instalado el paquete \textbf{stests} se puede usar la función
+\texttt{var.test}, la cual es una generalización de la función
+\texttt{var.test} del paquete \textbf{stats} y por esa razón aparece el
+siguiente mensaje en la consola cuando se invoca el paquete.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(stests)}
+\NormalTok{## }
+\NormalTok{## The following object is masked from ‘package:stats’:}
+\NormalTok{## }
+\NormalTok{##     var.test}
+\end{Highlighting}
+\end{Shaded}
+
+Si usted desea usar \texttt{var.test} del paquete \textbf{stats} o
+\texttt{var.test} del paquete \textbf{stests}, puede invocar las
+funciones explícitamente así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stats}\OperatorTok{::}\KeywordTok{var.test}\NormalTok{()   }\CommentTok{# Para usar la fución del paquete stats}
+\NormalTok{stests}\OperatorTok{::}\KeywordTok{var.test}\NormalTok{()  }\CommentTok{# Para usar la fución del paquete stests}
+\end{Highlighting}
+\end{Shaded}
+
+\BeginKnitrBlock{rmdnote}
+Recuerde que: - \texttt{stats::var.test()} sólo sirve para 1 población.
+- \texttt{stests::var.test()} sirve para 1 o 2 poblaciones.
+\EndKnitrBlock{rmdnote}
 
 \subsection{\texorpdfstring{Intervalo de confianza bilateral para la
 varianza
@@ -9160,7 +9246,7 @@ para la varianza de la altura de los estudiantes hombres.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{require}\NormalTok{(usefultools)  }\CommentTok{# Para cargar el paquete}
+\KeywordTok{require}\NormalTok{(stests)  }\CommentTok{# Para cargar el paquete}
 \NormalTok{res <-}\StringTok{ }\KeywordTok{var.test}\NormalTok{(}\DataTypeTok{x=}\NormalTok{hombres}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{conf.level=}\FloatTok{0.98}\NormalTok{)}
 \NormalTok{res}\OperatorTok{$}\NormalTok{conf.int}
 \end{Highlighting}
@@ -9175,13 +9261,6 @@ para la varianza de la altura de los estudiantes hombres.
 El intervalo de confianza del \(98\%\) indica que la varianza de la
 estatura de los estudiantes hombres se encuentra entre 21.08 y 109.93
 \(cm^{2}\).
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{var.test}\NormalTok{(x, y, }\DataTypeTok{null.value=}\DecValTok{1}\NormalTok{, }\DataTypeTok{conf.level=}\FloatTok{0.95}\NormalTok{, }
-         \DataTypeTok{alternative=}\KeywordTok{c}\NormalTok{(}\StringTok{"two.sided"}\NormalTok{, }\StringTok{"less"}\NormalTok{, }\StringTok{"greater"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
 
 \subsection{\texorpdfstring{Intervalo de confianza bilateral para la
 razón de varianzas
@@ -9867,9 +9946,9 @@ siguiente código.
 ## 
 ##  X-squared test for variance
 ## 
-## data:  varx = 42.8444444444444 and nx = 10
+## data:  contenido
 ## X-squared = 9.6, df = 9, p-value = 0.4
-## alternative hypothesis: true  is greater than 40
+## alternative hypothesis: true variance is greater than 40
 ## 95 percent confidence interval:
 ##    0 116
 ## sample estimates:
@@ -9995,9 +10074,9 @@ continuación el código para realizar la prueba.
 ## 
 ##  F test to compare two variances
 ## 
-## data:  varx = 17.4761904761905 , nx = 7 , vary = 17.2857142857143 and ny = 7
+## data:  T1  and  T2
 ## F = 1, num df = 6, denom df = 6, p-value = 1
-## alternative hypothesis: true  is not equal to 1
+## alternative hypothesis: true ratio of variances is not equal to 1
 ## 95 percent confidence interval:
 ##  0.1737 5.8839
 ## sample estimates:
@@ -10091,10 +10170,10 @@ continuación el código para realizar la prueba.
 ## 
 ##  F test to compare two variances
 ## 
-## data:  varx = 58.2777777777778 , nx = 10 , vary = 235.611111111111 and ny = 10
+## data:  urb  and  rur
 ## F = 0.25, num df = 9, denom df = 9, p-value =
 ## 0.05
-## alternative hypothesis: true  is not equal to 1
+## alternative hypothesis: true ratio of variances is not equal to 1
 ## 95 percent confidence interval:
 ##  0.06144 0.99582
 ## sample estimates:

@@ -132,8 +132,8 @@ Como el valor-P obtenido fue mayor que el nivel de significancia $\alpha=0.05$ s
 
 ```{r wald1, fig.cap='Representación del Valor-P para la prueba Wald.', fig.height=4, fig.width=6, echo=FALSE}
 require(usefultools)
-shadow.normal(lower=-4, upper=z, axes=FALSE, 
-              ylab='', xlab='Z')
+shadow.dist(dist='dnorm', param=list(mean=0, sd=1), axes=FALSE, ylab='',
+            a=z, type='lower', from=-4, to=4, col.shadow='lightblue')
 axis(1)
 text(x=z, y=0.01, -1.414, col='red', cex=0.8)
 arrows(x0=-1.8, y0=0.05, x1=-3, y1=0.2)

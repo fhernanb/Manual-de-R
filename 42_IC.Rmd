@@ -192,16 +192,37 @@ En el resultado anterior se muestra el intervalo de confianza unilateral.
 
 ## Función `var.test`
 
-Para construir intervalos de confianza para la varianza se usa la función `var.test` del paquete **usefultools** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/).
+Para construir intervalos de confianza para la varianza se usa la función `var.test` del paquete **stests** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/).
 
-Para instalar el paquete **usefultools** desde GitHub se debe copiar el siguiente código en la consola de R:
+Para instalar el paquete **stests** desde GitHub se debe copiar el siguiente código en la consola de R:
 
 ```{r, eval=FALSE}
 if (!require('devtools')) install.packages('devtools')
-devtools::install_github('fhernanb/usefultools', force=TRUE)
+devtools::install_github('fhernanb/stests', force=TRUE)
 ```
 
-Una vez instalado **usefultools** se puede usar la función `var.test`.
+Una vez instalado el paquete **stests** se puede usar la función `var.test`, la cual es una generalización de la función `var.test` del paquete **stats** y por esa razón aparece el siguiente mensaje en la consola cuando se invoca el paquete.
+
+```{r, eval=FALSE}
+library(stests)
+## 
+## The following object is masked from ‘package:stats’:
+## 
+##     var.test
+```
+
+Si usted desea usar `var.test` del paquete **stats** o `var.test` del paquete **stests**, puede invocar las funciones explícitamente así:
+
+```{r, eval=FALSE}
+stats::var.test()   # Para usar la fución del paquete stats
+stests::var.test()  # Para usar la fución del paquete stests
+```
+
+```{block2, type='rmdnote'}
+Recuerde que:
+  - `stats::var.test()`   sólo sirve para 1 población.
+  - `stests::var.test()`  sirve para 1 o 2 poblaciones.
+```
 
 ### Intervalo de confianza bilateral para la varianza $\sigma^2$
 
@@ -213,18 +234,13 @@ Para calcular intervalos de confianza bilaterales para la varianza $\sigma^2$ a 
 ### Ejemplo {-}
 Considerando la información del ejemplo de Intervalos de confianza bilaterales para la media, construir un intervalo de confianza del 98\% para la varianza de la altura de los estudiantes hombres.
 
-```{r, eval=TRUE}
-require(usefultools)  # Para cargar el paquete
+```{r, eval=TRUE, message=FALSE}
+require(stests)  # Para cargar el paquete
 res <- var.test(x=hombres$altura, conf.level=0.98)
 res$conf.int
 ``` 
 
 El intervalo de confianza del $98\%$ indica que la varianza de la estatura de los estudiantes hombres se encuentra entre 21.08 y 109.93 $cm^{2}$.
-
-```{r, eval=FALSE}
-var.test(x, y, null.value=1, conf.level=0.95, 
-         alternative=c("two.sided", "less", "greater"))
-```         
 
 ### Intervalo de confianza bilateral para la razón de varianzas $\sigma_1^2 / \sigma_2^2$
 

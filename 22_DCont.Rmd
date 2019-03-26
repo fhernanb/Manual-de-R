@@ -119,14 +119,21 @@ En la Figura \@ref(fig:norm1) se muestra el área sombreada correspondiente a $P
 ```{r norm1, fig.cap='Área sombreada para los ejemplos.', fig.asp=1.1, fig.width=6, echo=FALSE, message=FALSE}
 require(usefultools)
 par(mfrow=c(2, 2))
-shadow.normal(lower=-5, upper=1.45, xlab='Z', ylab='Densidad',
-              main='P(Z < 1.45)')
-shadow.normal(lower=-0.37, upper=6, xlab='Z', ylab='Densidad',
-              main='P(Z > -0.37)')
-shadow.normal(lower=-1.56, upper=2.58, xlab='Z', ylab='Densidad',
-              main='P(-1.56 < Z < 2.58)')
-shadow.normal(lower=-6, upper=qnorm(p=0.95), xlab='Z', ylab='Densidad',
-              main='P(Z<q)=0.95')
+shadow.dist(dist='dnorm', param=list(mean=0, sd=1),
+            b=1.45, type='lower', from=-4, to=4,
+            main='P(Z < 1.45)')
+
+shadow.dist(dist='dnorm', param=list(mean=0, sd=1),
+            a=-0.37, type='upper', from=-4, to=4,
+            main='P(Z > -0.37)')
+
+shadow.dist(dist='dnorm', param=list(mean=0, sd=1),
+            a=-1.56, b=2.85, type='middle', from=-4, to=4,
+            main='P(-1.56 < Z < 2.58)')
+
+shadow.dist(dist='dnorm', param=list(mean=0, sd=1),
+            b=0.95, type='lower', from=-4, to=4,
+            main='P(Z<q)=0.95')
 ```
 
 ```{block2, type='rmdtip'}
@@ -173,25 +180,26 @@ En la Figura \@ref(fig:norm2) se muestran las áreas sombreadas para cada de las
 ```{r norm2, fig.cap='Área sombreada para el ejemplo de los tornillos.', fig.asp=1.1, fig.width=6, echo=FALSE, message=FALSE}
 require(usefultools)
 par(mfrow=c(2, 2))
-shadow.normal(lower=9, upper=11, mu=10, sigma=2, shadow.col='tomato',
-              xlab='Diámetro', ylab='Densidad', k=3,
-              main='P(9 < Diámetro < 11)')
+shadow.dist(dist='dnorm', param=list(mean=10, sd=2),
+            a=9, b=11, type='middle', from=4, to=16,
+            main='P(9 < Diámetro < 11)', las=1, 
+            col.shadow='tomato', xlab='Diámetro', ylab='Densidad')
 
-shadow.normal(lower=11, upper=20, mu=10, sigma=2, shadow.col='violetred1',
-              xlab='Diámetro', ylab='Densidad', k=3,
-              main='P(Diámetro > 11)')
+shadow.dist(dist='dnorm', param=list(mean=10, sd=2),
+            b=11, type='upper', from=4, to=16,
+            main='P(Diámetro > 11)', las=1,
+            col.shadow='violetred1', xlab='Diámetro', ylab='Densidad')
 
-shadow.normal(lower=3,
-              upper=qnorm(p=0.05, mean=10, sd=2),
-              mu=10, sigma=2, shadow.col='springgreen3',
-              xlab='Diámetro', ylab='Densidad', k=3,
-              main='P(Diámetro < q) = 5%')
+shadow.dist(dist='dnorm', param=list(mean=10, sd=2),
+            a=qnorm(p=0.05, mean=10, sd=2), type='lower', from=4, to=16,
+            main='P(Diámetro < q) = 5%', las=1,
+            col.shadow='springgreen3', xlab='Diámetro', ylab='Densidad')
 
-shadow.normal(lower=qnorm(p=0.10, mean=10, sd=2, lower.tail=FALSE),
-              upper=20,
-              mu=10, sigma=2, shadow.col='yellow1',
-              xlab='Diámetro', ylab='Densidad', k=3,
-              main='P(Diámetro > q) = 10%')
+shadow.dist(dist='dnorm', param=list(mean=10, sd=2),
+            b=qnorm(p=0.10, mean=10, sd=2, lower.tail=FALSE), type='upper', 
+            from=4, to=16,
+            main='P(Diámetro > q) = 10%', las=1,
+            col.shadow='yellow1', xlab='Diámetro', ylab='Densidad')
 ```
 
 
