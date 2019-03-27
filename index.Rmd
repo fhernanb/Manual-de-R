@@ -24,7 +24,7 @@ options(
 )
 
 # install the packages needed by this book; you fill out c(), e.g. c('ggplot2', 'dplyr')
-lapply(c(), function(pkg) {
+lapply(c('ggplot2', 'readxl', 'corrplot'), function(pkg) {
   if (system.file(package = pkg) == '') install.packages(pkg)
 })
 ```
