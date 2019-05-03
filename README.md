@@ -1,6 +1,10 @@
-Para descargar la versión actualizada del libro usted debe ingresar al siguiente [enlace](https://github.com/fhernanb/Manual-de-R/blob/master/_book/Manual_de_R.pdf) y luego dar clic en el botón __download__.
+## Manual de R
+
+[![Build Status](https://travis-ci.com/fhernanb/Manual-de-R.svg?branch=master)](https://travis-ci.org/fhernanb/Manual-de-R) 
+
 <p align="center">
-  <img src="images/portada.png" width="180">
+  <img src="images/cover.png" width="250">
 </p>
 
+El libro puede ser consultado en este [enlace](https://fhernanb.github.io/Manual-de-R) 
 
