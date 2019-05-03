@@ -5,26 +5,28 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 16 Estudiando la normalidad | Manual de R</title>
-  <meta name="description" content="This is an R manual.">
+  <title>16 Estudiando la normalidad | Manual de R</title>
+  <meta name="description" content="16 Estudiando la normalidad | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 16 Estudiando la normalidad | Manual de R" />
+  <meta property="og:title" content="16 Estudiando la normalidad | Manual de R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/portada.png" />
-  <meta property="og:description" content="This is an R manual." />
+  <meta property="og:description" content="16 Estudiando la normalidad | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 16 Estudiando la normalidad | Manual de R" />
+  <meta name="twitter:title" content="16 Estudiando la normalidad | Manual de R" />
   
-  <meta name="twitter:description" content="This is an R manual." />
+  <meta name="twitter:description" content="16 Estudiando la normalidad | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/portada.png" />
 
+<meta name="author" content="Freddy Hernández">
+<meta name="author" content="Olga Usuga">
 
 
-<meta name="date" content="2019-03-27">
+<meta name="date" content="2019-05-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +89,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -410,7 +412,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -430,7 +432,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="normalidad" class="section level1">
-<h1><span class="header-section-number">Chapter 16</span> Estudiando la normalidad</h1>
+<h1><span class="header-section-number">16</span> Estudiando la normalidad</h1>
 <p>En este capítulo se mostrará cómo utilizar las herramientas de R para estudiar la normalidad univariada de un conjunto de datos.</p>
 <div id="consideraciones-iniciales" class="section level2">
 <h2><span class="header-section-number">16.1</span> Consideraciones iniciales</h2>
@@ -462,7 +464,7 @@ n &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</s
 <div class="figure"><span id="fig:normalidad1"></span>
 <img src="Manual_de_R_files/figure-html/normalidad1-1.png" alt="Densidad para 4 muestras de una N(0, 1) con diferente tamaño de muestra." width="768" />
 <p class="caption">
-FIGURE 16.1: Densidad para 4 muestras de una N(0, 1) con diferente tamaño de muestra.
+Figure 16.1: Densidad para 4 muestras de una N(0, 1) con diferente tamaño de muestra.
 </p>
 </div>
 <p>En la Figura <a href="normalidad.html#fig:normalidad1">16.1</a> se muestran las cuatro densidades, de esta figura se observa que, a pesar de haber generado las muestras de una normal estándar, las densidades no son perfectamente simétricas, sólo para el caso de tamaño de muestra <span class="math inline">\(n=10000\)</span> la densidad muestral fue bastante simétrica. Esto significa que el gráfico de densidad se debe usar con precaución para decidir sobre la normalidad de un conjunto de datos, como regla práctica se aconseja lo siguiente:</p>
@@ -503,7 +505,7 @@ pesos  <span class="co"># Para ver los elementos de la lista pesos</span></code>
 <div class="figure"><span id="fig:normalidad2"></span>
 <img src="Manual_de_R_files/figure-html/normalidad2-1.png" alt="Densidad para el peso corporal de hombres y mujeres." width="768" />
 <p class="caption">
-FIGURE 16.2: Densidad para el peso corporal de hombres y mujeres.
+Figure 16.2: Densidad para el peso corporal de hombres y mujeres.
 </p>
 </div>
 <p>En la Figura <a href="normalidad.html#fig:normalidad2">16.2</a> se muestran las dos densidades, en la figura no se observa una evidencia clara de sesgo, lo que se observa es que la densidad para los hombres es un poco más simétrica que la densidad para las mujeres. De estos resultados no se puede rechazar la premisa de que pesos corporales provienen de una distribución normal, lo recomendable es construir QQplot y aplicar prueba de hipótesis.</p>
@@ -516,7 +518,7 @@ FIGURE 16.2: Densidad para el peso corporal de hombres y mujeres.
 <div class="figure"><span id="fig:normalidad3"></span>
 <img src="Manual_de_R_files/figure-html/normalidad3-1.png" alt="Ejemplo de un QQplot." width="384" />
 <p class="caption">
-FIGURE 16.3: Ejemplo de un QQplot.
+Figure 16.3: Ejemplo de un QQplot.
 </p>
 </div>
 <p>A continuación se presentan cuatro ejemplos, dos con datos simulados y otro con datos reales para mostrar la utilidad del qqplot al explorar la normalidad.</p>
@@ -534,7 +536,7 @@ n &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</s
 <div class="figure"><span id="fig:normalidad4"></span>
 <img src="Manual_de_R_files/figure-html/normalidad4-1.png" alt="QQplot para 4 muestras de una N(0, 1) con diferente tamaño de muestra." width="576" />
 <p class="caption">
-FIGURE 16.4: QQplot para 4 muestras de una N(0, 1) con diferente tamaño de muestra.
+Figure 16.4: QQplot para 4 muestras de una N(0, 1) con diferente tamaño de muestra.
 </p>
 </div>
 <p>La Figura <a href="normalidad.html#fig:normalidad4">16.4</a> muestra que, a pesar de haber simulado cada muestra <code>x</code> de una <span class="math inline">\(N(0, 1)\)</span>, los puntos no se alinean de forma perfecta, esto significa que en la práctica se debe ser prudente con la interpretación de un QQplot, un alejamiento del patrón lineal NO significa que la muestra no provenga de una población normal.</p>
@@ -559,7 +561,7 @@ m4 &lt;-<span class="st"> </span><span class="kw">rweibull</span>(<span class="d
 <div class="figure"><span id="fig:normalidad6"></span>
 <img src="Manual_de_R_files/figure-html/normalidad6-1.png" alt="QQplot para muestras generadas de poblaciones Poisson, Binomial Negativa, Gamma y Weibull." width="576" />
 <p class="caption">
-FIGURE 16.5: QQplot para muestras generadas de poblaciones Poisson, Binomial Negativa, Gamma y Weibull.
+Figure 16.5: QQplot para muestras generadas de poblaciones Poisson, Binomial Negativa, Gamma y Weibull.
 </p>
 </div>
 <p>En la Figura <a href="normalidad.html#fig:normalidad6">16.5</a> se muestran los cuatro QQplot para cada una de las muestras generadas de las distribuciones indicadas. Se observa claramente que los puntos del QQplot no está alineados, esto es una clara evidencia de que las muestras NO provienen de poblaciones normales. Otro aspecto interesante a resaltar es el patrón de escalera que se observa para las muestras generadas de poblaciones discretas (Poisson y Binomial Negativa).</p>
@@ -598,7 +600,7 @@ pesos</code></pre></div>
 <div class="figure"><span id="fig:normalidad5"></span>
 <img src="Manual_de_R_files/figure-html/normalidad5-1.png" alt="QQplot para el peso corporal de hombres y mujeres." width="768" />
 <p class="caption">
-FIGURE 16.6: QQplot para el peso corporal de hombres y mujeres.
+Figure 16.6: QQplot para el peso corporal de hombres y mujeres.
 </p>
 </div>
 <p>La Figura <a href="normalidad.html#fig:normalidad5">16.6</a> muestra el QQplot para el peso corporal de hombres y mujeres, de la figura se observa que los puntos no están tan desalineados, lo cual cual nos lleva a no rechazar la hipótesis de normalidad.</p>
@@ -622,7 +624,7 @@ Se debe interpretar con precaución el QQplot, del ejemplo con datos simulados s
 <div class="figure"><span id="fig:normalidad7"></span>
 <img src="Manual_de_R_files/figure-html/normalidad7-1.png" alt="QQplot con bandas de confianza para el peso corporal de hombres y mujeres." width="768" />
 <p class="caption">
-FIGURE 16.7: QQplot con bandas de confianza para el peso corporal de hombres y mujeres.
+Figure 16.7: QQplot con bandas de confianza para el peso corporal de hombres y mujeres.
 </p>
 </div>
 <pre><code>## [1] 10 18</code></pre>
@@ -759,8 +761,8 @@ pesos</code></pre></div>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
-"facebook": false,
+"github": false,
+"facebook": true,
 "twitter": true,
 "google": false,
 "linkedin": false,
@@ -775,7 +777,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yihui/bookdown-crc/edit/master/41_Normality.Rmd",
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/41_Normality.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -784,7 +786,7 @@ gitbook.start({
 },
 "download": ["Manual_de_R.pdf", "Manual_de_R.epub"],
 "toc": {
-"collapse": "none"
+"collapse": "subsection"
 }
 });
 });

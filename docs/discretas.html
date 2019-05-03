@@ -5,26 +5,28 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 13 Distribuciones discretas | Manual de R</title>
-  <meta name="description" content="This is an R manual.">
+  <title>13 Distribuciones discretas | Manual de R</title>
+  <meta name="description" content="13 Distribuciones discretas | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 13 Distribuciones discretas | Manual de R" />
+  <meta property="og:title" content="13 Distribuciones discretas | Manual de R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/portada.png" />
-  <meta property="og:description" content="This is an R manual." />
+  <meta property="og:description" content="13 Distribuciones discretas | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 13 Distribuciones discretas | Manual de R" />
+  <meta name="twitter:title" content="13 Distribuciones discretas | Manual de R" />
   
-  <meta name="twitter:description" content="This is an R manual." />
+  <meta name="twitter:description" content="13 Distribuciones discretas | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/portada.png" />
 
+<meta name="author" content="Freddy Hernández">
+<meta name="author" content="Olga Usuga">
 
 
-<meta name="date" content="2019-03-27">
+<meta name="date" content="2019-05-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +89,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -410,7 +412,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -430,7 +432,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="discretas" class="section level1">
-<h1><span class="header-section-number">Chapter 13</span> Distribuciones discretas</h1>
+<h1><span class="header-section-number">13</span> Distribuciones discretas</h1>
 <p>En este capítulo se mostrarán las funciones de R para distribuciones discretas.</p>
 <div id="funciones-disponibles-para-distribuciones-discretas" class="section level2">
 <h2><span class="header-section-number">13.1</span> Funciones disponibles para distribuciones discretas </h2>
@@ -482,7 +484,7 @@ Probabilidad &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span 
 <div class="figure"><span id="fig:binom1"></span>
 <img src="Manual_de_R_files/figure-html/binom1-1.png" alt="Función de masa de probabilidad para una $Binomial(n=18, p=0.1)$." width="768" />
 <p class="caption">
-FIGURE 13.1: Función de masa de probabilidad para una <span class="math inline">\(Binomial(n=18, p=0.1)\)</span>.
+Figure 13.1: Función de masa de probabilidad para una <span class="math inline">\(Binomial(n=18, p=0.1)\)</span>.
 </p>
 </div>
 <p>En la Figura <a href="discretas.html#fig:binom1">13.1</a> se muestra la función de masa de probabilidad para la <span class="math inline">\(Binomial(n=18, p=0.1)\)</span>, de esta figura se observa claramente que la mayor parte de la probabilidad está concentrada para valores pequeños de <span class="math inline">\(X\)</span> debido a que la probabilidad de éxito individual es <span class="math inline">\(p=0.10\)</span>. Valores de <span class="math inline">\(X \geq 7\)</span> tienen una probabilidad muy pequeña y es por eso que las longitudes de sus barras son muy cortas.</p>
@@ -588,7 +590,7 @@ Note que las funciones <code>pxxx</code> y <code>qxxx</code> están relacionadas
 <div class="figure" style="text-align: center"><span id="fig:crab"></span>
 <img src="images/crab.png" alt="Fotografía del cangrejo de herradura, tomada de http://sccoastalresources.com/home/2016/6/21/a-night-of-horseshoe-crab-tagging"  />
 <p class="caption">
-FIGURE 13.2: Fotografía del cangrejo de herradura, tomada de <a href="http://sccoastalresources.com/home/2016/6/21/a-night-of-horseshoe-crab-tagging" class="uri">http://sccoastalresources.com/home/2016/6/21/a-night-of-horseshoe-crab-tagging</a>
+Figure 13.2: Fotografía del cangrejo de herradura, tomada de <a href="http://sccoastalresources.com/home/2016/6/21/a-night-of-horseshoe-crab-tagging" class="uri">http://sccoastalresources.com/home/2016/6/21/a-night-of-horseshoe-crab-tagging</a>
 </p>
 </div>
 <ol style="list-style-type: decimal">
@@ -613,7 +615,7 @@ t1</code></pre></div>
 <div class="figure"><span id="fig:pmfcrab"></span>
 <img src="Manual_de_R_files/figure-html/pmfcrab-1.png" alt="Función de masa de probabilidad para el número de satélites por hembra." width="768" />
 <p class="caption">
-FIGURE 13.3: Función de masa de probabilidad para el número de satélites por hembra.
+Figure 13.3: Función de masa de probabilidad para el número de satélites por hembra.
 </p>
 </div>
 <ol start="2" style="list-style-type: decimal">
@@ -625,7 +627,7 @@ FIGURE 13.3: Función de masa de probabilidad para el número de satélites por 
 <div class="figure"><span id="fig:Fcrab"></span>
 <img src="Manual_de_R_files/figure-html/Fcrab-1.png" alt="Función de distribución acumulada para el número de satélites por hembra." width="768" />
 <p class="caption">
-FIGURE 13.4: Función de distribución acumulada para el número de satélites por hembra.
+Figure 13.4: Función de distribución acumulada para el número de satélites por hembra.
 </p>
 </div>
 <ol start="3" style="list-style-type: decimal">
@@ -659,7 +661,7 @@ F2 &lt;-<span class="st"> </span><span class="kw">ecdf</span>(x[[<span class="dv
 <div class="figure"><span id="fig:Fcrabs"></span>
 <img src="Manual_de_R_files/figure-html/Fcrabs-1.png" alt="Función de distribución acumulada para el número de satélites por hembra diferenciando por grupo." width="768" />
 <p class="caption">
-FIGURE 13.5: Función de distribución acumulada para el número de satélites por hembra diferenciando por grupo.
+Figure 13.5: Función de distribución acumulada para el número de satélites por hembra diferenciando por grupo.
 </p>
 </div>
 <p>En la Figura <a href="discretas.html#fig:Fcrabs">13.5</a> se muestran las dos <span class="math inline">\(F(x)\)</span>, en color azul para el grupo 1 y en color rojo para el grupo 2. Se observa claramente que las curvas son diferentes antes de <span class="math inline">\(x=9\)</span>. El hecho de que la curva azul esté por encima de la roja para valores menores de 9, es decir, <span class="math inline">\(F_1(x) \geq F_2(x)\)</span>, indica que las hembras del grupo 1 tienden a tener menos satélites que las del grupo 2, esto es coherente ya que las del grupo 2 son más grandes en su caparazón.</p>
@@ -687,8 +689,8 @@ FIGURE 13.5: Función de distribución acumulada para el número de satélites p
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
-"facebook": false,
+"github": false,
+"facebook": true,
 "twitter": true,
 "google": false,
 "linkedin": false,
@@ -703,7 +705,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yihui/bookdown-crc/edit/master/21_DDisc.Rmd",
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/21_DDisc.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -712,7 +714,7 @@ gitbook.start({
 },
 "download": ["Manual_de_R.pdf", "Manual_de_R.epub"],
 "toc": {
-"collapse": "none"
+"collapse": "subsection"
 }
 });
 });

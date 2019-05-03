@@ -5,26 +5,28 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 15 Verosimilitud | Manual de R</title>
-  <meta name="description" content="This is an R manual.">
+  <title>15 Verosimilitud | Manual de R</title>
+  <meta name="description" content="15 Verosimilitud | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 15 Verosimilitud | Manual de R" />
+  <meta property="og:title" content="15 Verosimilitud | Manual de R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/portada.png" />
-  <meta property="og:description" content="This is an R manual." />
+  <meta property="og:description" content="15 Verosimilitud | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 15 Verosimilitud | Manual de R" />
+  <meta name="twitter:title" content="15 Verosimilitud | Manual de R" />
   
-  <meta name="twitter:description" content="This is an R manual." />
+  <meta name="twitter:description" content="15 Verosimilitud | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/portada.png" />
 
+<meta name="author" content="Freddy Hernández">
+<meta name="author" content="Olga Usuga">
 
 
-<meta name="date" content="2019-03-27">
+<meta name="date" content="2019-05-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +89,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -410,7 +412,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -430,7 +432,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="loglik" class="section level1">
-<h1><span class="header-section-number">Chapter 15</span> Verosimilitud</h1>
+<h1><span class="header-section-number">15</span> Verosimilitud</h1>
 <p>En este capítulo se mostrará como usar R para obtener la función de log-verosimilitud y estimadores por el método de máxima verosimilitud.</p>
 <div id="funcion-de-verosimilitud" class="section level2">
 <h2><span class="header-section-number">15.1</span> Función de verosimilitud</h2>
@@ -438,7 +440,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="figure" style="text-align: center"><span id="fig:fisher"></span>
 <img src="images/Fisher.png" alt="Fotografía de Ronald Aylmer Fisher (1890-1962)." width="40%" />
 <p class="caption">
-FIGURE 15.1: Fotografía de Ronald Aylmer Fisher (1890-1962).
+Figure 15.1: Fotografía de Ronald Aylmer Fisher (1890-1962).
 </p>
 </div>
 
@@ -509,7 +511,7 @@ Necesitamos que la función <code>ll</code> esté vectorizada para poder dibujar
 <div class="figure"><span id="fig:loglik1"></span>
 <img src="Manual_de_R_files/figure-html/loglik1-1.png" alt="Función de log-verosimilitud para el ejemplo sobre binomial." width="384" />
 <p class="caption">
-FIGURE 15.2: Función de log-verosimilitud para el ejemplo sobre binomial.
+Figure 15.2: Función de log-verosimilitud para el ejemplo sobre binomial.
 </p>
 </div>
 <ol start="4" style="list-style-type: decimal">
@@ -558,7 +560,7 @@ Siempre que el interés sea encontrar los valores que maximizan una función de 
 <div class="figure"><span id="fig:loglik2"></span>
 <img src="Manual_de_R_files/figure-html/loglik2-1.png" alt="Gráfico de niveles para la función de log-verosimilitud para el ejemplo sobre normal." width="864" />
 <p class="caption">
-FIGURE 15.3: Gráfico de niveles para la función de log-verosimilitud para el ejemplo sobre normal.
+Figure 15.3: Gráfico de niveles para la función de log-verosimilitud para el ejemplo sobre normal.
 </p>
 </div>
 <ol start="3" style="list-style-type: decimal">
@@ -654,7 +656,7 @@ fit2</code></pre></div>
 <div class="figure"><span id="fig:normgamma"></span>
 <img src="Manual_de_R_files/figure-html/normgamma-1.png" alt="Gráfico cuantil cuantil normal y gamma para la muestra simulada." width="864" />
 <p class="caption">
-FIGURE 15.4: Gráfico cuantil cuantil normal y gamma para la muestra simulada.
+Figure 15.4: Gráfico cuantil cuantil normal y gamma para la muestra simulada.
 </p>
 </div>
 <p>En la Figura <a href="loglik.html#fig:normgamma">15.4</a> se muestran los qqplot solicitados. Se observa claramente que al asumir normalidad (lo cual es incorrecto), los puntos del qqplot no están alineados, mientras que al asumir distribución gamma (lo cual es correcto), los puntos si están alineados. De esta figura se concluye que la muestra <code>ma</code> puede provenir de una <span class="math inline">\(Gamma(2.23978, 0.51988)\)</span>.</p>
@@ -735,7 +737,7 @@ modelos &lt;-<span class="st"> </span><span class="kw">fitDist</span>(<span clas
 <div class="figure"><span id="fig:histDist1"></span>
 <img src="Manual_de_R_files/figure-html/histDist1-1.png" alt="Histograma para la muestra simulada con la densidad de una Gamma(mu=4.308, sigma=0.6682)." width="864" />
 <p class="caption">
-FIGURE 15.5: Histograma para la muestra simulada con la densidad de una Gamma(mu=4.308, sigma=0.6682).
+Figure 15.5: Histograma para la muestra simulada con la densidad de una Gamma(mu=4.308, sigma=0.6682).
 </p>
 </div>
 <pre><code>## 
@@ -800,7 +802,7 @@ ll2 &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(ll2)</code><
 <div class="figure"><span id="fig:loglikpoisson"></span>
 <img src="Manual_de_R_files/figure-html/loglikpoisson-1.png" alt="Curvas de log-verosimilitud para los dos casos." width="480" />
 <p class="caption">
-FIGURE 15.6: Curvas de log-verosimilitud para los dos casos.
+Figure 15.6: Curvas de log-verosimilitud para los dos casos.
 </p>
 </div>
 </div>
@@ -953,8 +955,8 @@ x_2 &amp;\sim Poisson(\lambda=3)
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
-"facebook": false,
+"github": false,
+"facebook": true,
 "twitter": true,
 "google": false,
 "linkedin": false,
@@ -969,7 +971,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yihui/bookdown-crc/edit/master/23_loglik.Rmd",
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/23_loglik.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -978,7 +980,7 @@ gitbook.start({
 },
 "download": ["Manual_de_R.pdf", "Manual_de_R.epub"],
 "toc": {
-"collapse": "none"
+"collapse": "subsection"
 }
 });
 });

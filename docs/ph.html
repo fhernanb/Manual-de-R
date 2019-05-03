@@ -5,26 +5,28 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 18 Prueba de hipótesis | Manual de R</title>
-  <meta name="description" content="This is an R manual.">
+  <title>18 Prueba de hipótesis | Manual de R</title>
+  <meta name="description" content="18 Prueba de hipótesis | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 18 Prueba de hipótesis | Manual de R" />
+  <meta property="og:title" content="18 Prueba de hipótesis | Manual de R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/portada.png" />
-  <meta property="og:description" content="This is an R manual." />
+  <meta property="og:description" content="18 Prueba de hipótesis | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 18 Prueba de hipótesis | Manual de R" />
+  <meta name="twitter:title" content="18 Prueba de hipótesis | Manual de R" />
   
-  <meta name="twitter:description" content="This is an R manual." />
+  <meta name="twitter:description" content="18 Prueba de hipótesis | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/portada.png" />
 
+<meta name="author" content="Freddy Hernández">
+<meta name="author" content="Olga Usuga">
 
 
-<meta name="date" content="2019-03-27">
+<meta name="date" content="2019-05-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +89,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -410,7 +412,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -430,7 +432,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="ph" class="section level1">
-<h1><span class="header-section-number">Chapter 18</span> Prueba de hipótesis</h1>
+<h1><span class="header-section-number">18</span> Prueba de hipótesis</h1>
 <p>En este capítulo se muestran las funciones que hay disponibles en R para realizar prueba de hipótesis para:</p>
 <ol style="list-style-type: decimal">
 <li>la media <span class="math inline">\(\mu\)</span>,</li>
@@ -544,7 +546,7 @@ z  <span class="co"># Para obtener el valor del estadístico</span></code></pre>
 <div class="figure"><span id="fig:wald1"></span>
 <img src="Manual_de_R_files/figure-html/wald1-1.png" alt="Representación del Valor-P para la prueba Wald." width="576" />
 <p class="caption">
-FIGURE 18.1: Representación del Valor-P para la prueba Wald.
+Figure 18.1: Representación del Valor-P para la prueba Wald.
 </p>
 </div>
 
@@ -694,7 +696,7 @@ q2 &lt;-<span class="st"> </span><span class="kw">qqnorm</span>(T2, <span class=
 <div class="figure"><span id="fig:frijoles1"></span>
 <img src="Manual_de_R_files/figure-html/frijoles1-1.png" alt="QQplot para los tiempos de cocción." width="384" />
 <p class="caption">
-FIGURE 18.2: QQplot para los tiempos de cocción.
+Figure 18.2: QQplot para los tiempos de cocción.
 </p>
 </div>
 <p>De la Figura <a href="ph.html#fig:frijoles1">18.2</a> se observa que los puntos están bastante alineados lo cual nos lleva a pensar que las muestras si provienen de una población normal, para estar más seguros se aplicará una prueba formal para estudiar la normalidad.</p>
@@ -737,7 +739,7 @@ rur &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">48<
 <div class="figure"><span id="fig:ars1"></span>
 <img src="Manual_de_R_files/figure-html/ars1-1.png" alt="QQplot para las concentraciones de arsénico." width="384" />
 <p class="caption">
-FIGURE 18.3: QQplot para las concentraciones de arsénico.
+Figure 18.3: QQplot para las concentraciones de arsénico.
 </p>
 </div>
 <p>A continuación el código para aplicar la prueba de normalidad Kolmogorov-Smirnov, a continuación el código usado.</p>
@@ -798,7 +800,7 @@ FIGURE 18.3: QQplot para las concentraciones de arsénico.
 <div class="figure"><span id="fig:frijoles2"></span>
 <img src="Manual_de_R_files/figure-html/frijoles2-1.png" alt="Boxplot para los tiempos de cocción dado el tratamiento." width="384" />
 <p class="caption">
-FIGURE 18.4: Boxplot para los tiempos de cocción dado el tratamiento.
+Figure 18.4: Boxplot para los tiempos de cocción dado el tratamiento.
 </p>
 </div>
 <p>En este problema interesa estudiar el siguiente conjunto de hipótesis.</p>
@@ -834,7 +836,7 @@ FIGURE 18.4: Boxplot para los tiempos de cocción dado el tratamiento.
 <div class="figure"><span id="fig:ars2"></span>
 <img src="Manual_de_R_files/figure-html/ars2-1.png" alt="Boxplot para las concentaciones de arsénico dada la zona." width="384" />
 <p class="caption">
-FIGURE 18.5: Boxplot para las concentaciones de arsénico dada la zona.
+Figure 18.5: Boxplot para las concentaciones de arsénico dada la zona.
 </p>
 </div>
 <p>En este problema interesa estudiar el siguiente conjunto de hipótesis.</p>
@@ -948,7 +950,7 @@ dif &lt;-<span class="st"> </span>antes <span class="op">-</span><span class="st
 <div class="figure"><span id="fig:pesos1"></span>
 <img src="Manual_de_R_files/figure-html/pesos1-1.png" alt="QQplot para las diferencias de peso." width="336" />
 <p class="caption">
-FIGURE 18.6: QQplot para las diferencias de peso.
+Figure 18.6: QQplot para las diferencias de peso.
 </p>
 </div>
 <p>Se puede aplicar la prueba de normalidad Kolmogorov-Smirnov para estudiar si las diferencias <code>dif</code> provienen de una población normal, esto se puede realizar por medio del siguiente código.</p>
@@ -1010,8 +1012,8 @@ FIGURE 18.6: QQplot para las diferencias de peso.
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
-"facebook": false,
+"github": false,
+"facebook": true,
 "twitter": true,
 "google": false,
 "linkedin": false,
@@ -1026,7 +1028,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yihui/bookdown-crc/edit/master/43_PH.Rmd",
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/43_PH.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -1035,7 +1037,7 @@ gitbook.start({
 },
 "download": ["Manual_de_R.pdf", "Manual_de_R.epub"],
 "toc": {
-"collapse": "none"
+"collapse": "subsection"
 }
 });
 });

@@ -1,0 +1,443 @@
+# Funciones básicas de R {#funbas}
+
+En este capítulo se presentará lo que es una función y se mostrarán varias funciones básicas que son útiles para realizar diversas tareas.
+
+## ¿Qué es una función de R? \index{función} \index{function}
+En la Figura \@ref(fig:machine1) se muestra una ilustración de lo que es una función o máquina general. Hay unas entradas (_inputs_) que luego son procesadas dentro de la caja para generar unas salidas (_outputs_). Un ejemplo de una función o máquina muy común en nuestras casas es la licuadora. Si a una licuadora le ingresamos leche, fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa. 
+
+```{r machine1, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org.', dpi=250, fig.align='center'}
+knitr::include_graphics("images/function_machine.png")
+```
+
+Las funciones en R se caracterizan por un nombre corto y que dé una idea de lo que hace la función. Los elementos que pueden ingresar (_inputs_) a la función se llaman __parámetros__ y se ubican dentro de paréntesis, el cuerpo de la función se ubica dentro de llaves y es ahí donde se procesan los _inputs_ para convertirlos en _outputs_, a continuación se muestra la estructura general de una función.
+
+```{r, eval=F}
+nombre_de_funcion(parametro1, parametro2, ...) {
+  tareas internas
+  tareas internas
+  tareas internas
+  salida
+}
+```
+
+Cuando usamos una función sólo debemos escribir bien el nombre e ingresar correctamente los parámetros de la función, el cuerpo de la función ni lo vemos ni lo debemos modificar. A continuación se presenta un ejemplo de cómo usar la función `mean` para calcular un promedio.
+
+```{r}
+notas <- c(4.0, 1.3, 3.8, 2.0)  # Notas de un estudiante
+mean(notas)
+```
+
+## Operadores de asignación \index{asignación}
+En R se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.
+
+- `<-` este es el operador de asignación a izquierda, es el más usado y recomendado.
+- `->` este es el operador de asignación a derecha, no es frecuente su uso.
+- `=` el símbolo igual sirve para hacer asignaciones pero __NO__ se recomienda usarlo.
+- `<<-` este es un operador de asignación global y sólo debe ser usado por usuarios avanzados.
+
+### Ejemplo {-}
+Almacene los valores 5.3, 4.6 y 25 en los objetos `a`, `b` y `age` respectivamente, use diferentes símbolos de asignación.
+
+Para hacer lo solicitado se podría usar el siguiente código.
+
+```{r}
+a <- 5.3 # Recomended
+4.6 -> b # It is not usual
+age = 25 # Not recomended
+```
+
+```{block2, type='rmdimportant'}
+Aunque una asignación se puede hacer de tres formas diferentes, se recomienda sólo usar el símbolo `<-`.
+```
+
+## Operaciones básicas \index{operaciones básicas}
+En R se pueden hacer diversas operaciones usando operadores binarios. Este tipo de operadores se denomina binarios porque actuan entre dos objetos, a continuación el listado.
+
+- `+` operador binario para sumar.
+- `-` operador binario para restar.
+- `*` operador binario para multiplicar.
+- `/` operador binario para dividir.
+- `^` operador binario para potencia.
+- `%/%` operador binario para obtener el cociente en una división (número entero).
+- `%%` operador binario para obtener el residuo en una división.
+
+
+A continuación se presentan ejemplos de cómo usar las anteriores funciones.
+
+```{r}
+6 + 4  # Para sumar dos números
+a <- c(1, 3, 2)
+b <- c(2, 0, 1)  # a y b de la misma dimensión
+a + b  # Para sumar los vectores a y b miembro a miembro
+a - b  # Para restar dos vectores a y b miembro a miembro
+a * b  # Para multiplicar
+a / b  # Para dividir
+a ^ b  # Para potencia
+7 %/% 3  # Para saber las veces que cabe 3 en 7
+7 %% 3  # Para saber el residuo al dividir 7 entre 3
+```
+
+## Pruebas lógicas \index{pruebas lógicas}
+En R se puede verificar si un objeto cumple una condición dada, a continuación el listado de las pruebas usuales.
+
+- `<` para saber si un número es menor que otro.
+- `>` para saber si un número es mayor que otro.
+- `==` para saber si un número es igual que otro.
+- `<=` para saber si un número es menor o igual que otro.
+- `>=` para saber si un número es mayor o igual que otro.
+
+A continuación se presentan ejemplos de cómo usar las anteriores funciones.
+
+```{r}
+5 < 12  # ¿Será 5 menor que 12?
+# Comparando objetos
+x <- 5
+y <- 20 / 4
+x == y  # ¿Será x igual a y?
+# Usando vectores
+a <- c(1, 3, 2)
+b <- c(2, 0, 1)
+a > b  # Comparación término a término
+a == b  # Comparación de igualdad término a término
+```
+
+### Ejemplo {-}
+Crear un vector con los números de 1 a 17 y extrater los números que son mayores o iguales a 12.
+
+Primero se crear el vector `x` con los elementos del 1 al 17. La prueba lógica `x >= 12` se usa para evaluar la condición, el resultado es un vector de 17 posiciones con valores de `TRUE` o `FALSE` dependiendo de si la condición se cumple o no. Este vector lógico se coloca dentro de `x[ ]` para que al evaluar `x[x >= 12]` sólo aparezcan los valores del vector original que SI cumplen la condición. El código necesario se muestra a continuación.
+
+```{r}
+x <- 1:17  # Se crea el vector
+x[x >= 12]  # Se solicitan los valores que cumplen la condición
+```
+
+### Ejemplo {-}
+Retome el marco de datos `mimarco` construído en la sección 2.4 y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años.
+
+Inicialmente vamos a construir nuevamente el objeto `mimarco` de la sección 2.4 usando el siguiente código.
+
+```{r}
+mimarco <- data.frame(edad = c(15, 19, 13, NA, 20), 
+                      deporte = c(TRUE, TRUE, NA, FALSE, TRUE),
+                      comic.fav = c(NA, 'Superman', 'Batman',
+                                    NA, 'Batman'))
+
+mimarco  # Para ver el contenido de mimarco
+```
+
+Para extraer de `mimarco` la información de las personas que tienen una edad superior o igual a 15 años se coloca dentro de corchetes la condición `mimarco$edad >= 15`, esto servirá para chequear cuáles de las edades del vector `mimarco$ead` cumplen la condición. El resultado de evaluar `mimarco$edad >= 15` será un vector lógico (`TRUE` o `FALSE`), que al ser colocado dentro de `mimarco[,]`, entregará la información de las personas que cumplen la condición. A continuación el código para extraer la información solicitada.
+
+```{r}
+mimarco[mimarco$edad >= 15, ]
+```
+
+De la salida anterior se observa que 4 personas de las 5 cumplean la condición.
+
+```{block2, type='rmdwarning'}
+Note que la condición `mimarco$edad >= 15` se debe ubicar __antes__ de la coma para obtener todos individuos que cumplen con la condición.
+```
+
+## Operadores lógicos \index{operadores lógicos}
+En R están disponibles los operadores lógicos negación, conjunción y disyunción. A continuación el listado de los operadores entre los elementos `x` e `y`.
+
+```{r, eval=F}
+!x  # Negación de x
+x & y  # Conjunción entre x e y
+x && y
+x | y  # Disyunción entre x e y
+x || y
+xor(x, y)
+```
+
+A continuación se presentan ejemplos de cómo usar el símbolo de negación `!`.
+
+```{r}
+ans <- c(TRUE, FALSE, TRUE)
+!ans  # Negando las respuestas almacenadas en ans
+x <- c(5, 1.5, 2, 3, 2)
+!(x < 2.5)  # Negando los resultados de una prueba
+```
+
+A continuación se presentan ejemplos de cómo aplicar la conjunción `&` y `&&`.
+
+```{r}
+x <- c(5, 1.5, 2)  # Se construyen dos vectores para la prueba
+y <- c(4, 6, 3)
+
+x < 4  # ¿Serán los elementos de x menores que 4?
+y > 5  # ¿Serán los elementos de y mayores que 5?
+x < 4 & y > 5  # Conjunción entre las pruebas anteriores.
+x < 4 && y > 5  # Conjunción vectorial
+```
+
+Note las diferencias entre los dos últimos ejemplos, cuando se usa `&` se hace una prueba término a término y el resultado es un vector, cuando se usa `&&` se aplica la conjunción al vector de resultados obtenido con `&`.
+
+### Ejemplo {-}
+Retome el marco de datos `mimarco` construído en la sección 2.4 y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años y que practican deporte.
+
+Aquí interesa extraer la información de los individuos que cumplen dos condiciones simultáneamente, aquellos con edad $\geq$ 15 y que SI practiquen deporte. El código necesario para obtener la información solicitada es el siguiente.
+
+```{r}
+mimarco[mimarco$edad >= 15 & mimarco$deporte == TRUE, ]
+```
+
+De la anterior salida se observa que sólo 3 de las 5 personas cumplen ambas condiciones.
+
+\index{with}
+```{block2, type='rmdtip'}
+La función `with` es útil porque nos permite realizar algún procedimiento en relación de un objeto, escribiendo menos y de una forma más natural.
+```
+
+Una forma alternativa para escribir lo anterior usando la función `with` es la siguiente.
+
+```{r}
+with(mimarco, mimarco[edad >= 15 & deporte == TRUE, ])
+```
+
+Al usar `with` sólo se tuvo que escribir el objeto `mimarco` dos veces. Cuando hay muchas condiciones o cuando el objeto tiene un nombre largo es aconsejable usar `with`.
+
+## Funciones sobre vectores
+En R podemos destacar las siguientes funciones básicas sobre vectores numéricos.
+
+\index{min} \index{max} \index{legth} \index{range} \index{sum} \index{prod} \index{which.min} \index{which.max}  
+
+- `min`: para obtener el mínimo de un vector.
+- `max`: para obtener el máximo de un vector.
+- `length`: para determinar la longitud de un vector.
+- `range`: para obtener el rango de valores de un vector, entrega el mínimo y máximo.
+- `sum`: entrega la suma de todos los elementos del vector.
+- `prod`: multiplica todos los elementos del vector.
+- `which.min`: nos entrega la posición en donde está el valor mínimo del vector.
+- `which.max`: nos da la posición del valor máximo del vector.
+- `rev`: invierte un vector.
+
+### Ejemplo {-}
+Construir en vector llamado `myvec` con los siguientes elementos: 5, 3, 2, 1, 2, 0, NA, 0, 9, 6. Luego aplicar todas las funciones anteriores para verificar el funcionamiento de las mismas.
+
+```{r}
+myvec <- c(5, 3, 2, 1, 2, 0, NA, 0, 9, 6)
+myvec
+
+min(myvec)  # Opss, no aparece el mínimo que es Cero.
+min(myvec, na.rm=TRUE)  # Usamos na.rm = TRUE para remover el NA
+max(myvec, na.rm=T)  # Para obtener el valor máximo
+range(myvec, na.rm=T)  # Genera min y max simultáneamente
+sum(myvec, na.rm=T)  # La suma de los valores internos
+prod(myvec, na.rm=T)  # El productor de los valores internos
+which.min(myvec)  # Posición del valor mínimo 0 en el vector
+which.max(myvec)  # Posición del valor máximo 9 en el vector
+```
+
+De las dos últimas líneas podemos destacar lo siguiente:
+
+1. __NO es necesario__ usar `na.rm = TRUE` para remover el `NA` dentro de las funciones `which.min` ni `which.max`.
+2. El valor mínimo 0 aparece en las posiciones 6 y 8 pero la función `which.min` sólo entrega la posición del primer valor mínimo dentro del vector.
+
+## Funciones matemáticas
+Otras funciones básicas muy utilizadas en estadística son: `sin, cos, tan, asin, acos, atan, atan2, log, logb, log10, exp, sqrt, abs`. A continuación algunos ejemplos de las anteriores funciones.
+
+__Ejemplos de medidas trigonométricas__
+```{r}
+angulos <- c(0, pi/2, pi)
+sin(angulos)
+tan(angulos)
+```
+
+__Ejemplos de logaritmos__
+```{r}
+log(100)
+log10(100)
+logb(125, base=5)
+```
+
+__Ejemplos de exponencial__
+```{r}
+exp(1)
+exp(2)
+exp(1:3)
+```
+
+__Ejemplos de raices__
+```{r}
+sqrt(49)  # Raiz cuadrada de 49
+27 ^ (1/3)  # Raiz cúbica de 27
+```
+
+__Ejemplos de valor absoluto__
+```{r}
+abs(2.5)
+abs(-3.6)
+```
+
+## Función `seq` \index{seq} \index{secuencias}
+En R podemos crear secuencias de números de una forma sencilla usando la función `seq`, la estructura de esta función es:
+
+```{r, eval=F}
+seq(from=1, to=1, by, length.out)
+```
+
+Los argumentos de esta función son:
+
+- `from`: valor de inicio de la secuencia.
+- `to`: valor de fin de la secuencia, no siempre se alcanza.
+- `by`: incremento de la secuencia.
+- `length.out`: longitud deseado de la secuencia.
+
+### Ejemplo {-}
+Construya las siguientes tres secuencias usando la función `seq`.
+
+- Once valores igualmente espaciados desde 0 hasta 1.
+- Una secuencia de dos en dos comenzando en 1.
+- Una secuencia desde 1 con un salto de $\pi$ y sin pasar del número 9.
+
+El código necesario para obtener las secuencias se muestra a continuación.
+
+```{r}
+seq(from=0, to=1, length.out = 11)
+seq(from=1, to=9, by=2)  # matches 'end'
+seq(from=1, to=9, by=pi) # stays below 'end'
+```
+
+```{block2, type='rmdnote'}
+En R existe el operador binario `:` que sirve para construir secuencias de uno en uno fácilmente.
+```
+
+Revise los siguientes ejemplos para entender el funcionamiento del operador `:`.
+
+```{r}
+2:8
+3:-5
+pi:6  # real sequence
+6:pi  # integer sequence
+```
+
+## Función `rep` \index{rep} \index{repeticiones}
+En R podemos crear repeticiones usando la función `rep`, la estructura de esta función es:
+
+```{r, eval=F}
+rep(x, times=1, length.out=NA, each=1)
+```
+
+Los argumentos de esta función son:
+
+- `x`: vector con los elementos a repetir.
+- `times`: número de veces que el vector `x` se debe repetir.
+- `length.out`: longitud deseada para el vector resultante.
+- `each`: número de veces que cada elemento de `x` se debe repetir.
+
+### Ejemplo {-}
+Construya las siguientes repeticiones usando la función `rep`, no lo haga ingresando número por número.
+
+- 1 2 3 4 1 2 3 4
+- 1 1 2 2 3 3 4 4
+- 1 1 2 3 3 4
+- 1 1 2 2 3 3 4 4
+
+La clave para construir una repetición es descrubir la semilla o elemento que se repite. Las instrucciones para obtener las repeticiones anteriores se muestra a continuación.
+
+```{r}
+rep(x=1:4, times=2)
+rep(x=1:4, times=c(2,2,2,2))
+rep(x=1:4, times=c(2,1,2,1))
+rep(x=1:4, each=2)
+```
+
+### Ejemplo {-}
+La función `rep` es muy versátil, observe los siguientes 4 ejemplos y saque una conclusión de cada uno de ellos.
+
+```{r}
+rep(x=1:4, each=2)
+rep(x=1:4, each=2, len=4)    # first 4 only.
+rep(x=1:4, each=2, len=10)   # 8 integers plus two recycled 1's.
+rep(x=1:4, each=2, times=3)  # length 24, 3 complete replications
+```
+
+## Funciones `round`, `ceiling`, `floor` y `trunc` \index{round} \index{ceiling}  \index{floor}  \index{trunc}
+
+Existen 4 funciones útiles para modificar u obtener información de un número, estas funciones son `round`, `ceiling`, `floor` y `trunc`.
+
+- `round(x, digits)`: sirve para redondear un número según los dígitos indicados.
+- `ceiling(x)`: entrega el mínimo entero mayor o igual que `x`.
+- `floor(x)`: entrega el máximo entero menor o igual que `x`.
+- `trunc(x)`: entrega la parte entera de un número `x`.
+
+### Ejemplo {-}
+Aplique las funciones `round`, `ceiling`, `floor` y `trunc` a un valor positivo y a un valor negativo para inspeccionar los resultados.
+
+A continuación el código de prueba para un número positivo cualquiera.
+
+```{r}
+x <- 5.34896  # Número positivo elegido
+round(x, digits=3)
+ceiling(x)
+floor(x)
+trunc(x)
+```
+
+A continuación las pruebas con un número negativo cualquiera.
+
+```{r}
+x <- -4.26589  # Número negativo elegido
+round(x, digits=3)
+ceiling(x)
+floor(x)
+trunc(x)
+```
+
+## Funciones `sort` y `rank` \index{sort} \index{rank}  \index{ordenar}  \index{posición}
+Las funciones `sort` y `rank` son útiles para ordenar los elementos de un vector o para saber las posiciones que ocuarían los elementos de un vector al ser ordenado. La estructura de las dos funciones es la siguiente.
+
+```{r, eval=F}
+sort(x, decreasing = FALSE)
+rank(x)
+```
+
+En el parámetro `x` se ingresa el vector y el parámetro `decreasing` sirva para indicar si el ordenamiento es de menor a mayor (por defecto es este) o de mayor a menor.
+
+### Ejemplo {-}
+Considere el vector `x` que tiene los siguientes elementos: 2, 3, 6, 4, 9 y 5. Ordene el vector de menor a mayor, de mayor a menor y por último encuentre la posición que ocupan los elementos de `x` si se ordenaran de menor a mayor.
+
+```{r}
+x <- c(2, 3, 6, 4, 9, 5)
+sort(x)
+sort(x, decreasing=TRUE)
+rank(x)
+```
+
+
+
+
+## EJERCICIOS {-}
+Use funciones o procedimientos (varias líneas) de R para responder cada una de las siguientes preguntas.
+
+
+1. ¿Qué cantidad de dinero sobra al repartir 10000\$ entre 3 personas?
+2. ¿Es el número 4560 divisible por 3?
+3. Construya un vector con los números enteros del 2 al 87. ¿Cuáles de esos números son divisibles por 7?
+4. Construya dos vectores, el primero con los números enteros desde 7 hasta 3, el segundo vector con los primeros cinco números positivos divisibles por 5. Sea A la condición de ser par en el primer vector. Sea B la condición de ser mayor que 10 en el segundo vector. ¿En cuál de las 5 posiciones se cumple A y B simultáneamente?
+5. Consulte el siguiente enlace sobre una anéctoda de Gauss cuando tenía 10 años de edad http://tinyurl.com/hk2l8h2. Use R para obtener el resultado de la suma solicitada por el profesor del niño Gauss.
+6. Construya un vector con los siguientes elementos: 1, -4, 5, 9, -4. Escriba un procedimiento para extraer __las posiciones__ donde está el valor mínimo en el vector.
+7. Calcular $8!$
+8. Evaluar la siguiente suma $\sum_{i=3}^{i=7}e^i$
+9. Evaluar la siguiente productoria $\prod_{i=1}^{i=10}\log\sqrt{i}$
+10. Construya un vector cualquiera e inviertalo, es decir, que el primer elemento quede de último, el segundo de penúltimo y así sucesivamente. Compare su resultado con el de la función `rev`.
+11. Create the vector: $1, 2, 3, \ldots, 19, 20$.
+12. Create the vector: $20, 19, \ldots , 2, 1$.
+13. Create the vector: $1, -2, 3, -4, 5, -6, \ldots, 19, -20$.
+14. Create the vector: $0.1^3, 0.2^1, 0.1^6, 0.2^4, . . . , 0.1^{36}, 0.2^{34}$.
+15. Calculate the following: $\sum_{i=10}^{100}(i^3+4i^2)$ and $\sum_{i=1}^{25}\left( \frac{2^i}{i} + \frac{3^i}{i^2} \right)$.
+16. Read the data set available in: http://tinyurl.com/hcusrdc
+17. Use a code to obtain the number of variables of the data set.
+18. Use a code to obtain the number of countries in the data set.
+19. Which is the country with the higher population?
+20. Which is the country with the lowest literacy rate?
+21. ¿Qué valor de verdad tiene la siguiente afirmación? "Los resultados de la función `floor` y `trunc` son siempre los mismos".
+
+En R hay unas bases de datos incluídas, una de ellas es la base de datos llamada `mtcars`. Para conocer las variables que están en `mtcars` usted puede escribir en la consola `?mtcars` o también `help(mtcars)`. De la base `mtcars` obtenga bases de datos que cumplan las siguientes condiciones.
+
+22. Autos que tengan un rendimiento menor a 18 millas por galón de combustible.
+23. Autos que tengan 4 cilindros.
+24. Autos que pesen más de 2500 libras y tengan transmisión manual.
+
+
+

@@ -5,26 +5,28 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 17 Intervalos de confianza | Manual de R</title>
-  <meta name="description" content="This is an R manual.">
+  <title>17 Intervalos de confianza | Manual de R</title>
+  <meta name="description" content="17 Intervalos de confianza | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 17 Intervalos de confianza | Manual de R" />
+  <meta property="og:title" content="17 Intervalos de confianza | Manual de R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/portada.png" />
-  <meta property="og:description" content="This is an R manual." />
+  <meta property="og:description" content="17 Intervalos de confianza | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 17 Intervalos de confianza | Manual de R" />
+  <meta name="twitter:title" content="17 Intervalos de confianza | Manual de R" />
   
-  <meta name="twitter:description" content="This is an R manual." />
+  <meta name="twitter:description" content="17 Intervalos de confianza | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/portada.png" />
 
+<meta name="author" content="Freddy Hernández">
+<meta name="author" content="Olga Usuga">
 
 
-<meta name="date" content="2019-03-27">
+<meta name="date" content="2019-05-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +89,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -410,7 +412,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -430,7 +432,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="ic" class="section level1">
-<h1><span class="header-section-number">Chapter 17</span> Intervalos de confianza</h1>
+<h1><span class="header-section-number">17</span> Intervalos de confianza</h1>
 <p>En este capítulo se muestran las funciones que hay disponibles en R para construir intervalos de confianza para:</p>
 <ol style="list-style-type: decimal">
 <li>la media <span class="math inline">\(\mu\)</span>,</li>
@@ -479,7 +481,7 @@ hombres &lt;-<span class="st"> </span>datos[datos<span class="op">$</span>sexo<s
 <div class="figure"><span id="fig:ic1"></span>
 <img src="Manual_de_R_files/figure-html/ic1-1.png" alt="QQplot e histograma para la altura de los hombres." width="768" />
 <p class="caption">
-FIGURE 17.1: QQplot e histograma para la altura de los hombres.
+Figure 17.1: QQplot e histograma para la altura de los hombres.
 </p>
 </div>
 <p>En la Figura <a href="ic.html#fig:ic1">17.1</a> se muestra el QQplot e histograma para la variable altura, de estas figuras no se observa un claro patrón normal, sin embargo, al aplicar la prueba Shapiro-Wilk a la muestra de alturas de los hombres se obtuvo un valor-P de 0.3599, por lo tanto, se asume que la muestra de alturas provienen de una población normal.</p>
@@ -526,7 +528,7 @@ mujeres &lt;-<span class="st"> </span>datos[datos<span class="op">$</span>sexo<s
 <div class="figure"><span id="fig:ic2"></span>
 <img src="Manual_de_R_files/figure-html/ic2-1.png" alt="QQplot e histograma para la altura de hombres y mujeres." width="768" />
 <p class="caption">
-FIGURE 17.2: QQplot e histograma para la altura de hombres y mujeres.
+Figure 17.2: QQplot e histograma para la altura de hombres y mujeres.
 </p>
 </div>
 <p>De la Figura <a href="ic.html#fig:ic2">17.2</a> se puede concluir que las alturas de los estudiantes hombres y mujeres siguen una distribución normal. Al aplicar la prueba Shapiro-Wilk para estudiar la normalidad de la altura se encontró un valor-P de 0.3599 para el grupo de hombres y un valor-P de 0.5921 para el grupo de mujeres, esto confirma que se cumple el supuesto de normalidad.</p>
@@ -668,7 +670,7 @@ Diferencia &lt;-<span class="st"> </span>Antes <span class="op">-</span><span cl
 <div class="figure"><span id="fig:ic3"></span>
 <img src="Manual_de_R_files/figure-html/ic3-1.png" alt="QQplot y densidad para Diferencias." width="768" />
 <p class="caption">
-FIGURE 17.3: QQplot y densidad para Diferencias.
+Figure 17.3: QQplot y densidad para Diferencias.
 </p>
 </div>
 <p>De la Figura <a href="ic.html#fig:ic3">17.3</a> se observa que la diferencia de los tiempos sigue una distribución normal, debido a que en el QQplot se observa un patron lineal y la densidad muestra una forma cercana a la simétrica.</p>
@@ -848,8 +850,8 @@ res<span class="op">$</span>conf.int</code></pre></div>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
-"facebook": false,
+"github": false,
+"facebook": true,
 "twitter": true,
 "google": false,
 "linkedin": false,
@@ -864,7 +866,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yihui/bookdown-crc/edit/master/42_IC.Rmd",
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/42_IC.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -873,7 +875,7 @@ gitbook.start({
 },
 "download": ["Manual_de_R.pdf", "Manual_de_R.epub"],
 "toc": {
-"collapse": "none"
+"collapse": "subsection"
 }
 });
 });
