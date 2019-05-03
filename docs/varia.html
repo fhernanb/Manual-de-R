@@ -5,23 +5,25 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 8 Medidas de variabilidad | Manual de R</title>
-  <meta name="description" content="This is an R manual.">
+  <title>8 Medidas de variabilidad | Manual de R</title>
+  <meta name="description" content="8 Medidas de variabilidad | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 8 Medidas de variabilidad | Manual de R" />
+  <meta property="og:title" content="8 Medidas de variabilidad | Manual de R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/portada.png" />
-  <meta property="og:description" content="This is an R manual." />
+  <meta property="og:description" content="8 Medidas de variabilidad | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Medidas de variabilidad | Manual de R" />
+  <meta name="twitter:title" content="8 Medidas de variabilidad | Manual de R" />
   
-  <meta name="twitter:description" content="This is an R manual." />
+  <meta name="twitter:description" content="8 Medidas de variabilidad | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/portada.png" />
 
+<meta name="author" content="Freddy Hernández">
+<meta name="author" content="Olga Usuga">
 
 
 <meta name="date" content="2019-05-02">
@@ -87,7 +89,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -229,7 +231,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -249,7 +251,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="varia" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Medidas de variabilidad</h1>
+<h1><span class="header-section-number">8</span> Medidas de variabilidad</h1>
 <p>En este capítulo se mostrará cómo obtener las diferentes medidas de variabilidad con R.</p>
 <p>Para ilustrar el uso de las funciones se utilizará la base de datos llamada <strong>aptos2015</strong>, esta base de datos cuenta con 11 variables registradas a apartamentos usados en la ciudad de Medellín. Las variables de la base de datos son:</p>
 <ol style="list-style-type: decimal">
@@ -359,7 +361,7 @@ precios &lt;-<span class="st"> </span><span class="kw">split</span>(datos<span c
 <div class="figure"><span id="fig:box1"></span>
 <img src="Manual_de_R_files/figure-html/box1-1.png" alt="Boxplot para el precio de los apartamentos dada la ubicación." width="960" />
 <p class="caption">
-FIGURE 8.1: Boxplot para el precio de los apartamentos dada la ubicación.
+Figure 8.1: Boxplot para el precio de los apartamentos dada la ubicación.
 </p>
 </div>
 </div>
@@ -413,8 +415,8 @@ FIGURE 8.1: Boxplot para el precio de los apartamentos dada la ubicación.
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
-"facebook": false,
+"github": false,
+"facebook": true,
 "twitter": true,
 "google": false,
 "linkedin": false,
@@ -429,7 +431,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yihui/bookdown-crc/edit/master/12_Med_Var.Rmd",
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/12_Med_Var.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -438,7 +440,7 @@ gitbook.start({
 },
 "download": ["Manual_de_R.pdf", "Manual_de_R.epub"],
 "toc": {
-"collapse": "none"
+"collapse": "subsection"
 }
 });
 });

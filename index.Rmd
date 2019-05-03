@@ -1,21 +1,16 @@
 --- 
 title: "Manual de R"
-author: |
-  | Freddy Hernández Barajas
-  | Olga Cecilia Usuga Manco
+author: ["Freddy Hernández", "Olga Usuga"]
 date: "`r Sys.Date()`"
-documentclass: krantz
-fontsize: 10pt
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-colorlinks: yes
-lot: yes
-lof: yes
-site: bookdown::bookdown_site
-description: "This is an R manual."
-github-repo: fhernanb/Manual-de-R
 cover-image: images/portada.png
+github-repo: fhernanb/Manual-de-R
+description: "Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia."
 ---
 
 ```{r setup, include=FALSE}
@@ -29,7 +24,17 @@ lapply(c('ggplot2', 'readxl', 'corrplot'), function(pkg) {
 })
 ```
 
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
+```
+
 # Prefacio {-}
+
+```{r echo=FALSE, out.width="33%", fig.align='center'}
+knitr::include_graphics("images/portada.png")
+```
 
 Este libro fue creado con la intención de apoyar el aprendizaje del lenguaje de programación R en estudiantes de pregrado, especialización, maestría e investigadores, que necesiten realizar análisis estadísticos. En este libro se explica de una forma sencilla la utilidad de la principales funciones para realizar análisis estadístico.
 
@@ -83,7 +88,7 @@ Advertencia.
 Agradecemos enormemente a todos los estudiantes, profesores e investigadores que han leído este libro y nos han retroalimentado con comentarios valiosos para mejorar el documento.
 
 ```{block2, type='flushright', html.tag='p'}
-Freddy Hernández Barajassss
+Freddy Hernández Barajas
 
 Olga Cecilia Usuga Manco
 ```

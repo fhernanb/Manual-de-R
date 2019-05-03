@@ -5,23 +5,25 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 5 Lectura de bases de datos | Manual de R</title>
-  <meta name="description" content="This is an R manual.">
+  <title>5 Lectura de bases de datos | Manual de R</title>
+  <meta name="description" content="5 Lectura de bases de datos | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 5 Lectura de bases de datos | Manual de R" />
+  <meta property="og:title" content="5 Lectura de bases de datos | Manual de R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/portada.png" />
-  <meta property="og:description" content="This is an R manual." />
+  <meta property="og:description" content="5 Lectura de bases de datos | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Lectura de bases de datos | Manual de R" />
+  <meta name="twitter:title" content="5 Lectura de bases de datos | Manual de R" />
   
-  <meta name="twitter:description" content="This is an R manual." />
+  <meta name="twitter:description" content="5 Lectura de bases de datos | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/portada.png" />
 
+<meta name="author" content="Freddy Hernández">
+<meta name="author" content="Olga Usuga">
 
 
 <meta name="date" content="2019-05-02">
@@ -87,7 +89,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -229,7 +231,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -249,7 +251,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="read" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Lectura de bases de datos</h1>
+<h1><span class="header-section-number">5</span> Lectura de bases de datos</h1>
 <p>En este capítulo se mostrará cómo leer una base de datos externa hacia R.</p>
 <div id="en-que-formato-almacenar-una-base-de-datos" class="section level2">
 <h2><span class="header-section-number">5.1</span> ¿En qué formato almacenar una base de datos?  </h2>
@@ -260,7 +262,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p>En las secciones siguientes se mostrará cómo almacenar datos en los dos formatos para ser leídos en R. En el Cuadro <a href="read.html#tab:dt1">5.1</a> se presenta una base de datos pequeña, tres observaciones y tres variables, que nos servirá como ejemplo para mostrar cómo se debe almacenar la información.</p>
 <table>
-<caption><span id="tab:dt1">TABLE 5.1: </span>Ejemplo de una base de datos simple.</caption>
+<caption><span id="tab:dt1">Table 5.1: </span>Ejemplo de una base de datos simple.</caption>
 <thead>
 <tr class="header">
 <th align="right">Edad</th>
@@ -292,7 +294,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="figure" style="text-align: center"><span id="fig:excel1"></span>
 <img src="images/excel1.png" alt="Forma de almacenar los datos en Excel."  />
 <p class="caption">
-FIGURE 5.1: Forma de almacenar los datos en Excel.
+Figure 5.1: Forma de almacenar los datos en Excel.
 </p>
 </div>
 
@@ -307,14 +309,14 @@ Recuerde que el archivo de Excel se debe guardar con extensión .csv.
 <div class="figure" style="text-align: center"><span id="fig:bloc1"></span>
 <img src="images/bloc1.PNG" alt="Almacenamiento de los datos en bloc de notas usando la barra espaciadora"  />
 <p class="caption">
-FIGURE 5.2: Almacenamiento de los datos en bloc de notas usando la barra espaciadora
+Figure 5.2: Almacenamiento de los datos en bloc de notas usando la barra espaciadora
 </p>
 </div>
 <p>Es posible mejorar la apariencia de la información almacenada en el bloc de notas si, en lugar de usar espacios con la barra espaciadora, se colocan los espacios con la barra tabuladora, así la información se ve más organizada y se puede chequear fácilmente la información ingresada. En la Figura <a href="read.html#fig:bloc2">5.3</a> se muestra la información para el ejemplo, claramente se nota la organización de la información.</p>
 <div class="figure" style="text-align: center"><span id="fig:bloc2"></span>
 <img src="images/bloc2.PNG" alt="Almacenamiento de los datos en bloc de notas usando la barra tabuladora"  />
 <p class="caption">
-FIGURE 5.3: Almacenamiento de los datos en bloc de notas usando la barra tabuladora
+Figure 5.3: Almacenamiento de los datos en bloc de notas usando la barra tabuladora
 </p>
 </div>
 
@@ -432,7 +434,7 @@ La instalación de un paquete con <code>install.packages</code> se hace sólo un
 <li>En el Cuadro <a href="read.html#tab:toy">5.2</a> se presenta una base de datos sencilla. Almacene la información del cuadro en dos archivos diferentes, en Excel y en bloc de notas. Lea los dos archivos con la función <code>read.table</code> y compare los resultados obtenidos con la del Cuadro <a href="read.html#tab:toy">5.2</a> fuente.</li>
 </ol>
 <table>
-<caption><span id="tab:toy">TABLE 5.2: </span>Base de datos para practicar lectura.</caption>
+<caption><span id="tab:toy">Table 5.2: </span>Base de datos para practicar lectura.</caption>
 <thead>
 <tr class="header">
 <th align="left">Fuma</th>
@@ -530,8 +532,8 @@ La instalación de un paquete con <code>install.packages</code> se hace sólo un
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
-"facebook": false,
+"github": false,
+"facebook": true,
 "twitter": true,
 "google": false,
 "linkedin": false,
@@ -546,7 +548,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yihui/bookdown-crc/edit/master/06_read.Rmd",
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/06_read.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -555,7 +557,7 @@ gitbook.start({
 },
 "download": ["Manual_de_R.pdf", "Manual_de_R.epub"],
 "toc": {
-"collapse": "none"
+"collapse": "subsection"
 }
 });
 });

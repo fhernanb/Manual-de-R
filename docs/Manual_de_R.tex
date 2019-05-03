@@ -18,13 +18,13 @@
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
+\usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
-\usepackage[unicode=true]{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
-\hypersetup{
+\hypersetup{unicode=true,
             pdftitle={Manual de R},
             colorlinks=true,
             linkcolor=Maroon,
@@ -75,8 +75,6 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
-% Fix footnotes in tables (requires footnote package)
-\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -106,34 +104,52 @@
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-% set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Manual de R}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Freddy Hernández Barajas\\
+Olga Cecilia Usuga Manco}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2019-05-02}
 
 \usepackage{booktabs}
+
+% -------------------------------------------------------
+  % Yo inclui esto para usar espanol
 \usepackage[spanish]{babel}
 \decimalpoint
 \selectlanguage{spanish}
+% -------------------------------------------------------
+  
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
 
-% Comandos para escribir nombres de paquetes, programas y codigos
-\newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
-\let\proglang=\textsf
-\let\code=\texttt
 
-
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage[bf,singlelinecheck=off]{caption}
-
-\usepackage{framed,color}
-\definecolor{shadecolor}{RGB}{248,248,248}
-
-\renewcommand{\textfraction}{0.05}
-\renewcommand{\topfraction}{0.8}
-\renewcommand{\bottomfraction}{0.8}
-\renewcommand{\floatpagefraction}{0.75}
-
+% -------------------------------------------------------
 \renewenvironment{quote}{\begin{VF}}{\end{VF}}
 \let\oldhref\href
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
@@ -153,6 +169,7 @@
 \fi
 
 \makeatletter
+
 \newenvironment{kframe}{%
 \medskip{}
 \setlength{\fboxsep}{.8em}
@@ -207,51 +224,11 @@
 \newenvironment{rmdwarning}
   {\begin{rmdblock}{warning}}
   {\end{rmdblock}}
-
-
-%%%%%
-
-
-\usepackage{makeidx}
-\makeindex
-
-\urlstyle{tt}
-
-\usepackage{amsthm}
-\makeatletter
-\def\thm@space@setup{%
-  \thm@preskip=8pt plus 2pt minus 4pt
-  \thm@postskip=\thm@preskip
-}
-\makeatother
-
-\frontmatter
-
-\title{Manual de R}
-\author{Freddy Hernández Barajas\\
-Olga Cecilia Usuga Manco}
-\date{2019-05-02}
+% -------------------------------------------------------
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
 \maketitle
-
-% you may need to leave a few empty pages before the dedication page
-
-%\cleardoublepage\newpage\thispagestyle{empty}\null
-%\cleardoublepage\newpage\thispagestyle{empty}\null
-%\cleardoublepage\newpage
-\thispagestyle{empty}
-
-\begin{center}
-
-Gracias a Dios por todo lo que me ha dado.
-
-%\includegraphics{images/dedication.pdf}
-\end{center}
-
-\setlength{\abovedisplayskip}{-5pt}
-\setlength{\abovedisplayshortskip}{-5pt}
 
 {
 \hypersetup{linkcolor=black}
@@ -260,8 +237,8 @@ Gracias a Dios por todo lo que me ha dado.
 }
 \listoftables
 \listoffigures
-\chapter*{Prefacio}\label{prefacio}
-
+\section*{Prefacio}\label{prefacio}
+\addcontentsline{toc}{section}{Prefacio}
 
 Este libro fue creado con la intención de apoyar el aprendizaje del
 lenguaje de programación R en estudiantes de pregrado, especialización,
@@ -274,8 +251,8 @@ tener la última versión del libro recomendamos consultar la versión
 alojada en el repositorio de GitHub diponible en el siguiente enlace:
 \url{https://github.com/fhernanb/Manual-de-R/blob/master/_book/Manual_de_R.pdf}
 
-\section*{Estructura del libro}\label{estructura-del-libro}
-
+\subsection*{Estructura del libro}\label{estructura-del-libro}
+\addcontentsline{toc}{subsection}{Estructura del libro}
 
 El libro está estructurado de la siguiente manera.
 
@@ -298,9 +275,10 @@ tratan los temas de distribuciones discretas y continuas; en el capítulo
 \ref{loglik} se aborda el tema de verosimilitud; en el capítulo
 \ref{aproxint} se muestra el tema de aproximación de integrales.
 
-\section*{Información del software y
+\subsection*{Información del software y
 convenciones}\label{informacion-del-software-y-convenciones}
-
+\addcontentsline{toc}{subsection}{Información del software y
+convenciones}
 
 Para realizar este libro se usaron los paquetes de R
 \textbf{knitr}\index{knitr} \citep{xie2015} y
@@ -340,8 +318,8 @@ muestran los resultados obtenidos luego de correr el código anterior.
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 \end{verbatim}
 
-\section*{Bloques informativos}\label{bloques-informativos}
-
+\subsection*{Bloques informativos}\label{bloques-informativos}
+\addcontentsline{toc}{subsection}{Bloques informativos}
 
 En varias partes del libro usaremos bloques informativos para resaltar
 algún aspecto importante. Abajo se encuentra un ejemplo de los bloques y
@@ -359,21 +337,21 @@ Sugerencia.
 Advertencia.
 \EndKnitrBlock{rmdwarning}
 
-\section*{Agradecimientos}\label{agradecimientos}
-
+\subsection*{Agradecimientos}\label{agradecimientos}
+\addcontentsline{toc}{subsection}{Agradecimientos}
 
 Agradecemos enormemente a todos los estudiantes, profesores e
 investigadores que han leído este libro y nos han retroalimentado con
 comentarios valiosos para mejorar el documento.
 
 \BeginKnitrBlock{flushright}
-Freddy Hernández Barajassss
+Freddy Hernández Barajas
 
 Olga Cecilia Usuga Manco
 \EndKnitrBlock{flushright}
 
-\chapter*{Sobre los autores}\label{sobre-los-autores}
-
+\section*{Sobre los autores}\label{sobre-los-autores}
+\addcontentsline{toc}{section}{Sobre los autores}
 
 Freddy Hernández Barajas es profesor asistente de la Universidad
 Nacional de Colombia adscrito a la Escuela de Estadística de la Facultad
@@ -385,7 +363,7 @@ Facultad de Ingeniería.
 
 \mainmatter
 
-\chapter{Introducción}\label{intro}
+\section{Introducción}\label{intro}
 
 \section{Orígenes} \label{sec:origenes}
 
@@ -528,7 +506,7 @@ barra de herramientas.
 \caption{Apariencia de R.}\label{fig:pantalla}
 \end{figure}
 
-\chapter{Tipos de objetos}\label{objetos}
+\section{Tipos de objetos}\label{objetos}
 
 En R existen varios tipos de objectos que permiten que el usuario pueda
 almacenar la información para realizar procedimientos estadísticos y
@@ -536,7 +514,7 @@ gráficos. Los principales objetos en R son vectores, matrices, arreglos,
 marcos de datos y listas. A continuación se presentan las
 características de estos objetos y la forma para crearlos.
 
-\section{\texorpdfstring{Vectores \index{vector}
+\subsection{\texorpdfstring{Vectores \index{vector}
 \label{vector}}{Vectores  }}\label{vectores}
 
 Los vectores vectores son arreglos ordenados en los cuales se puede
@@ -622,15 +600,15 @@ lo que se obtiene se muestra a continuación.
 ## [5] "Batman"
 \end{verbatim}
 
-\subsection{¿Cómo extraer elementos de un
+\subsubsection{¿Cómo extraer elementos de un
 vector?}\label{como-extraer-elementos-de-un-vector}
 
 Para extraer un elemento almacenado dentro un vector se usan los
 corchetes \texttt{{[}{]}} y dentro de ellos la posición o posiciones que
 interesan.
 
-\subsection*{Ejemplo}\label{ejemplo}
-
+\subsubsection*{Ejemplo}\label{ejemplo}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Si queremos extraer la edad de la tercera persona escribimos el nombre
 del vector y luego \texttt{{[}3{]}} para indicar la tercera posición de
@@ -682,7 +660,7 @@ posiciones y luego colocarlo dentro de los corchetes así:
 \texttt{mivector{[}c(2,\ 5,\ 7){]}}
 \EndKnitrBlock{rmdwarning}
 
-\section{Matrices}\label{matrices}
+\subsection{Matrices}\label{matrices}
 
 Las matrices \index{matrices} son arreglos rectangulares de filas y
 columnas con información numérica, alfanumérica o lógica. Para construir
@@ -720,7 +698,7 @@ escribe en la consola el nombre del objeto seguido de la tecla
 ## [4,]    4    8   12   16   20
 \end{verbatim}
 
-\subsection{¿Cómo extraer elementos de una
+\subsubsection{¿Cómo extraer elementos de una
 matriz?}\label{como-extraer-elementos-de-una-matriz}
 
 Al igual que en el caso de los vectores, para extraer elementos
@@ -728,8 +706,8 @@ almacenados dentro de una matriz se usan los corchetes
 \texttt{{[}\ ,\ {]}} y dentro, separado por una coma, el número de
 fila(s) y el número de columna(s) que nos interesan.
 
-\subsection*{Ejemplo}\label{ejemplo-1}
-
+\subsubsection*{Ejemplo}\label{ejemplo-1}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Si queremos extraer el valor almacenado en la fila 3 y columna 4 usamos
 el siguiente código.
@@ -803,7 +781,7 @@ usamos el siguiente código.
 ## [3,]    4    8   16   20
 \end{verbatim}
 
-\section{\texorpdfstring{Arreglos \index{arreglo}
+\subsection{\texorpdfstring{Arreglos \index{arreglo}
 \index{array}}{Arreglos  }}\label{arreglos}
 
 Un arreglo es una matriz de varias dimensiones con información numérica,
@@ -846,15 +824,15 @@ siguiente.
 ## [3,] "o"  "r"  "u"  "x"
 \end{verbatim}
 
-\subsection{¿Cómo extraer elementos de un
+\subsubsection{¿Cómo extraer elementos de un
 arreglo?}\label{como-extraer-elementos-de-un-arreglo}
 
 Para recuperar elementos almacenados en un arreglo se usan también
 corchetes, y dentro de los corchetes, las coordenadas del objeto de
 interés.
 
-\subsection*{Ejemplo}\label{ejemplo-2}
-
+\subsubsection*{Ejemplo}\label{ejemplo-2}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Si queremos extraer la letra almacenada en la fila 1 y columna 3 de la
 segunda capa de \texttt{miarray} usamos el siguiente código.
@@ -900,7 +878,7 @@ siguiente código.
 ## [3,] "i"  "u"
 \end{verbatim}
 
-\section{\texorpdfstring{Marco de datos \index{marco de datos}
+\subsection{\texorpdfstring{Marco de datos \index{marco de datos}
 \index{data.frame}}{Marco de datos  }}\label{marco-de-datos}
 
 El marco de datos marco de datos o \emph{data frame} es uno de los
@@ -943,7 +921,7 @@ creados anteriormente, los números consecutivos al lado izquierdo son
 sólo de referencia y permiten identificar la información para cada
 persona en la base de datos.
 
-\subsection{¿Cómo extraer elementos de un marco de
+\subsubsection{¿Cómo extraer elementos de un marco de
 datos?}\label{como-extraer-elementos-de-un-marco-de-datos}
 
 Para recuperar las variables (columnas) almacenadas en un marco de datos
@@ -951,8 +929,8 @@ se puede usar el operador \texttt{\$}, corchetes simples \texttt{{[}{]}}
 o corchetes dobles \texttt{{[}{[}{]}{]}}. A continuación algunos
 ejemplos para entender las diferencias entre estas opciones.
 
-\subsection*{Ejemplo}\label{ejemplo-3}
-
+\subsubsection*{Ejemplo}\label{ejemplo-3}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Si queremos extraer la variable \texttt{deporte} del marco de datos
 \texttt{mimarco} como un vector usamos el siguiente código.
@@ -1042,7 +1020,7 @@ posiciones 2 hasta 4 usamos el siguiente código.
 ## [1] 19 13 NA
 \end{verbatim}
 
-\subsection{\texorpdfstring{¿Cómo extraer subconjuntos de un marco de
+\subsubsection{\texorpdfstring{¿Cómo extraer subconjuntos de un marco de
 datos?
 \index{subset}}{¿Cómo extraer subconjuntos de un marco de datos? }}\label{como-extraer-subconjuntos-de-un-marco-de-datos}
 
@@ -1054,8 +1032,8 @@ quedarnos sólo con algunas de las variables del marco de datos. A
 continuación varios ejemplos de la función \texttt{subset} para ver su
 utilidad.
 
-\subsection*{Ejemplos}\label{ejemplos}
-
+\subsubsection*{Ejemplos}\label{ejemplos}
+\addcontentsline{toc}{subsubsection}{Ejemplos}
 
 Si queremos el marco de datos \texttt{mimarco} sólo con las personas que
 SI practican deporte usamos el siguiente código.
@@ -1120,8 +1098,8 @@ código.
 ## 2   19    TRUE  Superman
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-4}
-
+\subsubsection*{Ejemplo}\label{ejemplo-4}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Leer la base de datos medidas del cuerpo disponible en este enlace
 \url{https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo}.
@@ -1159,7 +1137,7 @@ pesan más de 80 kg.
 Al almacenar la nueva base de datos en el objeto \texttt{dt2} se puede
 manipular este nuevo objeto para realizar los análisis de interés.
 
-\section{\texorpdfstring{Listas \index{lista}
+\subsection{\texorpdfstring{Listas \index{lista}
 \index{list}}{Listas  }}\label{listas}
 
 Las listas son otro tipo de objeto muy usado para almacenar objetos de
@@ -1217,7 +1195,7 @@ muestra a continuación.
 ## 5   20    TRUE    Batman
 \end{verbatim}
 
-\subsection{¿Cómo extraer elementos de una
+\subsubsection{¿Cómo extraer elementos de una
 lista?}\label{como-extraer-elementos-de-una-lista}
 
 Para recuperar los elementos almacenadas en una lista se usa el operador
@@ -1225,8 +1203,8 @@ Para recuperar los elementos almacenadas en una lista se usa el operador
 sencillos \texttt{{[}{]}}. A continuación unos ejemplos para entender
 cómo extraer elementos de una lista.
 
-\subsection*{Ejemplos}\label{ejemplos-1}
-
+\subsubsection*{Ejemplos}\label{ejemplos-1}
+\addcontentsline{toc}{subsubsection}{Ejemplos}
 
 Si queremos la matriz almacenada con el nombre de \texttt{E2} dentro del
 objeto \texttt{milista} se puede usar el siguiente código.
@@ -1322,8 +1300,8 @@ los objetos ahí almacenados, al manipular listas con \texttt{{[}{]}} se
 obtiene una lista.
 \EndKnitrBlock{rmdwarning}
 
-\section*{EJERCICIOS}\label{ejercicios}
-
+\subsection*{EJERCICIOS}\label{ejercicios}
+\addcontentsline{toc}{subsection}{EJERCICIOS}
 
 Use funciones o procedimientos (varias líneas) de R para responder cada
 una de las siguientes preguntas.
@@ -1359,7 +1337,7 @@ una de las siguientes preguntas.
 \end{Highlighting}
 \end{Shaded}
 
-\chapter{Guía de estilo}\label{estilo}
+\section{Guía de estilo}\label{estilo}
 
 Así como en el español existen reglas ortográficas, la escritura de
 códigos en R también tiene unas reglas que se recomienda seguir para
@@ -1370,7 +1348,7 @@ una única y mejor guía de estilo para escritura en R, sin embargo aquí
 vamos a mostrar unas sugerencias basadas en la guía llamada
 \href{https://google.github.io/styleguide/Rguide.xml}{\textit{Google's R style guide}}.
 
-\section{Nombres de los archivos}\label{nombres-de-los-archivos}
+\subsection{Nombres de los archivos}\label{nombres-de-los-archivos}
 
 Se sugiere que el nombre usado para nombrar un archivo tenga sentido y
 que termine con extensión .R. A continuación dos ejemplos de como
@@ -1384,7 +1362,7 @@ nombrar mal y bien un archivo.
   Mal: \texttt{analisis\_icfes.R}
 \end{itemize}
 
-\section{Nombres de los objetos}\label{nombres-de-los-objetos}
+\subsection{Nombres de los objetos}\label{nombres-de-los-objetos}
 
 Se recomienda no usar los símbolos \texttt{\_} y \texttt{-} dentro de
 los nombres de objetos. Para las variables es preferible usar letras
@@ -1411,13 +1389,13 @@ Para funciones:
     \item Mal: \verb|calculate_avg_clicks| , \verb|calculateAvgClicks|
 \end{itemize}
 
-\section{Longitud de una línea de
+\subsection{Longitud de una línea de
 código}\label{longitud-de-una-linea-de-codigo}
 
 Se recomienda que cada línea tenga como máximo 80 caracteres. Si una
 línea es muy larga se debe cortar siempre por una coma.
 
-\section{Espacios}\label{espacios}
+\subsection{Espacios}\label{espacios}
 
 Use espacios alrededor de todos los operadores binarios (=, +, -,
 \textless{}-, etc.). Los espacios alrededor del símbolo ``='' son
@@ -1536,7 +1514,7 @@ siguiente ejemplo.
 \end{Highlighting}
 \end{Shaded}
 
-\section{Asignación}\label{asignacion}
+\subsection{Asignación}\label{asignacion}
 
 Para realizar asignaciones se recomienda usar el símbolo
 \texttt{\textless{}-}, el símbolo de igualdad \texttt{=} no se
@@ -1553,7 +1531,7 @@ Para una explicación más detallada sobre el símbolo de asignación se
 recomienda visitar este
 \href{http://www.win-vector.com/blog/2016/12/the-case-for-using-in-r/}{enlace}.
 
-\section{Punto y coma}\label{punto-y-coma}
+\subsection{Punto y coma}\label{punto-y-coma}
 
 No se recomienda colocar varias instrucciones separadas por \texttt{;}
 en la misma línea, aunque funciona dificulta la revisión del código.
@@ -1572,11 +1550,11 @@ A pesar de la anterior advertencia es posible que en este libro usemos
 el \texttt{;} en algunas ocasiones, si lo hacemos es para ahorrar
 espacio en la presentación del código.
 
-\chapter{Creación de funciones en R}\label{creafun}
+\section{Creación de funciones en R}\label{creafun}
 
 En este capítulo se explica cómo crear funciones en R.
 
-\section{\texorpdfstring{Función en R
+\subsection{\texorpdfstring{Función en R
 \index{función}}{Función en R }}\label{funcion-en-r}
 
 Una función es un conjunto de instrucciones que convierten las entradas
@@ -1593,7 +1571,7 @@ máquina general.
 \caption{Ilustración de una función, tomada de www.mathinsight.org}\label{fig:machine2}
 \end{figure}
 
-\section{\texorpdfstring{Partes de una función en R
+\subsection{\texorpdfstring{Partes de una función en R
 \index{partes de función}}{Partes de una función en R }}\label{partes-de-una-funcion-en-r}
 
 Las partes de una función son:
@@ -1636,8 +1614,8 @@ Las partes de una función son:
 A continuación se mostrarán varios ejemplos \textbf{sencillos} para que
 el lector aprenda a construir funciones.
 
-\subsection*{Ejemplo}\label{ejemplo-5}
-
+\subsubsection*{Ejemplo}\label{ejemplo-5}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Construir una función que reciba dos números y que entregue la suma de
 estos números.
@@ -1711,8 +1689,8 @@ continuación se muestra el código para reescribir la función.
 ## [1] 10
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-6}
-
+\subsubsection*{Ejemplo}\label{ejemplo-6}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Construir una función que genere números aleatorios entre cero y uno
 hasta que la suma de éstos números supere por primera vez el valor de 3.
@@ -1750,8 +1728,8 @@ solicitado. A continuación el código de la función.
 ## [1] 8
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-7}
-
+\subsubsection*{Ejemplo}\label{ejemplo-7}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Construir una función que, dado un número entero positivo (cota)
 ingresado por el usuario, genere números aleatorios entre cero y uno
@@ -1821,8 +1799,8 @@ Probando la función con cota de tres.
 ## [1] 6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-8}
-
+\subsubsection*{Ejemplo}\label{ejemplo-8}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Construya una función que reciba dos números de la recta real y que
 entregue el punto médio de estos números. El resultado debe ser un
@@ -1855,8 +1833,8 @@ La función \texttt{cat} es muy útil para presentar resultados por
 pantalla. Consulte la ayuda de la función para ver otros ejemplos.
 \EndKnitrBlock{rmdnote}
 
-\section*{EJERCICIOS}\label{ejercicios-1}
-
+\subsection*{EJERCICIOS}\label{ejercicios-1}
+\addcontentsline{toc}{subsection}{EJERCICIOS}
 
 Construir funciones en R que realicen lo solicitado.
 
@@ -2015,12 +1993,12 @@ ingresa \(a=4\) y \(b=9\) que la función entregue \(a=9\) y \(b=4\).
 \caption{Ilustración del punto medio entre dos puntos, tomada de https://www.slideshare.net/bigpassy/midpoint-between-two-points}\label{fig:midpoint}
 \end{figure}
 
-\chapter{Lectura de bases de datos}\label{read}
+\section{Lectura de bases de datos}\label{read}
 
 En este capítulo se mostrará cómo leer una base de datos externa hacia
 R.
 
-\section{\texorpdfstring{¿En qué formato almacenar una base de datos?
+\subsection{\texorpdfstring{¿En qué formato almacenar una base de datos?
 \index{.csv}
 \index{.txt}}{¿En qué formato almacenar una base de datos?  }}\label{en-que-formato-almacenar-una-base-de-datos}
 
@@ -2055,7 +2033,7 @@ Edad & Fuma & Pais\\
 \end{tabular}
 \end{table}
 
-\subsection{\texorpdfstring{Almacenamiento de información en Excel
+\subsubsection{\texorpdfstring{Almacenamiento de información en Excel
 \index{Excel}}{Almacenamiento de información en Excel }}\label{almacenamiento-de-informacion-en-excel}
 
 Para almacenar la información del Cuadro \ref{tab:dt1} en Excel, abrimos
@@ -2080,7 +2058,7 @@ tipo de archivo a \textbf{csv (delimitado por comas)}.
 Recuerde que el archivo de Excel se debe guardar con extensión .csv.
 \EndKnitrBlock{rmdwarning}
 
-\subsection{\texorpdfstring{Almacenamiento de información en bloc de
+\subsubsection{\texorpdfstring{Almacenamiento de información en bloc de
 notas
 \index{bloc de notas}}{Almacenamiento de información en bloc de notas }}\label{almacenamiento-de-informacion-en-bloc-de-notas}
 
@@ -2124,7 +2102,7 @@ Una buena práctica es usar la barra tabuladora para separar, eso permite
 que la información se vea ordenada.
 \EndKnitrBlock{rmdtip}
 
-\section{\texorpdfstring{Función \texttt{read.table}
+\subsection{\texorpdfstring{Función \texttt{read.table}
 \index{read.table}}{Función read.table }}\label{funcion-read.table}
 
 La función \texttt{read.table} se puede usar para leer bases de datos
@@ -2171,8 +2149,8 @@ Los argumentos de la función \texttt{read.table} son:
   \texttt{dec}: símbolo con el cual están indicados los decimales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-9}
-
+\subsubsection*{Ejemplo}\label{ejemplo-9}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Crear la base de datos del Cuadro \ref{tab:dt1} en Excel y bloc de notas
 para practicar la lectura de base de datos desde R.
@@ -2184,8 +2162,8 @@ vamos a suponer que los nombres para cada uno de ellos son
 \texttt{base1.csv}, \texttt{base2.txt} y \texttt{base3.txt}
 respectivamente.
 
-\subsubsection*{Para Excel}\label{para-excel}
-
+\paragraph{Para Excel}\label{para-excel}
+\addcontentsline{toc}{paragraph}{Para Excel}
 
 Para leer el archivo de Excel llamado \texttt{base1.csv} podemos usar el
 siguiente código.
@@ -2217,9 +2195,9 @@ el código para hacerlo de esta manera.
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Para bloc de notas con barra
+\paragraph{Para bloc de notas con barra
 espaciadora}\label{para-bloc-de-notas-con-barra-espaciadora}
-\addcontentsline{toc}{subsubsection}{Para bloc de notas con barra
+\addcontentsline{toc}{paragraph}{Para bloc de notas con barra
 espaciadora}
 
 Para leer el archivo de Excel llamado \texttt{base2.txt} podemos usar el
@@ -2233,9 +2211,9 @@ siguiente código.
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Para bloc de notas con barra
+\paragraph{Para bloc de notas con barra
 tabuladora}\label{para-bloc-de-notas-con-barra-tabuladora}
-\addcontentsline{toc}{subsubsection}{Para bloc de notas con barra
+\addcontentsline{toc}{paragraph}{Para bloc de notas con barra
 tabuladora}
 
 Para leer el archivo de Excel llamado \texttt{base3.txt} podemos usar el
@@ -2261,8 +2239,8 @@ Un error frecuente es escribir la dirección o ubicación del archivo
 usando \texttt{\textbackslash{}}, lo correcto es usar \texttt{/}.
 \EndKnitrBlock{rmdwarning}
 
-\subsection*{Ejemplo}\label{ejemplo-10}
-
+\subsubsection*{Ejemplo}\label{ejemplo-10}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Leer la base de datos sobre apartamentos usados en la ciudad de Medellín
 que está disponible en la página web cuya url es:
@@ -2280,7 +2258,7 @@ Para leer la base de datos desde una url usamos el siguiente código.
 La base de datos ingresada queda en el marco de datos llamado
 \texttt{datos} y ya está disponible para usarla.
 
-\section{Lectura de bases de datos en
+\subsection{Lectura de bases de datos en
 Excel}\label{lectura-de-bases-de-datos-en-excel}
 
 Algunas veces los datos están disponibles en un archivo estándar de
@@ -2289,8 +2267,8 @@ estos casos se recomienda usar el paquete \textbf{readxl}\index{readxl}
 \citep{R-readxl} y en particular la función \texttt{readxl}. A
 continuación un ejemplo de cómo proceder en estos casos.
 
-\subsection*{Ejemplo}\label{ejemplo-11}
-
+\subsubsection*{Ejemplo}\label{ejemplo-11}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 En este
 \href{https://github.com/fhernanb/datos/blob/master/BD_Excel.xlsx}{enlace}
@@ -2375,8 +2353,8 @@ La función \texttt{read\_excel} tiene otros parámetros adicionales
 útiles para leer bases de datos, se recomienda consultar la ayuda de la
 función escribiendo en la consola \texttt{help(read\_excel)}.
 
-\section*{EJERCICIOS}\label{ejercicios-2}
-
+\subsection*{EJERCICIOS}\label{ejercicios-2}
+\addcontentsline{toc}{subsection}{EJERCICIOS}
 
 Realice los siguiente ejercicios propuestos.
 
@@ -2425,13 +2403,13 @@ Si & Lectura & 2 & NA\\
   leer la base de datos.
 \end{enumerate}
 
-\chapter{Tablas de frecuencia}\label{tablas}
+\section{Tablas de frecuencia}\label{tablas}
 
 Las tablas de frecuencia son muy utilizadas en estadística y R permite
 crear tablas de una forma sencilla. En este capítulo se explican las
 principales funciones para la elaboración de tablas.
 
-\section{\texorpdfstring{Tabla de contingencia con \texttt{table}
+\subsection{\texorpdfstring{Tabla de contingencia con \texttt{table}
 \index{table}}{Tabla de contingencia con table }}\label{tabla-de-contingencia-con-table}
 
 La función \texttt{table} sirve para construir tablas de frecuencia de
@@ -2464,9 +2442,9 @@ Los parámetros de la función son:
   incluir.
 \end{itemize}
 
-\subsection*{Ejemplo: tabla de frecuencia de una
+\subsubsection*{Ejemplo: tabla de frecuencia de una
 vía}\label{ejemplo-tabla-de-frecuencia-de-una-via}
-\addcontentsline{toc}{subsection}{Ejemplo: tabla de frecuencia de una
+\addcontentsline{toc}{subsubsection}{Ejemplo: tabla de frecuencia de una
 vía}
 
 Considere el vector \texttt{fuma} mostrado a continuación y construya
@@ -2553,9 +2531,9 @@ variable 1 quedará por filas mientras que la variable 2 estará en las
 columnas.
 \EndKnitrBlock{rmdnote}
 
-\subsection*{Ejemplo: tabla de frecuencia de dos
+\subsubsection*{Ejemplo: tabla de frecuencia de dos
 vías}\label{ejemplo-tabla-de-frecuencia-de-dos-vias}
-\addcontentsline{toc}{subsection}{Ejemplo: tabla de frecuencia de dos
+\addcontentsline{toc}{subsubsection}{Ejemplo: tabla de frecuencia de dos
 vías}
 
 Considere otro vector \texttt{sexo} mostrado a continuación y construya
@@ -2605,7 +2583,7 @@ deseamos en la tabla.
 ##   Mujer        1         3     1
 \end{verbatim}
 
-\section{\texorpdfstring{Función \texttt{prop.table}
+\subsection{\texorpdfstring{Función \texttt{prop.table}
 \index{prop.table}}{Función prop.table }}\label{funcion-prop.table}
 
 La función \texttt{prop.table} se utiliza para crear tablas de
@@ -2628,10 +2606,10 @@ estructura de la función se muestra a continuación.
   globales.
 \end{itemize}
 
-\subsection*{Ejemplo: tabla de frecuencia relativa de una
+\subsubsection*{Ejemplo: tabla de frecuencia relativa de una
 vía}\label{ejemplo-tabla-de-frecuencia-relativa-de-una-via}
-\addcontentsline{toc}{subsection}{Ejemplo: tabla de frecuencia relativa
-de una vía}
+\addcontentsline{toc}{subsubsection}{Ejemplo: tabla de frecuencia
+relativa de una vía}
 
 Obtener la tabla de frencuencia relativa para la \texttt{tabla1}.
 
@@ -2649,10 +2627,10 @@ Para obtener la tabla solicitada se usa el siguiente código.
 ##    0.2727    0.3636    0.3636
 \end{verbatim}
 
-\subsection*{Ejemplo: tabla de frecuencia relativa de dos
+\subsubsection*{Ejemplo: tabla de frecuencia relativa de dos
 vías}\label{ejemplo-tabla-de-frecuencia-relativa-de-dos-vias}
-\addcontentsline{toc}{subsection}{Ejemplo: tabla de frecuencia relativa
-de dos vías}
+\addcontentsline{toc}{subsubsection}{Ejemplo: tabla de frecuencia
+relativa de dos vías}
 
 Obtener la tabla de frencuencia relativa para la \texttt{tabla2}.
 
@@ -2691,7 +2669,7 @@ Si se desea la tabla de frecuencias relativas marginal por
 ##   Mujer   0.5000    0.7500 0.3333
 \end{verbatim}
 
-\section{\texorpdfstring{Función \texttt{addmargins}
+\subsection{\texorpdfstring{Función \texttt{addmargins}
 \index{addmargins}}{Función addmargins }}\label{funcion-addmargins}
 
 Esta función se puede utilizar para agregar los totales por filas o por
@@ -2714,8 +2692,8 @@ la función es la siguiente.
   globales.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-12}
-
+\subsubsection*{Ejemplo}\label{ejemplo-12}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Obtener las tablas \texttt{tabla3} y \texttt{tabla4} con los totales
 margines global y por columnas respectivamente.
@@ -2756,7 +2734,7 @@ funciones \texttt{prop.table} y \texttt{addmargins} significan lo
 contrario.
 \EndKnitrBlock{rmdwarning}
 
-\section{\texorpdfstring{Función \texttt{hist}
+\subsection{\texorpdfstring{Función \texttt{hist}
 \index{hist}}{Función hist }}\label{funcion-hist}
 
 Construir tablas de frecuencias para variables cuantitativas es
@@ -2796,8 +2774,8 @@ Los parámetros de la función son:
   representación gráfica llamada histograma.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-13}
-
+\subsubsection*{Ejemplo}\label{ejemplo-13}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Genere 200 observaciones aleatorias de una distribución normal con media
 \(\mu=170\) y desviación \(\sigma=5\), luego construya una tabla de
@@ -2885,8 +2863,8 @@ continuación.
 ## [1] "histogram"
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-14}
-
+\subsubsection*{Ejemplo}\label{ejemplo-14}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Construya el vector \texttt{x} con los siguientes elementos: 1.0, 1.2,
 1.3, 2.0, 2.5, 2.7, 3.0 y 3.4. Obtenga varias tablas de frecuencia con
@@ -2979,8 +2957,8 @@ De este último resultado se ve claramente el efecto de los parámetros
 \texttt{include.lowest} y \texttt{right} en la construcción de tablas de
 frecuencia.
 
-\section*{EJERCICIOS}\label{ejercicios-3}
-
+\subsection*{EJERCICIOS}\label{ejercicios-3}
+\addcontentsline{toc}{subsection}{EJERCICIOS}
 
 Use funciones o procedimientos (varias líneas) de R para responder cada
 una de las siguientes preguntas.
@@ -3007,7 +2985,7 @@ que se solicita a continuación.
   ¿Qué porcentaje de los que corren no fuman?
 \end{enumerate}
 
-\chapter{Medidas de tendencia central}\label{central}
+\section{Medidas de tendencia central}\label{central}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de
 tendencia central con R.
@@ -3056,7 +3034,7 @@ encabezado (usando \texttt{head}) de la base de datos.
 ## 6   33 85.9  188.0 Hombre   12.4   38.5
 \end{verbatim}
 
-\section{\texorpdfstring{Media \index{media}
+\subsection{\texorpdfstring{Media \index{media}
 \index{mean}}{Media  }}\label{media}
 
 Para calcular la media de una variable cuantitativa se usa la función
@@ -3075,8 +3053,8 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
-
+\subsubsection*{Ejemplo}\label{ejemplo-15}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Suponga que queremos obtener la altura media del grupo de estudiantes.
 
@@ -3096,8 +3074,8 @@ vector númerico \texttt{datos\$altura}.
 Del anterior resultado podemos decir que la estatura media o promedio de
 los estudiantes es 171.5556 centímetros.
 
-\subsection*{Ejemplo}\label{ejemplo-16}
-
+\subsubsection*{Ejemplo}\label{ejemplo-16}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Suponga que ahora queremos la altura media pero diferenciando por sexo.
 
@@ -3128,8 +3106,8 @@ para hombres es 179.0778 centímetros y que para las mujeres es de
 Substituya en el código anterior la función \texttt{sapply} por
 \texttt{tapply} y observe la diferencia entre los resultados.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
-
+\subsubsection*{Ejemplo}\label{ejemplo-17}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Suponga que se tiene el vector \texttt{edad} con las edades de siete
 personas y supóngase que para el individuo cinco no se tiene información
@@ -3168,7 +3146,7 @@ correcto a usar en este caso es:
 De este último resultado se obtiene que la edad promedio de los
 individuos es 26.67 años.
 
-\section{\texorpdfstring{Mediana \index{mediana}
+\subsection{\texorpdfstring{Mediana \index{mediana}
 \index{median}}{Mediana  }}\label{mediana}
 
 Para calcular la mediana de una variable cantitativa se usa la función
@@ -3187,8 +3165,8 @@ lógico que en caso de ser \texttt{TRUE}, significa que se deben remover
 las observaciones con \texttt{NA}, el valor por defecto para este
 parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-18}
-
+\subsubsection*{Ejemplo}\label{ejemplo-18}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Calcular la edad mediana para los estudiantes de la base de datos.
 
@@ -3221,14 +3199,14 @@ El resultado anterior se pudo haber obtenido con la función
 ##  28
 \end{verbatim}
 
-\section{\texorpdfstring{Moda \index{moda}}{Moda }}\label{moda}
+\subsection{\texorpdfstring{Moda \index{moda}}{Moda }}\label{moda}
 
 La moda de una variable cuantitativa corresponde a valor o valores que
 más se repiten, una forma sencilla de encontrar la moda es construir una
 tabla de frecuencias y observar los valores con mayor frecuencia.
 
-\subsection*{Ejemplo}\label{ejemplo-19}
-
+\subsubsection*{Ejemplo}\label{ejemplo-19}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Calcular la moda para la variable edad de la base de datos de
 estudiantes.
@@ -3277,7 +3255,7 @@ ordenar la tabla usando la función \texttt{sort} de la siguiente manera:
 De esta manera se ve fácilmente que la variable edad es unimodal con
 valor de 25 años.
 
-\chapter{Medidas de variabilidad}\label{varia}
+\section{Medidas de variabilidad}\label{varia}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de
 variabilidad con R.
@@ -3348,7 +3326,7 @@ encabezado (usando \texttt{head}) de la base de datos.
 ## 6          si          0.120  31.15        si
 \end{verbatim}
 
-\section{\texorpdfstring{Rango \index{rango}
+\subsection{\texorpdfstring{Rango \index{rango}
 \index{range}}{Rango  }}\label{rango}
 
 Para calcular el rango de una variable cuantitativa se usa la función
@@ -3371,8 +3349,8 @@ La función \texttt{range} entrega el valor mínimo y máximo de la
 variable ingresada y el valor de rango se puede obtener restando del
 valor máximo el valor mínimo.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
-
+\subsubsection*{Ejemplo}\label{ejemplo-20}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Suponga que queremos obtener el rango para la variable precio de los
 apartamentos.
@@ -3403,8 +3381,8 @@ Del resultado anterior podemos ver que los precios de todos los
 apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el
 rango de la variable precio es 1675 millones de pesos.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
-
+\subsubsection*{Ejemplo}\label{ejemplo-21}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Suponga que queremos obtener nuevamente el rango para la variable precio
 de los apartamentos pero diferenciando por el estrato.
@@ -3436,7 +3414,7 @@ Apartamentos de estrato bajo tienden a tener precios similares mientras
 que los precios de venta para apartamentos de estratos altos tienden a
 ser muy diferentes entre si.
 
-\section{\texorpdfstring{Desviación estándar muestral (\(S\))
+\subsection{\texorpdfstring{Desviación estándar muestral (\(S\))
 \index{desviación}
 \index{sd}}{Desviación estándar muestral (S)  }}\label{desviacion-estandar-muestral-s}
 
@@ -3456,8 +3434,8 @@ se quiere calcular la desviación estándar muestral, el parámetro
 significa que se deben remover las observaciones con \texttt{NA}, el
 valor por defecto para este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
-
+\subsubsection*{Ejemplo}\label{ejemplo-22}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Suponga que queremos obtener la desviación estándar muestral para la
 variable precio de los apartamentos.
@@ -3474,8 +3452,8 @@ Para obtener la desviación solicitada usamos el siguiente código:
 ## [1] 247.6
 \end{verbatim}
 
-\subsection*{Ejemplo}\label{ejemplo-23}
-
+\subsubsection*{Ejemplo}\label{ejemplo-23}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Calcular la desviación estándar \textbf{poblacional} (\(\sigma\)) para
 el siguiente conjunto de 5 observaciones: 12, 25, 32, 15, 26.
@@ -3511,7 +3489,7 @@ datos usamos el siguiente código.
 ## [1] 6.621
 \end{verbatim}
 
-\section{\texorpdfstring{Varianza muestral (\(S^2\)) \index{varianza}
+\subsection{\texorpdfstring{Varianza muestral (\(S^2\)) \index{varianza}
 \index{var}}{Varianza muestral (S\^{}2)  }}\label{varianza-muestral-s2}
 
 Para calcular la varianza muestral de una variable cuantitativa se usa
@@ -3530,8 +3508,8 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-24}
-
+\subsubsection*{Ejemplo}\label{ejemplo-24}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Suponga que queremos determinar cuál región en la ciudad presenta mayor
 varianza en los precios de los apartamentos.
@@ -3578,8 +3556,8 @@ para generar la Figura \ref{fig:box1} se presenta a continuación.
 ubicación.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-25}
-
+\subsubsection*{Ejemplo}\label{ejemplo-25}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 ¿Son los resultados de la función \texttt{var} los mismos que los
 resultados de la función \texttt{sd} elevados al cuadrado?
@@ -3612,7 +3590,7 @@ dimensión \(3 \times 3\), a continuación el código usado.
 Del anterior resultado se observa la matriz de varianzas y covarianzas
 de dimensión \(3 \times 3\).
 
-\section{\texorpdfstring{Coeficiente de variación (\(CV\))
+\subsection{\texorpdfstring{Coeficiente de variación (\(CV\))
 \index{coeficiente de variación}}{Coeficiente de variación (CV) }}\label{coeficiente-de-variacion-cv}
 
 El coeficiente de variación se define como \(CV=s/\bar{x}\) y es muy
@@ -3627,8 +3605,8 @@ calcularlo.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Ejemplo}\label{ejemplo-26}
-
+\subsubsection*{Ejemplo}\label{ejemplo-26}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Calcular el \(CV\) para el vector \texttt{w} definido a continuación.
 
@@ -3653,7 +3631,7 @@ eso se usa el siguiente código.
 ## [1] 0.9274
 \end{verbatim}
 
-\chapter{Medidas de posición}\label{posi}
+\section{Medidas de posición}\label{posi}
 
 En este capítulo se mostrará cómo obtener las diferentes medidas de
 posición con R.
@@ -3702,7 +3680,7 @@ encabezado (usando \texttt{head}) de la base de datos.
 ## 6   33 85.9  188.0 Hombre   12.4   38.5
 \end{verbatim}
 
-\section{\texorpdfstring{Cuantiles \index{cuantiles} \index{quantile}
+\subsection{\texorpdfstring{Cuantiles \index{cuantiles} \index{quantile}
 \index{cuartiles} \index{deciles}
 \index{percentiles}}{Cuantiles     }}\label{cuantiles}
 
@@ -3723,8 +3701,8 @@ un valor lógico que en caso de ser \texttt{TRUE}, significa que se deben
 remover las observaciones con \texttt{NA}, el valor por defecto para
 este parámetro es \texttt{FALSE}.
 
-\subsection*{Ejemplo}\label{ejemplo-27}
-
+\subsubsection*{Ejemplo}\label{ejemplo-27}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa
 la altura del grupo de estudiantes.
@@ -3746,13 +3724,13 @@ solicitadas es el siguiente.
 ## 155.2 172.7 180.3
 \end{verbatim}
 
-\chapter{Curiosidades}\label{curio}
+\section{Curiosidades}\label{curio}
 
 En este capítulo se mostrarán algunos procedimientos de R para
 solucionar problemas frecuentes.
 
-\section{¿Cómo verificar si un paquete no está instalado para instalarlo
-de forma
+\subsection{¿Cómo verificar si un paquete no está instalado para
+instalarlo de forma
 automática?}\label{como-verificar-si-un-paquete-no-esta-instalado-para-instalarlo-de-forma-automatica}
 
 Muchas veces compartimos código de R con otros colegas y si ellos no
@@ -3763,8 +3741,8 @@ se cargan esos paquetes y caso contrario, el código instala los paquetes
 y luego los carga, todo de forma automática sin que el usuario tenga que
 identificar los paquetes que le faltan.
 
-\subsection*{Ejemplo}\label{ejemplo-28}
-
+\subsubsection*{Ejemplo}\label{ejemplo-28}
+\addcontentsline{toc}{subsubsection}{Ejemplo}
 
 El código mostrado abajo revisa si los paquetes \texttt{knitr},
 \texttt{png} y \texttt{markdown} están instalados e instala los ausentes
@@ -3785,7 +3763,5 @@ y luego carga todos los paquetes que estén en el vector
 
 \bibliography{book.bib,packages.bib}
 
-\backmatter
-\printindex
 
 \end{document}
