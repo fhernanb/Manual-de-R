@@ -26,7 +26,7 @@
 <meta name="author" content="Olga Usuga">
 
 
-<meta name="date" content="2019-05-02">
+<meta name="date" content="2019-05-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -198,7 +198,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>6</b> Creación de funciones en R</a><ul>
-<li class="chapter" data-level="6.1" data-path="creafun.html"><a href="creafun.html#funcion-en-r"><i class="fa fa-check"></i><b>6.1</b> Función en R </a></li>
+<li class="chapter" data-level="6.1" data-path="creafun.html"><a href="creafun.html#que-es-una-funcion-en-r"><i class="fa fa-check"></i><b>6.1</b> ¿Qué es una función en R? </a></li>
 <li class="chapter" data-level="6.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-funcion-en-r"><i class="fa fa-check"></i><b>6.2</b> Partes de una función en R </a><ul>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -433,10 +433,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="creafun" class="section level1">
 <h1><span class="header-section-number">6</span> Creación de funciones en R</h1>
-<p>En este capítulo se explica cómo crear funciones en R.</p>
-<div id="funcion-en-r" class="section level2">
-<h2><span class="header-section-number">6.1</span> Función en R </h2>
-<p>Una función es un conjunto de instrucciones que convierten las entradas (<em>inputs</em>) en resultados (<em>outputs</em>) deseados. En la Figura <a href="creafun.html#fig:machine2">6.1</a> se muestra una ilustración de lo que es una función o máquina general.</p>
+<p>Uno de los atractivos de R es la gran cantidad de funciones que existen para realizar diversos procedimientos. En este capítulo se explica al lector la forma de crear sus propias funciones para que pueda realizar diversas tareas y así logre explotar el potencial que ofrece R.</p>
+<div id="que-es-una-funcion-en-r" class="section level2">
+<h2><span class="header-section-number">6.1</span> ¿Qué es una función en R? </h2>
+<p>Una función es un conjunto de instrucciones que convierten las entradas (<em>inputs</em>) en resultados (<em>outputs</em>) deseados. En la Figura <a href="creafun.html#fig:machine2">6.1</a> se muestra una ilustración de lo que es una función.</p>
 <div class="figure" style="text-align: center"><span id="fig:machine2"></span>
 <img src="images/function_machine.png" alt="Ilustración de una función, tomada de www.mathinsight.org"  />
 <p class="caption">
@@ -448,10 +448,11 @@ Figure 6.1: Ilustración de una función, tomada de www.mathinsight.org
 <h2><span class="header-section-number">6.2</span> Partes de una función en R </h2>
 <p>Las partes de una función son:</p>
 <ul>
-<li>Entradas: o llamadas también <strong>argumentos</strong>, sirven para ingresar información necesaria para realizar el procedimiento de la función. Los argumentos pueden estar vacíos y a la espera de que el usuario ingrese valores, o pueden tener valores por defecto, esto significa que si el usuario no ingresa una valor al función usará el valor por defecto. Una función puede tener o no argumentos de entrada, en los ejemplos se mostrarán estos casos.</li>
-<li>Cuerpo: el cuerpo de la función está formado por un conjunto de instrucciones que transforman las entradas en las salidas deseadas. Si el cuerpo de la función está formado por varias instrucciones éstas deben ir entre llaves.</li>
-<li>Salidas: son los resultados de la función. Toda función debe tener al menos un resultado, si una función no genera un resultado entonces no sirve para nada. Si una función entrega varios tipos de objetos se acostumbra a organizarlos en una lista que puede manejar los diferentes tipos de objetos.</li>
+<li>Entradas o argumentos: sirven para ingresar información necesaria para realizar el procedimiento de la función. Los argumentos pueden estar vacíos y a la espera de que el usuario ingrese valores, o pueden tener valores por defecto, esto significa que si el usuario no ingresa un valor, la función usará el valor por defecto. Una función puede tener o no argumentos de entrada, en los ejemplos se mostrarán estos casos.</li>
+<li>Cuerpo: está formado por un conjunto de instrucciones que transforman las entradas en las salidas deseadas. Si el cuerpo de la función está formado por varias instrucciones éstas deben ir entre llaves <code>{ }</code>.</li>
+<li>Salidas: son los resultados de la función. Toda función debe tener al menos un resultado. Si una función entrega varios tipos de objetos se acostumbra a organizarlos en una lista que puede manejar los diferentes tipos de objetos.</li>
 </ul>
+<p>A continuación se muestra la estructura general de una función en R.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nombre_de_funcion &lt;-<span class="st"> </span><span class="cf">function</span>(par1, par2, ...) {
   cuerpo
   cuerpo
@@ -459,7 +460,7 @@ Figure 6.1: Ilustración de una función, tomada de www.mathinsight.org
   cuerpo
   <span class="kw">return</span>(resultado)
 }</code></pre></div>
-<p>A continuación se mostrarán varios ejemplos <strong>sencillos</strong> para que el lector aprenda a construir funciones.</p>
+<p>A continuación se mostrarán varios ejemplos <strong>sencillos</strong> para que el lector aprenda a construir funciones en R.</p>
 <div id="ejemplo-20" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Construir una función que reciba dos números y que entregue la suma de estos números.</p>

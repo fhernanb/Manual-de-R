@@ -1,9 +1,9 @@
 # Creación de funciones en R {#creafun}
 
-En este capítulo se explica cómo crear funciones en R.
+Uno de los atractivos de R es la gran cantidad de funciones que existen para realizar diversos procedimientos. En este capítulo se explica al lector la forma de crear sus propias funciones para que pueda realizar diversas tareas y así logre explotar el potencial que ofrece R.
 
-## Función en R \index{función}
-Una función es un conjunto de instrucciones que convierten las entradas (_inputs_) en resultados (_outputs_) deseados. En la Figura \@ref(fig:machine2) se muestra una ilustración de lo que es una función o máquina general.
+## ¿Qué es una función en R? \index{función}
+Una función es un conjunto de instrucciones que convierten las entradas (_inputs_) en resultados (_outputs_) deseados. En la Figura \@ref(fig:machine2) se muestra una ilustración de lo que es una función.
 
 ```{r machine2, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org', dpi=250, fig.align='center'}
 knitr::include_graphics("images/function_machine.png")
@@ -12,9 +12,11 @@ knitr::include_graphics("images/function_machine.png")
 ## Partes de una función en R \index{partes de función}
 Las partes de una función son:
 
-- Entradas: o llamadas también __argumentos__, sirven para ingresar información necesaria para realizar el procedimiento de la función. Los argumentos pueden estar vacíos y a la espera de que el usuario ingrese valores, o pueden tener valores por defecto, esto significa que si el usuario no ingresa una valor al función usará el valor por defecto. Una función puede tener o no argumentos de entrada, en los ejemplos se mostrarán estos casos.
-- Cuerpo: el cuerpo de la función está formado por un conjunto de instrucciones que transforman las entradas en las salidas deseadas. Si el cuerpo de la función está formado por varias instrucciones éstas deben ir entre llaves.
-- Salidas: son los resultados de la función. Toda función debe tener al menos un resultado, si una función no genera un resultado entonces no sirve para nada. Si una función entrega varios tipos de objetos se acostumbra a organizarlos en una lista que puede manejar los diferentes tipos de objetos.
+- Entradas o argumentos: sirven para ingresar información necesaria para realizar el procedimiento de la función. Los argumentos pueden estar vacíos y a la espera de que el usuario ingrese valores, o pueden tener valores por defecto, esto significa que si el usuario no ingresa un valor, la función usará el valor por defecto. Una función puede tener o no argumentos de entrada, en los ejemplos se mostrarán estos casos.
+- Cuerpo: está formado por un conjunto de instrucciones que transforman las entradas en las salidas deseadas. Si el cuerpo de la función está formado por varias instrucciones éstas deben ir entre llaves `{ }`.
+- Salidas: son los resultados de la función. Toda función debe tener al menos un resultado. Si una función entrega varios tipos de objetos se acostumbra a organizarlos en una lista que puede manejar los diferentes tipos de objetos.
+
+A continuación se muestra la estructura general de una función en R.
 
 ```{r, eval=FALSE}
 nombre_de_funcion <- function(par1, par2, ...) {
@@ -26,8 +28,7 @@ nombre_de_funcion <- function(par1, par2, ...) {
 }
 ```
 
-
-A continuación se mostrarán varios ejemplos __sencillos__ para que el lector aprenda a construir funciones.
+A continuación se mostrarán varios ejemplos __sencillos__ para que el lector aprenda a construir funciones en R.
 
 ### Ejemplo {-}
 Construir una función que reciba dos números y que entregue la suma de estos números.
