@@ -426,7 +426,7 @@ Use funciones o procedimientos (varias líneas) de R para responder cada una de 
 13. Create the vector: $1, -2, 3, -4, 5, -6, \ldots, 19, -20$.
 14. Create the vector: $0.1^3, 0.2^1, 0.1^6, 0.2^4, . . . , 0.1^{36}, 0.2^{34}$.
 15. Calculate the following: $\sum_{i=10}^{100}(i^3+4i^2)$ and $\sum_{i=1}^{25}\left( \frac{2^i}{i} + \frac{3^i}{i^2} \right)$.
-16. Read the data set available in: http://tinyurl.com/hcusrdc
+16. Read the data set available in: https://raw.githubusercontent.com/fhernanb/datos/master/Paises.txt
 17. Use a code to obtain the number of variables of the data set.
 18. Use a code to obtain the number of countries in the data set.
 19. Which is the country with the higher population?
