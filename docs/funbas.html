@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Funciones básicas de R | Manual de R</title>
-  <meta name="description" content="4 Funciones básicas de R | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="4 Funciones básicas de R | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Funciones básicas de R | Manual de R" />
   <meta property="og:type" content="book" />
@@ -22,26 +21,29 @@
   <meta name="twitter:description" content="4 Funciones básicas de R | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/portada.png" />
 
-<meta name="author" content="Freddy Hernández">
-<meta name="author" content="Olga Usuga">
+<meta name="author" content="Freddy Hernández" />
+<meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2019-05-04">
+<meta name="date" content="2020-05-27" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="estilo.html">
-<link rel="next" href="bucles.html">
-<script src="libs/jquery/jquery.min.js"></script>
-<link href="libs/gitbook/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link rel="prev" href="estilo.html"/>
+<link rel="next" href="bucles.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -52,41 +54,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -107,7 +134,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#informacion-del-software-y-convenciones"><i class="fa fa-check"></i>Información del software y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-del-software-y-convenciones"><i class="fa fa-check"></i>Información del software y convenciones</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#bloques-informativos"><i class="fa fa-check"></i>Bloques informativos</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
 </ul></li>
@@ -115,26 +142,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
 <li class="chapter" data-level="2" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>2</b> Tipos de objetos</a><ul>
 <li class="chapter" data-level="2.1" data-path="objetos.html"><a href="objetos.html#vectores"><i class="fa fa-check"></i><b>2.1</b> Vectores  </a><ul>
-<li class="chapter" data-level="2.1.1" data-path="objetos.html"><a href="objetos.html#como-extraer-elementos-de-un-vector"><i class="fa fa-check"></i><b>2.1.1</b> ¿Cómo extraer elementos de un vector?</a></li>
+<li class="chapter" data-level="2.1.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-vector"><i class="fa fa-check"></i><b>2.1.1</b> ¿Cómo extraer elementos de un vector?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="objetos.html"><a href="objetos.html#matrices"><i class="fa fa-check"></i><b>2.2</b> Matrices</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="objetos.html"><a href="objetos.html#como-extraer-elementos-de-una-matriz"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo extraer elementos de una matriz?</a></li>
+<li class="chapter" data-level="2.2.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-una-matriz"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo extraer elementos de una matriz?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="objetos.html"><a href="objetos.html#arreglos"><i class="fa fa-check"></i><b>2.3</b> Arreglos  </a><ul>
-<li class="chapter" data-level="2.3.1" data-path="objetos.html"><a href="objetos.html#como-extraer-elementos-de-un-arreglo"><i class="fa fa-check"></i><b>2.3.1</b> ¿Cómo extraer elementos de un arreglo?</a></li>
+<li class="chapter" data-level="2.3.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-arreglo"><i class="fa fa-check"></i><b>2.3.1</b> ¿Cómo extraer elementos de un arreglo?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="objetos.html"><a href="objetos.html#marco-de-datos"><i class="fa fa-check"></i><b>2.4</b> Marco de datos  </a><ul>
-<li class="chapter" data-level="2.4.1" data-path="objetos.html"><a href="objetos.html#como-extraer-elementos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.4.1</b> ¿Cómo extraer elementos de un marco de datos?</a></li>
+<li class="chapter" data-level="2.4.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.4.1</b> ¿Cómo extraer elementos de un marco de datos?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="2.4.2" data-path="objetos.html"><a href="objetos.html#como-extraer-subconjuntos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.4.2</b> ¿Cómo extraer subconjuntos de un marco de datos? </a></li>
+<li class="chapter" data-level="2.4.2" data-path="objetos.html"><a href="objetos.html#cómo-extraer-subconjuntos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.4.2</b> ¿Cómo extraer subconjuntos de un marco de datos? </a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="objetos.html"><a href="objetos.html#listas"><i class="fa fa-check"></i><b>2.5</b> Listas  </a><ul>
-<li class="chapter" data-level="2.5.1" data-path="objetos.html"><a href="objetos.html#como-extraer-elementos-de-una-lista"><i class="fa fa-check"></i><b>2.5.1</b> ¿Cómo extraer elementos de una lista?</a></li>
+<li class="chapter" data-level="2.5.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-una-lista"><i class="fa fa-check"></i><b>2.5.1</b> ¿Cómo extraer elementos de una lista?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejercicios"><i class="fa fa-check"></i>EJERCICIOS</a></li>
@@ -142,32 +169,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="estilo.html"><a href="estilo.html"><i class="fa fa-check"></i><b>3</b> Guía de estilo</a><ul>
 <li class="chapter" data-level="3.1" data-path="estilo.html"><a href="estilo.html#nombres-de-los-archivos"><i class="fa fa-check"></i><b>3.1</b> Nombres de los archivos</a></li>
 <li class="chapter" data-level="3.2" data-path="estilo.html"><a href="estilo.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>3.2</b> Nombres de los objetos</a></li>
-<li class="chapter" data-level="3.3" data-path="estilo.html"><a href="estilo.html#longitud-de-una-linea-de-codigo"><i class="fa fa-check"></i><b>3.3</b> Longitud de una línea de código</a></li>
+<li class="chapter" data-level="3.3" data-path="estilo.html"><a href="estilo.html#longitud-de-una-línea-de-código"><i class="fa fa-check"></i><b>3.3</b> Longitud de una línea de código</a></li>
 <li class="chapter" data-level="3.4" data-path="estilo.html"><a href="estilo.html#espacios"><i class="fa fa-check"></i><b>3.4</b> Espacios</a></li>
-<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignacion"><i class="fa fa-check"></i><b>3.5</b> Asignación</a></li>
+<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación"><i class="fa fa-check"></i><b>3.5</b> Asignación</a></li>
 <li class="chapter" data-level="3.6" data-path="estilo.html"><a href="estilo.html#punto-y-coma"><i class="fa fa-check"></i><b>3.6</b> Punto y coma</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>4</b> Funciones básicas de R</a><ul>
-<li class="chapter" data-level="4.1" data-path="funbas.html"><a href="funbas.html#que-es-una-funcion-de-r"><i class="fa fa-check"></i><b>4.1</b> ¿Qué es una función de R?  </a></li>
-<li class="chapter" data-level="4.2" data-path="funbas.html"><a href="funbas.html#operadores-de-asignacion"><i class="fa fa-check"></i><b>4.2</b> Operadores de asignación </a><ul>
+<li class="chapter" data-level="4.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>4.1</b> ¿Qué es una función de R?  </a></li>
+<li class="chapter" data-level="4.2" data-path="funbas.html"><a href="funbas.html#operadores-de-asignación"><i class="fa fa-check"></i><b>4.2</b> Operadores de asignación </a><ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="funbas.html"><a href="funbas.html#operaciones-basicas"><i class="fa fa-check"></i><b>4.3</b> Operaciones básicas </a></li>
-<li class="chapter" data-level="4.4" data-path="funbas.html"><a href="funbas.html#pruebas-logicas"><i class="fa fa-check"></i><b>4.4</b> Pruebas lógicas </a><ul>
+<li class="chapter" data-level="4.3" data-path="funbas.html"><a href="funbas.html#operaciones-básicas"><i class="fa fa-check"></i><b>4.3</b> Operaciones básicas </a></li>
+<li class="chapter" data-level="4.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>4.4</b> Pruebas lógicas </a><ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="funbas.html"><a href="funbas.html#operadores-logicos"><i class="fa fa-check"></i><b>4.5</b> Operadores lógicos </a><ul>
+<li class="chapter" data-level="4.5" data-path="funbas.html"><a href="funbas.html#operadores-lógicos"><i class="fa fa-check"></i><b>4.5</b> Operadores lógicos </a><ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="funbas.html"><a href="funbas.html#funciones-sobre-vectores"><i class="fa fa-check"></i><b>4.6</b> Funciones sobre vectores</a><ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="funbas.html"><a href="funbas.html#funciones-matematicas"><i class="fa fa-check"></i><b>4.7</b> Funciones matemáticas</a></li>
-<li class="chapter" data-level="4.8" data-path="funbas.html"><a href="funbas.html#funcion-seq"><i class="fa fa-check"></i><b>4.8</b> Función <code>seq</code>  </a><ul>
+<li class="chapter" data-level="4.7" data-path="funbas.html"><a href="funbas.html#funciones-matemáticas"><i class="fa fa-check"></i><b>4.7</b> Funciones matemáticas</a></li>
+<li class="chapter" data-level="4.8" data-path="funbas.html"><a href="funbas.html#función-seq"><i class="fa fa-check"></i><b>4.8</b> Función <code>seq</code>  </a><ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-10"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="funbas.html"><a href="funbas.html#funcion-rep"><i class="fa fa-check"></i><b>4.9</b> Función <code>rep</code>  </a><ul>
+<li class="chapter" data-level="4.9" data-path="funbas.html"><a href="funbas.html#función-rep"><i class="fa fa-check"></i><b>4.9</b> Función <code>rep</code>  </a><ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-11"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-12"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
@@ -180,26 +207,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejercicios-1"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>5</b> Instrucciones de control</a><ul>
-<li class="chapter" data-level="5.1" data-path="bucles.html"><a href="bucles.html#instruccion-if"><i class="fa fa-check"></i><b>5.1</b> Instrucción <code>if</code> </a><ul>
+<li class="chapter" data-level="5.1" data-path="bucles.html"><a href="bucles.html#instrucción-if"><i class="fa fa-check"></i><b>5.1</b> Instrucción <code>if</code> </a><ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-15"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="bucles.html"><a href="bucles.html#instruccion-if-else"><i class="fa fa-check"></i><b>5.2</b> Instrucción <code>if</code> <code>else</code> </a></li>
-<li class="chapter" data-level="5.3" data-path="bucles.html"><a href="bucles.html#instruccion-ifelse"><i class="fa fa-check"></i><b>5.3</b> Instrucción <code>ifelse</code> </a><ul>
+<li class="chapter" data-level="5.2" data-path="bucles.html"><a href="bucles.html#instrucción-if-else"><i class="fa fa-check"></i><b>5.2</b> Instrucción <code>if</code> <code>else</code> </a></li>
+<li class="chapter" data-level="5.3" data-path="bucles.html"><a href="bucles.html#instrucción-ifelse"><i class="fa fa-check"></i><b>5.3</b> Instrucción <code>ifelse</code> </a><ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-16"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="bucles.html"><a href="bucles.html#instruccion-for"><i class="fa fa-check"></i><b>5.4</b> Instrucción <code>for</code> </a><ul>
+<li class="chapter" data-level="5.4" data-path="bucles.html"><a href="bucles.html#instrucción-for"><i class="fa fa-check"></i><b>5.4</b> Instrucción <code>for</code> </a><ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-17"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="bucles.html"><a href="bucles.html#instruccion-while"><i class="fa fa-check"></i><b>5.5</b> Instrucción <code>while</code> </a><ul>
+<li class="chapter" data-level="5.5" data-path="bucles.html"><a href="bucles.html#instrucción-while"><i class="fa fa-check"></i><b>5.5</b> Instrucción <code>while</code> </a><ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-18"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="bucles.html"><a href="bucles.html#instruccion-repeat"><i class="fa fa-check"></i><b>5.6</b> Instrucción <code>repeat</code> </a><ul>
+<li class="chapter" data-level="5.6" data-path="bucles.html"><a href="bucles.html#instrucción-repeat"><i class="fa fa-check"></i><b>5.6</b> Instrucción <code>repeat</code> </a><ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-19"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>6</b> Creación de funciones en R</a><ul>
-<li class="chapter" data-level="6.1" data-path="creafun.html"><a href="creafun.html#que-es-una-funcion-en-r"><i class="fa fa-check"></i><b>6.1</b> ¿Qué es una función en R? </a></li>
-<li class="chapter" data-level="6.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-funcion-en-r"><i class="fa fa-check"></i><b>6.2</b> Partes de una función en R </a><ul>
+<li class="chapter" data-level="6.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>6.1</b> ¿Qué es una función en R? </a></li>
+<li class="chapter" data-level="6.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>6.2</b> Partes de una función en R </a><ul>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -208,11 +235,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejercicios-2"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="read.html"><a href="read.html"><i class="fa fa-check"></i><b>7</b> Lectura de bases de datos</a><ul>
-<li class="chapter" data-level="7.1" data-path="read.html"><a href="read.html#en-que-formato-almacenar-una-base-de-datos"><i class="fa fa-check"></i><b>7.1</b> ¿En qué formato almacenar una base de datos?  </a><ul>
-<li class="chapter" data-level="7.1.1" data-path="read.html"><a href="read.html#almacenamiento-de-informacion-en-excel"><i class="fa fa-check"></i><b>7.1.1</b> Almacenamiento de información en Excel </a></li>
-<li class="chapter" data-level="7.1.2" data-path="read.html"><a href="read.html#almacenamiento-de-informacion-en-bloc-de-notas"><i class="fa fa-check"></i><b>7.1.2</b> Almacenamiento de información en bloc de notas </a></li>
+<li class="chapter" data-level="7.1" data-path="read.html"><a href="read.html#en-qué-formato-almacenar-una-base-de-datos"><i class="fa fa-check"></i><b>7.1</b> ¿En qué formato almacenar una base de datos?  </a><ul>
+<li class="chapter" data-level="7.1.1" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-excel"><i class="fa fa-check"></i><b>7.1.1</b> Almacenamiento de información en Excel </a></li>
+<li class="chapter" data-level="7.1.2" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-bloc-de-notas"><i class="fa fa-check"></i><b>7.1.2</b> Almacenamiento de información en bloc de notas </a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="read.html"><a href="read.html#funcion-read.table"><i class="fa fa-check"></i><b>7.2</b> Función <code>read.table</code> </a><ul>
+<li class="chapter" data-level="7.2" data-path="read.html"><a href="read.html#función-read.table"><i class="fa fa-check"></i><b>7.2</b> Función <code>read.table</code> </a><ul>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-24"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-25"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
@@ -223,17 +250,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="8" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>8</b> Tablas de frecuencia</a><ul>
 <li class="chapter" data-level="8.1" data-path="tablas.html"><a href="tablas.html#tabla-de-contingencia-con-table"><i class="fa fa-check"></i><b>8.1</b> Tabla de contingencia con <code>table</code> </a><ul>
-<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-una-via"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de una vía</a></li>
-<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-dos-vias"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de dos vías</a></li>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-una-vía"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de una vía</a></li>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-dos-vías"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de dos vías</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="tablas.html"><a href="tablas.html#funcion-prop.table"><i class="fa fa-check"></i><b>8.2</b> Función <code>prop.table</code> </a><ul>
-<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-una-via"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de una vía</a></li>
-<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-dos-vias"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de dos vías</a></li>
+<li class="chapter" data-level="8.2" data-path="tablas.html"><a href="tablas.html#función-prop.table"><i class="fa fa-check"></i><b>8.2</b> Función <code>prop.table</code> </a><ul>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-una-vía"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de una vía</a></li>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-dos-vías"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de dos vías</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="tablas.html"><a href="tablas.html#funcion-addmargins"><i class="fa fa-check"></i><b>8.3</b> Función <code>addmargins</code> </a><ul>
+<li class="chapter" data-level="8.3" data-path="tablas.html"><a href="tablas.html#función-addmargins"><i class="fa fa-check"></i><b>8.3</b> Función <code>addmargins</code> </a><ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-27"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="tablas.html"><a href="tablas.html#funcion-hist"><i class="fa fa-check"></i><b>8.4</b> Función <code>hist</code> </a><ul>
+<li class="chapter" data-level="8.4" data-path="tablas.html"><a href="tablas.html#función-hist"><i class="fa fa-check"></i><b>8.4</b> Función <code>hist</code> </a><ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-28"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-29"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
@@ -257,7 +284,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="varia.html"><a href="varia.html#desviacion-estandar-muestral-s"><i class="fa fa-check"></i><b>10.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a><ul>
+<li class="chapter" data-level="10.2" data-path="varia.html"><a href="varia.html#desviación-estándar-muestral-s"><i class="fa fa-check"></i><b>10.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a><ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
@@ -265,7 +292,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="varia.html"><a href="varia.html#coeficiente-de-variacion-cv"><i class="fa fa-check"></i><b>10.4</b> Coeficiente de variación (<span class="math inline">\(CV\)</span>) </a><ul>
+<li class="chapter" data-level="10.4" data-path="varia.html"><a href="varia.html#coeficiente-de-variación-cv"><i class="fa fa-check"></i><b>10.4</b> Coeficiente de variación (<span class="math inline">\(CV\)</span>) </a><ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-41"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
@@ -275,7 +302,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="correl.html"><a href="correl.html"><i class="fa fa-check"></i><b>12</b> Medidas de correlación</a><ul>
-<li class="chapter" data-level="12.1" data-path="correl.html"><a href="correl.html#funcion-cor"><i class="fa fa-check"></i><b>12.1</b> Función <code>cor</code>  </a><ul>
+<li class="chapter" data-level="12.1" data-path="correl.html"><a href="correl.html#función-cor"><i class="fa fa-check"></i><b>12.1</b> Función <code>cor</code>  </a><ul>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-43"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-44"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-45"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -286,9 +313,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13" data-path="discretas.html"><a href="discretas.html"><i class="fa fa-check"></i><b>13</b> Distribuciones discretas</a><ul>
 <li class="chapter" data-level="13.1" data-path="discretas.html"><a href="discretas.html#funciones-disponibles-para-distribuciones-discretas"><i class="fa fa-check"></i><b>13.1</b> Funciones disponibles para distribuciones discretas </a><ul>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-binomial"><i class="fa fa-check"></i>Ejemplo binomial</a></li>
-<li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-geometrica"><i class="fa fa-check"></i>Ejemplo geométrica</a></li>
+<li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-geométrica"><i class="fa fa-check"></i>Ejemplo geométrica</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-binomial-negativa"><i class="fa fa-check"></i>Ejemplo binomial negativa</a></li>
-<li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-hipergeometrica"><i class="fa fa-check"></i>Ejemplo hipergeométrica</a></li>
+<li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-hipergeométrica"><i class="fa fa-check"></i>Ejemplo hipergeométrica</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-poisson"><i class="fa fa-check"></i>Ejemplo Poisson</a></li>
 </ul></li>
 <li class="chapter" data-level="13.2" data-path="discretas.html"><a href="discretas.html#distribuciones-discretas-generales"><i class="fa fa-check"></i><b>13.2</b> Distribuciones discretas generales</a><ul>
@@ -298,7 +325,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="continuas.html"><a href="continuas.html"><i class="fa fa-check"></i><b>14</b> Distribuciones continuas</a><ul>
 <li class="chapter" data-level="14.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>14.1</b> Funciones disponibles para distribuciones continuas</a><ul>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-beta"><i class="fa fa-check"></i>Ejemplo beta</a></li>
-<li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-estandar"><i class="fa fa-check"></i>Ejemplo normal estándar</a></li>
+<li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-estándar"><i class="fa fa-check"></i>Ejemplo normal estándar</a></li>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-general"><i class="fa fa-check"></i>Ejemplo normal general</a></li>
 </ul></li>
 <li class="chapter" data-level="14.2" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>14.2</b> Distribuciones continuas generales</a><ul>
@@ -306,19 +333,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="loglik.html"><a href="loglik.html"><i class="fa fa-check"></i><b>15</b> Verosimilitud</a><ul>
-<li class="chapter" data-level="15.1" data-path="loglik.html"><a href="loglik.html#funcion-de-verosimilitud"><i class="fa fa-check"></i><b>15.1</b> Función de verosimilitud</a></li>
-<li class="chapter" data-level="15.2" data-path="loglik.html"><a href="loglik.html#funcion-de-log-verosimilitud"><i class="fa fa-check"></i><b>15.2</b> Función de log-verosimilitud</a></li>
-<li class="chapter" data-level="15.3" data-path="loglik.html"><a href="loglik.html#metodo-de-maxima-verosimilitud-para-estimar-parametros"><i class="fa fa-check"></i><b>15.3</b> Método de máxima verosimilitud para estimar parámetros</a><ul>
+<li class="chapter" data-level="15.1" data-path="loglik.html"><a href="loglik.html#función-de-verosimilitud"><i class="fa fa-check"></i><b>15.1</b> Función de verosimilitud</a></li>
+<li class="chapter" data-level="15.2" data-path="loglik.html"><a href="loglik.html#función-de-log-verosimilitud"><i class="fa fa-check"></i><b>15.2</b> Función de log-verosimilitud</a></li>
+<li class="chapter" data-level="15.3" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros"><i class="fa fa-check"></i><b>15.3</b> Método de máxima verosimilitud para estimar parámetros</a><ul>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-49"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-50"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-51"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-52"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="loglik.html"><a href="loglik.html#score-e-informacion-de-fisher"><i class="fa fa-check"></i><b>15.4</b> Score e Información de Fisher</a><ul>
-<li class="chapter" data-level="15.4.1" data-path="loglik.html"><a href="loglik.html#score-e-informacion-de-fisher-en-el-caso-univariado."><i class="fa fa-check"></i><b>15.4.1</b> Score e Información de Fisher en el caso univariado.</a></li>
+<li class="chapter" data-level="15.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>15.4</b> Score e Información de Fisher</a><ul>
+<li class="chapter" data-level="15.4.1" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher-en-el-caso-univariado."><i class="fa fa-check"></i><b>15.4.1</b> Score e Información de Fisher en el caso univariado.</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-53"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="15.5" data-path="loglik.html"><a href="loglik.html#metodo-de-maxima-verosimilitud-para-estimar-parametros-en-modelos-de-regresion"><i class="fa fa-check"></i><b>15.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a><ul>
+<li class="chapter" data-level="15.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>15.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a><ul>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-54"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejercicios-6"><i class="fa fa-check"></i>EJERCICIOS</a></li>
@@ -329,7 +356,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo densidad con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-del-peso-corporal"><i class="fa fa-check"></i>Ejemplo densidad del peso corporal</a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="normalidad.html"><a href="normalidad.html#graficos-cuantil-cuantil"><i class="fa fa-check"></i><b>16.3</b> Gráficos cuantil cuantil   </a><ul>
+<li class="chapter" data-level="16.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>16.3</b> Gráficos cuantil cuantil   </a><ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-1-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 1 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-2-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 2 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo QQplot para peso corporal</a></li>
@@ -342,7 +369,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejercicios-7"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>17</b> Intervalos de confianza</a><ul>
-<li class="chapter" data-level="17.1" data-path="ic.html"><a href="ic.html#funcion-t.test"><i class="fa fa-check"></i><b>17.1</b> Función <code>t.test</code></a><ul>
+<li class="chapter" data-level="17.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>17.1</b> Función <code>t.test</code></a><ul>
 <li class="chapter" data-level="17.1.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu"><i class="fa fa-check"></i><b>17.1.1</b> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-55"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="17.1.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-independientes"><i class="fa fa-check"></i><b>17.1.2</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras independientes</a></li>
@@ -352,27 +379,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="17.1.4" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-unilateral-para-la-media-mu"><i class="fa fa-check"></i><b>17.1.4</b> Intervalo de confianza unilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-58"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="ic.html"><a href="ic.html#funcion-var.test"><i class="fa fa-check"></i><b>17.2</b> Función <code>var.test</code></a><ul>
+<li class="chapter" data-level="17.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>17.2</b> Función <code>var.test</code></a><ul>
 <li class="chapter" data-level="17.2.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2"><i class="fa fa-check"></i><b>17.2.1</b> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-59"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="17.2.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-razon-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>17.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
+<li class="chapter" data-level="17.2.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-razón-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>17.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-60"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="17.3" data-path="ic.html"><a href="ic.html#funcion-prop.test"><i class="fa fa-check"></i><b>17.3</b> Función <code>prop.test</code></a><ul>
-<li class="chapter" data-level="17.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporcion-p"><i class="fa fa-check"></i><b>17.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
+<li class="chapter" data-level="17.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>17.3</b> Función <code>prop.test</code></a><ul>
+<li class="chapter" data-level="17.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p"><i class="fa fa-check"></i><b>17.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-61"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="17.3.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>17.3.2</b> Intervalo de confianza bilateral para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-62"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>18</b> Prueba de hipótesis</a><ul>
-<li class="chapter" data-level="18.1" data-path="ph.html"><a href="ph.html#prueba-de-hipotesis-para-mu-de-una-poblacion-normal"><i class="fa fa-check"></i><b>18.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="18.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>18.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-63"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="ph.html"><a href="ph.html#prueba-de-hipotesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>18.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a><ul>
+<li class="chapter" data-level="18.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>18.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-64"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="ph.html"><a href="ph.html#prueba-de-hipotesis-para-la-proporcion-p"><i class="fa fa-check"></i><b>18.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a><ul>
+<li class="chapter" data-level="18.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>18.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a><ul>
 <li class="chapter" data-level="18.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>18.3.1</b> Prueba de Wald</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-65"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="18.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>18.3.2</b> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson</a></li>
@@ -380,33 +407,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="18.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>18.3.3</b> Prueba binomial exacta</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-67"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="ph.html"><a href="ph.html#prueba-de-hipotesis-para-la-varianza-sigma2-de-una-poblacion-normal"><i class="fa fa-check"></i><b>18.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="18.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>18.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-68"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.5" data-path="ph.html"><a href="ph.html#prueba-de-hipotesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>18.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a><ul>
+<li class="chapter" data-level="18.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>18.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-69"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-70"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.6" data-path="ph.html"><a href="ph.html#prueba-de-hipotesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>18.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a><ul>
+<li class="chapter" data-level="18.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>18.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-71"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="ph.html"><a href="ph.html#prueba-de-hipotesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>18.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a><ul>
+<li class="chapter" data-level="18.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>18.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-72"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.8" data-path="ph.html"><a href="ph.html#prueba-de-hipotesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>18.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a><ul>
+<li class="chapter" data-level="18.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>18.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-73"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.9" data-path="ph.html"><a href="ph.html#prueba-de-hipotesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>18.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a><ul>
+<li class="chapter" data-level="18.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>18.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-74"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>19</b> Aproximación de integrales</a><ul>
-<li class="chapter" data-level="19.1" data-path="aproxint.html"><a href="aproxint.html#aproximacion-de-laplace-unidimensional"><i class="fa fa-check"></i><b>19.1</b> Aproximación de Laplace unidimensional</a><ul>
+<li class="chapter" data-level="19.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>19.1</b> Aproximación de Laplace unidimensional</a><ul>
 <li class="chapter" data-level="" data-path="aproxint.html"><a href="aproxint.html#ejemplo-75"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>20</b> Curiosidades</a><ul>
-<li class="chapter" data-level="20.1" data-path="curio.html"><a href="curio.html#como-verificar-si-un-paquete-no-esta-instalado-para-instalarlo-de-forma-automatica"><i class="fa fa-check"></i><b>20.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a><ul>
+<li class="chapter" data-level="20.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>20.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a><ul>
 <li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-76"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
@@ -434,28 +461,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="funbas" class="section level1">
 <h1><span class="header-section-number">4</span> Funciones básicas de R</h1>
 <p>En este capítulo se presentará lo que es una función y se mostrarán varias funciones básicas que son útiles para realizar diversas tareas.</p>
-<div id="que-es-una-funcion-de-r" class="section level2">
+<div id="qué-es-una-función-de-r" class="section level2">
 <h2><span class="header-section-number">4.1</span> ¿Qué es una función de R?  </h2>
 <p>En la Figura <a href="funbas.html#fig:machine1">4.1</a> se muestra una ilustración de lo que es una función o máquina general. Hay unas entradas (<em>inputs</em>) que luego son procesadas dentro de la caja para generar unas salidas (<em>outputs</em>). Un ejemplo de una función o máquina muy común en nuestras casas es la licuadora. Si a una licuadora le ingresamos leche, fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa.</p>
 <div class="figure" style="text-align: center"><span id="fig:machine1"></span>
-<img src="images/function_machine.png" alt="Ilustración de una función, tomada de www.mathinsight.org."  />
+<img src="images/function_machine.png" alt="Ilustración de una función, tomada de www.mathinsight.org." width="96" />
 <p class="caption">
 Figure 4.1: Ilustración de una función, tomada de www.mathinsight.org.
 </p>
 </div>
 <p>Las funciones en R se caracterizan por un nombre corto y que dé una idea de lo que hace la función. Los elementos que pueden ingresar (<em>inputs</em>) a la función se llaman <strong>parámetros</strong> y se ubican dentro de paréntesis, el cuerpo de la función se ubica dentro de llaves y es ahí donde se procesan los <em>inputs</em> para convertirlos en <em>outputs</em>, a continuación se muestra la estructura general de una función.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nombre_de_funcion</span>(parametro1, parametro2, ...) {
-  tareas internas
-  tareas internas
-  tareas internas
-  salida
-}</code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">nombre_de_funcion</span>(parametro1, parametro2, ...) {</a>
+<a class="sourceLine" id="cb91-2" title="2">  tareas internas</a>
+<a class="sourceLine" id="cb91-3" title="3">  tareas internas</a>
+<a class="sourceLine" id="cb91-4" title="4">  tareas internas</a>
+<a class="sourceLine" id="cb91-5" title="5">  salida</a>
+<a class="sourceLine" id="cb91-6" title="6">}</a></code></pre></div>
 <p>Cuando usamos una función sólo debemos escribir bien el nombre e ingresar correctamente los parámetros de la función, el cuerpo de la función ni lo vemos ni lo debemos modificar. A continuación se presenta un ejemplo de cómo usar la función <code>mean</code> para calcular un promedio.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">notas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.0</span>, <span class="fl">1.3</span>, <span class="fl">3.8</span>, <span class="fl">2.0</span>)  <span class="co"># Notas de un estudiante</span>
-<span class="kw">mean</span>(notas)</code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" title="1">notas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.0</span>, <span class="fl">1.3</span>, <span class="fl">3.8</span>, <span class="fl">2.0</span>)  <span class="co"># Notas de un estudiante</span></a>
+<a class="sourceLine" id="cb92-2" title="2"><span class="kw">mean</span>(notas)</a></code></pre></div>
 <pre><code>## [1] 2.775</code></pre>
 </div>
-<div id="operadores-de-asignacion" class="section level2">
+<div id="operadores-de-asignación" class="section level2">
 <h2><span class="header-section-number">4.2</span> Operadores de asignación </h2>
 <p>En R se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.</p>
 <ul>
@@ -468,9 +495,9 @@ Figure 4.1: Ilustración de una función, tomada de www.mathinsight.org.
 <h3>Ejemplo</h3>
 <p>Almacene los valores 5.3, 4.6 y 25 en los objetos <code>a</code>, <code>b</code> y <code>age</code> respectivamente, use diferentes símbolos de asignación.</p>
 <p>Para hacer lo solicitado se podría usar el siguiente código.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="fl">5.3</span> <span class="co"># Recomended</span>
-<span class="fl">4.6</span> -&gt;<span class="st"> </span>b <span class="co"># It is not usual</span>
-age =<span class="st"> </span><span class="dv">25</span> <span class="co"># Not recomended</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" title="1">a &lt;-<span class="st"> </span><span class="fl">5.3</span> <span class="co"># Recomended</span></a>
+<a class="sourceLine" id="cb94-2" title="2"><span class="fl">4.6</span> -&gt;<span class="st"> </span>b <span class="co"># It is not usual</span></a>
+<a class="sourceLine" id="cb94-3" title="3">age =<span class="st"> </span><span class="dv">25</span> <span class="co"># Not recomended</span></a></code></pre></div>
 
 <div class="rmdimportant">
 Aunque una asignación se puede hacer de tres formas diferentes, se recomienda sólo usar el símbolo <code>&lt;-</code>.
@@ -478,7 +505,7 @@ Aunque una asignación se puede hacer de tres formas diferentes, se recomienda s
 
 </div>
 </div>
-<div id="operaciones-basicas" class="section level2">
+<div id="operaciones-básicas" class="section level2">
 <h2><span class="header-section-number">4.3</span> Operaciones básicas </h2>
 <p>En R se pueden hacer diversas operaciones usando operadores binarios. Este tipo de operadores se denomina binarios porque actuan entre dos objetos, a continuación el listado.</p>
 <ul>
@@ -491,26 +518,26 @@ Aunque una asignación se puede hacer de tres formas diferentes, se recomienda s
 <li><code>%%</code> operador binario para obtener el residuo en una división.</li>
 </ul>
 <p>A continuación se presentan ejemplos de cómo usar las anteriores funciones.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">6</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span>  <span class="co"># Para sumar dos números</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="dv">6</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span>  <span class="co"># Para sumar dos números</span></a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)
-b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>)  <span class="co"># a y b de la misma dimensión</span>
-a <span class="op">+</span><span class="st"> </span>b  <span class="co"># Para sumar los vectores a y b miembro a miembro</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb97-2" title="2">b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>)  <span class="co"># a y b de la misma dimensión</span></a>
+<a class="sourceLine" id="cb97-3" title="3">a <span class="op">+</span><span class="st"> </span>b  <span class="co"># Para sumar los vectores a y b miembro a miembro</span></a></code></pre></div>
 <pre><code>## [1] 3 3 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a <span class="op">-</span><span class="st"> </span>b  <span class="co"># Para restar dos vectores a y b miembro a miembro</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1">a <span class="op">-</span><span class="st"> </span>b  <span class="co"># Para restar dos vectores a y b miembro a miembro</span></a></code></pre></div>
 <pre><code>## [1] -1  3  1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a <span class="op">*</span><span class="st"> </span>b  <span class="co"># Para multiplicar</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1">a <span class="op">*</span><span class="st"> </span>b  <span class="co"># Para multiplicar</span></a></code></pre></div>
 <pre><code>## [1] 2 0 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a <span class="op">/</span><span class="st"> </span>b  <span class="co"># Para dividir</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1">a <span class="op">/</span><span class="st"> </span>b  <span class="co"># Para dividir</span></a></code></pre></div>
 <pre><code>## [1] 0.5 Inf 2.0</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a <span class="op">^</span><span class="st"> </span>b  <span class="co"># Para potencia</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1">a <span class="op">^</span><span class="st"> </span>b  <span class="co"># Para potencia</span></a></code></pre></div>
 <pre><code>## [1] 1 1 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">7</span> <span class="op">%/%</span><span class="st"> </span><span class="dv">3</span>  <span class="co"># Para saber las veces que cabe 3 en 7</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="dv">7</span> <span class="op">%/%</span><span class="st"> </span><span class="dv">3</span>  <span class="co"># Para saber las veces que cabe 3 en 7</span></a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">7</span> <span class="op">%%</span><span class="st"> </span><span class="dv">3</span>  <span class="co"># Para saber el residuo al dividir 7 entre 3</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="dv">7</span> <span class="op">%%</span><span class="st"> </span><span class="dv">3</span>  <span class="co"># Para saber el residuo al dividir 7 entre 3</span></a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 </div>
-<div id="pruebas-logicas" class="section level2">
+<div id="pruebas-lógicas" class="section level2">
 <h2><span class="header-section-number">4.4</span> Pruebas lógicas </h2>
 <p>En R se puede verificar si un objeto cumple una condición dada, a continuación el listado de las pruebas usuales.</p>
 <ul>
@@ -521,38 +548,38 @@ a <span class="op">+</span><span class="st"> </span>b  <span class="co"># Para s
 <li><code>&gt;=</code> para saber si un número es mayor o igual que otro.</li>
 </ul>
 <p>A continuación se presentan ejemplos de cómo usar las anteriores funciones.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">12</span>  <span class="co"># ¿Será 5 menor que 12?</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="dv">5</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">12</span>  <span class="co"># ¿Será 5 menor que 12?</span></a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Comparando objetos</span>
-x &lt;-<span class="st"> </span><span class="dv">5</span>
-y &lt;-<span class="st"> </span><span class="dv">20</span> <span class="op">/</span><span class="st"> </span><span class="dv">4</span>
-x <span class="op">==</span><span class="st"> </span>y  <span class="co"># ¿Será x igual a y?</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="co"># Comparando objetos</span></a>
+<a class="sourceLine" id="cb113-2" title="2">x &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb113-3" title="3">y &lt;-<span class="st"> </span><span class="dv">20</span> <span class="op">/</span><span class="st"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb113-4" title="4">x <span class="op">==</span><span class="st"> </span>y  <span class="co"># ¿Será x igual a y?</span></a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Usando vectores</span>
-a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)
-b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>)
-a <span class="op">&gt;</span><span class="st"> </span>b  <span class="co"># Comparación término a término</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1"><span class="co"># Usando vectores</span></a>
+<a class="sourceLine" id="cb115-2" title="2">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb115-3" title="3">b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb115-4" title="4">a <span class="op">&gt;</span><span class="st"> </span>b  <span class="co"># Comparación término a término</span></a></code></pre></div>
 <pre><code>## [1] FALSE  TRUE  TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a <span class="op">==</span><span class="st"> </span>b  <span class="co"># Comparación de igualdad término a término</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">a <span class="op">==</span><span class="st"> </span>b  <span class="co"># Comparación de igualdad término a término</span></a></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE</code></pre>
 <div id="ejemplo-6" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Crear un vector con los números de 1 a 17 y extrater los números que son mayores o iguales a 12.</p>
 <p>Primero se crear el vector <code>x</code> con los elementos del 1 al 17. La prueba lógica <code>x &gt;= 12</code> se usa para evaluar la condición, el resultado es un vector de 17 posiciones con valores de <code>TRUE</code> o <code>FALSE</code> dependiendo de si la condición se cumple o no. Este vector lógico se coloca dentro de <code>x[ ]</code> para que al evaluar <code>x[x &gt;= 12]</code> sólo aparezcan los valores del vector original que SI cumplen la condición. El código necesario se muestra a continuación.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">17</span>  <span class="co"># Se crea el vector</span>
-x[x <span class="op">&gt;=</span><span class="st"> </span><span class="dv">12</span>]  <span class="co"># Se solicitan los valores que cumplen la condición</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">17</span>  <span class="co"># Se crea el vector</span></a>
+<a class="sourceLine" id="cb119-2" title="2">x[x <span class="op">&gt;=</span><span class="st"> </span><span class="dv">12</span>]  <span class="co"># Se solicitan los valores que cumplen la condición</span></a></code></pre></div>
 <pre><code>## [1] 12 13 14 15 16 17</code></pre>
 </div>
 <div id="ejemplo-7" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Retome el marco de datos <code>mimarco</code> construído en la sección 2.4 y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años.</p>
 <p>Inicialmente vamos a construir nuevamente el objeto <code>mimarco</code> de la sección 2.4 usando el siguiente código.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mimarco &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">edad =</span> <span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">19</span>, <span class="dv">13</span>, <span class="ot">NA</span>, <span class="dv">20</span>), 
-                      <span class="dt">deporte =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">NA</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>),
-                      <span class="dt">comic.fav =</span> <span class="kw">c</span>(<span class="ot">NA</span>, <span class="st">&#39;Superman&#39;</span>, <span class="st">&#39;Batman&#39;</span>,
-                                    <span class="ot">NA</span>, <span class="st">&#39;Batman&#39;</span>))
-
-mimarco  <span class="co"># Para ver el contenido de mimarco</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1">mimarco &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">edad =</span> <span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">19</span>, <span class="dv">13</span>, <span class="ot">NA</span>, <span class="dv">20</span>), </a>
+<a class="sourceLine" id="cb121-2" title="2">                      <span class="dt">deporte =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">NA</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb121-3" title="3">                      <span class="dt">comic.fav =</span> <span class="kw">c</span>(<span class="ot">NA</span>, <span class="st">&#39;Superman&#39;</span>, <span class="st">&#39;Batman&#39;</span>,</a>
+<a class="sourceLine" id="cb121-4" title="4">                                    <span class="ot">NA</span>, <span class="st">&#39;Batman&#39;</span>))</a>
+<a class="sourceLine" id="cb121-5" title="5"></a>
+<a class="sourceLine" id="cb121-6" title="6">mimarco  <span class="co"># Para ver el contenido de mimarco</span></a></code></pre></div>
 <pre><code>##   edad deporte comic.fav
 ## 1   15    TRUE      &lt;NA&gt;
 ## 2   19    TRUE  Superman
@@ -560,7 +587,7 @@ mimarco  <span class="co"># Para ver el contenido de mimarco</span></code></pre>
 ## 4   NA   FALSE      &lt;NA&gt;
 ## 5   20    TRUE    Batman</code></pre>
 <p>Para extraer de <code>mimarco</code> la información de las personas que tienen una edad superior o igual a 15 años se coloca dentro de corchetes la condición <code>mimarco$edad &gt;= 15</code>, esto servirá para chequear cuáles de las edades del vector <code>mimarco$ead</code> cumplen la condición. El resultado de evaluar <code>mimarco$edad &gt;= 15</code> será un vector lógico (<code>TRUE</code> o <code>FALSE</code>), que al ser colocado dentro de <code>mimarco[,]</code>, entregará la información de las personas que cumplen la condición. A continuación el código para extraer la información solicitada.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mimarco[mimarco<span class="op">$</span>edad <span class="op">&gt;=</span><span class="st"> </span><span class="dv">15</span>, ]</code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1">mimarco[mimarco<span class="op">$</span>edad <span class="op">&gt;=</span><span class="st"> </span><span class="dv">15</span>, ]</a></code></pre></div>
 <pre><code>##    edad deporte comic.fav
 ## 1    15    TRUE      &lt;NA&gt;
 ## 2    19    TRUE  Superman
@@ -574,52 +601,53 @@ Note que la condición <code>mimarco$edad &gt;= 15</code> se debe ubicar <strong
 
 </div>
 </div>
-<div id="operadores-logicos" class="section level2">
+<div id="operadores-lógicos" class="section level2">
 <h2><span class="header-section-number">4.5</span> Operadores lógicos </h2>
 <p>En R están disponibles los operadores lógicos negación, conjunción y disyunción. A continuación el listado de los operadores entre los elementos <code>x</code> e <code>y</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">!</span>x  <span class="co"># Negación de x</span>
-x <span class="op">&amp;</span><span class="st"> </span>y  <span class="co"># Conjunción entre x e y</span>
-x <span class="op">&amp;&amp;</span><span class="st"> </span>y
-x <span class="op">|</span><span class="st"> </span>y  <span class="co"># Disyunción entre x e y</span>
-x <span class="op">||</span><span class="st"> </span>y
-<span class="kw">xor</span>(x, y)</code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="op">!</span>x  <span class="co"># Negación de x</span></a>
+<a class="sourceLine" id="cb125-2" title="2">x <span class="op">&amp;</span><span class="st"> </span>y  <span class="co"># Conjunción entre x e y</span></a>
+<a class="sourceLine" id="cb125-3" title="3">x <span class="op">&amp;&amp;</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb125-4" title="4">x <span class="op">|</span><span class="st"> </span>y  <span class="co"># Disyunción entre x e y</span></a>
+<a class="sourceLine" id="cb125-5" title="5">x <span class="op">||</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb125-6" title="6"><span class="kw">xor</span>(x, y)</a></code></pre></div>
 <p>A continuación se presentan ejemplos de cómo usar el símbolo de negación <code>!</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ans &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)
-<span class="op">!</span>ans  <span class="co"># Negando las respuestas almacenadas en ans</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" title="1">ans &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb126-2" title="2"><span class="op">!</span>ans  <span class="co"># Negando las respuestas almacenadas en ans</span></a></code></pre></div>
 <pre><code>## [1] FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="fl">1.5</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)
-<span class="op">!</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="fl">2.5</span>)  <span class="co"># Negando los resultados de una prueba</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="fl">1.5</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb128-2" title="2"><span class="op">!</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="fl">2.5</span>)  <span class="co"># Negando los resultados de una prueba</span></a></code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE  TRUE FALSE</code></pre>
 <p>A continuación se presentan ejemplos de cómo aplicar la conjunción <code>&amp;</code> y <code>&amp;&amp;</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="fl">1.5</span>, <span class="dv">2</span>)  <span class="co"># Se construyen dos vectores para la prueba</span>
-y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">3</span>)
-
-x <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>  <span class="co"># ¿Serán los elementos de x menores que 4?</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="fl">1.5</span>, <span class="dv">2</span>)  <span class="co"># Se construyen dos vectores para la prueba</span></a>
+<a class="sourceLine" id="cb130-2" title="2">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb130-3" title="3"></a>
+<a class="sourceLine" id="cb130-4" title="4">x <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>  <span class="co"># ¿Serán los elementos de x menores que 4?</span></a></code></pre></div>
 <pre><code>## [1] FALSE  TRUE  TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>  <span class="co"># ¿Serán los elementos de y mayores que 5?</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1">y <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>  <span class="co"># ¿Serán los elementos de y mayores que 5?</span></a></code></pre></div>
 <pre><code>## [1] FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>y <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>  <span class="co"># Conjunción entre las pruebas anteriores.</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1">x <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>y <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>  <span class="co"># Conjunción entre las pruebas anteriores.</span></a></code></pre></div>
 <pre><code>## [1] FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span> <span class="op">&amp;&amp;</span><span class="st"> </span>y <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>  <span class="co"># Conjunción vectorial</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1">x <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span> <span class="op">&amp;&amp;</span><span class="st"> </span>y <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>  <span class="co"># Conjunción vectorial</span></a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>Note las diferencias entre los dos últimos ejemplos, cuando se usa <code>&amp;</code> se hace una prueba término a término y el resultado es un vector, cuando se usa <code>&amp;&amp;</code> se aplica la conjunción al vector de resultados obtenido con <code>&amp;</code>.</p>
 <div id="ejemplo-8" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Retome el marco de datos <code>mimarco</code> construído en la sección 2.4 y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años y que practican deporte.</p>
 <p>Aquí interesa extraer la información de los individuos que cumplen dos condiciones simultáneamente, aquellos con edad <span class="math inline">\(\geq\)</span> 15 y que SI practiquen deporte. El código necesario para obtener la información solicitada es el siguiente.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mimarco[mimarco<span class="op">$</span>edad <span class="op">&gt;=</span><span class="st"> </span><span class="dv">15</span> <span class="op">&amp;</span><span class="st"> </span>mimarco<span class="op">$</span>deporte <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>, ]</code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1">mimarco[mimarco<span class="op">$</span>edad <span class="op">&gt;=</span><span class="st"> </span><span class="dv">15</span> <span class="op">&amp;</span><span class="st"> </span>mimarco<span class="op">$</span>deporte <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>, ]</a></code></pre></div>
 <pre><code>##   edad deporte comic.fav
 ## 1   15    TRUE      &lt;NA&gt;
 ## 2   19    TRUE  Superman
 ## 5   20    TRUE    Batman</code></pre>
 <p>De la anterior salida se observa que sólo 3 de las 5 personas cumplen ambas condiciones.</p>
- 
+
+
 <div class="rmdtip">
 La función <code>with</code> es útil porque nos permite realizar algún procedimiento en relación de un objeto, escribiendo menos y de una forma más natural.
 </div>
 
 <p>Una forma alternativa para escribir lo anterior usando la función <code>with</code> es la siguiente.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(mimarco, mimarco[edad <span class="op">&gt;=</span><span class="st"> </span><span class="dv">15</span> <span class="op">&amp;</span><span class="st"> </span>deporte <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>, ])</code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1"><span class="kw">with</span>(mimarco, mimarco[edad <span class="op">&gt;=</span><span class="st"> </span><span class="dv">15</span> <span class="op">&amp;</span><span class="st"> </span>deporte <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>, ])</a></code></pre></div>
 <pre><code>##   edad deporte comic.fav
 ## 1   15    TRUE      &lt;NA&gt;
 ## 2   19    TRUE  Superman
@@ -645,24 +673,24 @@ La función <code>with</code> es útil porque nos permite realizar algún proced
 <div id="ejemplo-9" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Construir en vector llamado <code>myvec</code> con los siguientes elementos: 5, 3, 2, 1, 2, 0, NA, 0, 9, 6. Luego aplicar todas las funciones anteriores para verificar el funcionamiento de las mismas.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="ot">NA</span>, <span class="dv">0</span>, <span class="dv">9</span>, <span class="dv">6</span>)
-myvec</code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">myvec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="ot">NA</span>, <span class="dv">0</span>, <span class="dv">9</span>, <span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb142-2" title="2">myvec</a></code></pre></div>
 <pre><code>##  [1]  5  3  2  1  2  0 NA  0  9  6</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">min</span>(myvec)  <span class="co"># Opss, no aparece el mínimo que es Cero.</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1"><span class="kw">min</span>(myvec)  <span class="co"># Opss, no aparece el mínimo que es Cero.</span></a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">min</span>(myvec, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)  <span class="co"># Usamos na.rm = TRUE para remover el NA</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1"><span class="kw">min</span>(myvec, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)  <span class="co"># Usamos na.rm = TRUE para remover el NA</span></a></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(myvec, <span class="dt">na.rm=</span>T)  <span class="co"># Para obtener el valor máximo</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1"><span class="kw">max</span>(myvec, <span class="dt">na.rm=</span>T)  <span class="co"># Para obtener el valor máximo</span></a></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">range</span>(myvec, <span class="dt">na.rm=</span>T)  <span class="co"># Genera min y max simultáneamente</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" title="1"><span class="kw">range</span>(myvec, <span class="dt">na.rm=</span>T)  <span class="co"># Genera min y max simultáneamente</span></a></code></pre></div>
 <pre><code>## [1] 0 9</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(myvec, <span class="dt">na.rm=</span>T)  <span class="co"># La suma de los valores internos</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" title="1"><span class="kw">sum</span>(myvec, <span class="dt">na.rm=</span>T)  <span class="co"># La suma de los valores internos</span></a></code></pre></div>
 <pre><code>## [1] 28</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prod</span>(myvec, <span class="dt">na.rm=</span>T)  <span class="co"># El productor de los valores internos</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1"><span class="kw">prod</span>(myvec, <span class="dt">na.rm=</span>T)  <span class="co"># El productor de los valores internos</span></a></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">which.min</span>(myvec)  <span class="co"># Posición del valor mínimo 0 en el vector</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1"><span class="kw">which.min</span>(myvec)  <span class="co"># Posición del valor mínimo 0 en el vector</span></a></code></pre></div>
 <pre><code>## [1] 6</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">which.max</span>(myvec)  <span class="co"># Posición del valor máximo 9 en el vector</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1"><span class="kw">which.max</span>(myvec)  <span class="co"># Posición del valor máximo 9 en el vector</span></a></code></pre></div>
 <pre><code>## [1] 9</code></pre>
 <p>De las dos últimas líneas podemos destacar lo siguiente:</p>
 <ol style="list-style-type: decimal">
@@ -671,44 +699,44 @@ myvec</code></pre></div>
 </ol>
 </div>
 </div>
-<div id="funciones-matematicas" class="section level2">
+<div id="funciones-matemáticas" class="section level2">
 <h2><span class="header-section-number">4.7</span> Funciones matemáticas</h2>
 <p>Otras funciones básicas muy utilizadas en estadística son: <code>sin, cos, tan, asin, acos, atan, atan2, log, logb, log10, exp, sqrt, abs</code>. A continuación algunos ejemplos de las anteriores funciones.</p>
 <p><strong>Ejemplos de medidas trigonométricas</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">angulos &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, pi<span class="op">/</span><span class="dv">2</span>, pi)
-<span class="kw">sin</span>(angulos)</code></pre></div>
-<pre><code>## [1] 0.000e+00 1.000e+00 1.225e-16</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tan</span>(angulos)</code></pre></div>
-<pre><code>## [1]  0.000e+00  1.633e+16 -1.225e-16</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1">angulos &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, pi<span class="op">/</span><span class="dv">2</span>, pi)</a>
+<a class="sourceLine" id="cb160-2" title="2"><span class="kw">sin</span>(angulos)</a></code></pre></div>
+<pre><code>## [1] 0.000000e+00 1.000000e+00 1.224606e-16</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1"><span class="kw">tan</span>(angulos)</a></code></pre></div>
+<pre><code>## [1]  0.000000e+00  1.633124e+16 -1.224647e-16</code></pre>
 <p><strong>Ejemplos de logaritmos</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(<span class="dv">100</span>)</code></pre></div>
-<pre><code>## [1] 4.605</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log10</span>(<span class="dv">100</span>)</code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1"><span class="kw">log</span>(<span class="dv">100</span>)</a></code></pre></div>
+<pre><code>## [1] 4.60517</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1"><span class="kw">log10</span>(<span class="dv">100</span>)</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">logb</span>(<span class="dv">125</span>, <span class="dt">base=</span><span class="dv">5</span>)</code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="kw">logb</span>(<span class="dv">125</span>, <span class="dt">base=</span><span class="dv">5</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p><strong>Ejemplos de exponencial</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="dv">1</span>)</code></pre></div>
-<pre><code>## [1] 2.718</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1] 7.389</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1]  2.718  7.389 20.086</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1"><span class="kw">exp</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] 2.718282</code></pre>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" title="1"><span class="kw">exp</span>(<span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] 7.389056</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" title="1"><span class="kw">exp</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1]  2.718282  7.389056 20.085537</code></pre>
 <p><strong>Ejemplos de raices</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">49</span>)  <span class="co"># Raiz cuadrada de 49</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" title="1"><span class="kw">sqrt</span>(<span class="dv">49</span>)  <span class="co"># Raiz cuadrada de 49</span></a></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">27</span> <span class="op">^</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)  <span class="co"># Raiz cúbica de 27</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" title="1"><span class="dv">27</span> <span class="op">^</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)  <span class="co"># Raiz cúbica de 27</span></a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p><strong>Ejemplos de valor absoluto</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">abs</span>(<span class="fl">2.5</span>)</code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1"><span class="kw">abs</span>(<span class="fl">2.5</span>)</a></code></pre></div>
 <pre><code>## [1] 2.5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">abs</span>(<span class="op">-</span><span class="fl">3.6</span>)</code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" title="1"><span class="kw">abs</span>(<span class="op">-</span><span class="fl">3.6</span>)</a></code></pre></div>
 <pre><code>## [1] 3.6</code></pre>
 </div>
-<div id="funcion-seq" class="section level2">
+<div id="función-seq" class="section level2">
 <h2><span class="header-section-number">4.8</span> Función <code>seq</code>  </h2>
 <p>En R podemos crear secuencias de números de una forma sencilla usando la función <code>seq</code>, la estructura de esta función es:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>, <span class="dt">to=</span><span class="dv">1</span>, by, length.out)</code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>, <span class="dt">to=</span><span class="dv">1</span>, by, length.out)</a></code></pre></div>
 <p>Los argumentos de esta función son:</p>
 <ul>
 <li><code>from</code>: valor de inicio de la secuencia.</li>
@@ -725,32 +753,32 @@ myvec</code></pre></div>
 <li>Una secuencia desde 1 con un salto de <span class="math inline">\(\pi\)</span> y sin pasar del número 9.</li>
 </ul>
 <p>El código necesario para obtener las secuencias se muestra a continuación.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>, <span class="dt">to=</span><span class="dv">1</span>, <span class="dt">length.out =</span> <span class="dv">11</span>)</code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>, <span class="dt">to=</span><span class="dv">1</span>, <span class="dt">length.out =</span> <span class="dv">11</span>)</a></code></pre></div>
 <pre><code>##  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>, <span class="dt">to=</span><span class="dv">9</span>, <span class="dt">by=</span><span class="dv">2</span>)  <span class="co"># matches &#39;end&#39;</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>, <span class="dt">to=</span><span class="dv">9</span>, <span class="dt">by=</span><span class="dv">2</span>)  <span class="co"># matches &#39;end&#39;</span></a></code></pre></div>
 <pre><code>## [1] 1 3 5 7 9</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>, <span class="dt">to=</span><span class="dv">9</span>, <span class="dt">by=</span>pi) <span class="co"># stays below &#39;end&#39;</span></code></pre></div>
-<pre><code>## [1] 1.000 4.142 7.283</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>, <span class="dt">to=</span><span class="dv">9</span>, <span class="dt">by=</span>pi) <span class="co"># stays below &#39;end&#39;</span></a></code></pre></div>
+<pre><code>## [1] 1.000000 4.141593 7.283185</code></pre>
 
 <div class="rmdnote">
 En R existe el operador binario <code>:</code> que sirve para construir secuencias de uno en uno fácilmente.
 </div>
 
 <p>Revise los siguientes ejemplos para entender el funcionamiento del operador <code>:</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">:</span><span class="dv">8</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="dv">2</span><span class="op">:</span><span class="dv">8</span></a></code></pre></div>
 <pre><code>## [1] 2 3 4 5 6 7 8</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span><span class="op">:-</span><span class="dv">5</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" title="1"><span class="dv">3</span><span class="op">:-</span><span class="dv">5</span></a></code></pre></div>
 <pre><code>## [1]  3  2  1  0 -1 -2 -3 -4 -5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pi<span class="op">:</span><span class="dv">6</span>  <span class="co"># real sequence</span></code></pre></div>
-<pre><code>## [1] 3.142 4.142 5.142</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">6</span><span class="op">:</span>pi  <span class="co"># integer sequence</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1">pi<span class="op">:</span><span class="dv">6</span>  <span class="co"># real sequence</span></a></code></pre></div>
+<pre><code>## [1] 3.141593 4.141593 5.141593</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" title="1"><span class="dv">6</span><span class="op">:</span>pi  <span class="co"># integer sequence</span></a></code></pre></div>
 <pre><code>## [1] 6 5 4</code></pre>
 </div>
 </div>
-<div id="funcion-rep" class="section level2">
+<div id="función-rep" class="section level2">
 <h2><span class="header-section-number">4.9</span> Función <code>rep</code>  </h2>
 <p>En R podemos crear repeticiones usando la función <code>rep</code>, la estructura de esta función es:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(x, <span class="dt">times=</span><span class="dv">1</span>, <span class="dt">length.out=</span><span class="ot">NA</span>, <span class="dt">each=</span><span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" title="1"><span class="kw">rep</span>(x, <span class="dt">times=</span><span class="dv">1</span>, <span class="dt">length.out=</span><span class="ot">NA</span>, <span class="dt">each=</span><span class="dv">1</span>)</a></code></pre></div>
 <p>Los argumentos de esta función son:</p>
 <ul>
 <li><code>x</code>: vector con los elementos a repetir.</li>
@@ -768,25 +796,25 @@ En R existe el operador binario <code>:</code> que sirve para construir secuenci
 <li>1 1 2 2 3 3 4 4</li>
 </ul>
 <p>La clave para construir una repetición es descrubir la semilla o elemento que se repite. Las instrucciones para obtener las repeticiones anteriores se muestra a continuación.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">times=</span><span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">times=</span><span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 1 2 3 4 1 2 3 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">times=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>))</code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">times=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>))</a></code></pre></div>
 <pre><code>## [1] 1 1 2 2 3 3 4 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">times=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>))</code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">times=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>))</a></code></pre></div>
 <pre><code>## [1] 1 1 2 3 3 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 1 1 2 2 3 3 4 4</code></pre>
 </div>
 <div id="ejemplo-12" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>La función <code>rep</code> es muy versátil, observe los siguientes 4 ejemplos y saque una conclusión de cada uno de ellos.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 1 1 2 2 3 3 4 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>, <span class="dt">len=</span><span class="dv">4</span>)    <span class="co"># first 4 only.</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>, <span class="dt">len=</span><span class="dv">4</span>)    <span class="co"># first 4 only.</span></a></code></pre></div>
 <pre><code>## [1] 1 1 2 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>, <span class="dt">len=</span><span class="dv">10</span>)   <span class="co"># 8 integers plus two recycled 1&#39;s.</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>, <span class="dt">len=</span><span class="dv">10</span>)   <span class="co"># 8 integers plus two recycled 1&#39;s.</span></a></code></pre></div>
 <pre><code>##  [1] 1 1 2 2 3 3 4 4 1 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>, <span class="dt">times=</span><span class="dv">3</span>)  <span class="co"># length 24, 3 complete replications</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" title="1"><span class="kw">rep</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each=</span><span class="dv">2</span>, <span class="dt">times=</span><span class="dv">3</span>)  <span class="co"># length 24, 3 complete replications</span></a></code></pre></div>
 <pre><code>##  [1] 1 1 2 2 3 3 4 4 1 1 2 2 3 3 4 4 1 1 2 2 3 3 4 4</code></pre>
 </div>
 </div>
@@ -803,42 +831,42 @@ En R existe el operador binario <code>:</code> que sirve para construir secuenci
 <h3>Ejemplo</h3>
 <p>Aplique las funciones <code>round</code>, <code>ceiling</code>, <code>floor</code> y <code>trunc</code> a un valor positivo y a un valor negativo para inspeccionar los resultados.</p>
 <p>A continuación el código de prueba para un número positivo cualquiera.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="fl">5.34896</span>  <span class="co"># Número positivo elegido</span>
-<span class="kw">round</span>(x, <span class="dt">digits=</span><span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1">x &lt;-<span class="st"> </span><span class="fl">5.34896</span>  <span class="co"># Número positivo elegido</span></a>
+<a class="sourceLine" id="cb216-2" title="2"><span class="kw">round</span>(x, <span class="dt">digits=</span><span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 5.349</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ceiling</span>(x)</code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1"><span class="kw">ceiling</span>(x)</a></code></pre></div>
 <pre><code>## [1] 6</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">floor</span>(x)</code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" title="1"><span class="kw">floor</span>(x)</a></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">trunc</span>(x)</code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" title="1"><span class="kw">trunc</span>(x)</a></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p>A continuación las pruebas con un número negativo cualquiera.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="op">-</span><span class="fl">4.26589</span>  <span class="co"># Número negativo elegido</span>
-<span class="kw">round</span>(x, <span class="dt">digits=</span><span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" title="1">x &lt;-<span class="st"> </span><span class="fl">-4.26589</span>  <span class="co"># Número negativo elegido</span></a>
+<a class="sourceLine" id="cb224-2" title="2"><span class="kw">round</span>(x, <span class="dt">digits=</span><span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] -4.266</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ceiling</span>(x)</code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" title="1"><span class="kw">ceiling</span>(x)</a></code></pre></div>
 <pre><code>## [1] -4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">floor</span>(x)</code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1"><span class="kw">floor</span>(x)</a></code></pre></div>
 <pre><code>## [1] -5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">trunc</span>(x)</code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="kw">trunc</span>(x)</a></code></pre></div>
 <pre><code>## [1] -4</code></pre>
 </div>
 </div>
 <div id="funciones-sort-y-rank" class="section level2">
 <h2><span class="header-section-number">4.11</span> Funciones <code>sort</code> y <code>rank</code>    </h2>
 <p>Las funciones <code>sort</code> y <code>rank</code> son útiles para ordenar los elementos de un vector o para saber las posiciones que ocuarían los elementos de un vector al ser ordenado. La estructura de las dos funciones es la siguiente.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(x, <span class="dt">decreasing =</span> <span class="ot">FALSE</span>)
-<span class="kw">rank</span>(x)</code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1"><span class="kw">sort</span>(x, <span class="dt">decreasing =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb232-2" title="2"><span class="kw">rank</span>(x)</a></code></pre></div>
 <p>En el parámetro <code>x</code> se ingresa el vector y el parámetro <code>decreasing</code> sirva para indicar si el ordenamiento es de menor a mayor (por defecto es este) o de mayor a menor.</p>
 <div id="ejemplo-14" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Considere el vector <code>x</code> que tiene los siguientes elementos: 2, 3, 6, 4, 9 y 5. Ordene el vector de menor a mayor, de mayor a menor y por último encuentre la posición que ocupan los elementos de <code>x</code> si se ordenaran de menor a mayor.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">5</span>)
-<span class="kw">sort</span>(x)</code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" title="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb233-2" title="2"><span class="kw">sort</span>(x)</a></code></pre></div>
 <pre><code>## [1] 2 3 4 5 6 9</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(x, <span class="dt">decreasing=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" title="1"><span class="kw">sort</span>(x, <span class="dt">decreasing=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 9 6 5 4 3 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rank</span>(x)</code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" title="1"><span class="kw">rank</span>(x)</a></code></pre></div>
 <pre><code>## [1] 1 2 5 3 6 4</code></pre>
 </div>
 </div>
@@ -850,7 +878,7 @@ En R existe el operador binario <code>:</code> que sirve para construir secuenci
 <li>¿Es el número 4560 divisible por 3?</li>
 <li>Construya un vector con los números enteros del 2 al 87. ¿Cuáles de esos números son divisibles por 7?</li>
 <li>Construya dos vectores, el primero con los números enteros desde 7 hasta 3, el segundo vector con los primeros cinco números positivos divisibles por 5. Sea A la condición de ser par en el primer vector. Sea B la condición de ser mayor que 10 en el segundo vector. ¿En cuál de las 5 posiciones se cumple A y B simultáneamente?</li>
-<li>Consulte el siguiente enlace sobre una anéctoda de Gauss cuando tenía 10 años de edad <a href="http://tinyurl.com/hk2l8h2" class="uri">http://tinyurl.com/hk2l8h2</a>. Use R para obtener el resultado de la suma solicitada por el profesor del niño Gauss.</li>
+<li>Consulte <a href="https://github.com/fhernanb/Manual-de-R/blob/master/images/anecdota_gauss.PNG">este enlace</a> en el cual hay una anéctoda de Gauss niño. Use R para obtener el resultado de la suma solicitada por el profesor del niño Gauss.</li>
 <li>Construya un vector con los siguientes elementos: 1, -4, 5, 9, -4. Escriba un procedimiento para extraer <strong>las posiciones</strong> donde está el valor mínimo en el vector.</li>
 <li>Calcular <span class="math inline">\(8!\)</span></li>
 <li>Evaluar la siguiente suma <span class="math inline">\(\sum_{i=3}^{i=7}e^i\)</span></li>
@@ -861,7 +889,7 @@ En R existe el operador binario <code>:</code> que sirve para construir secuenci
 <li>Create the vector: <span class="math inline">\(1, -2, 3, -4, 5, -6, \ldots, 19, -20\)</span>.</li>
 <li>Create the vector: <span class="math inline">\(0.1^3, 0.2^1, 0.1^6, 0.2^4, . . . , 0.1^{36}, 0.2^{34}\)</span>.</li>
 <li>Calculate the following: <span class="math inline">\(\sum_{i=10}^{100}(i^3+4i^2)\)</span> and <span class="math inline">\(\sum_{i=1}^{25}\left( \frac{2^i}{i} + \frac{3^i}{i^2} \right)\)</span>.</li>
-<li>Read the data set available in: <a href="http://tinyurl.com/hcusrdc" class="uri">http://tinyurl.com/hcusrdc</a></li>
+<li>Read the data set available in: <a href="https://raw.githubusercontent.com/fhernanb/datos/master/Paises.txt" class="uri">https://raw.githubusercontent.com/fhernanb/datos/master/Paises.txt</a></li>
 <li>Use a code to obtain the number of variables of the data set.</li>
 <li>Use a code to obtain the number of countries in the data set.</li>
 <li>Which is the country with the higher population?</li>
@@ -886,13 +914,15 @@ En R existe el operador binario <code>:</code> que sirve para construir secuenci
 <a href="bucles.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
-<script src="libs/gitbook/js/plugin-search.js"></script>
-<script src="libs/gitbook/js/plugin-sharing.js"></script>
-<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -900,12 +930,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -917,6 +946,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -933,10 +966,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
