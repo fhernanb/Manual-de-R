@@ -25,7 +25,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2020-05-27" />
+<meta name="date" content="2020-08-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,9 +54,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -65,14 +65,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -81,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -339,101 +341,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-49"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-50"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-51"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-52"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="15.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>15.4</b> Score e Información de Fisher</a><ul>
 <li class="chapter" data-level="15.4.1" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher-en-el-caso-univariado."><i class="fa fa-check"></i><b>15.4.1</b> Score e Información de Fisher en el caso univariado.</a></li>
-<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-53"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-52"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="15.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>15.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a><ul>
-<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-54"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-53"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejercicios-6"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>16</b> Estudiando la normalidad</a><ul>
-<li class="chapter" data-level="16.1" data-path="normalidad.html"><a href="normalidad.html#consideraciones-iniciales"><i class="fa fa-check"></i><b>16.1</b> Consideraciones iniciales</a></li>
-<li class="chapter" data-level="16.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>16.2</b> Histograma y densidad</a><ul>
+<li class="chapter" data-level="16" data-path="select-dist.html"><a href="select-dist.html"><i class="fa fa-check"></i><b>16</b> Selección de la distribución</a><ul>
+<li class="chapter" data-level="16.1" data-path="select-dist.html"><a href="select-dist.html#función-fitdists"><i class="fa fa-check"></i><b>16.1</b> Función <code>fitDists</code></a><ul>
+<li class="chapter" data-level="" data-path="select-dist.html"><a href="select-dist.html#ejemplo-54"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>17</b> Estudiando la normalidad</a><ul>
+<li class="chapter" data-level="17.1" data-path="normalidad.html"><a href="normalidad.html#consideraciones-iniciales"><i class="fa fa-check"></i><b>17.1</b> Consideraciones iniciales</a></li>
+<li class="chapter" data-level="17.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>17.2</b> Histograma y densidad</a><ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo densidad con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-del-peso-corporal"><i class="fa fa-check"></i>Ejemplo densidad del peso corporal</a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>16.3</b> Gráficos cuantil cuantil   </a><ul>
+<li class="chapter" data-level="17.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>17.3</b> Gráficos cuantil cuantil   </a><ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-1-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 1 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-2-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 2 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo QQplot para peso corporal</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-con-bandas"><i class="fa fa-check"></i>Ejemplo QQplot con bandas</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>16.4</b> Pruebas de normalidad</a><ul>
+<li class="chapter" data-level="17.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>17.4</b> Pruebas de normalidad</a><ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-normalidad-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo normalidad para peso corporal</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejercicios-7"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>17</b> Intervalos de confianza</a><ul>
-<li class="chapter" data-level="17.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>17.1</b> Función <code>t.test</code></a><ul>
-<li class="chapter" data-level="17.1.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu"><i class="fa fa-check"></i><b>17.1.1</b> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="18" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>18</b> Intervalos de confianza</a><ul>
+<li class="chapter" data-level="18.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>18.1</b> Función <code>t.test</code></a><ul>
+<li class="chapter" data-level="18.1.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu"><i class="fa fa-check"></i><b>18.1.1</b> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-55"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="17.1.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-independientes"><i class="fa fa-check"></i><b>17.1.2</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras independientes</a></li>
+<li class="chapter" data-level="18.1.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-independientes"><i class="fa fa-check"></i><b>18.1.2</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras independientes</a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-56"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="17.1.3" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-dependientes-o-pareadas"><i class="fa fa-check"></i><b>17.1.3</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras dependientes o pareadas</a></li>
+<li class="chapter" data-level="18.1.3" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-dependientes-o-pareadas"><i class="fa fa-check"></i><b>18.1.3</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras dependientes o pareadas</a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-57"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="17.1.4" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-unilateral-para-la-media-mu"><i class="fa fa-check"></i><b>17.1.4</b> Intervalo de confianza unilateral para la media <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="18.1.4" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-unilateral-para-la-media-mu"><i class="fa fa-check"></i><b>18.1.4</b> Intervalo de confianza unilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-58"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>17.2</b> Función <code>var.test</code></a><ul>
-<li class="chapter" data-level="17.2.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2"><i class="fa fa-check"></i><b>17.2.1</b> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="18.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>18.2</b> Función <code>var.test</code></a><ul>
+<li class="chapter" data-level="18.2.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2"><i class="fa fa-check"></i><b>18.2.1</b> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-59"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="17.2.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-razón-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>17.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
+<li class="chapter" data-level="18.2.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-razón-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>18.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-60"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="17.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>17.3</b> Función <code>prop.test</code></a><ul>
-<li class="chapter" data-level="17.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p"><i class="fa fa-check"></i><b>17.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
+<li class="chapter" data-level="18.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>18.3</b> Función <code>prop.test</code></a><ul>
+<li class="chapter" data-level="18.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p"><i class="fa fa-check"></i><b>18.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-61"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="17.3.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>17.3.2</b> Intervalo de confianza bilateral para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a></li>
+<li class="chapter" data-level="18.3.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>18.3.2</b> Intervalo de confianza bilateral para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-62"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>18</b> Prueba de hipótesis</a><ul>
-<li class="chapter" data-level="18.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>18.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="19" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>19</b> Prueba de hipótesis</a><ul>
+<li class="chapter" data-level="19.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>19.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-63"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>18.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a><ul>
+<li class="chapter" data-level="19.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>19.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-64"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>18.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a><ul>
-<li class="chapter" data-level="18.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>18.3.1</b> Prueba de Wald</a></li>
+<li class="chapter" data-level="19.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>19.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a><ul>
+<li class="chapter" data-level="19.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>19.3.1</b> Prueba de Wald</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-65"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="18.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>18.3.2</b> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson</a></li>
+<li class="chapter" data-level="19.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>19.3.2</b> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-66"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="18.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>18.3.3</b> Prueba binomial exacta</a></li>
+<li class="chapter" data-level="19.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>19.3.3</b> Prueba binomial exacta</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-67"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>18.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="19.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>19.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-68"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>18.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a><ul>
+<li class="chapter" data-level="19.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>19.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-69"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-70"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>18.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a><ul>
+<li class="chapter" data-level="19.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>19.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-71"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>18.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a><ul>
+<li class="chapter" data-level="19.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>19.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-72"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>18.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a><ul>
+<li class="chapter" data-level="19.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>19.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-73"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>18.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a><ul>
+<li class="chapter" data-level="19.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>19.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-74"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>19</b> Aproximación de integrales</a><ul>
-<li class="chapter" data-level="19.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>19.1</b> Aproximación de Laplace unidimensional</a><ul>
+<li class="chapter" data-level="20" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>20</b> Aproximación de integrales</a><ul>
+<li class="chapter" data-level="20.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>20.1</b> Aproximación de Laplace unidimensional</a><ul>
 <li class="chapter" data-level="" data-path="aproxint.html"><a href="aproxint.html#ejemplo-75"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>20</b> Curiosidades</a><ul>
-<li class="chapter" data-level="20.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>20.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a><ul>
+<li class="chapter" data-level="21" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>21</b> Curiosidades</a><ul>
+<li class="chapter" data-level="21.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>21.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a><ul>
 <li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-76"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
@@ -464,17 +470,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="funciones-disponibles-para-distribuciones-discretas" class="section level2">
 <h2><span class="header-section-number">13.1</span> Funciones disponibles para distribuciones discretas </h2>
 <p>Para cada distribución discreta se tienen 4 funciones, a continuación el listado de funciones y su utilidad.</p>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" title="1"><span class="kw">dxxx</span>(x, ...)  <span class="co"># Función de masa de probabilidad, f(x)</span></a>
-<a class="sourceLine" id="cb402-2" title="2"><span class="kw">pxxx</span>(q, ...)  <span class="co"># Función de distribución acumulada hasta q, F(x)</span></a>
-<a class="sourceLine" id="cb402-3" title="3"><span class="kw">qxxx</span>(p, ...)  <span class="co"># Cuantil para el cual P(X &lt;= q) = p</span></a>
-<a class="sourceLine" id="cb402-4" title="4"><span class="kw">rxxx</span>(n, ...)  <span class="co"># Generador de números aleatorios.</span></a></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="discretas.html#cb402-1"></a><span class="kw">dxxx</span>(x, ...)  <span class="co"># Función de masa de probabilidad, f(x)</span></span>
+<span id="cb402-2"><a href="discretas.html#cb402-2"></a><span class="kw">pxxx</span>(q, ...)  <span class="co"># Función de distribución acumulada hasta q, F(x)</span></span>
+<span id="cb402-3"><a href="discretas.html#cb402-3"></a><span class="kw">qxxx</span>(p, ...)  <span class="co"># Cuantil para el cual P(X &lt;= q) = p</span></span>
+<span id="cb402-4"><a href="discretas.html#cb402-4"></a><span class="kw">rxxx</span>(n, ...)  <span class="co"># Generador de números aleatorios.</span></span></code></pre></div>
 <p>En el lugar de las letras <code>xxx</code> se de debe colocar el nombre de la distribución en R, a continuación el listado de nombres disponibles para las 6 distribuciones discretas básicas.</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" title="1">binom     <span class="co"># Binomial</span></a>
-<a class="sourceLine" id="cb403-2" title="2">geo       <span class="co"># Geométrica</span></a>
-<a class="sourceLine" id="cb403-3" title="3">nbinom    <span class="co"># Binomial negativa</span></a>
-<a class="sourceLine" id="cb403-4" title="4">hyper     <span class="co"># Hipergeométrica</span></a>
-<a class="sourceLine" id="cb403-5" title="5">pois      <span class="co"># Poisson</span></a>
-<a class="sourceLine" id="cb403-6" title="6">multinom  <span class="co"># Multinomial</span></a></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="discretas.html#cb403-1"></a>binom     <span class="co"># Binomial</span></span>
+<span id="cb403-2"><a href="discretas.html#cb403-2"></a>geo       <span class="co"># Geométrica</span></span>
+<span id="cb403-3"><a href="discretas.html#cb403-3"></a>nbinom    <span class="co"># Binomial negativa</span></span>
+<span id="cb403-4"><a href="discretas.html#cb403-4"></a>hyper     <span class="co"># Hipergeométrica</span></span>
+<span id="cb403-5"><a href="discretas.html#cb403-5"></a>pois      <span class="co"># Poisson</span></span>
+<span id="cb403-6"><a href="discretas.html#cb403-6"></a>multinom  <span class="co"># Multinomial</span></span></code></pre></div>
 <p>Combinando las funciones y los nombres se tiene un total de 24 funciones, por ejemplo, para obtener la función de masa de probabilidad <span class="math inline">\(f(x)\)</span> de una binomial se usa la función <code>dbinom( )</code> y para obtener la función acumulada <span class="math inline">\(F(x)\)</span> de una Poisson se usa la función <code>ppois( )</code>.</p>
 <div id="ejemplo-binomial" class="section level3 unnumbered">
 <h3>Ejemplo binomial</h3>
@@ -483,31 +489,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calcular la probabilidad de que se encuentren exactamente 2 buses que generan una mayor cantidad de humo de la permitida.</li>
 </ol>
 <p>Aquí se tiene una distribucion <span class="math inline">\(Binomial(n=18, p=0.1)\)</span> y se desea calcular <span class="math inline">\(P(X=2)\)</span>. Para obtener esta probabilidad se usa la siguiente instrucción.</p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" title="1"><span class="kw">dbinom</span>(<span class="dt">x=</span><span class="dv">2</span>, <span class="dt">size=</span><span class="dv">18</span>, <span class="dt">prob=</span><span class="fl">0.10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="discretas.html#cb404-1"></a><span class="kw">dbinom</span>(<span class="dt">x=</span><span class="dv">2</span>, <span class="dt">size=</span><span class="dv">18</span>, <span class="dt">prob=</span><span class="fl">0.10</span>)</span></code></pre></div>
 <pre><code>## [1] 0.2835121</code></pre>
 <p>Así <span class="math inline">\(P(X=2)=0.2835\)</span>.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Calcular la probabilidad de que el número de buses que sobrepasan el límite de generación de gases sea al menos 4.</li>
 </ol>
 <p>En este caso interesa calcular <span class="math inline">\(P(X \geq 4)\)</span>, para obtener esta probabilidad se usa la siguiente instrucción.</p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" title="1"><span class="kw">sum</span>(<span class="kw">dbinom</span>(<span class="dt">x=</span><span class="dv">4</span><span class="op">:</span><span class="dv">18</span>, <span class="dt">size=</span><span class="dv">18</span>, <span class="dt">prob=</span><span class="fl">0.10</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="discretas.html#cb406-1"></a><span class="kw">sum</span>(<span class="kw">dbinom</span>(<span class="dt">x=</span><span class="dv">4</span><span class="op">:</span><span class="dv">18</span>, <span class="dt">size=</span><span class="dv">18</span>, <span class="dt">prob=</span><span class="fl">0.10</span>))</span></code></pre></div>
 <pre><code>## [1] 0.09819684</code></pre>
 <p>Así <span class="math inline">\(P(X \geq 4)=0.0982\)</span></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Calcular la probabilidad de que tres o menos buses emitan gases por encima de lo permitido en la norma.</li>
 </ol>
 <p>En este caso interesa <span class="math inline">\(P(X\leq3)\)</span> lo cual es <span class="math inline">\(F(x=3)\)</span>, por lo tanto, la instrucción para obtener esta probabilidad es</p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" title="1"><span class="kw">pbinom</span>(<span class="dt">q=</span><span class="dv">3</span>, <span class="dt">size=</span><span class="dv">18</span>, <span class="dt">prob=</span><span class="fl">0.10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="discretas.html#cb408-1"></a><span class="kw">pbinom</span>(<span class="dt">q=</span><span class="dv">3</span>, <span class="dt">size=</span><span class="dv">18</span>, <span class="dt">prob=</span><span class="fl">0.10</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9018032</code></pre>
 <p>Así <span class="math inline">\(P(X\leq3)=F(x=3)=0.9018\)</span></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Dibujar la función de masa de probabilidad.</li>
 </ol>
 <p>Para dibujar la función de masa de probabilidad para una <span class="math inline">\(Binomial(n=18, p=0.1)\)</span> se usa el siguiente código.</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" title="1">x &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">18</span>  <span class="co"># Soporte (dominio) de la variable</span></a>
-<a class="sourceLine" id="cb410-2" title="2">Probabilidad &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dt">x=</span>x, <span class="dt">size=</span><span class="dv">18</span>, <span class="dt">prob=</span><span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb410-3" title="3"><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>Probabilidad, </a>
-<a class="sourceLine" id="cb410-4" title="4">     <span class="dt">type=</span><span class="st">&#39;h&#39;</span>, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">lwd=</span><span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="discretas.html#cb410-1"></a>x &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">18</span>  <span class="co"># Soporte (dominio) de la variable</span></span>
+<span id="cb410-2"><a href="discretas.html#cb410-2"></a>Probabilidad &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dt">x=</span>x, <span class="dt">size=</span><span class="dv">18</span>, <span class="dt">prob=</span><span class="fl">0.1</span>)</span>
+<span id="cb410-3"><a href="discretas.html#cb410-3"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>Probabilidad, </span>
+<span id="cb410-4"><a href="discretas.html#cb410-4"></a>     <span class="dt">type=</span><span class="st">&#39;h&#39;</span>, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">lwd=</span><span class="dv">6</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:binom1"></span>
 <img src="Manual_de_R_files/figure-html/binom1-1.png" alt="Función de masa de probabilidad para una $Binomial(n=18, p=0.1)$." width="768" />
 <p class="caption">
@@ -519,12 +525,12 @@ Figure 13.1: Función de masa de probabilidad para una <span class="math inline"
 <li>Generar con 100 de una distribución <span class="math inline">\(Binomial(n=18, p=0.1)\)</span> y luego calcular las frecuencias muestrales y compararlas con las probabilidades teóricas.</li>
 </ol>
 <p>La muestra aleatoria se obtiene con la función <code>rbinom</code> y los resultados se almacenan en el objeto <code>m</code>, por último se construye la tabla de frecuencias relativas, a continuación el código usado.</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" title="1">m &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">size=</span><span class="dv">18</span>, <span class="dt">prob=</span><span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb411-2" title="2">m  <span class="co"># Para ver lo que hay dentro de m</span></a></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="discretas.html#cb411-1"></a>m &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">size=</span><span class="dv">18</span>, <span class="dt">prob=</span><span class="fl">0.1</span>)</span>
+<span id="cb411-2"><a href="discretas.html#cb411-2"></a>m  <span class="co"># Para ver lo que hay dentro de m</span></span></code></pre></div>
 <pre><code>##   [1] 0 1 4 1 3 4 2 3 1 0 3 2 1 4 1 1 1 3 0 5 0 3 5 3 2 3 1 1 2 4 1 3 2 2 3 2 2
 ##  [38] 3 2 3 0 2 2 2 1 1 3 1 1 1 1 1 1 1 1 3 1 2 4 4 7 2 4 0 1 2 1 1 2 3 2 1 3 1
 ##  [75] 1 2 3 5 1 5 0 1 2 1 4 1 1 2 1 2 0 2 2 3 3 0 1 1 3 2</code></pre>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" title="1"><span class="kw">prop.table</span>(<span class="kw">table</span>(m))  <span class="co"># Tabla de frecuencia relativa</span></a></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="discretas.html#cb413-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(m))  <span class="co"># Tabla de frecuencia relativa</span></span></code></pre></div>
 <pre><code>## m
 ##    0    1    2    3    4    5    7 
 ## 0.09 0.35 0.24 0.19 0.08 0.04 0.01</code></pre>
@@ -537,19 +543,19 @@ Figure 13.1: Función de masa de probabilidad para una <span class="math inline"
 <li>Calcular la probabilidad de que se necesiten probar 125 bombillos para encontrar el primer bombillo defectuoso.</li>
 </ol>
 <p>En la distribución geométrica, la variable <span class="math inline">\(X\)</span> representa el número de fracasos antes de encontrar el único éxito, por lo tanto, en este caso el interés es calcular <span class="math inline">\(P(X=124)\)</span>. La instrucción para obtener esta probabiliad es la siguiente.</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" title="1"><span class="kw">dgeom</span>(<span class="dt">x=</span><span class="dv">124</span>, <span class="dt">prob=</span><span class="fl">0.01</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="discretas.html#cb415-1"></a><span class="kw">dgeom</span>(<span class="dt">x=</span><span class="dv">124</span>, <span class="dt">prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
 <pre><code>## [1] 0.002875836</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Calcular <span class="math inline">\(P(X \leq 8)\)</span>.</li>
 </ol>
 <p>En este caso interesa <span class="math inline">\(P(X \leq 50)\)</span> lo que equivale a <span class="math inline">\(F(8)\)</span>, la instrucción para obtener la probabilidad es la siguiente.</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" title="1"><span class="kw">pgeom</span>(<span class="dt">q=</span><span class="dv">50</span>, <span class="dt">prob=</span><span class="fl">0.01</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="discretas.html#cb417-1"></a><span class="kw">pgeom</span>(<span class="dt">q=</span><span class="dv">50</span>, <span class="dt">prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
 <pre><code>## [1] 0.401044</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Encontrar el cuantil <span class="math inline">\(q\)</span> tal que <span class="math inline">\(P(X \leq q) = 0.40\)</span>.</li>
 </ol>
 <p>En este caso interesa encontrar el cuantil <span class="math inline">\(q\)</span> que cumpla la condición de que hasta <span class="math inline">\(q\)</span> esté el 40% de las observaciones, por esa razón se usa la función <code>qgeom</code> como se muestra a continuación.</p>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" title="1"><span class="kw">qgeom</span>(<span class="dt">p=</span><span class="fl">0.4</span>, <span class="dt">prob=</span><span class="fl">0.01</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="discretas.html#cb419-1"></a><span class="kw">qgeom</span>(<span class="dt">p=</span><span class="fl">0.4</span>, <span class="dt">prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
 <pre><code>## [1] 50</code></pre>
 
 <div class="rmdnote">
@@ -565,7 +571,7 @@ Note que las funciones <code>pxxx</code> y <code>qxxx</code> están relacionadas
 </ol>
 <p>En este problema se tiene una distribución binomial negativa con <span class="math inline">\(r=2\)</span> niñas, los éxitos deseados por la familia. La variable <span class="math inline">\(X\)</span> representa los fracasos, es decir los niños, hasta que se obtienen los éxitos <span class="math inline">\(r=2\)</span> deseados.</p>
 <p>En este caso lo que interesa es <span class="math inline">\(P(\text{familia tenga 4})\)</span>, en otras palabras interesa <span class="math inline">\(P(X=2)\)</span>, la instrucción para calcular la probabilidad es la siguiente.</p>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb421-1" title="1"><span class="kw">dnbinom</span>(<span class="dt">x=</span><span class="dv">2</span>, <span class="dt">size=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="discretas.html#cb421-1"></a><span class="kw">dnbinom</span>(<span class="dt">x=</span><span class="dv">2</span>, <span class="dt">size=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1875</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Calcular <span class="math inline">\(P(\text{familia tenga al menos 4 hijos})\)</span>.</li>
@@ -573,10 +579,10 @@ Note que las funciones <code>pxxx</code> y <code>qxxx</code> están relacionadas
 <p>Aquí interesa calcular <span class="math inline">\(P(X \geq 2)=P(X=2)+P(X=3)+\ldots\)</span>, como esta probabilidad va hasta infinito, se debe usar el complemento así:</p>
 <p><span class="math display">\[P(X \geq 2) = 1 - [P(X=0)+P(X=1)]\]</span>
 y para obtener la probabilidad solicitada se puede usar la función <code>dnbinom</code> de la siguiente manera.</p>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb423-1" title="1"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">dnbinom</span>(<span class="dt">x=</span><span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">size=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="discretas.html#cb423-1"></a><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">dnbinom</span>(<span class="dt">x=</span><span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">size=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.5</span>))</span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 <p>Otra forma para obtener la probabilidad solicitada es por medio de la función <code>pnbinom</code> de la siguiente manera.</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" title="1"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pnbinom</span>(<span class="dt">q=</span><span class="dv">1</span>, <span class="dt">size=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="discretas.html#cb425-1"></a><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pnbinom</span>(<span class="dt">q=</span><span class="dv">1</span>, <span class="dt">size=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 </div>
 <div id="ejemplo-hipergeométrica" class="section level3 unnumbered">
@@ -586,13 +592,13 @@ y para obtener la probabilidad solicitada se puede usar la función <code>dnbino
 <li>Calcular la probabilidad de que todas las 4 partes de la muestra sean del proveedor A.</li>
 </ol>
 <p>Aquí se tiene una situación que se puede modelar por medio de una distribución hipergeométrica con <span class="math inline">\(m=100\)</span> éxitos en la población, <span class="math inline">\(n=200\)</span> fracasos en la población y <span class="math inline">\(k=4\)</span> el tamaño de la muestra. El objetivo es calcular <span class="math inline">\(P(X=4)\)</span>, para obtener esta probabilidad se usa la siguiente instrucción.</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" title="1"><span class="kw">dhyper</span>(<span class="dt">x=</span><span class="dv">4</span>, <span class="dt">m=</span><span class="dv">100</span>, <span class="dt">k=</span><span class="dv">4</span>, <span class="dt">n=</span><span class="dv">200</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="discretas.html#cb427-1"></a><span class="kw">dhyper</span>(<span class="dt">x=</span><span class="dv">4</span>, <span class="dt">m=</span><span class="dv">100</span>, <span class="dt">k=</span><span class="dv">4</span>, <span class="dt">n=</span><span class="dv">200</span>)</span></code></pre></div>
 <pre><code>## [1] 0.01185408</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Calcular la probabilidad de que dos o más de las partes sean del proveedor A.</li>
 </ol>
 <p>Aquí interesa <span class="math inline">\(P(X \geq 2)\)</span>, la instrucción para obtener esta probabilidad es.</p>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" title="1"><span class="kw">sum</span>(<span class="kw">dhyper</span>(<span class="dt">x=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">m=</span><span class="dv">100</span>, <span class="dt">k=</span><span class="dv">4</span>, <span class="dt">n=</span><span class="dv">200</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="discretas.html#cb429-1"></a><span class="kw">sum</span>(<span class="kw">dhyper</span>(<span class="dt">x=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">m=</span><span class="dv">100</span>, <span class="dt">k=</span><span class="dv">4</span>, <span class="dt">n=</span><span class="dv">200</span>))</span></code></pre></div>
 <pre><code>## [1] 0.4074057</code></pre>
 </div>
 <div id="ejemplo-poisson" class="section level3 unnumbered">
@@ -604,7 +610,7 @@ y para obtener la probabilidad solicitada se puede usar la función <code>dnbino
 <p>Este es un problema de distribución Poisson con tasa promedio de éxitos dada por:</p>
 <p><span class="math display">\[\lambda=\frac{50 \quad errores}{libro}=\frac{0.2 \quad errores}{pagina}\]</span>
 El objetivo es calcular <span class="math inline">\(P(X=0)\)</span>, para obtener esta probabilidad de usa la siguiente instrucción.</p>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb431-1" title="1"><span class="kw">dpois</span>(<span class="dt">x=</span><span class="dv">0</span>, <span class="dt">lambda=</span><span class="fl">0.2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="discretas.html#cb431-1"></a><span class="kw">dpois</span>(<span class="dt">x=</span><span class="dv">0</span>, <span class="dt">lambda=</span><span class="fl">0.2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.8187308</code></pre>
 <p>Así <span class="math inline">\(P(X=0)=0.8187\)</span>.</p>
 </div>
@@ -625,11 +631,11 @@ Figure 13.2: Fotografía del cangrejo de herradura, tomada de <a href="http://sc
 <li>Encontrar la distribución de probabilidad para la variable <code>Sa</code> que corresponde al número de machos sobre el caparazón de cada hembra.</li>
 </ol>
 <p>Primero se debe leer la base de datos usando la url suministrada y luego se construye la tabla de frecuencia relativa y se almacena en el objeto <code>t1</code>.</p>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb433-1" title="1">url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/crab&#39;</span></a>
-<a class="sourceLine" id="cb433-2" title="2">crab &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)</a>
-<a class="sourceLine" id="cb433-3" title="3"></a>
-<a class="sourceLine" id="cb433-4" title="4">t1 &lt;-<span class="st"> </span><span class="kw">prop.table</span>(<span class="kw">table</span>(crab<span class="op">$</span>Sa))</a>
-<a class="sourceLine" id="cb433-5" title="5">t1</a></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="discretas.html#cb433-1"></a>url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/crab&#39;</span></span>
+<span id="cb433-2"><a href="discretas.html#cb433-2"></a>crab &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)</span>
+<span id="cb433-3"><a href="discretas.html#cb433-3"></a></span>
+<span id="cb433-4"><a href="discretas.html#cb433-4"></a>t1 &lt;-<span class="st"> </span><span class="kw">prop.table</span>(<span class="kw">table</span>(crab<span class="op">$</span>Sa))</span>
+<span id="cb433-5"><a href="discretas.html#cb433-5"></a>t1</span></code></pre></div>
 <pre><code>## 
 ##           0           1           2           3           4           5 
 ## 0.358381503 0.092485549 0.052023121 0.109826590 0.109826590 0.086705202 
@@ -638,8 +644,8 @@ Figure 13.2: Fotografía del cangrejo de herradura, tomada de <a href="http://sc
 ##          12          14          15 
 ## 0.005780347 0.005780347 0.005780347</code></pre>
 <p>La anterior tabla de frecuencias relativas se puede representar gráficamente usando el siguiente código.</p>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb435-1" title="1"><span class="kw">plot</span>(t1, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">lwd=</span><span class="dv">5</span>, <span class="dt">xlab=</span><span class="st">&#39;Número de satélites&#39;</span>,</a>
-<a class="sourceLine" id="cb435-2" title="2">     <span class="dt">ylab=</span><span class="st">&#39;Proporción&#39;)</span></a></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="discretas.html#cb435-1"></a><span class="kw">plot</span>(t1, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">lwd=</span><span class="dv">5</span>, <span class="dt">xlab=</span><span class="st">&#39;Número de satélites&#39;</span>,</span>
+<span id="cb435-2"><a href="discretas.html#cb435-2"></a>     <span class="dt">ylab=</span><span class="st">&#39;Proporción&#39;)</span></span></code></pre></div>
 <div class="figure"><span id="fig:pmfcrab"></span>
 <img src="Manual_de_R_files/figure-html/pmfcrab-1.png" alt="Función de masa de probabilidad para el número de satélites por hembra." width="768" />
 <p class="caption">
@@ -650,8 +656,8 @@ Figure 13.3: Función de masa de probabilidad para el número de satélites por 
 <li>Sea <span class="math inline">\(X\)</span> la variable número de satélites por hembra, construir la función <span class="math inline">\(F(x)\)</span>.</li>
 </ol>
 <p>Para construir <span class="math inline">\(F(x)\)</span> se utiliza la función <code>ecdf</code> o <em>empirical cumulative density function</em>, a esta función le debe ingresar el vector con la información de la variable cuantitativa, a continuación del código usado. En la Figura <a href="discretas.html#fig:Fcrab">13.4</a> se muestra la función de distribución acumulada para para el número de satélites por hembra.</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb436-1" title="1">F &lt;-<span class="st"> </span><span class="kw">ecdf</span>(crab<span class="op">$</span>Sa)</a>
-<a class="sourceLine" id="cb436-2" title="2"><span class="kw">plot</span>(F, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="discretas.html#cb436-1"></a>F &lt;-<span class="st"> </span><span class="kw">ecdf</span>(crab<span class="op">$</span>Sa)</span>
+<span id="cb436-2"><a href="discretas.html#cb436-2"></a><span class="kw">plot</span>(F, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Fcrab"></span>
 <img src="Manual_de_R_files/figure-html/Fcrab-1.png" alt="Función de distribución acumulada para el número de satélites por hembra." width="768" />
 <p class="caption">
@@ -662,30 +668,30 @@ Figure 13.4: Función de distribución acumulada para el número de satélites p
 <li>Calcular <span class="math inline">\(P(X \leq 9)\)</span>.</li>
 </ol>
 <p>Para obtener esta probabilidad se usa el objeto <code>F</code> que es en realidad una función, a continuación la instrucción usada.</p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb437-1" title="1"><span class="kw">F</span>(<span class="dv">9</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="discretas.html#cb437-1"></a><span class="kw">F</span>(<span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9595376</code></pre>
 <p>Así <span class="math inline">\(P(X \leq 9)=0.9595\)</span>.</p>
 <ol start="4" style="list-style-type: decimal">
 <li>Calcular <span class="math inline">\(P(X &gt; 4)\)</span>.</li>
 </ol>
 <p>Para obtener esta probabilidad se usa el hecho de que <span class="math inline">\(P(X &gt; 4) = 1 - P(X \leq 4)\)</span>, así la instrucción a usar es.</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb439-1" title="1"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">F</span>(<span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="discretas.html#cb439-1"></a><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">F</span>(<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 0.2774566</code></pre>
 <p>Por lo tanto <span class="math inline">\(P(X &gt; 4)=0.2775\)</span>.</p>
 <ol start="5" style="list-style-type: decimal">
 <li>Suponga que el grupo 1 está formado por las hembras cuyo ancho de caparazón es menor o igual al ancho mediano, el grupo 2 está formado por las demás hembras. ¿Será <span class="math inline">\(F(x)\)</span> diferente para los dos grupos?</li>
 </ol>
 <p>Para realizar esto vamos a particionar el vector <code>Sa</code> en los dos grupos de acuerdo a la nueva variable <code>grupo</code> creada como se muestra a continuacion.</p>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb441-1" title="1">grupo &lt;-<span class="st"> </span><span class="kw">ifelse</span>(crab<span class="op">$</span>Wt <span class="op">&lt;=</span><span class="st"> </span><span class="kw">median</span>(crab<span class="op">$</span>Wt), <span class="st">&#39;Grupo 1&#39;</span>, <span class="st">&#39;Grupo 2&#39;</span>)</a>
-<a class="sourceLine" id="cb441-2" title="2">x &lt;-<span class="st"> </span><span class="kw">split</span>(<span class="dt">x=</span>crab<span class="op">$</span>Sa, <span class="dt">f=</span>grupo)</a></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="discretas.html#cb441-1"></a>grupo &lt;-<span class="st"> </span><span class="kw">ifelse</span>(crab<span class="op">$</span>Wt <span class="op">&lt;=</span><span class="st"> </span><span class="kw">median</span>(crab<span class="op">$</span>Wt), <span class="st">&#39;Grupo 1&#39;</span>, <span class="st">&#39;Grupo 2&#39;</span>)</span>
+<span id="cb441-2"><a href="discretas.html#cb441-2"></a>x &lt;-<span class="st"> </span><span class="kw">split</span>(<span class="dt">x=</span>crab<span class="op">$</span>Sa, <span class="dt">f=</span>grupo)</span></code></pre></div>
 <p>El objeto <code>x</code> es una lista y para acceder a los vectores allí almacenados usamos dos corchetes <code>[[]]</code>, uno dentro del otro. Luego para calcular <span class="math inline">\(F(x)\)</span> para los dos grupos se procede así:</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb442-1" title="1">F1 &lt;-<span class="st"> </span><span class="kw">ecdf</span>(x[[<span class="dv">1</span>]])</a>
-<a class="sourceLine" id="cb442-2" title="2">F2 &lt;-<span class="st"> </span><span class="kw">ecdf</span>(x[[<span class="dv">2</span>]])</a></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="discretas.html#cb442-1"></a>F1 &lt;-<span class="st"> </span><span class="kw">ecdf</span>(x[[<span class="dv">1</span>]])</span>
+<span id="cb442-2"><a href="discretas.html#cb442-2"></a>F2 &lt;-<span class="st"> </span><span class="kw">ecdf</span>(x[[<span class="dv">2</span>]])</span></code></pre></div>
 <p>Para obtener las dos <span class="math inline">\(F(x)\)</span> en la misma figura se usa el código siguiente.</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb443-1" title="1"><span class="kw">plot</span>(F1, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">main=</span><span class="st">&#39;&#39;</span>, <span class="dt">las=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb443-2" title="2"><span class="kw">plot</span>(F2, <span class="dt">col=</span><span class="st">&#39;red&#39;</span>, <span class="dt">add=</span>T)</a>
-<a class="sourceLine" id="cb443-3" title="3"><span class="kw">legend</span>(<span class="st">&#39;bottomright&#39;</span>, <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&#39;Grupo 1&#39;</span>, <span class="st">&#39;Grupo 2&#39;</span>),</a>
-<a class="sourceLine" id="cb443-4" title="4">       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;blue&#39;</span>, <span class="st">&#39;red&#39;</span>), <span class="dt">lwd=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="discretas.html#cb443-1"></a><span class="kw">plot</span>(F1, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">main=</span><span class="st">&#39;&#39;</span>, <span class="dt">las=</span><span class="dv">1</span>)</span>
+<span id="cb443-2"><a href="discretas.html#cb443-2"></a><span class="kw">plot</span>(F2, <span class="dt">col=</span><span class="st">&#39;red&#39;</span>, <span class="dt">add=</span>T)</span>
+<span id="cb443-3"><a href="discretas.html#cb443-3"></a><span class="kw">legend</span>(<span class="st">&#39;bottomright&#39;</span>, <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&#39;Grupo 1&#39;</span>, <span class="st">&#39;Grupo 2&#39;</span>),</span>
+<span id="cb443-4"><a href="discretas.html#cb443-4"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;blue&#39;</span>, <span class="st">&#39;red&#39;</span>), <span class="dt">lwd=</span><span class="dv">1</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Fcrabs"></span>
 <img src="Manual_de_R_files/figure-html/Fcrabs-1.png" alt="Función de distribución acumulada para el número de satélites por hembra diferenciando por grupo." width="768" />
 <p class="caption">

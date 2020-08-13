@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Instrucciones de control | Manual de R</title>
-  <meta name="description" content="5 Instrucciones de control | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <title>16 Selección de la distribución | Manual de R</title>
+  <meta name="description" content="16 Selección de la distribución | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Instrucciones de control | Manual de R" />
+  <meta property="og:title" content="16 Selección de la distribución | Manual de R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/portada.png" />
-  <meta property="og:description" content="5 Instrucciones de control | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta property="og:description" content="16 Selección de la distribución | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Instrucciones de control | Manual de R" />
+  <meta name="twitter:title" content="16 Selección de la distribución | Manual de R" />
   
-  <meta name="twitter:description" content="5 Instrucciones de control | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="twitter:description" content="16 Selección de la distribución | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/portada.png" />
 
 <meta name="author" content="Freddy Hernández" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="funbas.html"/>
-<link rel="next" href="creafun.html"/>
+<link rel="prev" href="loglik.html"/>
+<link rel="next" href="normalidad.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -464,163 +464,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bucles" class="section level1">
-<h1><span class="header-section-number">5</span> Instrucciones de control</h1>
-<p>En R se disponen de varias instrucciones de control para facilitar los procedimientos que un usuario debe realizar. A continuación se explican esas instrucciones de control.</p>
-<div id="instrucción-if" class="section level2">
-<h2><span class="header-section-number">5.1</span> Instrucción <code>if</code> </h2>
-<p>Esta instrucción sirve para realizar un conjunto de operaciones <strong>si</strong> se cumple cierta condición. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="bucles.html#cb239-1"></a><span class="cf">if</span> (condicion) {</span>
-<span id="cb239-2"><a href="bucles.html#cb239-2"></a>  operación <span class="dv">1</span></span>
-<span id="cb239-3"><a href="bucles.html#cb239-3"></a>  operación <span class="dv">2</span></span>
-<span id="cb239-4"><a href="bucles.html#cb239-4"></a>  ...</span>
-<span id="cb239-5"><a href="bucles.html#cb239-5"></a>  operación final</span>
-<span id="cb239-6"><a href="bucles.html#cb239-6"></a>}</span></code></pre></div>
-<div id="ejemplo-15" class="section level3 unnumbered">
+<div id="select_dist" class="section level1">
+<h1><span class="header-section-number">16</span> Selección de la distribución</h1>
+<p>En este capítulo se mostrará cómo usar R para obtener obtener el listado de las distribuciones que mejor se ajustan a una variable.</p>
+<div id="función-fitdists" class="section level2">
+<h2><span class="header-section-number">16.1</span> Función <code>fitDists</code></h2>
+<p>La función <code>fitDist</code> del paquete <strong>gamlss</strong>  permite explorar las distribuciones que mejor explican un conjunto de datos.</p>
+<p>La función <code>fitDist</code> tiene la siguiente estructura:</p>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="select-dist.html#cb519-1"></a><span class="kw">fitDist</span>(y, <span class="dt">k =</span> <span class="dv">2</span>, </span>
+<span id="cb519-2"><a href="select-dist.html#cb519-2"></a>      <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;realAll&quot;</span>, <span class="st">&quot;realline&quot;</span>, <span class="st">&quot;realplus&quot;</span>,</span>
+<span id="cb519-3"><a href="select-dist.html#cb519-3"></a>               <span class="st">&quot;real0to1&quot;</span>, <span class="st">&quot;counts&quot;</span>, <span class="st">&quot;binom&quot;</span>))</span></code></pre></div>
+<p>El parámetro <code>y</code> sirve para ingresar el vector con la información; <code>k=2</code> es la penalización por cada parámetro estimado para calcular el <span class="math inline">\(GAIC\)</span>, por defecto es 2; y el parámetro <code>type</code> sirve para indicar el tipo de distribución, los posibles valores son:</p>
+<ul>
+<li><code>realAll</code>: para hacer la búsqueda en todas las distribuciones disponibles en <strong>gamlss</strong>.</li>
+<li><code>realline</code>: para variables en <span class="math inline">\(\Re\)</span>.</li>
+<li><code>realplus</code>: para variables en <span class="math inline">\(\Re^+\)</span>.</li>
+<li><code>real0to1</code>: para variables en el intervalo <span class="math inline">\((0, 1)\)</span>.</li>
+<li><code>counts</code>: para variables de conteo.</li>
+<li><code>binom</code>: para variables de tipo binomial.</li>
+</ul>
+<div id="ejemplo-54" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
-<p>Una secretaria recibe la información del salario básico semanal de un empleado y las horas trabajadas durante la semana por ese empleado. El salario básico es la remuneración por 40 horas de labor por semana, las horas extra son pagadas a ciencuenta mil pesos. Escriba el procedimiento en R que debe usar la secretaria para calcular el salario semanal de un empleado que trabajó 45 horas y tiene salario básico de un millon de pesos.</p>
-<p>El código para calcular el salario final del empleado es el siguiente:</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="bucles.html#cb240-1"></a>sal &lt;-<span class="st"> </span><span class="dv">1</span>  <span class="co"># Salario básico por semana</span></span>
-<span id="cb240-2"><a href="bucles.html#cb240-2"></a>hlab &lt;-<span class="st"> </span><span class="dv">45</span>   <span class="co"># Horas laboradas por semana</span></span>
-<span id="cb240-3"><a href="bucles.html#cb240-3"></a></span>
-<span id="cb240-4"><a href="bucles.html#cb240-4"></a><span class="cf">if</span>(hlab <span class="op">&gt;</span><span class="st"> </span><span class="dv">40</span>) {</span>
-<span id="cb240-5"><a href="bucles.html#cb240-5"></a>  hext &lt;-<span class="st"> </span>hlab <span class="op">-</span><span class="st"> </span><span class="dv">40</span></span>
-<span id="cb240-6"><a href="bucles.html#cb240-6"></a>  salext &lt;-<span class="st"> </span>hext <span class="op">*</span><span class="st"> </span><span class="fl">0.05</span></span>
-<span id="cb240-7"><a href="bucles.html#cb240-7"></a>  sal &lt;-<span class="st"> </span>sal <span class="op">+</span><span class="st"> </span>salext</span>
-<span id="cb240-8"><a href="bucles.html#cb240-8"></a>}</span>
-<span id="cb240-9"><a href="bucles.html#cb240-9"></a></span>
-<span id="cb240-10"><a href="bucles.html#cb240-10"></a>sal  <span class="co"># Salario semanal</span></span></code></pre></div>
-<pre><code>## [1] 1.25</code></pre>
+<p>Generar <span class="math inline">\(n=100\)</span> observaciones de una gamma con parámetro <span class="math inline">\(\mu=2\)</span> y parámetro <span class="math inline">\(\sigma=0.5\)</span> y verificar si la función <code>fitDist</code> logra identificar que los datos fueron generados de una distribución gamma. Use <span class="math inline">\(k=2\)</span> para calcular el <span class="math inline">\(AIC\)</span>.</p>
+<p><strong>Solución</strong></p>
+<p>Para generar la muestra aleatoria solicitada se fijó la semilla con el objetivo de que el lector pueda obtener los mismos resultados de este ejemplo. En este ejemplo vamos a usar la función <code>rGA</code> del paquete <strong>gamlss</strong> para simular la muestra aleatoria <code>ma</code>.</p>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="select-dist.html#cb520-1"></a><span class="kw">library</span>(gamlss)</span>
+<span id="cb520-2"><a href="select-dist.html#cb520-2"></a>n &lt;-<span class="st"> </span><span class="dv">500</span></span>
+<span id="cb520-3"><a href="select-dist.html#cb520-3"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb520-4"><a href="select-dist.html#cb520-4"></a>ma &lt;-<span class="st"> </span><span class="kw">rGA</span>(<span class="dt">n=</span>n, <span class="dt">mu=</span><span class="dv">2</span>, <span class="dt">sigma=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<p>Para ver los datos simulados vamos a construir un histograma sencillo y en el eje horizontal se van a destacar los datos usando una especie de “tapete” con la función <code>rug</code>.</p>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="select-dist.html#cb521-1"></a><span class="kw">hist</span>(<span class="dt">x=</span>ma, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb521-2"><a href="select-dist.html#cb521-2"></a><span class="kw">rug</span>(<span class="dt">x=</span>ma, <span class="dt">col=</span><span class="st">&quot;deepskyblue3&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:histDist0"></span>
+<img src="Manual_de_R_files/figure-html/histDist0-1.png" alt="Histograma para la muestra simulada con la densidad de una Gamma(mu=4.308, sigma=0.6682)." width="864" />
+<p class="caption">
+Figure 16.1: Histograma para la muestra simulada con la densidad de una Gamma(mu=4.308, sigma=0.6682).
+</p>
 </div>
+<p>Se va a usar la función <code>fitDist</code> con <code>type='realplus'</code> porque se sabemos que la muestra aleatoria tiene valores en <span class="math inline">\(\Re^+\)</span>. Los resultados de almacenan en el objeto <code>modelos</code> y para obtener la lista de los mejores modelos con su respectivo <span class="math inline">\(AIC\)</span> se escribe en la consola <code>modelos$fits</code>. Abajo el código usado.</p>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="select-dist.html#cb522-1"></a>modelos &lt;-<span class="st"> </span><span class="kw">fitDist</span>(<span class="dt">y=</span>ma, <span class="dt">type=</span><span class="st">&#39;realplus&#39;</span>, <span class="dt">k=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## Error in solve.default(oout$hessian) : 
+##   Lapack routine dgesv: system is exactly singular: U[4,4] = 0
+## Error in solve.default(oout$hessian) : 
+##   Lapack routine dgesv: system is exactly singular: U[4,4] = 0</code></pre>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="select-dist.html#cb524-1"></a>modelos<span class="op">$</span>fits</span></code></pre></div>
+<pre><code>##       GA       GG    BCCGo     BCCG      GIG      GB2    BCPEo     BCPE 
+## 1368.503 1368.561 1369.284 1369.284 1370.503 1370.562 1370.967 1370.967 
+##      BCT     BCTo      WEI     WEI2     WEI3   exGAUS    LOGNO   LOGNO2 
+## 1371.284 1371.284 1376.365 1376.365 1376.365 1383.357 1401.925 1401.925 
+##       IG   IGAMMA      EXP  PARETO2       GP PARETO2o 
+## 1418.277 1488.333 1738.337 1740.337 1740.338 1740.339</code></pre>
+<p>De la lista anterior se observa que la función gamma está en el primer lugar con un <span class="math inline">\(AIC=466\)</span> con el menor <span class="math inline">\(AIC\)</span>. Esto significa que la distribución gamma explica mejor los datos de la muestra, y esto coincide con la realidad, ya que la muestra fue generada de una distribución gamma.</p>
+<p>Para obtener los valores estimados de <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> se usa el siguiente código.</p>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="select-dist.html#cb526-1"></a>modelos<span class="op">$</span>mu</span></code></pre></div>
+<pre><code>## [1] 2.088272</code></pre>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="select-dist.html#cb528-1"></a>modelos<span class="op">$</span>sigma</span></code></pre></div>
+<pre><code>## [1] 0.4945352</code></pre>
+<p>Por último vamos a dibujar el histograma para la muestra aleatoria y vamos a agregar la densidad de la distribución gamma identificada como la distribución que mejor explica el comportamiento de la variable. Para hacer lo deseado se usa la función <code>histDist</code> del paquete <strong>gamlss</strong>, sólo es necesario ingresar los datos y el nombre de la distribución. Abajo el código usado.</p>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="select-dist.html#cb530-1"></a>h &lt;-<span class="st"> </span><span class="kw">histDist</span>(<span class="dt">y=</span>ma, <span class="dt">family=</span>GA, <span class="dt">main=</span><span class="st">&#39;&#39;</span>, <span class="dt">xlab=</span><span class="st">&#39;x&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Densidad&#39;</span>,</span>
+<span id="cb530-2"><a href="select-dist.html#cb530-2"></a>              <span class="dt">line.col=</span><span class="st">&#39;deepskyblue3&#39;</span>, <span class="dt">line.wd=</span><span class="dv">4</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.45</span>))</span>
+<span id="cb530-3"><a href="select-dist.html#cb530-3"></a><span class="kw">rug</span>(<span class="dt">x=</span>ma, <span class="dt">col=</span><span class="st">&quot;deepskyblue3&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:histDist1"></span>
+<img src="Manual_de_R_files/figure-html/histDist1-1.png" alt="Histograma para la muestra simulada con la densidad de una Gamma(mu=2.088, sigma=0.495)." width="864" />
+<p class="caption">
+Figure 16.2: Histograma para la muestra simulada con la densidad de una Gamma(mu=2.088, sigma=0.495).
+</p>
 </div>
-<div id="instrucción-if-else" class="section level2">
-<h2><span class="header-section-number">5.2</span> Instrucción <code>if</code> <code>else</code> </h2>
-<p>Esta instrucción sirve para realizar un conjunto de operaciones cuando <strong>NO</strong> se cumple cierta condición evaluada por un <code>if</code>. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="bucles.html#cb242-1"></a><span class="cf">if</span> (condicion) {</span>
-<span id="cb242-2"><a href="bucles.html#cb242-2"></a>  operación <span class="dv">1</span></span>
-<span id="cb242-3"><a href="bucles.html#cb242-3"></a>  operación <span class="dv">2</span></span>
-<span id="cb242-4"><a href="bucles.html#cb242-4"></a>  ...</span>
-<span id="cb242-5"><a href="bucles.html#cb242-5"></a>  operación final</span>
-<span id="cb242-6"><a href="bucles.html#cb242-6"></a>}</span>
-<span id="cb242-7"><a href="bucles.html#cb242-7"></a><span class="cf">else</span> {</span>
-<span id="cb242-8"><a href="bucles.html#cb242-8"></a>  operación <span class="dv">1</span></span>
-<span id="cb242-9"><a href="bucles.html#cb242-9"></a>  operación <span class="dv">2</span></span>
-<span id="cb242-10"><a href="bucles.html#cb242-10"></a>  ...</span>
-<span id="cb242-11"><a href="bucles.html#cb242-11"></a>  operación final</span>
-<span id="cb242-12"><a href="bucles.html#cb242-12"></a>}</span></code></pre></div>
-</div>
-<div id="instrucción-ifelse" class="section level2">
-<h2><span class="header-section-number">5.3</span> Instrucción <code>ifelse</code> </h2>
-<p>Se recomienda usar la instrucción <code>ifelse</code> cuando hay una sola instrucción para el caso <code>if</code> y para el caso <code>else</code>. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="bucles.html#cb243-1"></a><span class="kw">ifelse</span>(condición, operación SI cumple, operación NO cumple)</span></code></pre></div>
-<div id="ejemplo-16" class="section level3 unnumbered">
-<h3>Ejemplo</h3>
-<p>Suponga que usted recibe un vector de números enteros, escriba un procedimiento que diga si cada elemento del vector es par o impar.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="bucles.html#cb244-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">-4</span>, <span class="dv">1</span>)</span>
-<span id="cb244-2"><a href="bucles.html#cb244-2"></a></span>
-<span id="cb244-3"><a href="bucles.html#cb244-3"></a><span class="kw">ifelse</span>(x <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&#39;Es par&#39;</span>, <span class="st">&#39;Es impar&#39;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Es impar&quot; &quot;Es impar&quot; &quot;Es par&quot;   &quot;Es par&quot;   &quot;Es par&quot;   &quot;Es impar&quot;</code></pre>
-</div>
-</div>
-<div id="instrucción-for" class="section level2">
-<h2><span class="header-section-number">5.4</span> Instrucción <code>for</code> </h2>
-<p>La instrucción <code>for</code> es muy útil para repetir un procedimiento cierta cantidad de veces. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="bucles.html#cb246-1"></a><span class="cf">for</span> (i <span class="cf">in</span> secuencia) {</span>
-<span id="cb246-2"><a href="bucles.html#cb246-2"></a>  operación <span class="dv">1</span></span>
-<span id="cb246-3"><a href="bucles.html#cb246-3"></a>  operación <span class="dv">2</span></span>
-<span id="cb246-4"><a href="bucles.html#cb246-4"></a>  ...</span>
-<span id="cb246-5"><a href="bucles.html#cb246-5"></a>  operación final</span>
-<span id="cb246-6"><a href="bucles.html#cb246-6"></a>}</span></code></pre></div>
-<div id="ejemplo-17" class="section level3 unnumbered">
-<h3>Ejemplo</h3>
-<p>Escriba un procedimiento para crear 10 muestras de tamaño 100 de una distribución uniforme entre uno y tres. Para cada una de las muestra, se debe contar el número de elementos de la muestra que fueron mayores o iguales a 2.5.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="bucles.html#cb247-1"></a>nrep &lt;-<span class="st"> </span><span class="dv">10</span>  <span class="co"># Número de repeticiones</span></span>
-<span id="cb247-2"><a href="bucles.html#cb247-2"></a>n &lt;-<span class="st"> </span><span class="dv">100</span>    <span class="co"># Tamaño de la muestra</span></span>
-<span id="cb247-3"><a href="bucles.html#cb247-3"></a>conteo &lt;-<span class="st"> </span><span class="kw">numeric</span>(nrep)  <span class="co"># Vector para almacenar el conteo</span></span>
-<span id="cb247-4"><a href="bucles.html#cb247-4"></a></span>
-<span id="cb247-5"><a href="bucles.html#cb247-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nrep) {</span>
-<span id="cb247-6"><a href="bucles.html#cb247-6"></a>  x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dt">n=</span>n, <span class="dt">min=</span><span class="dv">1</span>, <span class="dt">max=</span><span class="dv">3</span>)</span>
-<span id="cb247-7"><a href="bucles.html#cb247-7"></a>  conteo[i] &lt;-<span class="st"> </span><span class="kw">sum</span>(x <span class="op">&gt;=</span><span class="st"> </span><span class="fl">2.5</span>)</span>
-<span id="cb247-8"><a href="bucles.html#cb247-8"></a>}</span>
-<span id="cb247-9"><a href="bucles.html#cb247-9"></a></span>
-<span id="cb247-10"><a href="bucles.html#cb247-10"></a>conteo  <span class="co"># Para obtener el conteo</span></span></code></pre></div>
-<pre><code>##  [1] 24 37 28 26 30 18 29 23 19 19</code></pre>
-</div>
-</div>
-<div id="instrucción-while" class="section level2">
-<h2><span class="header-section-number">5.5</span> Instrucción <code>while</code> </h2>
-<p>La instrucción <code>while</code> es muy útil para repetir un procedimiento siempre que se cumple una condición. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="bucles.html#cb249-1"></a><span class="cf">while</span> (condición) {</span>
-<span id="cb249-2"><a href="bucles.html#cb249-2"></a>  operación <span class="dv">1</span></span>
-<span id="cb249-3"><a href="bucles.html#cb249-3"></a>  operación <span class="dv">2</span></span>
-<span id="cb249-4"><a href="bucles.html#cb249-4"></a>  ...</span>
-<span id="cb249-5"><a href="bucles.html#cb249-5"></a>  operación final</span>
-<span id="cb249-6"><a href="bucles.html#cb249-6"></a>}</span></code></pre></div>
-<div id="ejemplo-18" class="section level3 unnumbered">
-<h3>Ejemplo</h3>
-<p>Suponga que se lanza una moneda en la cual el resultado es cara o sello. Escribir un procedimiento que simule lanzamientos hasta que el número de caras obtenidas sea 5. El procedimiento debe entregar el historial de lanzamientos.</p>
-<p>Para simular el lanzamiento de <strong>una</strong> moneda se puede usar la función <code>sample</code> y definiendo el vector <code>resultados</code> con <code>size=1</code> para simular un lanzamiento, a continuación el código y tres pruebas ilustrativas.</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="bucles.html#cb250-1"></a>resultados &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Cara&#39;</span>, <span class="st">&#39;Sello&#39;</span>)</span>
-<span id="cb250-2"><a href="bucles.html#cb250-2"></a><span class="kw">sample</span>(<span class="dt">x=</span>resultados, <span class="dt">size=</span><span class="dv">1</span>)  <span class="co"># Prueba 1</span></span></code></pre></div>
-<pre><code>## [1] &quot;Sello&quot;</code></pre>
-<p>Una vez seamos capaces de simular un lanzamiento podemos escribir el procedimiento para generar tantos lanzamientos hasta que se cumpla la condición. El código mostrado abajo permite hacer lo solicitado.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="bucles.html#cb252-1"></a>num.lanza &lt;-<span class="st"> </span><span class="dv">0</span>     <span class="co"># Contador de lanzamientos</span></span>
-<span id="cb252-2"><a href="bucles.html#cb252-2"></a>num.caras &lt;-<span class="st"> </span><span class="dv">0</span>     <span class="co"># Contados de caras obtenidas</span></span>
-<span id="cb252-3"><a href="bucles.html#cb252-3"></a>historial &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># Vector vacío para almacenar</span></span>
-<span id="cb252-4"><a href="bucles.html#cb252-4"></a></span>
-<span id="cb252-5"><a href="bucles.html#cb252-5"></a><span class="cf">while</span> (num.caras <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) {</span>
-<span id="cb252-6"><a href="bucles.html#cb252-6"></a>  res &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span>resultados, <span class="dt">size=</span><span class="dv">1</span>)</span>
-<span id="cb252-7"><a href="bucles.html#cb252-7"></a>  num.lanza &lt;-<span class="st"> </span>num.lanza <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb252-8"><a href="bucles.html#cb252-8"></a>  historial[num.lanza] &lt;-<span class="st"> </span>res</span>
-<span id="cb252-9"><a href="bucles.html#cb252-9"></a>  <span class="cf">if</span> (res <span class="op">==</span><span class="st"> &#39;Cara&#39;</span>) {</span>
-<span id="cb252-10"><a href="bucles.html#cb252-10"></a>    num.caras &lt;-<span class="st"> </span>num.caras <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb252-11"><a href="bucles.html#cb252-11"></a>  }</span>
-<span id="cb252-12"><a href="bucles.html#cb252-12"></a>}</span>
-<span id="cb252-13"><a href="bucles.html#cb252-13"></a></span>
-<span id="cb252-14"><a href="bucles.html#cb252-14"></a>historial</span></code></pre></div>
-<pre><code>##  [1] &quot;Sello&quot; &quot;Sello&quot; &quot;Sello&quot; &quot;Sello&quot; &quot;Cara&quot;  &quot;Cara&quot;  &quot;Sello&quot; &quot;Sello&quot; &quot;Cara&quot; 
-## [10] &quot;Cara&quot;  &quot;Cara&quot;</code></pre>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="bucles.html#cb254-1"></a>num.lanza</span></code></pre></div>
-<pre><code>## [1] 11</code></pre>
-
-<div class="rmdnote">
-La instrucción <code>for</code> se usa cuando sabemos el número de veces que se debe repetir el procedimiento, mientras que la instrucción <code>while</code> se usa cuando debemos repetir un procedimiento cuando se cumpla una condición.
-</div>
-
-</div>
-</div>
-<div id="instrucción-repeat" class="section level2">
-<h2><span class="header-section-number">5.6</span> Instrucción <code>repeat</code> </h2>
-<p>La instrucción <code>while</code> es muy útil para repetir un procedimiento siempre que se cumple una condición. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="bucles.html#cb256-1"></a><span class="cf">repeat</span> {</span>
-<span id="cb256-2"><a href="bucles.html#cb256-2"></a>  operación <span class="dv">1</span></span>
-<span id="cb256-3"><a href="bucles.html#cb256-3"></a>  operación <span class="dv">2</span></span>
-<span id="cb256-4"><a href="bucles.html#cb256-4"></a>  ...</span>
-<span id="cb256-5"><a href="bucles.html#cb256-5"></a>  operación final</span>
-<span id="cb256-6"><a href="bucles.html#cb256-6"></a>  <span class="cf">if</span> (condición) <span class="cf">break</span></span>
-<span id="cb256-7"><a href="bucles.html#cb256-7"></a><span class="er">}</span></span></code></pre></div>
-<div id="ejemplo-19" class="section level3 unnumbered">
-<h3>Ejemplo</h3>
-<p>Escribir un procedimiento para ir aumentando de uno en uno el valor de <code>x</code> hasta que <code>x</code> sea igual a siete El procedimiento debe imprimir por pantalla la secuencia de valores de <code>x</code>.</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="bucles.html#cb257-1"></a>x &lt;-<span class="st"> </span><span class="dv">3</span>  <span class="co"># Valor de inicio</span></span>
-<span id="cb257-2"><a href="bucles.html#cb257-2"></a></span>
-<span id="cb257-3"><a href="bucles.html#cb257-3"></a><span class="cf">repeat</span> {</span>
-<span id="cb257-4"><a href="bucles.html#cb257-4"></a>   <span class="kw">print</span>(x)</span>
-<span id="cb257-5"><a href="bucles.html#cb257-5"></a>   x &lt;-<span class="st">  </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb257-6"><a href="bucles.html#cb257-6"></a>   <span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">8</span>) {</span>
-<span id="cb257-7"><a href="bucles.html#cb257-7"></a>     <span class="cf">break</span></span>
-<span id="cb257-8"><a href="bucles.html#cb257-8"></a>   }</span>
-<span id="cb257-9"><a href="bucles.html#cb257-9"></a>}</span></code></pre></div>
-<pre><code>## [1] 3
-## [1] 4
-## [1] 5
-## [1] 6
-## [1] 7</code></pre>
-
-<div class="rmdtip">
-La instrucción <code>break</code> sirve para salir de un procedimiento iterativo.
-</div>
-
+<p>En la Figura <a href="select-dist.html#fig:histDist1">16.2</a> se presenta el histograma para muestra aleatoria y la densidad de la gamma que mejor explica estos datos. Se observa claramente que la curva de densidad azul acompaña la forma de histograma.</p>
 
 </div>
 </div>
@@ -630,8 +540,8 @@ La instrucción <code>break</code> sirve para salir de un procedimiento iterativ
           </div>
         </div>
       </div>
-<a href="funbas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="creafun.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="loglik.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="normalidad.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -662,7 +572,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/fhernanb/Manual-de-R/edit/master/042_Bucles.Rmd",
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/24_select_dist.Rmd",
 "text": "Edit"
 },
 "history": {

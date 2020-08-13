@@ -25,7 +25,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2020-05-27" />
+<meta name="date" content="2020-08-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,9 +54,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -65,14 +65,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -81,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -339,101 +341,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-49"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-50"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-51"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-52"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="15.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>15.4</b> Score e Información de Fisher</a><ul>
 <li class="chapter" data-level="15.4.1" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher-en-el-caso-univariado."><i class="fa fa-check"></i><b>15.4.1</b> Score e Información de Fisher en el caso univariado.</a></li>
-<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-53"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-52"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="15.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>15.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a><ul>
-<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-54"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-53"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejercicios-6"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>16</b> Estudiando la normalidad</a><ul>
-<li class="chapter" data-level="16.1" data-path="normalidad.html"><a href="normalidad.html#consideraciones-iniciales"><i class="fa fa-check"></i><b>16.1</b> Consideraciones iniciales</a></li>
-<li class="chapter" data-level="16.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>16.2</b> Histograma y densidad</a><ul>
+<li class="chapter" data-level="16" data-path="select-dist.html"><a href="select-dist.html"><i class="fa fa-check"></i><b>16</b> Selección de la distribución</a><ul>
+<li class="chapter" data-level="16.1" data-path="select-dist.html"><a href="select-dist.html#función-fitdists"><i class="fa fa-check"></i><b>16.1</b> Función <code>fitDists</code></a><ul>
+<li class="chapter" data-level="" data-path="select-dist.html"><a href="select-dist.html#ejemplo-54"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>17</b> Estudiando la normalidad</a><ul>
+<li class="chapter" data-level="17.1" data-path="normalidad.html"><a href="normalidad.html#consideraciones-iniciales"><i class="fa fa-check"></i><b>17.1</b> Consideraciones iniciales</a></li>
+<li class="chapter" data-level="17.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>17.2</b> Histograma y densidad</a><ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo densidad con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-del-peso-corporal"><i class="fa fa-check"></i>Ejemplo densidad del peso corporal</a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>16.3</b> Gráficos cuantil cuantil   </a><ul>
+<li class="chapter" data-level="17.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>17.3</b> Gráficos cuantil cuantil   </a><ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-1-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 1 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-2-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 2 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo QQplot para peso corporal</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-con-bandas"><i class="fa fa-check"></i>Ejemplo QQplot con bandas</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>16.4</b> Pruebas de normalidad</a><ul>
+<li class="chapter" data-level="17.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>17.4</b> Pruebas de normalidad</a><ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-normalidad-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo normalidad para peso corporal</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejercicios-7"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>17</b> Intervalos de confianza</a><ul>
-<li class="chapter" data-level="17.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>17.1</b> Función <code>t.test</code></a><ul>
-<li class="chapter" data-level="17.1.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu"><i class="fa fa-check"></i><b>17.1.1</b> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="18" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>18</b> Intervalos de confianza</a><ul>
+<li class="chapter" data-level="18.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>18.1</b> Función <code>t.test</code></a><ul>
+<li class="chapter" data-level="18.1.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu"><i class="fa fa-check"></i><b>18.1.1</b> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-55"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="17.1.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-independientes"><i class="fa fa-check"></i><b>17.1.2</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras independientes</a></li>
+<li class="chapter" data-level="18.1.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-independientes"><i class="fa fa-check"></i><b>18.1.2</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras independientes</a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-56"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="17.1.3" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-dependientes-o-pareadas"><i class="fa fa-check"></i><b>17.1.3</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras dependientes o pareadas</a></li>
+<li class="chapter" data-level="18.1.3" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-dependientes-o-pareadas"><i class="fa fa-check"></i><b>18.1.3</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras dependientes o pareadas</a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-57"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="17.1.4" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-unilateral-para-la-media-mu"><i class="fa fa-check"></i><b>17.1.4</b> Intervalo de confianza unilateral para la media <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="18.1.4" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-unilateral-para-la-media-mu"><i class="fa fa-check"></i><b>18.1.4</b> Intervalo de confianza unilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-58"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>17.2</b> Función <code>var.test</code></a><ul>
-<li class="chapter" data-level="17.2.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2"><i class="fa fa-check"></i><b>17.2.1</b> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="18.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>18.2</b> Función <code>var.test</code></a><ul>
+<li class="chapter" data-level="18.2.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2"><i class="fa fa-check"></i><b>18.2.1</b> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-59"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="17.2.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-razón-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>17.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
+<li class="chapter" data-level="18.2.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-razón-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>18.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-60"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="17.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>17.3</b> Función <code>prop.test</code></a><ul>
-<li class="chapter" data-level="17.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p"><i class="fa fa-check"></i><b>17.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
+<li class="chapter" data-level="18.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>18.3</b> Función <code>prop.test</code></a><ul>
+<li class="chapter" data-level="18.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p"><i class="fa fa-check"></i><b>18.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-61"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="17.3.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>17.3.2</b> Intervalo de confianza bilateral para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a></li>
+<li class="chapter" data-level="18.3.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>18.3.2</b> Intervalo de confianza bilateral para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-62"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>18</b> Prueba de hipótesis</a><ul>
-<li class="chapter" data-level="18.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>18.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="19" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>19</b> Prueba de hipótesis</a><ul>
+<li class="chapter" data-level="19.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>19.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-63"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>18.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a><ul>
+<li class="chapter" data-level="19.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>19.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-64"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>18.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a><ul>
-<li class="chapter" data-level="18.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>18.3.1</b> Prueba de Wald</a></li>
+<li class="chapter" data-level="19.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>19.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a><ul>
+<li class="chapter" data-level="19.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>19.3.1</b> Prueba de Wald</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-65"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="18.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>18.3.2</b> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson</a></li>
+<li class="chapter" data-level="19.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>19.3.2</b> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-66"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="18.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>18.3.3</b> Prueba binomial exacta</a></li>
+<li class="chapter" data-level="19.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>19.3.3</b> Prueba binomial exacta</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-67"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>18.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="19.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>19.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-68"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>18.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a><ul>
+<li class="chapter" data-level="19.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>19.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-69"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-70"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>18.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a><ul>
+<li class="chapter" data-level="19.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>19.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-71"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>18.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a><ul>
+<li class="chapter" data-level="19.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>19.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-72"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>18.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a><ul>
+<li class="chapter" data-level="19.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>19.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-73"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>18.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a><ul>
+<li class="chapter" data-level="19.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>19.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a><ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-74"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>19</b> Aproximación de integrales</a><ul>
-<li class="chapter" data-level="19.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>19.1</b> Aproximación de Laplace unidimensional</a><ul>
+<li class="chapter" data-level="20" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>20</b> Aproximación de integrales</a><ul>
+<li class="chapter" data-level="20.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>20.1</b> Aproximación de Laplace unidimensional</a><ul>
 <li class="chapter" data-level="" data-path="aproxint.html"><a href="aproxint.html#ejemplo-75"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>20</b> Curiosidades</a><ul>
-<li class="chapter" data-level="20.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>20.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a><ul>
+<li class="chapter" data-level="21" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>21</b> Curiosidades</a><ul>
+<li class="chapter" data-level="21.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>21.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a><ul>
 <li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-76"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
@@ -484,86 +490,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="espacios" class="section level2">
 <h2><span class="header-section-number">3.4</span> Espacios</h2>
 <p>Use espacios alrededor de todos los operadores binarios (=, +, -, &lt;-, etc.). Los espacios alrededor del símbolo ``=’’ son opcionales cuando se usan para ingresar valores dentro de una función. Así como en español, nunca coloque espacio antes de una coma, pero siempre use espacio luego de una coma. A continuación ejemplos de buenas y malas prácticas.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1">tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">2</span>])  <span class="co"># Bien</span></a>
-<a class="sourceLine" id="cb83-2" title="2">tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[, <span class="dv">1</span>])                <span class="co"># Bien</span></a>
-<a class="sourceLine" id="cb83-3" title="3">tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[<span class="dv">1</span>, ])                <span class="co"># Bien</span></a>
-<a class="sourceLine" id="cb83-4" title="4">tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days<span class="op">&lt;</span><span class="dv">0</span>, <span class="dv">2</span>])    <span class="co"># Faltan espacios alrededor &#39;&lt;&#39; </span></a>
-<a class="sourceLine" id="cb83-5" title="5">tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">2</span>])   <span class="co"># Falta espacio luego de coma</span></a>
-<a class="sourceLine" id="cb83-6" title="6">tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span> , <span class="dv">2</span>]) <span class="co"># Sobra espacio antes de coma</span></a>
-<a class="sourceLine" id="cb83-7" title="7">tab&lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">2</span>])   <span class="co"># Falta espacio antes de &#39;&lt;-&#39;</span></a>
-<a class="sourceLine" id="cb83-8" title="8">tab&lt;-<span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">2</span>])    <span class="co"># Falta espacio alrededor de &#39;&lt;-&#39;</span></a>
-<a class="sourceLine" id="cb83-9" title="9">tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[,<span class="dv">1</span>])                 <span class="co"># Falta espacio luego de coma</span></a>
-<a class="sourceLine" id="cb83-10" title="10">tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[<span class="dv">1</span>,])                 <span class="co"># Falta espacio luego de coma</span></a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="estilo.html#cb83-1"></a>tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">2</span>])  <span class="co"># Bien</span></span>
+<span id="cb83-2"><a href="estilo.html#cb83-2"></a>tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[, <span class="dv">1</span>])                <span class="co"># Bien</span></span>
+<span id="cb83-3"><a href="estilo.html#cb83-3"></a>tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[<span class="dv">1</span>, ])                <span class="co"># Bien</span></span>
+<span id="cb83-4"><a href="estilo.html#cb83-4"></a>tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days<span class="op">&lt;</span><span class="dv">0</span>, <span class="dv">2</span>])    <span class="co"># Faltan espacios alrededor &#39;&lt;&#39; </span></span>
+<span id="cb83-5"><a href="estilo.html#cb83-5"></a>tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">2</span>])   <span class="co"># Falta espacio luego de coma</span></span>
+<span id="cb83-6"><a href="estilo.html#cb83-6"></a>tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span> , <span class="dv">2</span>]) <span class="co"># Sobra espacio antes de coma</span></span>
+<span id="cb83-7"><a href="estilo.html#cb83-7"></a>tab&lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">2</span>])   <span class="co"># Falta espacio antes de &#39;&lt;-&#39;</span></span>
+<span id="cb83-8"><a href="estilo.html#cb83-8"></a>tab&lt;-<span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">2</span>])    <span class="co"># Falta espacio alrededor de &#39;&lt;-&#39;</span></span>
+<span id="cb83-9"><a href="estilo.html#cb83-9"></a>tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[,<span class="dv">1</span>])                 <span class="co"># Falta espacio luego de coma</span></span>
+<span id="cb83-10"><a href="estilo.html#cb83-10"></a>tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[<span class="dv">1</span>,])                 <span class="co"># Falta espacio luego de coma</span></span></code></pre></div>
 <p>Otra buena práctica es colocar espacio antes de un paréntesis excepto cuando se llama una función.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1"><span class="cf">if</span> (debug)    <span class="co"># Correcto</span></a>
-<a class="sourceLine" id="cb84-2" title="2"><span class="cf">if</span>(debug)     <span class="co"># Funciona pero no se recomienda</span></a>
-<a class="sourceLine" id="cb84-3" title="3"><span class="kw">colMeans</span> (x)  <span class="co"># Funciona pero no se recomienda</span></a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="estilo.html#cb84-1"></a><span class="cf">if</span> (debug)    <span class="co"># Correcto</span></span>
+<span id="cb84-2"><a href="estilo.html#cb84-2"></a><span class="cf">if</span>(debug)     <span class="co"># Funciona pero no se recomienda</span></span>
+<span id="cb84-3"><a href="estilo.html#cb84-3"></a><span class="kw">colMeans</span> (x)  <span class="co"># Funciona pero no se recomienda</span></span></code></pre></div>
 <p>Espacios extras pueden ser usados si con esto se mejora la apariencia del código, ver el ejemplo siguiente.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw">plot</span>(<span class="dt">x    =</span> x.coord,</a>
-<a class="sourceLine" id="cb85-2" title="2">     <span class="dt">y    =</span> data.mat[, <span class="kw">MakeColName</span>(metric, ptiles[<span class="dv">1</span>], <span class="st">&quot;roiOpt&quot;</span>)],</a>
-<a class="sourceLine" id="cb85-3" title="3">     <span class="dt">ylim =</span> ylim,</a>
-<a class="sourceLine" id="cb85-4" title="4">     <span class="dt">xlab =</span> <span class="st">&quot;dates&quot;</span>,</a>
-<a class="sourceLine" id="cb85-5" title="5">     <span class="dt">ylab =</span> metric,</a>
-<a class="sourceLine" id="cb85-6" title="6">     <span class="dt">main =</span> (<span class="kw">paste</span>(metric, <span class="st">&quot; for 3 samples &quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="estilo.html#cb85-1"></a><span class="kw">plot</span>(<span class="dt">x    =</span> x.coord,</span>
+<span id="cb85-2"><a href="estilo.html#cb85-2"></a>     <span class="dt">y    =</span> data.mat[, <span class="kw">MakeColName</span>(metric, ptiles[<span class="dv">1</span>], <span class="st">&quot;roiOpt&quot;</span>)],</span>
+<span id="cb85-3"><a href="estilo.html#cb85-3"></a>     <span class="dt">ylim =</span> ylim,</span>
+<span id="cb85-4"><a href="estilo.html#cb85-4"></a>     <span class="dt">xlab =</span> <span class="st">&quot;dates&quot;</span>,</span>
+<span id="cb85-5"><a href="estilo.html#cb85-5"></a>     <span class="dt">ylab =</span> metric,</span>
+<span id="cb85-6"><a href="estilo.html#cb85-6"></a>     <span class="dt">main =</span> (<span class="kw">paste</span>(metric, <span class="st">&quot; for 3 samples &quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)))</span></code></pre></div>
 <p>No coloque espacios alrededor del código que esté dentro de paréntesis <code>( )</code> o corchetes <code>[ ]</code>, la única excepción es luego de una coma, ver el ejemplo siguiente.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1"><span class="cf">if</span> (condicion)    <span class="co"># Correcto </span></a>
-<a class="sourceLine" id="cb86-2" title="2">x[<span class="dv">1</span>, ]            <span class="co"># Correcto</span></a>
-<a class="sourceLine" id="cb86-3" title="3"><span class="cf">if</span> ( condicion )  <span class="co"># Sobran espacios alrededor de condicion</span></a>
-<a class="sourceLine" id="cb86-4" title="4">x[<span class="dv">1</span>,]             <span class="co"># Se necesita espacio luego de coma</span></a></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="estilo.html#cb86-1"></a><span class="cf">if</span> (condicion)    <span class="co"># Correcto </span></span>
+<span id="cb86-2"><a href="estilo.html#cb86-2"></a>x[<span class="dv">1</span>, ]            <span class="co"># Correcto</span></span>
+<span id="cb86-3"><a href="estilo.html#cb86-3"></a><span class="cf">if</span> ( condicion )  <span class="co"># Sobran espacios alrededor de condicion</span></span>
+<span id="cb86-4"><a href="estilo.html#cb86-4"></a>x[<span class="dv">1</span>,]             <span class="co"># Se necesita espacio luego de coma</span></span></code></pre></div>
 <p>Los signos de agrupación llaves <code>{ }</code> se utilizan para agrupar bloques de código y se recomienda que nunca una llave abierta <code>{</code> esté sola en una línea; una llave cerrada <code>}</code> si debe ir sola en su propia línea. Se pueden omitir las llaves cuando el bloque de instrucciones esté formado por una sola línea pero esa línea de código NO debe ir en la misma línea de la condición. A continuación dos ejemplos de lo que se recomienda.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1"><span class="cf">if</span> (<span class="kw">is.null</span>(ylim)) {                     <span class="co"># Correcto</span></a>
-<a class="sourceLine" id="cb87-2" title="2">  ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</a>
-<a class="sourceLine" id="cb87-3" title="3">}</a>
-<a class="sourceLine" id="cb87-4" title="4"></a>
-<a class="sourceLine" id="cb87-5" title="5"><span class="cf">if</span> (<span class="kw">is.null</span>(ylim))                       <span class="co"># Correcto</span></a>
-<a class="sourceLine" id="cb87-6" title="6">  ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</a>
-<a class="sourceLine" id="cb87-7" title="7"></a>
-<a class="sourceLine" id="cb87-8" title="8"><span class="cf">if</span> (<span class="kw">is.null</span>(ylim)) ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)    <span class="co"># Aceptable</span></a>
-<a class="sourceLine" id="cb87-9" title="9"></a>
-<a class="sourceLine" id="cb87-10" title="10"><span class="cf">if</span> (<span class="kw">is.null</span>(ylim))                       <span class="co"># No se recomienda</span></a>
-<a class="sourceLine" id="cb87-11" title="11">{        </a>
-<a class="sourceLine" id="cb87-12" title="12">  ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</a>
-<a class="sourceLine" id="cb87-13" title="13">}</a>
-<a class="sourceLine" id="cb87-14" title="14">    </a>
-<a class="sourceLine" id="cb87-15" title="15"><span class="cf">if</span> (<span class="kw">is.null</span>(ylim)) {ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)}</a>
-<a class="sourceLine" id="cb87-16" title="16"><span class="co"># Frente a la llave { no debe ir nada</span></a>
-<a class="sourceLine" id="cb87-17" title="17"><span class="co"># la llave de cierre } debe ir sola</span></a></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="estilo.html#cb87-1"></a><span class="cf">if</span> (<span class="kw">is.null</span>(ylim)) {                     <span class="co"># Correcto</span></span>
+<span id="cb87-2"><a href="estilo.html#cb87-2"></a>  ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</span>
+<span id="cb87-3"><a href="estilo.html#cb87-3"></a>}</span>
+<span id="cb87-4"><a href="estilo.html#cb87-4"></a></span>
+<span id="cb87-5"><a href="estilo.html#cb87-5"></a><span class="cf">if</span> (<span class="kw">is.null</span>(ylim))                       <span class="co"># Correcto</span></span>
+<span id="cb87-6"><a href="estilo.html#cb87-6"></a>  ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</span>
+<span id="cb87-7"><a href="estilo.html#cb87-7"></a></span>
+<span id="cb87-8"><a href="estilo.html#cb87-8"></a><span class="cf">if</span> (<span class="kw">is.null</span>(ylim)) ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)    <span class="co"># Aceptable</span></span>
+<span id="cb87-9"><a href="estilo.html#cb87-9"></a></span>
+<span id="cb87-10"><a href="estilo.html#cb87-10"></a><span class="cf">if</span> (<span class="kw">is.null</span>(ylim))                       <span class="co"># No se recomienda</span></span>
+<span id="cb87-11"><a href="estilo.html#cb87-11"></a>{        </span>
+<span id="cb87-12"><a href="estilo.html#cb87-12"></a>  ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</span>
+<span id="cb87-13"><a href="estilo.html#cb87-13"></a>}</span>
+<span id="cb87-14"><a href="estilo.html#cb87-14"></a>    </span>
+<span id="cb87-15"><a href="estilo.html#cb87-15"></a><span class="cf">if</span> (<span class="kw">is.null</span>(ylim)) {ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)}</span>
+<span id="cb87-16"><a href="estilo.html#cb87-16"></a><span class="co"># Frente a la llave { no debe ir nada</span></span>
+<span id="cb87-17"><a href="estilo.html#cb87-17"></a><span class="co"># la llave de cierre } debe ir sola</span></span></code></pre></div>
 <p>La sentencia else debe ir siempre entre llaves <code>} {</code>, ver el siguiente ejemplo.</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="cf">if</span> (condition) {         </a>
-<a class="sourceLine" id="cb88-2" title="2">  one or more lines</a>
-<a class="sourceLine" id="cb88-3" title="3">} <span class="cf">else</span> {                 <span class="co"># Correcto</span></a>
-<a class="sourceLine" id="cb88-4" title="4">  one or more lines</a>
-<a class="sourceLine" id="cb88-5" title="5">}</a>
-<a class="sourceLine" id="cb88-6" title="6"></a>
-<a class="sourceLine" id="cb88-7" title="7"></a>
-<a class="sourceLine" id="cb88-8" title="8"><span class="cf">if</span> (condition) {         </a>
-<a class="sourceLine" id="cb88-9" title="9">  one or more lines</a>
-<a class="sourceLine" id="cb88-10" title="10">}</a>
-<a class="sourceLine" id="cb88-11" title="11"><span class="cf">else</span> {                   <span class="co"># Incorrecto</span></a>
-<a class="sourceLine" id="cb88-12" title="12">  one or more lines</a>
-<a class="sourceLine" id="cb88-13" title="13">}</a>
-<a class="sourceLine" id="cb88-14" title="14"></a>
-<a class="sourceLine" id="cb88-15" title="15"></a>
-<a class="sourceLine" id="cb88-16" title="16"><span class="cf">if</span> (condition)           </a>
-<a class="sourceLine" id="cb88-17" title="17">  one line</a>
-<a class="sourceLine" id="cb88-18" title="18"><span class="cf">else</span>                     <span class="co"># Incorrecto</span></a>
-<a class="sourceLine" id="cb88-19" title="19">  one line</a></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="estilo.html#cb88-1"></a><span class="cf">if</span> (condition) {         </span>
+<span id="cb88-2"><a href="estilo.html#cb88-2"></a>  one or more lines</span>
+<span id="cb88-3"><a href="estilo.html#cb88-3"></a>} <span class="cf">else</span> {                 <span class="co"># Correcto</span></span>
+<span id="cb88-4"><a href="estilo.html#cb88-4"></a>  one or more lines</span>
+<span id="cb88-5"><a href="estilo.html#cb88-5"></a>}</span>
+<span id="cb88-6"><a href="estilo.html#cb88-6"></a></span>
+<span id="cb88-7"><a href="estilo.html#cb88-7"></a></span>
+<span id="cb88-8"><a href="estilo.html#cb88-8"></a><span class="cf">if</span> (condition) {         </span>
+<span id="cb88-9"><a href="estilo.html#cb88-9"></a>  one or more lines</span>
+<span id="cb88-10"><a href="estilo.html#cb88-10"></a>}</span>
+<span id="cb88-11"><a href="estilo.html#cb88-11"></a><span class="cf">else</span> {                   <span class="co"># Incorrecto</span></span>
+<span id="cb88-12"><a href="estilo.html#cb88-12"></a>  one or more lines</span>
+<span id="cb88-13"><a href="estilo.html#cb88-13"></a>}</span>
+<span id="cb88-14"><a href="estilo.html#cb88-14"></a></span>
+<span id="cb88-15"><a href="estilo.html#cb88-15"></a></span>
+<span id="cb88-16"><a href="estilo.html#cb88-16"></a><span class="cf">if</span> (condition)           </span>
+<span id="cb88-17"><a href="estilo.html#cb88-17"></a>  one line</span>
+<span id="cb88-18"><a href="estilo.html#cb88-18"></a><span class="cf">else</span>                     <span class="co"># Incorrecto</span></span>
+<span id="cb88-19"><a href="estilo.html#cb88-19"></a>  one line</span></code></pre></div>
 </div>
 <div id="asignación" class="section level2">
 <h2><span class="header-section-number">3.5</span> Asignación</h2>
 <p>Para realizar asignaciones se recomienda usar el símbolo <code>&lt;-</code>, el símbolo de igualdad <code>=</code> no se recomienda usarlo para asignaciones.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1">x &lt;-<span class="st"> </span><span class="dv">5</span>  <span class="co"># Correcto</span></a>
-<a class="sourceLine" id="cb89-2" title="2">x =<span class="st"> </span><span class="dv">5</span>   <span class="co"># No recomendado</span></a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="estilo.html#cb89-1"></a>x &lt;-<span class="st"> </span><span class="dv">5</span>  <span class="co"># Correcto</span></span>
+<span id="cb89-2"><a href="estilo.html#cb89-2"></a>x =<span class="st"> </span><span class="dv">5</span>   <span class="co"># No recomendado</span></span></code></pre></div>
 <p>Para una explicación más detallada sobre el símbolo de asignación se recomienda visitar este <a href="http://www.win-vector.com/blog/2016/12/the-case-for-using-in-r/">enlace</a>.</p>
 </div>
 <div id="punto-y-coma" class="section level2">
 <h2><span class="header-section-number">3.6</span> Punto y coma</h2>
 <p>No se recomienda colocar varias instrucciones separadas por <code>;</code> en la misma línea, aunque funciona dificulta la revisión del código.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1">n &lt;-<span class="st"> </span><span class="dv">100</span>; y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">mean=</span><span class="dv">5</span>); <span class="kw">hist</span>(y)  <span class="co"># No se recomienda</span></a>
-<a class="sourceLine" id="cb90-2" title="2"></a>
-<a class="sourceLine" id="cb90-3" title="3">n &lt;-<span class="st"> </span><span class="dv">100</span>                                  <span class="co"># Correcto</span></a>
-<a class="sourceLine" id="cb90-4" title="4">y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">mean=</span><span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb90-5" title="5"><span class="kw">hist</span>(y)</a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="estilo.html#cb90-1"></a>n &lt;-<span class="st"> </span><span class="dv">100</span>; y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">mean=</span><span class="dv">5</span>); <span class="kw">hist</span>(y)  <span class="co"># No se recomienda</span></span>
+<span id="cb90-2"><a href="estilo.html#cb90-2"></a></span>
+<span id="cb90-3"><a href="estilo.html#cb90-3"></a>n &lt;-<span class="st"> </span><span class="dv">100</span>                                  <span class="co"># Correcto</span></span>
+<span id="cb90-4"><a href="estilo.html#cb90-4"></a>y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">mean=</span><span class="dv">5</span>)</span>
+<span id="cb90-5"><a href="estilo.html#cb90-5"></a><span class="kw">hist</span>(y)</span></code></pre></div>
 <p>A pesar de la anterior advertencia es posible que en este libro usemos el <code>;</code> en algunas ocasiones, si lo hacemos es para ahorrar espacio en la presentación del código.</p>
 
 </div>

@@ -107,7 +107,7 @@ Al observar la Figura \@ref(fig:loglik1) se nota que el valor de $p$ que maximiz
 
 5) ¿Cuál es el valor exacto de $p$ que maximiza la función log-verosimilitud?
 
-En \proglang{R} existe la función `optimize` que sirve para encontrar el valor que __minimiza__ una función uniparamétrica en un intervalo dado, sin embargo, aquí interesa es maximimizar la función de log-verosimilitud, por esa razón se construye la función `minusll` que es el negativo de la función `ll` para así poder usar `optimize`. A continuación el código usado. \index{optimize}
+En R existe la función `optimize` que sirve para encontrar el valor que __minimiza__ una función uniparamétrica en un intervalo dado, sin embargo, aquí interesa es maximimizar la función de log-verosimilitud, por esa razón se construye la función `minusll` que es el negativo de la función `ll` para así poder usar `optimize`. A continuación el código usado. \index{optimize}
 
 ```{r}
 minusll <- function(x) -ll(x)
@@ -130,6 +130,8 @@ y[1:7]  # Para ver los primeros siete valores generados
 
 1) Construya la función de log-verosimilitud para los parámetros de la normal dada la muestra aleatoria `y`.
 
+Abajo se muestra la forma de construir la función de log-verosimilitud.
+
 ```{r}
 ll <- function(param) {
   media <- param[1]  # param es el vector de parámetros
@@ -144,9 +146,9 @@ Siempre que el interés sea encontrar los valores que maximizan una función de 
 
 2) Dibujar la función de log-verosimilitud.
 
-En la Figura \@ref(fig:loglik2) se muestra el gráfico de niveles para la superficie de log-verosimilitud. De esta figura se nota claramente que los valores que maximizan la superficie están alrededor de $\mu=170$ y $\sigma=5$. Para ver el código usado en la creación de la Figura \@ref(fig:loglik2) se recomienda consultar la sección sobre `contour` en @hernandez_correa.
+En la Figura \@ref(fig:loglik2) se muestra el gráfico de niveles para la superficie de log-verosimilitud. De esta figura se nota claramente que los valores que maximizan la superficie están alrededor de $\mu=170$ y $\sigma=5$.
 
-```{r loglik2, fig.cap='Gráfico de niveles para la función de log-verosimilitud para el ejemplo sobre normal.', fig.asp=0.6, fig.width=9, echo=FALSE}
+```{r loglik2, fig.cap='Gráfico de niveles para la función de log-verosimilitud para el ejemplo sobre normal.', fig.asp=0.6, fig.width=9}
 ll1 <- function(a, b) sum(dnorm(x=y, mean=a, sd=b, log=TRUE))
 ll1 <- Vectorize(ll1)
 xx <- seq(from=160, to=180, by=0.5)
@@ -175,12 +177,12 @@ Otros resultados importantes de la salida anterior son el valor de `convergence=
 
 
 ```{block2, type='rmdnote'}
-En \proglang{R} se tienen dos funciones básicas para optimizar funciones, es decir, para encontrar los valores que minimizan una función dada. Esas dos funciones son `nliminb` y `optim`. Para optimizar en una sola dimensión se usa la función `optimize`.
+En R se tienen dos funciones básicas para optimizar funciones, es decir, para encontrar los valores que minimizan una función dada. Esas dos funciones son `nliminb` y `optim`. Para optimizar en una sola dimensión se usa la función `optimize`.
 ```
 
 4) ¿Hay alguna función para obtener directamente el valor que maximiza la función log-verosimilitud?
 
-La respuesta es si. Si la distribución estudiada es una de las distribuciones básicas se puede usar la función `fitdistr` del paquete básico **MASS**. La función `fitdistr` requiere de los datos que se ingresan por medio del parámetro `x`, y de la distribución de los datos que se ingresa por medio del parámetro `densfun`. La función `fitdistr` admite 15 distribuciones diferentes para hacer la búsqueda de los parámetros que caracterizan una distribución, se sugiere consultar la ayuda de la función `fitdistr` escribiendo en la consola `help(fitdistr)`. A continuación el código usado. \index{fitdistr}
+La respuesta es si. Si la distribución estudiada es una de las distribuciones básicas se puede usar la función `fitdistr` del paquete básico **MASS**. Esta función requiere de los datos que se ingresan por medio del parámetro `x`, y de la distribución de los datos que se ingresa por medio del parámetro `densfun`. La función `fitdistr` admite 15 distribuciones diferentes para hacer la búsqueda de los parámetros que caracterizan una distribución, se sugiere consultar la ayuda de la función `fitdistr` escribiendo en la consola `help(fitdistr)`. A continuación el código usado. \index{fitdistr}
 
 ```{r, message=FALSE}
 require(MASS) # El paquete ya está instalado, solo se debe cargar
@@ -268,62 +270,6 @@ De los resultados anteriores se concluye que entre los dos modelos, el mejor es 
 Modelos anidados pueden ser comparados por medio del _global deviance_ ($GD$) dado por $GD=-2 \, \hat{l}$ y modelos no anidados por medio del _Generalized Akaike information criterion_ ($GAIC$) propuesto por @Akaike83 y dado por $GAIC=-2 \, \hat{l} + \sharp \, df$ siendo $\sharp$ el valor de penalidad por cada parámetro adicional en el modelo; cuando $\sharp = 2$, el $GAIC$ coincide con el $AIC$ y el _Schwarz Bayesian criterion_ ($SBC$) propuesto por @Schwarz se dá cuando el valor de penalidad es $\sharp = \log(n)$ donde $n$ es el número de observaciones del modelo; siempre el modelo elegido es aquel modelo con el menor valor de cualquiera de los criterios de información anteriores.
 ```
 
-### Ejemplo {-}
-¿Será posible explorar entre muchas distribuciones estadísticas aquella que mejor explica una variable de interés?
-
-La respuesta es si, se puede usar la función `fitDist` del paquete **gamlss** \index{gamlss}. Esta función tiene la siguiente estructura:
-
-```{r, eval=FALSE}
-fitDist(y, k = 2, 
-      type = c("realAll", "realline", "realplus",
-               "real0to1", "counts", "binom"))
-```
-
-El parámetro `y` sirve para ingresar el vector con la información; `k=2` es la penalización por cada parámetro estimado para calcular el $GAIC$, por defecto es 2; y el parámetro `type` sirve para indicar el tipo de distribución, los posibles valores son:
-
-- `realAll`: para hacer la búsqueda en todas las distribuciones disponibles en **gamlss**.
-- `realline`: para variables en $\Re$.
-- `realplus`: para variables en $\Re^+$.
-- `real0to1`: para variables en el intervalo $(0, 1)$.
-- `counts`: para variables de conteo.
-- `binom`: para variables de tipo binomial.
-
-1) Usar la función `fitDist` para elegir la distribución que mejor se ajusta a los datos simulados en el ejemplo anterior, usar una penalizacion de $k=2$ para calcular el $AIC$.
-
-Se usa la función `fitDist` con `type='realplus'` porque se sabe que la muestra aleatoria tiene valores sólo en $\Re^+$, los resultados de almacenan en el objeto `modelos`. Para obtener la lista de los mejores modelos con su respectivo $BAIC$ se escribe en la consola `modelos$fits`. Abajo el código usado.
-
-```{r, message=FALSE, warning=FALSE}
-require(gamlss)
-modelos <- fitDist(y=ma, type='realplus', k=2)
-modelos$fits
-```
-
-De la lista anterior se observa que la función gamma está en el primer lugar con un $BAIC=466$, valor que coincide con el $AIC$ obtenido en el ejercicio anterior. Esto significa que como la gamma tiene el menor $BAIC$, es la distribución que mejor se ajusta a los datos de la muestra, esto coincide con la realidad, ya que la muestra fue generada de una distribución gamma.
-
-¿Por queé $AIC$ y $BAIC$ coinciden en este ejemplo?
-
-2) ¿Cuáles son los valores estimados de los parámetros para la distribución gamma identificada en el paso anterior?
-
-En **gamlss** los parámetros de las distribuciones se nombran de una forma especial, el parámetro de posición se denomina $\mu$, el de dispersión se denomina $\sigma$ y los de simetría y curtosis con $\nu$ y $\tau$. La distribución gamma sólo tiene 2 parámetros y para obtener sus valores estimados se usa el siguiente código.
-
-```{r}
-modelos$mu
-modelos$sigma
-```
-
-Si comparamos los anteriores resultados, $\hat{\mu}= 4.308$ y $\hat{\sigma}=0.6682$, con los encontrados al usar la función `fitdist`, $\widehat{shape}=2.23978$ y $\widehat{rate}=0.51988$, vemos que no coinciden, esto se debe a que la parametrización de la gamma usada por **gamlss** es diferente a la parametrización usada por la base de \proglang{R}. Lo anterior no es motivo de preocupación, lo que se recomienda es que el usuario elija una de las parametrizaciones y trabaje con ella, no debe mezclarlas.
-
-3) Dibujar el histograma para la muestra aleatoria y agregar la densidad de la distribución gamma identificada como la distribución que mejor explica el comportamiento de la variable.
-
-Para hacer lo solicitado se usa la función `histDist` del paquete **gamlss**, sólo es necesario ingresar los datos y la familia o distribución de la densidad requerida. Abajo el código usado.
-
-```{r histDist1, fig.cap='Histograma para la muestra simulada con la densidad de una Gamma(mu=4.308, sigma=0.6682).', fig.asp=0.6, fig.width=9}
-histDist(y=ma, family=GA, main='', xlab='x', ylab='Densidad',
-         line.col='blue', line.wd=4)
-```
-
-En la Figura \@ref(fig:histDist1) se presenta el histograma para muestra aleatoria y la densidad de la gamma que mejor explica estos datos. Se observa claramente que la curva de densidad azul acompaña el patrón de los datos.
-
 ## Score e Información de Fisher
 En esta sección se explican los conceptos y utilidad de la función Score y la Información de Fisher.
 
@@ -385,7 +331,7 @@ legend('topright', legend=c('Con 5', 'Con 5, 10, 6 y 15'),
 ```
 
 ## Método de máxima verosimilitud para estimar parámetros en modelos de regresión
-En la sección anterior se estudió cómo estimar los parámetros de una distribución, en este capítulo se aprenderá a estimar los parámetros de un modelo de regresión general.
+En esta sección se mostrará como estimar los parámetros de un modelo de regresión general.
 
 ### Ejemplo {-}
 Considere el modelo de regresión mostrado abajo. Simule 1000 observaciones del modelo y use la función `optim` para estimar los parámetros del modelo.
@@ -401,14 +347,13 @@ El código mostrado a continuación permite simular un conjunto de valores con l
 
 ```{r}
 n <- 1000
-x1 <- runif(n=n, -5, 6)
+x1 <- runif(n=n, min=-5, max=6)
 y <- rnorm(n=n, mean=-2 + 3 * x1, sd=5)
 ```
 
 
 El vector de parámetros del modelo anterior es $\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top$, el primer elemento corresponde al intercepto, el segundo a la pendiente y el último a la desviación.
 
-A continuación se define la función de __menos__ log-verosimilitud para el modelo anterior. A pesar de que nos interesa maximizar la función de log-verosimilitud hemos creado su negativo, esto porque la mayoría de las funciones de optimización minimizan y no maximizan; maximizar $f(x)$ es equivalente a minimizar $-f(x)$.
 
 ```{r}
 minusll <- function(theta, y, x1) {
@@ -421,10 +366,9 @@ minusll <- function(theta, y, x1) {
 Ahora vamos a usar la función `optim` para encontrar los valores que maximizan la función de log-verosimilitud, el código para hacer eso se muestra a continuación. En el parámetro `par` se coloca un vector de posibles valores de $\boldsymbol{\Theta}$ para iniciar la búsqueda, en `fn` se coloca la función de interés, en `lower` y `upper` se colocan vectores que indican los límites de búsqueda de cada parámetro, los $\beta_k$ pueden variar entre $-\infty$ y $\infty$ mientras que el parámetro $\sigma$ toma valores en el intervalo $(0, \infty)$. Como la función `minusll` tiene argumentos adicionales `y` e `x1`, estos pasan a la función `optim` al final como se muestra en el código.
 
 ```{r}
-res1 <- optim(par=c(0, 0, 1), fn=minusll,
-              method='L-BFGS-B',
-              lower=c(-Inf, -Inf, 0),
-              upper=c(Inf, Inf, Inf), y=y, x1=x1)
+res1 <- optim(par=c(0, 0, 1), fn=minusll, method='L-BFGS-B',
+              lower=c(-Inf, -Inf, 0), upper=c(Inf, Inf, Inf), 
+              y=y, x1=x1)
 ```
 
 En el objeto `res1` está el resultado de la optimización, para explorar los resultados usamos
@@ -433,10 +377,13 @@ En el objeto `res1` está el resultado de la optimización, para explorar los re
 res1
 ```
 
-De la salida anterior se observa que el vector de parámetros estimado es `r res1$par` y que el valor de la máxima log-verosimilitud fue de `r res1$value`. Vemos entonces que el vector estimado está muy cerca del verdadero $\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top$.
+De la salida anterior se observa que el vector de parámetros estimado es $\hat{\beta}_0 = `r res1$par[1]`$, $\hat{\beta}_1 = `r res1$par[2]`$ y $\hat{\sigma} = `r res1$par[3]`$, se observa también que el valor de la máxima log-verosimilitud fue de `r -res1$value`. Vemos entonces que el vector estimado está muy cerca del verdadero $\boldsymbol{\Theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top$.
 
-En algunas ocasiones es mejor hacer la búsqueda de los parámetros en el intervalo $(-\infty, \infty)$ que en una región limitada como por ejemplo $(0, \infty)$ o $(-1, 1)$, ya que las funciones de búsqueda podrían tener problemas en los límites numéricos. 
-Una estrategia usual en este tipo de casos es aplicar una transformación apropiada al parámetro que tiene el dominio limitado. En el presente ejemplo $\sigma$ sólo puede tomar valores mayores que cero y una transformación de tipo $\log$ podría ser muy útil ya que $\log$ relaciona los reales positivos con todos los reales. La transformación para este problema sería $\log(\sigma)=\beta_3$ o escrita de forma inversa $\sigma=\exp(\beta_3)$. El nuevo parámetro $\beta_3$ puede variar en $(-\infty, \infty)$ pero al ser transformado por la función exponencial este se volvería un valor apropiado para $\sigma$. Para implementar esta variación lo único que se debe hacer es modificar la línea 3 de la función `minusll` como se muestra a continuación:
+```{block2, type='rmdnote'}
+Cuando se usa `optim` es necesario decirle que inicie la búsqueda de $\boldsymbol{\Theta}$ a partir de un lugar. Por esa razón se usó `par=c(0, 0, 1)`, esto significa que la búsqueda inicia en el tripleta $\beta_0=0$, $\beta_1=0$ y $\sigma=1$.
+```
+
+En algunas ocasiones es mejor hacer la búsqueda de los parámetros en el intervalo $(-\infty, \infty)$ que en una región limitada como por ejemplo $(0, \infty)$ o $(-1, 1)$, ya que las funciones de búsqueda podrían tener problemas en los bordes de esos intervalos. Una estrategia usual en este tipo de casos es aplicar una transformación apropiada al parámetro que tiene el dominio limitado. En el presente ejemplo $\sigma$ sólo puede tomar valores mayores que cero y una transformación de tipo $\log$ podría ser muy útil ya que $\log$ relaciona los reales positivos con todos los reales. La transformación para este problema sería $\log(\sigma)=\beta_3$ o escrita de forma inversa $\sigma=\exp(\beta_3)$. El nuevo parámetro $\beta_3$ puede variar en $(-\infty, \infty)$ pero al ser transformado por la función exponencial este se volvería un valor apropiado para $\sigma$. Para implementar esta variación lo único que se debe hacer es modificar la línea 3 de la función `minusll` como se muestra a continuación:
 
 ```{r}
 minusll <- function(theta, y, x1) {
@@ -449,16 +396,12 @@ minusll <- function(theta, y, x1) {
 Para hacer la búsqueda se procede de forma similar, abajo el código necesario.
 
 ```{r}
-res2 <- optim(par=c(0, 0, 0), fn=minusll, y=y, x1=x1)
+res2 <- optim(par=c(0, 0, 0), fn=minusll, method='L-BFGS-B',
+              y=y, x1=x1)
+res2
 ```
 
-Para obtener los valores ajustados y almacenados en el objeto `res2` usamos el siguiente código.
-
-```{r}
-c(res2$par[1:2], exp(res2$par[3]))
-```
-
-De la salida anterior se observa que el vector estimado está muy cerca del verdadero $\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top$.
+De la salida anterior se observa que el vector de parámetros estimado es $\hat{\beta}_0 = `r res2$par[1]`$, $\hat{\beta}_1 = `r res2$par[2]`$ y $\hat{\sigma} = \exp(`r res2$par[3]`)=`r exp(res2$par[3])`$, se observa también que el valor de la máxima log-verosimilitud fue de `r -res2$value`. Vemos entonces que el vector estimado está muy cerca del verdadero $\boldsymbol{\Theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top$.
 
 ## EJERCICIOS {-}
 
@@ -467,8 +410,8 @@ De la salida anterior se observa que el vector estimado está muy cerca del verd
   + Como el histograma para la edad muestra un sesgo a la derecha se podría pensar que la distribución gamma sería una buena candidata para explicar las edades observadas. Asumiendo una distribución gamma, ¿cuáles son los estimadores de máxima verosimilitud para los parámetros?
   + ¿Cuál de los dos modelos es más apropiado para explicar la variable de interés? Calcule el $AIC$ para decidir.
 
-2) En la sección \@ref(crabs) se presentó la base de datos sobre cangrejos hembra, consulte la explicación sobre la base de datos y responda lo siguiente.
-  + Suponga que el número de satélites sobre cada hembra es una variable que se distribuye Poisson. Construya en \proglang{R} la función de log-verosimilitud $l$, dibuje la función $l$ y encuentre el estimador de máxima verosimilitud de $\lambda$.
+2) En el capítulo \@ref(discretas) se presentó un ejemplo donde se usó la base de datos sobre cangrejos hembra. Consulte la explicación sobre la base de datos y responda lo siguiente.
+  + Suponga que el número de satélites sobre cada hembra es una variable que se distribuye Poisson. Construya en R la función de log-verosimilitud $l$, dibuje la función $l$ y encuentre el estimador de máxima verosimilitud de $\lambda$.
   + Repita el ejercicio anterior asumiendo que el número de satélites se distribuye binomial negativo.
   + ¿Cuál de los dos modelos es más apropiado para explicar la variable de interés? Calcule el $AIC$ para decidir.
   
