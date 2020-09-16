@@ -2,14 +2,14 @@
 
 En este capítulo se presentará lo que es una función y se mostrarán varias funciones básicas que son útiles para realizar diversas tareas.
 
-## ¿Qué es una función de R? \index{función} \index{function}
-En la Figura \@ref(fig:machine1) se muestra una ilustración de lo que es una función o máquina general. Hay unas entradas (_inputs_) que luego son procesadas dentro de la caja para generar unas salidas (_outputs_). Un ejemplo de una función o máquina muy común en nuestras casas es la licuadora. Si a una licuadora le ingresamos leche, fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa. 
+## ¿Qué es una función de R?
+En la figura de abajo se muestra una ilustración de lo que es una función o máquina general. Hay unas entradas (_inputs_) que luego son procesadas dentro de la caja para generar unas salidas (_outputs_). Un ejemplo de una función o máquina muy común en nuestras casas es la licuadora. Si a una licuadora le ingresamos leche, fresas, azúcar y hielo, el resultado será un delicioso jugo de fresa. 
 
-```{r machine1, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org.', dpi=250, fig.align='center'}
-knitr::include_graphics("images/function_machine.png")
-```
+<p align="center">
+  <img src="images/function_machine.png" width="300">
+</p>
 
-Las funciones en R se caracterizan por un nombre corto y que dé una idea de lo que hace la función. Los elementos que pueden ingresar (_inputs_) a la función se llaman __parámetros__ y se ubican dentro de paréntesis, el cuerpo de la función se ubica dentro de llaves y es ahí donde se procesan los _inputs_ para convertirlos en _outputs_, a continuación se muestra la estructura general de una función.
+Las funciones en R se caracterizan por un nombre corto y que dé una idea de lo que hace la función. Los elementos que pueden ingresar (_inputs_) a la función se llaman __parámetros__ o __argumentos__ y se ubican dentro de paréntesis, el cuerpo de la función se ubica dentro de llaves y es ahí donde se procesan los _inputs_ para convertirlos en _outputs_, a continuación se muestra la estructura general de una función.
 
 ```{r, eval=F}
 nombre_de_funcion(parametro1, parametro2, ...) {
@@ -27,7 +27,7 @@ notas <- c(4.0, 1.3, 3.8, 2.0)  # Notas de un estudiante
 mean(notas)
 ```
 
-## Operadores de asignación \index{asignación}
+## Operadores de asignación
 En R se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.
 
 - `<-` este es el operador de asignación a izquierda, es el más usado y recomendado.
@@ -50,7 +50,7 @@ age = 25 # Not recomended
 Aunque una asignación se puede hacer de tres formas diferentes, se recomienda sólo usar el símbolo `<-`.
 ```
 
-## Operaciones básicas \index{operaciones básicas}
+## Operaciones básicas
 En R se pueden hacer diversas operaciones usando operadores binarios. Este tipo de operadores se denomina binarios porque actuan entre dos objetos, a continuación el listado.
 
 - `+` operador binario para sumar.
@@ -77,7 +77,7 @@ a ^ b  # Para potencia
 7 %% 3  # Para saber el residuo al dividir 7 entre 3
 ```
 
-## Pruebas lógicas \index{pruebas lógicas}
+## Pruebas lógicas
 En R se puede verificar si un objeto cumple una condición dada, a continuación el listado de las pruebas usuales.
 
 - `<` para saber si un número es menor que otro.
@@ -119,8 +119,7 @@ Inicialmente vamos a construir nuevamente el objeto `mimarco` de la sección 2.4
 ```{r}
 mimarco <- data.frame(edad = c(15, 19, 13, NA, 20), 
                       deporte = c(TRUE, TRUE, NA, FALSE, TRUE),
-                      comic.fav = c(NA, 'Superman', 'Batman',
-                                    NA, 'Batman'))
+                      comic_fav = c(NA, 'Superman', 'Batman', NA, 'Batman'))
 
 mimarco  # Para ver el contenido de mimarco
 ```
@@ -137,7 +136,7 @@ De la salida anterior se observa que 4 personas de las 5 cumplean la condición.
 Note que la condición `mimarco$edad >= 15` se debe ubicar __antes__ de la coma para obtener todos individuos que cumplen con la condición.
 ```
 
-## Operadores lógicos \index{operadores lógicos}
+## Operadores lógicos
 En R están disponibles los operadores lógicos negación, conjunción y disyunción. A continuación el listado de los operadores entre los elementos `x` e `y`.
 
 ```{r, eval=F}
@@ -183,7 +182,6 @@ mimarco[mimarco$edad >= 15 & mimarco$deporte == TRUE, ]
 
 De la anterior salida se observa que sólo 3 de las 5 personas cumplen ambas condiciones.
 
-\index{with}
 ```{block2, type='rmdtip'}
 La función `with` es útil porque nos permite realizar algún procedimiento en relación de un objeto, escribiendo menos y de una forma más natural.
 ```
@@ -198,8 +196,6 @@ Al usar `with` sólo se tuvo que escribir el objeto `mimarco` dos veces. Cuando 
 
 ## Funciones sobre vectores
 En R podemos destacar las siguientes funciones básicas sobre vectores numéricos.
-
-\index{min} \index{max} \index{legth} \index{range} \index{sum} \index{prod} \index{which.min} \index{which.max}  
 
 - `min`: para obtener el mínimo de un vector.
 - `max`: para obtener el máximo de un vector.
@@ -269,7 +265,7 @@ abs(2.5)
 abs(-3.6)
 ```
 
-## Función `seq` \index{seq} \index{secuencias}
+## Función `seq`
 En R podemos crear secuencias de números de una forma sencilla usando la función `seq`, la estructura de esta función es:
 
 ```{r, eval=F}
@@ -311,7 +307,7 @@ pi:6  # real sequence
 6:pi  # integer sequence
 ```
 
-## Función `rep` \index{rep} \index{repeticiones}
+## Función `rep`
 En R podemos crear repeticiones usando la función `rep`, la estructura de esta función es:
 
 ```{r, eval=F}
@@ -352,7 +348,7 @@ rep(x=1:4, each=2, len=10)   # 8 integers plus two recycled 1's.
 rep(x=1:4, each=2, times=3)  # length 24, 3 complete replications
 ```
 
-## Funciones `round`, `ceiling`, `floor` y `trunc` \index{round} \index{ceiling}  \index{floor}  \index{trunc}
+## Funciones `round`, `ceiling`, `floor` y `trunc`
 
 Existen 4 funciones útiles para modificar u obtener información de un número, estas funciones son `round`, `ceiling`, `floor` y `trunc`.
 
@@ -384,7 +380,7 @@ floor(x)
 trunc(x)
 ```
 
-## Funciones `sort` y `rank` \index{sort} \index{rank}  \index{ordenar}  \index{posición}
+## Funciones `sort` y `rank`
 Las funciones `sort` y `rank` son útiles para ordenar los elementos de un vector o para saber las posiciones que ocuarían los elementos de un vector al ser ordenado. La estructura de las dos funciones es la siguiente.
 
 ```{r, eval=F}

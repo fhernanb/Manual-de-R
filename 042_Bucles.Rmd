@@ -2,7 +2,7 @@
 
 En R se disponen de varias instrucciones de control para facilitar los procedimientos que un usuario debe realizar. A continuación se explican esas instrucciones de control.
 
-## Instrucción `if` \index{if}
+## Instrucción `if`
 Esta instrucción sirve para realizar un conjunto de operaciones __si__ se cumple cierta condición. A continuación se muestra la estructura básica de uso.
 
 ```{r, eval=FALSE}
@@ -31,7 +31,7 @@ if(hlab > 40) {
 sal  # Salario semanal
 ```
 
-## Instrucción `if` `else` \index{else}
+## Instrucción `if` `else` 
 Esta instrucción sirve para realizar un conjunto de operaciones cuando __NO__ se cumple cierta condición evaluada por un `if`. A continuación se muestra la estructura básica de uso.
 
 ```{r, eval=FALSE}
@@ -49,7 +49,7 @@ else {
 }
 ```
 
-## Instrucción `ifelse` \index{ifelse}
+## Instrucción `ifelse` 
 Se recomienda usar la instrucción `ifelse` cuando hay una sola instrucción para el caso `if` y para el caso `else`. A continuación se muestra la estructura básica de uso.
 
 ```{r, eval=FALSE}
@@ -65,7 +65,7 @@ x <- c(5, 3, 2, 8, -4, 1)
 ifelse(x %% 2 == 0, 'Es par', 'Es impar')
 ```
 
-## Instrucción `for` \index{for}
+## Instrucción `for` 
 La instrucción `for` es muy útil para repetir un procedimiento cierta cantidad de veces. A continuación se muestra la estructura básica de uso.
 
 ```{r, eval=FALSE}
@@ -93,7 +93,7 @@ for (i in 1:nrep) {
 conteo  # Para obtener el conteo
 ```
 
-## Instrucción `while` \index{while}
+## Instrucción `while` 
 La instrucción `while` es muy útil para repetir un procedimiento siempre que se cumple una condición. A continuación se muestra la estructura básica de uso.
 
 ```{r, eval=FALSE}
@@ -139,7 +139,7 @@ num.lanza
 La instrucción `for` se usa cuando sabemos el número de veces que se debe repetir el procedimiento, mientras que la instrucción `while` se usa cuando debemos repetir un procedimiento cuando se cumpla una condición.
 ```
 
-## Instrucción `repeat` \index{repeat}
+## Instrucción `repeat` 
 La instrucción `while` es muy útil para repetir un procedimiento siempre que se cumple una condición. A continuación se muestra la estructura básica de uso.
 
 ```{r, eval=FALSE}
