@@ -184,6 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a><ul>
 <li class="chapter" data-level="4.1" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-la-consola"><i class="fa fa-check"></i><b>4.1</b> Usando la consola</a></li>
 <li class="chapter" data-level="4.2" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-ventana-emergente-con-svdialogs"><i class="fa fa-check"></i><b>4.2</b> Usando ventana emergente con <strong>svDialogs</strong></a></li>
+<li class="chapter" data-level="4.3" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#botones-para-responder"><i class="fa fa-check"></i><b>4.3</b> Botones para responder</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a><ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
@@ -236,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a><ul>
-<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R? </a></li>
-<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R </a><ul>
+<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R?</a></li>
+<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a><ul>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -487,10 +488,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="prueba-de-hipótesis-para-mu-de-una-población-normal" class="section level2">
 <h2><span class="header-section-number">20.1</span> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</h2>
 <p>Para realizar este tipo de prueba se puede usar la función <code>t.test</code> que tiene la siguiente estructura.</p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="ph.html#cb599-1"></a><span class="kw">t.test</span>(x, <span class="dt">y =</span> <span class="ot">NULL</span>,</span>
-<span id="cb599-2"><a href="ph.html#cb599-2"></a>       <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
-<span id="cb599-3"><a href="ph.html#cb599-3"></a>       <span class="dt">mu =</span> <span class="dv">0</span>, <span class="dt">paired =</span> <span class="ot">FALSE</span>, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb599-4"><a href="ph.html#cb599-4"></a>       <span class="dt">conf.level =</span> <span class="fl">0.95</span>, ...)</span></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="ph.html#cb602-1"></a><span class="kw">t.test</span>(x, <span class="dt">y =</span> <span class="ot">NULL</span>,</span>
+<span id="cb602-2"><a href="ph.html#cb602-2"></a>       <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
+<span id="cb602-3"><a href="ph.html#cb602-3"></a>       <span class="dt">mu =</span> <span class="dv">0</span>, <span class="dt">paired =</span> <span class="ot">FALSE</span>, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb602-4"><a href="ph.html#cb602-4"></a>       <span class="dt">conf.level =</span> <span class="fl">0.95</span>, ...)</span></code></pre></div>
 <p>Los argumentos a definir dentro de <code>t.test</code> para hacer la prueba son:</p>
 <ul>
 <li><code>x</code>: vector numérico con los datos.</li>
@@ -504,11 +505,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un nivel de significancia del 5%.</p>
 <p><em>Solución</em></p>
 <p>Lo primero es explorar si la muestra proviene de una distribución normal, para eso ingresamos los datos y aplicamos la prueba Anderson-Darling por medio de la función <code>ad.test</code> disponible en el paquete <strong>nortest</strong> <span class="citation">(Gross and Ligges <a href="#ref-R-nortest" role="doc-biblioref">2015</a>)</span> como se muestra a continuación.</p>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="ph.html#cb600-1"></a>contenido &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">510</span>, <span class="dv">492</span>, <span class="dv">494</span>, <span class="dv">498</span>, <span class="dv">492</span>,</span>
-<span id="cb600-2"><a href="ph.html#cb600-2"></a>               <span class="dv">496</span>, <span class="dv">502</span>, <span class="dv">491</span>, <span class="dv">507</span>, <span class="dv">496</span>) </span>
-<span id="cb600-3"><a href="ph.html#cb600-3"></a></span>
-<span id="cb600-4"><a href="ph.html#cb600-4"></a><span class="kw">require</span>(nortest) <span class="co"># Se debe haber instalado antes nortest</span></span>
-<span id="cb600-5"><a href="ph.html#cb600-5"></a><span class="kw">ad.test</span>(contenido)</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="ph.html#cb603-1"></a>contenido &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">510</span>, <span class="dv">492</span>, <span class="dv">494</span>, <span class="dv">498</span>, <span class="dv">492</span>,</span>
+<span id="cb603-2"><a href="ph.html#cb603-2"></a>               <span class="dv">496</span>, <span class="dv">502</span>, <span class="dv">491</span>, <span class="dv">507</span>, <span class="dv">496</span>) </span>
+<span id="cb603-3"><a href="ph.html#cb603-3"></a></span>
+<span id="cb603-4"><a href="ph.html#cb603-4"></a><span class="kw">require</span>(nortest) <span class="co"># Se debe haber instalado antes nortest</span></span>
+<span id="cb603-5"><a href="ph.html#cb603-5"></a><span class="kw">ad.test</span>(contenido)</span></code></pre></div>
 <pre><code>## 
 ##  Anderson-Darling normality test
 ## 
@@ -519,8 +520,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[H_0: \mu = 500 \quad gr\]</span>
 <span class="math display">\[H_1: \mu \neq 500 \quad gr\]</span>
 La prueba de hipótesis se puede realizar usando la función <code>t.test</code> por medio del siguiente código.</p>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="ph.html#cb602-1"></a><span class="kw">t.test</span>(contenido, <span class="dt">alternative=</span><span class="st">&#39;two.sided&#39;</span>,</span>
-<span id="cb602-2"><a href="ph.html#cb602-2"></a>       <span class="dt">conf.level=</span><span class="fl">0.95</span>, <span class="dt">mu=</span><span class="dv">500</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="ph.html#cb605-1"></a><span class="kw">t.test</span>(contenido, <span class="dt">alternative=</span><span class="st">&#39;two.sided&#39;</span>,</span>
+<span id="cb605-2"><a href="ph.html#cb605-2"></a>       <span class="dt">conf.level=</span><span class="fl">0.95</span>, <span class="dt">mu=</span><span class="dv">500</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -546,15 +547,15 @@ La prueba de hipótesis se puede realizar usando la función <code>t.test</code>
 <p><span class="math display">\[H_0: \mu \ge 20000 \quad km\]</span>
 <span class="math display">\[H_1: \mu &lt; 20000 \quad km\]</span>
 Para este tipo de pruebas no hay una función de R que haga los cálculos, por esta razón uno mismo debe escribir una líneas de código para obtener los resultados deseados, a continuación las instrucciones para calcular el estadístico y su valor-P.</p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="ph.html#cb604-1"></a>xbarra &lt;-<span class="st"> </span><span class="dv">19500</span>  <span class="co"># Datos del problema</span></span>
-<span id="cb604-2"><a href="ph.html#cb604-2"></a>desvia &lt;-<span class="st"> </span><span class="dv">3900</span>   <span class="co"># Datos del problema</span></span>
-<span id="cb604-3"><a href="ph.html#cb604-3"></a>n &lt;-<span class="st"> </span><span class="dv">100</span>         <span class="co"># Datos del problema</span></span>
-<span id="cb604-4"><a href="ph.html#cb604-4"></a>mu &lt;-<span class="st"> </span><span class="dv">20000</span>      <span class="co"># Media de referencia</span></span>
-<span id="cb604-5"><a href="ph.html#cb604-5"></a></span>
-<span id="cb604-6"><a href="ph.html#cb604-6"></a>est &lt;-<span class="st"> </span>(xbarra <span class="op">-</span><span class="st"> </span>mu) <span class="op">/</span><span class="st"> </span>(desvia <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n))</span>
-<span id="cb604-7"><a href="ph.html#cb604-7"></a>est  <span class="co"># Para obtener el valor del estadístico</span></span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="ph.html#cb607-1"></a>xbarra &lt;-<span class="st"> </span><span class="dv">19500</span>  <span class="co"># Datos del problema</span></span>
+<span id="cb607-2"><a href="ph.html#cb607-2"></a>desvia &lt;-<span class="st"> </span><span class="dv">3900</span>   <span class="co"># Datos del problema</span></span>
+<span id="cb607-3"><a href="ph.html#cb607-3"></a>n &lt;-<span class="st"> </span><span class="dv">100</span>         <span class="co"># Datos del problema</span></span>
+<span id="cb607-4"><a href="ph.html#cb607-4"></a>mu &lt;-<span class="st"> </span><span class="dv">20000</span>      <span class="co"># Media de referencia</span></span>
+<span id="cb607-5"><a href="ph.html#cb607-5"></a></span>
+<span id="cb607-6"><a href="ph.html#cb607-6"></a>est &lt;-<span class="st"> </span>(xbarra <span class="op">-</span><span class="st"> </span>mu) <span class="op">/</span><span class="st"> </span>(desvia <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n))</span>
+<span id="cb607-7"><a href="ph.html#cb607-7"></a>est  <span class="co"># Para obtener el valor del estadístico</span></span></code></pre></div>
 <pre><code>## [1] -1.282051</code></pre>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="ph.html#cb606-1"></a><span class="kw">pnorm</span>(est)  <span class="co"># Para obtener el valor-P</span></span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="ph.html#cb609-1"></a><span class="kw">pnorm</span>(est)  <span class="co"># Para obtener el valor-P</span></span></code></pre></div>
 <pre><code>## [1] 0.09991233</code></pre>
 <p>Como el valor-P es mayor que el nivel de significancia 3%, no hay evidencias suficientes para pensar que ha disminuido el recorrido anual promedio de los autos.</p>
 </div>
@@ -583,11 +584,11 @@ donde <span class="math inline">\(\hat{p}\)</span> es la proporción muestral ca
 <p><span class="math display">\[H_0: p = 0.90\]</span>
 <span class="math display">\[H_1: p &lt; 0.90\]</span></p>
 <p>Del anterior conjunto de hipótesis se observa que el valor de referencia de la prueba es <span class="math inline">\(p_0=0.90\)</span>. De la información inicial se tiene que de las <span class="math inline">\(n=200\)</span> pruebas se observó que en <span class="math inline">\(x=174\)</span> la mancha desapareció, con esta información se puede calcular el estadístico <span class="math inline">\(z\)</span> así:</p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="ph.html#cb608-1"></a>z &lt;-<span class="st"> </span>(<span class="dv">174</span><span class="op">/</span><span class="dv">200</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.90</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="fl">0.90</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.90</span>) <span class="op">/</span><span class="st"> </span><span class="dv">200</span>)</span>
-<span id="cb608-2"><a href="ph.html#cb608-2"></a>z  <span class="co"># Para obtener el valor del estadístico</span></span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="ph.html#cb611-1"></a>z &lt;-<span class="st"> </span>(<span class="dv">174</span><span class="op">/</span><span class="dv">200</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.90</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="fl">0.90</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.90</span>) <span class="op">/</span><span class="st"> </span><span class="dv">200</span>)</span>
+<span id="cb611-2"><a href="ph.html#cb611-2"></a>z  <span class="co"># Para obtener el valor del estadístico</span></span></code></pre></div>
 <pre><code>## [1] -1.414214</code></pre>
 <p>Para obtener el valor-P de la prueba debemos tener en cuenta el sentido en la hipótesis alternativa <span class="math inline">\(H_1: p &lt; 0.90\)</span>, por esa razón el valor-P será <span class="math inline">\(P(Z&lt;z)\)</span> y para obtenerlo usamos el siguiente código</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="ph.html#cb610-1"></a><span class="kw">pnorm</span>(<span class="dt">q=</span>z, <span class="dt">lower.tail=</span><span class="ot">TRUE</span>)  <span class="co"># Para obtener el valor-P</span></span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="ph.html#cb613-1"></a><span class="kw">pnorm</span>(<span class="dt">q=</span>z, <span class="dt">lower.tail=</span><span class="ot">TRUE</span>)  <span class="co"># Para obtener el valor-P</span></span></code></pre></div>
 <pre><code>## [1] 0.0786496</code></pre>
 <p>El valor-P obtenido se puede representar gráficamente en la Figura <a href="ph.html#fig:wald1">20.1</a>.</p>
 <p>Como el valor-P obtenido fue mayor que el nivel de significancia <span class="math inline">\(\alpha=0.05\)</span> se concluye que no hay evidencias suficientes para rechazar la hipótesis nula.</p>
@@ -602,9 +603,9 @@ Figure 20.1: Representación del Valor-P para la prueba Wald.
 <div id="prueba-chi2-de-pearson" class="section level3">
 <h3><span class="header-section-number">20.3.2</span> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson</h3>
 <p>Para realizar la prueba <span class="math inline">\(\Chi^2\)</span> de Pearson se usa la función <code>prop.test</code> que tiene la siguiente estructura.</p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="ph.html#cb612-1"></a><span class="kw">prop.test</span>(x, n, <span class="dt">p =</span> <span class="ot">NULL</span>,</span>
-<span id="cb612-2"><a href="ph.html#cb612-2"></a>          <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
-<span id="cb612-3"><a href="ph.html#cb612-3"></a>          <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">correct =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="ph.html#cb615-1"></a><span class="kw">prop.test</span>(x, n, <span class="dt">p =</span> <span class="ot">NULL</span>,</span>
+<span id="cb615-2"><a href="ph.html#cb615-2"></a>          <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
+<span id="cb615-3"><a href="ph.html#cb615-3"></a>          <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">correct =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>Los argumentos a definir dentro de <code>prop.test</code> para hacer la prueba son:</p>
 <ul>
 <li><code>x</code>: número de éxitos en la muestra.</li>
@@ -623,8 +624,8 @@ Figure 20.1: Representación del Valor-P para la prueba Wald.
 <p><span class="math display">\[H_0: p = 0.90\]</span>
 <span class="math display">\[H_1: p &lt; 0.90\]</span>
 La forma de usar la función <code>prop.test</code> para realizar la prueba se muestra a continuación.</p>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="ph.html#cb613-1"></a><span class="kw">prop.test</span>(<span class="dt">x=</span><span class="dv">174</span>, <span class="dt">n=</span><span class="dv">200</span>, <span class="dt">p=</span><span class="fl">0.9</span>, <span class="dt">alternative=</span><span class="st">&#39;less&#39;</span>,</span>
-<span id="cb613-2"><a href="ph.html#cb613-2"></a>          <span class="dt">conf.level=</span><span class="fl">0.95</span>, <span class="dt">correct=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="ph.html#cb616-1"></a><span class="kw">prop.test</span>(<span class="dt">x=</span><span class="dv">174</span>, <span class="dt">n=</span><span class="dv">200</span>, <span class="dt">p=</span><span class="fl">0.9</span>, <span class="dt">alternative=</span><span class="st">&#39;less&#39;</span>,</span>
+<span id="cb616-2"><a href="ph.html#cb616-2"></a>          <span class="dt">conf.level=</span><span class="fl">0.95</span>, <span class="dt">correct=</span><span class="ot">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  1-sample proportions test without continuity correction
 ## 
@@ -641,9 +642,9 @@ La forma de usar la función <code>prop.test</code> para realizar la prueba se m
 <div id="prueba-binomial-exacta" class="section level3">
 <h3><span class="header-section-number">20.3.3</span> Prueba binomial exacta</h3>
 <p>Para realizar la prueba binomial exacta se usa la función <code>binom.test</code> que tiene la siguiente estructura.</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="ph.html#cb615-1"></a><span class="kw">binom.test</span>(x, n, <span class="dt">p =</span> <span class="fl">0.5</span>,</span>
-<span id="cb615-2"><a href="ph.html#cb615-2"></a>           <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
-<span id="cb615-3"><a href="ph.html#cb615-3"></a>           <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="ph.html#cb618-1"></a><span class="kw">binom.test</span>(x, n, <span class="dt">p =</span> <span class="fl">0.5</span>,</span>
+<span id="cb618-2"><a href="ph.html#cb618-2"></a>           <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
+<span id="cb618-3"><a href="ph.html#cb618-3"></a>           <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <p>Los argumentos a definir dentro de <code>binom.test</code> para hacer la prueba son:</p>
 <ul>
 <li><code>x</code>: número de éxitos en la muestra.</li>
@@ -661,7 +662,7 @@ La forma de usar la función <code>prop.test</code> para realizar la prueba se m
 <p><span class="math display">\[H_0: p = 0.90\]</span>
 <span class="math display">\[H_1: p &lt; 0.90\]</span>
 La forma de usar la función <code>binom.test</code> para realizar la prueba se muestra a continuación.</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="ph.html#cb616-1"></a><span class="kw">binom.test</span>(<span class="dt">x=</span><span class="dv">17</span>, <span class="dt">n=</span><span class="dv">20</span>, <span class="dt">p=</span><span class="fl">0.9</span>, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="ph.html#cb619-1"></a><span class="kw">binom.test</span>(<span class="dt">x=</span><span class="dv">17</span>, <span class="dt">n=</span><span class="dv">20</span>, <span class="dt">p=</span><span class="fl">0.9</span>, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Exact binomial test
 ## 
@@ -679,8 +680,8 @@ La forma de usar la función <code>binom.test</code> para realizar la prueba se 
 <div id="prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal" class="section level2">
 <h2><span class="header-section-number">20.4</span> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</h2>
 <p>Para realizar este tipo de prueba se usa la función <code>var.test</code> del paquete <strong>usefultools</strong> <span class="citation">(Hernandez <a href="#ref-R-usefultools" role="doc-biblioref">2020</a>)</span> disponible en el repositorio <a href="https://github.com/">GitHub</a>. La función <code>var.test</code> tiene la siguiente estructura.</p>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="ph.html#cb618-1"></a><span class="kw">var.test</span>(x, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>,</span>
-<span id="cb618-2"><a href="ph.html#cb618-2"></a>         <span class="dt">null.value =</span> <span class="dv">1</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="ph.html#cb621-1"></a><span class="kw">var.test</span>(x, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>,</span>
+<span id="cb621-2"><a href="ph.html#cb621-2"></a>         <span class="dt">null.value =</span> <span class="dv">1</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <p>Los argumentos a definir dentro de <code>var.test</code> para hacer la prueba son:</p>
 <ul>
 <li><code>x</code>: vector numérico con los datos.</li>
@@ -689,8 +690,8 @@ La forma de usar la función <code>binom.test</code> para realizar la prueba se 
 <li><code>conf.level</code>: nivel de confianza para reportar el intervalo de confianza asociado (opcional).</li>
 </ul>
 <p>Para instalar el paquete <strong>usefultools</strong> desde GitHub se debe copiar el siguiente código en la consola de R:</p>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="ph.html#cb619-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;devtools&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</span>
-<span id="cb619-2"><a href="ph.html#cb619-2"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;fhernanb/usefultools&#39;</span>, <span class="dt">force=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="ph.html#cb622-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;devtools&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</span>
+<span id="cb622-2"><a href="ph.html#cb622-2"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;fhernanb/usefultools&#39;</span>, <span class="dt">force=</span><span class="ot">TRUE</span>)</span></code></pre></div>
 <div id="ejemplo-68" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Para verificar si el proceso de llenado de bolsas de café está operando con la variabilidad permitida se toman aleatoriamente muestras de tamaño diez cada cuatro horas. Una muestra de bolsas está compuesta por las siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489, 490. El proceso de llenado está bajo control si presenta un varianza de 40 o menos. ¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un nivel de significancia del 5%.</p>
@@ -700,12 +701,12 @@ La forma de usar la función <code>binom.test</code> para realizar la prueba se 
 <p><span class="math display">\[H_0: \sigma^2 \leq 40\]</span>
 <span class="math display">\[H_1: \sigma^2 &gt; 40\]</span>
 La prueba de hipótesis se puede realizar usando la función <code>var.test</code> por medio del siguiente código.</p>
-<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="ph.html#cb620-1"></a>contenido &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">510</span>, <span class="dv">492</span>, <span class="dv">494</span>, <span class="dv">498</span>, <span class="dv">492</span>,</span>
-<span id="cb620-2"><a href="ph.html#cb620-2"></a>               <span class="dv">496</span>, <span class="dv">502</span>, <span class="dv">491</span>, <span class="dv">507</span>, <span class="dv">496</span>)</span>
-<span id="cb620-3"><a href="ph.html#cb620-3"></a></span>
-<span id="cb620-4"><a href="ph.html#cb620-4"></a><span class="kw">require</span>(usefultools)  <span class="co"># Ya debe estar instalado</span></span>
-<span id="cb620-5"><a href="ph.html#cb620-5"></a><span class="kw">var.test</span>(<span class="dt">x=</span>contenido, <span class="dt">alternative=</span><span class="st">&#39;greater&#39;</span>,</span>
-<span id="cb620-6"><a href="ph.html#cb620-6"></a>         <span class="dt">null.value=</span><span class="dv">40</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="ph.html#cb623-1"></a>contenido &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">510</span>, <span class="dv">492</span>, <span class="dv">494</span>, <span class="dv">498</span>, <span class="dv">492</span>,</span>
+<span id="cb623-2"><a href="ph.html#cb623-2"></a>               <span class="dv">496</span>, <span class="dv">502</span>, <span class="dv">491</span>, <span class="dv">507</span>, <span class="dv">496</span>)</span>
+<span id="cb623-3"><a href="ph.html#cb623-3"></a></span>
+<span id="cb623-4"><a href="ph.html#cb623-4"></a><span class="kw">require</span>(usefultools)  <span class="co"># Ya debe estar instalado</span></span>
+<span id="cb623-5"><a href="ph.html#cb623-5"></a><span class="kw">var.test</span>(<span class="dt">x=</span>contenido, <span class="dt">alternative=</span><span class="st">&#39;greater&#39;</span>,</span>
+<span id="cb623-6"><a href="ph.html#cb623-6"></a>         <span class="dt">null.value=</span><span class="dv">40</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  X-squared test for variance
 ## 
@@ -733,19 +734,19 @@ La prueba de hipótesis se puede realizar usando la función <code>var.test</cod
 <p><span class="math display">\[H_0: \sigma_{T1}^2 / \sigma_{T2}^2 = 1\]</span>
 <span class="math display">\[H_1: \sigma_{T1}^2 / \sigma_{T2}^2 \neq 1\]</span></p>
 <p>Para ingresar los datos se hace lo siguiente:</p>
-<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="ph.html#cb622-1"></a>T1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">76</span>, <span class="dv">85</span>, <span class="dv">74</span>,<span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">75</span>, <span class="dv">82</span>) </span>
-<span id="cb622-2"><a href="ph.html#cb622-2"></a>T2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">57</span>, <span class="dv">67</span>, <span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">61</span>, <span class="dv">63</span>, <span class="dv">63</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="ph.html#cb625-1"></a>T1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">76</span>, <span class="dv">85</span>, <span class="dv">74</span>,<span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">75</span>, <span class="dv">82</span>) </span>
+<span id="cb625-2"><a href="ph.html#cb625-2"></a>T2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">57</span>, <span class="dv">67</span>, <span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">61</span>, <span class="dv">63</span>, <span class="dv">63</span>)</span></code></pre></div>
 <p>Primero se debe explorar si las muestras provienen de una población normal y para esto se construyen los QQplot que se muestran en la Figura <a href="ph.html#fig:frijoles1">20.2</a>, a continuación el código para generar la Figura <a href="ph.html#fig:frijoles1">20.2</a>.</p>
-<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="ph.html#cb623-1"></a>q1 &lt;-<span class="st"> </span><span class="kw">qqnorm</span>(T1, <span class="dt">plot.it=</span><span class="ot">FALSE</span>)</span>
-<span id="cb623-2"><a href="ph.html#cb623-2"></a>q2 &lt;-<span class="st"> </span><span class="kw">qqnorm</span>(T2, <span class="dt">plot.it=</span><span class="ot">FALSE</span>)</span>
-<span id="cb623-3"><a href="ph.html#cb623-3"></a><span class="kw">plot</span>(<span class="kw">range</span>(q1<span class="op">$</span>x, q2<span class="op">$</span>x), <span class="kw">range</span>(q1<span class="op">$</span>y, q2<span class="op">$</span>y), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb623-4"><a href="ph.html#cb623-4"></a>     <span class="dt">xlab=</span><span class="st">&#39;Theoretical Quantiles&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Sample Quantiles&#39;</span>)</span>
-<span id="cb623-5"><a href="ph.html#cb623-5"></a><span class="kw">points</span>(q1, <span class="dt">pch=</span><span class="dv">19</span>)</span>
-<span id="cb623-6"><a href="ph.html#cb623-6"></a><span class="kw">points</span>(q2, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">pch=</span><span class="dv">19</span>)</span>
-<span id="cb623-7"><a href="ph.html#cb623-7"></a><span class="kw">qqline</span>(T1, <span class="dt">lty=</span><span class="st">&#39;dashed&#39;</span>)</span>
-<span id="cb623-8"><a href="ph.html#cb623-8"></a><span class="kw">qqline</span>(T2, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dashed&quot;</span>)</span>
-<span id="cb623-9"><a href="ph.html#cb623-9"></a><span class="kw">legend</span>(<span class="st">&#39;topleft&#39;</span>, <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&#39;T1&#39;</span>, <span class="st">&#39;T2&#39;</span>), <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>,</span>
-<span id="cb623-10"><a href="ph.html#cb623-10"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>), <span class="dt">pch=</span><span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="ph.html#cb626-1"></a>q1 &lt;-<span class="st"> </span><span class="kw">qqnorm</span>(T1, <span class="dt">plot.it=</span><span class="ot">FALSE</span>)</span>
+<span id="cb626-2"><a href="ph.html#cb626-2"></a>q2 &lt;-<span class="st"> </span><span class="kw">qqnorm</span>(T2, <span class="dt">plot.it=</span><span class="ot">FALSE</span>)</span>
+<span id="cb626-3"><a href="ph.html#cb626-3"></a><span class="kw">plot</span>(<span class="kw">range</span>(q1<span class="op">$</span>x, q2<span class="op">$</span>x), <span class="kw">range</span>(q1<span class="op">$</span>y, q2<span class="op">$</span>y), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb626-4"><a href="ph.html#cb626-4"></a>     <span class="dt">xlab=</span><span class="st">&#39;Theoretical Quantiles&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Sample Quantiles&#39;</span>)</span>
+<span id="cb626-5"><a href="ph.html#cb626-5"></a><span class="kw">points</span>(q1, <span class="dt">pch=</span><span class="dv">19</span>)</span>
+<span id="cb626-6"><a href="ph.html#cb626-6"></a><span class="kw">points</span>(q2, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">pch=</span><span class="dv">19</span>)</span>
+<span id="cb626-7"><a href="ph.html#cb626-7"></a><span class="kw">qqline</span>(T1, <span class="dt">lty=</span><span class="st">&#39;dashed&#39;</span>)</span>
+<span id="cb626-8"><a href="ph.html#cb626-8"></a><span class="kw">qqline</span>(T2, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb626-9"><a href="ph.html#cb626-9"></a><span class="kw">legend</span>(<span class="st">&#39;topleft&#39;</span>, <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&#39;T1&#39;</span>, <span class="st">&#39;T2&#39;</span>), <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>,</span>
+<span id="cb626-10"><a href="ph.html#cb626-10"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>), <span class="dt">pch=</span><span class="dv">19</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:frijoles1"></span>
 <img src="Manual_de_R_files/figure-html/frijoles1-1.png" alt="QQplot para los tiempos de cocción." width="384" />
 <p class="caption">
@@ -754,15 +755,15 @@ Figure 20.2: QQplot para los tiempos de cocción.
 </div>
 <p>De la Figura <a href="ph.html#fig:frijoles1">20.2</a> se observa que los puntos están bastante alineados lo cual nos lleva a pensar que las muestras si provienen de una población normal, para estar más seguros se aplicará una prueba formal para estudiar la normalidad.</p>
 <p>A continuación el código para aplicar la prueba de normalidad Kolmogorov-Smirnov a cada una de las muestras.</p>
-<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="ph.html#cb624-1"></a><span class="kw">require</span>(nortest)  <span class="co"># Se debe tener instalado</span></span>
-<span id="cb624-2"><a href="ph.html#cb624-2"></a><span class="kw">lillie.test</span>(T1)<span class="op">$</span>p.value</span></code></pre></div>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="ph.html#cb627-1"></a><span class="kw">require</span>(nortest)  <span class="co"># Se debe tener instalado</span></span>
+<span id="cb627-2"><a href="ph.html#cb627-2"></a><span class="kw">lillie.test</span>(T1)<span class="op">$</span>p.value</span></code></pre></div>
 <pre><code>## [1] 0.520505</code></pre>
-<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="ph.html#cb626-1"></a><span class="kw">lillie.test</span>(T2)<span class="op">$</span>p.value</span></code></pre></div>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="ph.html#cb629-1"></a><span class="kw">lillie.test</span>(T2)<span class="op">$</span>p.value</span></code></pre></div>
 <pre><code>## [1] 0.3952748</code></pre>
 <p>Del QQplot mostrado en la Figura <a href="ph.html#fig:frijoles1">20.2</a> y las pruebas de normalidad se observa que se puede asumir que las poblaciones son normales.</p>
 <p>La función <code>var.test</code> se puede usar para probar <span class="math inline">\(H_0\)</span>, a continuación el código para realizar la prueba.</p>
-<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="ph.html#cb628-1"></a><span class="kw">var.test</span>(T1, T2, <span class="dt">null.value=</span><span class="dv">1</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,</span>
-<span id="cb628-2"><a href="ph.html#cb628-2"></a>         <span class="dt">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="ph.html#cb631-1"></a><span class="kw">var.test</span>(T1, T2, <span class="dt">null.value=</span><span class="dv">1</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,</span>
+<span id="cb631-2"><a href="ph.html#cb631-2"></a>         <span class="dt">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  F test to compare two variances
 ## 
@@ -787,8 +788,8 @@ Figure 20.2: QQplot para los tiempos de cocción.
 <p><span class="math display">\[H_0: \sigma_{Urb}^2 / \sigma_{Rur}^2 = 1\]</span>
 <span class="math display">\[H_1: \sigma_{Urb}^2 / \sigma_{Rur}^2 \neq 1\]</span></p>
 <p>Para ingresar los datos se hace lo siguiente:</p>
-<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="ph.html#cb630-1"></a>urb &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">25</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">25</span>, <span class="dv">15</span>, <span class="dv">7</span>)</span>
-<span id="cb630-2"><a href="ph.html#cb630-2"></a>rur &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">48</span>, <span class="dv">44</span>, <span class="dv">40</span>, <span class="dv">38</span>, <span class="dv">33</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">18</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="ph.html#cb633-1"></a>urb &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">25</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">25</span>, <span class="dv">15</span>, <span class="dv">7</span>)</span>
+<span id="cb633-2"><a href="ph.html#cb633-2"></a>rur &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">48</span>, <span class="dv">44</span>, <span class="dv">40</span>, <span class="dv">38</span>, <span class="dv">33</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">18</span>)</span></code></pre></div>
 <p>Primero se debe explorar si las muestras provienen de una población normal, para esto se construyen los QQplot mostrados en la Figura <a href="ph.html#fig:ars1">20.3</a>.</p>
 <div class="figure"><span id="fig:ars1"></span>
 <img src="Manual_de_R_files/figure-html/ars1-1.png" alt="QQplot para las concentraciones de arsénico." width="384" />
@@ -797,15 +798,15 @@ Figure 20.3: QQplot para las concentraciones de arsénico.
 </p>
 </div>
 <p>A continuación el código para aplicar la prueba de normalidad Kolmogorov-Smirnov, a continuación el código usado.</p>
-<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="ph.html#cb631-1"></a><span class="kw">require</span>(nortest)  <span class="co"># Se debe tener instalado</span></span>
-<span id="cb631-2"><a href="ph.html#cb631-2"></a><span class="kw">lillie.test</span>(urb)<span class="op">$</span>p.value</span></code></pre></div>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="ph.html#cb634-1"></a><span class="kw">require</span>(nortest)  <span class="co"># Se debe tener instalado</span></span>
+<span id="cb634-2"><a href="ph.html#cb634-2"></a><span class="kw">lillie.test</span>(urb)<span class="op">$</span>p.value</span></code></pre></div>
 <pre><code>## [1] 0.5522105</code></pre>
-<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="ph.html#cb633-1"></a><span class="kw">lillie.test</span>(rur)<span class="op">$</span>p.value</span></code></pre></div>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="ph.html#cb636-1"></a><span class="kw">lillie.test</span>(rur)<span class="op">$</span>p.value</span></code></pre></div>
 <pre><code>## [1] 0.6249628</code></pre>
 <p>Del QQplot mostrado en la Figura <a href="ph.html#fig:ars1">20.3</a> y las pruebas de normalidad se observa que se pueden asumir poblaciones normales.</p>
 <p>La función <code>var.test</code> se puede usar para probar <span class="math inline">\(H_0\)</span>, a continuación el código para realizar la prueba.</p>
-<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="ph.html#cb635-1"></a><span class="kw">var.test</span>(urb, rur, <span class="dt">null.value=</span><span class="dv">1</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,</span>
-<span id="cb635-2"><a href="ph.html#cb635-2"></a>         <span class="dt">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="ph.html#cb638-1"></a><span class="kw">var.test</span>(urb, rur, <span class="dt">null.value=</span><span class="dv">1</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,</span>
+<span id="cb638-2"><a href="ph.html#cb638-2"></a>         <span class="dt">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  F test to compare two variances
 ## 
@@ -830,10 +831,10 @@ Figure 20.3: QQplot para las concentraciones de arsénico.
 <div id="prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales" class="section level2">
 <h2><span class="header-section-number">20.6</span> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</h2>
 <p>Para realizar este tipo de prueba se puede usar la función <code>t.test</code> que tiene la siguiente estructura.</p>
-<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="ph.html#cb637-1"></a><span class="kw">t.test</span>(x, <span class="dt">y =</span> <span class="ot">NULL</span>,</span>
-<span id="cb637-2"><a href="ph.html#cb637-2"></a>       <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
-<span id="cb637-3"><a href="ph.html#cb637-3"></a>       <span class="dt">mu =</span> <span class="dv">0</span>, <span class="dt">paired =</span> <span class="ot">FALSE</span>, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb637-4"><a href="ph.html#cb637-4"></a>       <span class="dt">conf.level =</span> <span class="fl">0.95</span>, ...)</span></code></pre></div>
+<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="ph.html#cb640-1"></a><span class="kw">t.test</span>(x, <span class="dt">y =</span> <span class="ot">NULL</span>,</span>
+<span id="cb640-2"><a href="ph.html#cb640-2"></a>       <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
+<span id="cb640-3"><a href="ph.html#cb640-3"></a>       <span class="dt">mu =</span> <span class="dv">0</span>, <span class="dt">paired =</span> <span class="ot">FALSE</span>, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb640-4"><a href="ph.html#cb640-4"></a>       <span class="dt">conf.level =</span> <span class="fl">0.95</span>, ...)</span></code></pre></div>
 <p>Los argumentos a definir dentro de <code>t.test</code> para hacer la prueba son:</p>
 <ul>
 <li><code>x</code>: vector numérico con la información de la muestra 1,</li>
@@ -847,9 +848,9 @@ Figure 20.3: QQplot para las concentraciones de arsénico.
 <h3>Ejemplo</h3>
 <p>Retomando el ejemplo de los fríjoles, ¿existen diferencias entre los tiempos de cocción de los fríjoles con T1 y T2? Usar un nivel de significancia del 5%.</p>
 <p>Primero se construirá un boxplot comparativo para los tiempos de cocción diferenciando por el tratamiento que recibieron. Abajo el código para obtener en este caso el boxplot. En la Figura <a href="ph.html#fig:frijoles2">20.4</a> se muestra el boxplot, de esta figura se observa que las cajas de los boxplot no se traslapan, esto es un indicio de que las medias poblacionales, <span class="math inline">\(\mu_1\)</span> y <span class="math inline">\(\mu_2\)</span>, son diferentes, se observa también que el boxplot para el tratamiento T1 está por encima del T2.</p>
-<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="ph.html#cb638-1"></a>datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">tiempo=</span><span class="kw">c</span>(T1, T2), <span class="dt">trat=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">each=</span><span class="dv">7</span>))</span>
-<span id="cb638-2"><a href="ph.html#cb638-2"></a><span class="kw">boxplot</span>(tiempo <span class="op">~</span><span class="st"> </span>trat, <span class="dt">data=</span>datos, <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb638-3"><a href="ph.html#cb638-3"></a>        <span class="dt">xlab=</span><span class="st">&#39;Tratamiento&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Tiempo (min)&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="ph.html#cb641-1"></a>datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">tiempo=</span><span class="kw">c</span>(T1, T2), <span class="dt">trat=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">each=</span><span class="dv">7</span>))</span>
+<span id="cb641-2"><a href="ph.html#cb641-2"></a><span class="kw">boxplot</span>(tiempo <span class="op">~</span><span class="st"> </span>trat, <span class="dt">data=</span>datos, <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb641-3"><a href="ph.html#cb641-3"></a>        <span class="dt">xlab=</span><span class="st">&#39;Tratamiento&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Tiempo (min)&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:frijoles2"></span>
 <img src="Manual_de_R_files/figure-html/frijoles2-1.png" alt="Boxplot para los tiempos de cocción dado el tratamiento." width="384" />
 <p class="caption">
@@ -860,8 +861,8 @@ Figure 20.4: Boxplot para los tiempos de cocción dado el tratamiento.
 <p><span class="math display">\[H_0: \mu_1  - \mu_2 = 0\]</span>
 <span class="math display">\[H_1: \mu_1  - \mu_2 \neq 0\]</span></p>
 <p>El código para realizar la prueba es el siguiente:</p>
-<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="ph.html#cb639-1"></a><span class="kw">t.test</span>(<span class="dt">x=</span>T1, <span class="dt">y=</span>T2, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">mu=</span><span class="dv">0</span>, </span>
-<span id="cb639-2"><a href="ph.html#cb639-2"></a>       <span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">TRUE</span>, <span class="dt">conf.level=</span><span class="fl">0.97</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="ph.html#cb642-1"></a><span class="kw">t.test</span>(<span class="dt">x=</span>T1, <span class="dt">y=</span>T2, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">mu=</span><span class="dv">0</span>, </span>
+<span id="cb642-2"><a href="ph.html#cb642-2"></a>       <span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">TRUE</span>, <span class="dt">conf.level=</span><span class="fl">0.97</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Two Sample t-test
 ## 
@@ -883,10 +884,10 @@ Figure 20.4: Boxplot para los tiempos de cocción dado el tratamiento.
 <h3>Ejemplo</h3>
 <p>Retomando el ejemplo de la concentración de arsénico en el agua, ¿existen diferencias entre las concentraciones de arsénico de la zona urbana y rural? Usar un nivel de significancia del 5%.</p>
 <p>Primero se construirá un boxplot comparativo para las concentraciones de arsénico diferenciando por la zona donde se tomaron las muestras. Abajo el código para obtener en este caso el boxplot. En la Figura <a href="ph.html#fig:ars2">20.5</a> se muestra el boxplot, de esta figura se observa que las cajas de los boxplot no se traslapan, esto es un indicio de que las medias poblacionales, <span class="math inline">\(\mu_1\)</span> y <span class="math inline">\(\mu_2\)</span>, son diferentes, se observa también que el boxplot para la zona rural está por encima del de la zona urbana.</p>
-<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="ph.html#cb641-1"></a>datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Concentracion=</span><span class="kw">c</span>(urb, rur),</span>
-<span id="cb641-2"><a href="ph.html#cb641-2"></a>                    <span class="dt">Zona=</span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&#39;Urbana&#39;</span>, <span class="st">&#39;Rural&#39;</span>), <span class="dt">each=</span><span class="dv">10</span>))</span>
-<span id="cb641-3"><a href="ph.html#cb641-3"></a><span class="kw">boxplot</span>(Concentracion <span class="op">~</span><span class="st"> </span>Zona, <span class="dt">data=</span>datos, <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb641-4"><a href="ph.html#cb641-4"></a>        <span class="dt">xlab=</span><span class="st">&#39;Zona&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Concentración arsénico (ppb)&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="ph.html#cb644-1"></a>datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Concentracion=</span><span class="kw">c</span>(urb, rur),</span>
+<span id="cb644-2"><a href="ph.html#cb644-2"></a>                    <span class="dt">Zona=</span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&#39;Urbana&#39;</span>, <span class="st">&#39;Rural&#39;</span>), <span class="dt">each=</span><span class="dv">10</span>))</span>
+<span id="cb644-3"><a href="ph.html#cb644-3"></a><span class="kw">boxplot</span>(Concentracion <span class="op">~</span><span class="st"> </span>Zona, <span class="dt">data=</span>datos, <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb644-4"><a href="ph.html#cb644-4"></a>        <span class="dt">xlab=</span><span class="st">&#39;Zona&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Concentración arsénico (ppb)&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:ars2"></span>
 <img src="Manual_de_R_files/figure-html/ars2-1.png" alt="Boxplot para las concentaciones de arsénico dada la zona." width="384" />
 <p class="caption">
@@ -897,8 +898,8 @@ Figure 20.5: Boxplot para las concentaciones de arsénico dada la zona.
 <p><span class="math display">\[H_0: \mu_1  - \mu_2 = 0\]</span>
 <span class="math display">\[H_1: \mu_1  - \mu_2 \neq 0\]</span></p>
 <p>El código para realizar la prueba es el siguiente:</p>
-<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="ph.html#cb642-1"></a><span class="kw">t.test</span>(<span class="dt">x=</span>urb, <span class="dt">y=</span>rur, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">mu=</span><span class="dv">0</span>, </span>
-<span id="cb642-2"><a href="ph.html#cb642-2"></a>       <span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">FALSE</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="ph.html#cb645-1"></a><span class="kw">t.test</span>(<span class="dt">x=</span>urb, <span class="dt">y=</span>rur, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">mu=</span><span class="dv">0</span>, </span>
+<span id="cb645-2"><a href="ph.html#cb645-2"></a>       <span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">FALSE</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -957,8 +958,8 @@ Para todas las pruebas se incluyó un intervalo de confianza, revise si la concl
 <p><span class="math display">\[H_0: p_{antes}  - p_{despues} = 0\]</span>
 <span class="math display">\[H_1: p_{antes}  - p_{despues} &gt; 0\]</span></p>
 <p>Para realizar la prueba se usa la función <code>prop.test</code> como se muestra a continuación.</p>
-<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="ph.html#cb644-1"></a><span class="kw">prop.test</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">75</span>, <span class="dv">80</span>), <span class="dt">n=</span><span class="kw">c</span>(<span class="dv">1500</span>, <span class="dv">2000</span>),</span>
-<span id="cb644-2"><a href="ph.html#cb644-2"></a>          <span class="dt">alternative=</span><span class="st">&#39;greater&#39;</span>, <span class="dt">conf.level=</span><span class="fl">0.90</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="ph.html#cb647-1"></a><span class="kw">prop.test</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">75</span>, <span class="dv">80</span>), <span class="dt">n=</span><span class="kw">c</span>(<span class="dv">1500</span>, <span class="dv">2000</span>),</span>
+<span id="cb647-2"><a href="ph.html#cb647-2"></a>          <span class="dt">alternative=</span><span class="st">&#39;greater&#39;</span>, <span class="dt">conf.level=</span><span class="fl">0.90</span>)</span></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity correction
 ## 
@@ -997,11 +998,11 @@ Para todas las pruebas se incluyó un intervalo de confianza, revise si la concl
 </tbody>
 </table>
 <p>Primero se debe explorar si las diferencias de peso (antes-después) provienen de una población normal, para esto se construye el QQplot mostrado en la Figura <a href="ph.html#fig:pesos1">20.6</a>. De la figura no se observa un alejamiento serio de la recta de referencia, por lo tanto se puede asumir que las diferencias se distribuyen en forma aproximadamente normal.</p>
-<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="ph.html#cb646-1"></a>antes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">195</span>, <span class="dv">213</span>, <span class="dv">247</span>, <span class="dv">201</span>, <span class="dv">187</span>, <span class="dv">210</span>, <span class="dv">215</span>, <span class="dv">246</span>, <span class="dv">294</span>, <span class="dv">310</span>)</span>
-<span id="cb646-2"><a href="ph.html#cb646-2"></a>despu &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">187</span>, <span class="dv">195</span>, <span class="dv">221</span>, <span class="dv">190</span>, <span class="dv">175</span>, <span class="dv">197</span>, <span class="dv">199</span>, <span class="dv">221</span>, <span class="dv">278</span>, <span class="dv">285</span>)</span>
-<span id="cb646-3"><a href="ph.html#cb646-3"></a>dif &lt;-<span class="st"> </span>antes <span class="op">-</span><span class="st"> </span>despu</span>
-<span id="cb646-4"><a href="ph.html#cb646-4"></a><span class="kw">qqnorm</span>(dif, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb646-5"><a href="ph.html#cb646-5"></a><span class="kw">qqline</span>(dif)</span></code></pre></div>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="ph.html#cb649-1"></a>antes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">195</span>, <span class="dv">213</span>, <span class="dv">247</span>, <span class="dv">201</span>, <span class="dv">187</span>, <span class="dv">210</span>, <span class="dv">215</span>, <span class="dv">246</span>, <span class="dv">294</span>, <span class="dv">310</span>)</span>
+<span id="cb649-2"><a href="ph.html#cb649-2"></a>despu &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">187</span>, <span class="dv">195</span>, <span class="dv">221</span>, <span class="dv">190</span>, <span class="dv">175</span>, <span class="dv">197</span>, <span class="dv">199</span>, <span class="dv">221</span>, <span class="dv">278</span>, <span class="dv">285</span>)</span>
+<span id="cb649-3"><a href="ph.html#cb649-3"></a>dif &lt;-<span class="st"> </span>antes <span class="op">-</span><span class="st"> </span>despu</span>
+<span id="cb649-4"><a href="ph.html#cb649-4"></a><span class="kw">qqnorm</span>(dif, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb649-5"><a href="ph.html#cb649-5"></a><span class="kw">qqline</span>(dif)</span></code></pre></div>
 <div class="figure"><span id="fig:pesos1"></span>
 <img src="Manual_de_R_files/figure-html/pesos1-1.png" alt="QQplot para las diferencias de peso." width="336" />
 <p class="caption">
@@ -1009,8 +1010,8 @@ Figure 20.6: QQplot para las diferencias de peso.
 </p>
 </div>
 <p>Se puede aplicar la prueba de normalidad Kolmogorov-Smirnov para estudiar si las diferencias <code>dif</code> provienen de una población normal, esto se puede realizar por medio del siguiente código.</p>
-<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="ph.html#cb647-1"></a><span class="kw">require</span>(nortest)</span>
-<span id="cb647-2"><a href="ph.html#cb647-2"></a><span class="kw">lillie.test</span>(dif)</span></code></pre></div>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="ph.html#cb650-1"></a><span class="kw">require</span>(nortest)</span>
+<span id="cb650-2"><a href="ph.html#cb650-2"></a><span class="kw">lillie.test</span>(dif)</span></code></pre></div>
 <pre><code>## 
 ##  Lilliefors (Kolmogorov-Smirnov) normality test
 ## 
@@ -1021,8 +1022,8 @@ Figure 20.6: QQplot para las diferencias de peso.
 <p><span class="math display">\[H_0: \mu_{antes}  - \mu_{despues} = 0\]</span>
 <span class="math display">\[H_1: \mu_{antes}  - \mu_{despues} &gt; 0\]</span></p>
 <p>El código para realizar la prueba es el siguiente:</p>
-<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="ph.html#cb649-1"></a><span class="kw">t.test</span>(<span class="dt">x=</span>antes, <span class="dt">y=</span>despu, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>, <span class="dt">mu=</span><span class="dv">0</span>, </span>
-<span id="cb649-2"><a href="ph.html#cb649-2"></a>       <span class="dt">paired=</span><span class="ot">TRUE</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="ph.html#cb652-1"></a><span class="kw">t.test</span>(<span class="dt">x=</span>antes, <span class="dt">y=</span>despu, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>, <span class="dt">mu=</span><span class="dv">0</span>, </span>
+<span id="cb652-2"><a href="ph.html#cb652-2"></a>       <span class="dt">paired=</span><span class="ot">TRUE</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 

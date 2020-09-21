@@ -39,12 +39,46 @@ my_age  <- dlgInput(message="Ingrese su edad en años: ")$res
 my_age  <- as.integer(my_age) # convert character into integer
 
 print(paste("Hola,", my_name, 
-            "el año siguiente usted tendra", 
+            "el año siguiente usted tendá", 
             my_age + 1, 
             "años de edad."))
 ```
 
+En la siguiente figura se muestran las cajas solicitando la información.
 
+<p align="center">
+  <img src="images/cajas_con_dlgInput.png" width="500">
+</p>
 
+Abajo la salida luego de correr todo el código del ejemplo.
+
+```{r echo=FALSE}
+print("Hola, Pedro el año siguiente usted tendr 26 años de edad.")
+```
+
+## Botones para responder
+La función `winDialog` del paquete básico __utils_ sirve para crear botones de diálogo en Windows solamente. A continuación se muestra la forma de generar los 4 tipos de botones.
+
+```{r eval=FALSE}
+library(utils)
+
+winDialog(type="ok", message="¿Usted quiere BORRAR el archivo?")
+winDialog(type="okcancel", message="¿Usted quiere BORRAR el archivo?")
+winDialog(type="yesno", message="¿Usted quiere BORRAR el archivo?")
+winDialog(type="yesnocancel", message="¿Usted quiere BORRAR el archivo?")
+```
+
+En la siguiente figura están las imágenes de los 4 tipos de botones.
+
+<p align="center">
+  <img src="images/botones_pregunta.png" width="500">
+</p>
+
+A continuación se muestra un ejemplo de cómo usar un botón para preguntar y luego imprimir en la consola un mensaje dependiendo de la respuesta. Copie todo el siguiente código en la consola y vea el resultado.
+
+```{r eval=FALSE}
+answer <- winDialog(type="yesno", mess="¿Le sirvió mi sugerencia?")
+if (answer=='YES') {print('Excelente!')} else {print('Lástima')}
+```
 
 

@@ -184,6 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a><ul>
 <li class="chapter" data-level="4.1" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-la-consola"><i class="fa fa-check"></i><b>4.1</b> Usando la consola</a></li>
 <li class="chapter" data-level="4.2" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-ventana-emergente-con-svdialogs"><i class="fa fa-check"></i><b>4.2</b> Usando ventana emergente con <strong>svDialogs</strong></a></li>
+<li class="chapter" data-level="4.3" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#botones-para-responder"><i class="fa fa-check"></i><b>4.3</b> Botones para responder</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a><ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
@@ -236,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a><ul>
-<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R? </a></li>
-<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R </a><ul>
+<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R?</a></li>
+<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a><ul>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -486,9 +487,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>biceps</code>: perímetro del biceps derecho (centímetros).</li>
 </ol>
 <p>A continuación se presenta el código para definir la url donde están los datos, para cargar la base de datos en R y para mostrar por pantalla un encabezado (usando <code>head</code>) de la base de datos.</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="posi.html#cb382-1"></a>url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
-<span id="cb382-2"><a href="posi.html#cb382-2"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)</span>
-<span id="cb382-3"><a href="posi.html#cb382-3"></a><span class="kw">head</span>(datos)  <span class="co"># Para ver el encabezado de la base de datos</span></span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="posi.html#cb385-1"></a>url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb385-2"><a href="posi.html#cb385-2"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)</span>
+<span id="cb385-3"><a href="posi.html#cb385-3"></a><span class="kw">head</span>(datos)  <span class="co"># Para ver el encabezado de la base de datos</span></span></code></pre></div>
 <pre><code>##   edad peso altura   sexo muneca biceps
 ## 1   43 87.3  188.0 Hombre   12.2   35.8
 ## 2   65 80.0  174.0 Hombre   12.0   35.0
@@ -499,13 +500,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="cuantiles" class="section level2">
 <h2><span class="header-section-number">12.1</span> Cuantiles     </h2>
 <p>Para obtener cualquier cuantil (cuartiles, deciles y percentiles) se usa la función <code>quantile</code>. Los argumentos básicos de la función <code>quantile</code> son tres y se muestran a continuación.</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="posi.html#cb384-1"></a><span class="kw">quantile</span>(x, probs, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="posi.html#cb387-1"></a><span class="kw">quantile</span>(x, probs, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p>En el parámetro <code>x</code> se indica la variable de interés para la cual se quieren calcular los cuantiles, el parámetro <code>probs</code> sirve para definir los cuantiles de interés y el parámetro <code>na.rm</code> es un valor lógico que en caso de ser <code>TRUE</code>, significa que se deben remover las observaciones con <code>NA</code>, el valor por defecto para este parámetro es <code>FALSE</code>.</p>
 <div id="ejemplo-42" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa la altura del grupo de estudiantes.</p>
 <p>Se solicita el percentil 5, la mediana que es el percentil 50 y el decil 8 que corresponde al percentil 80, por lo tanto es necesario indicarle a la función <code>quantile</code> que calcule los cuantiles para las ubicaciones 0.05, 0.5 y 0.8, el código para obtener las tres medidas solicitadas es el siguiente.</p>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="posi.html#cb385-1"></a><span class="kw">quantile</span>(<span class="dt">x=</span>datos<span class="op">$</span>altura, <span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="fl">0.8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="posi.html#cb388-1"></a><span class="kw">quantile</span>(<span class="dt">x=</span>datos<span class="op">$</span>altura, <span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="fl">0.8</span>))</span></code></pre></div>
 <pre><code>##    5%   50%   80% 
 ## 155.2 172.7 180.3</code></pre>
 

@@ -2,14 +2,14 @@
 
 Uno de los atractivos de R es la gran cantidad de funciones que existen para realizar diversos procedimientos. En este capítulo se explica al lector la forma de crear sus propias funciones para que pueda realizar diversas tareas y así logre explotar el potencial que ofrece R.
 
-## ¿Qué es una función en R? \index{función}
-Una función es un conjunto de instrucciones que convierten las entradas (_inputs_) en resultados (_outputs_) deseados. En la Figura \@ref(fig:machine2) se muestra una ilustración de lo que es una función.
+## ¿Qué es una función en R?
+Una función es un conjunto de instrucciones que convierten las entradas (_inputs_) en resultados (_outputs_) deseados. En la siguiente figura se muestra una ilustración de lo que es una función.
 
-```{r machine2, echo=F, fig.cap='Ilustración de una función, tomada de www.mathinsight.org', dpi=250, fig.align='center'}
-knitr::include_graphics("images/function_machine.png")
-```
+<p align="center">
+  <img src="images/function_machine.png" width="300">
+</p>
 
-## Partes de una función en R \index{partes de función}
+## Partes de una función en R
 Las partes de una función son:
 
 - Entradas o argumentos: sirven para ingresar información necesaria para realizar el procedimiento de la función. Los argumentos pueden estar vacíos y a la espera de que el usuario ingrese valores, o pueden tener valores por defecto, esto significa que si el usuario no ingresa un valor, la función usará el valor por defecto. Una función puede tener o no argumentos de entrada, en los ejemplos se mostrarán estos casos.
@@ -28,10 +28,12 @@ nombre_de_funcion <- function(par1, par2, ...) {
 }
 ```
 
-A continuación se mostrarán varios ejemplos __sencillos__ para que el lector aprenda a construir funciones en R.
+A continuación se mostrarán varios ejemplos <font color="Fuchsia">sencillos</font> para que el lector aprenda a construir funciones en R.
 
 ### Ejemplo {-}
 Construir una función que reciba dos números y que entregue la suma de estos números.
+
+__Solución__
 
 Lo primero es elegir un nombre apropiado para la función, aquí se usó el nombre `suma` porque así se tiene una idea clara de lo que hace la función. La función suma recibe dos parámetros, `x` representa el primer valor ingresado mientras que `y` representa el segundo. El cuerpo de la función está formado por dos líneas, en la primera se crea el objeto `resultado` en el cual se almanacena el valor de la suma, en la segunda línea se le indica a R que queremos que retorne el valor de la suma almacenada en el objeto `resultado`. A continuación se muestra el código para crear la función solicitada.
 
@@ -69,6 +71,8 @@ suma(x=4, y=6)  # Probando la función
 ### Ejemplo {-}
 Construir una función que genere números aleatorios entre cero y uno hasta que la suma de éstos números supere por primera vez el valor de 3. La función debe entregar la cantidad de números aleatorios generados para que se cumpla la condición.
 
+__Solución__
+
 Vamos a llamar la función solicitada con el nombre `fun1`, esta función __NO__ necesita ningún parámetro de entrada. El valor de 3 que está en la condición puede ir dentro del cuerpo y por eso no se necesitan parámetros para esta función. En el cuerpo de la función se genera un vector con un número aleatorio y luego se chequea si la suma de sus elementos es menor de 3, si se cumple que la suma es menor que 3 se siguen generando números que se almacenan en el vector `num`. Una vez que la suma exceda el valor de 3 NO se ingresa al `while` y se pide la longitud del vector o el valor de `veces` solicitado. A continuación el código de la función.
 
 ```{r}
@@ -87,6 +91,8 @@ fun1()  # primera prueba
 
 ### Ejemplo {-}
 Construir una función que, dado un número entero positivo (cota) ingresado por el usuario, genere números aleatorios entre cero y uno hasta que la suma de los números generados exceda por primera vez la cota. La función debe entregar un vector con los números aleatorios, la suma y la cantidad de números aleatorios. Si el usuario no ingresa el valor de la cota, se debe asumir igual a 1.
+
+__Solución__
 
 La función aquí solicitada es similar a la construída en el ejemplo anterior. La función `fun2` tiene un sólo parámetro con el valor por defecto, si el usuario no ingresa valor a este parámetro, se asumirá el valor de uno. El cuerpo de la función es similar al anterior. Como la función debe entregar un vector y dos números, se construye la lista `resultado` que almacena los tres objetos solicitados. A continuación el código para función solicitada.
 
@@ -118,13 +124,14 @@ fun2(cota=3)
 ### Ejemplo {-} 
 Construya una función que reciba dos números de la recta real y que entregue el punto médio de estos números. El resultado debe ser un mensaje por pantalla.
 
+__Solución__
+
 El punto médio entre dos valores es la suma de los números divido entre dos. La función `cat` sirve para concatenar objetos y presentarlos por pantalla. A continuación el código para la función requerida.
 
 ```{r}
 medio <- function(a, b) {
   medio <- (a + b) / 2
-  cat("El punto medio de los valores",
-      a, "y", b,
+  cat("El punto medio de los valores", a, "y", b,
       "ingresados es", medio)
 }
 
@@ -197,10 +204,9 @@ minimo <- function(x) {
 }
 ```
 
-11. Construya una función que calcule las coordenadas del punto medio $M$ entre dos puntos $A$ y $B$. Vea la Figura \@ref(fig:midpoint) para una ilustración. ¿Cuáles cree usted que deben ser los parámetros de entrada de la función?
+11. Construya una función que calcule las coordenadas del punto medio $M$ entre dos puntos $A$ y $B$. Vea la siguiente figura para una ilustración. ¿Cuáles cree usted que deben ser los parámetros de entrada de la función?
 
-```{r midpoint, echo=F, fig.cap='Ilustración del punto medio entre dos puntos, tomada de https://www.slideshare.net/bigpassy/midpoint-between-two-points', dpi=10, fig.align='center'}
-knitr::include_graphics("images/midpoint.png")
-```
-
+<p align="center">
+  <img src="images/midpoint.png" width="300">
+</p>
 

@@ -184,6 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a><ul>
 <li class="chapter" data-level="4.1" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-la-consola"><i class="fa fa-check"></i><b>4.1</b> Usando la consola</a></li>
 <li class="chapter" data-level="4.2" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-ventana-emergente-con-svdialogs"><i class="fa fa-check"></i><b>4.2</b> Usando ventana emergente con <strong>svDialogs</strong></a></li>
+<li class="chapter" data-level="4.3" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#botones-para-responder"><i class="fa fa-check"></i><b>4.3</b> Botones para responder</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a><ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
@@ -236,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a><ul>
-<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R? </a></li>
-<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R </a><ul>
+<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R?</a></li>
+<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a><ul>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -501,8 +502,8 @@ I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 <h3>Ejemplo</h3>
 <p>Calcular la integral de <span class="math inline">\(f(x)=\exp \left( -(x-1.5)^2 \right)\)</span> en <span class="math inline">\(\Re\)</span> utilizando la aproximación de Laplace.</p>
 <p>Primero vamos a dibujar la función <span class="math inline">\(f(x)\)</span> para ver en dónde está su moda <span class="math inline">\(x_0\)</span>.</p>
-<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="aproxint.html#cb651-1"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">exp</span>(<span class="op">-</span>(x<span class="fl">-1.5</span>)<span class="op">^</span><span class="dv">2</span>)</span>
-<span id="cb651-2"><a href="aproxint.html#cb651-2"></a><span class="kw">curve</span>(fun, <span class="dt">from=</span><span class="op">-</span><span class="dv">5</span>, <span class="dt">to=</span><span class="dv">5</span>, <span class="dt">ylab=</span><span class="st">&#39;f(x)&#39;</span>, <span class="dt">las=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="aproxint.html#cb654-1"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">exp</span>(<span class="op">-</span>(x<span class="fl">-1.5</span>)<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb654-2"><a href="aproxint.html#cb654-2"></a><span class="kw">curve</span>(fun, <span class="dt">from=</span><span class="op">-</span><span class="dv">5</span>, <span class="dt">to=</span><span class="dv">5</span>, <span class="dt">ylab=</span><span class="st">&#39;f(x)&#39;</span>, <span class="dt">las=</span><span class="dv">1</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:aprox1"></span>
 <img src="Manual_de_R_files/figure-html/aprox1-1.png" alt="Perfil de la función f(x)." width="384" />
 <p class="caption">
@@ -510,20 +511,20 @@ Figure 21.1: Perfil de la función f(x).
 </p>
 </div>
 <p>Visualmente se nota que la moda está cerca del valor 1.5 y para determinar numéricamente el valor de la moda <span class="math inline">\(x_0\)</span> se usa la función <code>optimize</code>, los resultados se almacenan en el objeto <code>res</code>. El valor de la moda corresponde al elemento <code>maximum</code> del objeto <code>res</code>.</p>
-<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="aproxint.html#cb652-1"></a>res &lt;-<span class="st"> </span><span class="kw">optimize</span>(fun, <span class="dt">interval=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="dt">maximum=</span><span class="ot">TRUE</span>)</span>
-<span id="cb652-2"><a href="aproxint.html#cb652-2"></a>res</span></code></pre></div>
+<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="aproxint.html#cb655-1"></a>res &lt;-<span class="st"> </span><span class="kw">optimize</span>(fun, <span class="dt">interval=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="dt">maximum=</span><span class="ot">TRUE</span>)</span>
+<span id="cb655-2"><a href="aproxint.html#cb655-2"></a>res</span></code></pre></div>
 <pre><code>## $maximum
 ## [1] 1.499997
 ## 
 ## $objective
 ## [1] 1</code></pre>
 <p>Para determinar el valor de <span class="math inline">\(c\)</span> de la expresión  se utiliza el siguiente código.</p>
-<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="aproxint.html#cb654-1"></a><span class="kw">require</span>(<span class="st">&quot;numDeriv&quot;</span>)</span>
-<span id="cb654-2"><a href="aproxint.html#cb654-2"></a>constant &lt;-<span class="st"> </span><span class="op">-</span><span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">hessian</span>(fun, res<span class="op">$</span>maximum))</span></code></pre></div>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="aproxint.html#cb657-1"></a><span class="kw">require</span>(<span class="st">&quot;numDeriv&quot;</span>)</span>
+<span id="cb657-2"><a href="aproxint.html#cb657-2"></a>constant &lt;-<span class="st"> </span><span class="op">-</span><span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">hessian</span>(fun, res<span class="op">$</span>maximum))</span></code></pre></div>
 <p>Para obtener la aproximación de la integral se usa la expresión  y para tener un punto de comparación se evalua la integral usando la función <code>integrate</code>, a continuación el código.</p>
-<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="aproxint.html#cb655-1"></a><span class="kw">fun</span>(res<span class="op">$</span>maximum) <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">2</span><span class="op">*</span>pi<span class="op">/</span>constant)</span></code></pre></div>
+<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="aproxint.html#cb658-1"></a><span class="kw">fun</span>(res<span class="op">$</span>maximum) <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">2</span><span class="op">*</span>pi<span class="op">/</span>constant)</span></code></pre></div>
 <pre><code>## [1] 1.772454</code></pre>
-<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="aproxint.html#cb657-1"></a><span class="kw">integrate</span>(fun, <span class="op">-</span><span class="ot">Inf</span>, <span class="ot">Inf</span>)  <span class="co"># Para comparar</span></span></code></pre></div>
+<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="aproxint.html#cb660-1"></a><span class="kw">integrate</span>(fun, <span class="op">-</span><span class="ot">Inf</span>, <span class="ot">Inf</span>)  <span class="co"># Para comparar</span></span></code></pre></div>
 <pre><code>## 1.772454 with absolute error &lt; 1.5e-06</code></pre>
 <p>De los anteriores resultados vemos que la aproximación es buena.</p>
 

@@ -184,6 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a><ul>
 <li class="chapter" data-level="4.1" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-la-consola"><i class="fa fa-check"></i><b>4.1</b> Usando la consola</a></li>
 <li class="chapter" data-level="4.2" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-ventana-emergente-con-svdialogs"><i class="fa fa-check"></i><b>4.2</b> Usando ventana emergente con <strong>svDialogs</strong></a></li>
+<li class="chapter" data-level="4.3" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#botones-para-responder"><i class="fa fa-check"></i><b>4.3</b> Botones para responder</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a><ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
@@ -236,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a><ul>
-<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R? </a></li>
-<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R </a><ul>
+<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R?</a></li>
+<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a><ul>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -479,117 +480,117 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="instrucción-if" class="section level2">
 <h2><span class="header-section-number">6.1</span> Instrucción <code>if</code></h2>
 <p>Esta instrucción sirve para realizar un conjunto de operaciones <strong>si</strong> se cumple cierta condición. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="bucles.html#cb245-1"></a><span class="cf">if</span> (condicion) {</span>
-<span id="cb245-2"><a href="bucles.html#cb245-2"></a>  operación <span class="dv">1</span></span>
-<span id="cb245-3"><a href="bucles.html#cb245-3"></a>  operación <span class="dv">2</span></span>
-<span id="cb245-4"><a href="bucles.html#cb245-4"></a>  ...</span>
-<span id="cb245-5"><a href="bucles.html#cb245-5"></a>  operación final</span>
-<span id="cb245-6"><a href="bucles.html#cb245-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="bucles.html#cb248-1"></a><span class="cf">if</span> (condicion) {</span>
+<span id="cb248-2"><a href="bucles.html#cb248-2"></a>  operación <span class="dv">1</span></span>
+<span id="cb248-3"><a href="bucles.html#cb248-3"></a>  operación <span class="dv">2</span></span>
+<span id="cb248-4"><a href="bucles.html#cb248-4"></a>  ...</span>
+<span id="cb248-5"><a href="bucles.html#cb248-5"></a>  operación final</span>
+<span id="cb248-6"><a href="bucles.html#cb248-6"></a>}</span></code></pre></div>
 <div id="ejemplo-15" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Una secretaria recibe la información del salario básico semanal de un empleado y las horas trabajadas durante la semana por ese empleado. El salario básico es la remuneración por 40 horas de labor por semana, las horas extra son pagadas a ciencuenta mil pesos. Escriba el procedimiento en R que debe usar la secretaria para calcular el salario semanal de un empleado que trabajó 45 horas y tiene salario básico de un millon de pesos.</p>
 <p>El código para calcular el salario final del empleado es el siguiente:</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="bucles.html#cb246-1"></a>sal &lt;-<span class="st"> </span><span class="dv">1</span>  <span class="co"># Salario básico por semana</span></span>
-<span id="cb246-2"><a href="bucles.html#cb246-2"></a>hlab &lt;-<span class="st"> </span><span class="dv">45</span>   <span class="co"># Horas laboradas por semana</span></span>
-<span id="cb246-3"><a href="bucles.html#cb246-3"></a></span>
-<span id="cb246-4"><a href="bucles.html#cb246-4"></a><span class="cf">if</span>(hlab <span class="op">&gt;</span><span class="st"> </span><span class="dv">40</span>) {</span>
-<span id="cb246-5"><a href="bucles.html#cb246-5"></a>  hext &lt;-<span class="st"> </span>hlab <span class="op">-</span><span class="st"> </span><span class="dv">40</span></span>
-<span id="cb246-6"><a href="bucles.html#cb246-6"></a>  salext &lt;-<span class="st"> </span>hext <span class="op">*</span><span class="st"> </span><span class="fl">0.05</span></span>
-<span id="cb246-7"><a href="bucles.html#cb246-7"></a>  sal &lt;-<span class="st"> </span>sal <span class="op">+</span><span class="st"> </span>salext</span>
-<span id="cb246-8"><a href="bucles.html#cb246-8"></a>}</span>
-<span id="cb246-9"><a href="bucles.html#cb246-9"></a></span>
-<span id="cb246-10"><a href="bucles.html#cb246-10"></a>sal  <span class="co"># Salario semanal</span></span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="bucles.html#cb249-1"></a>sal &lt;-<span class="st"> </span><span class="dv">1</span>  <span class="co"># Salario básico por semana</span></span>
+<span id="cb249-2"><a href="bucles.html#cb249-2"></a>hlab &lt;-<span class="st"> </span><span class="dv">45</span>   <span class="co"># Horas laboradas por semana</span></span>
+<span id="cb249-3"><a href="bucles.html#cb249-3"></a></span>
+<span id="cb249-4"><a href="bucles.html#cb249-4"></a><span class="cf">if</span>(hlab <span class="op">&gt;</span><span class="st"> </span><span class="dv">40</span>) {</span>
+<span id="cb249-5"><a href="bucles.html#cb249-5"></a>  hext &lt;-<span class="st"> </span>hlab <span class="op">-</span><span class="st"> </span><span class="dv">40</span></span>
+<span id="cb249-6"><a href="bucles.html#cb249-6"></a>  salext &lt;-<span class="st"> </span>hext <span class="op">*</span><span class="st"> </span><span class="fl">0.05</span></span>
+<span id="cb249-7"><a href="bucles.html#cb249-7"></a>  sal &lt;-<span class="st"> </span>sal <span class="op">+</span><span class="st"> </span>salext</span>
+<span id="cb249-8"><a href="bucles.html#cb249-8"></a>}</span>
+<span id="cb249-9"><a href="bucles.html#cb249-9"></a></span>
+<span id="cb249-10"><a href="bucles.html#cb249-10"></a>sal  <span class="co"># Salario semanal</span></span></code></pre></div>
 <pre><code>## [1] 1.25</code></pre>
 </div>
 </div>
 <div id="instrucción-if-else" class="section level2">
 <h2><span class="header-section-number">6.2</span> Instrucción <code>if</code> <code>else</code></h2>
 <p>Esta instrucción sirve para realizar un conjunto de operaciones cuando <strong>NO</strong> se cumple cierta condición evaluada por un <code>if</code>. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="bucles.html#cb248-1"></a><span class="cf">if</span> (condicion) {</span>
-<span id="cb248-2"><a href="bucles.html#cb248-2"></a>  operación <span class="dv">1</span></span>
-<span id="cb248-3"><a href="bucles.html#cb248-3"></a>  operación <span class="dv">2</span></span>
-<span id="cb248-4"><a href="bucles.html#cb248-4"></a>  ...</span>
-<span id="cb248-5"><a href="bucles.html#cb248-5"></a>  operación final</span>
-<span id="cb248-6"><a href="bucles.html#cb248-6"></a>}</span>
-<span id="cb248-7"><a href="bucles.html#cb248-7"></a><span class="cf">else</span> {</span>
-<span id="cb248-8"><a href="bucles.html#cb248-8"></a>  operación <span class="dv">1</span></span>
-<span id="cb248-9"><a href="bucles.html#cb248-9"></a>  operación <span class="dv">2</span></span>
-<span id="cb248-10"><a href="bucles.html#cb248-10"></a>  ...</span>
-<span id="cb248-11"><a href="bucles.html#cb248-11"></a>  operación final</span>
-<span id="cb248-12"><a href="bucles.html#cb248-12"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="bucles.html#cb251-1"></a><span class="cf">if</span> (condicion) {</span>
+<span id="cb251-2"><a href="bucles.html#cb251-2"></a>  operación <span class="dv">1</span></span>
+<span id="cb251-3"><a href="bucles.html#cb251-3"></a>  operación <span class="dv">2</span></span>
+<span id="cb251-4"><a href="bucles.html#cb251-4"></a>  ...</span>
+<span id="cb251-5"><a href="bucles.html#cb251-5"></a>  operación final</span>
+<span id="cb251-6"><a href="bucles.html#cb251-6"></a>}</span>
+<span id="cb251-7"><a href="bucles.html#cb251-7"></a><span class="cf">else</span> {</span>
+<span id="cb251-8"><a href="bucles.html#cb251-8"></a>  operación <span class="dv">1</span></span>
+<span id="cb251-9"><a href="bucles.html#cb251-9"></a>  operación <span class="dv">2</span></span>
+<span id="cb251-10"><a href="bucles.html#cb251-10"></a>  ...</span>
+<span id="cb251-11"><a href="bucles.html#cb251-11"></a>  operación final</span>
+<span id="cb251-12"><a href="bucles.html#cb251-12"></a>}</span></code></pre></div>
 </div>
 <div id="instrucción-ifelse" class="section level2">
 <h2><span class="header-section-number">6.3</span> Instrucción <code>ifelse</code></h2>
 <p>Se recomienda usar la instrucción <code>ifelse</code> cuando hay una sola instrucción para el caso <code>if</code> y para el caso <code>else</code>. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="bucles.html#cb249-1"></a><span class="kw">ifelse</span>(condición, operación SI cumple, operación NO cumple)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="bucles.html#cb252-1"></a><span class="kw">ifelse</span>(condición, operación SI cumple, operación NO cumple)</span></code></pre></div>
 <div id="ejemplo-16" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Suponga que usted recibe un vector de números enteros, escriba un procedimiento que diga si cada elemento del vector es par o impar.</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="bucles.html#cb250-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">-4</span>, <span class="dv">1</span>)</span>
-<span id="cb250-2"><a href="bucles.html#cb250-2"></a></span>
-<span id="cb250-3"><a href="bucles.html#cb250-3"></a><span class="kw">ifelse</span>(x <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&#39;Es par&#39;</span>, <span class="st">&#39;Es impar&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="bucles.html#cb253-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">-4</span>, <span class="dv">1</span>)</span>
+<span id="cb253-2"><a href="bucles.html#cb253-2"></a></span>
+<span id="cb253-3"><a href="bucles.html#cb253-3"></a><span class="kw">ifelse</span>(x <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&#39;Es par&#39;</span>, <span class="st">&#39;Es impar&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Es impar&quot; &quot;Es impar&quot; &quot;Es par&quot;   &quot;Es par&quot;   &quot;Es par&quot;   &quot;Es impar&quot;</code></pre>
 </div>
 </div>
 <div id="instrucción-for" class="section level2">
 <h2><span class="header-section-number">6.4</span> Instrucción <code>for</code></h2>
 <p>La instrucción <code>for</code> es muy útil para repetir un procedimiento cierta cantidad de veces. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="bucles.html#cb252-1"></a><span class="cf">for</span> (i <span class="cf">in</span> secuencia) {</span>
-<span id="cb252-2"><a href="bucles.html#cb252-2"></a>  operación <span class="dv">1</span></span>
-<span id="cb252-3"><a href="bucles.html#cb252-3"></a>  operación <span class="dv">2</span></span>
-<span id="cb252-4"><a href="bucles.html#cb252-4"></a>  ...</span>
-<span id="cb252-5"><a href="bucles.html#cb252-5"></a>  operación final</span>
-<span id="cb252-6"><a href="bucles.html#cb252-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="bucles.html#cb255-1"></a><span class="cf">for</span> (i <span class="cf">in</span> secuencia) {</span>
+<span id="cb255-2"><a href="bucles.html#cb255-2"></a>  operación <span class="dv">1</span></span>
+<span id="cb255-3"><a href="bucles.html#cb255-3"></a>  operación <span class="dv">2</span></span>
+<span id="cb255-4"><a href="bucles.html#cb255-4"></a>  ...</span>
+<span id="cb255-5"><a href="bucles.html#cb255-5"></a>  operación final</span>
+<span id="cb255-6"><a href="bucles.html#cb255-6"></a>}</span></code></pre></div>
 <div id="ejemplo-17" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Escriba un procedimiento para crear 10 muestras de tamaño 100 de una distribución uniforme entre uno y tres. Para cada una de las muestra, se debe contar el número de elementos de la muestra que fueron mayores o iguales a 2.5.</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="bucles.html#cb253-1"></a>nrep &lt;-<span class="st"> </span><span class="dv">10</span>  <span class="co"># Número de repeticiones</span></span>
-<span id="cb253-2"><a href="bucles.html#cb253-2"></a>n &lt;-<span class="st"> </span><span class="dv">100</span>    <span class="co"># Tamaño de la muestra</span></span>
-<span id="cb253-3"><a href="bucles.html#cb253-3"></a>conteo &lt;-<span class="st"> </span><span class="kw">numeric</span>(nrep)  <span class="co"># Vector para almacenar el conteo</span></span>
-<span id="cb253-4"><a href="bucles.html#cb253-4"></a></span>
-<span id="cb253-5"><a href="bucles.html#cb253-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nrep) {</span>
-<span id="cb253-6"><a href="bucles.html#cb253-6"></a>  x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dt">n=</span>n, <span class="dt">min=</span><span class="dv">1</span>, <span class="dt">max=</span><span class="dv">3</span>)</span>
-<span id="cb253-7"><a href="bucles.html#cb253-7"></a>  conteo[i] &lt;-<span class="st"> </span><span class="kw">sum</span>(x <span class="op">&gt;=</span><span class="st"> </span><span class="fl">2.5</span>)</span>
-<span id="cb253-8"><a href="bucles.html#cb253-8"></a>}</span>
-<span id="cb253-9"><a href="bucles.html#cb253-9"></a></span>
-<span id="cb253-10"><a href="bucles.html#cb253-10"></a>conteo  <span class="co"># Para obtener el conteo</span></span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="bucles.html#cb256-1"></a>nrep &lt;-<span class="st"> </span><span class="dv">10</span>  <span class="co"># Número de repeticiones</span></span>
+<span id="cb256-2"><a href="bucles.html#cb256-2"></a>n &lt;-<span class="st"> </span><span class="dv">100</span>    <span class="co"># Tamaño de la muestra</span></span>
+<span id="cb256-3"><a href="bucles.html#cb256-3"></a>conteo &lt;-<span class="st"> </span><span class="kw">numeric</span>(nrep)  <span class="co"># Vector para almacenar el conteo</span></span>
+<span id="cb256-4"><a href="bucles.html#cb256-4"></a></span>
+<span id="cb256-5"><a href="bucles.html#cb256-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nrep) {</span>
+<span id="cb256-6"><a href="bucles.html#cb256-6"></a>  x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dt">n=</span>n, <span class="dt">min=</span><span class="dv">1</span>, <span class="dt">max=</span><span class="dv">3</span>)</span>
+<span id="cb256-7"><a href="bucles.html#cb256-7"></a>  conteo[i] &lt;-<span class="st"> </span><span class="kw">sum</span>(x <span class="op">&gt;=</span><span class="st"> </span><span class="fl">2.5</span>)</span>
+<span id="cb256-8"><a href="bucles.html#cb256-8"></a>}</span>
+<span id="cb256-9"><a href="bucles.html#cb256-9"></a></span>
+<span id="cb256-10"><a href="bucles.html#cb256-10"></a>conteo  <span class="co"># Para obtener el conteo</span></span></code></pre></div>
 <pre><code>##  [1] 24 37 28 26 30 18 29 23 19 19</code></pre>
 </div>
 </div>
 <div id="instrucción-while" class="section level2">
 <h2><span class="header-section-number">6.5</span> Instrucción <code>while</code></h2>
 <p>La instrucción <code>while</code> es muy útil para repetir un procedimiento siempre que se cumple una condición. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="bucles.html#cb255-1"></a><span class="cf">while</span> (condición) {</span>
-<span id="cb255-2"><a href="bucles.html#cb255-2"></a>  operación <span class="dv">1</span></span>
-<span id="cb255-3"><a href="bucles.html#cb255-3"></a>  operación <span class="dv">2</span></span>
-<span id="cb255-4"><a href="bucles.html#cb255-4"></a>  ...</span>
-<span id="cb255-5"><a href="bucles.html#cb255-5"></a>  operación final</span>
-<span id="cb255-6"><a href="bucles.html#cb255-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="bucles.html#cb258-1"></a><span class="cf">while</span> (condición) {</span>
+<span id="cb258-2"><a href="bucles.html#cb258-2"></a>  operación <span class="dv">1</span></span>
+<span id="cb258-3"><a href="bucles.html#cb258-3"></a>  operación <span class="dv">2</span></span>
+<span id="cb258-4"><a href="bucles.html#cb258-4"></a>  ...</span>
+<span id="cb258-5"><a href="bucles.html#cb258-5"></a>  operación final</span>
+<span id="cb258-6"><a href="bucles.html#cb258-6"></a>}</span></code></pre></div>
 <div id="ejemplo-18" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Suponga que se lanza una moneda en la cual el resultado es cara o sello. Escribir un procedimiento que simule lanzamientos hasta que el número de caras obtenidas sea 5. El procedimiento debe entregar el historial de lanzamientos.</p>
 <p>Para simular el lanzamiento de <strong>una</strong> moneda se puede usar la función <code>sample</code> y definiendo el vector <code>resultados</code> con <code>size=1</code> para simular un lanzamiento, a continuación el código y tres pruebas ilustrativas.</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="bucles.html#cb256-1"></a>resultados &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Cara&#39;</span>, <span class="st">&#39;Sello&#39;</span>)</span>
-<span id="cb256-2"><a href="bucles.html#cb256-2"></a><span class="kw">sample</span>(<span class="dt">x=</span>resultados, <span class="dt">size=</span><span class="dv">1</span>)  <span class="co"># Prueba 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="bucles.html#cb259-1"></a>resultados &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Cara&#39;</span>, <span class="st">&#39;Sello&#39;</span>)</span>
+<span id="cb259-2"><a href="bucles.html#cb259-2"></a><span class="kw">sample</span>(<span class="dt">x=</span>resultados, <span class="dt">size=</span><span class="dv">1</span>)  <span class="co"># Prueba 1</span></span></code></pre></div>
 <pre><code>## [1] &quot;Sello&quot;</code></pre>
 <p>Una vez seamos capaces de simular un lanzamiento podemos escribir el procedimiento para generar tantos lanzamientos hasta que se cumpla la condición. El código mostrado abajo permite hacer lo solicitado.</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="bucles.html#cb258-1"></a>num.lanza &lt;-<span class="st"> </span><span class="dv">0</span>     <span class="co"># Contador de lanzamientos</span></span>
-<span id="cb258-2"><a href="bucles.html#cb258-2"></a>num.caras &lt;-<span class="st"> </span><span class="dv">0</span>     <span class="co"># Contados de caras obtenidas</span></span>
-<span id="cb258-3"><a href="bucles.html#cb258-3"></a>historial &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># Vector vacío para almacenar</span></span>
-<span id="cb258-4"><a href="bucles.html#cb258-4"></a></span>
-<span id="cb258-5"><a href="bucles.html#cb258-5"></a><span class="cf">while</span> (num.caras <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) {</span>
-<span id="cb258-6"><a href="bucles.html#cb258-6"></a>  res &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span>resultados, <span class="dt">size=</span><span class="dv">1</span>)</span>
-<span id="cb258-7"><a href="bucles.html#cb258-7"></a>  num.lanza &lt;-<span class="st"> </span>num.lanza <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb258-8"><a href="bucles.html#cb258-8"></a>  historial[num.lanza] &lt;-<span class="st"> </span>res</span>
-<span id="cb258-9"><a href="bucles.html#cb258-9"></a>  <span class="cf">if</span> (res <span class="op">==</span><span class="st"> &#39;Cara&#39;</span>) {</span>
-<span id="cb258-10"><a href="bucles.html#cb258-10"></a>    num.caras &lt;-<span class="st"> </span>num.caras <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb258-11"><a href="bucles.html#cb258-11"></a>  }</span>
-<span id="cb258-12"><a href="bucles.html#cb258-12"></a>}</span>
-<span id="cb258-13"><a href="bucles.html#cb258-13"></a></span>
-<span id="cb258-14"><a href="bucles.html#cb258-14"></a>historial</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="bucles.html#cb261-1"></a>num.lanza &lt;-<span class="st"> </span><span class="dv">0</span>     <span class="co"># Contador de lanzamientos</span></span>
+<span id="cb261-2"><a href="bucles.html#cb261-2"></a>num.caras &lt;-<span class="st"> </span><span class="dv">0</span>     <span class="co"># Contados de caras obtenidas</span></span>
+<span id="cb261-3"><a href="bucles.html#cb261-3"></a>historial &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># Vector vacío para almacenar</span></span>
+<span id="cb261-4"><a href="bucles.html#cb261-4"></a></span>
+<span id="cb261-5"><a href="bucles.html#cb261-5"></a><span class="cf">while</span> (num.caras <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) {</span>
+<span id="cb261-6"><a href="bucles.html#cb261-6"></a>  res &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span>resultados, <span class="dt">size=</span><span class="dv">1</span>)</span>
+<span id="cb261-7"><a href="bucles.html#cb261-7"></a>  num.lanza &lt;-<span class="st"> </span>num.lanza <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb261-8"><a href="bucles.html#cb261-8"></a>  historial[num.lanza] &lt;-<span class="st"> </span>res</span>
+<span id="cb261-9"><a href="bucles.html#cb261-9"></a>  <span class="cf">if</span> (res <span class="op">==</span><span class="st"> &#39;Cara&#39;</span>) {</span>
+<span id="cb261-10"><a href="bucles.html#cb261-10"></a>    num.caras &lt;-<span class="st"> </span>num.caras <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb261-11"><a href="bucles.html#cb261-11"></a>  }</span>
+<span id="cb261-12"><a href="bucles.html#cb261-12"></a>}</span>
+<span id="cb261-13"><a href="bucles.html#cb261-13"></a></span>
+<span id="cb261-14"><a href="bucles.html#cb261-14"></a>historial</span></code></pre></div>
 <pre><code>##  [1] &quot;Sello&quot; &quot;Sello&quot; &quot;Sello&quot; &quot;Sello&quot; &quot;Cara&quot;  &quot;Cara&quot;  &quot;Sello&quot; &quot;Sello&quot; &quot;Cara&quot; 
 ## [10] &quot;Cara&quot;  &quot;Cara&quot;</code></pre>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="bucles.html#cb260-1"></a>num.lanza</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="bucles.html#cb263-1"></a>num.lanza</span></code></pre></div>
 <pre><code>## [1] 11</code></pre>
 
 <div class="rmdnote">
@@ -601,25 +602,25 @@ La instrucción <code>for</code> se usa cuando sabemos el número de veces que s
 <div id="instrucción-repeat" class="section level2">
 <h2><span class="header-section-number">6.6</span> Instrucción <code>repeat</code></h2>
 <p>La instrucción <code>while</code> es muy útil para repetir un procedimiento siempre que se cumple una condición. A continuación se muestra la estructura básica de uso.</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="bucles.html#cb262-1"></a><span class="cf">repeat</span> {</span>
-<span id="cb262-2"><a href="bucles.html#cb262-2"></a>  operación <span class="dv">1</span></span>
-<span id="cb262-3"><a href="bucles.html#cb262-3"></a>  operación <span class="dv">2</span></span>
-<span id="cb262-4"><a href="bucles.html#cb262-4"></a>  ...</span>
-<span id="cb262-5"><a href="bucles.html#cb262-5"></a>  operación final</span>
-<span id="cb262-6"><a href="bucles.html#cb262-6"></a>  <span class="cf">if</span> (condición) <span class="cf">break</span></span>
-<span id="cb262-7"><a href="bucles.html#cb262-7"></a><span class="er">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="bucles.html#cb265-1"></a><span class="cf">repeat</span> {</span>
+<span id="cb265-2"><a href="bucles.html#cb265-2"></a>  operación <span class="dv">1</span></span>
+<span id="cb265-3"><a href="bucles.html#cb265-3"></a>  operación <span class="dv">2</span></span>
+<span id="cb265-4"><a href="bucles.html#cb265-4"></a>  ...</span>
+<span id="cb265-5"><a href="bucles.html#cb265-5"></a>  operación final</span>
+<span id="cb265-6"><a href="bucles.html#cb265-6"></a>  <span class="cf">if</span> (condición) <span class="cf">break</span></span>
+<span id="cb265-7"><a href="bucles.html#cb265-7"></a><span class="er">}</span></span></code></pre></div>
 <div id="ejemplo-19" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Escribir un procedimiento para ir aumentando de uno en uno el valor de <code>x</code> hasta que <code>x</code> sea igual a siete El procedimiento debe imprimir por pantalla la secuencia de valores de <code>x</code>.</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="bucles.html#cb263-1"></a>x &lt;-<span class="st"> </span><span class="dv">3</span>  <span class="co"># Valor de inicio</span></span>
-<span id="cb263-2"><a href="bucles.html#cb263-2"></a></span>
-<span id="cb263-3"><a href="bucles.html#cb263-3"></a><span class="cf">repeat</span> {</span>
-<span id="cb263-4"><a href="bucles.html#cb263-4"></a>   <span class="kw">print</span>(x)</span>
-<span id="cb263-5"><a href="bucles.html#cb263-5"></a>   x &lt;-<span class="st">  </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb263-6"><a href="bucles.html#cb263-6"></a>   <span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">8</span>) {</span>
-<span id="cb263-7"><a href="bucles.html#cb263-7"></a>     <span class="cf">break</span></span>
-<span id="cb263-8"><a href="bucles.html#cb263-8"></a>   }</span>
-<span id="cb263-9"><a href="bucles.html#cb263-9"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="bucles.html#cb266-1"></a>x &lt;-<span class="st"> </span><span class="dv">3</span>  <span class="co"># Valor de inicio</span></span>
+<span id="cb266-2"><a href="bucles.html#cb266-2"></a></span>
+<span id="cb266-3"><a href="bucles.html#cb266-3"></a><span class="cf">repeat</span> {</span>
+<span id="cb266-4"><a href="bucles.html#cb266-4"></a>   <span class="kw">print</span>(x)</span>
+<span id="cb266-5"><a href="bucles.html#cb266-5"></a>   x &lt;-<span class="st">  </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb266-6"><a href="bucles.html#cb266-6"></a>   <span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">8</span>) {</span>
+<span id="cb266-7"><a href="bucles.html#cb266-7"></a>     <span class="cf">break</span></span>
+<span id="cb266-8"><a href="bucles.html#cb266-8"></a>   }</span>
+<span id="cb266-9"><a href="bucles.html#cb266-9"></a>}</span></code></pre></div>
 <pre><code>## [1] 3
 ## [1] 4
 ## [1] 5

@@ -184,6 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a><ul>
 <li class="chapter" data-level="4.1" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-la-consola"><i class="fa fa-check"></i><b>4.1</b> Usando la consola</a></li>
 <li class="chapter" data-level="4.2" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-ventana-emergente-con-svdialogs"><i class="fa fa-check"></i><b>4.2</b> Usando ventana emergente con <strong>svDialogs</strong></a></li>
+<li class="chapter" data-level="4.3" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#botones-para-responder"><i class="fa fa-check"></i><b>4.3</b> Botones para responder</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a><ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
@@ -236,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a><ul>
-<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R? </a></li>
-<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R </a><ul>
+<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R?</a></li>
+<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a><ul>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -479,7 +480,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tabla-de-contingencia-con-table" class="section level2">
 <h2><span class="header-section-number">9.1</span> Tabla de contingencia con <code>table</code> </h2>
 <p>La función <code>table</code> sirve para construir tablas de frecuencia de una vía, a continuación la estrctura de la función.</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="tablas.html#cb298-1"></a><span class="kw">table</span>(..., exclude, useNA)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="tablas.html#cb301-1"></a><span class="kw">table</span>(..., exclude, useNA)</span></code></pre></div>
 <p>Los parámetros de la función son:</p>
 <ul>
 <li><code>...</code> espacio para ubicar los nombres de los objetos (variables o vectores) para los cuales se quiere construir la tabla.</li>
@@ -489,27 +490,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ejemplo-tabla-de-frecuencia-de-una-vía" class="section level3 unnumbered">
 <h3>Ejemplo: tabla de frecuencia de una vía</h3>
 <p>Considere el vector <code>fuma</code> mostrado a continuación y construya una tabla de frecuencias absolutas para los niveles de la variable frecuencia de fumar.</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="tablas.html#cb299-1"></a>fuma &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Frecuente&#39;</span>, <span class="st">&#39;Nunca&#39;</span>, <span class="st">&#39;A veces&#39;</span>, <span class="st">&#39;A veces&#39;</span>, <span class="st">&#39;A veces&#39;</span>,</span>
-<span id="cb299-2"><a href="tablas.html#cb299-2"></a>          <span class="st">&#39;Nunca&#39;</span>, <span class="st">&#39;Frecuente&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;Frecuente&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;hola&#39;</span>, </span>
-<span id="cb299-3"><a href="tablas.html#cb299-3"></a>          <span class="st">&#39;Nunca&#39;</span>, <span class="st">&#39;Hola&#39;</span>, <span class="st">&#39;Frecuente&#39;</span>, <span class="st">&#39;Nunca&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="tablas.html#cb302-1"></a>fuma &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Frecuente&#39;</span>, <span class="st">&#39;Nunca&#39;</span>, <span class="st">&#39;A veces&#39;</span>, <span class="st">&#39;A veces&#39;</span>, <span class="st">&#39;A veces&#39;</span>,</span>
+<span id="cb302-2"><a href="tablas.html#cb302-2"></a>          <span class="st">&#39;Nunca&#39;</span>, <span class="st">&#39;Frecuente&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;Frecuente&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;hola&#39;</span>, </span>
+<span id="cb302-3"><a href="tablas.html#cb302-3"></a>          <span class="st">&#39;Nunca&#39;</span>, <span class="st">&#39;Hola&#39;</span>, <span class="st">&#39;Frecuente&#39;</span>, <span class="st">&#39;Nunca&#39;</span>)</span></code></pre></div>
 <p>A continuación se muestra el código para crear la tabla de frecuencias para la variable <code>fuma</code>.</p>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="tablas.html#cb300-1"></a><span class="kw">table</span>(fuma)</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="tablas.html#cb303-1"></a><span class="kw">table</span>(fuma)</span></code></pre></div>
 <pre><code>## fuma
 ##   A veces Frecuente      hola      Hola     Nunca 
 ##         3         4         1         1         4</code></pre>
 <p>De la tabla anterior vemos que NO aparece el conteo de los <code>NA</code>, para obtenerlo usamos lo siguiente.</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="tablas.html#cb302-1"></a><span class="kw">table</span>(fuma, <span class="dt">useNA=</span><span class="st">&#39;always&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="tablas.html#cb305-1"></a><span class="kw">table</span>(fuma, <span class="dt">useNA=</span><span class="st">&#39;always&#39;</span>)</span></code></pre></div>
 <pre><code>## fuma
 ##   A veces Frecuente      hola      Hola     Nunca      &lt;NA&gt; 
 ##         3         4         1         1         4         2</code></pre>
 <p>Vemos que hay dos niveles errados en la tabla anterior, <code>Hola</code> y <code>hola</code>. Para construir la tabla sin esos niveles errados usamos lo siguiente.</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="tablas.html#cb304-1"></a><span class="kw">table</span>(fuma, <span class="dt">exclude=</span><span class="kw">c</span>(<span class="st">&#39;Hola&#39;</span>, <span class="st">&#39;hola&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="tablas.html#cb307-1"></a><span class="kw">table</span>(fuma, <span class="dt">exclude=</span><span class="kw">c</span>(<span class="st">&#39;Hola&#39;</span>, <span class="st">&#39;hola&#39;</span>))</span></code></pre></div>
 <pre><code>## fuma
 ##   A veces Frecuente     Nunca      &lt;NA&gt; 
 ##         3         4         4         2</code></pre>
 <p>Por último construyamos la tabla sin los niveles errados y los <code>NA</code>, a esta última tabla la llamaremos <code>tabla1</code> para luego poder usarla. Las instrucciones para hacer esto son las siguientes.</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="tablas.html#cb306-1"></a>tabla1 &lt;-<span class="st"> </span><span class="kw">table</span>(fuma, <span class="dt">exclude=</span><span class="kw">c</span>(<span class="st">&#39;Hola&#39;</span>, <span class="st">&#39;hola&#39;</span>, <span class="ot">NA</span>))</span>
-<span id="cb306-2"><a href="tablas.html#cb306-2"></a>tabla1</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="tablas.html#cb309-1"></a>tabla1 &lt;-<span class="st"> </span><span class="kw">table</span>(fuma, <span class="dt">exclude=</span><span class="kw">c</span>(<span class="st">&#39;Hola&#39;</span>, <span class="st">&#39;hola&#39;</span>, <span class="ot">NA</span>))</span>
+<span id="cb309-2"><a href="tablas.html#cb309-2"></a>tabla1</span></code></pre></div>
 <pre><code>## fuma
 ##   A veces Frecuente     Nunca 
 ##         3         4         4</code></pre>
@@ -522,19 +523,19 @@ Al crear una tabla con la instrucción <code>table(var1, var2)</code>, la variab
 <div id="ejemplo-tabla-de-frecuencia-de-dos-vías" class="section level3 unnumbered">
 <h3>Ejemplo: tabla de frecuencia de dos vías</h3>
 <p>Considere otro vector <code>sexo</code> mostrado a continuación y construya una tabla de frecuencias absolutas para ver cómo se relaciona el sexo con fumar del ejemplo anterior.</p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="tablas.html#cb308-1"></a>sexo &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Hombre&#39;</span>, <span class="st">&#39;Hombre&#39;</span>, <span class="st">&#39;Hombre&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;Mujer&#39;</span>,</span>
-<span id="cb308-2"><a href="tablas.html#cb308-2"></a>          <span class="st">&#39;Casa&#39;</span>, <span class="st">&#39;Mujer&#39;</span>, <span class="st">&#39;Mujer&#39;</span>, <span class="st">&#39;Mujer&#39;</span>, <span class="st">&#39;Hombre&#39;</span>, <span class="st">&#39;Mujer&#39;</span>, </span>
-<span id="cb308-3"><a href="tablas.html#cb308-3"></a>          <span class="st">&#39;Hombre&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;Mujer&#39;</span>, <span class="st">&#39;Mujer&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="tablas.html#cb311-1"></a>sexo &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Hombre&#39;</span>, <span class="st">&#39;Hombre&#39;</span>, <span class="st">&#39;Hombre&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;Mujer&#39;</span>,</span>
+<span id="cb311-2"><a href="tablas.html#cb311-2"></a>          <span class="st">&#39;Casa&#39;</span>, <span class="st">&#39;Mujer&#39;</span>, <span class="st">&#39;Mujer&#39;</span>, <span class="st">&#39;Mujer&#39;</span>, <span class="st">&#39;Hombre&#39;</span>, <span class="st">&#39;Mujer&#39;</span>, </span>
+<span id="cb311-3"><a href="tablas.html#cb311-3"></a>          <span class="st">&#39;Hombre&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;Mujer&#39;</span>, <span class="st">&#39;Mujer&#39;</span>)</span></code></pre></div>
 <p>Para construir la tabla solicitada usamos el siguiente código.</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="tablas.html#cb309-1"></a><span class="kw">table</span>(sexo, fuma)</span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="tablas.html#cb312-1"></a><span class="kw">table</span>(sexo, fuma)</span></code></pre></div>
 <pre><code>##         fuma
 ## sexo     A veces Frecuente hola Hola Nunca
 ##   Casa         0         0    0    0     1
 ##   Hombre       1         1    0    0     2
 ##   Mujer        1         3    1    0     1</code></pre>
 <p>De la tabla anterior vemos que aparecen niveles errados en fuma y en sexo, para retirarlos usamos el siguiente código incluyendo en el parámetro <code>exclude</code> un vector con los niveles que <strong>NO</strong> deseamos en la tabla.</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="tablas.html#cb311-1"></a>tabla2 &lt;-<span class="st"> </span><span class="kw">table</span>(sexo, fuma, <span class="dt">exclude=</span><span class="kw">c</span>(<span class="st">&#39;Hola&#39;</span>, <span class="st">&#39;hola&#39;</span>, <span class="st">&#39;Casa&#39;</span>, <span class="ot">NA</span>))</span>
-<span id="cb311-2"><a href="tablas.html#cb311-2"></a>tabla2</span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="tablas.html#cb314-1"></a>tabla2 &lt;-<span class="st"> </span><span class="kw">table</span>(sexo, fuma, <span class="dt">exclude=</span><span class="kw">c</span>(<span class="st">&#39;Hola&#39;</span>, <span class="st">&#39;hola&#39;</span>, <span class="st">&#39;Casa&#39;</span>, <span class="ot">NA</span>))</span>
+<span id="cb314-2"><a href="tablas.html#cb314-2"></a>tabla2</span></code></pre></div>
 <pre><code>##         fuma
 ## sexo     A veces Frecuente Nunca
 ##   Hombre       1         1     2
@@ -544,7 +545,7 @@ Al crear una tabla con la instrucción <code>table(var1, var2)</code>, la variab
 <div id="función-prop.table" class="section level2">
 <h2><span class="header-section-number">9.2</span> Función <code>prop.table</code> </h2>
 <p>La función <code>prop.table</code> se utiliza para crear tablas de frecuencia relativa a partir de tablas de frecuencia absoluta, la estructura de la función se muestra a continuación.</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="tablas.html#cb313-1"></a><span class="kw">prop.table</span>(x, <span class="dt">margin=</span><span class="ot">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="tablas.html#cb316-1"></a><span class="kw">prop.table</span>(x, <span class="dt">margin=</span><span class="ot">NULL</span>)</span></code></pre></div>
 <ul>
 <li><code>x</code>: tabla de frecuencia.</li>
 <li><code>margin</code>: valor de 1 si se desean proporciones por filas, 2 si se desean por columnas, <code>NULL</code> si se desean frecuencias globales.</li>
@@ -553,7 +554,7 @@ Al crear una tabla con la instrucción <code>table(var1, var2)</code>, la variab
 <h3>Ejemplo: tabla de frecuencia relativa de una vía</h3>
 <p>Obtener la tabla de frencuencia relativa para la <code>tabla1</code>.</p>
 <p>Para obtener la tabla solicitada se usa el siguiente código.</p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="tablas.html#cb314-1"></a><span class="kw">prop.table</span>(<span class="dt">x=</span>tabla1)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="tablas.html#cb317-1"></a><span class="kw">prop.table</span>(<span class="dt">x=</span>tabla1)</span></code></pre></div>
 <pre><code>## fuma
 ##   A veces Frecuente     Nunca 
 ## 0.2727273 0.3636364 0.3636364</code></pre>
@@ -562,15 +563,15 @@ Al crear una tabla con la instrucción <code>table(var1, var2)</code>, la variab
 <h3>Ejemplo: tabla de frecuencia relativa de dos vías</h3>
 <p>Obtener la tabla de frencuencia relativa para la <code>tabla2</code>.</p>
 <p>Si se desea la tabla de frecuencias relativas global se usa el siguiente código. El resultado se almacena en el objeto <code>tabla3</code> para ser usado luego.</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="tablas.html#cb316-1"></a>tabla3 &lt;-<span class="st"> </span><span class="kw">prop.table</span>(<span class="dt">x=</span>tabla2)</span>
-<span id="cb316-2"><a href="tablas.html#cb316-2"></a>tabla3</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="tablas.html#cb319-1"></a>tabla3 &lt;-<span class="st"> </span><span class="kw">prop.table</span>(<span class="dt">x=</span>tabla2)</span>
+<span id="cb319-2"><a href="tablas.html#cb319-2"></a>tabla3</span></code></pre></div>
 <pre><code>##         fuma
 ## sexo       A veces Frecuente     Nunca
 ##   Hombre 0.1111111 0.1111111 0.2222222
 ##   Mujer  0.1111111 0.3333333 0.1111111</code></pre>
 <p>Si se desea la tabla de frecuencias relativas marginal por <strong>columnas</strong> se usa el siguiente código.</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="tablas.html#cb318-1"></a>tabla4 &lt;-<span class="st"> </span><span class="kw">prop.table</span>(<span class="dt">x=</span>tabla2, <span class="dt">margin=</span><span class="dv">2</span>)</span>
-<span id="cb318-2"><a href="tablas.html#cb318-2"></a>tabla4</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="tablas.html#cb321-1"></a>tabla4 &lt;-<span class="st"> </span><span class="kw">prop.table</span>(<span class="dt">x=</span>tabla2, <span class="dt">margin=</span><span class="dv">2</span>)</span>
+<span id="cb321-2"><a href="tablas.html#cb321-2"></a>tabla4</span></code></pre></div>
 <pre><code>##         fuma
 ## sexo       A veces Frecuente     Nunca
 ##   Hombre 0.5000000 0.2500000 0.6666667
@@ -580,7 +581,7 @@ Al crear una tabla con la instrucción <code>table(var1, var2)</code>, la variab
 <div id="función-addmargins" class="section level2">
 <h2><span class="header-section-number">9.3</span> Función <code>addmargins</code> </h2>
 <p>Esta función se puede utilizar para agregar los totales por filas o por columnas a una tabla de frecuencia absoluta o relativa. La estructura de la función es la siguiente.</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="tablas.html#cb320-1"></a><span class="kw">addmargins</span>(A, margin)</span></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="tablas.html#cb323-1"></a><span class="kw">addmargins</span>(A, margin)</span></code></pre></div>
 <ul>
 <li><code>A</code>: tabla de frecuencia.</li>
 <li><code>margin</code>: valor de 1 si se desean proporciones por columnas, 2 si se desean por filas, <code>NULL</code> si se desean frecuencias globales.</li>
@@ -589,13 +590,13 @@ Al crear una tabla con la instrucción <code>table(var1, var2)</code>, la variab
 <h3>Ejemplo</h3>
 <p>Obtener las tablas <code>tabla3</code> y <code>tabla4</code> con los totales margines global y por columnas respectivamente.</p>
 <p>Para hacer lo solicitado usamos las siguientes instrucciones.</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="tablas.html#cb321-1"></a><span class="kw">addmargins</span>(tabla3)</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="tablas.html#cb324-1"></a><span class="kw">addmargins</span>(tabla3)</span></code></pre></div>
 <pre><code>##         fuma
 ## sexo       A veces Frecuente     Nunca       Sum
 ##   Hombre 0.1111111 0.1111111 0.2222222 0.4444444
 ##   Mujer  0.1111111 0.3333333 0.1111111 0.5555556
 ##   Sum    0.2222222 0.4444444 0.3333333 1.0000000</code></pre>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="tablas.html#cb323-1"></a><span class="kw">addmargins</span>(tabla4, <span class="dt">margin=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="tablas.html#cb326-1"></a><span class="kw">addmargins</span>(tabla4, <span class="dt">margin=</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##         fuma
 ## sexo       A veces Frecuente     Nunca
 ##   Hombre 0.5000000 0.2500000 0.6666667
@@ -611,8 +612,8 @@ Note que los valores de 1 y 2 en el parámetro <code>margin</code> de las funcio
 <div id="función-hist" class="section level2">
 <h2><span class="header-section-number">9.4</span> Función <code>hist</code> </h2>
 <p>Construir tablas de frecuencias para variables cuantitativas es necesario en muchos procedimientos estadísticos, la función <code>hist</code> sirve para obtener este tipo de tablas. La estructura de la función es la siguiente.</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="tablas.html#cb325-1"></a><span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="st">&#39;Sturges&#39;</span>, <span class="dt">include.lowest=</span><span class="ot">TRUE</span>, <span class="dt">right=</span><span class="ot">TRUE</span>, </span>
-<span id="cb325-2"><a href="tablas.html#cb325-2"></a>     <span class="dt">plot=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="tablas.html#cb328-1"></a><span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="st">&#39;Sturges&#39;</span>, <span class="dt">include.lowest=</span><span class="ot">TRUE</span>, <span class="dt">right=</span><span class="ot">TRUE</span>, </span>
+<span id="cb328-2"><a href="tablas.html#cb328-2"></a>     <span class="dt">plot=</span><span class="ot">FALSE</span>)</span></code></pre></div>
 <p>Los parámetros de la función son:</p>
 <ul>
 <li><code>x</code>: vector numérico.</li>
@@ -625,10 +626,10 @@ Note que los valores de 1 y 2 en el parámetro <code>margin</code> de las funcio
 <h3>Ejemplo</h3>
 <p>Genere 200 observaciones aleatorias de una distribución normal con media <span class="math inline">\(\mu=170\)</span> y desviación <span class="math inline">\(\sigma=5\)</span>, luego construya una tabla de frecuencias para la muestra obtenida usando (a) la regla de Sturges y (b) tres intervalos con límites 150, 170, 180 y 190.</p>
 <p>Primero se construye el vector <code>x</code> con las observaciones de la distribución normal por medio de la función <code>rnorm</code> y se especifica la media y desviación solicitada. Luego se aplica la función <code>hist</code> con el parámetro <code>breaks='Sturges'</code>, a continuación el código utilizado.</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="tablas.html#cb326-1"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">200</span>, <span class="dt">mean=</span><span class="dv">170</span>, <span class="dt">sd=</span><span class="dv">5</span>)</span>
-<span id="cb326-2"><a href="tablas.html#cb326-2"></a></span>
-<span id="cb326-3"><a href="tablas.html#cb326-3"></a>res1 &lt;-<span class="st"> </span><span class="kw">hist</span>(<span class="dt">x=</span>x, <span class="dt">breaks=</span><span class="st">&#39;Sturges&#39;</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</span>
-<span id="cb326-4"><a href="tablas.html#cb326-4"></a>res1</span></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="tablas.html#cb329-1"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">200</span>, <span class="dt">mean=</span><span class="dv">170</span>, <span class="dt">sd=</span><span class="dv">5</span>)</span>
+<span id="cb329-2"><a href="tablas.html#cb329-2"></a></span>
+<span id="cb329-3"><a href="tablas.html#cb329-3"></a>res1 &lt;-<span class="st"> </span><span class="kw">hist</span>(<span class="dt">x=</span>x, <span class="dt">breaks=</span><span class="st">&#39;Sturges&#39;</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</span>
+<span id="cb329-4"><a href="tablas.html#cb329-4"></a>res1</span></code></pre></div>
 <pre><code>## $breaks
 ## [1] 155 160 165 170 175 180 185
 ## 
@@ -651,9 +652,9 @@ Note que los valores de 1 y 2 en el parámetro <code>margin</code> de las funcio
 ## [1] &quot;histogram&quot;</code></pre>
 <p>El objeto <code>res1</code> es una lista donde se encuentra la información de la tabla de frecuencias para <code>x</code>. Esa lista tiene en el elemento <code>breaks</code> los límites inferior y superior de los intervalos y en el elemento <code>counts</code> están las frecuencias de cada uno de los intervalos.</p>
 <p>Para obtener las frecuencias de tres intervalos con límites 150, 170, 180 y 190 se especifica en el parámetros <code>breaks</code> los límites. El código para obtener la segunda tabla de frecuencias se muestra a continuación.</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="tablas.html#cb328-1"></a>res2 &lt;-<span class="st"> </span><span class="kw">hist</span>(<span class="dt">x=</span>x, <span class="dt">plot=</span><span class="ot">FALSE</span>, </span>
-<span id="cb328-2"><a href="tablas.html#cb328-2"></a>             <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">150</span>, <span class="dv">170</span>, <span class="dv">180</span>, <span class="dv">190</span>))</span>
-<span id="cb328-3"><a href="tablas.html#cb328-3"></a>res2</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="tablas.html#cb331-1"></a>res2 &lt;-<span class="st"> </span><span class="kw">hist</span>(<span class="dt">x=</span>x, <span class="dt">plot=</span><span class="ot">FALSE</span>, </span>
+<span id="cb331-2"><a href="tablas.html#cb331-2"></a>             <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">150</span>, <span class="dv">170</span>, <span class="dv">180</span>, <span class="dv">190</span>))</span>
+<span id="cb331-3"><a href="tablas.html#cb331-3"></a>res2</span></code></pre></div>
 <pre><code>## $breaks
 ## [1] 150 170 180 190
 ## 
@@ -679,7 +680,7 @@ Note que los valores de 1 y 2 en el parámetro <code>margin</code> de las funcio
 <h3>Ejemplo</h3>
 <p>Construya el vector <code>x</code> con los siguientes elementos: 1.0, 1.2, 1.3, 2.0, 2.5, 2.7, 3.0 y 3.4. Obtenga varias tablas de frecuencia con la función <code>hist</code> variando los parámetros <code>include.lowest</code> y <code>right</code>. Use como límite de los intervalos los valores 1, 2, 3 y 4.</p>
 <p>Lo primero que debemos hacer es crear el vector <code>x</code> solicitado así:</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="tablas.html#cb330-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.1</span>, <span class="fl">1.2</span>, <span class="fl">1.3</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>, <span class="fl">2.5</span>, <span class="fl">2.7</span>, <span class="fl">3.0</span>, <span class="fl">3.4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="tablas.html#cb333-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.1</span>, <span class="fl">1.2</span>, <span class="fl">1.3</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>, <span class="fl">2.5</span>, <span class="fl">2.7</span>, <span class="fl">3.0</span>, <span class="fl">3.4</span>)</span></code></pre></div>
 <p>En la Figura <a href="tablas.html#fig:dots">9.1</a> se muestran los 9 puntos y con color azul se representan los límites de los intervalos.</p>
 <div class="figure"><span id="fig:dots"></span>
 <img src="Manual_de_R_files/figure-html/dots-1.png" alt="Ubicación de los puntos del ejemplo con límites en color azul." width="480" />
@@ -688,16 +689,16 @@ Figure 9.1: Ubicación de los puntos del ejemplo con límites en color azul.
 </p>
 </div>
 <p>A continuación se presenta el código para obtener la tabla de frecuencia usando <code>rigth=TRUE</code>, los resultados se almacenan en el objeto <code>res3</code> y se solicitan sólo los dos primeros elementos que corresponden a los límites y frecuencias.</p>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="tablas.html#cb331-1"></a>res3 &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">right=</span><span class="ot">TRUE</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</span>
-<span id="cb331-2"><a href="tablas.html#cb331-2"></a>res3[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="tablas.html#cb334-1"></a>res3 &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">right=</span><span class="ot">TRUE</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</span>
+<span id="cb334-2"><a href="tablas.html#cb334-2"></a>res3[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## $breaks
 ## [1] 1 2 3 4
 ## 
 ## $counts
 ## [1] 5 3 1</code></pre>
 <p>Ahora vamos a repetir la tabla pero usando <code>rigth=FALSE</code> para ver la diferencia, en <code>res4</code> están los resultados.</p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="tablas.html#cb333-1"></a>res4 &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">right=</span><span class="ot">FALSE</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</span>
-<span id="cb333-2"><a href="tablas.html#cb333-2"></a>res4[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="tablas.html#cb336-1"></a>res4 &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="dt">right=</span><span class="ot">FALSE</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</span>
+<span id="cb336-2"><a href="tablas.html#cb336-2"></a>res4[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## $breaks
 ## [1] 1 2 3 4
 ## 
@@ -705,10 +706,10 @@ Figure 9.1: Ubicación de los puntos del ejemplo con límites en color azul.
 ## [1] 3 4 2</code></pre>
 <p>Al comparar los últimos dos resultados vemos que la primera frecuencia es 5 cuando <code>right=TRUE</code> porque los intervalos se consideran cerrados a la derecha.</p>
 <p>Ahora vamos a construir una tabla de frecuencia usando <code>FALSE</code> para los parámetros <code>include.lowest</code> y <code>right</code>.</p>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="tablas.html#cb335-1"></a>res5 &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
-<span id="cb335-2"><a href="tablas.html#cb335-2"></a>             <span class="dt">include.lowest=</span><span class="ot">FALSE</span>, <span class="dt">right=</span><span class="ot">FALSE</span>,</span>
-<span id="cb335-3"><a href="tablas.html#cb335-3"></a>             <span class="dt">plot=</span><span class="ot">FALSE</span>)</span>
-<span id="cb335-4"><a href="tablas.html#cb335-4"></a>res5[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="tablas.html#cb338-1"></a>res5 &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
+<span id="cb338-2"><a href="tablas.html#cb338-2"></a>             <span class="dt">include.lowest=</span><span class="ot">FALSE</span>, <span class="dt">right=</span><span class="ot">FALSE</span>,</span>
+<span id="cb338-3"><a href="tablas.html#cb338-3"></a>             <span class="dt">plot=</span><span class="ot">FALSE</span>)</span>
+<span id="cb338-4"><a href="tablas.html#cb338-4"></a>res5[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## $breaks
 ## [1] 1 2 3 4
 ## 

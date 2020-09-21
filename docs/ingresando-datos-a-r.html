@@ -184,6 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a><ul>
 <li class="chapter" data-level="4.1" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-la-consola"><i class="fa fa-check"></i><b>4.1</b> Usando la consola</a></li>
 <li class="chapter" data-level="4.2" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-ventana-emergente-con-svdialogs"><i class="fa fa-check"></i><b>4.2</b> Usando ventana emergente con <strong>svDialogs</strong></a></li>
+<li class="chapter" data-level="4.3" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#botones-para-responder"><i class="fa fa-check"></i><b>4.3</b> Botones para responder</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a><ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
@@ -236,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a><ul>
-<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R? </a></li>
-<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R </a><ul>
+<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R?</a></li>
+<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a><ul>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -503,9 +504,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb96-6"><a href="ingresando-datos-a-r.html#cb96-6"></a>my_age  &lt;-<span class="st"> </span><span class="kw">as.integer</span>(my_age) <span class="co"># convert character into integer</span></span>
 <span id="cb96-7"><a href="ingresando-datos-a-r.html#cb96-7"></a></span>
 <span id="cb96-8"><a href="ingresando-datos-a-r.html#cb96-8"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Hola,&quot;</span>, my_name, </span>
-<span id="cb96-9"><a href="ingresando-datos-a-r.html#cb96-9"></a>            <span class="st">&quot;el año siguiente usted tendra&quot;</span>, </span>
+<span id="cb96-9"><a href="ingresando-datos-a-r.html#cb96-9"></a>            <span class="st">&quot;el año siguiente usted tendá&quot;</span>, </span>
 <span id="cb96-10"><a href="ingresando-datos-a-r.html#cb96-10"></a>            my_age <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, </span>
 <span id="cb96-11"><a href="ingresando-datos-a-r.html#cb96-11"></a>            <span class="st">&quot;años de edad.&quot;</span>))</span></code></pre></div>
+<p>En la siguiente figura se muestran las cajas solicitando la información.</p>
+<p align="center">
+<img src="images/cajas_con_dlgInput.png" width="500">
+</p>
+<p>Abajo la salida luego de correr todo el código del ejemplo.</p>
+<pre><code>## [1] &quot;Hola, Pedro el año siguiente usted tendr 26 años de edad.&quot;</code></pre>
+</div>
+<div id="botones-para-responder" class="section level2">
+<h2><span class="header-section-number">4.3</span> Botones para responder</h2>
+<p>La función <code>winDialog</code> del paquete básico __utils_ sirve para crear botones de diálogo en Windows solamente. A continuación se muestra la forma de generar los 4 tipos de botones.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="ingresando-datos-a-r.html#cb98-1"></a><span class="kw">library</span>(utils)</span>
+<span id="cb98-2"><a href="ingresando-datos-a-r.html#cb98-2"></a></span>
+<span id="cb98-3"><a href="ingresando-datos-a-r.html#cb98-3"></a><span class="kw">winDialog</span>(<span class="dt">type=</span><span class="st">&quot;ok&quot;</span>, <span class="dt">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span>
+<span id="cb98-4"><a href="ingresando-datos-a-r.html#cb98-4"></a><span class="kw">winDialog</span>(<span class="dt">type=</span><span class="st">&quot;okcancel&quot;</span>, <span class="dt">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span>
+<span id="cb98-5"><a href="ingresando-datos-a-r.html#cb98-5"></a><span class="kw">winDialog</span>(<span class="dt">type=</span><span class="st">&quot;yesno&quot;</span>, <span class="dt">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span>
+<span id="cb98-6"><a href="ingresando-datos-a-r.html#cb98-6"></a><span class="kw">winDialog</span>(<span class="dt">type=</span><span class="st">&quot;yesnocancel&quot;</span>, <span class="dt">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span></code></pre></div>
+<p>En la siguiente figura están las imágenes de los 4 tipos de botones.</p>
+<p align="center">
+<img src="images/botones_pregunta.png" width="500">
+</p>
+<p>A continuación se muestra un ejemplo de cómo usar un botón para preguntar y luego imprimir en la consola un mensaje dependiendo de la respuesta. Copie todo el siguiente código en la consola y vea el resultado.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="ingresando-datos-a-r.html#cb99-1"></a>answer &lt;-<span class="st"> </span><span class="kw">winDialog</span>(<span class="dt">type=</span><span class="st">&quot;yesno&quot;</span>, <span class="dt">mess=</span><span class="st">&quot;¿Le sirvió mi sugerencia?&quot;</span>)</span>
+<span id="cb99-2"><a href="ingresando-datos-a-r.html#cb99-2"></a><span class="cf">if</span> (answer<span class="op">==</span><span class="st">&#39;YES&#39;</span>) {<span class="kw">print</span>(<span class="st">&#39;Excelente!&#39;</span>)} <span class="cf">else</span> {<span class="kw">print</span>(<span class="st">&#39;Lástima&#39;</span>)}</span></code></pre></div>
 
 </div>
 </div>
