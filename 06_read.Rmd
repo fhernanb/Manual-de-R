@@ -2,7 +2,16 @@
 
 En este capítulo se mostrará cómo leer una base de datos externa hacia R.
 
-## ¿En qué formato almacenar una base de datos? \index{.csv} \index{.txt}
+## ¿Qué es una base de datos?
+Una base de datos es un arreglo ordenado de variables numéricas, lógicas y cualitativas.
+
+En la siguiente figura se ilustran los elementos de una base de datos.
+
+<p align="center">
+  <img src="images/tidy_data.png" width="700">
+</p>
+
+## ¿En qué formato almacenar una base de datos?
 Usualmente los archivos con la información para ser leídos por R se pueden almacenar en formato:
 
 - plano con extensión __.txt__ o, 
@@ -20,35 +29,35 @@ caption = 'Ejemplo de una base de datos simple.'
 )
 ```
 
-### Almacenamiento de información en Excel \index{Excel}
-Para almacenar la información del Cuadro \@ref(tab:dt1) en Excel, abrimos un archivo nuevo archivo de Excel y copiamos la información tal como se muestra en la Figura \@ref(fig:excel1). Se debe iniciar en la parte superior izquierda, no se deben dejar filas vacías, no se debe colorear, no se deben colocar bordes ni nada, se ingresa la información sin embellecer el contenido. Por último se guarda el archivo en la carpeta deseada y al momento de nombrar el archivo se debe modificar la opción tipo de archivo a __csv (delimitado por comas)__.
+### Almacenamiento de información en Excel
+Para almacenar la información del Cuadro \@ref(tab:dt1) en Excel, abrimos un archivo nuevo archivo de Excel y copiamos la información tal como se muestra en la figura de abajo. Se debe iniciar en la parte superior izquierda, no se deben dejar filas vacías, no se debe colorear, no se deben colocar bordes ni nada, se ingresa la información sin embellecer el contenido. Por último se guarda el archivo en la carpeta deseada y al momento de nombrar el archivo se debe modificar la opción tipo de archivo a __csv (delimitado por comas)__.
 
-```{r excel1, echo=F, fig.cap='Forma de almacenar los datos en Excel.', dpi=300, fig.align='center'}
-knitr::include_graphics("images/excel1.png")
-```
+<p align="center">
+  <img src="images/excel1.png" width="500">
+</p>
 
 ```{block2, type='rmdwarning'}
 Recuerde que el archivo de Excel se debe guardar con extensión .csv.
 ```
 
-### Almacenamiento de información en bloc de notas \index{bloc de notas}
-Para almacenar la información del Cuadro \@ref(tab:dt1) en bloc de notas, abrimos un archivo nuevo de bloc de notas y copiamos la información tal como se muestra en la Figura \@ref(fig:bloc1). Se copian los nombres de las variables o los datos separados por un espacio obtenido con la tecla tabuladora, cada línea se finaliza con un _enter_. Se recomienda al guardar el archivo que el cursor al inicio de una línea vacía, en la Figura \@ref(fig:bloc1) se señala la posición del cursor con la flecha roja, a pesar de que no éxiste línea número 5, el curso debe quedar al inicio de esa línea número 5.
+### Almacenamiento de información en bloc de notas
+Para almacenar la información del Cuadro \@ref(tab:dt1) en un bloc de notas abrimos un archivo nuevo de bloc de notas y copiamos la información tal como se muestra en la figura de abajo. Se copian los nombres de las variables o los datos separados por un espacio obtenido con la tecla tabuladora, cada línea se finaliza con un _enter_. Para guardar el archivo se recomienda que el cursor quede al inicio de una línea vacía. En la figura de abajo se señala la posición del cursor con la flecha roja, a pesar de que no éxiste línea número 5, el curso debe quedar al inicio de esa línea número 5.
 
-```{r bloc1, echo=F, fig.cap='Almacenamiento de los datos en bloc de notas usando la barra espaciadora', dpi=110, fig.align='center'}
-knitr::include_graphics("images/bloc1.png")
-```
+<p align="center">
+  <img src="images/bloc1.png" width="500">
+</p>
 
-Es posible mejorar la apariencia de la información almacenada en el bloc de notas si, en lugar de usar espacios con la barra espaciadora, se colocan los espacios con la barra tabuladora, así la información se ve más organizada y se puede chequear fácilmente la información ingresada. En la Figura \@ref(fig:bloc2) se muestra la información para el ejemplo, claramente se nota la organización de la información.
+Es posible mejorar la apariencia de la información almacenada en el bloc de notas si, en lugar de usar espacios con la barra espaciadora, se colocan los espacios con la barra tabuladora, así la información se ve más organizada y se puede chequear fácilmente la información ingresada. En la siguiente figura se muestra la información para el ejemplo, claramente se nota la organización de la información.
 
-```{r bloc2, echo=F, fig.cap='Almacenamiento de los datos en bloc de notas usando la barra tabuladora', dpi=110, fig.align='center'}
-knitr::include_graphics("images/bloc2.png")
-```
+<p align="center">
+  <img src="images/bloc2.png" width="500">
+</p>
 
 ```{block2, type='rmdtip'}
 Una buena práctica es usar la barra tabuladora para separar, eso permite que la información se vea ordenada.
 ```
 
-## Función `read.table` \index{read.table}
+## Función `read.table`
 La función `read.table` se puede usar para leer bases de datos hacia R. La estructura de la función con los parámetros más comunes de uso es la siguiente.
 
 ```{r, eval=F}
@@ -68,19 +77,21 @@ Los argumentos de la función `read.table` son:
 ### Ejemplo {-}
 Crear la base de datos del Cuadro \@ref(tab:dt1) en Excel y bloc de notas para practicar la lectura de base de datos desde R.
 
-Lo primero que se debe hacer para realizar lo solicitado es construir tres archivos (uno de Excel y dos bloc de notas) igual a los mostrados en las figuras \@ref(fig:excel1), \@ref(fig:bloc1) y \@ref(fig:bloc2), vamos a suponer que los nombres para cada uno de ellos son `base1.csv`, `base2.txt` y `base3.txt` respectivamente.
+__Solución__
+
+Lo primero que se debe hacer para realizar lo solicitado es construir tres archivos (uno de Excel y dos bloc de notas) igual a los mostrados en las figuras anteriores. Vamos a suponer que los nombres para cada uno de ellos son `base1.csv`, `base2.txt` y `base3.txt` respectivamente.
 
 #### Para Excel {-}
 
 Para leer el archivo de Excel llamado `base1.csv` podemos usar el siguiente código.
 
 ```{r, eval=F}
-datos <- read.table(file='C:/Users/Hernandez/Desktop/base1.csv',
+datos <- read.table(file='C:/Users/mi_usuario/Desktop/base1.csv',
                     header=TRUE, sep=',')
 datos
 ```
 
-La dirección `file='C:/Users/Hernandez/Desktop/base1.csv'` le indica a R en qué lugar del computador debe buscar el archivo, note que se debe usar el símbolo `/` para que sea un dirección válida. Substituya la dirección del código anterior con la dirección donde se encuentra su archivo para que pueda leer la base de datos.
+La dirección `file='C:/Users/mi_usuario/Desktop/base1.csv'` le indica a R en qué lugar del computador debe buscar el archivo, note que se debe usar el símbolo `/` para que sea un dirección válida. Substituya la dirección del código anterior con la dirección donde se encuentra su archivo para que pueda leer la base de datos.
 
 Si no se conoce la ubicación del archivo a leer o si la dirección es muy extensa, se puede usar `file.choose()` para que se abra una ventana y así adjuntar manualmente el archivo. A continuación se muestra el código para hacerlo de esta manera.
 
@@ -94,7 +105,7 @@ datos
 Para leer el archivo de Excel llamado `base2.txt` podemos usar el siguiente código.
 
 ```{r, eval=F}
-datos <- read.table(file='C:/Users/Hernandez/Desktop/base2.txt',
+datos <- read.table(file='C:/Users/mi_usuario/Desktop/base2.txt',
                     header=TRUE, sep='')
 datos
 ```
@@ -104,7 +115,7 @@ datos
 Para leer el archivo de Excel llamado `base3.txt` podemos usar el siguiente código.
 
 ```{r, eval=F}
-datos <- read.table(file='C:/Users/Hernandez/Desktop/base3.txt',
+datos <- read.table(file='C:/Users/mi_usuario/Desktop/base3.txt',
                     header=TRUE, sep='\t')
 datos
 ```
@@ -120,6 +131,8 @@ Un error frecuente es escribir la dirección o ubicación del archivo usando `\`
 ### Ejemplo {-}
 Leer la base de datos sobre apartamentos usados en la ciudad de Medellín que está disponible en la página web cuya url es: https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015
 
+__Solución__
+
 Para leer la base de datos desde una url usamos el siguiente código.
 
 ```{r}
@@ -130,10 +143,12 @@ datos <- read.table(file=enlace, header=TRUE)
 La base de datos ingresada queda en el marco de datos llamado `datos` y ya está disponible para usarla.
 
 ## Lectura de bases de datos en Excel
-Algunas veces los datos están disponibles en un archivo estándar de Excel, y dentro de cada archivo hojas con la información a utilizar. En estos casos se recomienda usar el paquete **readxl**\index{readxl} [@R-readxl] y en particular la función `readxl`. A continuación un ejemplo de cómo proceder en estos casos.
+Algunas veces los datos están disponibles en un archivo estándar de Excel, y dentro de cada archivo hojas con la información a utilizar. En estos casos se recomienda usar el paquete **readxl** [@R-readxl] y en particular la función `readxl`. A continuación un ejemplo de cómo proceder en estos casos.
 
 ### Ejemplo {-}
 En este [enlace](https://github.com/fhernanb/datos/blob/master/BD_Excel.xlsx) está disponible un archivo de Excel llamado BD_Excel.xlxs, una vez se ha abierto la página donde está alojado el archivo, se debe descargar y guardar en alguna carpeta. El archivo contiene dos bases de datos muy pequeñas, en la primera hoja llamada __Hijos__ está la información de un grupo de niños y en la segunda hoja llamada __Padres__ está la información de los padres. ¿Cómo se pueden leer las dos bases de datos?
+
+__Solución__
 
 Lo primero que se debe hacer es instalar el paquete **readxl**, la instalación de cualquier paquete en un computador se hace una sola vez y éste quedará instalado para ser usado las veces que se requiera. La función para instalar un paquete cualquiera es `install.packages`, a continuación se muestra el código necesario para instalar el paquete **readxl**.
 

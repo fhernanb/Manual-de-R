@@ -247,15 +247,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejercicios-2"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="read.html"><a href="read.html"><i class="fa fa-check"></i><b>8</b> Lectura de bases de datos</a><ul>
-<li class="chapter" data-level="8.1" data-path="read.html"><a href="read.html#en-qué-formato-almacenar-una-base-de-datos"><i class="fa fa-check"></i><b>8.1</b> ¿En qué formato almacenar una base de datos?  </a><ul>
-<li class="chapter" data-level="8.1.1" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-excel"><i class="fa fa-check"></i><b>8.1.1</b> Almacenamiento de información en Excel </a></li>
-<li class="chapter" data-level="8.1.2" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-bloc-de-notas"><i class="fa fa-check"></i><b>8.1.2</b> Almacenamiento de información en bloc de notas </a></li>
+<li class="chapter" data-level="8.1" data-path="read.html"><a href="read.html#qué-es-una-base-de-datos"><i class="fa fa-check"></i><b>8.1</b> ¿Qué es una base de datos?</a></li>
+<li class="chapter" data-level="8.2" data-path="read.html"><a href="read.html#en-qué-formato-almacenar-una-base-de-datos"><i class="fa fa-check"></i><b>8.2</b> ¿En qué formato almacenar una base de datos?</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-excel"><i class="fa fa-check"></i><b>8.2.1</b> Almacenamiento de información en Excel</a></li>
+<li class="chapter" data-level="8.2.2" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-bloc-de-notas"><i class="fa fa-check"></i><b>8.2.2</b> Almacenamiento de información en bloc de notas</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="read.html"><a href="read.html#función-read.table"><i class="fa fa-check"></i><b>8.2</b> Función <code>read.table</code> </a><ul>
+<li class="chapter" data-level="8.3" data-path="read.html"><a href="read.html#función-read.table"><i class="fa fa-check"></i><b>8.3</b> Función <code>read.table</code></a><ul>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-24"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-25"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="read.html"><a href="read.html#lectura-de-bases-de-datos-en-excel"><i class="fa fa-check"></i><b>8.3</b> Lectura de bases de datos en Excel</a><ul>
+<li class="chapter" data-level="8.4" data-path="read.html"><a href="read.html#lectura-de-bases-de-datos-en-excel"><i class="fa fa-check"></i><b>8.4</b> Lectura de bases de datos en Excel</a><ul>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-26"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejercicios-3"><i class="fa fa-check"></i>EJERCICIOS</a></li>
@@ -477,8 +478,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="read" class="section level1">
 <h1><span class="header-section-number">8</span> Lectura de bases de datos</h1>
 <p>En este capítulo se mostrará cómo leer una base de datos externa hacia R.</p>
+<div id="qué-es-una-base-de-datos" class="section level2">
+<h2><span class="header-section-number">8.1</span> ¿Qué es una base de datos?</h2>
+<p>Una base de datos es un arreglo ordenado de variables numéricas, lógicas y cualitativas.</p>
+<p>En la siguiente figura se ilustran los elementos de una base de datos.</p>
+<p align="center">
+<img src="images/tidy_data.png" width="700">
+</p>
+</div>
 <div id="en-qué-formato-almacenar-una-base-de-datos" class="section level2">
-<h2><span class="header-section-number">8.1</span> ¿En qué formato almacenar una base de datos?  </h2>
+<h2><span class="header-section-number">8.2</span> ¿En qué formato almacenar una base de datos?</h2>
 <p>Usualmente los archivos con la información para ser leídos por R se pueden almacenar en formato:</p>
 <ul>
 <li>plano con extensión <strong>.txt</strong> o,</li>
@@ -513,14 +522,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <div id="almacenamiento-de-información-en-excel" class="section level3">
-<h3><span class="header-section-number">8.1.1</span> Almacenamiento de información en Excel </h3>
-<p>Para almacenar la información del Cuadro <a href="read.html#tab:dt1">8.1</a> en Excel, abrimos un archivo nuevo archivo de Excel y copiamos la información tal como se muestra en la Figura <a href="read.html#fig:excel1">8.1</a>. Se debe iniciar en la parte superior izquierda, no se deben dejar filas vacías, no se debe colorear, no se deben colocar bordes ni nada, se ingresa la información sin embellecer el contenido. Por último se guarda el archivo en la carpeta deseada y al momento de nombrar el archivo se debe modificar la opción tipo de archivo a <strong>csv (delimitado por comas)</strong>.</p>
-<div class="figure" style="text-align: center"><span id="fig:excel1"></span>
-<img src="images/excel1.png" alt="Forma de almacenar los datos en Excel." width="150" />
-<p class="caption">
-Figure 8.1: Forma de almacenar los datos en Excel.
+<h3><span class="header-section-number">8.2.1</span> Almacenamiento de información en Excel</h3>
+<p>Para almacenar la información del Cuadro <a href="read.html#tab:dt1">8.1</a> en Excel, abrimos un archivo nuevo archivo de Excel y copiamos la información tal como se muestra en la figura de abajo. Se debe iniciar en la parte superior izquierda, no se deben dejar filas vacías, no se debe colorear, no se deben colocar bordes ni nada, se ingresa la información sin embellecer el contenido. Por último se guarda el archivo en la carpeta deseada y al momento de nombrar el archivo se debe modificar la opción tipo de archivo a <strong>csv (delimitado por comas)</strong>.</p>
+<p align="center">
+<img src="images/excel1.png" width="500">
 </p>
-</div>
 
 <div class="rmdwarning">
 Recuerde que el archivo de Excel se debe guardar con extensión .csv.
@@ -528,21 +534,15 @@ Recuerde que el archivo de Excel se debe guardar con extensión .csv.
 
 </div>
 <div id="almacenamiento-de-información-en-bloc-de-notas" class="section level3">
-<h3><span class="header-section-number">8.1.2</span> Almacenamiento de información en bloc de notas </h3>
-<p>Para almacenar la información del Cuadro <a href="read.html#tab:dt1">8.1</a> en bloc de notas, abrimos un archivo nuevo de bloc de notas y copiamos la información tal como se muestra en la Figura <a href="read.html#fig:bloc1">8.2</a>. Se copian los nombres de las variables o los datos separados por un espacio obtenido con la tecla tabuladora, cada línea se finaliza con un <em>enter</em>. Se recomienda al guardar el archivo que el cursor al inicio de una línea vacía, en la Figura <a href="read.html#fig:bloc1">8.2</a> se señala la posición del cursor con la flecha roja, a pesar de que no éxiste línea número 5, el curso debe quedar al inicio de esa línea número 5.</p>
-<div class="figure" style="text-align: center"><span id="fig:bloc1"></span>
-<img src="images/bloc1.PNG" alt="Almacenamiento de los datos en bloc de notas usando la barra espaciadora" width="145" />
-<p class="caption">
-Figure 8.2: Almacenamiento de los datos en bloc de notas usando la barra espaciadora
+<h3><span class="header-section-number">8.2.2</span> Almacenamiento de información en bloc de notas</h3>
+<p>Para almacenar la información del Cuadro <a href="read.html#tab:dt1">8.1</a> en un bloc de notas abrimos un archivo nuevo de bloc de notas y copiamos la información tal como se muestra en la figura de abajo. Se copian los nombres de las variables o los datos separados por un espacio obtenido con la tecla tabuladora, cada línea se finaliza con un <em>enter</em>. Para guardar el archivo se recomienda que el cursor quede al inicio de una línea vacía. En la figura de abajo se señala la posición del cursor con la flecha roja, a pesar de que no éxiste línea número 5, el curso debe quedar al inicio de esa línea número 5.</p>
+<p align="center">
+<img src="images/bloc1.PNG" width="500">
 </p>
-</div>
-<p>Es posible mejorar la apariencia de la información almacenada en el bloc de notas si, en lugar de usar espacios con la barra espaciadora, se colocan los espacios con la barra tabuladora, así la información se ve más organizada y se puede chequear fácilmente la información ingresada. En la Figura <a href="read.html#fig:bloc2">8.3</a> se muestra la información para el ejemplo, claramente se nota la organización de la información.</p>
-<div class="figure" style="text-align: center"><span id="fig:bloc2"></span>
-<img src="images/bloc2.PNG" alt="Almacenamiento de los datos en bloc de notas usando la barra tabuladora" width="146" />
-<p class="caption">
-Figure 8.3: Almacenamiento de los datos en bloc de notas usando la barra tabuladora
+<p>Es posible mejorar la apariencia de la información almacenada en el bloc de notas si, en lugar de usar espacios con la barra espaciadora, se colocan los espacios con la barra tabuladora, así la información se ve más organizada y se puede chequear fácilmente la información ingresada. En la siguiente figura se muestra la información para el ejemplo, claramente se nota la organización de la información.</p>
+<p align="center">
+<img src="images/bloc2.PNG" width="500">
 </p>
-</div>
 
 <div class="rmdtip">
 Una buena práctica es usar la barra tabuladora para separar, eso permite que la información se vea ordenada.
@@ -551,7 +551,7 @@ Una buena práctica es usar la barra tabuladora para separar, eso permite que la
 </div>
 </div>
 <div id="función-read.table" class="section level2">
-<h2><span class="header-section-number">8.2</span> Función <code>read.table</code> </h2>
+<h2><span class="header-section-number">8.3</span> Función <code>read.table</code></h2>
 <p>La función <code>read.table</code> se puede usar para leer bases de datos hacia R. La estructura de la función con los parámetros más comunes de uso es la siguiente.</p>
 <div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="read.html#cb289-1"></a><span class="kw">read.table</span>(file, header, sep, dec)</span></code></pre></div>
 <p>Los argumentos de la función <code>read.table</code> son:</p>
@@ -569,14 +569,15 @@ Una buena práctica es usar la barra tabuladora para separar, eso permite que la
 <div id="ejemplo-24" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Crear la base de datos del Cuadro <a href="read.html#tab:dt1">8.1</a> en Excel y bloc de notas para practicar la lectura de base de datos desde R.</p>
-<p>Lo primero que se debe hacer para realizar lo solicitado es construir tres archivos (uno de Excel y dos bloc de notas) igual a los mostrados en las figuras <a href="read.html#fig:excel1">8.1</a>, <a href="read.html#fig:bloc1">8.2</a> y <a href="read.html#fig:bloc2">8.3</a>, vamos a suponer que los nombres para cada uno de ellos son <code>base1.csv</code>, <code>base2.txt</code> y <code>base3.txt</code> respectivamente.</p>
+<p><strong>Solución</strong></p>
+<p>Lo primero que se debe hacer para realizar lo solicitado es construir tres archivos (uno de Excel y dos bloc de notas) igual a los mostrados en las figuras anteriores. Vamos a suponer que los nombres para cada uno de ellos son <code>base1.csv</code>, <code>base2.txt</code> y <code>base3.txt</code> respectivamente.</p>
 <div id="para-excel" class="section level4 unnumbered">
 <h4>Para Excel</h4>
 <p>Para leer el archivo de Excel llamado <code>base1.csv</code> podemos usar el siguiente código.</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="read.html#cb290-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&#39;C:/Users/Hernandez/Desktop/base1.csv&#39;</span>,</span>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="read.html#cb290-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&#39;C:/Users/mi_usuario/Desktop/base1.csv&#39;</span>,</span>
 <span id="cb290-2"><a href="read.html#cb290-2"></a>                    <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&#39;,&#39;</span>)</span>
 <span id="cb290-3"><a href="read.html#cb290-3"></a>datos</span></code></pre></div>
-<p>La dirección <code>file='C:/Users/Hernandez/Desktop/base1.csv'</code> le indica a R en qué lugar del computador debe buscar el archivo, note que se debe usar el símbolo <code>/</code> para que sea un dirección válida. Substituya la dirección del código anterior con la dirección donde se encuentra su archivo para que pueda leer la base de datos.</p>
+<p>La dirección <code>file='C:/Users/mi_usuario/Desktop/base1.csv'</code> le indica a R en qué lugar del computador debe buscar el archivo, note que se debe usar el símbolo <code>/</code> para que sea un dirección válida. Substituya la dirección del código anterior con la dirección donde se encuentra su archivo para que pueda leer la base de datos.</p>
 <p>Si no se conoce la ubicación del archivo a leer o si la dirección es muy extensa, se puede usar <code>file.choose()</code> para que se abra una ventana y así adjuntar manualmente el archivo. A continuación se muestra el código para hacerlo de esta manera.</p>
 <div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="read.html#cb291-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">file.choose</span>(), <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&#39;,&#39;</span>)</span>
 <span id="cb291-2"><a href="read.html#cb291-2"></a>datos</span></code></pre></div>
@@ -584,14 +585,14 @@ Una buena práctica es usar la barra tabuladora para separar, eso permite que la
 <div id="para-bloc-de-notas-con-barra-espaciadora" class="section level4 unnumbered">
 <h4>Para bloc de notas con barra espaciadora</h4>
 <p>Para leer el archivo de Excel llamado <code>base2.txt</code> podemos usar el siguiente código.</p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="read.html#cb292-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&#39;C:/Users/Hernandez/Desktop/base2.txt&#39;</span>,</span>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="read.html#cb292-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&#39;C:/Users/mi_usuario/Desktop/base2.txt&#39;</span>,</span>
 <span id="cb292-2"><a href="read.html#cb292-2"></a>                    <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&#39;&#39;</span>)</span>
 <span id="cb292-3"><a href="read.html#cb292-3"></a>datos</span></code></pre></div>
 </div>
 <div id="para-bloc-de-notas-con-barra-tabuladora" class="section level4 unnumbered">
 <h4>Para bloc de notas con barra tabuladora</h4>
 <p>Para leer el archivo de Excel llamado <code>base3.txt</code> podemos usar el siguiente código.</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="read.html#cb293-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&#39;C:/Users/Hernandez/Desktop/base3.txt&#39;</span>,</span>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="read.html#cb293-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&#39;C:/Users/mi_usuario/Desktop/base3.txt&#39;</span>,</span>
 <span id="cb293-2"><a href="read.html#cb293-2"></a>                    <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span>
 <span id="cb293-3"><a href="read.html#cb293-3"></a>datos</span></code></pre></div>
 
@@ -609,6 +610,7 @@ Un error frecuente es escribir la dirección o ubicación del archivo usando <co
 <div id="ejemplo-25" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Leer la base de datos sobre apartamentos usados en la ciudad de Medellín que está disponible en la página web cuya url es: <a href="https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015" class="uri">https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015</a></p>
+<p><strong>Solución</strong></p>
 <p>Para leer la base de datos desde una url usamos el siguiente código.</p>
 <div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="read.html#cb294-1"></a>enlace &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015&#39;</span></span>
 <span id="cb294-2"><a href="read.html#cb294-2"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>enlace, <span class="dt">header=</span><span class="ot">TRUE</span>)</span></code></pre></div>
@@ -616,11 +618,12 @@ Un error frecuente es escribir la dirección o ubicación del archivo usando <co
 </div>
 </div>
 <div id="lectura-de-bases-de-datos-en-excel" class="section level2">
-<h2><span class="header-section-number">8.3</span> Lectura de bases de datos en Excel</h2>
+<h2><span class="header-section-number">8.4</span> Lectura de bases de datos en Excel</h2>
 <p>Algunas veces los datos están disponibles en un archivo estándar de Excel, y dentro de cada archivo hojas con la información a utilizar. En estos casos se recomienda usar el paquete <strong>readxl</strong> <span class="citation">(Wickham and Bryan <a href="#ref-R-readxl" role="doc-biblioref">2019</a>)</span> y en particular la función <code>readxl</code>. A continuación un ejemplo de cómo proceder en estos casos.</p>
 <div id="ejemplo-26" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>En este <a href="https://github.com/fhernanb/datos/blob/master/BD_Excel.xlsx">enlace</a> está disponible un archivo de Excel llamado BD_Excel.xlxs, una vez se ha abierto la página donde está alojado el archivo, se debe descargar y guardar en alguna carpeta. El archivo contiene dos bases de datos muy pequeñas, en la primera hoja llamada <strong>Hijos</strong> está la información de un grupo de niños y en la segunda hoja llamada <strong>Padres</strong> está la información de los padres. ¿Cómo se pueden leer las dos bases de datos?</p>
+<p><strong>Solución</strong></p>
 <p>Lo primero que se debe hacer es instalar el paquete <strong>readxl</strong>, la instalación de cualquier paquete en un computador se hace una sola vez y éste quedará instalado para ser usado las veces que se requiera. La función para instalar un paquete cualquiera es <code>install.packages</code>, a continuación se muestra el código necesario para instalar el paquete <strong>readxl</strong>.</p>
 <div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="read.html#cb295-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
 <p>Una vez instalado el paquete es necesario cargarlo, la función para cargar el paquete en la sesión actual de R es <code>library</code>. La instrucción para cargar el paquete es la siguiente:</p>
