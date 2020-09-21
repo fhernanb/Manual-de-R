@@ -1,6 +1,6 @@
 # Guía de estilo {#estilo}
 
-Así como en el español existen reglas ortográficas, la escritura de códigos en R también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo es importante para que el código creado por usted sea fácilmente entendido por sus lectores [@rpackages]. No existe una única y mejor guía de estilo para escritura en R, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada [Google's R style guide](https://style.tidyverse.org/).
+Así como en el español existen reglas ortográficas, la escritura de códigos en R también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo es importante para que el código creado por usted sea fácilmente entendido por sus lectores [@rpackages]. No existe una única y mejor guía de estilo para escritura en R, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada [The tidyverse style guidee](https://style.tidyverse.org/).
 
 ## Nombres de los archivos
 Se sugiere que el nombre usado para nombrar un archivo tenga sentido y que termine con extensión ".R". A continuación dos ejemplos de como nombrar bien y mal un archivo.

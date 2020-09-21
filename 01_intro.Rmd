@@ -1,8 +1,6 @@
-\mainmatter
-
 # Introducción {#intro} 
 
-\section{Orígenes} \label{sec:origenes}
+## Orígenes
 R es un lenguaje de programación usado para realizar procedimientos estadísticos y gráficos de alto nivel, este lenguaje fue creado en 1993 por los profesores e investigadores Robert Gentleman y Ross Ihaka. Inicialmente el lenguaje se usó para apoyar los cursos que tenían a su cargo los profesores, pero luego de ver la utilidad de la herramienta desarrollada, decidieron colocar copias de R en StatLib. A partir de 1995 el código fuente de R está disponible bajo licencia GNU GPL para sistemas operativos Windows, Macintosh y distribuciones Unix/Linux. La comunidad de usuarios de R en el mundo es muy grande y los usuarios cuentan con diferentes espacios para interactuar, a continuación una lista no exhaustiva de los sitios más populares relacionados con R:
 
 - [Rbloggers](https://www.r-bloggers.com/).
@@ -16,44 +14,45 @@ R es un lenguaje de programación usado para realizar procedimientos estadístic
 - [R-statistics blog](https://www.r-statistics.com/).
 - [RDataMining](https://rdatamining.wordpress.com/).
 
-```{r, echo=F, fig.cap='Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.', dpi=200, fig.align='center'}
-knitr::include_graphics("images/Robert_Roos.png")
-```
+En la siguiente figura están Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.
 
-\section{Descarga e instalación} \label{sec:descarga}
+<p align="center">
+  <img src="images/Robert_Roos.png" width="500">
+</p>
 
-Para realizar la instalación de R usted debe visitar la página del CRAN (\textit{Comprehensive R Archive Network}) disponible en este [enlace](https://cran.r-project.org/). Una vez ingrese a la página encontrará un cuadro similar al mostrado en la Figura \@ref(fig:cran) donde aparecen los enlaces de la instalación para los sistemas operativos Linux, Mac y Windows.
+## Instalación
 
-```{r cran, echo=F, fig.cap='Página del Cran.', dpi=190, fig.align='center'}
-knitr::include_graphics("images/cran.png")
-```
+Para realizar la instalación de R usted debe visitar la página del CRAN (Comprehensive R Archive Network) disponible en este [enlace](https://cran.r-project.org/). Una vez ingrese a la página encontrará un cuadro similar al mostrado en la siguiente figura donde encontrará los enlaces de la instalación para los sistemas operativos Linux, Mac y Windows.
 
-Supongamos que se desea instalar R en Windows, para esto se debe dar clic sobre el hiperenlace \textcolor{BurntOrange}{Download R for Windows} de la Figura \@ref(fig:cran). Una vez hecho esto se abrirá una página con el contenido mostrado en la Figura \@ref(fig:inst1). Una vez ingrese a esa nueva página usted debe dar clic sobre el hiperenlace \textcolor{BurntOrange}{install R for the first time} como es señalado por la flecha roja en la Figura \@ref(fig:inst1).
+<p align="center">
+  <img src="images/cran.png" width="500">
+</p>
+
+Supongamos que se desea instalar R en Windows, para esto se debe dar clic sobre el hiperenlace __Download R for Windows__. Una vez hecho esto se abrirá una página con el contenido mostrado en la siguiente figura. Luego se debe dar clic sobre el hiperenlace __install R for the first time__.
+
+<p align="center">
+  <img src="images/instalacion1.png" width="500">
+</p>
   
-```{r inst1, echo=F, fig.cap='Página de instalación para la primera ocasión.', dpi=190, fig.align='center'}
-knitr::include_graphics("images/instalacion1.png")
-```
+Luego de esto se abrirá otra página con un encabezado similar al mostrado en la siguiente figura. Al momento de capturar la figura la versión actual de R era 3.2.5 pero con certeza usted tendrá disponible la versión actualizada. Una vez allí uste debe dar clic sobre __Download R 3.2.5 for Windows__ como es señalado por la flecha verde. Luego de esto se descargará el instalador R en el computador el cual deberá ser instalado con las opciones que vienen por defecto.
 
-Luego de esto se abrirá otra página con un encabezado similar al mostrado en la Figura \@ref(fig:inst2), al momento de capturar la figura la versión actual de R era 3.2.5 pero seguramente en este momento usted tendrá disponible una versión actualizada. Una vez allí uste debe dar clic sobre \textcolor{BurntOrange}{Download R 3.2.5 for Windows} como es señalado por la flecha verde. Luego de esto se descargará el instalador R en el computador el cual deberá ser instalado con las opciones que vienen por defecto.
+<p align="center">
+  <img src="images/instalacion2.png" width="500">
+</p>
 
-```{r inst2, echo=F, fig.cap='Página de descarga.', out.width = '50%', fig.align='center'}
-knitr::include_graphics("images/instalacion2.png")
-```
+Se recomienda observar el siguiente video didáctico de instalación de R disponible en este [enlace](https://youtu.be/rzw1E6HxBFY) para facilitar la tarea de instalación.
 
-Se recomienda observar el siguiente video didáctico de instalación de R disponible en este [enlace](http://tinyurl.com/jd7b9ks) para facilitar la tarea de instalación.
+## Apariencia del programa
 
-\section{Apariencia del programa} \label{sec:apariencia}
-Una vez que esté instalado R en su computador, usted podrá acceder a él por la lista de programas o por medio del acceso directo que quedó en el escritorio, en la Figura \@ref(fig:rlogo) se muestra la apariencia del acceso directo para ingresar a R.
+Una vez que esté instalado R en su computador, usted podrá acceder a él por la lista de programas o por medio del acceso directo que quedó en el escritorio, en la siguiente figura se muestra la apariencia del acceso directo para ingresar a R.
 
-```{r rlogo, echo=F, fig.cap='Apariencia del acceso directo para ingresar a R.', out.width = '33%', fig.align='center'}
-knitr::include_graphics("images/rlogo.png")
-```
+<p align="center">
+  <img src="images/rlogo.png" width="200">
+</p>
 
-Al abrir R aparecerá en la pantalla de su computador algo similar a lo que está en la Figura \@ref(fig:pantalla). La ventana izquierda se llama consola y es donde se ingresan las instrucciones, una vez que se construye un gráfico se activa otra ventana llamada ventana gráfica. Cualquier usuario puede modificar la posición y tamaños de estas ventanas, puede cambiar el tipo y tamaño de las letras en la consola, para hacer esto se deben explorar las opciones de \textit{editar} en la barra de herramientas.
+Al abrir R aparecerá en la pantalla de su computador algo similar a lo que está en la siguiente figura. La ventana izquierda se llama consola y es donde se ingresan las instrucciones, una vez que se construye un gráfico se activa otra ventana llamada ventana gráfica. Cualquier usuario puede modificar la posición y tamaños de estas ventanas, puede cambiar el tipo y tamaño de las letras en la consola, para hacer esto se deben explorar las opciones de __editar__ en la barra de herramientas.
 
-```{r pantalla, echo=F, fig.cap='Apariencia de R.', dpi=400, fig.align='center'}
-knitr::include_graphics("images/Rpantallazo.png")
-```
-
-
+<p align="center">
+  <img src="images/Rpantallazo.png" width="500">
+</p>
 
