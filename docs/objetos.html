@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Tipos de objetos | Manual de R</title>
   <meta name="description" content="2 Tipos de objetos | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Tipos de objetos | Manual de R" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2021-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,6 +34,7 @@
   
 <link rel="prev" href="intro.html"/>
 <link rel="next" href="estilo.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,21 +52,22 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,46 +136,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Manual de R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-del-software-y-convenciones"><i class="fa fa-check"></i>Información del software y convenciones</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#bloques-informativos"><i class="fa fa-check"></i>Bloques informativos</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="sobre-los-autores.html"><a href="sobre-los-autores.html"><i class="fa fa-check"></i>Sobre los autores</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#orígenes"><i class="fa fa-check"></i><b>1.1</b> Orígenes</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#instalación"><i class="fa fa-check"></i><b>1.2</b> Instalación</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#apariencia-del-programa"><i class="fa fa-check"></i><b>1.3</b> Apariencia del programa</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>2</b> Tipos de objetos</a><ul>
+<li class="chapter" data-level="2" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>2</b> Tipos de objetos</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="objetos.html"><a href="objetos.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
-<li class="chapter" data-level="2.2" data-path="objetos.html"><a href="objetos.html#vectores"><i class="fa fa-check"></i><b>2.2</b> Vectores  </a><ul>
+<li class="chapter" data-level="2.2" data-path="objetos.html"><a href="objetos.html#vectores"><i class="fa fa-check"></i><b>2.2</b> Vectores  </a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo extraer elementos de un vector?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="objetos.html"><a href="objetos.html#matrices"><i class="fa fa-check"></i><b>2.3</b> Matrices</a><ul>
+<li class="chapter" data-level="2.3" data-path="objetos.html"><a href="objetos.html#matrices"><i class="fa fa-check"></i><b>2.3</b> Matrices</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-una-matriz"><i class="fa fa-check"></i><b>2.3.1</b> ¿Cómo extraer elementos de una matriz?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="objetos.html"><a href="objetos.html#arreglos"><i class="fa fa-check"></i><b>2.4</b> Arreglos  </a><ul>
+<li class="chapter" data-level="2.4" data-path="objetos.html"><a href="objetos.html#arreglos"><i class="fa fa-check"></i><b>2.4</b> Arreglos  </a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-arreglo"><i class="fa fa-check"></i><b>2.4.1</b> ¿Cómo extraer elementos de un arreglo?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="objetos.html"><a href="objetos.html#marco-de-datos"><i class="fa fa-check"></i><b>2.5</b> Marco de datos  </a><ul>
+<li class="chapter" data-level="2.5" data-path="objetos.html"><a href="objetos.html#marco-de-datos"><i class="fa fa-check"></i><b>2.5</b> Marco de datos  </a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.5.1</b> ¿Cómo extraer elementos de un marco de datos?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="2.5.2" data-path="objetos.html"><a href="objetos.html#cómo-extraer-subconjuntos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.5.2</b> ¿Cómo extraer subconjuntos de un marco de datos? </a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="objetos.html"><a href="objetos.html#listas"><i class="fa fa-check"></i><b>2.6</b> Listas  </a><ul>
+<li class="chapter" data-level="2.6" data-path="objetos.html"><a href="objetos.html#listas"><i class="fa fa-check"></i><b>2.6</b> Listas  </a>
+<ul>
 <li class="chapter" data-level="2.6.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-una-lista"><i class="fa fa-check"></i><b>2.6.1</b> ¿Cómo extraer elementos de una lista?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejercicios"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="estilo.html"><a href="estilo.html"><i class="fa fa-check"></i><b>3</b> Guía de estilo</a><ul>
+<li class="chapter" data-level="3" data-path="estilo.html"><a href="estilo.html"><i class="fa fa-check"></i><b>3</b> Guía de estilo</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="estilo.html"><a href="estilo.html#nombres-de-los-archivos"><i class="fa fa-check"></i><b>3.1</b> Nombres de los archivos</a></li>
 <li class="chapter" data-level="3.2" data-path="estilo.html"><a href="estilo.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>3.2</b> Nombres de los objetos</a></li>
 <li class="chapter" data-level="3.3" data-path="estilo.html"><a href="estilo.html#longitud-de-una-línea-de-código"><i class="fa fa-check"></i><b>3.3</b> Longitud de una línea de código</a></li>
@@ -181,64 +192,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación"><i class="fa fa-check"></i><b>3.5</b> Asignación</a></li>
 <li class="chapter" data-level="3.6" data-path="estilo.html"><a href="estilo.html#punto-y-coma"><i class="fa fa-check"></i><b>3.6</b> Punto y coma</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a><ul>
+<li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-la-consola"><i class="fa fa-check"></i><b>4.1</b> Usando la consola</a></li>
 <li class="chapter" data-level="4.2" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-ventana-emergente-con-svdialogs"><i class="fa fa-check"></i><b>4.2</b> Usando ventana emergente con <strong>svDialogs</strong></a></li>
 <li class="chapter" data-level="4.3" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#botones-para-responder"><i class="fa fa-check"></i><b>4.3</b> Botones para responder</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a><ul>
+<li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
-<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#operadores-de-asignación"><i class="fa fa-check"></i><b>5.2</b> Operadores de asignación</a><ul>
+<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#operadores-de-asignación"><i class="fa fa-check"></i><b>5.2</b> Operadores de asignación</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operaciones-básicas"><i class="fa fa-check"></i><b>5.3</b> Operaciones básicas</a></li>
-<li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a><ul>
+<li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="funbas.html"><a href="funbas.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.5</b> Operadores lógicos</a><ul>
+<li class="chapter" data-level="5.5" data-path="funbas.html"><a href="funbas.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.5</b> Operadores lógicos</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="funbas.html"><a href="funbas.html#funciones-sobre-vectores"><i class="fa fa-check"></i><b>5.6</b> Funciones sobre vectores</a><ul>
+<li class="chapter" data-level="5.6" data-path="funbas.html"><a href="funbas.html#funciones-sobre-vectores"><i class="fa fa-check"></i><b>5.6</b> Funciones sobre vectores</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="funbas.html"><a href="funbas.html#funciones-matemáticas"><i class="fa fa-check"></i><b>5.7</b> Funciones matemáticas</a></li>
-<li class="chapter" data-level="5.8" data-path="funbas.html"><a href="funbas.html#función-seq"><i class="fa fa-check"></i><b>5.8</b> Función <code>seq</code></a><ul>
+<li class="chapter" data-level="5.8" data-path="funbas.html"><a href="funbas.html#función-seq"><i class="fa fa-check"></i><b>5.8</b> Función <code>seq</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-10"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.9" data-path="funbas.html"><a href="funbas.html#función-rep"><i class="fa fa-check"></i><b>5.9</b> Función <code>rep</code></a><ul>
+<li class="chapter" data-level="5.9" data-path="funbas.html"><a href="funbas.html#función-rep"><i class="fa fa-check"></i><b>5.9</b> Función <code>rep</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-11"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-12"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="funbas.html"><a href="funbas.html#funciones-round-ceiling-floor-y-trunc"><i class="fa fa-check"></i><b>5.10</b> Funciones <code>round</code>, <code>ceiling</code>, <code>floor</code> y <code>trunc</code></a><ul>
+<li class="chapter" data-level="5.10" data-path="funbas.html"><a href="funbas.html#funciones-round-ceiling-floor-y-trunc"><i class="fa fa-check"></i><b>5.10</b> Funciones <code>round</code>, <code>ceiling</code>, <code>floor</code> y <code>trunc</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-13"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.11" data-path="funbas.html"><a href="funbas.html#funciones-sort-y-rank"><i class="fa fa-check"></i><b>5.11</b> Funciones <code>sort</code> y <code>rank</code></a><ul>
+<li class="chapter" data-level="5.11" data-path="funbas.html"><a href="funbas.html#funciones-sort-y-rank"><i class="fa fa-check"></i><b>5.11</b> Funciones <code>sort</code> y <code>rank</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-14"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejercicios-1"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>6</b> Instrucciones de control</a><ul>
-<li class="chapter" data-level="6.1" data-path="bucles.html"><a href="bucles.html#instrucción-if"><i class="fa fa-check"></i><b>6.1</b> Instrucción <code>if</code></a><ul>
+<li class="chapter" data-level="6" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>6</b> Instrucciones de control</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="bucles.html"><a href="bucles.html#instrucción-if"><i class="fa fa-check"></i><b>6.1</b> Instrucción <code>if</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-15"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="bucles.html"><a href="bucles.html#instrucción-if-else"><i class="fa fa-check"></i><b>6.2</b> Instrucción <code>if</code> <code>else</code></a></li>
-<li class="chapter" data-level="6.3" data-path="bucles.html"><a href="bucles.html#instrucción-ifelse"><i class="fa fa-check"></i><b>6.3</b> Instrucción <code>ifelse</code></a><ul>
+<li class="chapter" data-level="6.3" data-path="bucles.html"><a href="bucles.html#instrucción-ifelse"><i class="fa fa-check"></i><b>6.3</b> Instrucción <code>ifelse</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-16"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="bucles.html"><a href="bucles.html#instrucción-for"><i class="fa fa-check"></i><b>6.4</b> Instrucción <code>for</code></a><ul>
+<li class="chapter" data-level="6.4" data-path="bucles.html"><a href="bucles.html#instrucción-for"><i class="fa fa-check"></i><b>6.4</b> Instrucción <code>for</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-17"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="bucles.html"><a href="bucles.html#instrucción-while"><i class="fa fa-check"></i><b>6.5</b> Instrucción <code>while</code></a><ul>
+<li class="chapter" data-level="6.5" data-path="bucles.html"><a href="bucles.html#instrucción-while"><i class="fa fa-check"></i><b>6.5</b> Instrucción <code>while</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-18"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="bucles.html"><a href="bucles.html#instrucción-repeat"><i class="fa fa-check"></i><b>6.6</b> Instrucción <code>repeat</code></a><ul>
+<li class="chapter" data-level="6.6" data-path="bucles.html"><a href="bucles.html#instrucción-repeat"><i class="fa fa-check"></i><b>6.6</b> Instrucción <code>repeat</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-19"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a><ul>
+<li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R?</a></li>
-<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a><ul>
+<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a>
+<ul>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -246,76 +275,98 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejercicios-2"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="read.html"><a href="read.html"><i class="fa fa-check"></i><b>8</b> Lectura de bases de datos</a><ul>
+<li class="chapter" data-level="8" data-path="read.html"><a href="read.html"><i class="fa fa-check"></i><b>8</b> Lectura de bases de datos</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="read.html"><a href="read.html#qué-es-una-base-de-datos"><i class="fa fa-check"></i><b>8.1</b> ¿Qué es una base de datos?</a></li>
-<li class="chapter" data-level="8.2" data-path="read.html"><a href="read.html#en-qué-formato-almacenar-una-base-de-datos"><i class="fa fa-check"></i><b>8.2</b> ¿En qué formato almacenar una base de datos?</a><ul>
+<li class="chapter" data-level="8.2" data-path="read.html"><a href="read.html#en-qué-formato-almacenar-una-base-de-datos"><i class="fa fa-check"></i><b>8.2</b> ¿En qué formato almacenar una base de datos?</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-excel"><i class="fa fa-check"></i><b>8.2.1</b> Almacenamiento de información en Excel</a></li>
 <li class="chapter" data-level="8.2.2" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-bloc-de-notas"><i class="fa fa-check"></i><b>8.2.2</b> Almacenamiento de información en bloc de notas</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="read.html"><a href="read.html#función-read.table"><i class="fa fa-check"></i><b>8.3</b> Función <code>read.table</code></a><ul>
+<li class="chapter" data-level="8.3" data-path="read.html"><a href="read.html#función-read.table"><i class="fa fa-check"></i><b>8.3</b> Función <code>read.table</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-24"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-25"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="read.html"><a href="read.html#lectura-de-bases-de-datos-en-excel"><i class="fa fa-check"></i><b>8.4</b> Lectura de bases de datos en Excel</a><ul>
+<li class="chapter" data-level="8.4" data-path="read.html"><a href="read.html#lectura-de-bases-de-datos-en-excel"><i class="fa fa-check"></i><b>8.4</b> Lectura de bases de datos en Excel</a>
+<ul>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-26"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejercicios-3"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>9</b> Tablas de frecuencia</a><ul>
-<li class="chapter" data-level="9.1" data-path="tablas.html"><a href="tablas.html#tabla-de-contingencia-con-table"><i class="fa fa-check"></i><b>9.1</b> Tabla de contingencia con <code>table</code> </a><ul>
+<li class="chapter" data-level="9" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>9</b> Tablas de frecuencia</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="tablas.html"><a href="tablas.html#tabla-de-contingencia-con-table"><i class="fa fa-check"></i><b>9.1</b> Tabla de contingencia con <code>table</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-una-vía"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de una vía</a></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-dos-vías"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de dos vías</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="tablas.html"><a href="tablas.html#función-prop.table"><i class="fa fa-check"></i><b>9.2</b> Función <code>prop.table</code> </a><ul>
+<li class="chapter" data-level="9.2" data-path="tablas.html"><a href="tablas.html#función-prop.table"><i class="fa fa-check"></i><b>9.2</b> Función <code>prop.table</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-una-vía"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de una vía</a></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-dos-vías"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de dos vías</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="tablas.html"><a href="tablas.html#función-addmargins"><i class="fa fa-check"></i><b>9.3</b> Función <code>addmargins</code> </a><ul>
+<li class="chapter" data-level="9.3" data-path="tablas.html"><a href="tablas.html#función-addmargins"><i class="fa fa-check"></i><b>9.3</b> Función <code>addmargins</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-27"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="tablas.html"><a href="tablas.html#función-hist"><i class="fa fa-check"></i><b>9.4</b> Función <code>hist</code> </a><ul>
+<li class="chapter" data-level="9.4" data-path="tablas.html"><a href="tablas.html#función-hist"><i class="fa fa-check"></i><b>9.4</b> Función <code>hist</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-28"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-29"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejercicios-4"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="central.html"><a href="central.html"><i class="fa fa-check"></i><b>10</b> Medidas de tendencia central</a><ul>
-<li class="chapter" data-level="10.1" data-path="central.html"><a href="central.html#media"><i class="fa fa-check"></i><b>10.1</b> Media  </a><ul>
+<li class="chapter" data-level="10" data-path="central.html"><a href="central.html"><i class="fa fa-check"></i><b>10</b> Medidas de tendencia central</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="central.html"><a href="central.html#media"><i class="fa fa-check"></i><b>10.1</b> Media  </a>
+<ul>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-30"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-31"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-32"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="central.html"><a href="central.html#mediana"><i class="fa fa-check"></i><b>10.2</b> Mediana  </a><ul>
+<li class="chapter" data-level="10.2" data-path="central.html"><a href="central.html#mediana"><i class="fa fa-check"></i><b>10.2</b> Mediana  </a>
+<ul>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-33"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="central.html"><a href="central.html#moda"><i class="fa fa-check"></i><b>10.3</b> Moda </a><ul>
+<li class="chapter" data-level="10.3" data-path="central.html"><a href="central.html#moda"><i class="fa fa-check"></i><b>10.3</b> Moda </a>
+<ul>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-34"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="varia.html"><a href="varia.html"><i class="fa fa-check"></i><b>11</b> Medidas de variabilidad</a><ul>
-<li class="chapter" data-level="11.1" data-path="varia.html"><a href="varia.html#rango"><i class="fa fa-check"></i><b>11.1</b> Rango  </a><ul>
+<li class="chapter" data-level="11" data-path="varia.html"><a href="varia.html"><i class="fa fa-check"></i><b>11</b> Medidas de variabilidad</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="varia.html"><a href="varia.html#rango"><i class="fa fa-check"></i><b>11.1</b> Rango  </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#desviación-estándar-muestral-s"><i class="fa fa-check"></i><b>11.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a><ul>
+<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#desviación-estándar-muestral-s"><i class="fa fa-check"></i><b>11.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#varianza-muestral-s2"><i class="fa fa-check"></i><b>11.3</b> Varianza muestral (<span class="math inline">\(S^2\)</span>)  </a><ul>
+<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#varianza-muestral-s2"><i class="fa fa-check"></i><b>11.3</b> Varianza muestral (<span class="math inline">\(S^2\)</span>)  </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="varia.html"><a href="varia.html#coeficiente-de-variación-cv"><i class="fa fa-check"></i><b>11.4</b> Coeficiente de variación (<span class="math inline">\(CV\)</span>) </a><ul>
+<li class="chapter" data-level="11.4" data-path="varia.html"><a href="varia.html#coeficiente-de-variación-cv"><i class="fa fa-check"></i><b>11.4</b> Coeficiente de variación (<span class="math inline">\(CV\)</span>) </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-41"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="posi.html"><a href="posi.html"><i class="fa fa-check"></i><b>12</b> Medidas de posición</a><ul>
-<li class="chapter" data-level="12.1" data-path="posi.html"><a href="posi.html#cuantiles"><i class="fa fa-check"></i><b>12.1</b> Cuantiles     </a><ul>
+<li class="chapter" data-level="12" data-path="posi.html"><a href="posi.html"><i class="fa fa-check"></i><b>12</b> Medidas de posición</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="posi.html"><a href="posi.html#cuantiles"><i class="fa fa-check"></i><b>12.1</b> Cuantiles     </a>
+<ul>
 <li class="chapter" data-level="" data-path="posi.html"><a href="posi.html#ejemplo-42"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="correl.html"><a href="correl.html"><i class="fa fa-check"></i><b>13</b> Medidas de correlación</a><ul>
-<li class="chapter" data-level="13.1" data-path="correl.html"><a href="correl.html#función-cor"><i class="fa fa-check"></i><b>13.1</b> Función <code>cor</code>  </a><ul>
+<li class="chapter" data-level="13" data-path="correl.html"><a href="correl.html"><i class="fa fa-check"></i><b>13</b> Medidas de correlación</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="correl.html"><a href="correl.html#función-cor"><i class="fa fa-check"></i><b>13.1</b> Función <code>cor</code>  </a>
+<ul>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-43"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-44"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-45"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -323,70 +374,88 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejercicios-5"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="discretas.html"><a href="discretas.html"><i class="fa fa-check"></i><b>14</b> Distribuciones discretas</a><ul>
-<li class="chapter" data-level="14.1" data-path="discretas.html"><a href="discretas.html#funciones-disponibles-para-distribuciones-discretas"><i class="fa fa-check"></i><b>14.1</b> Funciones disponibles para distribuciones discretas </a><ul>
+<li class="chapter" data-level="14" data-path="discretas.html"><a href="discretas.html"><i class="fa fa-check"></i><b>14</b> Distribuciones discretas</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="discretas.html"><a href="discretas.html#funciones-disponibles-para-distribuciones-discretas"><i class="fa fa-check"></i><b>14.1</b> Funciones disponibles para distribuciones discretas </a>
+<ul>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-binomial"><i class="fa fa-check"></i>Ejemplo binomial</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-geométrica"><i class="fa fa-check"></i>Ejemplo geométrica</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-binomial-negativa"><i class="fa fa-check"></i>Ejemplo binomial negativa</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-hipergeométrica"><i class="fa fa-check"></i>Ejemplo hipergeométrica</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-poisson"><i class="fa fa-check"></i>Ejemplo Poisson</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="discretas.html"><a href="discretas.html#distribuciones-discretas-generales"><i class="fa fa-check"></i><b>14.2</b> Distribuciones discretas generales</a><ul>
+<li class="chapter" data-level="14.2" data-path="discretas.html"><a href="discretas.html#distribuciones-discretas-generales"><i class="fa fa-check"></i><b>14.2</b> Distribuciones discretas generales</a>
+<ul>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-47"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="continuas.html"><a href="continuas.html"><i class="fa fa-check"></i><b>15</b> Distribuciones continuas</a><ul>
-<li class="chapter" data-level="15.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>15.1</b> Funciones disponibles para distribuciones continuas</a><ul>
+<li class="chapter" data-level="15" data-path="continuas.html"><a href="continuas.html"><i class="fa fa-check"></i><b>15</b> Distribuciones continuas</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>15.1</b> Funciones disponibles para distribuciones continuas</a>
+<ul>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-beta"><i class="fa fa-check"></i>Ejemplo beta</a></li>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-estándar"><i class="fa fa-check"></i>Ejemplo normal estándar</a></li>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-general"><i class="fa fa-check"></i>Ejemplo normal general</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>15.2</b> Distribuciones continuas generales</a><ul>
+<li class="chapter" data-level="15.2" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>15.2</b> Distribuciones continuas generales</a>
+<ul>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-48"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="loglik.html"><a href="loglik.html"><i class="fa fa-check"></i><b>16</b> Verosimilitud</a><ul>
+<li class="chapter" data-level="16" data-path="loglik.html"><a href="loglik.html"><i class="fa fa-check"></i><b>16</b> Verosimilitud</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="loglik.html"><a href="loglik.html#función-de-verosimilitud"><i class="fa fa-check"></i><b>16.1</b> Función de verosimilitud</a></li>
 <li class="chapter" data-level="16.2" data-path="loglik.html"><a href="loglik.html#función-de-log-verosimilitud"><i class="fa fa-check"></i><b>16.2</b> Función de log-verosimilitud</a></li>
-<li class="chapter" data-level="16.3" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros"><i class="fa fa-check"></i><b>16.3</b> Método de máxima verosimilitud para estimar parámetros</a><ul>
+<li class="chapter" data-level="16.3" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros"><i class="fa fa-check"></i><b>16.3</b> Método de máxima verosimilitud para estimar parámetros</a>
+<ul>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-49"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-50"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-51"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>16.4</b> Score e Información de Fisher</a><ul>
+<li class="chapter" data-level="16.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>16.4</b> Score e Información de Fisher</a>
+<ul>
 <li class="chapter" data-level="16.4.1" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher-en-el-caso-univariado."><i class="fa fa-check"></i><b>16.4.1</b> Score e Información de Fisher en el caso univariado.</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-52"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="16.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>16.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a><ul>
+<li class="chapter" data-level="16.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>16.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a>
+<ul>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-53"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejercicios-6"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="select-dist.html"><a href="select-dist.html"><i class="fa fa-check"></i><b>17</b> Selección de la distribución</a><ul>
-<li class="chapter" data-level="17.1" data-path="select-dist.html"><a href="select-dist.html#función-fitdists"><i class="fa fa-check"></i><b>17.1</b> Función <code>fitDists</code></a><ul>
+<li class="chapter" data-level="17" data-path="select-dist.html"><a href="select-dist.html"><i class="fa fa-check"></i><b>17</b> Selección de la distribución</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="select-dist.html"><a href="select-dist.html#función-fitdists"><i class="fa fa-check"></i><b>17.1</b> Función <code>fitDists</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="select-dist.html"><a href="select-dist.html#ejemplo-54"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>18</b> Estudiando la normalidad</a><ul>
+<li class="chapter" data-level="18" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>18</b> Estudiando la normalidad</a>
+<ul>
 <li class="chapter" data-level="18.1" data-path="normalidad.html"><a href="normalidad.html#consideraciones-iniciales"><i class="fa fa-check"></i><b>18.1</b> Consideraciones iniciales</a></li>
-<li class="chapter" data-level="18.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>18.2</b> Histograma y densidad</a><ul>
+<li class="chapter" data-level="18.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>18.2</b> Histograma y densidad</a>
+<ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo densidad con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-del-peso-corporal"><i class="fa fa-check"></i>Ejemplo densidad del peso corporal</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>18.3</b> Gráficos cuantil cuantil   </a><ul>
+<li class="chapter" data-level="18.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>18.3</b> Gráficos cuantil cuantil   </a>
+<ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-1-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 1 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-2-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 2 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo QQplot para peso corporal</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-con-bandas"><i class="fa fa-check"></i>Ejemplo QQplot con bandas</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>18.4</b> Pruebas de normalidad</a><ul>
+<li class="chapter" data-level="18.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>18.4</b> Pruebas de normalidad</a>
+<ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-normalidad-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo normalidad para peso corporal</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejercicios-7"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>19</b> Intervalos de confianza</a><ul>
-<li class="chapter" data-level="19.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>19.1</b> Función <code>t.test</code></a><ul>
+<li class="chapter" data-level="19" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>19</b> Intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>19.1</b> Función <code>t.test</code></a>
+<ul>
 <li class="chapter" data-level="19.1.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu"><i class="fa fa-check"></i><b>19.1.1</b> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-55"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="19.1.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-independientes"><i class="fa fa-check"></i><b>19.1.2</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras independientes</a></li>
@@ -396,27 +465,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.1.4" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-unilateral-para-la-media-mu"><i class="fa fa-check"></i><b>19.1.4</b> Intervalo de confianza unilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-58"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="19.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>19.2</b> Función <code>var.test</code></a><ul>
+<li class="chapter" data-level="19.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>19.2</b> Función <code>var.test</code></a>
+<ul>
 <li class="chapter" data-level="19.2.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2"><i class="fa fa-check"></i><b>19.2.1</b> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-59"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="19.2.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-razón-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>19.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-60"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="19.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>19.3</b> Función <code>prop.test</code></a><ul>
+<li class="chapter" data-level="19.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>19.3</b> Función <code>prop.test</code></a>
+<ul>
 <li class="chapter" data-level="19.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p"><i class="fa fa-check"></i><b>19.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-61"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="19.3.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>19.3.2</b> Intervalo de confianza bilateral para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-62"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>20</b> Prueba de hipótesis</a><ul>
-<li class="chapter" data-level="20.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>20.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="20" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>20</b> Prueba de hipótesis</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>20.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-63"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>20.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a><ul>
+<li class="chapter" data-level="20.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>20.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-64"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>20.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a><ul>
+<li class="chapter" data-level="20.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>20.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a>
+<ul>
 <li class="chapter" data-level="20.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>20.3.1</b> Prueba de Wald</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-65"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="20.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>20.3.2</b> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson</a></li>
@@ -424,33 +499,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>20.3.3</b> Prueba binomial exacta</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-67"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>20.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="20.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>20.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-68"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>20.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a><ul>
+<li class="chapter" data-level="20.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>20.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-69"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-70"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>20.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a><ul>
+<li class="chapter" data-level="20.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>20.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-71"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>20.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a><ul>
+<li class="chapter" data-level="20.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>20.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-72"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>20.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a><ul>
+<li class="chapter" data-level="20.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>20.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-73"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>20.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a><ul>
+<li class="chapter" data-level="20.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>20.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-74"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>21</b> Aproximación de integrales</a><ul>
-<li class="chapter" data-level="21.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>21.1</b> Aproximación de Laplace unidimensional</a><ul>
+<li class="chapter" data-level="21" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>21</b> Aproximación de integrales</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>21.1</b> Aproximación de Laplace unidimensional</a>
+<ul>
 <li class="chapter" data-level="" data-path="aproxint.html"><a href="aproxint.html#ejemplo-75"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>22</b> Curiosidades</a><ul>
-<li class="chapter" data-level="22.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>22.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a><ul>
+<li class="chapter" data-level="22" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>22</b> Curiosidades</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>22.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a>
+<ul>
 <li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-76"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
@@ -475,120 +560,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="objetos" class="section level1">
+<div id="objetos" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Tipos de objetos</h1>
 <p>En R existen varios tipos de objectos que permiten que el usuario pueda almacenar la información para realizar procedimientos estadísticos y gráficos. Los principales objetos en R son vectores, matrices, arreglos, marcos de datos y listas. A continuación se presentan las características de estos objetos y la forma para crearlos.</p>
-<div id="variables" class="section level2">
+<div id="variables" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Variables</h2>
 <p>Las variables sirven para almacenar un valor que luego vamos a utilizar en algún procedimiento.</p>
 <p>Para hacer la asignación de un valor a alguna variable se utiliza el operador <code>&lt;-</code> entre el valor y el nombre de la variable. A continuación un ejemplo sencillo.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="objetos.html#cb5-1"></a>x &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb5-2"><a href="objetos.html#cb5-2"></a><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="objetos.html#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb5-2"><a href="objetos.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
 <p>En el siguiente ejemplo se crea la variable <code>pais</code> y se almacena el nombre Colombia, luego se averigua el número de caracteres de la variable <code>pais</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="objetos.html#cb7-1"></a>pais &lt;-<span class="st"> &quot;Colombia&quot;</span></span>
-<span id="cb7-2"><a href="objetos.html#cb7-2"></a><span class="kw">nchar</span>(pais)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="objetos.html#cb7-1" aria-hidden="true" tabindex="-1"></a>pais <span class="ot">&lt;-</span> <span class="st">&quot;Colombia&quot;</span></span>
+<span id="cb7-2"><a href="objetos.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(pais)</span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 </div>
-<div id="vectores" class="section level2">
+<div id="vectores" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Vectores  </h2>
 <p>Los vectores vectores son arreglos ordenados en los cuales se puede almacenar información de tipo numérico (variable cuantitativa), alfanumérico (variable cualitativa) o lógico (<code>TRUE</code> o <code>FALSE</code>), pero no mezclas de éstos. La función de R para crear un vector es <code>c()</code> y que significa concatenar; dentro de los paréntesis de esta función se ubica la información a almacenar. Una vez construído el vector se acostumbra a etiquetarlo con un nombre corto y representativo de la información que almacena, la asignación se hace por medio del operador <code>&lt;-</code> entre el nombre y el vector.</p>
 <p>A continuación se presenta un ejemplo de cómo crear tres vectores que contienen las respuestas de cinco personas a tres preguntas que se les realizaron.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="objetos.html#cb9-1"></a>edad &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">19</span>, <span class="dv">13</span>, <span class="ot">NA</span>, <span class="dv">20</span>)</span>
-<span id="cb9-2"><a href="objetos.html#cb9-2"></a>deporte &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">NA</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</span>
-<span id="cb9-3"><a href="objetos.html#cb9-3"></a>comic_fav &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="st">&#39;Superman&#39;</span>, <span class="st">&#39;Batman&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;Batman&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="objetos.html#cb9-1" aria-hidden="true" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">19</span>, <span class="dv">13</span>, <span class="cn">NA</span>, <span class="dv">20</span>)</span>
+<span id="cb9-2"><a href="objetos.html#cb9-2" aria-hidden="true" tabindex="-1"></a>deporte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">NA</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb9-3"><a href="objetos.html#cb9-3" aria-hidden="true" tabindex="-1"></a>comic_fav <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">&#39;Superman&#39;</span>, <span class="st">&#39;Batman&#39;</span>, <span class="cn">NA</span>, <span class="st">&#39;Batman&#39;</span>)</span></code></pre></div>
 <p>El vector <code>edad</code> es un vector cuantitativo y contiene las edades de las 5 personas. En la cuarta posición del vector se colocó el símbolo <code>NA</code> que significa <strong>Not Available</strong> debido a que no se registró la edad para esa persona. Al hacer una asignación se acostumbra a dejar un espacio antes y después del operador <code>&lt;-</code> de asignación. El segundo vector es llamado <code>deporte</code> y es un vector lógico que almacena las respuestas a la pregunta de si la persona practica deporte, nuevamente aquí hay un <code>NA</code> para la tercera persona. El último vector <code>comic_fav</code> contiene la información del cómic favorito de cada persona, como esta variable es cualitativa es necesario usar las comillas <code>' '</code> para encerrar las respuestas.</p>
 
 <div class="rmdwarning">
 Cuando se usa <code>NA</code> para representar una información <strong>Not Available</strong> no se deben usar comillas.
 </div>
 
-
 <div class="rmdnote">
 Es posible usar comillas sencillas <code>'foo'</code> o comillas dobles <code>"foo"</code> para ingresar valores de una variable cualitativa.
 </div>
-
 <p>Si se desea ver lo que está almacenado en cada uno de estos vectores, se debe escribir en la consola de R el nombre de uno de los objetos y luego se presiona la tecla <strong>enter</strong> o <strong>intro</strong>, al realizar esto lo que se obtiene se muestra a continuación.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="objetos.html#cb10-1"></a>edad</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="objetos.html#cb10-1" aria-hidden="true" tabindex="-1"></a>edad</span></code></pre></div>
 <pre><code>## [1] 15 19 13 NA 20</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="objetos.html#cb12-1"></a>deporte</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="objetos.html#cb12-1" aria-hidden="true" tabindex="-1"></a>deporte</span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE    NA FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="objetos.html#cb14-1"></a>comic_fav</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="objetos.html#cb14-1" aria-hidden="true" tabindex="-1"></a>comic_fav</span></code></pre></div>
 <pre><code>## [1] NA         &quot;Superman&quot; &quot;Batman&quot;   NA         &quot;Batman&quot;</code></pre>
 
 <div class="rmdnote">
 Una variable es un vector de longitud uno.
 </div>
-
-<div id="cómo-extraer-elementos-de-un-vector" class="section level3">
+<div id="cómo-extraer-elementos-de-un-vector" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> ¿Cómo extraer elementos de un vector?</h3>
 <p>Para extraer un elemento almacenado dentro un vector se usan los corchetes <code>[]</code> y dentro de ellos la posición o posiciones que interesan.</p>
 </div>
 <div id="ejemplo" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Si queremos extraer la edad de la tercera persona escribimos el nombre del vector y luego <code>[3]</code> para indicar la tercera posición de <code>edad</code>, a continuación el código.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="objetos.html#cb16-1"></a>edad[<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="objetos.html#cb16-1" aria-hidden="true" tabindex="-1"></a>edad[<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
 <p>Si queremos conocer el cómic favorito de la segunda y quinta persona, escribimos el nombre del vector y luego, dentro de los corchetes, escribimos otro vector con las posiciones 2 y 5 que nos interesan así <code>[c(2, 5)]</code>, a continuación el código.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="objetos.html#cb18-1"></a>comic_fav[<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="objetos.html#cb18-1" aria-hidden="true" tabindex="-1"></a>comic_fav[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>)]</span></code></pre></div>
 <pre><code>## [1] &quot;Superman&quot; &quot;Batman&quot;</code></pre>
 <p>Si nos interesan las respuestas de la práctica de deporte, excepto la de la persona 3, usamos <code>[-3]</code> luego del nombre del vector para obtener todo, excepto la tercera posición.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="objetos.html#cb20-1"></a>deporte[<span class="op">-</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="objetos.html#cb20-1" aria-hidden="true" tabindex="-1"></a>deporte[<span class="sc">-</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE  TRUE</code></pre>
 
 <div class="rmdwarning">
 Si desea extraer varios posiciones de un vector NUNCA escriba esto: <code>mivector[2, 5, 7]</code>. Tiene que crear un vector con las posiciones y luego colocarlo dentro de los corchetes así: <code>mivector[c(2, 5, 7)]</code>
 </div>
-
 </div>
 </div>
-<div id="matrices" class="section level2">
+<div id="matrices" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Matrices</h2>
 <p>Las matrices  son arreglos rectangulares de filas y columnas con información numérica, alfanumérica o lógica. Para construir una matriz se usa la función <code>matrix( )</code>. Por ejemplo, para crear una matriz de 4 filas y 5 columnas (de dimensión <span class="math inline">\(4 \times 5\)</span>) con los primeros 20 números positivos se escribe el código siguiente en la consola.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="objetos.html#cb22-1"></a>mimatriz &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">5</span>, <span class="dt">byrow=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="objetos.html#cb22-1" aria-hidden="true" tabindex="-1"></a>mimatriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow=</span><span class="dv">4</span>, <span class="at">ncol=</span><span class="dv">5</span>, <span class="at">byrow=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <p>El argumento <code>data</code> de la función sirve para indicar los datos que se van a almacenar en la matriz, los argumentos <code>nrow</code> y <code>ncol</code> sirven para definir la dimensión de la matriz y por último el argumento <code>byrow</code> sirve para indicar si la información contenida en <code>data</code> se debe ingresar por filas o no. Para observar lo que quedó almacenado en el objeto <code>mimatriz</code> se escribe en la consola el nombre del objeto seguido de la tecla <strong>enter</strong> o <strong>intro</strong>.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="objetos.html#cb23-1"></a>mimatriz</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="objetos.html#cb23-1" aria-hidden="true" tabindex="-1"></a>mimatriz</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    1    5    9   13   17
 ## [2,]    2    6   10   14   18
 ## [3,]    3    7   11   15   19
 ## [4,]    4    8   12   16   20</code></pre>
-<div id="cómo-extraer-elementos-de-una-matriz" class="section level3">
+<div id="cómo-extraer-elementos-de-una-matriz" class="section level3" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> ¿Cómo extraer elementos de una matriz?</h3>
 <p>Al igual que en el caso de los vectores, para extraer elementos almacenados dentro de una matriz se usan los corchetes <code>[ , ]</code> y dentro, separado por una coma, el número de fila(s) y el número de columna(s) que nos interesan.</p>
 </div>
 <div id="ejemplo-1" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Si queremos extraer el valor almacenado en la fila 3 y columna 4 usamos el siguiente código.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="objetos.html#cb25-1"></a>mimatriz[<span class="dv">3</span>, <span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="objetos.html#cb25-1" aria-hidden="true" tabindex="-1"></a>mimatriz[<span class="dv">3</span>, <span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
 <p>Si queremos recuperar <strong>toda</strong> la fila 2 usamos el siguiente código.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="objetos.html#cb27-1"></a>mimatriz[<span class="dv">2</span>, ]  <span class="co"># No se escribe nada luego de la coma</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="objetos.html#cb27-1" aria-hidden="true" tabindex="-1"></a>mimatriz[<span class="dv">2</span>, ]  <span class="co"># No se escribe nada luego de la coma</span></span></code></pre></div>
 <pre><code>## [1]  2  6 10 14 18</code></pre>
 <p>Si queremos recuperar <strong>toda</strong> la columna 5 usamos el siguiente código.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="objetos.html#cb29-1"></a>mimatriz[, <span class="dv">5</span>]  <span class="co"># No se escribe nada antes de la coma</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="objetos.html#cb29-1" aria-hidden="true" tabindex="-1"></a>mimatriz[, <span class="dv">5</span>]  <span class="co"># No se escribe nada antes de la coma</span></span></code></pre></div>
 <pre><code>## [1] 17 18 19 20</code></pre>
 <p>Si queremos recuperar la matriz original sin las columnas 2 y 4 usamos el siguiente código.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="objetos.html#cb31-1"></a>mimatriz[, <span class="op">-</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]  <span class="co"># Las columnas como vector</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="objetos.html#cb31-1" aria-hidden="true" tabindex="-1"></a>mimatriz[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]  <span class="co"># Las columnas como vector</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    9   17
 ## [2,]    2   10   18
 ## [3,]    3   11   19
 ## [4,]    4   12   20</code></pre>
 <p>Si queremos recuperar la matriz original sin la fila 1 ni columna 3 usamos el siguiente código.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="objetos.html#cb33-1"></a>mimatriz[<span class="op">-</span><span class="dv">1</span>, <span class="dv">-3</span>]  <span class="co"># Signo de menos para eliminar</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="objetos.html#cb33-1" aria-hidden="true" tabindex="-1"></a>mimatriz[<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">3</span>]  <span class="co"># Signo de menos para eliminar</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    2    6   14   18
 ## [2,]    3    7   15   19
 ## [3,]    4    8   16   20</code></pre>
 </div>
 </div>
-<div id="arreglos" class="section level2">
+<div id="arreglos" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Arreglos  </h2>
 <p>Un arreglo es una matriz de varias dimensiones con información numérica, alfanumérica o lógica. Para construir una arreglo se usa la función <code>array( )</code>. Por ejemplo, para crear un arreglo de <span class="math inline">\(3 \times 4 \times 2\)</span> con las primeras 24 letras minúsculas del alfabeto se escribe el siguiente código.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="objetos.html#cb35-1"></a>miarray &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dt">data=</span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>], <span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="objetos.html#cb35-1" aria-hidden="true" tabindex="-1"></a>miarray <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="at">data=</span>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>], <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>))</span></code></pre></div>
 <p>El argumento <code>data</code> de la función sirve para indicar los datos que se van a almacenar en el arreglo y el argumento <code>dim</code> sirve para indicar las dimensiones del arreglo. Para observar lo que quedó almacenado en el objeto <code>miarray</code> se escribe en la consola lo siguiente.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="objetos.html#cb36-1"></a>miarray</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="objetos.html#cb36-1" aria-hidden="true" tabindex="-1"></a>miarray</span></code></pre></div>
 <pre><code>## , , 1
 ## 
 ##      [,1] [,2] [,3] [,4]
@@ -602,35 +683,35 @@ Si desea extraer varios posiciones de un vector NUNCA escriba esto: <code>mivect
 ## [1,] &quot;m&quot;  &quot;p&quot;  &quot;s&quot;  &quot;v&quot; 
 ## [2,] &quot;n&quot;  &quot;q&quot;  &quot;t&quot;  &quot;w&quot; 
 ## [3,] &quot;o&quot;  &quot;r&quot;  &quot;u&quot;  &quot;x&quot;</code></pre>
-<div id="cómo-extraer-elementos-de-un-arreglo" class="section level3">
+<div id="cómo-extraer-elementos-de-un-arreglo" class="section level3" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> ¿Cómo extraer elementos de un arreglo?</h3>
 <p>Para recuperar elementos almacenados en un arreglo se usan también corchetes, y dentro de los corchetes, las coordenadas del objeto de interés.</p>
 </div>
 <div id="ejemplo-2" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Si queremos extraer la letra almacenada en la fila 1 y columna 3 de la segunda capa de <code>miarray</code> usamos el siguiente código.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="objetos.html#cb38-1"></a>miarray[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>]  <span class="co"># El orden es importante</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="objetos.html#cb38-1" aria-hidden="true" tabindex="-1"></a>miarray[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>]  <span class="co"># El orden es importante</span></span></code></pre></div>
 <pre><code>## [1] &quot;s&quot;</code></pre>
 <p>Si queremos extraer la segunda capa completa usamos el siguiente código.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="objetos.html#cb40-1"></a>miarray[,, <span class="dv">2</span>]  <span class="co"># No se coloca nada en las primeras posiciones</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="objetos.html#cb40-1" aria-hidden="true" tabindex="-1"></a>miarray[,, <span class="dv">2</span>]  <span class="co"># No se coloca nada en las primeras posiciones</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,] &quot;m&quot;  &quot;p&quot;  &quot;s&quot;  &quot;v&quot; 
 ## [2,] &quot;n&quot;  &quot;q&quot;  &quot;t&quot;  &quot;w&quot; 
 ## [3,] &quot;o&quot;  &quot;r&quot;  &quot;u&quot;  &quot;x&quot;</code></pre>
 <p>Si queremos extraer la tercera columna de todas las capas usamos el siguiente código.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="objetos.html#cb42-1"></a>miarray[, <span class="dv">3</span>,]  <span class="co"># No se coloca nada en las primeras posiciones</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="objetos.html#cb42-1" aria-hidden="true" tabindex="-1"></a>miarray[, <span class="dv">3</span>,]  <span class="co"># No se coloca nada en las primeras posiciones</span></span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,] &quot;g&quot;  &quot;s&quot; 
 ## [2,] &quot;h&quot;  &quot;t&quot; 
 ## [3,] &quot;i&quot;  &quot;u&quot;</code></pre>
 </div>
 </div>
-<div id="marco-de-datos" class="section level2">
+<div id="marco-de-datos" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Marco de datos  </h2>
 <p>El marco de datos marco de datos o <em>data frame</em> es uno de los objetos más utilizados porque permite agrupar vectores con información de diferente tipo (numérica, alfanumérica o lógica) en un mismo objeto, la única restricción es que los vectores deben tener la misma longitud. Para crear un marco de datos se usa la función <code>data.frame( )</code>, como ejemplo vamos a crear un marco de datos con los vectores <code>edad</code>, <code>deporte</code> y <code>comic_fav</code> definidos anteriormente.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="objetos.html#cb44-1"></a>mimarco &lt;-<span class="st"> </span><span class="kw">data.frame</span>(edad, deporte, comic_fav)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="objetos.html#cb44-1" aria-hidden="true" tabindex="-1"></a>mimarco <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(edad, deporte, comic_fav)</span></code></pre></div>
 <p>Una vez creado el objeto <code>mimarco</code> podemos ver el objeto escribiendo su nombre en la consola, a continuación se muestra lo que se obtiene.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="objetos.html#cb45-1"></a>mimarco</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="objetos.html#cb45-1" aria-hidden="true" tabindex="-1"></a>mimarco</span></code></pre></div>
 <pre><code>##   edad deporte comic_fav
 ## 1   15    TRUE      &lt;NA&gt;
 ## 2   19    TRUE  Superman
@@ -638,23 +719,23 @@ Si desea extraer varios posiciones de un vector NUNCA escriba esto: <code>mivect
 ## 4   NA   FALSE      &lt;NA&gt;
 ## 5   20    TRUE    Batman</code></pre>
 <p>De la salida anterior vemos que el marco de datos tiene 3 variables (columnas) cuyos nombres coinciden con los nombres de los vectores creados anteriormente, los números consecutivos al lado izquierdo son sólo de referencia y permiten identificar la información para cada persona en la base de datos.</p>
-<div id="cómo-extraer-elementos-de-un-marco-de-datos" class="section level3">
+<div id="cómo-extraer-elementos-de-un-marco-de-datos" class="section level3" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> ¿Cómo extraer elementos de un marco de datos?</h3>
 <p>Para recuperar las variables (columnas) almacenadas en un marco de datos se puede usar el operador <code>$</code>, corchetes simples <code>[]</code> o corchetes dobles <code>[[]]</code>. A continuación algunos ejemplos para entender las diferencias entre estas opciones.</p>
 </div>
 <div id="ejemplo-3" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Si queremos extraer la variable <code>deporte</code> del marco de datos <code>mimarco</code> como un vector usamos el siguiente código.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="objetos.html#cb47-1"></a>mimarco<span class="op">$</span>deporte  <span class="co"># Se recomienda si el nombre es corto</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="objetos.html#cb47-1" aria-hidden="true" tabindex="-1"></a>mimarco<span class="sc">$</span>deporte  <span class="co"># Se recomienda si el nombre es corto</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE    NA FALSE  TRUE</code></pre>
 <p>Otra forma de recuperar la variable <code>deporte</code> como vector es indicando el número de la columna donde se encuentra la variable.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="objetos.html#cb49-1"></a>mimarco[, <span class="dv">2</span>]  <span class="co"># Se recomienda si recordamos su ubicacion</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="objetos.html#cb49-1" aria-hidden="true" tabindex="-1"></a>mimarco[, <span class="dv">2</span>]  <span class="co"># Se recomienda si recordamos su ubicacion</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE    NA FALSE  TRUE</code></pre>
 <p>Otra forma de extraer la variable <code>deporte</code> como vector es usando <code>[[]]</code> y dentro el nombre de la variable.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="objetos.html#cb51-1"></a>mimarco[[<span class="st">&quot;deporte&quot;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="objetos.html#cb51-1" aria-hidden="true" tabindex="-1"></a>mimarco[[<span class="st">&quot;deporte&quot;</span>]]</span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE    NA FALSE  TRUE</code></pre>
 <p>Si usamos <code>mimarco["deporte"]</code> el resultado es la variable <code>deporte</code> pero en forma de marco de datos, no en forma vectorial.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="objetos.html#cb53-1"></a>mimarco[<span class="st">&quot;deporte&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="objetos.html#cb53-1" aria-hidden="true" tabindex="-1"></a>mimarco[<span class="st">&quot;deporte&quot;</span>]</span></code></pre></div>
 <pre><code>##   deporte
 ## 1    TRUE
 ## 2    TRUE
@@ -662,7 +743,7 @@ Si desea extraer varios posiciones de un vector NUNCA escriba esto: <code>mivect
 ## 4   FALSE
 ## 5    TRUE</code></pre>
 <p>Si queremos extraer un marco de datos sólo con las variables deporte y edad podemos usar el siguiente código.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="objetos.html#cb55-1"></a>mimarco[<span class="kw">c</span>(<span class="st">&quot;deporte&quot;</span>, <span class="st">&quot;edad&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="objetos.html#cb55-1" aria-hidden="true" tabindex="-1"></a>mimarco[<span class="fu">c</span>(<span class="st">&quot;deporte&quot;</span>, <span class="st">&quot;edad&quot;</span>)]</span></code></pre></div>
 <pre><code>##   deporte edad
 ## 1    TRUE   15
 ## 2    TRUE   19
@@ -670,34 +751,34 @@ Si desea extraer varios posiciones de un vector NUNCA escriba esto: <code>mivect
 ## 4   FALSE   NA
 ## 5    TRUE   20</code></pre>
 <p>Por otra, si queremos la <code>edad</code> de las personas que están en las posiciones 2 hasta 4 usamos el siguiente código.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="objetos.html#cb57-1"></a>mimarco[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="objetos.html#cb57-1" aria-hidden="true" tabindex="-1"></a>mimarco[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 19 13 NA</code></pre>
 </div>
-<div id="cómo-extraer-subconjuntos-de-un-marco-de-datos" class="section level3">
+<div id="cómo-extraer-subconjuntos-de-un-marco-de-datos" class="section level3" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> ¿Cómo extraer subconjuntos de un marco de datos? </h3>
 <p>Para extraer partes de un marco de datos se puede utilizar la función <code>subset(x, subset, select)</code>. El parámetro <code>x</code> sirve para indicar el marco de datos original, el parámetro <code>subset</code> sirve para colocar la condición y el parámetro <code>select</code> sirve para quedarnos sólo con algunas de las variables del marco de datos. A continuación varios ejemplos de la función <code>subset</code> para ver su utilidad.</p>
 </div>
 <div id="ejemplos" class="section level3 unnumbered">
 <h3>Ejemplos</h3>
 <p>Si queremos el marco de datos <code>mimarco</code> sólo con las personas que SI practican deporte usamos el siguiente código.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="objetos.html#cb59-1"></a><span class="kw">subset</span>(mimarco, <span class="dt">subset=</span>deporte <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="objetos.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(mimarco, <span class="at">subset=</span>deporte <span class="sc">==</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##   edad deporte comic_fav
 ## 1   15    TRUE      &lt;NA&gt;
 ## 2   19    TRUE  Superman
 ## 5   20    TRUE    Batman</code></pre>
 <p>Si queremos el marco de datos <code>mimarco</code> sólo con las personas mayores o iguales a 17 años usamos el siguiente código.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="objetos.html#cb61-1"></a><span class="kw">subset</span>(mimarco, <span class="dt">subset=</span>edad <span class="op">&gt;=</span><span class="st"> </span><span class="dv">17</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="objetos.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(mimarco, <span class="at">subset=</span>edad <span class="sc">&gt;=</span> <span class="dv">17</span>)</span></code></pre></div>
 <pre><code>##   edad deporte comic_fav
 ## 2   19    TRUE  Superman
 ## 5   20    TRUE    Batman</code></pre>
 <p>Si queremos el submarco con deporte y comic de las personas menores de 20 años usamos el siguiente código.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="objetos.html#cb63-1"></a><span class="kw">subset</span>(mimarco, <span class="dt">subset=</span>edad <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span>, <span class="dt">select=</span><span class="kw">c</span>(<span class="st">&#39;deporte&#39;</span>, <span class="st">&#39;comic_fav&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="objetos.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(mimarco, <span class="at">subset=</span>edad <span class="sc">&lt;</span> <span class="dv">20</span>, <span class="at">select=</span><span class="fu">c</span>(<span class="st">&#39;deporte&#39;</span>, <span class="st">&#39;comic_fav&#39;</span>))</span></code></pre></div>
 <pre><code>##   deporte comic_fav
 ## 1    TRUE      &lt;NA&gt;
 ## 2    TRUE  Superman
 ## 3      NA    Batman</code></pre>
 <p>Si queremos el marco de datos <code>mimarco</code> sólo con las personas menores de 20 años y que SI practican deporte usamos el siguiente código.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="objetos.html#cb65-1"></a><span class="kw">subset</span>(mimarco, <span class="dt">subset=</span>edad <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span> <span class="op">&amp;</span><span class="st"> </span>deporte <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="objetos.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(mimarco, <span class="at">subset=</span>edad <span class="sc">&lt;</span> <span class="dv">20</span> <span class="sc">&amp;</span> deporte <span class="sc">==</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##   edad deporte comic_fav
 ## 1   15    TRUE      &lt;NA&gt;
 ## 2   19    TRUE  Superman</code></pre>
@@ -705,13 +786,13 @@ Si desea extraer varios posiciones de un vector NUNCA escriba esto: <code>mivect
 <div id="ejemplo-4" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Leer la base de datos medidas del cuerpo disponible en este enlace <a href="https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo" class="uri">https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo</a>. Extraer de esta base de datos una sub-base o subconjunto que contenga sólo la edad, peso, altura y sexo de aquellos que miden más de 185 cm y pesan más de 80 kg.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="objetos.html#cb67-1"></a>url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
-<span id="cb67-2"><a href="objetos.html#cb67-2"></a>dt1 &lt;-<span class="st"> </span><span class="kw">read.table</span>(url, <span class="dt">header=</span>T)</span>
-<span id="cb67-3"><a href="objetos.html#cb67-3"></a><span class="kw">dim</span>(dt1)  <span class="co"># Para conocer la dimensión de la base original</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="objetos.html#cb67-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb67-2"><a href="objetos.html#cb67-2" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(url, <span class="at">header=</span>T)</span>
+<span id="cb67-3"><a href="objetos.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(dt1)  <span class="co"># Para conocer la dimensión de la base original</span></span></code></pre></div>
 <pre><code>## [1] 36  6</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="objetos.html#cb69-1"></a>dt2 &lt;-<span class="st"> </span><span class="kw">subset</span>(<span class="dt">x=</span>dt1, <span class="dt">subset=</span>altura <span class="op">&gt;</span><span class="st"> </span><span class="dv">185</span> <span class="op">&amp;</span><span class="st"> </span>peso <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span>,</span>
-<span id="cb69-2"><a href="objetos.html#cb69-2"></a>              <span class="dt">select=</span><span class="kw">c</span>(<span class="st">&#39;sexo&#39;</span>, <span class="st">&#39;edad&#39;</span>, <span class="st">&#39;peso&#39;</span>, <span class="st">&#39;altura&#39;</span>))</span>
-<span id="cb69-3"><a href="objetos.html#cb69-3"></a>dt2  <span class="co"># Para mostrar la base de datos final</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="objetos.html#cb69-1" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(<span class="at">x=</span>dt1, <span class="at">subset=</span>altura <span class="sc">&gt;</span> <span class="dv">185</span> <span class="sc">&amp;</span> peso <span class="sc">&gt;</span> <span class="dv">80</span>,</span>
+<span id="cb69-2"><a href="objetos.html#cb69-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">select=</span><span class="fu">c</span>(<span class="st">&#39;sexo&#39;</span>, <span class="st">&#39;edad&#39;</span>, <span class="st">&#39;peso&#39;</span>, <span class="st">&#39;altura&#39;</span>))</span>
+<span id="cb69-3"><a href="objetos.html#cb69-3" aria-hidden="true" tabindex="-1"></a>dt2  <span class="co"># Para mostrar la base de datos final</span></span></code></pre></div>
 <pre><code>##      sexo edad peso altura
 ## 1  Hombre   43 87.3  188.0
 ## 6  Hombre   33 85.9  188.0
@@ -719,15 +800,15 @@ Si desea extraer varios posiciones de un vector NUNCA escriba esto: <code>mivect
 <p>Al almacenar la nueva base de datos en el objeto <code>dt2</code> se puede manipular este nuevo objeto para realizar los análisis de interés.</p>
 </div>
 </div>
-<div id="listas" class="section level2">
+<div id="listas" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Listas  </h2>
 <p>Las listas son otro tipo de objeto muy usado para almacenar objetos de diferente tipo. La instrucción para crear una lista es <code>list( )</code>. A continuación vamos a crear una lista que contiene tres objetos: un vector con 5 números aleatorios llamado <code>mivector</code>, una matriz de dimensión <span class="math inline">\(6 \times 2\)</span> con los primeros doce números enteros positivos llamada <code>matriz2</code> y el tercer objeto será el marco de datos <code>mimarco</code> creado en el apartado anterior. Las instrucciones para crear la lista requerida se muestran a continuación.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="objetos.html#cb71-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
-<span id="cb71-2"><a href="objetos.html#cb71-2"></a>mivector &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dt">n=</span><span class="dv">5</span>)</span>
-<span id="cb71-3"><a href="objetos.html#cb71-3"></a>matriz2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">ncol=</span><span class="dv">6</span>)</span>
-<span id="cb71-4"><a href="objetos.html#cb71-4"></a>milista &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">E1=</span>mivector, <span class="dt">E2=</span>matriz2, <span class="dt">E3=</span>mimarco)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="objetos.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb71-2"><a href="objetos.html#cb71-2" aria-hidden="true" tabindex="-1"></a>mivector <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span><span class="dv">5</span>)</span>
+<span id="cb71-3"><a href="objetos.html#cb71-3" aria-hidden="true" tabindex="-1"></a>matriz2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">ncol=</span><span class="dv">6</span>)</span>
+<span id="cb71-4"><a href="objetos.html#cb71-4" aria-hidden="true" tabindex="-1"></a>milista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">E1=</span>mivector, <span class="at">E2=</span>matriz2, <span class="at">E3=</span>mimarco)</span></code></pre></div>
 <p>La función <code>set.seed</code> de la línea número 1 sirve para fijar la semilla de tal manera que los números aleatorios generados en la segunda línea con la función <code>runif</code> sean siempre los mismos. En la última línea del código anterior se construye la lista, dentro de la función <code>list</code> se colocan los tres objetos <code>mivector</code>, <code>matriz2</code> y <code>mimarco</code>. Es posible colocarle un nombre especial a cada uno de los elementos de la lista, en este ejemplo se colocaron los nombres <code>E1</code>, <code>E2</code> y <code>E3</code> para cada uno de los tres elementos. Para observar lo que quedó almacenado en la lista se escribe <code>milista</code> en la consola y el resultado se muestra a continuación.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="objetos.html#cb72-1"></a>milista</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="objetos.html#cb72-1" aria-hidden="true" tabindex="-1"></a>milista</span></code></pre></div>
 <pre><code>## $E1
 ## [1] 0.7209039 0.8757732 0.7609823 0.8861246 0.4564810
 ## 
@@ -743,41 +824,40 @@ Si desea extraer varios posiciones de un vector NUNCA escriba esto: <code>mivect
 ## 3   13      NA    Batman
 ## 4   NA   FALSE      &lt;NA&gt;
 ## 5   20    TRUE    Batman</code></pre>
-<div id="cómo-extraer-elementos-de-una-lista" class="section level3">
+<div id="cómo-extraer-elementos-de-una-lista" class="section level3" number="2.6.1">
 <h3><span class="header-section-number">2.6.1</span> ¿Cómo extraer elementos de una lista?</h3>
 <p>Para recuperar los elementos almacenadas en una lista se usa el operador <code>$</code>, corchetes dobles <code>[[]]</code> o corchetes sencillos <code>[]</code>. A continuación unos ejemplos para entender cómo extraer elementos de una lista.</p>
 </div>
 <div id="ejemplos-1" class="section level3 unnumbered">
 <h3>Ejemplos</h3>
 <p>Si queremos la matriz almacenada con el nombre de <code>E2</code> dentro del objeto <code>milista</code> se puede usar el siguiente código.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="objetos.html#cb74-1"></a>milista<span class="op">$</span>E2</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="objetos.html#cb74-1" aria-hidden="true" tabindex="-1"></a>milista<span class="sc">$</span>E2</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
 ## [1,]    1    3    5    7    9   11
 ## [2,]    2    4    6    8   10   12</code></pre>
 <p>Es posible indicar la posición del objeto en lugar del nombre, para eso se usan los corchetes dobles.</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="objetos.html#cb76-1"></a>milista[[<span class="dv">2</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="objetos.html#cb76-1" aria-hidden="true" tabindex="-1"></a>milista[[<span class="dv">2</span>]]</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
 ## [1,]    1    3    5    7    9   11
 ## [2,]    2    4    6    8   10   12</code></pre>
 <p>El resultado obtenido con <code>milista$E2</code> y <code>milista[[2]]</code> es <strong>exactamente</strong> el mismo. Vamos ahora a solicitar la posición 2 pero usando corchetes sencillos.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="objetos.html#cb78-1"></a>milista[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="objetos.html#cb78-1" aria-hidden="true" tabindex="-1"></a>milista[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## $E2
 ##      [,1] [,2] [,3] [,4] [,5] [,6]
 ## [1,]    1    3    5    7    9   11
 ## [2,]    2    4    6    8   10   12</code></pre>
 <p>La apariencia de este último resultado es similar, no igual, al encontrado al usar <code>$</code> y <code>[[]]</code>. Para ver la diferencia vamos a pedir la clase a la que pertenecen los tres últimos objetos usando la función <code>class</code>. A continuación el código usado.</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="objetos.html#cb80-1"></a><span class="kw">class</span>(milista<span class="op">$</span>E2)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="objetos.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(milista<span class="sc">$</span>E2)</span></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="objetos.html#cb82-1"></a><span class="kw">class</span>(milista[[<span class="dv">2</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="objetos.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(milista[[<span class="dv">2</span>]])</span></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="objetos.html#cb84-1"></a><span class="kw">class</span>(milista[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="objetos.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(milista[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## [1] &quot;list&quot;</code></pre>
 <p>De lo anterior se observa claramente que cuando usamos <code>$</code> o <code>[[]]</code> el resultado es el objeto almacenado, una matriz. Cuando usamos <code>[]</code> el resultado es una <strong>lista</strong> cuyo contenido es el objeto almacendado.</p>
 
 <div class="rmdwarning">
 Al manipular listas con <code>$</code> y <code>[[]]</code> se obtienen los objetos ahí almacenados, al manipular listas con <code>[]</code> se obtiene una lista.
 </div>
-
 </div>
 </div>
 <div id="ejercicios" class="section level2 unnumbered">
@@ -791,10 +871,10 @@ Al manipular listas con <code>$</code> y <code>[[]]</code> se obtienen los objet
 <li><p>Construya un marco de datos o data frame con las respuestas de 3 personas a las preguntas: (a) ¿Cuál es su edad en años? (b) ¿Tipo de música que más le gusta? (c) ¿Tiene usted pareja sentimental estable?</p></li>
 <li><p>¿Cuál es el error al correr el siguiente código? ¿A qué se debe?</p></li>
 </ol>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="objetos.html#cb86-1"></a>edad &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">19</span>, <span class="dv">13</span>, <span class="ot">NA</span>, <span class="dv">20</span>)</span>
-<span id="cb86-2"><a href="objetos.html#cb86-2"></a>deporte &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">NA</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</span>
-<span id="cb86-3"><a href="objetos.html#cb86-3"></a>comic_fav &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="st">&#39;Superman&#39;</span>, <span class="st">&#39;Batman&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;Batman&#39;</span>)</span>
-<span id="cb86-4"><a href="objetos.html#cb86-4"></a><span class="kw">matrix</span>(edad, deporte, comic_fav)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="objetos.html#cb86-1" aria-hidden="true" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">19</span>, <span class="dv">13</span>, <span class="cn">NA</span>, <span class="dv">20</span>)</span>
+<span id="cb86-2"><a href="objetos.html#cb86-2" aria-hidden="true" tabindex="-1"></a>deporte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">NA</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb86-3"><a href="objetos.html#cb86-3" aria-hidden="true" tabindex="-1"></a>comic_fav <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">&#39;Superman&#39;</span>, <span class="st">&#39;Batman&#39;</span>, <span class="cn">NA</span>, <span class="st">&#39;Batman&#39;</span>)</span>
+<span id="cb86-4"><a href="objetos.html#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(edad, deporte, comic_fav)</span></code></pre></div>
 
 </div>
 </div>

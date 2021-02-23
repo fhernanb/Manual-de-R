@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Creación de funciones en R | Manual de R</title>
   <meta name="description" content="7 Creación de funciones en R | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Creación de funciones en R | Manual de R" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2021-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,6 +34,7 @@
   
 <link rel="prev" href="bucles.html"/>
 <link rel="next" href="read.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,21 +52,22 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,46 +136,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Manual de R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-del-software-y-convenciones"><i class="fa fa-check"></i>Información del software y convenciones</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#bloques-informativos"><i class="fa fa-check"></i>Bloques informativos</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="sobre-los-autores.html"><a href="sobre-los-autores.html"><i class="fa fa-check"></i>Sobre los autores</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#orígenes"><i class="fa fa-check"></i><b>1.1</b> Orígenes</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#instalación"><i class="fa fa-check"></i><b>1.2</b> Instalación</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#apariencia-del-programa"><i class="fa fa-check"></i><b>1.3</b> Apariencia del programa</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>2</b> Tipos de objetos</a><ul>
+<li class="chapter" data-level="2" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>2</b> Tipos de objetos</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="objetos.html"><a href="objetos.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
-<li class="chapter" data-level="2.2" data-path="objetos.html"><a href="objetos.html#vectores"><i class="fa fa-check"></i><b>2.2</b> Vectores  </a><ul>
+<li class="chapter" data-level="2.2" data-path="objetos.html"><a href="objetos.html#vectores"><i class="fa fa-check"></i><b>2.2</b> Vectores  </a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo extraer elementos de un vector?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="objetos.html"><a href="objetos.html#matrices"><i class="fa fa-check"></i><b>2.3</b> Matrices</a><ul>
+<li class="chapter" data-level="2.3" data-path="objetos.html"><a href="objetos.html#matrices"><i class="fa fa-check"></i><b>2.3</b> Matrices</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-una-matriz"><i class="fa fa-check"></i><b>2.3.1</b> ¿Cómo extraer elementos de una matriz?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="objetos.html"><a href="objetos.html#arreglos"><i class="fa fa-check"></i><b>2.4</b> Arreglos  </a><ul>
+<li class="chapter" data-level="2.4" data-path="objetos.html"><a href="objetos.html#arreglos"><i class="fa fa-check"></i><b>2.4</b> Arreglos  </a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-arreglo"><i class="fa fa-check"></i><b>2.4.1</b> ¿Cómo extraer elementos de un arreglo?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="objetos.html"><a href="objetos.html#marco-de-datos"><i class="fa fa-check"></i><b>2.5</b> Marco de datos  </a><ul>
+<li class="chapter" data-level="2.5" data-path="objetos.html"><a href="objetos.html#marco-de-datos"><i class="fa fa-check"></i><b>2.5</b> Marco de datos  </a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.5.1</b> ¿Cómo extraer elementos de un marco de datos?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="2.5.2" data-path="objetos.html"><a href="objetos.html#cómo-extraer-subconjuntos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.5.2</b> ¿Cómo extraer subconjuntos de un marco de datos? </a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="objetos.html"><a href="objetos.html#listas"><i class="fa fa-check"></i><b>2.6</b> Listas  </a><ul>
+<li class="chapter" data-level="2.6" data-path="objetos.html"><a href="objetos.html#listas"><i class="fa fa-check"></i><b>2.6</b> Listas  </a>
+<ul>
 <li class="chapter" data-level="2.6.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-una-lista"><i class="fa fa-check"></i><b>2.6.1</b> ¿Cómo extraer elementos de una lista?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejercicios"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="estilo.html"><a href="estilo.html"><i class="fa fa-check"></i><b>3</b> Guía de estilo</a><ul>
+<li class="chapter" data-level="3" data-path="estilo.html"><a href="estilo.html"><i class="fa fa-check"></i><b>3</b> Guía de estilo</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="estilo.html"><a href="estilo.html#nombres-de-los-archivos"><i class="fa fa-check"></i><b>3.1</b> Nombres de los archivos</a></li>
 <li class="chapter" data-level="3.2" data-path="estilo.html"><a href="estilo.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>3.2</b> Nombres de los objetos</a></li>
 <li class="chapter" data-level="3.3" data-path="estilo.html"><a href="estilo.html#longitud-de-una-línea-de-código"><i class="fa fa-check"></i><b>3.3</b> Longitud de una línea de código</a></li>
@@ -181,64 +192,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación"><i class="fa fa-check"></i><b>3.5</b> Asignación</a></li>
 <li class="chapter" data-level="3.6" data-path="estilo.html"><a href="estilo.html#punto-y-coma"><i class="fa fa-check"></i><b>3.6</b> Punto y coma</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a><ul>
+<li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-la-consola"><i class="fa fa-check"></i><b>4.1</b> Usando la consola</a></li>
 <li class="chapter" data-level="4.2" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-ventana-emergente-con-svdialogs"><i class="fa fa-check"></i><b>4.2</b> Usando ventana emergente con <strong>svDialogs</strong></a></li>
 <li class="chapter" data-level="4.3" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#botones-para-responder"><i class="fa fa-check"></i><b>4.3</b> Botones para responder</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a><ul>
+<li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
-<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#operadores-de-asignación"><i class="fa fa-check"></i><b>5.2</b> Operadores de asignación</a><ul>
+<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#operadores-de-asignación"><i class="fa fa-check"></i><b>5.2</b> Operadores de asignación</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operaciones-básicas"><i class="fa fa-check"></i><b>5.3</b> Operaciones básicas</a></li>
-<li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a><ul>
+<li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="funbas.html"><a href="funbas.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.5</b> Operadores lógicos</a><ul>
+<li class="chapter" data-level="5.5" data-path="funbas.html"><a href="funbas.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.5</b> Operadores lógicos</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="funbas.html"><a href="funbas.html#funciones-sobre-vectores"><i class="fa fa-check"></i><b>5.6</b> Funciones sobre vectores</a><ul>
+<li class="chapter" data-level="5.6" data-path="funbas.html"><a href="funbas.html#funciones-sobre-vectores"><i class="fa fa-check"></i><b>5.6</b> Funciones sobre vectores</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="funbas.html"><a href="funbas.html#funciones-matemáticas"><i class="fa fa-check"></i><b>5.7</b> Funciones matemáticas</a></li>
-<li class="chapter" data-level="5.8" data-path="funbas.html"><a href="funbas.html#función-seq"><i class="fa fa-check"></i><b>5.8</b> Función <code>seq</code></a><ul>
+<li class="chapter" data-level="5.8" data-path="funbas.html"><a href="funbas.html#función-seq"><i class="fa fa-check"></i><b>5.8</b> Función <code>seq</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-10"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.9" data-path="funbas.html"><a href="funbas.html#función-rep"><i class="fa fa-check"></i><b>5.9</b> Función <code>rep</code></a><ul>
+<li class="chapter" data-level="5.9" data-path="funbas.html"><a href="funbas.html#función-rep"><i class="fa fa-check"></i><b>5.9</b> Función <code>rep</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-11"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-12"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="funbas.html"><a href="funbas.html#funciones-round-ceiling-floor-y-trunc"><i class="fa fa-check"></i><b>5.10</b> Funciones <code>round</code>, <code>ceiling</code>, <code>floor</code> y <code>trunc</code></a><ul>
+<li class="chapter" data-level="5.10" data-path="funbas.html"><a href="funbas.html#funciones-round-ceiling-floor-y-trunc"><i class="fa fa-check"></i><b>5.10</b> Funciones <code>round</code>, <code>ceiling</code>, <code>floor</code> y <code>trunc</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-13"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.11" data-path="funbas.html"><a href="funbas.html#funciones-sort-y-rank"><i class="fa fa-check"></i><b>5.11</b> Funciones <code>sort</code> y <code>rank</code></a><ul>
+<li class="chapter" data-level="5.11" data-path="funbas.html"><a href="funbas.html#funciones-sort-y-rank"><i class="fa fa-check"></i><b>5.11</b> Funciones <code>sort</code> y <code>rank</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-14"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejercicios-1"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>6</b> Instrucciones de control</a><ul>
-<li class="chapter" data-level="6.1" data-path="bucles.html"><a href="bucles.html#instrucción-if"><i class="fa fa-check"></i><b>6.1</b> Instrucción <code>if</code></a><ul>
+<li class="chapter" data-level="6" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>6</b> Instrucciones de control</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="bucles.html"><a href="bucles.html#instrucción-if"><i class="fa fa-check"></i><b>6.1</b> Instrucción <code>if</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-15"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="bucles.html"><a href="bucles.html#instrucción-if-else"><i class="fa fa-check"></i><b>6.2</b> Instrucción <code>if</code> <code>else</code></a></li>
-<li class="chapter" data-level="6.3" data-path="bucles.html"><a href="bucles.html#instrucción-ifelse"><i class="fa fa-check"></i><b>6.3</b> Instrucción <code>ifelse</code></a><ul>
+<li class="chapter" data-level="6.3" data-path="bucles.html"><a href="bucles.html#instrucción-ifelse"><i class="fa fa-check"></i><b>6.3</b> Instrucción <code>ifelse</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-16"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="bucles.html"><a href="bucles.html#instrucción-for"><i class="fa fa-check"></i><b>6.4</b> Instrucción <code>for</code></a><ul>
+<li class="chapter" data-level="6.4" data-path="bucles.html"><a href="bucles.html#instrucción-for"><i class="fa fa-check"></i><b>6.4</b> Instrucción <code>for</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-17"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="bucles.html"><a href="bucles.html#instrucción-while"><i class="fa fa-check"></i><b>6.5</b> Instrucción <code>while</code></a><ul>
+<li class="chapter" data-level="6.5" data-path="bucles.html"><a href="bucles.html#instrucción-while"><i class="fa fa-check"></i><b>6.5</b> Instrucción <code>while</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-18"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="bucles.html"><a href="bucles.html#instrucción-repeat"><i class="fa fa-check"></i><b>6.6</b> Instrucción <code>repeat</code></a><ul>
+<li class="chapter" data-level="6.6" data-path="bucles.html"><a href="bucles.html#instrucción-repeat"><i class="fa fa-check"></i><b>6.6</b> Instrucción <code>repeat</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-19"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a><ul>
+<li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R?</a></li>
-<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a><ul>
+<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a>
+<ul>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -246,76 +275,98 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejercicios-2"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="read.html"><a href="read.html"><i class="fa fa-check"></i><b>8</b> Lectura de bases de datos</a><ul>
+<li class="chapter" data-level="8" data-path="read.html"><a href="read.html"><i class="fa fa-check"></i><b>8</b> Lectura de bases de datos</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="read.html"><a href="read.html#qué-es-una-base-de-datos"><i class="fa fa-check"></i><b>8.1</b> ¿Qué es una base de datos?</a></li>
-<li class="chapter" data-level="8.2" data-path="read.html"><a href="read.html#en-qué-formato-almacenar-una-base-de-datos"><i class="fa fa-check"></i><b>8.2</b> ¿En qué formato almacenar una base de datos?</a><ul>
+<li class="chapter" data-level="8.2" data-path="read.html"><a href="read.html#en-qué-formato-almacenar-una-base-de-datos"><i class="fa fa-check"></i><b>8.2</b> ¿En qué formato almacenar una base de datos?</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-excel"><i class="fa fa-check"></i><b>8.2.1</b> Almacenamiento de información en Excel</a></li>
 <li class="chapter" data-level="8.2.2" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-bloc-de-notas"><i class="fa fa-check"></i><b>8.2.2</b> Almacenamiento de información en bloc de notas</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="read.html"><a href="read.html#función-read.table"><i class="fa fa-check"></i><b>8.3</b> Función <code>read.table</code></a><ul>
+<li class="chapter" data-level="8.3" data-path="read.html"><a href="read.html#función-read.table"><i class="fa fa-check"></i><b>8.3</b> Función <code>read.table</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-24"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-25"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="read.html"><a href="read.html#lectura-de-bases-de-datos-en-excel"><i class="fa fa-check"></i><b>8.4</b> Lectura de bases de datos en Excel</a><ul>
+<li class="chapter" data-level="8.4" data-path="read.html"><a href="read.html#lectura-de-bases-de-datos-en-excel"><i class="fa fa-check"></i><b>8.4</b> Lectura de bases de datos en Excel</a>
+<ul>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-26"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejercicios-3"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>9</b> Tablas de frecuencia</a><ul>
-<li class="chapter" data-level="9.1" data-path="tablas.html"><a href="tablas.html#tabla-de-contingencia-con-table"><i class="fa fa-check"></i><b>9.1</b> Tabla de contingencia con <code>table</code> </a><ul>
+<li class="chapter" data-level="9" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>9</b> Tablas de frecuencia</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="tablas.html"><a href="tablas.html#tabla-de-contingencia-con-table"><i class="fa fa-check"></i><b>9.1</b> Tabla de contingencia con <code>table</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-una-vía"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de una vía</a></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-dos-vías"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de dos vías</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="tablas.html"><a href="tablas.html#función-prop.table"><i class="fa fa-check"></i><b>9.2</b> Función <code>prop.table</code> </a><ul>
+<li class="chapter" data-level="9.2" data-path="tablas.html"><a href="tablas.html#función-prop.table"><i class="fa fa-check"></i><b>9.2</b> Función <code>prop.table</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-una-vía"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de una vía</a></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-dos-vías"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de dos vías</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="tablas.html"><a href="tablas.html#función-addmargins"><i class="fa fa-check"></i><b>9.3</b> Función <code>addmargins</code> </a><ul>
+<li class="chapter" data-level="9.3" data-path="tablas.html"><a href="tablas.html#función-addmargins"><i class="fa fa-check"></i><b>9.3</b> Función <code>addmargins</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-27"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="tablas.html"><a href="tablas.html#función-hist"><i class="fa fa-check"></i><b>9.4</b> Función <code>hist</code> </a><ul>
+<li class="chapter" data-level="9.4" data-path="tablas.html"><a href="tablas.html#función-hist"><i class="fa fa-check"></i><b>9.4</b> Función <code>hist</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-28"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-29"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejercicios-4"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="central.html"><a href="central.html"><i class="fa fa-check"></i><b>10</b> Medidas de tendencia central</a><ul>
-<li class="chapter" data-level="10.1" data-path="central.html"><a href="central.html#media"><i class="fa fa-check"></i><b>10.1</b> Media  </a><ul>
+<li class="chapter" data-level="10" data-path="central.html"><a href="central.html"><i class="fa fa-check"></i><b>10</b> Medidas de tendencia central</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="central.html"><a href="central.html#media"><i class="fa fa-check"></i><b>10.1</b> Media  </a>
+<ul>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-30"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-31"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-32"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="central.html"><a href="central.html#mediana"><i class="fa fa-check"></i><b>10.2</b> Mediana  </a><ul>
+<li class="chapter" data-level="10.2" data-path="central.html"><a href="central.html#mediana"><i class="fa fa-check"></i><b>10.2</b> Mediana  </a>
+<ul>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-33"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="central.html"><a href="central.html#moda"><i class="fa fa-check"></i><b>10.3</b> Moda </a><ul>
+<li class="chapter" data-level="10.3" data-path="central.html"><a href="central.html#moda"><i class="fa fa-check"></i><b>10.3</b> Moda </a>
+<ul>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-34"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="varia.html"><a href="varia.html"><i class="fa fa-check"></i><b>11</b> Medidas de variabilidad</a><ul>
-<li class="chapter" data-level="11.1" data-path="varia.html"><a href="varia.html#rango"><i class="fa fa-check"></i><b>11.1</b> Rango  </a><ul>
+<li class="chapter" data-level="11" data-path="varia.html"><a href="varia.html"><i class="fa fa-check"></i><b>11</b> Medidas de variabilidad</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="varia.html"><a href="varia.html#rango"><i class="fa fa-check"></i><b>11.1</b> Rango  </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#desviación-estándar-muestral-s"><i class="fa fa-check"></i><b>11.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a><ul>
+<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#desviación-estándar-muestral-s"><i class="fa fa-check"></i><b>11.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#varianza-muestral-s2"><i class="fa fa-check"></i><b>11.3</b> Varianza muestral (<span class="math inline">\(S^2\)</span>)  </a><ul>
+<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#varianza-muestral-s2"><i class="fa fa-check"></i><b>11.3</b> Varianza muestral (<span class="math inline">\(S^2\)</span>)  </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="varia.html"><a href="varia.html#coeficiente-de-variación-cv"><i class="fa fa-check"></i><b>11.4</b> Coeficiente de variación (<span class="math inline">\(CV\)</span>) </a><ul>
+<li class="chapter" data-level="11.4" data-path="varia.html"><a href="varia.html#coeficiente-de-variación-cv"><i class="fa fa-check"></i><b>11.4</b> Coeficiente de variación (<span class="math inline">\(CV\)</span>) </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-41"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="posi.html"><a href="posi.html"><i class="fa fa-check"></i><b>12</b> Medidas de posición</a><ul>
-<li class="chapter" data-level="12.1" data-path="posi.html"><a href="posi.html#cuantiles"><i class="fa fa-check"></i><b>12.1</b> Cuantiles     </a><ul>
+<li class="chapter" data-level="12" data-path="posi.html"><a href="posi.html"><i class="fa fa-check"></i><b>12</b> Medidas de posición</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="posi.html"><a href="posi.html#cuantiles"><i class="fa fa-check"></i><b>12.1</b> Cuantiles     </a>
+<ul>
 <li class="chapter" data-level="" data-path="posi.html"><a href="posi.html#ejemplo-42"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="correl.html"><a href="correl.html"><i class="fa fa-check"></i><b>13</b> Medidas de correlación</a><ul>
-<li class="chapter" data-level="13.1" data-path="correl.html"><a href="correl.html#función-cor"><i class="fa fa-check"></i><b>13.1</b> Función <code>cor</code>  </a><ul>
+<li class="chapter" data-level="13" data-path="correl.html"><a href="correl.html"><i class="fa fa-check"></i><b>13</b> Medidas de correlación</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="correl.html"><a href="correl.html#función-cor"><i class="fa fa-check"></i><b>13.1</b> Función <code>cor</code>  </a>
+<ul>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-43"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-44"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-45"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -323,70 +374,88 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejercicios-5"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="discretas.html"><a href="discretas.html"><i class="fa fa-check"></i><b>14</b> Distribuciones discretas</a><ul>
-<li class="chapter" data-level="14.1" data-path="discretas.html"><a href="discretas.html#funciones-disponibles-para-distribuciones-discretas"><i class="fa fa-check"></i><b>14.1</b> Funciones disponibles para distribuciones discretas </a><ul>
+<li class="chapter" data-level="14" data-path="discretas.html"><a href="discretas.html"><i class="fa fa-check"></i><b>14</b> Distribuciones discretas</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="discretas.html"><a href="discretas.html#funciones-disponibles-para-distribuciones-discretas"><i class="fa fa-check"></i><b>14.1</b> Funciones disponibles para distribuciones discretas </a>
+<ul>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-binomial"><i class="fa fa-check"></i>Ejemplo binomial</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-geométrica"><i class="fa fa-check"></i>Ejemplo geométrica</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-binomial-negativa"><i class="fa fa-check"></i>Ejemplo binomial negativa</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-hipergeométrica"><i class="fa fa-check"></i>Ejemplo hipergeométrica</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-poisson"><i class="fa fa-check"></i>Ejemplo Poisson</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="discretas.html"><a href="discretas.html#distribuciones-discretas-generales"><i class="fa fa-check"></i><b>14.2</b> Distribuciones discretas generales</a><ul>
+<li class="chapter" data-level="14.2" data-path="discretas.html"><a href="discretas.html#distribuciones-discretas-generales"><i class="fa fa-check"></i><b>14.2</b> Distribuciones discretas generales</a>
+<ul>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-47"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="continuas.html"><a href="continuas.html"><i class="fa fa-check"></i><b>15</b> Distribuciones continuas</a><ul>
-<li class="chapter" data-level="15.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>15.1</b> Funciones disponibles para distribuciones continuas</a><ul>
+<li class="chapter" data-level="15" data-path="continuas.html"><a href="continuas.html"><i class="fa fa-check"></i><b>15</b> Distribuciones continuas</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>15.1</b> Funciones disponibles para distribuciones continuas</a>
+<ul>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-beta"><i class="fa fa-check"></i>Ejemplo beta</a></li>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-estándar"><i class="fa fa-check"></i>Ejemplo normal estándar</a></li>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-general"><i class="fa fa-check"></i>Ejemplo normal general</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>15.2</b> Distribuciones continuas generales</a><ul>
+<li class="chapter" data-level="15.2" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>15.2</b> Distribuciones continuas generales</a>
+<ul>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-48"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="loglik.html"><a href="loglik.html"><i class="fa fa-check"></i><b>16</b> Verosimilitud</a><ul>
+<li class="chapter" data-level="16" data-path="loglik.html"><a href="loglik.html"><i class="fa fa-check"></i><b>16</b> Verosimilitud</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="loglik.html"><a href="loglik.html#función-de-verosimilitud"><i class="fa fa-check"></i><b>16.1</b> Función de verosimilitud</a></li>
 <li class="chapter" data-level="16.2" data-path="loglik.html"><a href="loglik.html#función-de-log-verosimilitud"><i class="fa fa-check"></i><b>16.2</b> Función de log-verosimilitud</a></li>
-<li class="chapter" data-level="16.3" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros"><i class="fa fa-check"></i><b>16.3</b> Método de máxima verosimilitud para estimar parámetros</a><ul>
+<li class="chapter" data-level="16.3" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros"><i class="fa fa-check"></i><b>16.3</b> Método de máxima verosimilitud para estimar parámetros</a>
+<ul>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-49"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-50"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-51"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>16.4</b> Score e Información de Fisher</a><ul>
+<li class="chapter" data-level="16.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>16.4</b> Score e Información de Fisher</a>
+<ul>
 <li class="chapter" data-level="16.4.1" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher-en-el-caso-univariado."><i class="fa fa-check"></i><b>16.4.1</b> Score e Información de Fisher en el caso univariado.</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-52"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="16.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>16.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a><ul>
+<li class="chapter" data-level="16.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>16.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a>
+<ul>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-53"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejercicios-6"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="select-dist.html"><a href="select-dist.html"><i class="fa fa-check"></i><b>17</b> Selección de la distribución</a><ul>
-<li class="chapter" data-level="17.1" data-path="select-dist.html"><a href="select-dist.html#función-fitdists"><i class="fa fa-check"></i><b>17.1</b> Función <code>fitDists</code></a><ul>
+<li class="chapter" data-level="17" data-path="select-dist.html"><a href="select-dist.html"><i class="fa fa-check"></i><b>17</b> Selección de la distribución</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="select-dist.html"><a href="select-dist.html#función-fitdists"><i class="fa fa-check"></i><b>17.1</b> Función <code>fitDists</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="select-dist.html"><a href="select-dist.html#ejemplo-54"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>18</b> Estudiando la normalidad</a><ul>
+<li class="chapter" data-level="18" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>18</b> Estudiando la normalidad</a>
+<ul>
 <li class="chapter" data-level="18.1" data-path="normalidad.html"><a href="normalidad.html#consideraciones-iniciales"><i class="fa fa-check"></i><b>18.1</b> Consideraciones iniciales</a></li>
-<li class="chapter" data-level="18.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>18.2</b> Histograma y densidad</a><ul>
+<li class="chapter" data-level="18.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>18.2</b> Histograma y densidad</a>
+<ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo densidad con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-del-peso-corporal"><i class="fa fa-check"></i>Ejemplo densidad del peso corporal</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>18.3</b> Gráficos cuantil cuantil   </a><ul>
+<li class="chapter" data-level="18.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>18.3</b> Gráficos cuantil cuantil   </a>
+<ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-1-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 1 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-2-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 2 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo QQplot para peso corporal</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-con-bandas"><i class="fa fa-check"></i>Ejemplo QQplot con bandas</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>18.4</b> Pruebas de normalidad</a><ul>
+<li class="chapter" data-level="18.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>18.4</b> Pruebas de normalidad</a>
+<ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-normalidad-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo normalidad para peso corporal</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejercicios-7"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>19</b> Intervalos de confianza</a><ul>
-<li class="chapter" data-level="19.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>19.1</b> Función <code>t.test</code></a><ul>
+<li class="chapter" data-level="19" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>19</b> Intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>19.1</b> Función <code>t.test</code></a>
+<ul>
 <li class="chapter" data-level="19.1.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu"><i class="fa fa-check"></i><b>19.1.1</b> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-55"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="19.1.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-independientes"><i class="fa fa-check"></i><b>19.1.2</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras independientes</a></li>
@@ -396,27 +465,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.1.4" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-unilateral-para-la-media-mu"><i class="fa fa-check"></i><b>19.1.4</b> Intervalo de confianza unilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-58"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="19.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>19.2</b> Función <code>var.test</code></a><ul>
+<li class="chapter" data-level="19.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>19.2</b> Función <code>var.test</code></a>
+<ul>
 <li class="chapter" data-level="19.2.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2"><i class="fa fa-check"></i><b>19.2.1</b> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-59"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="19.2.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-razón-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>19.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-60"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="19.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>19.3</b> Función <code>prop.test</code></a><ul>
+<li class="chapter" data-level="19.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>19.3</b> Función <code>prop.test</code></a>
+<ul>
 <li class="chapter" data-level="19.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p"><i class="fa fa-check"></i><b>19.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-61"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="19.3.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>19.3.2</b> Intervalo de confianza bilateral para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-62"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>20</b> Prueba de hipótesis</a><ul>
-<li class="chapter" data-level="20.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>20.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="20" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>20</b> Prueba de hipótesis</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>20.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-63"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>20.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a><ul>
+<li class="chapter" data-level="20.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>20.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-64"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>20.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a><ul>
+<li class="chapter" data-level="20.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>20.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a>
+<ul>
 <li class="chapter" data-level="20.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>20.3.1</b> Prueba de Wald</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-65"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="20.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>20.3.2</b> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson</a></li>
@@ -424,33 +499,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>20.3.3</b> Prueba binomial exacta</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-67"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>20.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="20.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>20.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-68"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>20.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a><ul>
+<li class="chapter" data-level="20.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>20.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-69"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-70"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>20.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a><ul>
+<li class="chapter" data-level="20.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>20.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-71"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>20.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a><ul>
+<li class="chapter" data-level="20.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>20.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-72"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>20.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a><ul>
+<li class="chapter" data-level="20.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>20.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-73"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>20.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a><ul>
+<li class="chapter" data-level="20.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>20.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-74"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>21</b> Aproximación de integrales</a><ul>
-<li class="chapter" data-level="21.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>21.1</b> Aproximación de Laplace unidimensional</a><ul>
+<li class="chapter" data-level="21" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>21</b> Aproximación de integrales</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>21.1</b> Aproximación de Laplace unidimensional</a>
+<ul>
 <li class="chapter" data-level="" data-path="aproxint.html"><a href="aproxint.html#ejemplo-75"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>22</b> Curiosidades</a><ul>
-<li class="chapter" data-level="22.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>22.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a><ul>
+<li class="chapter" data-level="22" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>22</b> Curiosidades</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>22.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a>
+<ul>
 <li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-76"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
@@ -475,17 +560,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="creafun" class="section level1">
+<div id="creafun" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> Creación de funciones en R</h1>
 <p>Uno de los atractivos de R es la gran cantidad de funciones que existen para realizar diversos procedimientos. En este capítulo se explica al lector la forma de crear sus propias funciones para que pueda realizar diversas tareas y así logre explotar el potencial que ofrece R.</p>
-<div id="qué-es-una-función-en-r" class="section level2">
+<div id="qué-es-una-función-en-r" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> ¿Qué es una función en R?</h2>
 <p>Una función es un conjunto de instrucciones que convierten las entradas (<em>inputs</em>) en resultados (<em>outputs</em>) deseados. En la siguiente figura se muestra una ilustración de lo que es una función.</p>
 <p align="center">
 <img src="images/function_machine.png" width="300">
 </p>
 </div>
-<div id="partes-de-una-función-en-r" class="section level2">
+<div id="partes-de-una-función-en-r" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Partes de una función en R</h2>
 <p>Las partes de una función son:</p>
 <ul>
@@ -494,37 +579,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Salidas: son los resultados de la función. Toda función debe tener al menos un resultado. Si una función entrega varios tipos de objetos se acostumbra a organizarlos en una lista que puede manejar los diferentes tipos de objetos.</li>
 </ul>
 <p>A continuación se muestra la estructura general de una función en R.</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="creafun.html#cb268-1"></a>nombre_de_funcion &lt;-<span class="st"> </span><span class="cf">function</span>(par1, par2, ...) {</span>
-<span id="cb268-2"><a href="creafun.html#cb268-2"></a>  cuerpo</span>
-<span id="cb268-3"><a href="creafun.html#cb268-3"></a>  cuerpo</span>
-<span id="cb268-4"><a href="creafun.html#cb268-4"></a>  cuerpo</span>
-<span id="cb268-5"><a href="creafun.html#cb268-5"></a>  cuerpo</span>
-<span id="cb268-6"><a href="creafun.html#cb268-6"></a>  <span class="kw">return</span>(resultado)</span>
-<span id="cb268-7"><a href="creafun.html#cb268-7"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="creafun.html#cb268-1" aria-hidden="true" tabindex="-1"></a>nombre_de_funcion <span class="ot">&lt;-</span> <span class="cf">function</span>(par1, par2, ...) {</span>
+<span id="cb268-2"><a href="creafun.html#cb268-2" aria-hidden="true" tabindex="-1"></a>  cuerpo</span>
+<span id="cb268-3"><a href="creafun.html#cb268-3" aria-hidden="true" tabindex="-1"></a>  cuerpo</span>
+<span id="cb268-4"><a href="creafun.html#cb268-4" aria-hidden="true" tabindex="-1"></a>  cuerpo</span>
+<span id="cb268-5"><a href="creafun.html#cb268-5" aria-hidden="true" tabindex="-1"></a>  cuerpo</span>
+<span id="cb268-6"><a href="creafun.html#cb268-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultado)</span>
+<span id="cb268-7"><a href="creafun.html#cb268-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>A continuación se mostrarán varios ejemplos <font color="Fuchsia">sencillos</font> para que el lector aprenda a construir funciones en R.</p>
 <div id="ejemplo-20" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Construir una función que reciba dos números y que entregue la suma de estos números.</p>
 <p><strong>Solución</strong></p>
 <p>Lo primero es elegir un nombre apropiado para la función, aquí se usó el nombre <code>suma</code> porque así se tiene una idea clara de lo que hace la función. La función suma recibe dos parámetros, <code>x</code> representa el primer valor ingresado mientras que <code>y</code> representa el segundo. El cuerpo de la función está formado por dos líneas, en la primera se crea el objeto <code>resultado</code> en el cual se almanacena el valor de la suma, en la segunda línea se le indica a R que queremos que retorne el valor de la suma almacenada en el objeto <code>resultado</code>. A continuación se muestra el código para crear la función solicitada.</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="creafun.html#cb269-1"></a>suma &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
-<span id="cb269-2"><a href="creafun.html#cb269-2"></a>  resultado &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y</span>
-<span id="cb269-3"><a href="creafun.html#cb269-3"></a>  <span class="kw">return</span>(resultado)</span>
-<span id="cb269-4"><a href="creafun.html#cb269-4"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="creafun.html#cb269-1" aria-hidden="true" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb269-2"><a href="creafun.html#cb269-2" aria-hidden="true" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb269-3"><a href="creafun.html#cb269-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultado)</span>
+<span id="cb269-4"><a href="creafun.html#cb269-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Para usar la función creada sólo se debe ejecutar, vamos a obtener la suma de los valores 4 y 6 usando la función <code>suma</code>, a continuación el código necesario.</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="creafun.html#cb270-1"></a><span class="kw">suma</span>(<span class="dt">x=</span><span class="dv">4</span>, <span class="dt">y=</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="creafun.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suma</span>(<span class="at">x=</span><span class="dv">4</span>, <span class="at">y=</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>Para funciones simples como la anterior es posible escribirlas en forma más compacta. Es posible reducir el cuerpo de la función de 2 líneas a sólo una línea solicitándole a R que retorne directamente la suma sin almacenarla en ningún objeto. A continuación la función <code>suma</code> modificada.</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="creafun.html#cb272-1"></a>suma &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
-<span id="cb272-2"><a href="creafun.html#cb272-2"></a>  <span class="kw">return</span>(x <span class="op">+</span><span class="st"> </span>y)</span>
-<span id="cb272-3"><a href="creafun.html#cb272-3"></a>}</span>
-<span id="cb272-4"><a href="creafun.html#cb272-4"></a></span>
-<span id="cb272-5"><a href="creafun.html#cb272-5"></a><span class="kw">suma</span>(<span class="dt">x=</span><span class="dv">4</span>, <span class="dt">y=</span><span class="dv">6</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="creafun.html#cb272-1" aria-hidden="true" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb272-2"><a href="creafun.html#cb272-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y)</span>
+<span id="cb272-3"><a href="creafun.html#cb272-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb272-4"><a href="creafun.html#cb272-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb272-5"><a href="creafun.html#cb272-5" aria-hidden="true" tabindex="-1"></a><span class="fu">suma</span>(<span class="at">x=</span><span class="dv">4</span>, <span class="at">y=</span><span class="dv">6</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>Debido a que la función <code>suma</code> tiene un cuerpo muy reducido es posible escribirla en forma más compacta, en una sola línea. A continuación se muestra el código para reescribir la función.</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="creafun.html#cb274-1"></a>suma &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) x <span class="op">+</span><span class="st"> </span>y</span>
-<span id="cb274-2"><a href="creafun.html#cb274-2"></a></span>
-<span id="cb274-3"><a href="creafun.html#cb274-3"></a><span class="kw">suma</span>(<span class="dt">x=</span><span class="dv">4</span>, <span class="dt">y=</span><span class="dv">6</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="creafun.html#cb274-1" aria-hidden="true" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) x <span class="sc">+</span> y</span>
+<span id="cb274-2"><a href="creafun.html#cb274-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb274-3"><a href="creafun.html#cb274-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suma</span>(<span class="at">x=</span><span class="dv">4</span>, <span class="at">y=</span><span class="dv">6</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 </div>
 <div id="ejemplo-21" class="section level3 unnumbered">
@@ -532,17 +617,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Construir una función que genere números aleatorios entre cero y uno hasta que la suma de éstos números supere por primera vez el valor de 3. La función debe entregar la cantidad de números aleatorios generados para que se cumpla la condición.</p>
 <p><strong>Solución</strong></p>
 <p>Vamos a llamar la función solicitada con el nombre <code>fun1</code>, esta función <strong>NO</strong> necesita ningún parámetro de entrada. El valor de 3 que está en la condición puede ir dentro del cuerpo y por eso no se necesitan parámetros para esta función. En el cuerpo de la función se genera un vector con un número aleatorio y luego se chequea si la suma de sus elementos es menor de 3, si se cumple que la suma es menor que 3 se siguen generando números que se almacenan en el vector <code>num</code>. Una vez que la suma exceda el valor de 3 NO se ingresa al <code>while</code> y se pide la longitud del vector o el valor de <code>veces</code> solicitado. A continuación el código de la función.</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="creafun.html#cb276-1"></a>fun1 &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
-<span id="cb276-2"><a href="creafun.html#cb276-2"></a>  num &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>)</span>
-<span id="cb276-3"><a href="creafun.html#cb276-3"></a>  veces &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb276-4"><a href="creafun.html#cb276-4"></a>  <span class="cf">while</span> (<span class="kw">sum</span>(num) <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>) {</span>
-<span id="cb276-5"><a href="creafun.html#cb276-5"></a>    veces &lt;-<span class="st"> </span>veces <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb276-6"><a href="creafun.html#cb276-6"></a>    num[veces] &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>)</span>
-<span id="cb276-7"><a href="creafun.html#cb276-7"></a>  }</span>
-<span id="cb276-8"><a href="creafun.html#cb276-8"></a>  <span class="kw">return</span>(veces)</span>
-<span id="cb276-9"><a href="creafun.html#cb276-9"></a>}</span>
-<span id="cb276-10"><a href="creafun.html#cb276-10"></a></span>
-<span id="cb276-11"><a href="creafun.html#cb276-11"></a><span class="kw">fun1</span>()  <span class="co"># primera prueba</span></span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="creafun.html#cb276-1" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb276-2"><a href="creafun.html#cb276-2" aria-hidden="true" tabindex="-1"></a>  num <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
+<span id="cb276-3"><a href="creafun.html#cb276-3" aria-hidden="true" tabindex="-1"></a>  veces <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb276-4"><a href="creafun.html#cb276-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (<span class="fu">sum</span>(num) <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
+<span id="cb276-5"><a href="creafun.html#cb276-5" aria-hidden="true" tabindex="-1"></a>    veces <span class="ot">&lt;-</span> veces <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb276-6"><a href="creafun.html#cb276-6" aria-hidden="true" tabindex="-1"></a>    num[veces] <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
+<span id="cb276-7"><a href="creafun.html#cb276-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb276-8"><a href="creafun.html#cb276-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(veces)</span>
+<span id="cb276-9"><a href="creafun.html#cb276-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb276-10"><a href="creafun.html#cb276-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-11"><a href="creafun.html#cb276-11" aria-hidden="true" tabindex="-1"></a><span class="fu">fun1</span>()  <span class="co"># primera prueba</span></span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 </div>
 <div id="ejemplo-22" class="section level3 unnumbered">
@@ -550,18 +635,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Construir una función que, dado un número entero positivo (cota) ingresado por el usuario, genere números aleatorios entre cero y uno hasta que la suma de los números generados exceda por primera vez la cota. La función debe entregar un vector con los números aleatorios, la suma y la cantidad de números aleatorios. Si el usuario no ingresa el valor de la cota, se debe asumir igual a 1.</p>
 <p><strong>Solución</strong></p>
 <p>La función aquí solicitada es similar a la construída en el ejemplo anterior. La función <code>fun2</code> tiene un sólo parámetro con el valor por defecto, si el usuario no ingresa valor a este parámetro, se asumirá el valor de uno. El cuerpo de la función es similar al anterior. Como la función debe entregar un vector y dos números, se construye la lista <code>resultado</code> que almacena los tres objetos solicitados. A continuación el código para función solicitada.</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="creafun.html#cb278-1"></a>fun2 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">cota=</span><span class="dv">1</span>) {</span>
-<span id="cb278-2"><a href="creafun.html#cb278-2"></a>  num &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>)</span>
-<span id="cb278-3"><a href="creafun.html#cb278-3"></a>  <span class="cf">while</span> (<span class="kw">sum</span>(num) <span class="op">&lt;</span><span class="st"> </span>cota) {</span>
-<span id="cb278-4"><a href="creafun.html#cb278-4"></a>    num &lt;-<span class="st"> </span><span class="kw">c</span>(num, <span class="kw">runif</span>(<span class="dv">1</span>))</span>
-<span id="cb278-5"><a href="creafun.html#cb278-5"></a>  }</span>
-<span id="cb278-6"><a href="creafun.html#cb278-6"></a>  resultado &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">vector=</span>num,</span>
-<span id="cb278-7"><a href="creafun.html#cb278-7"></a>                    <span class="dt">suma=</span><span class="kw">sum</span>(num),</span>
-<span id="cb278-8"><a href="creafun.html#cb278-8"></a>                    <span class="dt">cantidad=</span><span class="kw">length</span>(num))</span>
-<span id="cb278-9"><a href="creafun.html#cb278-9"></a>  <span class="kw">return</span>(resultado)</span>
-<span id="cb278-10"><a href="creafun.html#cb278-10"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="creafun.html#cb278-1" aria-hidden="true" tabindex="-1"></a>fun2 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">cota=</span><span class="dv">1</span>) {</span>
+<span id="cb278-2"><a href="creafun.html#cb278-2" aria-hidden="true" tabindex="-1"></a>  num <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
+<span id="cb278-3"><a href="creafun.html#cb278-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (<span class="fu">sum</span>(num) <span class="sc">&lt;</span> cota) {</span>
+<span id="cb278-4"><a href="creafun.html#cb278-4" aria-hidden="true" tabindex="-1"></a>    num <span class="ot">&lt;-</span> <span class="fu">c</span>(num, <span class="fu">runif</span>(<span class="dv">1</span>))</span>
+<span id="cb278-5"><a href="creafun.html#cb278-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb278-6"><a href="creafun.html#cb278-6" aria-hidden="true" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">vector=</span>num,</span>
+<span id="cb278-7"><a href="creafun.html#cb278-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">suma=</span><span class="fu">sum</span>(num),</span>
+<span id="cb278-8"><a href="creafun.html#cb278-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">cantidad=</span><span class="fu">length</span>(num))</span>
+<span id="cb278-9"><a href="creafun.html#cb278-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultado)</span>
+<span id="cb278-10"><a href="creafun.html#cb278-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Probando la función con cota de uno.</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="creafun.html#cb279-1"></a><span class="kw">fun2</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="creafun.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fun2</span>()</span></code></pre></div>
 <pre><code>## $vector
 ## [1] 0.8523376 0.4814579
 ## 
@@ -571,7 +656,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $cantidad
 ## [1] 2</code></pre>
 <p>Probando la función con cota de tres.</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="creafun.html#cb281-1"></a><span class="kw">fun2</span>(<span class="dt">cota=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="creafun.html#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fun2</span>(<span class="at">cota=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## $vector
 ## [1] 0.7703864 0.6567623 0.5173527 0.7785944 0.6926085
 ## 
@@ -586,19 +671,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Construya una función que reciba dos números de la recta real y que entregue el punto médio de estos números. El resultado debe ser un mensaje por pantalla.</p>
 <p><strong>Solución</strong></p>
 <p>El punto médio entre dos valores es la suma de los números divido entre dos. La función <code>cat</code> sirve para concatenar objetos y presentarlos por pantalla. A continuación el código para la función requerida.</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="creafun.html#cb283-1"></a>medio &lt;-<span class="st"> </span><span class="cf">function</span>(a, b) {</span>
-<span id="cb283-2"><a href="creafun.html#cb283-2"></a>  medio &lt;-<span class="st"> </span>(a <span class="op">+</span><span class="st"> </span>b) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
-<span id="cb283-3"><a href="creafun.html#cb283-3"></a>  <span class="kw">cat</span>(<span class="st">&quot;El punto medio de los valores&quot;</span>, a, <span class="st">&quot;y&quot;</span>, b,</span>
-<span id="cb283-4"><a href="creafun.html#cb283-4"></a>      <span class="st">&quot;ingresados es&quot;</span>, medio)</span>
-<span id="cb283-5"><a href="creafun.html#cb283-5"></a>}</span>
-<span id="cb283-6"><a href="creafun.html#cb283-6"></a></span>
-<span id="cb283-7"><a href="creafun.html#cb283-7"></a><span class="kw">medio</span>(<span class="dt">a=</span><span class="op">-</span><span class="dv">3</span>, <span class="dt">b=</span><span class="op">-</span><span class="dv">1</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="creafun.html#cb283-1" aria-hidden="true" tabindex="-1"></a>medio <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb283-2"><a href="creafun.html#cb283-2" aria-hidden="true" tabindex="-1"></a>  medio <span class="ot">&lt;-</span> (a <span class="sc">+</span> b) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb283-3"><a href="creafun.html#cb283-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;El punto medio de los valores&quot;</span>, a, <span class="st">&quot;y&quot;</span>, b,</span>
+<span id="cb283-4"><a href="creafun.html#cb283-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;ingresados es&quot;</span>, medio)</span>
+<span id="cb283-5"><a href="creafun.html#cb283-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb283-6"><a href="creafun.html#cb283-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb283-7"><a href="creafun.html#cb283-7" aria-hidden="true" tabindex="-1"></a><span class="fu">medio</span>(<span class="at">a=</span><span class="sc">-</span><span class="dv">3</span>, <span class="at">b=</span><span class="sc">-</span><span class="dv">1</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
 <pre><code>## El punto medio de los valores -3 y -1 ingresados es -2</code></pre>
 
 <div class="rmdnote">
 La función <code>cat</code> es muy útil para presentar resultados por pantalla. Consulte la ayuda de la función para ver otros ejemplos.
 </div>
-
 </div>
 </div>
 <div id="ejercicios-2" class="section level2 unnumbered">
@@ -620,37 +704,37 @@ La función <code>cat</code> es muy útil para presentar resultados por pantalla
 <li><p>Construya una función a la cual le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto.</p></li>
 <li><p>Construya una función llamada <code>precio</code> que calcule el precio total de sacar A fotocopias y B impresiones, sabiendo que los precios son 50 y 100 pesos para A y B respectivamente si el cliente es un estudiante, y de 75 y 150 para A y B si el cliente es un profesor. La función debe tener dos argumentos cuantitativos (<code>A</code> y <code>B</code>) y el argumento lógico <code>estudiante</code> que por defecto tenga el valor de <code>TRUE</code>. Use la estructura mostrada abajo.</p></li>
 </ol>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="creafun.html#cb285-1"></a>precio &lt;-<span class="st"> </span><span class="cf">function</span>(A, B, <span class="dt">estudiante=</span><span class="ot">TRUE</span>) {</span>
-<span id="cb285-2"><a href="creafun.html#cb285-2"></a>  ...</span>
-<span id="cb285-3"><a href="creafun.html#cb285-3"></a>  ...</span>
-<span id="cb285-4"><a href="creafun.html#cb285-4"></a>  ...</span>
-<span id="cb285-5"><a href="creafun.html#cb285-5"></a>  <span class="kw">return</span>(precio.total)</span>
-<span id="cb285-6"><a href="creafun.html#cb285-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="creafun.html#cb285-1" aria-hidden="true" tabindex="-1"></a>precio <span class="ot">&lt;-</span> <span class="cf">function</span>(A, B, <span class="at">estudiante=</span><span class="cn">TRUE</span>) {</span>
+<span id="cb285-2"><a href="creafun.html#cb285-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb285-3"><a href="creafun.html#cb285-3" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb285-4"><a href="creafun.html#cb285-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb285-5"><a href="creafun.html#cb285-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(precio.total)</span>
+<span id="cb285-6"><a href="creafun.html#cb285-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="8" style="list-style-type: decimal">
 <li>Construya una función llamada <code>salario</code> que le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto semanal, teniendo en cuenta que si el número de horas trabajadas durante la semana es mayor de 48, esas horas de demás se consideran horas extras y tienen un 35% de recargo. Imprima el salario neto. Use la estructura mostrada abajo.</li>
 </ol>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="creafun.html#cb286-1"></a>salario &lt;-<span class="st"> </span><span class="cf">function</span>(num.horas, valor.hora) {</span>
-<span id="cb286-2"><a href="creafun.html#cb286-2"></a>  ...</span>
-<span id="cb286-3"><a href="creafun.html#cb286-3"></a>  ...</span>
-<span id="cb286-4"><a href="creafun.html#cb286-4"></a>  ...</span>
-<span id="cb286-5"><a href="creafun.html#cb286-5"></a>  <span class="kw">return</span>(salario.neto)</span>
-<span id="cb286-6"><a href="creafun.html#cb286-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="creafun.html#cb286-1" aria-hidden="true" tabindex="-1"></a>salario <span class="ot">&lt;-</span> <span class="cf">function</span>(num.horas, valor.hora) {</span>
+<span id="cb286-2"><a href="creafun.html#cb286-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb286-3"><a href="creafun.html#cb286-3" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb286-4"><a href="creafun.html#cb286-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb286-5"><a href="creafun.html#cb286-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(salario.neto)</span>
+<span id="cb286-6"><a href="creafun.html#cb286-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="9" style="list-style-type: decimal">
 <li>Construya una función llamada <code>nota</code> que calcule la nota obtenida por un alumno en una evaluación de tres puntos cuya ponderación o importancia son 20%, 30% y 50% para los puntos I, II y III respectivamente. Adicionalmente la función debe generar un mensaje sobre si el estudiante aprobó la evaluación o no. El usuario debe ingresar las notas individuales de los tres puntos y la función debe entregar la nota final de la evaluación. Use la estructura mostrada abajo.</li>
 </ol>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="creafun.html#cb287-1"></a>nota &lt;-<span class="st"> </span><span class="cf">function</span>(p1, p2, p3) {</span>
-<span id="cb287-2"><a href="creafun.html#cb287-2"></a>  ...</span>
-<span id="cb287-3"><a href="creafun.html#cb287-3"></a>  ...</span>
-<span id="cb287-4"><a href="creafun.html#cb287-4"></a>  ...</span>
-<span id="cb287-5"><a href="creafun.html#cb287-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="creafun.html#cb287-1" aria-hidden="true" tabindex="-1"></a>nota <span class="ot">&lt;-</span> <span class="cf">function</span>(p1, p2, p3) {</span>
+<span id="cb287-2"><a href="creafun.html#cb287-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb287-3"><a href="creafun.html#cb287-3" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb287-4"><a href="creafun.html#cb287-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb287-5"><a href="creafun.html#cb287-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="10" style="list-style-type: decimal">
 <li>Escriba una función llamada <code>minimo</code> que permita obtener el valor mínimo de un vector numérico. No puede usar ninguna de las funciones básicas de R como <code>which.min()</code>, <code>which.max()</code>, <code>order()</code>, <code>min( )</code>, <code>max( )</code>, <code>sort( )</code> u <code>order( )</code>. Use la estructura mostrada abajo.</li>
 </ol>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="creafun.html#cb288-1"></a>minimo &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb288-2"><a href="creafun.html#cb288-2"></a>  ...</span>
-<span id="cb288-3"><a href="creafun.html#cb288-3"></a>  ...</span>
-<span id="cb288-4"><a href="creafun.html#cb288-4"></a>  <span class="kw">return</span>(minimo)</span>
-<span id="cb288-5"><a href="creafun.html#cb288-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="creafun.html#cb288-1" aria-hidden="true" tabindex="-1"></a>minimo <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb288-2"><a href="creafun.html#cb288-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb288-3"><a href="creafun.html#cb288-3" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb288-4"><a href="creafun.html#cb288-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(minimo)</span>
+<span id="cb288-5"><a href="creafun.html#cb288-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="11" style="list-style-type: decimal">
 <li>Construya una función que calcule las coordenadas del punto medio <span class="math inline">\(M\)</span> entre dos puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>. Vea la siguiente figura para una ilustración. ¿Cuáles cree usted que deben ser los parámetros de entrada de la función?</li>
 </ol>

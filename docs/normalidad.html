@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>18 Estudiando la normalidad | Manual de R</title>
   <meta name="description" content="18 Estudiando la normalidad | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="18 Estudiando la normalidad | Manual de R" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2021-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,6 +34,7 @@
   
 <link rel="prev" href="select-dist.html"/>
 <link rel="next" href="ic.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,21 +52,22 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,46 +136,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Manual de R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-del-software-y-convenciones"><i class="fa fa-check"></i>Información del software y convenciones</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#bloques-informativos"><i class="fa fa-check"></i>Bloques informativos</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="sobre-los-autores.html"><a href="sobre-los-autores.html"><i class="fa fa-check"></i>Sobre los autores</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#orígenes"><i class="fa fa-check"></i><b>1.1</b> Orígenes</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#instalación"><i class="fa fa-check"></i><b>1.2</b> Instalación</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#apariencia-del-programa"><i class="fa fa-check"></i><b>1.3</b> Apariencia del programa</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>2</b> Tipos de objetos</a><ul>
+<li class="chapter" data-level="2" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>2</b> Tipos de objetos</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="objetos.html"><a href="objetos.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
-<li class="chapter" data-level="2.2" data-path="objetos.html"><a href="objetos.html#vectores"><i class="fa fa-check"></i><b>2.2</b> Vectores  </a><ul>
+<li class="chapter" data-level="2.2" data-path="objetos.html"><a href="objetos.html#vectores"><i class="fa fa-check"></i><b>2.2</b> Vectores  </a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo extraer elementos de un vector?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="objetos.html"><a href="objetos.html#matrices"><i class="fa fa-check"></i><b>2.3</b> Matrices</a><ul>
+<li class="chapter" data-level="2.3" data-path="objetos.html"><a href="objetos.html#matrices"><i class="fa fa-check"></i><b>2.3</b> Matrices</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-una-matriz"><i class="fa fa-check"></i><b>2.3.1</b> ¿Cómo extraer elementos de una matriz?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="objetos.html"><a href="objetos.html#arreglos"><i class="fa fa-check"></i><b>2.4</b> Arreglos  </a><ul>
+<li class="chapter" data-level="2.4" data-path="objetos.html"><a href="objetos.html#arreglos"><i class="fa fa-check"></i><b>2.4</b> Arreglos  </a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-arreglo"><i class="fa fa-check"></i><b>2.4.1</b> ¿Cómo extraer elementos de un arreglo?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="objetos.html"><a href="objetos.html#marco-de-datos"><i class="fa fa-check"></i><b>2.5</b> Marco de datos  </a><ul>
+<li class="chapter" data-level="2.5" data-path="objetos.html"><a href="objetos.html#marco-de-datos"><i class="fa fa-check"></i><b>2.5</b> Marco de datos  </a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.5.1</b> ¿Cómo extraer elementos de un marco de datos?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="2.5.2" data-path="objetos.html"><a href="objetos.html#cómo-extraer-subconjuntos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.5.2</b> ¿Cómo extraer subconjuntos de un marco de datos? </a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="objetos.html"><a href="objetos.html#listas"><i class="fa fa-check"></i><b>2.6</b> Listas  </a><ul>
+<li class="chapter" data-level="2.6" data-path="objetos.html"><a href="objetos.html#listas"><i class="fa fa-check"></i><b>2.6</b> Listas  </a>
+<ul>
 <li class="chapter" data-level="2.6.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-una-lista"><i class="fa fa-check"></i><b>2.6.1</b> ¿Cómo extraer elementos de una lista?</a></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejercicios"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="estilo.html"><a href="estilo.html"><i class="fa fa-check"></i><b>3</b> Guía de estilo</a><ul>
+<li class="chapter" data-level="3" data-path="estilo.html"><a href="estilo.html"><i class="fa fa-check"></i><b>3</b> Guía de estilo</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="estilo.html"><a href="estilo.html#nombres-de-los-archivos"><i class="fa fa-check"></i><b>3.1</b> Nombres de los archivos</a></li>
 <li class="chapter" data-level="3.2" data-path="estilo.html"><a href="estilo.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>3.2</b> Nombres de los objetos</a></li>
 <li class="chapter" data-level="3.3" data-path="estilo.html"><a href="estilo.html#longitud-de-una-línea-de-código"><i class="fa fa-check"></i><b>3.3</b> Longitud de una línea de código</a></li>
@@ -181,64 +192,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación"><i class="fa fa-check"></i><b>3.5</b> Asignación</a></li>
 <li class="chapter" data-level="3.6" data-path="estilo.html"><a href="estilo.html#punto-y-coma"><i class="fa fa-check"></i><b>3.6</b> Punto y coma</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a><ul>
+<li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-la-consola"><i class="fa fa-check"></i><b>4.1</b> Usando la consola</a></li>
 <li class="chapter" data-level="4.2" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-ventana-emergente-con-svdialogs"><i class="fa fa-check"></i><b>4.2</b> Usando ventana emergente con <strong>svDialogs</strong></a></li>
 <li class="chapter" data-level="4.3" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#botones-para-responder"><i class="fa fa-check"></i><b>4.3</b> Botones para responder</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a><ul>
+<li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
-<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#operadores-de-asignación"><i class="fa fa-check"></i><b>5.2</b> Operadores de asignación</a><ul>
+<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#operadores-de-asignación"><i class="fa fa-check"></i><b>5.2</b> Operadores de asignación</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operaciones-básicas"><i class="fa fa-check"></i><b>5.3</b> Operaciones básicas</a></li>
-<li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a><ul>
+<li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="funbas.html"><a href="funbas.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.5</b> Operadores lógicos</a><ul>
+<li class="chapter" data-level="5.5" data-path="funbas.html"><a href="funbas.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.5</b> Operadores lógicos</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="funbas.html"><a href="funbas.html#funciones-sobre-vectores"><i class="fa fa-check"></i><b>5.6</b> Funciones sobre vectores</a><ul>
+<li class="chapter" data-level="5.6" data-path="funbas.html"><a href="funbas.html#funciones-sobre-vectores"><i class="fa fa-check"></i><b>5.6</b> Funciones sobre vectores</a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="funbas.html"><a href="funbas.html#funciones-matemáticas"><i class="fa fa-check"></i><b>5.7</b> Funciones matemáticas</a></li>
-<li class="chapter" data-level="5.8" data-path="funbas.html"><a href="funbas.html#función-seq"><i class="fa fa-check"></i><b>5.8</b> Función <code>seq</code></a><ul>
+<li class="chapter" data-level="5.8" data-path="funbas.html"><a href="funbas.html#función-seq"><i class="fa fa-check"></i><b>5.8</b> Función <code>seq</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-10"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.9" data-path="funbas.html"><a href="funbas.html#función-rep"><i class="fa fa-check"></i><b>5.9</b> Función <code>rep</code></a><ul>
+<li class="chapter" data-level="5.9" data-path="funbas.html"><a href="funbas.html#función-rep"><i class="fa fa-check"></i><b>5.9</b> Función <code>rep</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-11"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-12"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="funbas.html"><a href="funbas.html#funciones-round-ceiling-floor-y-trunc"><i class="fa fa-check"></i><b>5.10</b> Funciones <code>round</code>, <code>ceiling</code>, <code>floor</code> y <code>trunc</code></a><ul>
+<li class="chapter" data-level="5.10" data-path="funbas.html"><a href="funbas.html#funciones-round-ceiling-floor-y-trunc"><i class="fa fa-check"></i><b>5.10</b> Funciones <code>round</code>, <code>ceiling</code>, <code>floor</code> y <code>trunc</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-13"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.11" data-path="funbas.html"><a href="funbas.html#funciones-sort-y-rank"><i class="fa fa-check"></i><b>5.11</b> Funciones <code>sort</code> y <code>rank</code></a><ul>
+<li class="chapter" data-level="5.11" data-path="funbas.html"><a href="funbas.html#funciones-sort-y-rank"><i class="fa fa-check"></i><b>5.11</b> Funciones <code>sort</code> y <code>rank</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-14"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejercicios-1"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>6</b> Instrucciones de control</a><ul>
-<li class="chapter" data-level="6.1" data-path="bucles.html"><a href="bucles.html#instrucción-if"><i class="fa fa-check"></i><b>6.1</b> Instrucción <code>if</code></a><ul>
+<li class="chapter" data-level="6" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>6</b> Instrucciones de control</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="bucles.html"><a href="bucles.html#instrucción-if"><i class="fa fa-check"></i><b>6.1</b> Instrucción <code>if</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-15"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="bucles.html"><a href="bucles.html#instrucción-if-else"><i class="fa fa-check"></i><b>6.2</b> Instrucción <code>if</code> <code>else</code></a></li>
-<li class="chapter" data-level="6.3" data-path="bucles.html"><a href="bucles.html#instrucción-ifelse"><i class="fa fa-check"></i><b>6.3</b> Instrucción <code>ifelse</code></a><ul>
+<li class="chapter" data-level="6.3" data-path="bucles.html"><a href="bucles.html#instrucción-ifelse"><i class="fa fa-check"></i><b>6.3</b> Instrucción <code>ifelse</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-16"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="bucles.html"><a href="bucles.html#instrucción-for"><i class="fa fa-check"></i><b>6.4</b> Instrucción <code>for</code></a><ul>
+<li class="chapter" data-level="6.4" data-path="bucles.html"><a href="bucles.html#instrucción-for"><i class="fa fa-check"></i><b>6.4</b> Instrucción <code>for</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-17"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="bucles.html"><a href="bucles.html#instrucción-while"><i class="fa fa-check"></i><b>6.5</b> Instrucción <code>while</code></a><ul>
+<li class="chapter" data-level="6.5" data-path="bucles.html"><a href="bucles.html#instrucción-while"><i class="fa fa-check"></i><b>6.5</b> Instrucción <code>while</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-18"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="bucles.html"><a href="bucles.html#instrucción-repeat"><i class="fa fa-check"></i><b>6.6</b> Instrucción <code>repeat</code></a><ul>
+<li class="chapter" data-level="6.6" data-path="bucles.html"><a href="bucles.html#instrucción-repeat"><i class="fa fa-check"></i><b>6.6</b> Instrucción <code>repeat</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-19"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a><ul>
+<li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R?</a></li>
-<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a><ul>
+<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a>
+<ul>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -246,76 +275,98 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejercicios-2"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="read.html"><a href="read.html"><i class="fa fa-check"></i><b>8</b> Lectura de bases de datos</a><ul>
+<li class="chapter" data-level="8" data-path="read.html"><a href="read.html"><i class="fa fa-check"></i><b>8</b> Lectura de bases de datos</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="read.html"><a href="read.html#qué-es-una-base-de-datos"><i class="fa fa-check"></i><b>8.1</b> ¿Qué es una base de datos?</a></li>
-<li class="chapter" data-level="8.2" data-path="read.html"><a href="read.html#en-qué-formato-almacenar-una-base-de-datos"><i class="fa fa-check"></i><b>8.2</b> ¿En qué formato almacenar una base de datos?</a><ul>
+<li class="chapter" data-level="8.2" data-path="read.html"><a href="read.html#en-qué-formato-almacenar-una-base-de-datos"><i class="fa fa-check"></i><b>8.2</b> ¿En qué formato almacenar una base de datos?</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-excel"><i class="fa fa-check"></i><b>8.2.1</b> Almacenamiento de información en Excel</a></li>
 <li class="chapter" data-level="8.2.2" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-bloc-de-notas"><i class="fa fa-check"></i><b>8.2.2</b> Almacenamiento de información en bloc de notas</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="read.html"><a href="read.html#función-read.table"><i class="fa fa-check"></i><b>8.3</b> Función <code>read.table</code></a><ul>
+<li class="chapter" data-level="8.3" data-path="read.html"><a href="read.html#función-read.table"><i class="fa fa-check"></i><b>8.3</b> Función <code>read.table</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-24"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-25"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="read.html"><a href="read.html#lectura-de-bases-de-datos-en-excel"><i class="fa fa-check"></i><b>8.4</b> Lectura de bases de datos en Excel</a><ul>
+<li class="chapter" data-level="8.4" data-path="read.html"><a href="read.html#lectura-de-bases-de-datos-en-excel"><i class="fa fa-check"></i><b>8.4</b> Lectura de bases de datos en Excel</a>
+<ul>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-26"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejercicios-3"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>9</b> Tablas de frecuencia</a><ul>
-<li class="chapter" data-level="9.1" data-path="tablas.html"><a href="tablas.html#tabla-de-contingencia-con-table"><i class="fa fa-check"></i><b>9.1</b> Tabla de contingencia con <code>table</code> </a><ul>
+<li class="chapter" data-level="9" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>9</b> Tablas de frecuencia</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="tablas.html"><a href="tablas.html#tabla-de-contingencia-con-table"><i class="fa fa-check"></i><b>9.1</b> Tabla de contingencia con <code>table</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-una-vía"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de una vía</a></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-dos-vías"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de dos vías</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="tablas.html"><a href="tablas.html#función-prop.table"><i class="fa fa-check"></i><b>9.2</b> Función <code>prop.table</code> </a><ul>
+<li class="chapter" data-level="9.2" data-path="tablas.html"><a href="tablas.html#función-prop.table"><i class="fa fa-check"></i><b>9.2</b> Función <code>prop.table</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-una-vía"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de una vía</a></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-dos-vías"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de dos vías</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="tablas.html"><a href="tablas.html#función-addmargins"><i class="fa fa-check"></i><b>9.3</b> Función <code>addmargins</code> </a><ul>
+<li class="chapter" data-level="9.3" data-path="tablas.html"><a href="tablas.html#función-addmargins"><i class="fa fa-check"></i><b>9.3</b> Función <code>addmargins</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-27"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="tablas.html"><a href="tablas.html#función-hist"><i class="fa fa-check"></i><b>9.4</b> Función <code>hist</code> </a><ul>
+<li class="chapter" data-level="9.4" data-path="tablas.html"><a href="tablas.html#función-hist"><i class="fa fa-check"></i><b>9.4</b> Función <code>hist</code> </a>
+<ul>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-28"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-29"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejercicios-4"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="central.html"><a href="central.html"><i class="fa fa-check"></i><b>10</b> Medidas de tendencia central</a><ul>
-<li class="chapter" data-level="10.1" data-path="central.html"><a href="central.html#media"><i class="fa fa-check"></i><b>10.1</b> Media  </a><ul>
+<li class="chapter" data-level="10" data-path="central.html"><a href="central.html"><i class="fa fa-check"></i><b>10</b> Medidas de tendencia central</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="central.html"><a href="central.html#media"><i class="fa fa-check"></i><b>10.1</b> Media  </a>
+<ul>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-30"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-31"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-32"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="central.html"><a href="central.html#mediana"><i class="fa fa-check"></i><b>10.2</b> Mediana  </a><ul>
+<li class="chapter" data-level="10.2" data-path="central.html"><a href="central.html#mediana"><i class="fa fa-check"></i><b>10.2</b> Mediana  </a>
+<ul>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-33"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="central.html"><a href="central.html#moda"><i class="fa fa-check"></i><b>10.3</b> Moda </a><ul>
+<li class="chapter" data-level="10.3" data-path="central.html"><a href="central.html#moda"><i class="fa fa-check"></i><b>10.3</b> Moda </a>
+<ul>
 <li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-34"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="varia.html"><a href="varia.html"><i class="fa fa-check"></i><b>11</b> Medidas de variabilidad</a><ul>
-<li class="chapter" data-level="11.1" data-path="varia.html"><a href="varia.html#rango"><i class="fa fa-check"></i><b>11.1</b> Rango  </a><ul>
+<li class="chapter" data-level="11" data-path="varia.html"><a href="varia.html"><i class="fa fa-check"></i><b>11</b> Medidas de variabilidad</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="varia.html"><a href="varia.html#rango"><i class="fa fa-check"></i><b>11.1</b> Rango  </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#desviación-estándar-muestral-s"><i class="fa fa-check"></i><b>11.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a><ul>
+<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#desviación-estándar-muestral-s"><i class="fa fa-check"></i><b>11.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#varianza-muestral-s2"><i class="fa fa-check"></i><b>11.3</b> Varianza muestral (<span class="math inline">\(S^2\)</span>)  </a><ul>
+<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#varianza-muestral-s2"><i class="fa fa-check"></i><b>11.3</b> Varianza muestral (<span class="math inline">\(S^2\)</span>)  </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="varia.html"><a href="varia.html#coeficiente-de-variación-cv"><i class="fa fa-check"></i><b>11.4</b> Coeficiente de variación (<span class="math inline">\(CV\)</span>) </a><ul>
+<li class="chapter" data-level="11.4" data-path="varia.html"><a href="varia.html#coeficiente-de-variación-cv"><i class="fa fa-check"></i><b>11.4</b> Coeficiente de variación (<span class="math inline">\(CV\)</span>) </a>
+<ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-41"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="posi.html"><a href="posi.html"><i class="fa fa-check"></i><b>12</b> Medidas de posición</a><ul>
-<li class="chapter" data-level="12.1" data-path="posi.html"><a href="posi.html#cuantiles"><i class="fa fa-check"></i><b>12.1</b> Cuantiles     </a><ul>
+<li class="chapter" data-level="12" data-path="posi.html"><a href="posi.html"><i class="fa fa-check"></i><b>12</b> Medidas de posición</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="posi.html"><a href="posi.html#cuantiles"><i class="fa fa-check"></i><b>12.1</b> Cuantiles     </a>
+<ul>
 <li class="chapter" data-level="" data-path="posi.html"><a href="posi.html#ejemplo-42"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="correl.html"><a href="correl.html"><i class="fa fa-check"></i><b>13</b> Medidas de correlación</a><ul>
-<li class="chapter" data-level="13.1" data-path="correl.html"><a href="correl.html#función-cor"><i class="fa fa-check"></i><b>13.1</b> Función <code>cor</code>  </a><ul>
+<li class="chapter" data-level="13" data-path="correl.html"><a href="correl.html"><i class="fa fa-check"></i><b>13</b> Medidas de correlación</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="correl.html"><a href="correl.html#función-cor"><i class="fa fa-check"></i><b>13.1</b> Función <code>cor</code>  </a>
+<ul>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-43"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-44"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-45"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -323,70 +374,88 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejercicios-5"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="discretas.html"><a href="discretas.html"><i class="fa fa-check"></i><b>14</b> Distribuciones discretas</a><ul>
-<li class="chapter" data-level="14.1" data-path="discretas.html"><a href="discretas.html#funciones-disponibles-para-distribuciones-discretas"><i class="fa fa-check"></i><b>14.1</b> Funciones disponibles para distribuciones discretas </a><ul>
+<li class="chapter" data-level="14" data-path="discretas.html"><a href="discretas.html"><i class="fa fa-check"></i><b>14</b> Distribuciones discretas</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="discretas.html"><a href="discretas.html#funciones-disponibles-para-distribuciones-discretas"><i class="fa fa-check"></i><b>14.1</b> Funciones disponibles para distribuciones discretas </a>
+<ul>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-binomial"><i class="fa fa-check"></i>Ejemplo binomial</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-geométrica"><i class="fa fa-check"></i>Ejemplo geométrica</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-binomial-negativa"><i class="fa fa-check"></i>Ejemplo binomial negativa</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-hipergeométrica"><i class="fa fa-check"></i>Ejemplo hipergeométrica</a></li>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-poisson"><i class="fa fa-check"></i>Ejemplo Poisson</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="discretas.html"><a href="discretas.html#distribuciones-discretas-generales"><i class="fa fa-check"></i><b>14.2</b> Distribuciones discretas generales</a><ul>
+<li class="chapter" data-level="14.2" data-path="discretas.html"><a href="discretas.html#distribuciones-discretas-generales"><i class="fa fa-check"></i><b>14.2</b> Distribuciones discretas generales</a>
+<ul>
 <li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-47"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="continuas.html"><a href="continuas.html"><i class="fa fa-check"></i><b>15</b> Distribuciones continuas</a><ul>
-<li class="chapter" data-level="15.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>15.1</b> Funciones disponibles para distribuciones continuas</a><ul>
+<li class="chapter" data-level="15" data-path="continuas.html"><a href="continuas.html"><i class="fa fa-check"></i><b>15</b> Distribuciones continuas</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>15.1</b> Funciones disponibles para distribuciones continuas</a>
+<ul>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-beta"><i class="fa fa-check"></i>Ejemplo beta</a></li>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-estándar"><i class="fa fa-check"></i>Ejemplo normal estándar</a></li>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-general"><i class="fa fa-check"></i>Ejemplo normal general</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>15.2</b> Distribuciones continuas generales</a><ul>
+<li class="chapter" data-level="15.2" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>15.2</b> Distribuciones continuas generales</a>
+<ul>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-48"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="loglik.html"><a href="loglik.html"><i class="fa fa-check"></i><b>16</b> Verosimilitud</a><ul>
+<li class="chapter" data-level="16" data-path="loglik.html"><a href="loglik.html"><i class="fa fa-check"></i><b>16</b> Verosimilitud</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="loglik.html"><a href="loglik.html#función-de-verosimilitud"><i class="fa fa-check"></i><b>16.1</b> Función de verosimilitud</a></li>
 <li class="chapter" data-level="16.2" data-path="loglik.html"><a href="loglik.html#función-de-log-verosimilitud"><i class="fa fa-check"></i><b>16.2</b> Función de log-verosimilitud</a></li>
-<li class="chapter" data-level="16.3" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros"><i class="fa fa-check"></i><b>16.3</b> Método de máxima verosimilitud para estimar parámetros</a><ul>
+<li class="chapter" data-level="16.3" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros"><i class="fa fa-check"></i><b>16.3</b> Método de máxima verosimilitud para estimar parámetros</a>
+<ul>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-49"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-50"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-51"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>16.4</b> Score e Información de Fisher</a><ul>
+<li class="chapter" data-level="16.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>16.4</b> Score e Información de Fisher</a>
+<ul>
 <li class="chapter" data-level="16.4.1" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher-en-el-caso-univariado."><i class="fa fa-check"></i><b>16.4.1</b> Score e Información de Fisher en el caso univariado.</a></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-52"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="16.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>16.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a><ul>
+<li class="chapter" data-level="16.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>16.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a>
+<ul>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-53"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejercicios-6"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="select-dist.html"><a href="select-dist.html"><i class="fa fa-check"></i><b>17</b> Selección de la distribución</a><ul>
-<li class="chapter" data-level="17.1" data-path="select-dist.html"><a href="select-dist.html#función-fitdists"><i class="fa fa-check"></i><b>17.1</b> Función <code>fitDists</code></a><ul>
+<li class="chapter" data-level="17" data-path="select-dist.html"><a href="select-dist.html"><i class="fa fa-check"></i><b>17</b> Selección de la distribución</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="select-dist.html"><a href="select-dist.html#función-fitdists"><i class="fa fa-check"></i><b>17.1</b> Función <code>fitDists</code></a>
+<ul>
 <li class="chapter" data-level="" data-path="select-dist.html"><a href="select-dist.html#ejemplo-54"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>18</b> Estudiando la normalidad</a><ul>
+<li class="chapter" data-level="18" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>18</b> Estudiando la normalidad</a>
+<ul>
 <li class="chapter" data-level="18.1" data-path="normalidad.html"><a href="normalidad.html#consideraciones-iniciales"><i class="fa fa-check"></i><b>18.1</b> Consideraciones iniciales</a></li>
-<li class="chapter" data-level="18.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>18.2</b> Histograma y densidad</a><ul>
+<li class="chapter" data-level="18.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>18.2</b> Histograma y densidad</a>
+<ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo densidad con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-del-peso-corporal"><i class="fa fa-check"></i>Ejemplo densidad del peso corporal</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>18.3</b> Gráficos cuantil cuantil   </a><ul>
+<li class="chapter" data-level="18.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>18.3</b> Gráficos cuantil cuantil   </a>
+<ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-1-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 1 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-2-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 2 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo QQplot para peso corporal</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-con-bandas"><i class="fa fa-check"></i>Ejemplo QQplot con bandas</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>18.4</b> Pruebas de normalidad</a><ul>
+<li class="chapter" data-level="18.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>18.4</b> Pruebas de normalidad</a>
+<ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-normalidad-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo normalidad para peso corporal</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejercicios-7"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>19</b> Intervalos de confianza</a><ul>
-<li class="chapter" data-level="19.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>19.1</b> Función <code>t.test</code></a><ul>
+<li class="chapter" data-level="19" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>19</b> Intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>19.1</b> Función <code>t.test</code></a>
+<ul>
 <li class="chapter" data-level="19.1.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu"><i class="fa fa-check"></i><b>19.1.1</b> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-55"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="19.1.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-independientes"><i class="fa fa-check"></i><b>19.1.2</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras independientes</a></li>
@@ -396,27 +465,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.1.4" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-unilateral-para-la-media-mu"><i class="fa fa-check"></i><b>19.1.4</b> Intervalo de confianza unilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-58"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="19.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>19.2</b> Función <code>var.test</code></a><ul>
+<li class="chapter" data-level="19.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>19.2</b> Función <code>var.test</code></a>
+<ul>
 <li class="chapter" data-level="19.2.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2"><i class="fa fa-check"></i><b>19.2.1</b> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-59"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="19.2.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-razón-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>19.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-60"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="19.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>19.3</b> Función <code>prop.test</code></a><ul>
+<li class="chapter" data-level="19.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>19.3</b> Función <code>prop.test</code></a>
+<ul>
 <li class="chapter" data-level="19.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p"><i class="fa fa-check"></i><b>19.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-61"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="19.3.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>19.3.2</b> Intervalo de confianza bilateral para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-62"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>20</b> Prueba de hipótesis</a><ul>
-<li class="chapter" data-level="20.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>20.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="20" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>20</b> Prueba de hipótesis</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>20.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-63"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>20.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a><ul>
+<li class="chapter" data-level="20.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>20.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-64"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>20.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a><ul>
+<li class="chapter" data-level="20.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>20.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a>
+<ul>
 <li class="chapter" data-level="20.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>20.3.1</b> Prueba de Wald</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-65"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="20.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>20.3.2</b> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson</a></li>
@@ -424,33 +499,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>20.3.3</b> Prueba binomial exacta</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-67"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>20.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a><ul>
+<li class="chapter" data-level="20.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>20.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-68"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>20.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a><ul>
+<li class="chapter" data-level="20.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>20.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-69"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-70"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>20.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a><ul>
+<li class="chapter" data-level="20.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>20.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-71"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>20.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a><ul>
+<li class="chapter" data-level="20.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>20.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-72"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>20.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a><ul>
+<li class="chapter" data-level="20.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>20.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-73"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="20.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>20.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a><ul>
+<li class="chapter" data-level="20.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>20.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-74"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>21</b> Aproximación de integrales</a><ul>
-<li class="chapter" data-level="21.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>21.1</b> Aproximación de Laplace unidimensional</a><ul>
+<li class="chapter" data-level="21" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>21</b> Aproximación de integrales</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>21.1</b> Aproximación de Laplace unidimensional</a>
+<ul>
 <li class="chapter" data-level="" data-path="aproxint.html"><a href="aproxint.html#ejemplo-75"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>22</b> Curiosidades</a><ul>
-<li class="chapter" data-level="22.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>22.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a><ul>
+<li class="chapter" data-level="22" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>22</b> Curiosidades</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>22.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a>
+<ul>
 <li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-76"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
@@ -475,10 +560,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="normalidad" class="section level1">
+<div id="normalidad" class="section level1" number="18">
 <h1><span class="header-section-number">18</span> Estudiando la normalidad</h1>
 <p>En este capítulo se mostrará cómo utilizar las herramientas de R para estudiar la normalidad univariada de un conjunto de datos.</p>
-<div id="consideraciones-iniciales" class="section level2">
+<div id="consideraciones-iniciales" class="section level2" number="18.1">
 <h2><span class="header-section-number">18.1</span> Consideraciones iniciales</h2>
 <p>En estadística hay una gran cantidad de modelos, pruebas y procedimientos que tienen como supuesto la normalidad, por lo tanto, se hace necesario contar con herramientas que nos guíen para responder si se cumple o no el supuesto de normalidad.</p>
 <p>Para estudiar si una muestra aleatoria proviene de una población con distribución normal se disponen de tres herramientas que se listan a continuación.</p>
@@ -490,21 +575,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Al construir un histograma y/o densidad para la variable de interés se puede evaluar visualmente la simetría de la distribución de los datos. Si se observa una violación clara de la simetría (sesgo a uno de los lados) o si se observa una distribución con más de una moda, eso sería indicio de que la muestra no proviene de una población normal. Por otra parte, si se observa simetría en los datos, esto NO garantiza que la muestra aleatoria proviene de una población normal y se hace necesario recurrir a otras herramientas específicas para estudiar normalidad como lo son los gráficos QQplot y pruebas de hipótesis.</p>
 <p>A continuación se presentan varias secciones donde se profundiza sobre el uso de cada de las tres herramientas anteriormente listadas para estudiar la normalidad.</p>
 </div>
-<div id="histograma-y-densidad" class="section level2">
+<div id="histograma-y-densidad" class="section level2" number="18.2">
 <h2><span class="header-section-number">18.2</span> Histograma y densidad</h2>
-<p>El histograma y el gráfico de densidad son herramientas muy útiles porque sirven para mostrar la distribución, la simetría, el sesgo, variabilidad, moda, mediana y observaciones atípicas de un conjunto de datos. Para explorar la normalidad de un conjunto de datos lo que se busca es que el histograma o gráfico de densidad presenten un patrón más o menos simétrico. Para obtener detalles de la construcción de histogramas y gráficos de densidad se recomienda consultar <span class="citation">Hernández (<a href="#ref-hernandez_correa" role="doc-biblioref">2018</a>)</span>.</p>
+<p>El histograma y el gráfico de densidad son herramientas muy útiles porque sirven para mostrar la distribución, la simetría, el sesgo, variabilidad, moda, mediana y observaciones atípicas de un conjunto de datos. Para explorar la normalidad de un conjunto de datos lo que se busca es que el histograma o gráfico de densidad presenten un patrón más o menos simétrico. Para obtener detalles de la construcción de histogramas y gráficos de densidad se recomienda consultar <span class="citation"><a href="references.html#ref-hernandez_correa" role="doc-biblioref">Hernández</a> (<a href="references.html#ref-hernandez_correa" role="doc-biblioref">2018</a>)</span>.</p>
 <p>A continuación se presentan dos ejemplos, uno con datos simulados y otro con datos reales, con los cuales se muestra la utilidad del histograma y gráfico de densidad al explorar la normalidad.</p>
 <div id="ejemplo-densidad-con-datos-simulados" class="section level3 unnumbered">
 <h3>Ejemplo densidad con datos simulados</h3>
 <p>Simular 4 muestra aleatorias de una <span class="math inline">\(N(0, 1)\)</span> con tamaños de muestra <span class="math inline">\(n\)</span>=10, 100, 1000 y 10000; para cada una de las muestras construir los gráficos de densidad y analizar si son simétricos.</p>
 <p>Lo primero que se debe hacer es definir el vector <code>n</code> con los valores de los tamaños de muestra, luego dentro de una sentencia <code>for</code> se simula cada muestra y se dibuja su densidad.</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="normalidad.html#cb540-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb540-2"><a href="normalidad.html#cb540-2"></a>n &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>)</span>
-<span id="cb540-3"><a href="normalidad.html#cb540-3"></a><span class="cf">for</span> (i <span class="cf">in</span> n) {</span>
-<span id="cb540-4"><a href="normalidad.html#cb540-4"></a>  x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(i)</span>
-<span id="cb540-5"><a href="normalidad.html#cb540-5"></a>  <span class="kw">plot</span>(<span class="kw">density</span>(x), <span class="dt">main=</span><span class="kw">bquote</span>(<span class="op">~</span><span class="st"> </span>n <span class="op">==</span><span class="st"> </span>.(i)),</span>
-<span id="cb540-6"><a href="normalidad.html#cb540-6"></a>       <span class="dt">ylab=</span><span class="st">&#39;Densidad&#39;</span>, <span class="dt">col=</span><span class="st">&#39;blue3&#39;</span>, <span class="dt">xlab=</span><span class="st">&#39;x&#39;</span>, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">lwd=</span><span class="dv">4</span>)</span>
-<span id="cb540-7"><a href="normalidad.html#cb540-7"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="normalidad.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb540-2"><a href="normalidad.html#cb540-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>)</span>
+<span id="cb540-3"><a href="normalidad.html#cb540-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> n) {</span>
+<span id="cb540-4"><a href="normalidad.html#cb540-4" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(i)</span>
+<span id="cb540-5"><a href="normalidad.html#cb540-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="fu">density</span>(x), <span class="at">main=</span><span class="fu">bquote</span>(<span class="sc">~</span> n <span class="sc">==</span> .(i)),</span>
+<span id="cb540-6"><a href="normalidad.html#cb540-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>, <span class="at">col=</span><span class="st">&#39;blue3&#39;</span>, <span class="at">xlab=</span><span class="st">&#39;x&#39;</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">4</span>)</span>
+<span id="cb540-7"><a href="normalidad.html#cb540-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <div class="figure"><span id="fig:normalidad1"></span>
 <img src="Manual_de_R_files/figure-html/normalidad1-1.png" alt="Densidad para 4 muestras de una N(0, 1) con diferente tamaño de muestra." width="768" />
 <p class="caption">
@@ -520,17 +605,16 @@ Figure 18.1: Densidad para 4 muestras de una N(0, 1) con diferente tamaño de mu
 <div class="rmdwarning">
 Si un histograma o densidad es muy asimétrico o sesgado, es evidencia en contra de la normalidad de los datos. Si el histograma o densidad presentan simetría, esto no es garantía de la normalidad de los datos.
 </div>
-
 </div>
 <div id="ejemplo-densidad-del-peso-corporal" class="section level3 unnumbered">
 <h3>Ejemplo densidad del peso corporal</h3>
 <p>Considerando la base de datos <strong>medidas del cuerpo</strong> presentada en el Capítulo <a href="central.html#central">10</a>, se desea saber si el peso corporal, tanto de hombres y mujeres, tiene una distribución normal.</p>
 <p>Para hacer la exploración lo primero es cargar la base de datos usando el siguiente código.</p>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="normalidad.html#cb541-1"></a>url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
-<span id="cb541-2"><a href="normalidad.html#cb541-2"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="normalidad.html#cb541-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb541-2"><a href="normalidad.html#cb541-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span></code></pre></div>
 <p>La variable <code>peso</code> del objeto <code>datos</code> contiene la información sobre el peso corporal de ambos sexos, debemos entonces partir o dividir esta información diferenciando entre hombres y mujeres, para esto usamos la función <code>split</code> de la siguiente forma.</p>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="normalidad.html#cb542-1"></a>pesos &lt;-<span class="st"> </span><span class="kw">split</span>(datos<span class="op">$</span>peso, datos<span class="op">$</span>sexo)</span>
-<span id="cb542-2"><a href="normalidad.html#cb542-2"></a>pesos  <span class="co"># Para ver los elementos de la lista pesos</span></span></code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="normalidad.html#cb542-1" aria-hidden="true" tabindex="-1"></a>pesos <span class="ot">&lt;-</span> <span class="fu">split</span>(datos<span class="sc">$</span>peso, datos<span class="sc">$</span>sexo)</span>
+<span id="cb542-2"><a href="normalidad.html#cb542-2" aria-hidden="true" tabindex="-1"></a>pesos  <span class="co"># Para ver los elementos de la lista pesos</span></span></code></pre></div>
 <pre><code>## $Hombre
 ##  [1] 87.3 80.0 82.3 73.6 74.1 85.9 73.2 76.3 65.9 90.9 89.1 62.3 82.7 79.1 98.2
 ## [16] 84.1 83.2 83.2
@@ -540,12 +624,12 @@ Si un histograma o densidad es muy asimétrico o sesgado, es evidencia en contra
 ## [16] 49.8 49.2 73.2</code></pre>
 <p>El objeto <code>pesos</code> es una lista con dos elementos, el primero contiene los pesos de los hombres mientras que el segundo contiene los pesos de las mujeres. Note que <code>pesos</code> es un objeto mientras que <code>peso</code> es el nombre usado para la variable peso corporal en la base de datos.</p>
 <p>Para explorar la normalidad de los pesos se dibujan dos densidades, una para el peso de hombres y otra para el peso de las mujeres, a continuación el código utilizado.</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="normalidad.html#cb544-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(pesos<span class="op">$</span>Hombre), <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>,</span>
-<span id="cb544-2"><a href="normalidad.html#cb544-2"></a>     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">30</span>, <span class="dv">110</span>), <span class="dt">main=</span><span class="st">&#39;&#39;</span>, <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb544-3"><a href="normalidad.html#cb544-3"></a>     <span class="dt">xlab=</span><span class="st">&#39;Peso (kg)&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span>
-<span id="cb544-4"><a href="normalidad.html#cb544-4"></a><span class="kw">lines</span>(<span class="kw">density</span>(pesos<span class="op">$</span>Mujer), <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="st">&#39;deeppink&#39;</span>)</span>
-<span id="cb544-5"><a href="normalidad.html#cb544-5"></a><span class="kw">legend</span>(<span class="st">&#39;topleft&#39;</span>, <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&#39;Hombres&#39;</span>, <span class="st">&#39;Mujeres&#39;</span>),</span>
-<span id="cb544-6"><a href="normalidad.html#cb544-6"></a>       <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;blue&#39;</span>, <span class="st">&#39;deeppink&#39;</span>), <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="normalidad.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(pesos<span class="sc">$</span>Hombre), <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&#39;blue&#39;</span>,</span>
+<span id="cb544-2"><a href="normalidad.html#cb544-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">110</span>), <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb544-3"><a href="normalidad.html#cb544-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Peso (kg)&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span>
+<span id="cb544-4"><a href="normalidad.html#cb544-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(pesos<span class="sc">$</span>Mujer), <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&#39;deeppink&#39;</span>)</span>
+<span id="cb544-5"><a href="normalidad.html#cb544-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&#39;topleft&#39;</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">&#39;Hombres&#39;</span>, <span class="st">&#39;Mujeres&#39;</span>),</span>
+<span id="cb544-6"><a href="normalidad.html#cb544-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="fu">c</span>(<span class="st">&#39;blue&#39;</span>, <span class="st">&#39;deeppink&#39;</span>), <span class="at">bty=</span><span class="st">&#39;n&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:normalidad2"></span>
 <img src="Manual_de_R_files/figure-html/normalidad2-1.png" alt="Densidad para el peso corporal de hombres y mujeres." width="768" />
 <p class="caption">
@@ -555,7 +639,7 @@ Figure 18.2: Densidad para el peso corporal de hombres y mujeres.
 <p>En la Figura <a href="normalidad.html#fig:normalidad2">18.2</a> se muestran las dos densidades, en la figura no se observa una evidencia clara de sesgo, lo que se observa es que la densidad para los hombres es un poco más simétrica que la densidad para las mujeres. De estos resultados no se puede rechazar la premisa de que pesos corporales provienen de una distribución normal, lo recomendable es construir QQplot y aplicar prueba de hipótesis.</p>
 </div>
 </div>
-<div id="gráficos-cuantil-cuantil" class="section level2">
+<div id="gráficos-cuantil-cuantil" class="section level2" number="18.3">
 <h2><span class="header-section-number">18.3</span> Gráficos cuantil cuantil   </h2>
 <p>Los gráficos cuantil cuantil (QQplot) son una herramienta gráfica para explorar si un conjunto de datos o muestra proviene de una población con cierta distribución, en particular aquí nos interesan para estudiar la normalidad de un conjunto de datos. La función <code>qqnorm</code> sirve para construir el QQplot y la función <code>qqline</code> agrega una línea de referencia que ayuda a interpretar el gráfico QQplot, para obtener una explicación de cómo construir este gráfico se recomienda ver el video disponible en este <a href="https://www.youtube.com/watch?v=kx_o9rnI4DE">enlace</a>.</p>
 <p>En la Figura <a href="normalidad.html#fig:normalidad3">18.3</a> se muestra un ejemplo de un QQplot y de sus partes, los puntos y la línea de referencia. Si se tuviese una muestra distribuída perfectamente normal, se esperaría que los puntos estuviesen perfectamente alineados con la línea de referencia, sin embargo, las muestran con las que se trabajan en la práctica casi nunca presentan este comportamiento aún si fueron obtenidas de una población normal. En la práctica se aceptan alejamientos del patrón lineal para aceptar que los datos si provienen de una población normal.</p>
@@ -570,13 +654,13 @@ Figure 18.3: Ejemplo de un QQplot.
 <h3>Ejemplo 1 QQplot con datos simulados</h3>
 <p>Simular 4 muestra aleatorias de una <span class="math inline">\(N(0, 1)\)</span> con tamaños de muestra <span class="math inline">\(n\)</span>=10, 30, 50 y 100, para cada una de ellas construir el QQplot.</p>
 <p>Lo primero que se debe hacer es definir el vector <code>n</code> con los valores del tamaño de muestra, luego dentro de una sentencia <code>for</code> se simula cada muestra <code>x</code> y por último se dibuja el QQplot para cada muestra, a continuación el código utilizado.</p>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="normalidad.html#cb545-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb545-2"><a href="normalidad.html#cb545-2"></a>n &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">100</span>)</span>
-<span id="cb545-3"><a href="normalidad.html#cb545-3"></a><span class="cf">for</span> (i <span class="cf">in</span> n) {</span>
-<span id="cb545-4"><a href="normalidad.html#cb545-4"></a>  x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(i)</span>
-<span id="cb545-5"><a href="normalidad.html#cb545-5"></a>  <span class="kw">qqnorm</span>(x, <span class="dt">main=</span><span class="kw">bquote</span>(<span class="op">~</span><span class="st"> </span>n <span class="op">==</span><span class="st"> </span>.(i)))</span>
-<span id="cb545-6"><a href="normalidad.html#cb545-6"></a>  <span class="kw">qqline</span>(x)  <span class="co"># Para agregar la linea de referencia</span></span>
-<span id="cb545-7"><a href="normalidad.html#cb545-7"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="normalidad.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb545-2"><a href="normalidad.html#cb545-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">100</span>)</span>
+<span id="cb545-3"><a href="normalidad.html#cb545-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> n) {</span>
+<span id="cb545-4"><a href="normalidad.html#cb545-4" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(i)</span>
+<span id="cb545-5"><a href="normalidad.html#cb545-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qqnorm</span>(x, <span class="at">main=</span><span class="fu">bquote</span>(<span class="sc">~</span> n <span class="sc">==</span> .(i)))</span>
+<span id="cb545-6"><a href="normalidad.html#cb545-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qqline</span>(x)  <span class="co"># Para agregar la linea de referencia</span></span>
+<span id="cb545-7"><a href="normalidad.html#cb545-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <div class="figure"><span id="fig:normalidad4"></span>
 <img src="Manual_de_R_files/figure-html/normalidad4-1.png" alt="QQplot para 4 muestras de una N(0, 1) con diferente tamaño de muestra." width="576" />
 <p class="caption">
@@ -589,19 +673,19 @@ Figure 18.4: QQplot para 4 muestras de una N(0, 1) con diferente tamaño de mues
 <h3>Ejemplo 2 QQplot con datos simulados</h3>
 <p>Simular 1 muestra aleatoria con <span class="math inline">\(n=50\)</span> de cada una de las siguientes poblaciones Poisson(5), NBinom(5, 0.5), Gamma(2, 3) y Weibull(1, 3), para cada una de las muestras construir el QQplot para explorar la normalidad de las muestras.</p>
 <p>Las muestras de cada una de las poblaciones se generan con las funciones <code>rpois</code>, <code>rnbinom</code>, <code>rgamma</code> y <code>rweibull</code> especificando los parámetros. A continuación el código necesario para obtener los QQplot solicitados.</p>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="normalidad.html#cb546-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">rpois</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">lambda=</span><span class="dv">5</span>)</span>
-<span id="cb546-2"><a href="normalidad.html#cb546-2"></a>m2 &lt;-<span class="st"> </span><span class="kw">rnbinom</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">size=</span><span class="dv">5</span>, <span class="dt">prob=</span><span class="fl">0.35</span>)</span>
-<span id="cb546-3"><a href="normalidad.html#cb546-3"></a>m3 &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">shape=</span><span class="dv">2</span>, <span class="dt">scale=</span><span class="dv">3</span>)</span>
-<span id="cb546-4"><a href="normalidad.html#cb546-4"></a>m4 &lt;-<span class="st"> </span><span class="kw">rweibull</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">scale=</span><span class="dv">3</span>)</span>
-<span id="cb546-5"><a href="normalidad.html#cb546-5"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb546-6"><a href="normalidad.html#cb546-6"></a><span class="kw">qqnorm</span>(m1, <span class="dt">main=</span><span class="st">&#39;Poisson(5)&#39;</span>)</span>
-<span id="cb546-7"><a href="normalidad.html#cb546-7"></a><span class="kw">qqline</span>(m1)</span>
-<span id="cb546-8"><a href="normalidad.html#cb546-8"></a><span class="kw">qqnorm</span>(m2, <span class="dt">main=</span><span class="st">&#39;NBinom(5, 0.35)&#39;</span>)</span>
-<span id="cb546-9"><a href="normalidad.html#cb546-9"></a><span class="kw">qqline</span>(m1)</span>
-<span id="cb546-10"><a href="normalidad.html#cb546-10"></a><span class="kw">qqnorm</span>(m3, <span class="dt">main=</span><span class="st">&#39;Gamma(2, 3)&#39;</span>)</span>
-<span id="cb546-11"><a href="normalidad.html#cb546-11"></a><span class="kw">qqline</span>(m1)</span>
-<span id="cb546-12"><a href="normalidad.html#cb546-12"></a><span class="kw">qqnorm</span>(m4, <span class="dt">main=</span><span class="st">&#39;Weibull(1, 3)&#39;</span>)</span>
-<span id="cb546-13"><a href="normalidad.html#cb546-13"></a><span class="kw">qqline</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="normalidad.html#cb546-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">lambda=</span><span class="dv">5</span>)</span>
+<span id="cb546-2"><a href="normalidad.html#cb546-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">rnbinom</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span><span class="fl">0.35</span>)</span>
+<span id="cb546-3"><a href="normalidad.html#cb546-3" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">shape=</span><span class="dv">2</span>, <span class="at">scale=</span><span class="dv">3</span>)</span>
+<span id="cb546-4"><a href="normalidad.html#cb546-4" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">rweibull</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">shape=</span><span class="dv">1</span>, <span class="at">scale=</span><span class="dv">3</span>)</span>
+<span id="cb546-5"><a href="normalidad.html#cb546-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb546-6"><a href="normalidad.html#cb546-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(m1, <span class="at">main=</span><span class="st">&#39;Poisson(5)&#39;</span>)</span>
+<span id="cb546-7"><a href="normalidad.html#cb546-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(m1)</span>
+<span id="cb546-8"><a href="normalidad.html#cb546-8" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(m2, <span class="at">main=</span><span class="st">&#39;NBinom(5, 0.35)&#39;</span>)</span>
+<span id="cb546-9"><a href="normalidad.html#cb546-9" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(m1)</span>
+<span id="cb546-10"><a href="normalidad.html#cb546-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(m3, <span class="at">main=</span><span class="st">&#39;Gamma(2, 3)&#39;</span>)</span>
+<span id="cb546-11"><a href="normalidad.html#cb546-11" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(m1)</span>
+<span id="cb546-12"><a href="normalidad.html#cb546-12" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(m4, <span class="at">main=</span><span class="st">&#39;Weibull(1, 3)&#39;</span>)</span>
+<span id="cb546-13"><a href="normalidad.html#cb546-13" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(m1)</span></code></pre></div>
 <div class="figure"><span id="fig:normalidad6"></span>
 <img src="Manual_de_R_files/figure-html/normalidad6-1.png" alt="QQplot para muestras generadas de poblaciones Poisson, Binomial Negativa, Gamma y Weibull." width="576" />
 <p class="caption">
@@ -613,17 +697,16 @@ Figure 18.5: QQplot para muestras generadas de poblaciones Poisson, Binomial Neg
 <div class="rmdwarning">
 Se debe tener cuidado al concluir con un QQplot, lo que para una persona puede estar alineado, para otra puede no estarlo. El QQplot es un gráfico exploratorio de normalidad.
 </div>
-
 </div>
 <div id="ejemplo-qqplot-para-peso-corporal" class="section level3 unnumbered">
 <h3>Ejemplo QQplot para peso corporal</h3>
 <p>Retomando la base de datos <strong>medidas del cuerpo</strong> presentada en el Capítulo <a href="central.html#central">10</a>, se desea saber si el peso corporal, tanto de hombres y mujeres, tiene una distribución normal usando QQplots.</p>
 <p>Para hacer la exploración lo primero es cargar la base de datos si aún no se ha cargado.</p>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="normalidad.html#cb547-1"></a>url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
-<span id="cb547-2"><a href="normalidad.html#cb547-2"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="normalidad.html#cb547-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb547-2"><a href="normalidad.html#cb547-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span></code></pre></div>
 <p>La variable <code>peso</code> del objeto <code>datos</code> contiene la información sobre el peso corporal de ambos sexos, debemos entonces partir o dividir esta información diferenciando entre hombres y mujeres, para esto usamos la función <code>split</code> de la siguiente forma.</p>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="normalidad.html#cb548-1"></a>pesos &lt;-<span class="st"> </span><span class="kw">split</span>(datos<span class="op">$</span>peso, datos<span class="op">$</span>sexo)</span>
-<span id="cb548-2"><a href="normalidad.html#cb548-2"></a>pesos</span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="normalidad.html#cb548-1" aria-hidden="true" tabindex="-1"></a>pesos <span class="ot">&lt;-</span> <span class="fu">split</span>(datos<span class="sc">$</span>peso, datos<span class="sc">$</span>sexo)</span>
+<span id="cb548-2"><a href="normalidad.html#cb548-2" aria-hidden="true" tabindex="-1"></a>pesos</span></code></pre></div>
 <pre><code>## $Hombre
 ##  [1] 87.3 80.0 82.3 73.6 74.1 85.9 73.2 76.3 65.9 90.9 89.1 62.3 82.7 79.1 98.2
 ## [16] 84.1 83.2 83.2
@@ -633,14 +716,14 @@ Se debe tener cuidado al concluir con un QQplot, lo que para una persona puede e
 ## [16] 49.8 49.2 73.2</code></pre>
 <p>El objeto <code>pesos</code> es una lista con dos elementos, el primero contiene los pesos de los hombres mientras que el segundo contiene los pesos de las mujeres. Note que <code>pesos</code> es un objeto mientras que <code>peso</code> es el nombre usado para la variable peso corporal en la base de datos.</p>
 <p>Para explorar la normalidad de los pesos se dibujan dos densidades, una para el peso de hombres y otra para el peso de las mujeres, a continuación el código utilizado.</p>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="normalidad.html#cb550-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb550-2"><a href="normalidad.html#cb550-2"></a><span class="kw">qqnorm</span>(pesos<span class="op">$</span>Hombre, <span class="dt">pch=</span><span class="dv">20</span>,</span>
-<span id="cb550-3"><a href="normalidad.html#cb550-3"></a>       <span class="dt">main=</span><span class="st">&#39;QQplot para peso de hombres&#39;</span>)</span>
-<span id="cb550-4"><a href="normalidad.html#cb550-4"></a><span class="kw">qqline</span>(pesos<span class="op">$</span>Hombre)</span>
-<span id="cb550-5"><a href="normalidad.html#cb550-5"></a></span>
-<span id="cb550-6"><a href="normalidad.html#cb550-6"></a><span class="kw">qqnorm</span>(pesos<span class="op">$</span>Mujer, <span class="dt">pch=</span><span class="dv">20</span>,</span>
-<span id="cb550-7"><a href="normalidad.html#cb550-7"></a>       <span class="dt">main=</span><span class="st">&#39;QQplot para peso de mujeres&#39;</span>)</span>
-<span id="cb550-8"><a href="normalidad.html#cb550-8"></a><span class="kw">qqline</span>(pesos<span class="op">$</span>Mujer)</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="normalidad.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb550-2"><a href="normalidad.html#cb550-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(pesos<span class="sc">$</span>Hombre, <span class="at">pch=</span><span class="dv">20</span>,</span>
+<span id="cb550-3"><a href="normalidad.html#cb550-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;QQplot para peso de hombres&#39;</span>)</span>
+<span id="cb550-4"><a href="normalidad.html#cb550-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(pesos<span class="sc">$</span>Hombre)</span>
+<span id="cb550-5"><a href="normalidad.html#cb550-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb550-6"><a href="normalidad.html#cb550-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(pesos<span class="sc">$</span>Mujer, <span class="at">pch=</span><span class="dv">20</span>,</span>
+<span id="cb550-7"><a href="normalidad.html#cb550-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;QQplot para peso de mujeres&#39;</span>)</span>
+<span id="cb550-8"><a href="normalidad.html#cb550-8" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(pesos<span class="sc">$</span>Mujer)</span></code></pre></div>
 <div class="figure"><span id="fig:normalidad5"></span>
 <img src="Manual_de_R_files/figure-html/normalidad5-1.png" alt="QQplot para el peso corporal de hombres y mujeres." width="768" />
 <p class="caption">
@@ -652,19 +735,18 @@ Figure 18.6: QQplot para el peso corporal de hombres y mujeres.
 <div class="rmdwarning">
 Se debe interpretar con precaución el QQplot, del ejemplo con datos simulados se vió que a pesar de haber generado las muestras de una <span class="math inline">\(N(0,1)\)</span> los QQplot no siempre están perfectamente alineados.
 </div>
-
 </div>
 <div id="ejemplo-qqplot-con-bandas" class="section level3 unnumbered">
 <h3>Ejemplo QQplot con bandas</h3>
 <p>Construir QQplot con bandas de confianza para el peso corporal de hombres y mujeres con los datos del ejemplo anterior. ¿Se puede afirma que los pesos corporales provienen de una distribución normal?</p>
 <p>Para construir este tipo de QQplot se usa la función <code>qqplot</code> del paquete <strong>car</strong>. A continuación el código para construir el gráfico solicitado.</p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="normalidad.html#cb551-1"></a><span class="kw">require</span>(car)</span>
-<span id="cb551-2"><a href="normalidad.html#cb551-2"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb551-3"><a href="normalidad.html#cb551-3"></a><span class="kw">qqPlot</span>(pesos<span class="op">$</span>Hombre, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">ylab=</span><span class="st">&#39;Peso (Kg)&#39;</span>,</span>
-<span id="cb551-4"><a href="normalidad.html#cb551-4"></a>       <span class="dt">main=</span><span class="st">&#39;QQplot para peso de hombres&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="normalidad.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(car)</span>
+<span id="cb551-2"><a href="normalidad.html#cb551-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb551-3"><a href="normalidad.html#cb551-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(pesos<span class="sc">$</span>Hombre, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">ylab=</span><span class="st">&#39;Peso (Kg)&#39;</span>,</span>
+<span id="cb551-4"><a href="normalidad.html#cb551-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;QQplot para peso de hombres&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] 12 15</code></pre>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="normalidad.html#cb553-1"></a><span class="kw">qqPlot</span>(pesos<span class="op">$</span>Mujer, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">ylab=</span><span class="st">&#39;Peso (Kg)&#39;</span>,</span>
-<span id="cb553-2"><a href="normalidad.html#cb553-2"></a>       <span class="dt">main=</span><span class="st">&#39;QQplot para peso de mujeres&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="normalidad.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(pesos<span class="sc">$</span>Mujer, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">ylab=</span><span class="st">&#39;Peso (Kg)&#39;</span>,</span>
+<span id="cb553-2"><a href="normalidad.html#cb553-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;QQplot para peso de mujeres&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:normalidad7"></span>
 <img src="Manual_de_R_files/figure-html/normalidad7-1.png" alt="QQplot con bandas de confianza para el peso corporal de hombres y mujeres." width="768" />
 <p class="caption">
@@ -676,7 +758,7 @@ Figure 18.7: QQplot con bandas de confianza para el peso corporal de hombres y m
 <p>La función <code>qqPlot</code> tiene varios parámetros adicionales que recomendamos consultar en la ayuda de la función <code>help(qqPlot)</code>.</p>
 </div>
 </div>
-<div id="pruebas-de-normalidad" class="section level2">
+<div id="pruebas-de-normalidad" class="section level2" number="18.4">
 <h2><span class="header-section-number">18.4</span> Pruebas de normalidad</h2>
 <p>Una forma menos subjetiva de explorar la normalidad de un conjunto de datos es por medio de las pruebas de normalidad. Las hipótesis para este tipo de pruebas son:</p>
 <p><span class="math display">\[\begin{equation}
@@ -698,9 +780,9 @@ Figure 18.7: QQplot con bandas de confianza para el peso corporal de hombres y m
 <h3>Ejemplo con datos simulados</h3>
 <p>Generar una muestra aleatoria con <span class="math inline">\(n=100\)</span> de una <span class="math inline">\(N(150, 25)\)</span> y aplicar las pruebas de normalidad Shapiro-Wilk y Anderson-Darling con un nivel de significancia del 3%.</p>
 <p>Lo primero es generar la muestra aleatoria <code>x</code> así:</p>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="normalidad.html#cb555-1"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mean=</span><span class="dv">150</span>, <span class="dt">sd=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="normalidad.html#cb555-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">5</span>)</span></code></pre></div>
 <p>Para aplicar la prueba Shapiro-Wilk se usa la función <code>shapiro.test</code> al vector <code>x</code> así:</p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="normalidad.html#cb556-1"></a><span class="kw">shapiro.test</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="normalidad.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(x)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -708,8 +790,8 @@ Figure 18.7: QQplot con bandas de confianza para el peso corporal de hombres y m
 ## W = 0.98102, p-value = 0.1596</code></pre>
 <p>De la salida anterior se tiene que el valor-P para la prueba fue de 0.2 y que es mayor al nivel de significancia 3%, lo cual indica que no hay evidencias para rechazar la hipótesis nula de normalidad.</p>
 <p>Para aplicar la prueba Anderson-Darling se usa la función <code>ad.test</code> al vector <code>x</code> así:</p>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="normalidad.html#cb558-1"></a><span class="kw">require</span>(nortest)  <span class="co"># Se debe haber instalado nortest</span></span>
-<span id="cb558-2"><a href="normalidad.html#cb558-2"></a><span class="kw">ad.test</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="normalidad.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(nortest)  <span class="co"># Se debe haber instalado nortest</span></span>
+<span id="cb558-2"><a href="normalidad.html#cb558-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ad.test</span>(x)</span></code></pre></div>
 <pre><code>## 
 ##  Anderson-Darling normality test
 ## 
@@ -721,11 +803,11 @@ Figure 18.7: QQplot con bandas de confianza para el peso corporal de hombres y m
 <h3>Ejemplo normalidad para peso corporal</h3>
 <p>Retomando la base de datos <strong>medidas del cuerpo</strong> presentada en el Capítulo <a href="central.html#central">10</a>, se desea saber si el peso corporal, tanto de hombres y mujeres, tiene una distribución normal usando las pruebas normalidad Shapiro-Wilks y Anderson-Darling con un nivel de significancia del 5%.</p>
 <p>Lo primero es cargar la base de datos si aún no se ha cargado.</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="normalidad.html#cb560-1"></a>url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
-<span id="cb560-2"><a href="normalidad.html#cb560-2"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="normalidad.html#cb560-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb560-2"><a href="normalidad.html#cb560-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span></code></pre></div>
 <p>La variable <code>peso</code> del objeto <code>datos</code> contiene la información sobre el peso corporal de ambos sexos, debemos entonces partir o dividir esta información diferenciando entre hombres y mujeres, para esto usamos la función <code>split</code> de la siguiente forma.</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="normalidad.html#cb561-1"></a>pesos &lt;-<span class="st"> </span><span class="kw">split</span>(datos<span class="op">$</span>peso, datos<span class="op">$</span>sexo)</span>
-<span id="cb561-2"><a href="normalidad.html#cb561-2"></a>pesos</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="normalidad.html#cb561-1" aria-hidden="true" tabindex="-1"></a>pesos <span class="ot">&lt;-</span> <span class="fu">split</span>(datos<span class="sc">$</span>peso, datos<span class="sc">$</span>sexo)</span>
+<span id="cb561-2"><a href="normalidad.html#cb561-2" aria-hidden="true" tabindex="-1"></a>pesos</span></code></pre></div>
 <pre><code>## $Hombre
 ##  [1] 87.3 80.0 82.3 73.6 74.1 85.9 73.2 76.3 65.9 90.9 89.1 62.3 82.7 79.1 98.2
 ## [16] 84.1 83.2 83.2
@@ -734,7 +816,7 @@ Figure 18.7: QQplot con bandas de confianza para el peso corporal de hombres y m
 ##  [1] 51.6 59.0 49.2 63.0 53.6 59.0 47.6 69.8 66.8 75.2 55.2 54.2 62.5 42.0 50.0
 ## [16] 49.8 49.2 73.2</code></pre>
 <p>Para aplicar la prueba Shapiro-Wilk se usa la función <code>shapiro.test</code>. Como el objeto <code>pesos</code> es una lista se debe usar la función <code>lapply</code> para aplicar <code>shapiro.test</code> a la lista, a continuación el código usado.</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="normalidad.html#cb563-1"></a><span class="kw">lapply</span>(pesos, shapiro.test)</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="normalidad.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(pesos, shapiro.test)</span></code></pre></div>
 <pre><code>## $Hombre
 ## 
 ##  Shapiro-Wilk normality test
@@ -751,8 +833,8 @@ Figure 18.7: QQplot con bandas de confianza para el peso corporal de hombres y m
 ## W = 0.94709, p-value = 0.3812</code></pre>
 <p>De la salida anterior se observa que ambos valores-P fueron mayores al nivel de significancia 5%, por lo tanto, se puede concluir que ambas muestras provienen de poblaciones con distribución normal.</p>
 <p>Para aplicar la prueba Anderson-Darling se usa la función <code>ad.test</code> del paquete <strong>nortest</strong>. Como el objeto <code>pesos</code> es una lista se debe usar la función <code>lapply</code> para aplicar <code>ad.test</code> a la lista, a continuación el código usado.</p>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="normalidad.html#cb565-1"></a><span class="kw">require</span>(nortest) <span class="co"># Se debe haber instalado nortest</span></span>
-<span id="cb565-2"><a href="normalidad.html#cb565-2"></a><span class="kw">lapply</span>(pesos, shapiro.test)</span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="normalidad.html#cb565-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(nortest) <span class="co"># Se debe haber instalado nortest</span></span>
+<span id="cb565-2"><a href="normalidad.html#cb565-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(pesos, shapiro.test)</span></code></pre></div>
 <pre><code>## $Hombre
 ## 
 ##  Shapiro-Wilk normality test
@@ -777,12 +859,6 @@ Figure 18.7: QQplot con bandas de confianza para el peso corporal de hombres y m
 <li>Para la base de datos <strong>medidas del cuerpo</strong> presentada en el Capítulo <a href="central.html#central">10</a>, explorar si la variable estatura, diferenciada por hombres y mujeres, tiene una distribución normal.</li>
 </ol>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-hernandez_correa">
-<p>Hernández, J., F. &amp; Correa. 2018. <em>Gráficos Con R</em>. Primera. Medellín, Colombia: Universidad Nacional de Colombia. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.</p>
 </div>
 </div>
             </section>

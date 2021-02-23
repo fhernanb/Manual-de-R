@@ -50,7 +50,11 @@ modelos <- fitDist(y=ma, type='realplus', k=2)
 modelos$fits
 ```
 
-De la lista anterior se observa que la función gamma está en el primer lugar con un $AIC=466$ con el menor $AIC$. Esto significa que la distribución gamma explica mejor los datos de la muestra, y esto coincide con la realidad, ya que la muestra fue generada de una distribución gamma.
+De la lista anterior se observa que la función gamma está en el primer lugar con un $AIC=`r modelos$fits[1]`$ con el menor $AIC$. Esto significa que la distribución gamma explica mejor los datos de la muestra, y esto coincide con la realidad, ya que la muestra fue generada de una distribución gamma.
+
+```{block2, type='rmdnote'}
+En la salida anterior se observan unos mensajes de error que no deben causar preocupación. Esos errores se deben al proceso de estimación de parámetros con algunas de las distribuciones que no aparecen en la lista final.
+```
 
 Para obtener los valores estimados de $\mu$ y $\sigma$ se usa el siguiente código.
 
@@ -67,4 +71,4 @@ h <- histDist(y=ma, family=GA, main='', xlab='x', ylab='Densidad',
 rug(x=ma, col="deepskyblue3")
 ```
 
-En la Figura \@ref(fig:histDist1) se presenta el histograma para muestra aleatoria y la densidad de la gamma que mejor explica estos datos. Se observa claramente que la curva de densidad azul acompaña la forma de histograma.
+En la Figura \@ref(fig:histDist1) se presenta el histograma para muestra aleatoria y la densidad de la gamma que mejor explica estos datos. Se observa claramente que la curva de densidad azul acompaña la forma del histograma.
