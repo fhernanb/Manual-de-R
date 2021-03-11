@@ -25,7 +25,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2021-02-23" />
+<meta name="date" content="2021-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -341,12 +341,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#desviación-estándar-muestral-s"><i class="fa fa-check"></i><b>11.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a>
+<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#varianza"><i class="fa fa-check"></i><b>11.2</b> Varianza</a>
 <ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#varianza-muestral-s2"><i class="fa fa-check"></i><b>11.3</b> Varianza muestral (<span class="math inline">\(S^2\)</span>)  </a>
+<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#desviación-estándar"><i class="fa fa-check"></i><b>11.3</b> Desviación estándar</a>
 <ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -566,22 +566,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="funciones-disponibles-para-distribuciones-continuas" class="section level2" number="15.1">
 <h2><span class="header-section-number">15.1</span> Funciones disponibles para distribuciones continuas</h2>
 <p>Para cada distribución continua se tienen 4 funciones, a continuación el listado de las funciones y su utilidad.</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="continuas.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dxxx</span>(x, ...)  <span class="co"># Función de densidad de probabilidad, f(x)</span></span>
-<span id="cb453-2"><a href="continuas.html#cb453-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pxxx</span>(q, ...)  <span class="co"># Función de distribución acumulada hasta q, F(x)</span></span>
-<span id="cb453-3"><a href="continuas.html#cb453-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qxxx</span>(p, ...)  <span class="co"># Cuantil para el cual P(X &lt;= q) = p</span></span>
-<span id="cb453-4"><a href="continuas.html#cb453-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rxxx</span>(n, ...)  <span class="co"># Generador de números aleatorios.</span></span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="continuas.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dxxx</span>(x, ...)  <span class="co"># Función de densidad de probabilidad, f(x)</span></span>
+<span id="cb455-2"><a href="continuas.html#cb455-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pxxx</span>(q, ...)  <span class="co"># Función de distribución acumulada hasta q, F(x)</span></span>
+<span id="cb455-3"><a href="continuas.html#cb455-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qxxx</span>(p, ...)  <span class="co"># Cuantil para el cual P(X &lt;= q) = p</span></span>
+<span id="cb455-4"><a href="continuas.html#cb455-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rxxx</span>(n, ...)  <span class="co"># Generador de números aleatorios.</span></span></code></pre></div>
 <p>En el lugar de las letras <code>xxx</code> se de debe colocar el nombre de la distribución en R, a continuación el listado de nombres disponibles para las 11 distribuciones continuas básicas.</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="continuas.html#cb454-1" aria-hidden="true" tabindex="-1"></a>beta     <span class="co"># Beta</span></span>
-<span id="cb454-2"><a href="continuas.html#cb454-2" aria-hidden="true" tabindex="-1"></a>cauchy   <span class="co"># Cauchy</span></span>
-<span id="cb454-3"><a href="continuas.html#cb454-3" aria-hidden="true" tabindex="-1"></a>chisq    <span class="co"># Chi-cuadrada</span></span>
-<span id="cb454-4"><a href="continuas.html#cb454-4" aria-hidden="true" tabindex="-1"></a>exp      <span class="co"># Exponencial</span></span>
-<span id="cb454-5"><a href="continuas.html#cb454-5" aria-hidden="true" tabindex="-1"></a>f        <span class="co"># F</span></span>
-<span id="cb454-6"><a href="continuas.html#cb454-6" aria-hidden="true" tabindex="-1"></a>gamma    <span class="co"># Gama</span></span>
-<span id="cb454-7"><a href="continuas.html#cb454-7" aria-hidden="true" tabindex="-1"></a>lnorm    <span class="co"># log-normal</span></span>
-<span id="cb454-8"><a href="continuas.html#cb454-8" aria-hidden="true" tabindex="-1"></a>norm     <span class="co"># normal</span></span>
-<span id="cb454-9"><a href="continuas.html#cb454-9" aria-hidden="true" tabindex="-1"></a>t        <span class="co"># t-student</span></span>
-<span id="cb454-10"><a href="continuas.html#cb454-10" aria-hidden="true" tabindex="-1"></a>unif     <span class="co"># Uniforme</span></span>
-<span id="cb454-11"><a href="continuas.html#cb454-11" aria-hidden="true" tabindex="-1"></a>weibull  <span class="co"># Weibull</span></span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="continuas.html#cb456-1" aria-hidden="true" tabindex="-1"></a>beta     <span class="co"># Beta</span></span>
+<span id="cb456-2"><a href="continuas.html#cb456-2" aria-hidden="true" tabindex="-1"></a>cauchy   <span class="co"># Cauchy</span></span>
+<span id="cb456-3"><a href="continuas.html#cb456-3" aria-hidden="true" tabindex="-1"></a>chisq    <span class="co"># Chi-cuadrada</span></span>
+<span id="cb456-4"><a href="continuas.html#cb456-4" aria-hidden="true" tabindex="-1"></a>exp      <span class="co"># Exponencial</span></span>
+<span id="cb456-5"><a href="continuas.html#cb456-5" aria-hidden="true" tabindex="-1"></a>f        <span class="co"># F</span></span>
+<span id="cb456-6"><a href="continuas.html#cb456-6" aria-hidden="true" tabindex="-1"></a>gamma    <span class="co"># Gama</span></span>
+<span id="cb456-7"><a href="continuas.html#cb456-7" aria-hidden="true" tabindex="-1"></a>lnorm    <span class="co"># log-normal</span></span>
+<span id="cb456-8"><a href="continuas.html#cb456-8" aria-hidden="true" tabindex="-1"></a>norm     <span class="co"># normal</span></span>
+<span id="cb456-9"><a href="continuas.html#cb456-9" aria-hidden="true" tabindex="-1"></a>t        <span class="co"># t-student</span></span>
+<span id="cb456-10"><a href="continuas.html#cb456-10" aria-hidden="true" tabindex="-1"></a>unif     <span class="co"># Uniforme</span></span>
+<span id="cb456-11"><a href="continuas.html#cb456-11" aria-hidden="true" tabindex="-1"></a>weibull  <span class="co"># Weibull</span></span></code></pre></div>
 <p>Combinando las funciones y los nombres se tiene un total de 44 funciones, por ejemplo, para obtener la función de densidad de probabilidad <span class="math inline">\(f(x)\)</span> de una normal se usa la función <code>dnorm( )</code> y para obtener la función acumulada <span class="math inline">\(F(x)\)</span> de una Beta se usa la función <code>pbeta( )</code>.</p>
 <div id="ejemplo-beta" class="section level3 unnumbered">
 <h3>Ejemplo beta</h3>
@@ -590,8 +590,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Dibuje la densidad de la distribución.</li>
 </ol>
 <p>La función <code>dbeta</code> sirve para obtener la altura de la curva de una distribución beta y combinándola con la función <code>curve</code> se puede dibujar la densidad solicitada. En la Figura <a href="continuas.html#fig:beta1">15.1</a> se presenta la densidad, observe que para la combinación de parámetros <span class="math inline">\(a=2\)</span> y <span class="math inline">\(b=5\)</span> la distribución es sesgada a la derecha.</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="continuas.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dbeta</span>(x, <span class="at">shape1=</span><span class="dv">2</span>, <span class="at">shape2=</span><span class="dv">5</span>), <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb455-2"><a href="continuas.html#cb455-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="continuas.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dbeta</span>(x, <span class="at">shape1=</span><span class="dv">2</span>, <span class="at">shape2=</span><span class="dv">5</span>), <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb457-2"><a href="continuas.html#cb457-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:beta1"></span>
 <img src="Manual_de_R_files/figure-html/beta1-1.png" alt="Función de densidad para una $Beta(2, 5)$." width="576" />
 <p class="caption">
@@ -602,11 +602,11 @@ Figure 15.1: Función de densidad para una <span class="math inline">\(Beta(2, 5
 <li>Calcular <span class="math inline">\(P(0.3 \leq X \leq 0.7)\)</span>.</li>
 </ol>
 <p>Para obtener la probabilidad o área bajo la densidad se puede usar la función <code>integrate</code>, los límites de la integral se ingresan por medio de los parámetros <code>lower</code> y <code>upper</code>. Si la función a integrar tiene parámetros adicionales como en este caso, éstos parámetros se ingresan luego de los límites de la integral. A continuación el código necesario para obtener la probabiliad solicitada.</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="continuas.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(<span class="at">f=</span>dbeta, <span class="at">lower=</span><span class="fl">0.3</span>, <span class="at">upper=</span><span class="fl">0.7</span>,</span>
-<span id="cb456-2"><a href="continuas.html#cb456-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">shape1=</span><span class="dv">2</span>, <span class="at">shape2=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="continuas.html#cb458-1" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(<span class="at">f=</span>dbeta, <span class="at">lower=</span><span class="fl">0.3</span>, <span class="at">upper=</span><span class="fl">0.7</span>,</span>
+<span id="cb458-2"><a href="continuas.html#cb458-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">shape1=</span><span class="dv">2</span>, <span class="at">shape2=</span><span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## 0.40924 with absolute error &lt; 4.5e-15</code></pre>
 <p>Otra forma de obtener la probabilidad solicitada es restando de <span class="math inline">\(F(x_{max})\)</span> la probabilidad <span class="math inline">\(F(x_{min})\)</span>. Las probabilidades acumuladas hasta un valor dado se obtienen con la función <code>pbeta</code>, a continuación el código necesario.</p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="continuas.html#cb458-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbeta</span>(<span class="at">q=</span><span class="fl">0.7</span>, <span class="at">shape1=</span><span class="dv">2</span>, <span class="at">shape2=</span><span class="dv">5</span>) <span class="sc">-</span> <span class="fu">pbeta</span>(<span class="at">q=</span><span class="fl">0.3</span>, <span class="at">shape1=</span><span class="dv">2</span>, <span class="at">shape2=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="continuas.html#cb460-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbeta</span>(<span class="at">q=</span><span class="fl">0.7</span>, <span class="at">shape1=</span><span class="dv">2</span>, <span class="at">shape2=</span><span class="dv">5</span>) <span class="sc">-</span> <span class="fu">pbeta</span>(<span class="at">q=</span><span class="fl">0.3</span>, <span class="at">shape1=</span><span class="dv">2</span>, <span class="at">shape2=</span><span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 0.40924</code></pre>
 <p>De ambas formas se obtiene que <span class="math inline">\(P(0.3 \leq X \leq 0.7)=0.4092\)</span>.</p>
 
@@ -622,31 +622,31 @@ Figure 15.1: Función de densidad para una <span class="math inline">\(Beta(2, 5
 <li>Calcular <span class="math inline">\(P(Z &lt; 1.45)\)</span>.</li>
 </ol>
 <p>Para calcular la probabilidad acumulada hasta un punto dado se usa la función <code>pnorm</code> y se evalúa en el cuantil indicado, a continuación el código usado.</p>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="continuas.html#cb460-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">1.45</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="continuas.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">1.45</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9264707</code></pre>
 <p>En la Figura <a href="continuas.html#fig:norm1">15.2</a> se muestra el área sombreada correspondiente a <span class="math inline">\(P(Z &lt; 1.45)\)</span>.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Calcular <span class="math inline">\(P(Z &gt; -0.37)\)</span>.</li>
 </ol>
 <p>Para calcular la probabilidad solicitada se usa nuevamente la función <code>pnorm</code> evaluada en el cuantil dado. Como el evento de interés es <span class="math inline">\(Z &gt; -0.37\)</span>, la probabilidad solicitada se obtiene como <code>1 - pnorm(q=-0.37)</code>, esto debido a que por defecto las probabilidades entregadas por la función <code>pxxx</code> son siempre a izquierda. A continuación el código usado.</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="continuas.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="sc">-</span><span class="fl">0.37</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="continuas.html#cb464-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="sc">-</span><span class="fl">0.37</span>)</span></code></pre></div>
 <pre><code>## [1] 0.6443088</code></pre>
 <p>En la Figura <a href="continuas.html#fig:norm1">15.2</a> se muestra el área sombreada correspondiente a <span class="math inline">\(P(Z &gt; -0.37)\)</span>.</p>
 <p>Otra forma para obtener la probabilidad solicitada sin hacer la resta es usar el parámetro <code>lower.tail</code> para indicar que interesa la probabilidad a la derecha del cuantil dado, a continuación un código alternativo para obtener la misma probabilidad.</p>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="continuas.html#cb464-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="sc">-</span><span class="fl">0.37</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="continuas.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="sc">-</span><span class="fl">0.37</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] 0.6443088</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Calcular <span class="math inline">\(P(-1.56 &lt; Z &lt; 2.58)\)</span>.</li>
 </ol>
 <p>Para calcular la probabilidad solicitada se obtiene la probabilidad acumulada hasta 2.58 y de ella se resta lo acumulado hasta -1.56, a continuación el código usado.</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="continuas.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">2.58</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.56</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="continuas.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">2.58</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.56</span>)</span></code></pre></div>
 <pre><code>## [1] 0.93568</code></pre>
 <p>En la Figura <a href="continuas.html#fig:norm1">15.2</a> se muestra el área sombreada correspondiente a <span class="math inline">\(P(-1.56 &lt; Z &lt; 2.58)\)</span>.</p>
 <ol start="4" style="list-style-type: decimal">
 <li>Calcular el cuantil <span class="math inline">\(q\)</span> para el cual se cumple que <span class="math inline">\(P(Z&lt;q)=0.95\)</span>.</li>
 </ol>
 <p>Para calcular el cuantil en el cual se cumple que <span class="math inline">\(P(Z&lt;q)=0.95\)</span> se usa la función <code>qnorm</code>, a continuación el código usado.</p>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="continuas.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.95</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="continuas.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.95</span>) </span></code></pre></div>
 <pre><code>## [1] 1.644854</code></pre>
 <p>En la Figura <a href="continuas.html#fig:norm1">15.2</a> se muestra el área sombreada correspondiente a <span class="math inline">\(P(Z&lt;q)=0.95\)</span>.</p>
 <div class="figure"><span id="fig:norm1"></span>
@@ -667,25 +667,25 @@ El parámetro <code>lower.tail</code> es muy útil para indicar si estamos traba
 <li>Un tornillo se considera que cumple las especificaciones si su diámetro está entre 9 y 11 mm. ¿Qué porcentaje de los tornillos cumplen las especificaciones?</li>
 </ol>
 <p>Como se solicita probabilidad se debe usar <code>pnorm</code> indicando que la media es <span class="math inline">\(\mu=10\)</span> y la desviación de la distribución es <span class="math inline">\(\sigma=2\)</span>. A continuación el código usado.</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="continuas.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">11</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">9</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="continuas.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">11</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">9</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.3829249</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Un tornillo con un diámetro mayor a 11 mm se puede reprocesar y recuperar. ¿Cuál es el porcentaje de reprocesos en la empresa?</li>
 </ol>
 <p>Como se solicita una probabilidad a derecha se usa <code>lower.tail=FALSE</code> dentro de la función <code>pnorm</code>. A continuación el código usado.</p>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="continuas.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">11</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="continuas.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">11</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] 0.3085375</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>El 5% de los tornillos más delgados no se pueden reprocesar y por lo tanto son desperdicio. ¿Qué diámetro debe tener un tornillo para ser clasificado como desperdicio?</li>
 </ol>
 <p>Aquí interesa encontrar el cuantil tal que <span class="math inline">\(P(Diametro&lt;q)=0.05\)</span>, por lo tanto se usa la función <code>qnorm</code>. A continuación el código usado.</p>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="continuas.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.05</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="continuas.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.05</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 6.710293</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>El 10% de los tornillos más gruesos son considerados como sobredimensionados. ¿cuál es el diámetro mínimo de un tornillo para que sea considerado como sobredimensionado?</li>
 </ol>
 <p>Aquí interesa encontrar el cuantil tal que <span class="math inline">\(P(Diametro&gt;q)=0.10\)</span>, por lo tanto se usa la función <code>qnorm</code> pero incluyendo <code>lower.tail=FALSE</code> por ser una cola a derecha. A continuación el código usado.</p>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="continuas.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.10</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="continuas.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.10</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] 12.5631</code></pre>
 <p>En la Figura <a href="continuas.html#fig:norm2">15.3</a> se muestran las áreas sombreadas para cada de las anteriores preguntas.</p>
 <div class="figure"><span id="fig:norm2"></span>
@@ -706,11 +706,11 @@ Figure 15.3: Área sombreada para el ejemplo de los tornillos.
 <li>Sea <span class="math inline">\(X\)</span> la variable peso del cangrejo, dibuje la densidad para <span class="math inline">\(X\)</span>.</li>
 </ol>
 <p>Para obtener la densidad muestral de un vector cuantitativo se usa la función <code>density</code>, y para dibujar la densidad se usa la función <code>plot</code> aplicada a un objeto obtenido con <code>density</code>, a continuación el código necesario para dibujar la densidad.</p>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="continuas.html#cb478-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/crab&#39;</span></span>
-<span id="cb478-2"><a href="continuas.html#cb478-2" aria-hidden="true" tabindex="-1"></a>crab <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span>
-<span id="cb478-3"><a href="continuas.html#cb478-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb478-4"><a href="continuas.html#cb478-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(crab<span class="sc">$</span>W), <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">lwd=</span><span class="dv">5</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb478-5"><a href="continuas.html#cb478-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Peso (Kg)&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="continuas.html#cb480-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/crab&#39;</span></span>
+<span id="cb480-2"><a href="continuas.html#cb480-2" aria-hidden="true" tabindex="-1"></a>crab <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span>
+<span id="cb480-3"><a href="continuas.html#cb480-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb480-4"><a href="continuas.html#cb480-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(crab<span class="sc">$</span>W), <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">lwd=</span><span class="dv">5</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb480-5"><a href="continuas.html#cb480-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Peso (Kg)&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:crabcont1"></span>
 <img src="Manual_de_R_files/figure-html/crabcont1-1.png" alt="Función de densidad $f(x)$ para el peso de los cangrejos." width="576" />
 <p class="caption">
@@ -722,8 +722,8 @@ Figure 15.4: Función de densidad <span class="math inline">\(f(x)\)</span> para
 <li>Dibujar <span class="math inline">\(F(x)\)</span> para el peso del cangrejo.</li>
 </ol>
 <p>Para dibujar la función <span class="math inline">\(F(x)\)</span> se usa la función <code>ecdf</code> y se almacena el resultado en el objeto <code>F</code>, luego se dibuja la función deseada usando <code>plot</code>. A continuación el código utilizado. En la Figura <a href="continuas.html#fig:crabcont2">15.5</a> se presenta el dibujo para <span class="math inline">\(F(x)\)</span>.</p>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="continuas.html#cb479-1" aria-hidden="true" tabindex="-1"></a>F <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(crab<span class="sc">$</span>W)</span>
-<span id="cb479-2"><a href="continuas.html#cb479-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(F, <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">xlab=</span><span class="st">&#39;Peso (Kg)&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;F(x)&#39;</span>, <span class="at">cex=</span><span class="fl">0.5</span>, <span class="at">las=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="continuas.html#cb481-1" aria-hidden="true" tabindex="-1"></a>F <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(crab<span class="sc">$</span>W)</span>
+<span id="cb481-2"><a href="continuas.html#cb481-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(F, <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">xlab=</span><span class="st">&#39;Peso (Kg)&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;F(x)&#39;</span>, <span class="at">cex=</span><span class="fl">0.5</span>, <span class="at">las=</span><span class="dv">1</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:crabcont2"></span>
 <img src="Manual_de_R_files/figure-html/crabcont2-1.png" alt="Función acumulada $F(x)$ para el peso de los cangrejos." width="576" />
 <p class="caption">
@@ -734,28 +734,28 @@ Figure 15.5: Función acumulada <span class="math inline">\(F(x)\)</span> para e
 <li>Calcular la probabilidad de que un cangrejo hembra tenga un peso inferior o igual a 28 kilogramos.</li>
 </ol>
 <p>Para obtener <span class="math inline">\(P(X \leq 28)\)</span> se evalua en la función <span class="math inline">\(F(x)\)</span> el cuantil 28 así.</p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="continuas.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="fu">F</span>(<span class="dv">28</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="continuas.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="fu">F</span>(<span class="dv">28</span>)</span></code></pre></div>
 <pre><code>## [1] 0.7919075</code></pre>
 <p>Por lo tanto <span class="math inline">\(P(X \leq 28)=0.7919\)</span>.</p>
 <ol start="4" style="list-style-type: decimal">
 <li>Dibujar la función de densidad para el peso de los cangrejos hembra diferenciando por el color del caparazón.</li>
 </ol>
 <p>Como son 4 los colores de los caparazones se deben construir 4 funciones de densidad. Usando la función <code>split</code> se puede partir el vector de peso de los cangrejos según su color. Luego se construyen las cuatro densidades usando la función <code>density</code> aplicada a cada uno de los pesos, a continuación el código.</p>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="continuas.html#cb482-1" aria-hidden="true" tabindex="-1"></a>pesos <span class="ot">&lt;-</span> <span class="fu">split</span>(<span class="at">x=</span>crab<span class="sc">$</span>W, <span class="at">f=</span>crab<span class="sc">$</span>C)</span>
-<span id="cb482-2"><a href="continuas.html#cb482-2" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="fu">density</span>(pesos[[<span class="dv">1</span>]])</span>
-<span id="cb482-3"><a href="continuas.html#cb482-3" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="fu">density</span>(pesos[[<span class="dv">2</span>]])</span>
-<span id="cb482-4"><a href="continuas.html#cb482-4" aria-hidden="true" tabindex="-1"></a>f3 <span class="ot">&lt;-</span> <span class="fu">density</span>(pesos[[<span class="dv">3</span>]])</span>
-<span id="cb482-5"><a href="continuas.html#cb482-5" aria-hidden="true" tabindex="-1"></a>f4 <span class="ot">&lt;-</span> <span class="fu">density</span>(pesos[[<span class="dv">4</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="continuas.html#cb484-1" aria-hidden="true" tabindex="-1"></a>pesos <span class="ot">&lt;-</span> <span class="fu">split</span>(<span class="at">x=</span>crab<span class="sc">$</span>W, <span class="at">f=</span>crab<span class="sc">$</span>C)</span>
+<span id="cb484-2"><a href="continuas.html#cb484-2" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="fu">density</span>(pesos[[<span class="dv">1</span>]])</span>
+<span id="cb484-3"><a href="continuas.html#cb484-3" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="fu">density</span>(pesos[[<span class="dv">2</span>]])</span>
+<span id="cb484-4"><a href="continuas.html#cb484-4" aria-hidden="true" tabindex="-1"></a>f3 <span class="ot">&lt;-</span> <span class="fu">density</span>(pesos[[<span class="dv">3</span>]])</span>
+<span id="cb484-5"><a href="continuas.html#cb484-5" aria-hidden="true" tabindex="-1"></a>f4 <span class="ot">&lt;-</span> <span class="fu">density</span>(pesos[[<span class="dv">4</span>]])</span></code></pre></div>
 <p>Luego de tener las densidades muestrales se procede a dibujar la primera densidad con <code>plot</code>, luego se usa la funció <code>lines</code> para agregar a la densidad inicial las restantes densidades. En la Figura <a href="continuas.html#fig:crabcont3">15.6</a> se muestran las 4 densidades, una por cada color de caparazón.</p>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="continuas.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(f1, <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">4</span>,</span>
-<span id="cb483-2"><a href="continuas.html#cb483-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">34</span>),</span>
-<span id="cb483-3"><a href="continuas.html#cb483-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Peso (Kg)&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span>
-<span id="cb483-4"><a href="continuas.html#cb483-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(f2, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&#39;red&#39;</span>)</span>
-<span id="cb483-5"><a href="continuas.html#cb483-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(f3, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&#39;blue&#39;</span>)</span>
-<span id="cb483-6"><a href="continuas.html#cb483-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(f4, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&#39;orange&#39;</span>)</span>
-<span id="cb483-7"><a href="continuas.html#cb483-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&#39;topright&#39;</span>, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">bty=</span><span class="st">&#39;n&#39;</span>,</span>
-<span id="cb483-8"><a href="continuas.html#cb483-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;blue&#39;</span>, <span class="st">&#39;orange&#39;</span>),</span>
-<span id="cb483-9"><a href="continuas.html#cb483-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend=</span><span class="fu">c</span>(<span class="st">&#39;Color 1&#39;</span>, <span class="st">&#39;Color 2&#39;</span>, <span class="st">&#39;Color 3&#39;</span>, <span class="st">&#39;Color 4&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="continuas.html#cb485-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(f1, <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">4</span>,</span>
+<span id="cb485-2"><a href="continuas.html#cb485-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">34</span>),</span>
+<span id="cb485-3"><a href="continuas.html#cb485-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Peso (Kg)&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span>
+<span id="cb485-4"><a href="continuas.html#cb485-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(f2, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&#39;red&#39;</span>)</span>
+<span id="cb485-5"><a href="continuas.html#cb485-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(f3, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&#39;blue&#39;</span>)</span>
+<span id="cb485-6"><a href="continuas.html#cb485-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(f4, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&#39;orange&#39;</span>)</span>
+<span id="cb485-7"><a href="continuas.html#cb485-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&#39;topright&#39;</span>, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">bty=</span><span class="st">&#39;n&#39;</span>,</span>
+<span id="cb485-8"><a href="continuas.html#cb485-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;blue&#39;</span>, <span class="st">&#39;orange&#39;</span>),</span>
+<span id="cb485-9"><a href="continuas.html#cb485-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend=</span><span class="fu">c</span>(<span class="st">&#39;Color 1&#39;</span>, <span class="st">&#39;Color 2&#39;</span>, <span class="st">&#39;Color 3&#39;</span>, <span class="st">&#39;Color 4&#39;</span>))</span></code></pre></div>
 <div class="figure"><span id="fig:crabcont3"></span>
 <img src="Manual_de_R_files/figure-html/crabcont3-1.png" alt="Función de densidad $f(x)$ para el peso del cangrejo diferenciando por el color." width="576" />
 <p class="caption">
@@ -763,13 +763,13 @@ Figure 15.6: Función de densidad <span class="math inline">\(f(x)\)</span> para
 </p>
 </div>
 <p>Otra forma para dibujar las densidades es usar el paquete <strong>ggplot2</strong> <span class="citation">(<a href="references.html#ref-R-ggplot2" role="doc-biblioref">Wickham et al. 2020</a>)</span>. En la Figura <a href="continuas.html#fig:crabcont4">15.7</a> se muestra el resultado obtenido de correr el siguiente código.</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="continuas.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)  <span class="co"># Recuerde que primero debe instalarlo</span></span>
-<span id="cb484-2"><a href="continuas.html#cb484-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb484-3"><a href="continuas.html#cb484-3" aria-hidden="true" tabindex="-1"></a>crab<span class="sc">$</span>Color <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(crab<span class="sc">$</span>C)  <span class="co"># Para convertir en factor</span></span>
-<span id="cb484-4"><a href="continuas.html#cb484-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb484-5"><a href="continuas.html#cb484-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crab, <span class="fu">aes</span>(<span class="at">x=</span>W)) <span class="sc">+</span> </span>
-<span id="cb484-6"><a href="continuas.html#cb484-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">group=</span>Color, <span class="at">fill=</span>Color), <span class="at">alpha=</span><span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb484-7"><a href="continuas.html#cb484-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">18</span>, <span class="dv">34</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;Peso (Kg)&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Densidad&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="continuas.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)  <span class="co"># Recuerde que primero debe instalarlo</span></span>
+<span id="cb486-2"><a href="continuas.html#cb486-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb486-3"><a href="continuas.html#cb486-3" aria-hidden="true" tabindex="-1"></a>crab<span class="sc">$</span>Color <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(crab<span class="sc">$</span>C)  <span class="co"># Para convertir en factor</span></span>
+<span id="cb486-4"><a href="continuas.html#cb486-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb486-5"><a href="continuas.html#cb486-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(crab, <span class="fu">aes</span>(<span class="at">x=</span>W)) <span class="sc">+</span> </span>
+<span id="cb486-6"><a href="continuas.html#cb486-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">group=</span>Color, <span class="at">fill=</span>Color), <span class="at">alpha=</span><span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb486-7"><a href="continuas.html#cb486-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">18</span>, <span class="dv">34</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;Peso (Kg)&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Densidad&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:crabcont4"></span>
 <img src="Manual_de_R_files/figure-html/crabcont4-1.png" alt="Función de densidad $f(x)$ para el peso del cangrejo diferenciando por el color y usando ggplot2." width="576" />
 <p class="caption">

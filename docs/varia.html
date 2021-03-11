@@ -25,7 +25,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2021-02-23" />
+<meta name="date" content="2021-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -341,12 +341,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#desviación-estándar-muestral-s"><i class="fa fa-check"></i><b>11.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a>
+<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#varianza"><i class="fa fa-check"></i><b>11.2</b> Varianza</a>
 <ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#varianza-muestral-s2"><i class="fa fa-check"></i><b>11.3</b> Varianza muestral (<span class="math inline">\(S^2\)</span>)  </a>
+<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#desviación-estándar"><i class="fa fa-check"></i><b>11.3</b> Desviación estándar</a>
 <ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -600,72 +600,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Para calcular el rango de una variable cuantitativa se usa la función <code>range</code>. Los argumentos básicos de la función <code>range</code> son dos y se muestran abajo.</p>
 <div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="varia.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(x, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>En el parámetro <code>x</code> se indica la variable de interés para la cual se quiere calcular el rango, el parámetro <code>na.rm</code> es un valor lógico que en caso de ser <code>TRUE</code>, significa que se deben remover las observaciones con <code>NA</code>, el valor por defecto para este parámetro es <code>FALSE</code>.</p>
-<p>La función <code>range</code> entrega el valor mínimo y máximo de la variable ingresada y el valor de rango se puede obtener restando del valor máximo el valor mínimo.</p>
+<p>La función <code>range</code> entrega el valor mínimo y máximo de la variable que se ingresó, para obtener el valor de rango se debe restar del valor máximo el valor mínimo.</p>
 <div id="ejemplo-35" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Suponga que queremos obtener el rango para la variable precio de los apartamentos.</p>
+<p><strong>Solución</strong></p>
 <p>Para obtener el rango usamos el siguiente código.</p>
 <div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="varia.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(datos<span class="sc">$</span>precio)</span></code></pre></div>
 <pre><code>## [1]   25 1700</code></pre>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="varia.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(datos<span class="sc">$</span>precio) <span class="sc">-</span> <span class="fu">min</span>(datos<span class="sc">$</span>precio)</span></code></pre></div>
-<pre><code>## [1] 1675</code></pre>
-<p>Del resultado anterior podemos ver que los precios de todos los apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el rango de la variable precio es 1675 millones de pesos.</p>
+<p>Otra forma de escribir el código anterior de forma secuencial es utilizando el operador pipe <code>%&gt;%</code>. Este operador se puede leer como “entonces” y permite escribir código que cuenta una historia.</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="varia.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># Para cargar el paquete dplyr</span></span>
+<span id="cb365-2"><a href="varia.html#cb365-2" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> <span class="fu">select</span>(precio) <span class="sc">%&gt;%</span> <span class="fu">range</span>()</span></code></pre></div>
+<pre><code>## [1]   25 1700</code></pre>
+
+<div class="rmdnote">
+El código de arriba se puede leer así: Tome los datos, entonces seleccione el precio, entonces calcule el rango.
+</div>
+<p>De la salida anterior podemos ver que los precios de los apartamentos van desde 25 hasta 1700 millones de pesos, es decir, el rango de la variable precio es sería igual 1700-25=1675 millones de pesos.</p>
 </div>
 <div id="ejemplo-36" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Suponga que queremos obtener nuevamente el rango para la variable precio de los apartamentos pero diferenciando por el estrato.</p>
-<p>Primero vamos a crear una función auxiliar llamada <code>myrange</code> que calculará el rango directamente (<span class="math inline">\(max - min\)</span>). Luego vamos a partir la información de los precios por cada estrato usando <code>split</code>, la partición se almacenará en la lista <code>precios</code>. Finalmente se aplicará la función <code>myrange</code> a la lista <code>precios</code> para obtener los rangos del precio por estrato socioeconómico. El código para realizar esto se muestra a continuación.</p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="varia.html#cb367-1" aria-hidden="true" tabindex="-1"></a>myrange <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x)</span>
-<span id="cb367-2"><a href="varia.html#cb367-2" aria-hidden="true" tabindex="-1"></a>precios <span class="ot">&lt;-</span> <span class="fu">split</span>(datos<span class="sc">$</span>precio, <span class="at">f=</span>datos<span class="sc">$</span>estrato)</span>
-<span id="cb367-3"><a href="varia.html#cb367-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(precios, myrange)</span></code></pre></div>
-<pre><code>##    2    3    4    5    6 
-##  103  225  610 1325 1560</code></pre>
-<p>De los resultados podemos ver claramente que a medida que aumenta de estrato el rango (variabilidad) del precio de los apartamentos aumenta. Apartamentos de estrato bajo tienden a tener precios similares mientras que los precios de venta para apartamentos de estratos altos tienden a ser muy diferentes entre si.</p>
+<p><strong>Solución</strong></p>
+<p>Para calcular el rango (max-min) para el precio pero diferenciando por el estrato podemos usar el siguiente código.</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="varia.html#cb367-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb367-2"><a href="varia.html#cb367-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(estrato) <span class="sc">%&gt;%</span> </span>
+<span id="cb367-3"><a href="varia.html#cb367-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">el_rango=</span><span class="fu">max</span>(precio)<span class="sc">-</span><span class="fu">min</span>(precio))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   estrato el_rango
+##     &lt;int&gt;    &lt;dbl&gt;
+## 1       2      103
+## 2       3      225
+## 3       4      610
+## 4       5     1325
+## 5       6     1560</code></pre>
+
+<div class="rmdnote">
+El código anterior se puede leer así: Tome los datos, entonces agrúpelos por estrato, entonces haga un resumen llamado el_rango que se obtiene como el resultado de restar el mínimo de precio al máximo de precio.
+</div>
+<p>De los resultados podemos ver claramente que a medida que aumenta de estrato el rango del precio de los apartamentos aumenta. Apartamentos de estrato bajo tienden a tener precios similares mientras que los precios de venta para apartamentos de estratos altos tienden a ser muy diferentes entre si.</p>
 </div>
 </div>
-<div id="desviación-estándar-muestral-s" class="section level2" number="11.2">
-<h2><span class="header-section-number">11.2</span> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </h2>
-<p>Para calcular la desviación muestral de una variable cuantitativa se usa la función <code>sd</code>. Los argumentos básicos de la función <code>sd</code> son dos y se muestran abajo.</p>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="varia.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p>En el parámetro <code>x</code> se indica la variable de interés para la cual se quiere calcular la desviación estándar muestral, el parámetro <code>na.rm</code> es un valor lógico que en caso de ser <code>TRUE</code>, significa que se deben remover las observaciones con <code>NA</code>, el valor por defecto para este parámetro es <code>FALSE</code>.</p>
+<div id="varianza" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Varianza</h2>
+<p>La varianza es otra medida de qué tanto se alejan las observaciones <span class="math inline">\(x_i\)</span> en relación al promedio y se mide en unidades cuadradas. Existen dos formas de calcular la varianza dependiendo de si estamos trabajando con una muestra o con la población.</p>
+<p>La varianza <strong>muestral</strong> (<span class="math inline">\(S^2\)</span>) se define así:</p>
+<p><span class="math display">\[
+S^2=\frac{\sum_{i=1}^{i=n}(x_i-\bar{x})^2}{n-1},
+\]</span></p>
+<p>donde <span class="math inline">\(\bar{x}\)</span> representa el promedio muestral.</p>
+<p>La varianza <strong>poblacional</strong> (<span class="math inline">\(\sigma^2\)</span>) se define así:</p>
+<p><span class="math display">\[
+\sigma^2=\frac{\sum_{i=1}^{i=n}(x_i-\mu)^2}{n},
+\]</span></p>
+<p>donde <span class="math inline">\(\mu\)</span> representa el promedio poblacional.</p>
+<p>Para calcular la varianza muestral de una variable cuantitativa se usa la función <code>var</code>. Los argumentos básicos de la función <code>var</code> son dos y se muestran abajo.</p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="varia.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>En el parámetro <code>x</code> se indica la variable de interés para la cual se quiere calcular la varianza muestral, el parámetro <code>na.rm</code> es un valor lógico que en caso de ser <code>TRUE</code>, significa que se deben remover las observaciones con <code>NA</code>, el valor por defecto para este parámetro es <code>FALSE</code>.</p>
 <div id="ejemplo-37" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
-<p>Suponga que queremos obtener la desviación estándar muestral para la variable precio de los apartamentos.</p>
-<p>Para obtener la desviación solicitada usamos el siguiente código:</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="varia.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(<span class="at">x=</span>datos<span class="sc">$</span>precio)</span></code></pre></div>
-<pre><code>## [1] 247.6149</code></pre>
-</div>
-<div id="ejemplo-38" class="section level3 unnumbered">
-<h3>Ejemplo</h3>
-<p>Calcular la desviación estándar <strong>poblacional</strong> (<span class="math inline">\(\sigma\)</span>) para el siguiente conjunto de 5 observaciones: 12, 25, 32, 15, 26.</p>
-<p>Recordemos que las expresiones matemáticas para obtener <span class="math inline">\(S\)</span> y <span class="math inline">\(\sigma\)</span> son muy similares, la diferencia está en el denominador, para <span class="math inline">\(S\)</span> el denominador es <span class="math inline">\(n-1\)</span> mientras que para <span class="math inline">\(\sigma\)</span> es <span class="math inline">\(n\)</span>. Teniendo esto en cuenta podemos calcular la desviación poblacional apoyándonos en la función <code>sd</code>, para esto podemos construir una función llamada <code>Sigma</code> que calcule la desviación poblacional, a continuación el código necesario.</p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="varia.html#cb372-1" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb372-2"><a href="varia.html#cb372-2" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
-<span id="cb372-3"><a href="varia.html#cb372-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sd</span>(x) <span class="sc">*</span> (n<span class="dv">-1</span>) <span class="sc">/</span> n</span>
-<span id="cb372-4"><a href="varia.html#cb372-4" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
-<p>Ahora para obtener la desviación estándar <strong>poblacional</strong> de los datos usamos el siguiente código.</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="varia.html#cb373-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">25</span>, <span class="dv">32</span>, <span class="dv">15</span>, <span class="dv">26</span>)</span>
-<span id="cb373-2"><a href="varia.html#cb373-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Sigma</span>(y)</span></code></pre></div>
-<pre><code>## [1] 6.621178</code></pre>
-</div>
-</div>
-<div id="varianza-muestral-s2" class="section level2" number="11.3">
-<h2><span class="header-section-number">11.3</span> Varianza muestral (<span class="math inline">\(S^2\)</span>)  </h2>
-<p>Para calcular la varianza muestral de una variable cuantitativa se usa la función <code>var</code>. Los argumentos básicos de la función <code>var</code> son dos y se muestran abajo.</p>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="varia.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p>En el parámetro <code>x</code> se indica la variable de interés para la cual se quiere calcular la varianza muestral, el parámetro <code>na.rm</code> es un valor lógico que en caso de ser <code>TRUE</code>, significa que se deben remover las observaciones con <code>NA</code>, el valor por defecto para este parámetro es <code>FALSE</code>.</p>
-<div id="ejemplo-39" class="section level3 unnumbered">
-<h3>Ejemplo</h3>
-<p>Suponga que queremos determinar cuál región en la ciudad presenta mayor varianza en los precios de los apartamentos.</p>
-<p>Para realizar esto debemos usar en conjunto la función <code>split</code>, <code>sapply</code> y <code>var</code> ya que se quiere la varianza de una variable (<code>precio</code>) dado los valores de otra variable (<code>ubicacion</code>). El código para obtener las varianzas es el siguiente.</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="varia.html#cb376-1" aria-hidden="true" tabindex="-1"></a>precios <span class="ot">&lt;-</span> <span class="fu">split</span>(datos<span class="sc">$</span>precio, <span class="at">f=</span>datos<span class="sc">$</span>ubicacion)</span>
-<span id="cb376-2"><a href="varia.html#cb376-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(precios, var)</span></code></pre></div>
-<pre><code>##     aburra sur belen guayabal         centro       laureles          norte 
-##       4169.413       2527.876       2588.208      25351.197       1009.333 
-##      occidente        poblado 
-##       3596.244      84496.674</code></pre>
+<p>Suponga que queremos determinar cuál ubicación en la ciudad presenta mayor varianza en los precios de los apartamentos y cuántos apartamentos hay en cada ubicación.</p>
+<p><strong>Solución</strong></p>
+<p>Como nos interesa calcular la varianza y hacer un conteo por cada ubicación, vamos a agrupar los datos por ubicación. Para realizar lo solicitado podemos utilizar el siguiente código.</p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="varia.html#cb371-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb371-2"><a href="varia.html#cb371-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ubicacion) <span class="sc">%&gt;%</span> </span>
+<span id="cb371-3"><a href="varia.html#cb371-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb371-4"><a href="varia.html#cb371-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">varianza=</span><span class="fu">var</span>(precio))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 7 x 3
+##   ubicacion          n varianza
+##   &lt;chr&gt;          &lt;int&gt;    &lt;dbl&gt;
+## 1 aburra sur       169    4169.
+## 2 belen guayabal    67    2528.
+## 3 centro            38    2588.
+## 4 laureles          73   25351.
+## 5 norte             10    1009.
+## 6 occidente         69    3596.
+## 7 poblado          268   84497.</code></pre>
 <p>De los resultados anteriores se nota que los apartamentos ubicados en el Poblado tienen la mayor variabilidad en el precio, este resultado se confirma al dibujar un boxplot para la variable precio dada la ubicación, en la Figura <a href="varia.html#fig:box1">11.1</a> se muestra el boxplot y se ve claramente la dispersión de los precios en el Poblado. El código usado para generar la Figura <a href="varia.html#fig:box1">11.1</a> se presenta a continuación.</p>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="varia.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(datos, <span class="fu">boxplot</span>(precio <span class="sc">~</span> ubicacion, <span class="at">ylab=</span><span class="st">&#39;Precio (millones)&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="varia.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(datos, <span class="fu">boxplot</span>(precio <span class="sc">~</span> ubicacion, <span class="at">ylab=</span><span class="st">&#39;Precio (millones)&#39;</span>))</span></code></pre></div>
 <div class="figure"><span id="fig:box1"></span>
 <img src="Manual_de_R_files/figure-html/box1-1.png" alt="Boxplot para el precio de los apartamentos dada la ubicación." width="960" />
 <p class="caption">
@@ -673,31 +687,75 @@ Figure 11.1: Boxplot para el precio de los apartamentos dada la ubicación.
 </p>
 </div>
 </div>
-<div id="ejemplo-40" class="section level3 unnumbered">
+<div id="ejemplo-38" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
-<p>¿Son los resultados de la función <code>var</code> los mismos que los resultados de la función <code>sd</code> elevados al cuadrado?</p>
+<p>¿Puedo aplicar la función <code>var</code> y la función <code>sd</code> a marcos de datos?</p>
+<p><strong>Solución</strong></p>
 <p>La respuesta es <strong>NO</strong>. La función <code>sd</code> se aplica sólo a vectores mientras que la función <code>var</code> de puede aplicar tanto a vectores como a marcos de datos. Al ser aplicada a marcos de datos numéricos se obtiene una matriz en que la diagonal representa las varianzas de las de cada una de las variables mientras que arriba y abajo de la diagonal se encuentran las covarianzas entre pares de variables.</p>
 <p>Por ejemplo, si aplicamos la función <code>var</code> al marco de datos sólo con las variables precio, área y avaluo se obtiene una matriz de dimensión <span class="math inline">\(3 \times 3\)</span>, a continuación el código usado.</p>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="varia.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(datos[, <span class="fu">c</span>(<span class="st">&#39;precio&#39;</span>, <span class="st">&#39;mt2&#39;</span>, <span class="st">&#39;avaluo&#39;</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="varia.html#cb375-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb375-2"><a href="varia.html#cb375-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(precio, mt2, avaluo) <span class="sc">%&gt;%</span> </span>
+<span id="cb375-3"><a href="varia.html#cb375-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">var</span>()</span></code></pre></div>
 <pre><code>##          precio       mt2    avaluo
 ## precio 61313.15 15874.107 33055.606
 ## mt2    15874.11  5579.417  9508.188
 ## avaluo 33055.61  9508.188 28588.853</code></pre>
-<p>Del anterior resultado se observa la matriz de varianzas y covarianzas de dimensión <span class="math inline">\(3 \times 3\)</span>.</p>
+<p>De la salida anterior se observa que el resultado es una matriz de varianzas y covarianzas de dimensión <span class="math inline">\(3 \times 3\)</span>.</p>
+</div>
+</div>
+<div id="desviación-estándar" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Desviación estándar</h2>
+<p>La desviación estándar es una medida de qué tanto se alejan las observaciones <span class="math inline">\(x_i\)</span> en relación al promedio y se mide en las mismas unidades de la variable de interés. Existen dos formas de calcular la desviación estándar dependiendo de si estamos trabajando con una muestra o con la población.</p>
+<p>La desviación estándar <strong>muestral</strong> (<span class="math inline">\(S\)</span>) para <span class="math inline">\(n\)</span> observaciones se define así:</p>
+<p><span class="math display">\[
+S=\sqrt{\frac{\sum_{i=1}^{i=n}(x_i-\bar{x})^2}{n-1}},
+\]</span>
+donde <span class="math inline">\(\bar{x}\)</span> representa el promedio muestral.</p>
+<p>La desviación estándar <strong>poblacional</strong> (<span class="math inline">\(\sigma\)</span>) para <span class="math inline">\(n\)</span> observaciones se define así:</p>
+<p><span class="math display">\[
+\sigma=\sqrt{\frac{\sum_{i=1}^{i=n}(x_i-\mu)^2}{n}},
+\]</span>
+donde <span class="math inline">\(\mu\)</span> representa el promedio de la población.</p>
+<p>Para calcular en R la desviación muestral (<span class="math inline">\(S\)</span>) de una variable cuantitativa se usa la función <code>sd</code>, los argumentos básicos de la función <code>sd</code> son dos y se muestran a continuación.</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="varia.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>En el parámetro <code>x</code> se indica la variable de interés para la cual se quiere calcular la desviación estándar muestral, el parámetro <code>na.rm</code> es un valor lógico que en caso de ser <code>TRUE</code>, significa que se deben remover las observaciones con <code>NA</code>, el valor por defecto para este parámetro es <code>FALSE</code>.</p>
+<div id="ejemplo-39" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Calcular la desviación estándar muestral (<span class="math inline">\(S\)</span>) para la variable precio de los apartamentos.</p>
+<p><strong>Solución</strong></p>
+<p>Para obtener la desviación estándar muestral (<span class="math inline">\(S\)</span>) solicitada usamos el siguiente código:</p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="varia.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(<span class="at">x=</span>datos<span class="sc">$</span>precio)</span></code></pre></div>
+<pre><code>## [1] 247.6149</code></pre>
+</div>
+<div id="ejemplo-40" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Calcular la desviación estándar <strong>poblacional</strong> (<span class="math inline">\(\sigma\)</span>) para el siguiente conjunto de 5 observaciones: 12, 25, 32, 15, 26.</p>
+<p><strong>Solución</strong></p>
+<p>Recordemos que las expresiones matemáticas para obtener <span class="math inline">\(S\)</span> y <span class="math inline">\(\sigma\)</span> son muy similares, la diferencia está en el denominador, para <span class="math inline">\(S\)</span> el denominador es <span class="math inline">\(n-1\)</span> mientras que para <span class="math inline">\(\sigma\)</span> es <span class="math inline">\(n\)</span>. Teniendo esto en cuenta podemos construir nuestra propia función llamada <code>Sigma</code> que calcule la desviación poblacional. A continuación el código para crear nuestra propia función.</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="varia.html#cb380-1" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb380-2"><a href="varia.html#cb380-2" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb380-3"><a href="varia.html#cb380-3" aria-hidden="true" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> n)</span>
+<span id="cb380-4"><a href="varia.html#cb380-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(desvi)</span>
+<span id="cb380-5"><a href="varia.html#cb380-5" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
+<p>Ahora para obtener la desviación estándar <strong>poblacional</strong> de los datos usamos el siguiente código.</p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="varia.html#cb381-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">25</span>, <span class="dv">32</span>, <span class="dv">15</span>, <span class="dv">26</span>)</span>
+<span id="cb381-2"><a href="varia.html#cb381-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Sigma</span>(y)</span></code></pre></div>
+<pre><code>## [1] 7.402702</code></pre>
 </div>
 </div>
 <div id="coeficiente-de-variación-cv" class="section level2" number="11.4">
 <h2><span class="header-section-number">11.4</span> Coeficiente de variación (<span class="math inline">\(CV\)</span>) </h2>
-<p>El coeficiente de variación se define como <span class="math inline">\(CV=s/\bar{x}\)</span> y es muy sencillo de obtenerlo, la función <code>CV</code> mostrada abajo permite calcularlo.</p>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="varia.html#cb381-1" aria-hidden="true" tabindex="-1"></a>CV <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">na.rm =</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb381-2"><a href="varia.html#cb381-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sd</span>(x, <span class="at">na.rm=</span>na.rm) <span class="sc">/</span> <span class="fu">mean</span>(x, <span class="at">na.rm=</span>na.rm)</span>
-<span id="cb381-3"><a href="varia.html#cb381-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>El coeficiente de variación se define como <span class="math inline">\(CV=s/\bar{x}\)</span> y es muy sencillo de obtenerlo, la función <code>coef_var</code> mostrada abajo permite calcularlo.</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="varia.html#cb383-1" aria-hidden="true" tabindex="-1"></a>coef_var <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">na.rm =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb383-2"><a href="varia.html#cb383-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sd</span>(x, <span class="at">na.rm=</span>na.rm) <span class="sc">/</span> <span class="fu">mean</span>(x, <span class="at">na.rm=</span>na.rm)</span>
+<span id="cb383-3"><a href="varia.html#cb383-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <div id="ejemplo-41" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Calcular el <span class="math inline">\(CV\)</span> para el vector <code>w</code> definido a continuación.</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="varia.html#cb382-1" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">7</span>)</span></code></pre></div>
-<p>Vemos que el vector <code>w</code> tiene 6 observaciones y la tercera de ellas es un <code>NA</code>. Lo correcto aquí es usar la función <code>CV</code> definida antes pero indicándole que remueva los valores faltantes, para eso se usa el siguiente código.</p>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="varia.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CV</span>(<span class="at">x=</span>w, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="varia.html#cb384-1" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">7</span>)</span></code></pre></div>
+<p><strong>Solución</strong></p>
+<p>Vemos que el vector <code>w</code> tiene 6 observaciones y la tercera de ellas es un <code>NA</code>. Lo correcto aquí es usar la función <code>coef_var</code> definida antes pero indicándole que remueva los valores faltantes, para eso se usa el siguiente código.</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="varia.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef_var</span>(<span class="at">x=</span>w, <span class="at">na.rm=</span>T)</span></code></pre></div>
 <pre><code>## [1] 0.9273618</code></pre>
 
 </div>

@@ -33,35 +33,133 @@ range(x, na.rm = FALSE)
 
 En el parámetro `x` se indica la variable de interés para la cual se quiere calcular el rango, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
 
-La función `range` entrega el valor mínimo y máximo de la variable ingresada y el valor de rango se puede obtener restando del valor máximo el valor mínimo.
-
+La función `range` entrega el valor mínimo y máximo de la variable que se ingresó, para obtener el valor de rango se debe restar del valor máximo el valor mínimo.
 
 ### Ejemplo {-}
 Suponga que queremos obtener el rango para la variable precio de los apartamentos.
+
+__Solución__
 
 Para obtener el rango usamos el siguiente código.
 
 ```{r}
 range(datos$precio)
-max(datos$precio) - min(datos$precio)
 ```
-Del resultado anterior podemos ver que los precios de todos los apartamentos van desde `r min(datos$precio)` hasta `r max(datos$precio)` millones de pesos, es decir, el rango de la variable precio es `r max(datos$precio)-min(datos$precio)` millones de pesos.
+
+Otra forma de escribir el código anterior de forma secuencial es utilizando el operador pipe `%>%`. Este operador se puede leer como "entonces" y permite escribir código que cuenta una historia. 
+
+```{r message=FALSE}
+library(dplyr) # Para cargar el paquete dplyr
+datos %>% select(precio) %>% range()
+```
+
+```{block2, type='rmdnote'}
+El código de arriba se puede leer así: Tome los datos, entonces seleccione el precio, entonces calcule el rango.
+```
+
+De la salida anterior podemos ver que los precios de los apartamentos van desde `r min(datos$precio)` hasta `r max(datos$precio)` millones de pesos, es decir, el rango de la variable precio es sería igual `r max(datos$precio)`-`r min(datos$precio)`=`r max(datos$precio)-min(datos$precio)` millones de pesos.
 
 ### Ejemplo {-}
 Suponga que queremos obtener nuevamente el rango para la variable precio de los apartamentos pero diferenciando por el estrato.
 
-Primero vamos a crear una función auxiliar llamada `myrange` que calculará el rango directamente ($max - min$). Luego vamos a partir la información de los precios por cada estrato usando `split`, la partición se almacenará en la lista `precios`. Finalmente se aplicará la función `myrange` a la lista `precios` para obtener los rangos del precio por estrato socioeconómico. El código para realizar esto se muestra a continuación.
+__Solución__
+
+Para calcular el rango (max-min) para el precio pero diferenciando por el estrato podemos usar el siguiente código.
 
 ```{r}
-myrange <- function(x) max(x) - min(x)
-precios <- split(datos$precio, f=datos$estrato)
-sapply(precios, myrange)
+datos %>% 
+  group_by(estrato) %>% 
+  summarise(el_rango=max(precio)-min(precio))
 ```
-De los resultados podemos ver claramente que a medida que aumenta de estrato el rango (variabilidad) del precio de los apartamentos aumenta. Apartamentos de estrato bajo tienden a tener precios similares mientras que los precios de venta para apartamentos de estratos altos tienden a ser muy diferentes entre si.
 
-## Desviación estándar muestral ($S$) \index{desviación} \index{sd}
+```{block2, type='rmdnote'}
+El código anterior se puede leer así: Tome los datos, entonces agrúpelos por estrato, entonces haga un resumen llamado el_rango que se obtiene como el resultado de restar el mínimo de precio al máximo de precio.
+```
 
-Para calcular la desviación muestral de una variable cuantitativa se usa la función `sd`. Los argumentos básicos de la función `sd` son dos y se muestran abajo.
+De los resultados podemos ver claramente que a medida que aumenta de estrato el rango del precio de los apartamentos aumenta. Apartamentos de estrato bajo tienden a tener precios similares mientras que los precios de venta para apartamentos de estratos altos tienden a ser muy diferentes entre si.
+
+## Varianza
+La varianza es otra medida de qué tanto se alejan las observaciones $x_i$ en relación al promedio y se mide en unidades cuadradas. Existen dos formas de calcular la varianza dependiendo de si estamos trabajando con una muestra o con la población.
+
+La varianza __muestral__ ($S^2$) se define así:
+
+$$
+S^2=\frac{\sum_{i=1}^{i=n}(x_i-\bar{x})^2}{n-1},
+$$
+
+donde $\bar{x}$ representa el promedio muestral.
+
+La varianza __poblacional__ ($\sigma^2$) se define así:
+
+$$
+\sigma^2=\frac{\sum_{i=1}^{i=n}(x_i-\mu)^2}{n},
+$$
+
+donde $\mu$ representa el promedio poblacional.
+
+Para calcular la varianza muestral de una variable cuantitativa se usa la función `var`. Los argumentos básicos de la función `var` son dos y se muestran abajo.
+
+```{r, eval=F}
+var(x, na.rm = FALSE)
+```
+
+En el parámetro `x` se indica la variable de interés para la cual se quiere calcular la varianza muestral, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
+
+### Ejemplo {-}
+Suponga que queremos determinar cuál ubicación en la ciudad presenta mayor varianza en los precios de los apartamentos y cuántos apartamentos hay en cada ubicación.
+
+__Solución__
+
+Como nos interesa calcular la varianza y hacer un conteo por cada ubicación, vamos a agrupar los datos por ubicación. Para realizar lo solicitado podemos utilizar el siguiente código.
+
+```{r}
+datos %>% 
+  group_by(ubicacion) %>% 
+  summarize(n=n(),
+            varianza=var(precio))
+```
+
+De los resultados anteriores se nota que los apartamentos ubicados en el Poblado tienen la mayor variabilidad en el precio, este resultado se confirma al dibujar un boxplot para la variable precio dada la ubicación, en la Figura \@ref(fig:box1) se muestra el boxplot y se ve claramente la dispersión de los precios en el Poblado. El código usado para generar la Figura \@ref(fig:box1) se presenta a continuación.
+
+```{r box1, fig.cap='Boxplot para el precio de los apartamentos dada la ubicación.', fig.asp=0.5, fig.width =10}
+with(datos, boxplot(precio ~ ubicacion, ylab='Precio (millones)'))
+```
+
+### Ejemplo {-}
+¿Puedo aplicar la función `var` y la función `sd` a marcos de datos?
+
+__Solución__
+
+La respuesta es __NO__. La función `sd` se aplica sólo a vectores mientras que la función `var` de puede aplicar tanto a vectores como a marcos de datos. Al ser aplicada a marcos de datos numéricos se obtiene una matriz en que la diagonal representa las varianzas de las de cada una de las variables mientras que arriba y abajo de la diagonal se encuentran las covarianzas entre pares de variables.
+
+Por ejemplo, si aplicamos la función `var` al marco de datos sólo con las variables precio, área y avaluo se obtiene una matriz de dimensión $3 \times 3$, a continuación el código usado.
+
+```{r}
+datos %>% 
+  select(precio, mt2, avaluo) %>% 
+  var()
+```
+
+De la salida anterior se observa que el resultado es una matriz de varianzas y covarianzas de dimensión $3 \times 3$.
+
+## Desviación estándar
+La desviación estándar es una medida de qué tanto se alejan las observaciones $x_i$ en relación al promedio y se mide en las mismas unidades de la variable de interés. Existen dos formas de calcular la desviación estándar dependiendo de si estamos trabajando con una muestra o con la población.
+
+La desviación estándar __muestral__ ($S$) para $n$ observaciones se define así:
+
+$$
+S=\sqrt{\frac{\sum_{i=1}^{i=n}(x_i-\bar{x})^2}{n-1}},
+$$
+donde $\bar{x}$ representa el promedio muestral.
+
+La desviación estándar __poblacional__ ($\sigma$) para $n$ observaciones se define así:
+
+$$
+\sigma=\sqrt{\frac{\sum_{i=1}^{i=n}(x_i-\mu)^2}{n}},
+$$
+donde $\mu$ representa el promedio de la población.
+
+Para calcular en R la desviación muestral ($S$) de una variable cuantitativa se usa la función `sd`, los argumentos básicos de la función `sd` son dos y se muestran a continuación.
 
 ```{r, eval=F}
 sd(x, na.rm = FALSE)
@@ -70,9 +168,11 @@ sd(x, na.rm = FALSE)
 En el parámetro `x` se indica la variable de interés para la cual se quiere calcular la desviación estándar muestral, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
 
 ### Ejemplo {-}
-Suponga que queremos obtener la desviación estándar muestral para la variable precio de los apartamentos.
+Calcular la desviación estándar muestral ($S$) para la variable precio de los apartamentos.
 
-Para obtener la desviación solicitada usamos el siguiente código:
+__Solución__
+
+Para obtener la desviación estándar muestral ($S$) solicitada usamos el siguiente código:
 
 ```{r}
 sd(x=datos$precio)
@@ -81,12 +181,15 @@ sd(x=datos$precio)
 ### Ejemplo {-}
 Calcular la desviación estándar __poblacional__ ($\sigma$) para el siguiente conjunto de 5 observaciones: 12, 25, 32, 15, 26.
 
-Recordemos que las expresiones matemáticas para obtener $S$ y $\sigma$ son muy similares, la diferencia está en el denominador, para $S$ el denominador es $n-1$ mientras que para $\sigma$ es $n$. Teniendo esto en cuenta podemos calcular la desviación poblacional apoyándonos en la función `sd`, para esto podemos construir una función llamada `Sigma` que calcule la desviación poblacional, a continuación el código necesario.
+__Solución__
+
+Recordemos que las expresiones matemáticas para obtener $S$ y $\sigma$ son muy similares, la diferencia está en el denominador, para $S$ el denominador es $n-1$ mientras que para $\sigma$ es $n$. Teniendo esto en cuenta podemos construir nuestra propia función llamada `Sigma` que calcule la desviación poblacional. A continuación el código para crear nuestra propia función.
 
 ```{r}
 Sigma <- function(x) {
   n <- length(x)
-  sd(x) * (n-1) / n
+  desvi <- sqrt(sum((x-mean(x))^2) / n)
+  return(desvi)
 } 
 ```
 
@@ -97,53 +200,12 @@ y <- c(12, 25, 32, 15, 26)
 Sigma(y)
 ```
 
-## Varianza muestral ($S^2$) \index{varianza} \index{var}
-
-Para calcular la varianza muestral de una variable cuantitativa se usa la función `var`. Los argumentos básicos de la función `var` son dos y se muestran abajo.
-
-```{r, eval=F}
-var(x, na.rm = FALSE)
-```
-
-En el parámetro `x` se indica la variable de interés para la cual se quiere calcular la varianza muestral, el parámetro `na.rm` es un valor lógico que en caso de ser `TRUE`, significa que se deben remover las observaciones con `NA`, el valor por defecto para este parámetro es `FALSE`.
-
-
-### Ejemplo {-}
-Suponga que queremos determinar cuál región en la ciudad presenta mayor varianza en los precios de los apartamentos.
-
-Para realizar esto debemos usar en conjunto la función `split`, `sapply` y `var` ya que se quiere la varianza de una variable (`precio`) dado los valores de otra variable (`ubicacion`). El código para obtener las varianzas es el siguiente.
-
-```{r}
-precios <- split(datos$precio, f=datos$ubicacion)
-sapply(precios, var)
-```
-
-De los resultados anteriores se nota que los apartamentos ubicados en el Poblado tienen la mayor variabilidad en el precio, este resultado se confirma al dibujar un boxplot para la variable precio dada la ubicación, en la Figura \@ref(fig:box1) se muestra el boxplot y se ve claramente la dispersión de los precios en el Poblado. El código usado para generar la Figura \@ref(fig:box1) se presenta a continuación.
-
-```{r box1, fig.cap='Boxplot para el precio de los apartamentos dada la ubicación.', fig.asp=0.5, fig.width =10}
-with(datos, boxplot(precio ~ ubicacion, ylab='Precio (millones)'))
-```
-
-### Ejemplo {-}
-¿Son los resultados de la función `var` los mismos que los resultados de la función `sd` elevados al cuadrado?
-
-La respuesta es __NO__. La función `sd` se aplica sólo a vectores mientras que la función `var` de puede aplicar tanto a vectores como a marcos de datos. Al ser aplicada a marcos de datos numéricos se obtiene una matriz en que la diagonal representa las varianzas de las de cada una de las variables mientras que arriba y abajo de la diagonal se encuentran las covarianzas entre pares de variables.
-
-Por ejemplo, si aplicamos la función `var` al marco de datos sólo con las variables precio, área y avaluo se obtiene una matriz de dimensión $3 \times 3$, a continuación el código usado.
-
-```{r}
-var(datos[, c('precio', 'mt2', 'avaluo')])
-```
-
-Del anterior resultado se observa la matriz de varianzas y covarianzas de dimensión $3 \times 3$.
-
-
 ## Coeficiente de variación ($CV$) \index{coeficiente de variación}
 
-El coeficiente de variación se define como $CV=s/\bar{x}$ y es muy sencillo de obtenerlo, la función `CV` mostrada abajo permite calcularlo.
+El coeficiente de variación se define como $CV=s/\bar{x}$ y es muy sencillo de obtenerlo, la función `coef_var` mostrada abajo permite calcularlo.
 
 ```{r}
-CV <- function(x, na.rm = FALSE) {
+coef_var <- function(x, na.rm = FALSE) {
   sd(x, na.rm=na.rm) / mean(x, na.rm=na.rm)
 }
 ```
@@ -155,15 +217,12 @@ Calcular el $CV$ para el vector `w` definido a continuación.
 w <- c(5, -3, NA, 8, 8, 7)
 ```
 
-Vemos que el vector `w` tiene 6 observaciones y la tercera de ellas es un `NA`. Lo correcto aquí es usar la función `CV` definida antes pero indicándole que remueva los valores faltantes, para eso se usa el siguiente código.
+__Solución__
+
+Vemos que el vector `w` tiene 6 observaciones y la tercera de ellas es un `NA`. Lo correcto aquí es usar la función `coef_var` definida antes pero indicándole que remueva los valores faltantes, para eso se usa el siguiente código.
 
 ```{r}
-CV(x=w, na.rm=T)
+coef_var(x=w, na.rm=T)
 ```
-
-
-
-
-
 
 

@@ -25,7 +25,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2021-02-23" />
+<meta name="date" content="2021-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -341,12 +341,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#desviación-estándar-muestral-s"><i class="fa fa-check"></i><b>11.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a>
+<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#varianza"><i class="fa fa-check"></i><b>11.2</b> Varianza</a>
 <ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#varianza-muestral-s2"><i class="fa fa-check"></i><b>11.3</b> Varianza muestral (<span class="math inline">\(S^2\)</span>)  </a>
+<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#desviación-estándar"><i class="fa fa-check"></i><b>11.3</b> Desviación estándar</a>
 <ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -569,13 +569,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ejemplo-76" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>El código mostrado abajo revisa si los paquetes <code>knitr</code>, <code>png</code> y <code>markdown</code> están instalados e instala los ausentes y luego carga todos los paquetes que estén en el vector <code>packages</code>.</p>
-<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="curio.html#cb662-1" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="st">&quot;markdown&quot;</span>)</span>
-<span id="cb662-2"><a href="curio.html#cb662-2" aria-hidden="true" tabindex="-1"></a>package.check <span class="ot">&lt;-</span> <span class="fu">lapply</span>(packages, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
-<span id="cb662-3"><a href="curio.html#cb662-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb662-4"><a href="curio.html#cb662-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(x, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb662-5"><a href="curio.html#cb662-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb662-6"><a href="curio.html#cb662-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb662-7"><a href="curio.html#cb662-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="curio.html#cb664-1" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="st">&quot;markdown&quot;</span>)</span>
+<span id="cb664-2"><a href="curio.html#cb664-2" aria-hidden="true" tabindex="-1"></a>package.check <span class="ot">&lt;-</span> <span class="fu">lapply</span>(packages, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb664-3"><a href="curio.html#cb664-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb664-4"><a href="curio.html#cb664-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(x, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb664-5"><a href="curio.html#cb664-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb664-6"><a href="curio.html#cb664-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb664-7"><a href="curio.html#cb664-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 
 </div>
 </div>

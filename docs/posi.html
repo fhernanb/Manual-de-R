@@ -25,7 +25,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2021-02-23" />
+<meta name="date" content="2021-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -341,12 +341,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#desviación-estándar-muestral-s"><i class="fa fa-check"></i><b>11.2</b> Desviación estándar muestral (<span class="math inline">\(S\)</span>)  </a>
+<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#varianza"><i class="fa fa-check"></i><b>11.2</b> Varianza</a>
 <ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#varianza-muestral-s2"><i class="fa fa-check"></i><b>11.3</b> Varianza muestral (<span class="math inline">\(S^2\)</span>)  </a>
+<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#desviación-estándar"><i class="fa fa-check"></i><b>11.3</b> Desviación estándar</a>
 <ul>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -573,9 +573,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>biceps</code>: perímetro del biceps derecho (centímetros).</li>
 </ol>
 <p>A continuación se presenta el código para definir la url donde están los datos, para cargar la base de datos en R y para mostrar por pantalla un encabezado (usando <code>head</code>) de la base de datos.</p>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="posi.html#cb385-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
-<span id="cb385-2"><a href="posi.html#cb385-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span>
-<span id="cb385-3"><a href="posi.html#cb385-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)  <span class="co"># Para ver el encabezado de la base de datos</span></span></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="posi.html#cb387-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb387-2"><a href="posi.html#cb387-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span>
+<span id="cb387-3"><a href="posi.html#cb387-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)  <span class="co"># Para ver el encabezado de la base de datos</span></span></code></pre></div>
 <pre><code>##   edad peso altura   sexo muneca biceps
 ## 1   43 87.3  188.0 Hombre   12.2   35.8
 ## 2   65 80.0  174.0 Hombre   12.0   35.0
@@ -586,13 +586,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="cuantiles" class="section level2" number="12.1">
 <h2><span class="header-section-number">12.1</span> Cuantiles     </h2>
 <p>Para obtener cualquier cuantil (cuartiles, deciles y percentiles) se usa la función <code>quantile</code>. Los argumentos básicos de la función <code>quantile</code> son tres y se muestran a continuación.</p>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="posi.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x, probs, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="posi.html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x, probs, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>En el parámetro <code>x</code> se indica la variable de interés para la cual se quieren calcular los cuantiles, el parámetro <code>probs</code> sirve para definir los cuantiles de interés y el parámetro <code>na.rm</code> es un valor lógico que en caso de ser <code>TRUE</code>, significa que se deben remover las observaciones con <code>NA</code>, el valor por defecto para este parámetro es <code>FALSE</code>.</p>
 <div id="ejemplo-42" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa la altura del grupo de estudiantes.</p>
 <p>Se solicita el percentil 5, la mediana que es el percentil 50 y el decil 8 que corresponde al percentil 80, por lo tanto es necesario indicarle a la función <code>quantile</code> que calcule los cuantiles para las ubicaciones 0.05, 0.5 y 0.8, el código para obtener las tres medidas solicitadas es el siguiente.</p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="posi.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(<span class="at">x=</span>datos<span class="sc">$</span>altura, <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="fl">0.8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="posi.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(<span class="at">x=</span>datos<span class="sc">$</span>altura, <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="fl">0.8</span>))</span></code></pre></div>
 <pre><code>##    5%   50%   80% 
 ## 155.2 172.7 180.3</code></pre>
 
