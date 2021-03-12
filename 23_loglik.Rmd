@@ -9,34 +9,36 @@ El concepto de verosimilitud fue propuesto por @Fisher22 en el contexto de estim
 knitr::include_graphics("images/Fisher.png")
 ```
 
-```{block2, type='rmdnote'}
-Asumiendo un modelo estadístico parametrizado por una cantidad fija y desconocida $\theta$, la verosimilitud $L(\theta)$ es la probabilidad de los datos observados $x$ como una función de $\theta$ [@pawitan_2013]. Si la variable de interés es discreta se usa la probabilidad y si es continua se usa la densidad para obtener la verosimilitud.
-```
-
-La función de verosimilitud para un vector de parámetros $\boldsymbol{\Theta}$ dada una muestra aleatoria $\boldsymbol{x}$ con una distribución asumida se define usualmente como:
+La función de verosimilitud para un vector de parámetros $\boldsymbol{\theta}$ dada una muestra aleatoria $\boldsymbol{x}=(x_1, \ldots,x_n)^\top$ con una distribución asumida se define usualmente como:
 
 \begin{equation}
-L(\boldsymbol{\Theta} | \boldsymbol{x}) = \prod_{i=1}^{n}  f(x_i | \boldsymbol{\Theta}),
+L(\boldsymbol{\theta} | \boldsymbol{x}) = \prod_{i=1}^{n}  f(x_i | \boldsymbol{\theta}),
 (\#eq:lik)
 \end{equation}
 
-donde $x_i$ representa uno de los elementos de la muestra aleatoria y $f$ es la función de masa/densidad de la distribución de la cual se obtuvo $\boldsymbol{x}$.
+donde $x_i$ representa uno de los elementos de la muestra aleatoria y $f(\cdot)$ es la función de masa/densidad de la distribución de la cual se obtuvo $\boldsymbol{x}$.
 
 ## Función de log-verosimilitud
-La función de log-verosimilitud $l$ se define como el logaritmo de la función de verosimilitud $L$, es decir
+La función de log-verosimilitud $l(\boldsymbol{\theta} | \boldsymbol{x})$ se define como el logaritmo de la función de verosimilitud $L(\boldsymbol{\theta} | \boldsymbol{x})$, es decir
 
 \begin{equation}
-l(\boldsymbol{\Theta} | \boldsymbol{x}) = \log L(\boldsymbol{\Theta} | \boldsymbol{x}) = \sum_{i=1}^{n} \log f(x_i | \boldsymbol{\Theta})
+l(\boldsymbol{\theta} | \boldsymbol{x}) = \log L(\boldsymbol{\theta} | \boldsymbol{x}) = \sum_{i=1}^{n} \log f(x_i | \boldsymbol{\theta})
 (\#eq:loglik)
 \end{equation}
 
 ## Método de máxima verosimilitud para estimar parámetros
-El método de máxima verosimilitud se usa para estimar los parámetros de una distribución. El objetivo de este método es encontrar los valores de $\boldsymbol{\Theta}$ que maximizan $L$ o $l$ y valores encontrados se representan por $\hat{\boldsymbol{\Theta}}$.
+El método de máxima verosimilitud se usa para estimar los parámetros de una distribución. El objetivo de este método es encontrar los valores de $\boldsymbol{\theta}$ que maximizan a $L(\boldsymbol{\theta} | \boldsymbol{x})$ o a $l(\boldsymbol{\theta} | \boldsymbol{x})$, los valores encontrados se representan usualmente por $\hat{\boldsymbol{\theta}}$.
+
+```{block2, type='rmdnote'}
+Asumiendo un modelo estadístico parametrizado por una cantidad fija y desconocida $\theta$, la verosimilitud $L(\theta)$ es la probabilidad de los datos observados $x$ como una función de $\theta$ [@pawitan_2013]. Si la variable de interés es discreta se usa la probabilidad y si es continua se usa la densidad para obtener la verosimilitud.
+```
 
 ### Ejemplo {-}
 En este ejemplo vamos a considerar la distribución binomial cuya función de masa de probabilidad está dada por:
 
 $$f(x)=P(X=x)=\binom{n}{x} p^x (1-p)^{n-x}, \quad 0<p<1, \quad n \leq 1, 2, \ldots, \quad 0 \leq x \leq n$$
+
+La distribución binomial anterior tiene sólo un parámetro $p$, por lo tanto en este caso se $\theta=p$.
 
 Suponga que se tiene el vector `rta` que corresponde a una muestra aleatoria de una distribución binomial con parámetro $n=5$ conocido.
 
@@ -45,9 +47,9 @@ rta <- c(2, 2, 1, 1, 1, 1, 0, 2, 1, 2,
          1, 0, 1, 2, 1, 0, 0, 2, 2, 1)
 ```
 
-1) Calcular el valor de log-verosimilitud $l$ si asumiendo que $p=0.30$ en la distribución binomial.
+1) Calcular el valor de log-verosimilitud $l(\theta)$ si asumiendo que $p=0.30$ en la distribución binomial.
 
-Para obtener el valor de $l$ en el punto $p=0.30$ se aplica la definición dada en la expresión \@ref(eq:loglik). Como el problema trata de una binomial se usa entonces la función de masa `dbinom` evaluada en la muestra `rta`, el parámetro `size` como es conocido se reemplaza por el valor de cinco y en el parámetro `prob` se cambia por 0.3. Como interesa la función de log-verosimilitud se debe incluir `log=TRUE`. A continuación el código necesario. 
+Para obtener el valor de $l(\theta)$ en el punto $p=0.30$ se aplica la definición dada en la expresión \@ref(eq:loglik). Como el problema trata de una binomial se usa entonces la función de masa `dbinom` evaluada en la muestra `rta`, el parámetro `size` como es conocido se reemplaza por el valor de cinco y en el parámetro `prob` se cambia por 0.3. Como interesa la función de log-verosimilitud se debe incluir `log=TRUE`. A continuación el código necesario. 
 
 ```{r}
 sum(dbinom(x=rta, size=5, prob=0.3, log=TRUE))
@@ -90,14 +92,15 @@ Vemos que ahora que cuando se ingresa un vector a la función `ll` se obtiene un
 Necesitamos que la función `ll` esté vectorizada para poder dibujarla y para poder optimizarla.
 ```
 
-3) Dibujar la curva log-verosimilitud $l$, en el eje X debe estar el parámetro $p$ del cual depende la función de log-verosimilitud.
+3) Dibujar la curva log-verosimilitud $l(\theta)$, en el eje X debe estar el parámetro $p$ del cual depende la función de log-verosimilitud.
 
 En la Figura \@ref(fig:loglik1) se presenta la curva solicitada.
 
-```{r loglik1, fig.cap='Función de log-verosimilitud para el ejemplo sobre binomial.', fig.asp=0.9, fig.width=4, echo=FALSE}
+```{r loglik1, fig.align='center', fig.cap='Función de log-verosimilitud para el ejemplo sobre binomial.', fig.asp=0.9, fig.width=5, echo=FALSE}
 curve(ll, lwd=4, col='dodgerblue3',
       xlab='Probabilidad de éxito (p)', las=1,
-      ylab=expression(paste("l(", theta, ")")))
+      ylab=expression(paste("Probabilidad de éxito (p=", theta, ")"))
+      )
 grid()
 ```
 
@@ -229,7 +232,7 @@ En la salida anterior están los valores estimados de los parámetros de la dist
 
 3) Dibuje dos qqplot, uno asumiendo distribución normal y el otro distribución gamma. ¿Cuál distribución se ajusta mejor a los datos simulados?
 
-Para dibujar el qqplot se usa la función genérica `qqplot`, recomendamos consultar @hernandez_correa para los detalles de cómo usar esta función. Al usar `qqplot` para obtener el qqplot normal y gamma es necesario indicar los valores $\hat{\boldsymbol{\Theta}}$ obtenidos en el numeral anterior, por eso es que en el código mostrado a continuación aparece `mean=4.3083, sd=2.8085` en el qqplot normal y `shape=2.23978, rate=0.51988` en el qqplot gamma.
+Para dibujar el qqplot se usa la función genérica `qqplot`, recomendamos consultar @hernandez_correa para los detalles de cómo usar esta función. Al usar `qqplot` para obtener el qqplot normal y gamma es necesario indicar los valores $\hat{\boldsymbol{\theta}}$ obtenidos en el numeral anterior, por eso es que en el código mostrado a continuación aparece `mean=4.3083, sd=2.8085` en el qqplot normal y `shape=2.23978, rate=0.51988` en el qqplot gamma.
 
 ```{r normgamma, fig.cap='Gráfico cuantil cuantil normal y gamma para la muestra simulada.', fig.asp=0.6, fig.width=9}
 par(mfrow=c(1, 2))
@@ -352,7 +355,7 @@ y <- rnorm(n=n, mean=-2 + 3 * x1, sd=5)
 ```
 
 
-El vector de parámetros del modelo anterior es $\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top$, el primer elemento corresponde al intercepto, el segundo a la pendiente y el último a la desviación.
+El vector de parámetros del modelo anterior es $\boldsymbol{\theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top$, el primer elemento corresponde al intercepto, el segundo a la pendiente y el último a la desviación.
 
 
 ```{r}
@@ -363,7 +366,7 @@ minusll <- function(theta, y, x1) {
 }
 ```
 
-Ahora vamos a usar la función `optim` para encontrar los valores que maximizan la función de log-verosimilitud, el código para hacer eso se muestra a continuación. En el parámetro `par` se coloca un vector de posibles valores de $\boldsymbol{\Theta}$ para iniciar la búsqueda, en `fn` se coloca la función de interés, en `lower` y `upper` se colocan vectores que indican los límites de búsqueda de cada parámetro, los $\beta_k$ pueden variar entre $-\infty$ y $\infty$ mientras que el parámetro $\sigma$ toma valores en el intervalo $(0, \infty)$. Como la función `minusll` tiene argumentos adicionales `y` e `x1`, estos pasan a la función `optim` al final como se muestra en el código.
+Ahora vamos a usar la función `optim` para encontrar los valores que maximizan la función de log-verosimilitud, el código para hacer eso se muestra a continuación. En el parámetro `par` se coloca un vector de posibles valores de $\boldsymbol{\theta}$ para iniciar la búsqueda, en `fn` se coloca la función de interés, en `lower` y `upper` se colocan vectores que indican los límites de búsqueda de cada parámetro, los $\beta_k$ pueden variar entre $-\infty$ y $\infty$ mientras que el parámetro $\sigma$ toma valores en el intervalo $(0, \infty)$. Como la función `minusll` tiene argumentos adicionales `y` e `x1`, estos pasan a la función `optim` al final como se muestra en el código.
 
 ```{r}
 res1 <- optim(par=c(0, 0, 1), fn=minusll, method='L-BFGS-B',
@@ -377,10 +380,10 @@ En el objeto `res1` está el resultado de la optimización, para explorar los re
 res1
 ```
 
-De la salida anterior se observa que el vector de parámetros estimado es $\hat{\beta}_0 = `r res1$par[1]`$, $\hat{\beta}_1 = `r res1$par[2]`$ y $\hat{\sigma} = `r res1$par[3]`$, se observa también que el valor de la máxima log-verosimilitud fue de `r -res1$value`. Vemos entonces que el vector estimado está muy cerca del verdadero $\boldsymbol{\Theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top$.
+De la salida anterior se observa que el vector de parámetros estimado es $\hat{\beta}_0 = `r res1$par[1]`$, $\hat{\beta}_1 = `r res1$par[2]`$ y $\hat{\sigma} = `r res1$par[3]`$, se observa también que el valor de la máxima log-verosimilitud fue de `r -res1$value`. Vemos entonces que el vector estimado está muy cerca del verdadero $\boldsymbol{\theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top$.
 
 ```{block2, type='rmdnote'}
-Cuando se usa `optim` es necesario decirle que inicie la búsqueda de $\boldsymbol{\Theta}$ a partir de un lugar. Por esa razón se usó `par=c(0, 0, 1)`, esto significa que la búsqueda inicia en el tripleta $\beta_0=0$, $\beta_1=0$ y $\sigma=1$.
+Cuando se usa `optim` es necesario decirle que inicie la búsqueda de $\boldsymbol{\theta}$ a partir de un lugar. Por esa razón se usó `par=c(0, 0, 1)`, esto significa que la búsqueda inicia en el tripleta $\beta_0=0$, $\beta_1=0$ y $\sigma=1$.
 ```
 
 En algunas ocasiones es mejor hacer la búsqueda de los parámetros en el intervalo $(-\infty, \infty)$ que en una región limitada como por ejemplo $(0, \infty)$ o $(-1, 1)$, ya que las funciones de búsqueda podrían tener problemas en los bordes de esos intervalos. Una estrategia usual en este tipo de casos es aplicar una transformación apropiada al parámetro que tiene el dominio limitado. En el presente ejemplo $\sigma$ sólo puede tomar valores mayores que cero y una transformación de tipo $\log$ podría ser muy útil ya que $\log$ relaciona los reales positivos con todos los reales. La transformación para este problema sería $\log(\sigma)=\beta_3$ o escrita de forma inversa $\sigma=\exp(\beta_3)$. El nuevo parámetro $\beta_3$ puede variar en $(-\infty, \infty)$ pero al ser transformado por la función exponencial este se volvería un valor apropiado para $\sigma$. Para implementar esta variación lo único que se debe hacer es modificar la línea 3 de la función `minusll` como se muestra a continuación:
@@ -401,7 +404,7 @@ res2 <- optim(par=c(0, 0, 0), fn=minusll, method='L-BFGS-B',
 res2
 ```
 
-De la salida anterior se observa que el vector de parámetros estimado es $\hat{\beta}_0 = `r res2$par[1]`$, $\hat{\beta}_1 = `r res2$par[2]`$ y $\hat{\sigma} = \exp(`r res2$par[3]`)=`r exp(res2$par[3])`$, se observa también que el valor de la máxima log-verosimilitud fue de `r -res2$value`. Vemos entonces que el vector estimado está muy cerca del verdadero $\boldsymbol{\Theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top$.
+De la salida anterior se observa que el vector de parámetros estimado es $\hat{\beta}_0 = `r res2$par[1]`$, $\hat{\beta}_1 = `r res2$par[2]`$ y $\hat{\sigma} = \exp(`r res2$par[3]`)=`r exp(res2$par[3])`$, se observa también que el valor de la máxima log-verosimilitud fue de `r -res2$value`. Vemos entonces que el vector estimado está muy cerca del verdadero $\boldsymbol{\theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top$.
 
 ## EJERCICIOS {-}
 

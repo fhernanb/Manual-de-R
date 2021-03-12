@@ -25,7 +25,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2021-03-11" />
+<meta name="date" content="2021-03-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -572,39 +572,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 16.1: Fotografía de Ronald Aylmer Fisher (1890-1962).
 </p>
 </div>
-
-<div class="rmdnote">
-Asumiendo un modelo estadístico parametrizado por una cantidad fija y desconocida <span class="math inline">\(\theta\)</span>, la verosimilitud <span class="math inline">\(L(\theta)\)</span> es la probabilidad de los datos observados <span class="math inline">\(x\)</span> como una función de <span class="math inline">\(\theta\)</span> <span class="citation">(<a href="references.html#ref-pawitan_2013" role="doc-biblioref">Pawitan 2013</a>)</span>. Si la variable de interés es discreta se usa la probabilidad y si es continua se usa la densidad para obtener la verosimilitud.
-</div>
-<p>La función de verosimilitud para un vector de parámetros <span class="math inline">\(\boldsymbol{\Theta}\)</span> dada una muestra aleatoria <span class="math inline">\(\boldsymbol{x}\)</span> con una distribución asumida se define usualmente como:</p>
+<p>La función de verosimilitud para un vector de parámetros <span class="math inline">\(\boldsymbol{\theta}\)</span> dada una muestra aleatoria <span class="math inline">\(\boldsymbol{x}=(x_1, \ldots,x_n)^\top\)</span> con una distribución asumida se define usualmente como:</p>
 <p><span class="math display" id="eq:lik">\[\begin{equation}
-L(\boldsymbol{\Theta} | \boldsymbol{x}) = \prod_{i=1}^{n}  f(x_i | \boldsymbol{\Theta}),
+L(\boldsymbol{\theta} | \boldsymbol{x}) = \prod_{i=1}^{n}  f(x_i | \boldsymbol{\theta}),
 \tag{16.1}
 \end{equation}\]</span></p>
-<p>donde <span class="math inline">\(x_i\)</span> representa uno de los elementos de la muestra aleatoria y <span class="math inline">\(f\)</span> es la función de masa/densidad de la distribución de la cual se obtuvo <span class="math inline">\(\boldsymbol{x}\)</span>.</p>
+<p>donde <span class="math inline">\(x_i\)</span> representa uno de los elementos de la muestra aleatoria y <span class="math inline">\(f(\cdot)\)</span> es la función de masa/densidad de la distribución de la cual se obtuvo <span class="math inline">\(\boldsymbol{x}\)</span>.</p>
 </div>
 <div id="función-de-log-verosimilitud" class="section level2" number="16.2">
 <h2><span class="header-section-number">16.2</span> Función de log-verosimilitud</h2>
-<p>La función de log-verosimilitud <span class="math inline">\(l\)</span> se define como el logaritmo de la función de verosimilitud <span class="math inline">\(L\)</span>, es decir</p>
+<p>La función de log-verosimilitud <span class="math inline">\(l(\boldsymbol{\theta} | \boldsymbol{x})\)</span> se define como el logaritmo de la función de verosimilitud <span class="math inline">\(L(\boldsymbol{\theta} | \boldsymbol{x})\)</span>, es decir</p>
 <p><span class="math display" id="eq:loglik">\[\begin{equation}
-l(\boldsymbol{\Theta} | \boldsymbol{x}) = \log L(\boldsymbol{\Theta} | \boldsymbol{x}) = \sum_{i=1}^{n} \log f(x_i | \boldsymbol{\Theta})
+l(\boldsymbol{\theta} | \boldsymbol{x}) = \log L(\boldsymbol{\theta} | \boldsymbol{x}) = \sum_{i=1}^{n} \log f(x_i | \boldsymbol{\theta})
 \tag{16.2}
 \end{equation}\]</span></p>
 </div>
 <div id="método-de-máxima-verosimilitud-para-estimar-parámetros" class="section level2" number="16.3">
 <h2><span class="header-section-number">16.3</span> Método de máxima verosimilitud para estimar parámetros</h2>
-<p>El método de máxima verosimilitud se usa para estimar los parámetros de una distribución. El objetivo de este método es encontrar los valores de <span class="math inline">\(\boldsymbol{\Theta}\)</span> que maximizan <span class="math inline">\(L\)</span> o <span class="math inline">\(l\)</span> y valores encontrados se representan por <span class="math inline">\(\hat{\boldsymbol{\Theta}}\)</span>.</p>
+<p>El método de máxima verosimilitud se usa para estimar los parámetros de una distribución. El objetivo de este método es encontrar los valores de <span class="math inline">\(\boldsymbol{\theta}\)</span> que maximizan a <span class="math inline">\(L(\boldsymbol{\theta} | \boldsymbol{x})\)</span> o a <span class="math inline">\(l(\boldsymbol{\theta} | \boldsymbol{x})\)</span>, los valores encontrados se representan usualmente por <span class="math inline">\(\hat{\boldsymbol{\theta}}\)</span>.</p>
+
+<div class="rmdnote">
+Asumiendo un modelo estadístico parametrizado por una cantidad fija y desconocida <span class="math inline">\(\theta\)</span>, la verosimilitud <span class="math inline">\(L(\theta)\)</span> es la probabilidad de los datos observados <span class="math inline">\(x\)</span> como una función de <span class="math inline">\(\theta\)</span> <span class="citation">(<a href="references.html#ref-pawitan_2013" role="doc-biblioref">Pawitan 2013</a>)</span>. Si la variable de interés es discreta se usa la probabilidad y si es continua se usa la densidad para obtener la verosimilitud.
+</div>
 <div id="ejemplo-49" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>En este ejemplo vamos a considerar la distribución binomial cuya función de masa de probabilidad está dada por:</p>
 <p><span class="math display">\[f(x)=P(X=x)=\binom{n}{x} p^x (1-p)^{n-x}, \quad 0&lt;p&lt;1, \quad n \leq 1, 2, \ldots, \quad 0 \leq x \leq n\]</span></p>
+<p>La distribución binomial anterior tiene sólo un parámetro <span class="math inline">\(p\)</span>, por lo tanto en este caso se <span class="math inline">\(\theta=p\)</span>.</p>
 <p>Suponga que se tiene el vector <code>rta</code> que corresponde a una muestra aleatoria de una distribución binomial con parámetro <span class="math inline">\(n=5\)</span> conocido.</p>
 <div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="loglik.html#cb487-1" aria-hidden="true" tabindex="-1"></a>rta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>,</span>
 <span id="cb487-2"><a href="loglik.html#cb487-2" aria-hidden="true" tabindex="-1"></a>         <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Calcular el valor de log-verosimilitud <span class="math inline">\(l\)</span> si asumiendo que <span class="math inline">\(p=0.30\)</span> en la distribución binomial.</li>
+<li>Calcular el valor de log-verosimilitud <span class="math inline">\(l(\theta)\)</span> si asumiendo que <span class="math inline">\(p=0.30\)</span> en la distribución binomial.</li>
 </ol>
-<p>Para obtener el valor de <span class="math inline">\(l\)</span> en el punto <span class="math inline">\(p=0.30\)</span> se aplica la definición dada en la expresión <a href="loglik.html#eq:loglik">(16.2)</a>. Como el problema trata de una binomial se usa entonces la función de masa <code>dbinom</code> evaluada en la muestra <code>rta</code>, el parámetro <code>size</code> como es conocido se reemplaza por el valor de cinco y en el parámetro <code>prob</code> se cambia por 0.3. Como interesa la función de log-verosimilitud se debe incluir <code>log=TRUE</code>. A continuación el código necesario.</p>
+<p>Para obtener el valor de <span class="math inline">\(l(\theta)\)</span> en el punto <span class="math inline">\(p=0.30\)</span> se aplica la definición dada en la expresión <a href="loglik.html#eq:loglik">(16.2)</a>. Como el problema trata de una binomial se usa entonces la función de masa <code>dbinom</code> evaluada en la muestra <code>rta</code>, el parámetro <code>size</code> como es conocido se reemplaza por el valor de cinco y en el parámetro <code>prob</code> se cambia por 0.3. Como interesa la función de log-verosimilitud se debe incluir <code>log=TRUE</code>. A continuación el código necesario.</p>
 <div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="loglik.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span>rta, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span><span class="fl">0.3</span>, <span class="at">log=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## [1] -24.55231</code></pre>
 <p>Por lo tanto <span class="math inline">\(l(\theta)= -24.55\)</span></p>
@@ -632,11 +633,11 @@ l(\boldsymbol{\Theta} | \boldsymbol{x}) = \log L(\boldsymbol{\Theta} | \boldsymb
 Necesitamos que la función <code>ll</code> esté vectorizada para poder dibujarla y para poder optimizarla.
 </div>
 <ol start="3" style="list-style-type: decimal">
-<li>Dibujar la curva log-verosimilitud <span class="math inline">\(l\)</span>, en el eje X debe estar el parámetro <span class="math inline">\(p\)</span> del cual depende la función de log-verosimilitud.</li>
+<li>Dibujar la curva log-verosimilitud <span class="math inline">\(l(\theta)\)</span>, en el eje X debe estar el parámetro <span class="math inline">\(p\)</span> del cual depende la función de log-verosimilitud.</li>
 </ol>
 <p>En la Figura <a href="loglik.html#fig:loglik1">16.2</a> se presenta la curva solicitada.</p>
-<div class="figure"><span id="fig:loglik1"></span>
-<img src="Manual_de_R_files/figure-html/loglik1-1.png" alt="Función de log-verosimilitud para el ejemplo sobre binomial." width="384" />
+<div class="figure" style="text-align: center"><span id="fig:loglik1"></span>
+<img src="Manual_de_R_files/figure-html/loglik1-1.png" alt="Función de log-verosimilitud para el ejemplo sobre binomial." width="480" />
 <p class="caption">
 Figure 16.2: Función de log-verosimilitud para el ejemplo sobre binomial.
 </p>
@@ -773,7 +774,7 @@ En R se tienen dos funciones básicas para optimizar funciones, es decir, para e
 <ol start="3" style="list-style-type: decimal">
 <li>Dibuje dos qqplot, uno asumiendo distribución normal y el otro distribución gamma. ¿Cuál distribución se ajusta mejor a los datos simulados?</li>
 </ol>
-<p>Para dibujar el qqplot se usa la función genérica <code>qqplot</code>, recomendamos consultar <span class="citation"><a href="references.html#ref-hernandez_correa" role="doc-biblioref">Hernández</a> (<a href="references.html#ref-hernandez_correa" role="doc-biblioref">2018</a>)</span> para los detalles de cómo usar esta función. Al usar <code>qqplot</code> para obtener el qqplot normal y gamma es necesario indicar los valores <span class="math inline">\(\hat{\boldsymbol{\Theta}}\)</span> obtenidos en el numeral anterior, por eso es que en el código mostrado a continuación aparece <code>mean=4.3083, sd=2.8085</code> en el qqplot normal y <code>shape=2.23978, rate=0.51988</code> en el qqplot gamma.</p>
+<p>Para dibujar el qqplot se usa la función genérica <code>qqplot</code>, recomendamos consultar <span class="citation"><a href="references.html#ref-hernandez_correa" role="doc-biblioref">Hernández</a> (<a href="references.html#ref-hernandez_correa" role="doc-biblioref">2018</a>)</span> para los detalles de cómo usar esta función. Al usar <code>qqplot</code> para obtener el qqplot normal y gamma es necesario indicar los valores <span class="math inline">\(\hat{\boldsymbol{\theta}}\)</span> obtenidos en el numeral anterior, por eso es que en el código mostrado a continuación aparece <code>mean=4.3083, sd=2.8085</code> en el qqplot normal y <code>shape=2.23978, rate=0.51988</code> en el qqplot gamma.</p>
 <div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="loglik.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
 <span id="cb516-2"><a href="loglik.html#cb516-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb516-3"><a href="loglik.html#cb516-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qqplot</span>(<span class="at">y=</span>ma, <span class="at">pch=</span><span class="dv">19</span>,</span>
@@ -879,13 +880,13 @@ x_1 &amp;\sim U(-5, 6).
 <div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="loglik.html#cb522-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
 <span id="cb522-2"><a href="loglik.html#cb522-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span>n, <span class="at">min=</span><span class="sc">-</span><span class="dv">5</span>, <span class="at">max=</span><span class="dv">6</span>)</span>
 <span id="cb522-3"><a href="loglik.html#cb522-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span><span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> x1, <span class="at">sd=</span><span class="dv">5</span>)</span></code></pre></div>
-<p>El vector de parámetros del modelo anterior es <span class="math inline">\(\boldsymbol{\Theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top\)</span>, el primer elemento corresponde al intercepto, el segundo a la pendiente y el último a la desviación.</p>
+<p>El vector de parámetros del modelo anterior es <span class="math inline">\(\boldsymbol{\theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top\)</span>, el primer elemento corresponde al intercepto, el segundo a la pendiente y el último a la desviación.</p>
 <div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="loglik.html#cb523-1" aria-hidden="true" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, y, x1) {</span>
 <span id="cb523-2"><a href="loglik.html#cb523-2" aria-hidden="true" tabindex="-1"></a>  media <span class="ot">&lt;-</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> x1  <span class="co"># Se define la media</span></span>
 <span id="cb523-3"><a href="loglik.html#cb523-3" aria-hidden="true" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> theta[<span class="dv">3</span>]                  <span class="co"># Se define la desviación.</span></span>
 <span id="cb523-4"><a href="loglik.html#cb523-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
 <span id="cb523-5"><a href="loglik.html#cb523-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>Ahora vamos a usar la función <code>optim</code> para encontrar los valores que maximizan la función de log-verosimilitud, el código para hacer eso se muestra a continuación. En el parámetro <code>par</code> se coloca un vector de posibles valores de <span class="math inline">\(\boldsymbol{\Theta}\)</span> para iniciar la búsqueda, en <code>fn</code> se coloca la función de interés, en <code>lower</code> y <code>upper</code> se colocan vectores que indican los límites de búsqueda de cada parámetro, los <span class="math inline">\(\beta_k\)</span> pueden variar entre <span class="math inline">\(-\infty\)</span> y <span class="math inline">\(\infty\)</span> mientras que el parámetro <span class="math inline">\(\sigma\)</span> toma valores en el intervalo <span class="math inline">\((0, \infty)\)</span>. Como la función <code>minusll</code> tiene argumentos adicionales <code>y</code> e <code>x1</code>, estos pasan a la función <code>optim</code> al final como se muestra en el código.</p>
+<p>Ahora vamos a usar la función <code>optim</code> para encontrar los valores que maximizan la función de log-verosimilitud, el código para hacer eso se muestra a continuación. En el parámetro <code>par</code> se coloca un vector de posibles valores de <span class="math inline">\(\boldsymbol{\theta}\)</span> para iniciar la búsqueda, en <code>fn</code> se coloca la función de interés, en <code>lower</code> y <code>upper</code> se colocan vectores que indican los límites de búsqueda de cada parámetro, los <span class="math inline">\(\beta_k\)</span> pueden variar entre <span class="math inline">\(-\infty\)</span> y <span class="math inline">\(\infty\)</span> mientras que el parámetro <span class="math inline">\(\sigma\)</span> toma valores en el intervalo <span class="math inline">\((0, \infty)\)</span>. Como la función <code>minusll</code> tiene argumentos adicionales <code>y</code> e <code>x1</code>, estos pasan a la función <code>optim</code> al final como se muestra en el código.</p>
 <div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="loglik.html#cb524-1" aria-hidden="true" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">fn=</span>minusll, <span class="at">method=</span><span class="st">&#39;L-BFGS-B&#39;</span>,</span>
 <span id="cb524-2"><a href="loglik.html#cb524-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">lower=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>), <span class="at">upper=</span><span class="fu">c</span>(<span class="cn">Inf</span>, <span class="cn">Inf</span>, <span class="cn">Inf</span>), </span>
 <span id="cb524-3"><a href="loglik.html#cb524-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">y=</span>y, <span class="at">x1=</span>x1)</span></code></pre></div>
@@ -906,10 +907,10 @@ x_1 &amp;\sim U(-5, 6).
 ## 
 ## $message
 ## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;</code></pre>
-<p>De la salida anterior se observa que el vector de parámetros estimado es <span class="math inline">\(\hat{\beta}_0 = -1.9046025\)</span>, <span class="math inline">\(\hat{\beta}_1 = 3.0796\)</span> y <span class="math inline">\(\hat{\sigma} = 5.0141842\)</span>, se observa también que el valor de la máxima log-verosimilitud fue de -3031.2092104. Vemos entonces que el vector estimado está muy cerca del verdadero <span class="math inline">\(\boldsymbol{\Theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top\)</span>.</p>
+<p>De la salida anterior se observa que el vector de parámetros estimado es <span class="math inline">\(\hat{\beta}_0 = -1.9046025\)</span>, <span class="math inline">\(\hat{\beta}_1 = 3.0796\)</span> y <span class="math inline">\(\hat{\sigma} = 5.0141842\)</span>, se observa también que el valor de la máxima log-verosimilitud fue de -3031.2092104. Vemos entonces que el vector estimado está muy cerca del verdadero <span class="math inline">\(\boldsymbol{\theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top\)</span>.</p>
 
 <div class="rmdnote">
-Cuando se usa <code>optim</code> es necesario decirle que inicie la búsqueda de <span class="math inline">\(\boldsymbol{\Theta}\)</span> a partir de un lugar. Por esa razón se usó <code>par=c(0, 0, 1)</code>, esto significa que la búsqueda inicia en el tripleta <span class="math inline">\(\beta_0=0\)</span>, <span class="math inline">\(\beta_1=0\)</span> y <span class="math inline">\(\sigma=1\)</span>.
+Cuando se usa <code>optim</code> es necesario decirle que inicie la búsqueda de <span class="math inline">\(\boldsymbol{\theta}\)</span> a partir de un lugar. Por esa razón se usó <code>par=c(0, 0, 1)</code>, esto significa que la búsqueda inicia en el tripleta <span class="math inline">\(\beta_0=0\)</span>, <span class="math inline">\(\beta_1=0\)</span> y <span class="math inline">\(\sigma=1\)</span>.
 </div>
 <p>En algunas ocasiones es mejor hacer la búsqueda de los parámetros en el intervalo <span class="math inline">\((-\infty, \infty)\)</span> que en una región limitada como por ejemplo <span class="math inline">\((0, \infty)\)</span> o <span class="math inline">\((-1, 1)\)</span>, ya que las funciones de búsqueda podrían tener problemas en los bordes de esos intervalos. Una estrategia usual en este tipo de casos es aplicar una transformación apropiada al parámetro que tiene el dominio limitado. En el presente ejemplo <span class="math inline">\(\sigma\)</span> sólo puede tomar valores mayores que cero y una transformación de tipo <span class="math inline">\(\log\)</span> podría ser muy útil ya que <span class="math inline">\(\log\)</span> relaciona los reales positivos con todos los reales. La transformación para este problema sería <span class="math inline">\(\log(\sigma)=\beta_3\)</span> o escrita de forma inversa <span class="math inline">\(\sigma=\exp(\beta_3)\)</span>. El nuevo parámetro <span class="math inline">\(\beta_3\)</span> puede variar en <span class="math inline">\((-\infty, \infty)\)</span> pero al ser transformado por la función exponencial este se volvería un valor apropiado para <span class="math inline">\(\sigma\)</span>. Para implementar esta variación lo único que se debe hacer es modificar la línea 3 de la función <code>minusll</code> como se muestra a continuación:</p>
 <div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="loglik.html#cb527-1" aria-hidden="true" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, y, x1) {</span>
@@ -936,7 +937,7 @@ Cuando se usa <code>optim</code> es necesario decirle que inicie la búsqueda de
 ## 
 ## $message
 ## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;</code></pre>
-<p>De la salida anterior se observa que el vector de parámetros estimado es <span class="math inline">\(\hat{\beta}_0 = -1.9046094\)</span>, <span class="math inline">\(\hat{\beta}_1 = 3.0795984\)</span> y <span class="math inline">\(\hat{\sigma} = \exp(1.6122706)=5.0141834\)</span>, se observa también que el valor de la máxima log-verosimilitud fue de -3031.2092104. Vemos entonces que el vector estimado está muy cerca del verdadero <span class="math inline">\(\boldsymbol{\Theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top\)</span>.</p>
+<p>De la salida anterior se observa que el vector de parámetros estimado es <span class="math inline">\(\hat{\beta}_0 = -1.9046094\)</span>, <span class="math inline">\(\hat{\beta}_1 = 3.0795984\)</span> y <span class="math inline">\(\hat{\sigma} = \exp(1.6122706)=5.0141834\)</span>, se observa también que el valor de la máxima log-verosimilitud fue de -3031.2092104. Vemos entonces que el vector estimado está muy cerca del verdadero <span class="math inline">\(\boldsymbol{\theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top\)</span>.</p>
 </div>
 </div>
 <div id="ejercicios-6" class="section level2 unnumbered">
