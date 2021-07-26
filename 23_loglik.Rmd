@@ -96,7 +96,7 @@ Necesitamos que la función `ll` esté vectorizada para poder dibujarla y para p
 
 En la Figura \@ref(fig:loglik1) se presenta la curva solicitada.
 
-```{r loglik1, fig.align='center', fig.cap='Función de log-verosimilitud para el ejemplo sobre binomial.', fig.asp=0.9, fig.width=5, echo=FALSE}
+```{r loglik1, fig.align='center', fig.cap='Función de log-verosimilitud para el ejemplo sobre binomial.', fig.asp=0.9, fig.width=5, echo=TRUE}
 curve(ll, lwd=4, col='dodgerblue3',
       xlab='Probabilidad de éxito (p)', las=1,
       ylab=expression(paste("Probabilidad de éxito (p=", theta, ")"))
@@ -118,7 +118,7 @@ minusll <- function(x) -ll(x)
 optimize(f=minusll, interval=c(0, 1))
 ```
 
-Del resultado anterior se observa que cuando $p=0.23$ el valor máximo de log-verosimilitud es 23.32.
+Del resultado anterior se observa que cuando $p=0.23$ el valor máximo de log-verosimilitud es -23.32 (negativo de `minusll`).
 
 ### Ejemplo {-}
 Suponga que la estatura de una población se puede asumir como una normal $N(170, 25)$. Suponga también que se genera una muestra aleatoria de 50 observaciones de la población con el objetivo de recuperar los valores de la media y varianza poblacionales a partir de la muestra aleatoria.
@@ -204,9 +204,11 @@ logLik(res)
 De esta última salida se observa que el valor coincide con el obtenido cuando se usó `nlminb`.
 
 ### Ejemplo {-}
-Generar $n=100$ observaciones de una gamma con parámetro de forma igual a 2 y parámetro de tasa igual a 0.5 y luego responder las preguntas.
+Generar $n=100$ observaciones de una gamma con parámetro de forma igual a 2, parámetro de tasa igual a 0.5 y luego responder las preguntas.
 
-Para generar la muestra aleatoria `ma` solicitada se fijó la semilla con el objetivo de que el lector pueda obtener los mismos resultados de este ejemplo.
+1) ¿Cómo se puede generar la muestra aleatoria solicitada?
+
+Para generar la muestra aleatoria (`ma`) solicitada se fijó la semilla con el objetivo de que el lector pueda obtener los mismos resultados de este ejemplo.
 
 ```{r}
 n <- 100
@@ -214,14 +216,14 @@ set.seed(12345)
 ma <- rgamma(n=n, shape=2, rate=0.5)
 ```
 
-1) Asumiendo que la muestra aleatoria proviene de una normal (lo cual es incorrecto) estime los parámetros de la distribución normal.
+2) Asumiendo que la muestra aleatoria proviene de una normal (lo cual es incorrecto), estime los parámetros de la distribución normal.
 
 ```{r}
 fit1 <- fitdistr(x=ma, densfun='normal')
 fit1
 ```
 
-2) Asumiendo que la muestra aleatoria proviene de una gamma estime los parámetros de la distribución.
+3) Asumiendo que la muestra aleatoria proviene de una gamma estime los parámetros de la distribución gamma.
 
 ```{r, warning=FALSE}
 fit2 <- fitdistr(x=ma, densfun='gamma')
@@ -230,7 +232,7 @@ fit2
 
 En la salida anterior están los valores estimados de los parámetros de la distribución por el método de máxima verosimilitud, observe la cercanía de éstos con los verdaderos valores de 2 y 0.5 para forma y tasa respectivamente.
 
-3) Dibuje dos qqplot, uno asumiendo distribución normal y el otro distribución gamma. ¿Cuál distribución se ajusta mejor a los datos simulados?
+4) Dibuje dos qqplot, uno asumiendo distribución normal y el otro distribución gamma. ¿Cuál distribución se ajusta mejor a los datos simulados?
 
 Para dibujar el qqplot se usa la función genérica `qqplot`, recomendamos consultar @hernandez_correa para los detalles de cómo usar esta función. Al usar `qqplot` para obtener el qqplot normal y gamma es necesario indicar los valores $\hat{\boldsymbol{\theta}}$ obtenidos en el numeral anterior, por eso es que en el código mostrado a continuación aparece `mean=4.3083, sd=2.8085` en el qqplot normal y `shape=2.23978, rate=0.51988` en el qqplot gamma.
 
@@ -260,7 +262,7 @@ Para obtener el gráfico cuantil cuantil bajo normalidad se puede usar directame
 En este ejemplo se eligió la mejor distribución entre dos candidatas usando una herramienta gráfica, lo que se recomienda usar algún método menos subjetivo (cuantitativo) para tomar decisiones. 
 ```
 
-4) Para comparar modelos se puede utilizar el _Akaike information criterion_ ($AIC$) propuesto por @Akaike74 que sirve para medir la calidad relativa de los modelos estadísticos, la expresión para calcular el indicador es $AIC=-2 \, \hat{l}+2 \, df$, donde $\hat{l}$ corresponde al valor de $\log$-verosimilitud y $df$ corresponde al número de parámetros estimados del modelo. Siempre el modelo elegido es aquel modelo con el menor valor de $AIC$. Calcular el $AIC$ para los modelos asumidos normal y gamma.
+5) Para comparar modelos se puede utilizar el _Akaike information criterion_ ($AIC$) propuesto por @Akaike74 que sirve para medir la calidad relativa de los modelos estadísticos, la expresión para calcular el indicador es $AIC=-2 \, \hat{l}+2 \, df$, donde $\hat{l}$ corresponde al valor de $\log$-verosimilitud y $df$ corresponde al número de parámetros estimados del modelo. Siempre el modelo elegido es aquel modelo con el menor valor de $AIC$. Calcular el $AIC$ para los modelos asumidos normal y gamma.
 
 ```{r}
 -2 * logLik(fit1) + 2 * 2  # AIC para modelo normal

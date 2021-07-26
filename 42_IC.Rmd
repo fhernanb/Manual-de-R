@@ -236,7 +236,7 @@ Considerando la información del ejemplo de Intervalos de confianza bilaterales 
 
 ```{r, eval=TRUE, message=FALSE}
 require(stests)  # Para cargar el paquete
-res <- var.test(x=hombres$altura, conf.level=0.98)
+res <- stests::var.test(x=hombres$altura, conf.level=0.98)
 res$conf.int
 ``` 
 

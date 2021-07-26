@@ -1,0 +1,2659 @@
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.6) (preloaded format=xelatex 2021.7.26)  26 JUL 2021 14:31
+entering extended mode
+**./Manual_de_R.tex
+(Manual_de_R.tex
+LaTeX2e <2021-06-01>
+L3 programming layer <2021-06-01> (C:\Program Files\MiKTeX\tex/latex/base\book.
+cls
+Document Class: book 2021/02/12 v1.4n Standard LaTeX document class
+(C:\Program Files\MiKTeX\tex/latex/base\bk10.clo
+File: bk10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count178
+\c@chapter=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (C:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2021/04/20 v2.17j AMS math features
+\@mathmargin=\skip49
+For additional information on amsmath, use the `?' option.
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen139
+)) (C:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen140
+) (C:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count187
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count188
+\leftroot@=\count189
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count190
+\DOTSCASE@=\count191
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box50
+\strutbox@=\box51
+\big@size=\dimen141
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count192
+\c@MaxMatrixCols=\count193
+\dotsspace@=\muskip16
+\c@parentequation=\count194
+\dspbrk@lvl=\count195
+\tag@help=\toks17
+\row@=\count196
+\column@=\count197
+\maxfields@=\count198
+\andhelp@=\toks18
+\eqnshift@=\dimen142
+\alignsep@=\dimen143
+\tagshift@=\dimen144
+\tagwidth@=\dimen145
+\totwidth@=\dimen146
+\lineht@=\dimen147
+\@envbody=\toks19
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+) (C:\Program Files\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Program Files\MiKTeX\tex/latex/lm\lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (C:\Program Files\MiKTeX\tex/generic/iftex\ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+(C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+)) (C:\Program Files\MiKTeX\tex/generic/iftex\ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/unicode-math\unicode-math.st
+y (C:\Program Files\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2021-06-01 L3 programming layer (loader) 
+(C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-xetex.def
+File: l3backend-xetex.def 2021-05-07 L3 backend support: XeTeX
+()
+\c__kernel_sys_dvipdfmx_version_int=\count199
+\l__color_backend_stack_int=\count266
+\g__color_backend_stack_int=\count267
+\g__graphics_track_int=\count268
+\l__pdf_internal_box=\box52
+\g__pdf_backend_object_int=\count269
+\g__pdf_backend_annotation_int=\count270
+\g__pdf_backend_link_int=\count271
+))
+Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
+
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/unicode-math\unicode-math-xete
+x.sty
+Package: unicode-math-xetex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLa
+TeX
+(C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
+Package: xparse 2021-06-01 L3 Experimental document command parser
+) (C:\Program Files\MiKTeX\tex/latex/l3packages/l3keys2e\l3keys2e.sty
+Package: l3keys2e 2021-06-01 LaTeX2e option processing using LaTeX3 keys
+) (C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec.sty
+Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
+(C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec-xetex.sty
+Package: fontspec-xetex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count272
+\l__fontspec_language_int=\count273
+\l__fontspec_strnum_int=\count274
+\l__fontspec_tmp_int=\count275
+\l__fontspec_tmpa_int=\count276
+\l__fontspec_tmpb_int=\count277
+\l__fontspec_tmpc_int=\count278
+\l__fontspec_em_int=\count279
+\l__fontspec_emdef_int=\count280
+\l__fontspec_strong_int=\count281
+\l__fontspec_strongdef_int=\count282
+\l__fontspec_tmpa_dim=\dimen148
+\l__fontspec_tmpb_dim=\dimen149
+\l__fontspec_tmpc_dim=\dimen150
+(C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec.cfg))) (C:\Program Files
+\MiKTeX\tex/latex/base\fix-cm.sty
+Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
+(C:\Program Files\MiKTeX\tex/latex/base\ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+\g__um_fam_int=\count283
+\g__um_fonts_used_int=\count284
+\l__um_primecount_int=\count285
+\g__um_primekern_muskip=\muskip17
+
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/unicode-math\unicode-math-tabl
+e.tex))) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+(C:\Program Files\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/microtype\microtype.sty
+Package: microtype 2021/03/14 v2.8c Micro-typographical refinements (RS)
+(C:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+\MT@toks=\toks22
+\MT@count=\count286
+LaTeX Info: Redefining \textls on input line 790.
+\MT@outer@kern=\dimen151
+LaTeX Info: Redefining \textmicrotypecontext on input line 1374.
+\MT@listname@count=\count287
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/microtype\microtype-xetex.def
+File: microtype-xetex.def 2021/03/14 v2.8c Definitions specific to xetex (RS)
+LaTeX Info: Redefining \lsstyle on input line 254.
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/microtype\microtype.cfg
+File: microtype.cfg 2021/03/14 v2.8c microtype main configuration file (RS)
+)) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/parskip\parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)) (C:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count288
+)) (C:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 225.
+(C:\Program Files\MiKTeX\tex/latex/graphics-def\xetex.def
+File: xetex.def 2021/03/18 v5.0k Graphics/color driver for xetex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/xurl\xurl.sty
+Package: xurl 2020/12/30 v 0.09a modify URL breaks
+(C:\Program Files\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/bookmark\bookmark.sty
+Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
+(C:\Program Files\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2021-06-05 v7.00l Hypertext links for LaTeX
+(C:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+)
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.st
+y
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/letltxmacro\letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+\@linkdim=\dimen152
+\Hy@linkcounter=\count289
+\Hy@pagecounter=\count290
+(C:\Program Files\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2021-06-05 v7.00l Hyperref: PDFDocEncoding definition (HO)
+) (C:\Program Files\MiKTeX\tex/latex/hyperref\hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-06-05 v7.00l Hyperref: patches for babel la
+nguages
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count291
+(C:\Program Files\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2021-06-05 v7.00l Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4073.
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count292
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen153
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count293
+\Field@Width=\dimen154
+\Fld@charsize=\dimen155
+Package hyperref Info: Hyper figures OFF on input line 6076.
+Package hyperref Info: Link nesting OFF on input line 6081.
+Package hyperref Info: Hyper index ON on input line 6084.
+Package hyperref Info: backreferencing OFF on input line 6091.
+Package hyperref Info: Link coloring OFF on input line 6096.
+Package hyperref Info: Link coloring with OCG OFF on input line 6101.
+Package hyperref Info: PDF/A mode OFF on input line 6106.
+LaTeX Info: Redefining \ref on input line 6146.
+LaTeX Info: Redefining \pageref on input line 6150.
+(C:\Program Files\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count294
+\c@Item=\count295
+\c@Hfootnote=\count296
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+(C:\Program Files\MiKTeX\tex/latex/hyperref\hxetex.def
+File: hxetex.def 2021-06-05 v7.00l Hyperref driver for XeTeX
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\pdfm@box=\box53
+\c@Hy@AnnotLevel=\count297
+\HyField@AnnotCount=\count298
+\Fld@listcount=\count299
+\c@bookmark@seq@number=\count300
+
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.
+sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+(C:\Program Files\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
+e
+with kernel methods
+)
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/uniquecounter\uniquecounter.
+sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip52
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/bookmark\bkm-dvipdfm.def
+File: bkm-dvipdfm.def 2020-11-06 v1.29 bookmark driver for dvipdfm (HO)
+\BKM@id=\count301
+)) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
+Package: fancyvrb 2021/01/20 v3.7 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count302
+\FV@InFile=\read2
+\FV@TabBox=\box54
+\c@FancyVerbLine=\count303
+\FV@StepNumber=\count304
+\FV@OutFile=\write3
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/framed\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip53
+\fb@frw=\dimen156
+\fb@frh=\dimen157
+\FrameRule=\dimen158
+\FrameSep=\dimen159
+) (C:\Program Files\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2021-05-07 v4.16 Multi-page Table package (DPC)
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count305
+\LTcapwidth=\dimen160
+\LT@head=\box55
+\LT@firsthead=\box56
+\LT@foot=\box57
+\LT@lastfoot=\box58
+\LT@gbox=\box59
+\LT@cols=\count306
+\LT@rows=\count307
+\c@LT@tables=\count308
+\c@LT@chunks=\count309
+\LT@p@ftn=\toks23
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen161
+\lightrulewidth=\dimen162
+\cmidrulewidth=\dimen163
+\belowrulesep=\dimen164
+\belowbottomsep=\dimen165
+\aboverulesep=\dimen166
+\abovetopsep=\dimen167
+\cmidrulesep=\dimen168
+\cmidrulekern=\dimen169
+\defaultaddspace=\dimen170
+\@cmidla=\count310
+\@cmidlb=\count311
+\@aboverulesep=\dimen171
+\@belowrulesep=\dimen172
+\@thisruleclass=\count312
+\@lastruleclass=\count313
+\@thisrulewidth=\dimen173
+) (C:\Program Files\MiKTeX\tex/latex/tools\array.sty
+Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
+\col@sep=\dimen174
+\ar@mcellbox=\box60
+\extrarowheight=\dimen175
+\NC@list=\toks24
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box61
+) (C:\Program Files\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count314
+\calc@Bcount=\count315
+\calc@Adimen=\dimen176
+\calc@Bdimen=\dimen177
+\calc@Askip=\skip60
+\calc@Bskip=\skip61
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count316
+\calc@Cskip=\skip62
+)
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/footnotehyper\footnotehyper.st
+y
+Package: footnotehyper 2021/02/04 v1.1d hyperref aware footnote.sty (JFB)
+\FNH@notes=\box62
+\FNH@width=\dimen178
+\FNH@toks=\toks25
+) (C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
+(C:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+(C:\Program Files\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (C:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 107.
+)
+\Gin@req@height=\dimen179
+\Gin@req@width=\dimen180
+) (C:\Program Files\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2021/06/02 3.60 The Babel package
+(C:\Program Files\MiKTeX\tex/generic/babel\babel.def
+File: babel.def 2021/06/02 3.60 Babel common definitions
+\babel@savecnt=\count317
+\U@D=\dimen181
+\l@unhyphenated=\language79
+(C:\Program Files\MiKTeX\tex/generic/babel\xebabel.def (C:\Program Files\MiKTeX
+\tex/generic/babel\txtbabel.def))
+\bbl@readstream=\read3
+)
+\bbl@dirlevel=\count318
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Program Files\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/babel-spanish\spanish.ldf
+Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
+\es@quottoks=\toks26
+\es@quotdepth=\count319
+Package babel Info: Making " an active character on input line 570.
+Package babel Info: Making . an active character on input line 675.
+Package babel Info: Making < an active character on input line 722.
+Package babel Info: Making > an active character on input line 722.
+))
+LaTeX Info: Redefining \. on input line 114.
+LaTeX Info: Redefining \% on input line 114.
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen182
+\captionmargin@=\dimen183
+\captionwidth=\dimen184
+\caption@tempdima=\dimen185
+\caption@indent=\dimen186
+\caption@parindent=\dimen187
+\caption@hangindent=\dimen188
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count320
+\c@continuedfloat=\count321
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+)) (C:\Program Files\MiKTeX\tex/latex/base\makeidx.sty
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+)
+\@indexfile=\write4
+\openout4 = `Manual_de_R.idx'.
+
+Writing index file Manual_de_R.idx
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks27
+\thm@bodyfont=\toks28
+\thm@headfont=\toks29
+\thm@notefont=\toks30
+\thm@headpunct=\toks31
+\thm@preskip=\skip63
+\thm@postskip=\skip64
+\thm@headsep=\skip65
+\dth@everypar=\toks32
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip66
+\bibsep=\skip67
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count322
+) (Manual_de_R.aux
+LaTeX Info: Redefining \. on input line 26.
+LaTeX Info: Redefining \% on input line 26.
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
+)
+\openout1 = `Manual_de_R.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 236.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 236.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 236.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 236.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 236.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 236.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 236.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 236.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:s
+cript=math;language=dflt;"<6-8.5>s*[0.9999964596882403]"[latinmodern-math.otf]/
+OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9999964596882403]"[latinmodern-m
+ath.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 236.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 236.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
+ line 236.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 236.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
+t line 236.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\f
+ontdimen
+(fontspec)             8\font =6.77pt\relax \fontdimen 9\font =3.94pt\relax
+(fontspec)             \fontdimen 10\font =4.44pt\relax \fontdimen 11\font
+(fontspec)             =6.86pt\relax \fontdimen 12\font =3.45pt\relax
+(fontspec)             \fontdimen 13\font =3.63pt\relax \fontdimen 14\font
+(fontspec)             =3.63pt\relax \fontdimen 15\font =2.89pt\relax
+(fontspec)             \fontdimen 16\font =2.47pt\relax \fontdimen 17\font
+(fontspec)             =2.47pt\relax \fontdimen 18\font =2.5pt\relax
+(fontspec)             \fontdimen 19\font =2.0pt\relax \fontdimen 22\font
+(fontspec)             =2.5pt\relax \fontdimen 20\font =0pt\relax \fontdimen
+(fontspec)             21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[1.000096459334209]"[latinmodern-math.otf]/OT:sc
+ript=math;language=dflt;"<6-8.5>s*[1.000096459334209]"[latinmodern-math.otf]/OT
+:script=math;language=dflt;+ssty=0;"<-6>s*[1.000096459334209]"[latinmodern-math
+.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =6.77pt\relax \fontdimen 9\font
+(fontspec)             =3.94pt\relax \fontdimen 10\font =4.44pt\relax
+(fontspec)             \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
+(fontspec)             =3.45pt\relax \fontdimen 13\font =3.63pt\relax
+(fontspec)             \fontdimen 14\font =3.63pt\relax \fontdimen 15\font
+(fontspec)             =2.89pt\relax \fontdimen 16\font =2.47pt\relax
+(fontspec)             \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
+(fontspec)             =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen
+(fontspec)             22\font =2.5pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.000096459334209]"[latinmodern-math.otf]/OT:scrip
+t=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =6.77pt\relax \fontdimen 9\font
+(fontspec)             =3.94pt\relax \fontdimen 10\font =4.44pt\relax
+(fontspec)             \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
+(fontspec)             =3.45pt\relax \fontdimen 13\font =3.63pt\relax
+(fontspec)             \fontdimen 14\font =3.63pt\relax \fontdimen 15\font
+(fontspec)             =2.89pt\relax \fontdimen 16\font =2.47pt\relax
+(fontspec)             \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
+(fontspec)             =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen
+(fontspec)             22\font =2.5pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 236.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
+t line 236.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 236.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
+t line 236.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\f
+ontdimen
+(fontspec)             8\font =0.4pt\relax \fontdimen 9\font =2.0pt\relax
+(fontspec)             \fontdimen 10\font =1.67pt\relax \fontdimen 11\font
+(fontspec)             =1.11pt\relax \fontdimen 12\font =6.0pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:s
+cript=math;language=dflt;"<6-8.5>s*[0.9998964600422715]"[latinmodern-math.otf]/
+OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9998964600422715]"[latinmodern-m
+ath.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.4pt\relax \fontdimen 9\font
+(fontspec)             =2.0pt\relax \fontdimen 10\font =1.67pt\relax
+(fontspec)             \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
+(fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.4pt\relax \fontdimen 9\font
+(fontspec)             =2.0pt\relax \fontdimen 10\font =1.67pt\relax
+(fontspec)             \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
+(fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 2
+36.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
+t line 236.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 236
+.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
+t line 236.
+LaTeX Info: Redefining \microtypecontext on input line 236.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using protrusion set `basicmath'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of spacing.
+Package microtype Info: No adjustment of kerning.
+
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/microtype\mt-LatinModernRoman.
+cfg
+File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Mod
+ern Roman (RS)
+)
+Package hyperref Info: Link coloring OFF on input line 236.
+(C:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\fhern\AppData\Roaming\MiKTeX\tex/generic/gettitlestring\gettitlestrin
+g.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count323
+)
+LaTeX Info: Redefining \ref on input line 236.
+LaTeX Info: Redefining \pageref on input line 236.
+LaTeX Info: Redefining \nameref on input line 236.
+LaTeX Info: Redefining \. on input line 236.
+LaTeX Info: Redefining \% on input line 236.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 238.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 238.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 238.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
+38.
+(C:\Program Files\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 12.0011pt on input line 238.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.00073pt on input line 238.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00055pt on input line 238.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 238.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.99915pt on input line 238.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 238.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 238
+.
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/microtype\mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 238
+.
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (C:\Users\fhern\AppData\Roaming\MiKTeX\tex/latex/microtype\mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) [1
+
+
+
+] [2] (Manual_de_R.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+
+LaTeX Font Warning: Font shape `TU/lmr/bx/sc' undefined
+(Font)              using `TU/lmr/bx/n' instead on input line 3.
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 3.
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 4.
+
+Overfull \hbox (0.12997pt too wide) detected at line 5
+ [][]
+ []
+
+
+Overfull \hbox (0.12997pt too wide) detected at line 6
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 8.
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 9.
+
+
+Overfull \hbox (0.12997pt too wide) detected at line 10
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 13.
+
+
+Overfull \hbox (3.01997pt too wide) detected at line 18
+ [][]
+ []
+
+
+Overfull \hbox (5.90997pt too wide) detected at line 30
+ [][]
+ []
+
+
+Overfull \hbox (5.90997pt too wide) detected at line 33
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 34.
+
+
+Overfull \hbox (5.90997pt too wide) detected at line 35
+ [][]
+ []
+
+
+Overfull \hbox (5.90997pt too wide) detected at line 36
+ [][]
+ []
+
+
+Overfull \hbox (5.90997pt too wide) detected at line 37
+ [][]
+ []
+
+
+Overfull \hbox (2.88997pt too wide) detected at line 38
+ [][]
+ []
+
+
+Overfull \hbox (9.14996pt too wide) detected at line 39
+ [][]
+ []
+
+
+Overfull \hbox (9.14996pt too wide) detected at line 40
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 41.
+
+
+Overfull \hbox (12.38997pt too wide) detected at line 42
+ [][]
+ []
+
+
+Overfull \hbox (12.38997pt too wide) detected at line 43
+ [][]
+ []
+
+
+Overfull \hbox (12.03998pt too wide) detected at line 44
+ [][]
+ []
+
+[3
+
+]
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 45.
+
+
+Overfull \hbox (15.27997pt too wide) detected at line 46
+ [][]
+ []
+
+
+Overfull \hbox (18.51997pt too wide) detected at line 47
+ [][]
+ []
+
+
+Overfull \hbox (18.51997pt too wide) detected at line 49
+ [][]
+ []
+
+
+Overfull \hbox (2.01997pt too wide) detected at line 53
+ [][]
+ []
+
+
+Overfull \hbox (4.90997pt too wide) detected at line 55
+ [][]
+ []
+
+
+Overfull \hbox (0.99997pt too wide) detected at line 57
+ [][]
+ []
+
+
+Overfull \hbox (7.25996pt too wide) detected at line 58
+ [][]
+ []
+
+
+Overfull \hbox (10.49997pt too wide) detected at line 60
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 68.
+
+
+Overfull \hbox (1.12997pt too wide) detected at line 74
+ [][]
+ []
+
+
+Overfull \hbox (1.12997pt too wide) detected at line 76
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 80.
+
+
+Overfull \hbox (1.88997pt too wide) detected at line 87
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 88.
+
+
+Overfull \hbox (4.90997pt too wide) detected at line 89
+ [][]
+ []
+
+
+Overfull \hbox (4.90997pt too wide) detected at line 90
+ [][]
+ []
+
+
+Overfull \hbox (1.88997pt too wide) detected at line 93
+ [][]
+ []
+
+
+Overfull \hbox (11.38997pt too wide) detected at line 99
+ [][]
+ []
+
+
+Overfull \hbox (11.03998pt too wide) detected at line 101
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 102.
+
+
+Overfull \hbox (14.27997pt too wide) detected at line 103
+ [][]
+ []
+
+
+Overfull \hbox (11.03998pt too wide) detected at line 106
+ [][]
+ []
+
+
+Overfull \hbox (8.01997pt too wide) detected at line 109
+ [][]
+ []
+
+
+Overfull \hbox (11.03998pt too wide) detected at line 111
+ [][]
+ []
+
+
+Overfull \hbox (14.14996pt too wide) detected at line 114
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 115.
+
+
+Overfull \hbox (23.64998pt too wide) detected at line 116
+ [][]
+ []
+
+
+Overfull \hbox (17.16997pt too wide) detected at line 120
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 124.
+
+LaTeX Info: Redefining \. on input line 124.
+LaTeX Info: Redefining \% on input line 124.
+[4]
+Overfull \hbox (5.46997pt too wide) detected at line 125
+ [][]
+ []
+
+
+Overfull \hbox (2.44997pt too wide) detected at line 128
+ [][]
+ []
+
+
+Overfull \hbox (11.94997pt too wide) detected at line 131
+ [][]
+ []
+
+
+Overfull \hbox (5.46997pt too wide) detected at line 134
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 136.
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 139.
+
+
+Overfull \hbox (6.03998pt too wide) detected at line 145
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 146.
+
+
+Overfull \hbox (2.66997pt too wide) detected at line 153
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 155.
+
+
+Overfull \hbox (5.68997pt too wide) detected at line 156
+ [][]
+ []
+
+
+Overfull \hbox (11.81998pt too wide) detected at line 160
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 162.
+
+
+Overfull \hbox (18.29997pt too wide) detected at line 163
+ [][]
+ []
+
+
+Overfull \hbox (17.94997pt too wide) detected at line 164
+ [][]
+ []
+
+
+Overfull \hbox (17.94997pt too wide) detected at line 165
+ [][]
+ []
+
+
+Overfull \hbox (10.81998pt too wide) detected at line 169
+ [][]
+ []
+
+
+Overfull \hbox (6.90997pt too wide) detected at line 172
+ [][]
+ []
+
+
+Overfull \hbox (16.40997pt too wide) detected at line 174
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 175.
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 178.
+
+
+Overfull \hbox (0.77997pt too wide) detected at line 179
+ [][]
+ []
+
+
+Overfull \hbox (0.77997pt too wide) detected at line 180
+ [][]
+ []
+
+
+Overfull \hbox (4.68997pt too wide) detected at line 183
+ [][]
+ []
+
+
+Overfull \hbox (7.79997pt too wide) detected at line 188
+ [][]
+ []
+
+
+Overfull \hbox (17.29997pt too wide) detected at line 191
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 192.
+
+
+Overfull \hbox (10.81998pt too wide) detected at line 193
+ [][]
+ []
+
+
+Overfull \hbox (16.94997pt too wide) detected at line 202
+ [][]
+ []
+
+
+Overfull \hbox (23.42998pt too wide) detected at line 207
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 212.
+
+
+Overfull \hbox (16.94997pt too wide) detected at line 213
+ [][]
+ []
+
+
+Overfull \hbox (23.42998pt too wide) detected at line 215
+ [][]
+ []
+
+LaTeX Info: Redefining \. on input line 217.
+LaTeX Info: Redefining \% on input line 217.
+[5]
+Overfull \hbox (23.07997pt too wide) detected at line 217
+ [][]
+ []
+
+
+Overfull \hbox (23.07997pt too wide) detected at line 224
+ [][]
+ []
+
+
+Overfull \hbox (2.22997pt too wide) detected at line 226
+ [][]
+ []
+
+
+Overfull \hbox (8.35997pt too wide) detected at line 229
+ [][]
+ []
+
+
+Overfull \hbox (14.61996pt too wide) detected at line 231
+ [][]
+ []
+
+
+Overfull \hbox (11.37997pt too wide) detected at line 233
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 237.
+
+
+Overfull \hbox (5.81998pt too wide) detected at line 238
+ [][]
+ []
+
+
+Package spanish Warning: Replacing `TU/lmr/bx/sc' by 
+(spanish)                faked small caps on input line 240.
+
+
+Overfull \hbox (8.70998pt too wide) detected at line 241
+ [][]
+ []
+
+)
+\tf@toc=\write5
+\openout5 = `Manual_de_R.toc'.
+
+LaTeX Info: Redefining \. on input line 261.
+LaTeX Info: Redefining \% on input line 261.
+[6]
+File: images/portada.png Graphic file (type bmp)
+<images/portada.png>
+
+Package hyperref Warning: Suppressing empty link on input line 274.
+
+[7
+
+]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+File: images/tip.png Graphic file (type bmp)
+<images/tip.png>
+LaTeX Info: Redefining \. on input line 321.
+LaTeX Info: Redefining \% on input line 321.
+[8]
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+LaTeX Info: Redefining \. on input line 338.
+LaTeX Info: Redefining \% on input line 338.
+[9]
+LaTeX Info: Redefining \. on input line 338.
+LaTeX Info: Redefining \% on input line 338.
+[10
+
+] [11]
+LaTeX Info: Redefining \. on input line 346.
+LaTeX Info: Redefining \% on input line 346.
+[12
+
+] [13]
+LaTeX Info: Redefining \. on input line 398.
+LaTeX Info: Redefining \% on input line 398.
+[14] [15
+
+]
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
+[16]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+LaTeX Info: Redefining \. on input line 548.
+LaTeX Info: Redefining \% on input line 548.
+[17]
+LaTeX Info: Redefining \. on input line 613.
+LaTeX Info: Redefining \% on input line 613.
+[18]
+LaTeX Info: Redefining \. on input line 679.
+LaTeX Info: Redefining \% on input line 679.
+[19]
+LaTeX Info: Redefining \. on input line 736.
+LaTeX Info: Redefining \% on input line 736.
+[20]
+LaTeX Info: Redefining \. on input line 785.
+LaTeX Info: Redefining \% on input line 785.
+[21]
+LaTeX Info: Redefining \. on input line 857.
+LaTeX Info: Redefining \% on input line 857.
+[22]
+LaTeX Info: Redefining \. on input line 918.
+LaTeX Info: Redefining \% on input line 918.
+[23]
+LaTeX Info: Redefining \. on input line 970.
+LaTeX Info: Redefining \% on input line 970.
+[24]
+LaTeX Info: Redefining \. on input line 1020.
+LaTeX Info: Redefining \% on input line 1020.
+[25]
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+LaTeX Info: Redefining \. on input line 1096.
+LaTeX Info: Redefining \% on input line 1096.
+[26]
+LaTeX Info: Redefining \. on input line 1117.
+LaTeX Info: Redefining \% on input line 1117.
+[27]
+LaTeX Info: Redefining \. on input line 1117.
+LaTeX Info: Redefining \% on input line 1117.
+[28
+
+]
+Underfull \hbox (badness 1831) in paragraph at lines 1142--1144
+\TU/lmtt/m/n/10 peso_maiz\TU/lmr/m/n/10 ) o utilizar la notación camello inicia
+ndo en minúscula
+ []
+
+[29]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1178.
+LaTeX Info: Redefining \. on input line 1209.
+LaTeX Info: Redefining \% on input line 1209.
+[30]
+LaTeX Info: Redefining \. on input line 1256.
+LaTeX Info: Redefining \% on input line 1256.
+[31]
+LaTeX Info: Redefining \. on input line 1290.
+LaTeX Info: Redefining \% on input line 1290.
+[32] [33
+
+]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 1347--1347
+[]\TU/lmtt/m/n/10 ## [1] "Hola, Pedro el año siguiente usted tendr 26 años de e
+dad."[] 
+ []
+
+LaTeX Info: Redefining \. on input line 1369.
+LaTeX Info: Redefining \% on input line 1369.
+[34]
+LaTeX Info: Redefining \. on input line 1377.
+LaTeX Info: Redefining \% on input line 1377.
+[35]
+LaTeX Info: Redefining \. on input line 1377.
+LaTeX Info: Redefining \% on input line 1377.
+[36
+
+] [37]
+File: images/important.png Graphic file (type bmp)
+<images/important.png>
+LaTeX Info: Redefining \. on input line 1469.
+LaTeX Info: Redefining \% on input line 1469.
+[38]
+LaTeX Info: Redefining \. on input line 1564.
+LaTeX Info: Redefining \% on input line 1564.
+[39]
+LaTeX Info: Redefining \. on input line 1631.
+LaTeX Info: Redefining \% on input line 1631.
+[40]
+LaTeX Info: Redefining \. on input line 1687.
+LaTeX Info: Redefining \% on input line 1687.
+[41]
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+LaTeX Info: Redefining \. on input line 1756.
+LaTeX Info: Redefining \% on input line 1756.
+[42]
+File: images/tip.png Graphic file (type bmp)
+<images/tip.png>
+LaTeX Info: Redefining \. on input line 1821.
+LaTeX Info: Redefining \% on input line 1821.
+[43]
+LaTeX Info: Redefining \. on input line 1896.
+LaTeX Info: Redefining \% on input line 1896.
+[44]
+LaTeX Info: Redefining \. on input line 1987.
+LaTeX Info: Redefining \% on input line 1987.
+[45]
+LaTeX Info: Redefining \. on input line 2073.
+LaTeX Info: Redefining \% on input line 2073.
+[46]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2094.
+LaTeX Info: Redefining \. on input line 2166.
+LaTeX Info: Redefining \% on input line 2166.
+[47]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 2256.
+LaTeX Info: Redefining \% on input line 2256.
+[48]
+LaTeX Info: Redefining \. on input line 2351.
+LaTeX Info: Redefining \% on input line 2351.
+[49]
+LaTeX Info: Redefining \. on input line 2432.
+LaTeX Info: Redefining \% on input line 2432.
+[50]
+LaTeX Info: Redefining \. on input line 2513.
+LaTeX Info: Redefining \% on input line 2513.
+[51]
+LaTeX Info: Redefining \. on input line 2565.
+LaTeX Info: Redefining \% on input line 2565.
+[52]
+LaTeX Info: Redefining \. on input line 2571.
+LaTeX Info: Redefining \% on input line 2571.
+[53]
+LaTeX Info: Redefining \. on input line 2571.
+LaTeX Info: Redefining \% on input line 2571.
+[54
+
+] [55]
+LaTeX Info: Redefining \. on input line 2657.
+LaTeX Info: Redefining \% on input line 2657.
+[56]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 2667--2667
+[]\TU/lmtt/m/n/10 ## [1] "Es impar" "Es impar" "Es par"   "Es par"   "Es par"  
+ "Es impar"[] 
+ []
+
+LaTeX Info: Redefining \. on input line 2715.
+LaTeX Info: Redefining \% on input line 2715.
+[57]
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2769--2769
+[]\TU/lmtt/m/n/10 ##  [1] "Sello" "Sello" "Sello" "Sello" "Cara"  "Cara"  "Sell
+o" "Sello" "Cara"[] 
+ []
+
+LaTeX Info: Redefining \. on input line 2771.
+LaTeX Info: Redefining \% on input line 2771.
+[58]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 2830.
+LaTeX Info: Redefining \% on input line 2830.
+[59]
+File: images/tip.png Graphic file (type bmp)
+<images/tip.png>
+LaTeX Info: Redefining \. on input line 2835.
+LaTeX Info: Redefining \% on input line 2835.
+[60]
+Overfull \vbox (0.17685pt too high) detected at line 2871
+ []
+
+[61
+
+]
+LaTeX Info: Redefining \. on input line 2916.
+LaTeX Info: Redefining \% on input line 2916.
+[62]
+LaTeX Info: Redefining \. on input line 2964.
+LaTeX Info: Redefining \% on input line 2964.
+[63]
+LaTeX Info: Redefining \. on input line 3012.
+LaTeX Info: Redefining \% on input line 3012.
+[64]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 3073.
+LaTeX Info: Redefining \% on input line 3073.
+[65]
+LaTeX Info: Redefining \. on input line 3126.
+LaTeX Info: Redefining \% on input line 3126.
+[66]
+LaTeX Info: Redefining \. on input line 3173.
+LaTeX Info: Redefining \% on input line 3173.
+[67]
+LaTeX Info: Redefining \. on input line 3173.
+LaTeX Info: Redefining \% on input line 3173.
+[68
+
+] [69]
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+File: images/tip.png Graphic file (type bmp)
+<images/tip.png>
+LaTeX Info: Redefining \. on input line 3252.
+LaTeX Info: Redefining \% on input line 3252.
+[70]
+LaTeX Info: Redefining \. on input line 3310.
+LaTeX Info: Redefining \% on input line 3310.
+[71]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+LaTeX Info: Redefining \. on input line 3363.
+LaTeX Info: Redefining \% on input line 3363.
+[72]
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+LaTeX Info: Redefining \. on input line 3409.
+LaTeX Info: Redefining \% on input line 3409.
+[73]
+LaTeX Info: Redefining \. on input line 3474.
+LaTeX Info: Redefining \% on input line 3474.
+[74]
+LaTeX Info: Redefining \. on input line 3474.
+LaTeX Info: Redefining \% on input line 3474.
+[75]
+LaTeX Info: Redefining \. on input line 3474.
+LaTeX Info: Redefining \% on input line 3474.
+[76
+
+] [77]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 3582.
+LaTeX Info: Redefining \% on input line 3582.
+[78]
+LaTeX Info: Redefining \. on input line 3649.
+LaTeX Info: Redefining \% on input line 3649.
+[79]
+LaTeX Info: Redefining \. on input line 3724.
+LaTeX Info: Redefining \% on input line 3724.
+[80]
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+LaTeX Info: Redefining \. on input line 3783.
+LaTeX Info: Redefining \% on input line 3783.
+[81]
+LaTeX Info: Redefining \. on input line 3828.
+LaTeX Info: Redefining \% on input line 3828.
+[82]
+File: Manual_de_R_files/figure-latex/dots-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/dots-1.pdf>
+LaTeX Info: Redefining \. on input line 3885.
+LaTeX Info: Redefining \% on input line 3885.
+[83]
+LaTeX Info: Redefining \. on input line 3915.
+LaTeX Info: Redefining \% on input line 3915.
+[84]
+Underfull \hbox (badness 1253) in paragraph at lines 3938--3939
+[]\TU/lmr/m/n/10 De este último resultado se ve claramente el efecto de los par
+ámetros
+ []
+
+LaTeX Info: Redefining \. on input line 3964.
+LaTeX Info: Redefining \% on input line 3964.
+[85]
+LaTeX Info: Redefining \. on input line 3964.
+LaTeX Info: Redefining \% on input line 3964.
+[86
+
+]
+Underfull \vbox (badness 2717) has occurred while \output is active []
+
+[87]
+LaTeX Info: Redefining \. on input line 4064.
+LaTeX Info: Redefining \% on input line 4064.
+[88]
+LaTeX Info: Redefining \. on input line 4117.
+LaTeX Info: Redefining \% on input line 4117.
+[89]
+LaTeX Info: Redefining \. on input line 4182.
+LaTeX Info: Redefining \% on input line 4182.
+[90]
+LaTeX Info: Redefining \. on input line 4187.
+LaTeX Info: Redefining \% on input line 4187.
+[91]
+LaTeX Info: Redefining \. on input line 4187.
+LaTeX Info: Redefining \% on input line 4187.
+[92
+
+]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 4245--4245
+[]\TU/lmtt/m/n/10 ##   precio   mt2 ubicacion estrato alcobas banos balcon parq
+ueadero[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 4245--4245
+[]\TU/lmtt/m/n/10 ## 1     79 43.16     norte       3       3     1     si     
+     si[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 4245--4245
+[]\TU/lmtt/m/n/10 ## 2     93 56.92     norte       2       2     1     si     
+     si[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 4245--4245
+[]\TU/lmtt/m/n/10 ## 3    100 66.40     norte       3       2     2     no     
+     no[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 4245--4245
+[]\TU/lmtt/m/n/10 ## 4    123 61.85     norte       2       3     2     si     
+     si[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 4245--4245
+[]\TU/lmtt/m/n/10 ## 5    135 89.80     norte       4       3     2     si     
+     no[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 4245--4245
+[]\TU/lmtt/m/n/10 ## 6    140 71.00     norte       3       3     2     no     
+     si[] 
+ []
+
+[93]
+LaTeX Info: Redefining \. on input line 4295.
+LaTeX Info: Redefining \% on input line 4295.
+[94]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 4341.
+LaTeX Info: Redefining \% on input line 4341.
+[95]
+LaTeX Info: Redefining \. on input line 4397.
+LaTeX Info: Redefining \% on input line 4397.
+[96]
+File: Manual_de_R_files/figure-latex/box1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/box1-1.pdf>
+LaTeX Info: Redefining \. on input line 4424.
+LaTeX Info: Redefining \% on input line 4424.
+[97]
+LaTeX Info: Redefining \. on input line 4477.
+LaTeX Info: Redefining \% on input line 4477.
+[98]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 4525.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 14.4013pt on input line 4525.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 14.39845pt on input line 4525.
+LaTeX Info: Redefining \. on input line 4529.
+LaTeX Info: Redefining \% on input line 4529.
+[99]
+LaTeX Info: Redefining \. on input line 4564.
+LaTeX Info: Redefining \% on input line 4564.
+[100] [101
+
+]
+LaTeX Info: Redefining \. on input line 4640.
+LaTeX Info: Redefining \% on input line 4640.
+[102]
+Underfull \hbox (badness 2452) in paragraph at lines 4663--4665
+\TU/lmr/m/n/10 registros \TU/lmtt/m/n/10 NA \TU/lmr/m/n/10 en alguno de los vec
+tores. Las diferentes posibilida-
+ []
+
+
+Underfull \hbox (badness 2644) in paragraph at lines 4663--4665
+\TU/lmr/m/n/10 des son: \TU/lmtt/m/n/10 everything\TU/lmr/m/n/10 , \TU/lmtt/m/n
+/10 all.obs\TU/lmr/m/n/10 , \TU/lmtt/m/n/10 complete.obs\TU/lmr/m/n/10 , \TU/lm
+tt/m/n/10 na.or.complete \TU/lmr/m/n/10 y
+ []
+
+[103
+
+]
+File: Manual_de_R_files/figure-latex/disp-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/disp-1.pdf>
+LaTeX Info: Redefining \. on input line 4714.
+LaTeX Info: Redefining \% on input line 4714.
+[104]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 4771--4771
+[]\TU/lmtt/m/n/10 ##  $ precio        : num  79 93 100 123 135 140 145 160 160 
+175 ...[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4771--4771
+[]\TU/lmtt/m/n/10 ##  $ administracion: num  0.05 0.069 0 0.13 0 0.12 0.14 0.12
+7 0 0.123 ...[] 
+ []
+
+LaTeX Info: Redefining \. on input line 4775.
+LaTeX Info: Redefining \% on input line 4775.
+[105]
+File: Manual_de_R_files/figure-latex/corplot-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/corplot-1.pdf>
+File: images/tip.png Graphic file (type bmp)
+<images/tip.png>
+
+Underfull \vbox (badness 1097) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 4833.
+LaTeX Info: Redefining \% on input line 4833.
+[106]
+Underfull \vbox (badness 2080) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 4868.
+LaTeX Info: Redefining \% on input line 4868.
+[107]
+LaTeX Info: Redefining \. on input line 4876.
+LaTeX Info: Redefining \% on input line 4876.
+[108]
+Underfull \vbox (badness 2245) has occurred while \output is active []
+
+[109
+
+]
+LaTeX Info: Redefining \. on input line 4990.
+LaTeX Info: Redefining \% on input line 4990.
+[110]
+File: Manual_de_R_files/figure-latex/binom1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/binom1-1.pdf>
+LaTeX Info: Redefining \. on input line 5017.
+LaTeX Info: Redefining \% on input line 5017.
+
+Overfull \hbox (8.43114pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.55.  FUNCIONES DISPONIBLES PARA DISTRIBUCIONES DISCRETAS  []
+ []
+
+[111]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 5028--5028
+[]\TU/lmtt/m/n/10 ##   [1] 0 1 4 1 3 4 2 3 1 0 3 2 1 4 1 1 1 3 0 5 0 3 5 3 2 3 
+1 1 2 4 1 3 2 2 3 2 2[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 5028--5028
+[]\TU/lmtt/m/n/10 ##  [38] 3 2 3 0 2 2 2 1 1 3 1 1 1 1 1 1 1 1 3 1 2 4 4 7 2 4 
+0 1 2 1 1 2 3 2 1 3 1[] 
+ []
+
+LaTeX Info: Redefining \. on input line 5098.
+LaTeX Info: Redefining \% on input line 5098.
+[112]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 5165.
+LaTeX Info: Redefining \% on input line 5165.
+
+Overfull \hbox (14.91115pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.55.  FUNCIONES DISPONIBLES PARA DISTRIBUCIONES DISCRETAS  []
+ []
+
+[113]
+LaTeX Info: Redefining \. on input line 5238.
+LaTeX Info: Redefining \% on input line 5238.
+[114]
+File: images/crab.png Graphic file (type bmp)
+<images/crab.png>
+
+Overfull \hbox (88.62518pt too wide) in paragraph at lines 5263--5264
+ [][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5267--5267
+[]\TU/lmr/bx/sc/10 Figura 6: |\TU/lmr/m/n/10 Fotografía del cangrejo de herradu
+ra, tomada de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5267--5267
+\TU/lmr/m/n/10 http://sccoastalresources.com/home/2016/6/21/a-night-of-horsesho
+e-crab-
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5297--5297
+[]\TU/lmtt/m/n/10 ##           0           1           2           3           
+4           5[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5297--5297
+[]\TU/lmtt/m/n/10 ## 0.358381503 0.092485549 0.052023121 0.109826590 0.10982659
+0 0.086705202[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5297--5297
+[]\TU/lmtt/m/n/10 ##           6           7           8           9          1
+0          11[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5297--5297
+[]\TU/lmtt/m/n/10 ## 0.075144509 0.023121387 0.034682081 0.017341040 0.01734104
+0 0.005780347[] 
+ []
+
+LaTeX Info: Redefining \. on input line 5297.
+LaTeX Info: Redefining \% on input line 5297.
+[115]
+File: Manual_de_R_files/figure-latex/pmfcrab-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/pmfcrab-1.pdf>
+LaTeX Info: Redefining \. on input line 5324.
+LaTeX Info: Redefining \% on input line 5324.
+[116]
+File: Manual_de_R_files/figure-latex/Fcrab-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/Fcrab-1.pdf>
+LaTeX Info: Redefining \. on input line 5377.
+LaTeX Info: Redefining \% on input line 5377.
+[117]
+LaTeX Info: Redefining \. on input line 5409.
+LaTeX Info: Redefining \% on input line 5409.
+[118]
+File: Manual_de_R_files/figure-latex/Fcrabs-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/Fcrabs-1.pdf>
+LaTeX Info: Redefining \. on input line 5427.
+LaTeX Info: Redefining \% on input line 5427.
+[119]
+LaTeX Info: Redefining \. on input line 5427.
+LaTeX Info: Redefining \% on input line 5427.
+[120
+
+] [121]
+File: Manual_de_R_files/figure-latex/beta1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/beta1-1.pdf>
+LaTeX Info: Redefining \. on input line 5503.
+LaTeX Info: Redefining \% on input line 5503.
+[122]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 5571.
+LaTeX Info: Redefining \% on input line 5571.
+
+Overfull \hbox (22.56223pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.57.  FUNCIONES DISPONIBLES PARA DISTRIBUCIONES CONTINUAS []
+ []
+
+[123]
+File: Manual_de_R_files/figure-latex/norm1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/norm1-1.pdf>
+File: images/tip.png Graphic file (type bmp)
+<images/tip.png>
+LaTeX Info: Redefining \. on input line 5654.
+LaTeX Info: Redefining \% on input line 5654.
+[124]
+LaTeX Info: Redefining \. on input line 5664.
+LaTeX Info: Redefining \% on input line 5664.
+
+Overfull \hbox (19.19223pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.57.  FUNCIONES DISPONIBLES PARA DISTRIBUCIONES CONTINUAS []
+ []
+
+[125]
+File: Manual_de_R_files/figure-latex/norm2-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/norm2-1.pdf>
+LaTeX Info: Redefining \. on input line 5748.
+LaTeX Info: Redefining \% on input line 5748.
+[126]
+LaTeX Info: Redefining \. on input line 5757.
+LaTeX Info: Redefining \% on input line 5757.
+[127]
+File: Manual_de_R_files/figure-latex/crabcont1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/crabcont1-1.pdf>
+LaTeX Info: Redefining \. on input line 5790.
+LaTeX Info: Redefining \% on input line 5790.
+[128]
+File: Manual_de_R_files/figure-latex/crabcont2-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/crabcont2-1.pdf>
+LaTeX Info: Redefining \. on input line 5835.
+LaTeX Info: Redefining \% on input line 5835.
+[129]
+File: Manual_de_R_files/figure-latex/crabcont3-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/crabcont3-1.pdf>
+File: Manual_de_R_files/figure-latex/crabcont4-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/crabcont4-1.pdf>
+LaTeX Info: Redefining \. on input line 5890.
+LaTeX Info: Redefining \% on input line 5890.
+[130]
+LaTeX Info: Redefining \. on input line 5890.
+LaTeX Info: Redefining \% on input line 5890.
+[131]
+LaTeX Info: Redefining \. on input line 5890.
+LaTeX Info: Redefining \% on input line 5890.
+[132]
+File: images/Fisher.png Graphic file (type bmp)
+<images/Fisher.png>
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
+(Font)              scaled to size 10.0pt on input line 5908.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
+(Font)              scaled to size 7.0pt on input line 5908.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
+(Font)              scaled to size 5.0pt on input line 5908.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
+(Font)              scaled to size 10.00092pt on input line 5908.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
+(Font)              scaled to size 7.00064pt on input line 5908.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
+(Font)              scaled to size 5.00046pt on input line 5908.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
+(Font)              scaled to size 9.99893pt on input line 5908.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
+(Font)              scaled to size 6.99925pt on input line 5908.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
+(Font)              scaled to size 4.99947pt on input line 5908.
+[133
+
+]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 5963.
+LaTeX Info: Redefining \% on input line 5963.
+[134]
+LaTeX Info: Redefining \. on input line 6030.
+LaTeX Info: Redefining \% on input line 6030.
+
+Overfull \hbox (59.92004pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.61.  MÉTODO DE MÁXIMA VEROSIMILITUD PARA ESTIMAR PARÁMETROS [
+]
+ []
+
+[135]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+File: Manual_de_R_files/figure-latex/loglik1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/loglik1-1.pdf>
+LaTeX Info: Redefining \. on input line 6113.
+LaTeX Info: Redefining \% on input line 6113.
+[136]
+LaTeX Info: Redefining \. on input line 6128.
+LaTeX Info: Redefining \% on input line 6128.
+
+Overfull \hbox (66.18004pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.61.  MÉTODO DE MÁXIMA VEROSIMILITUD PARA ESTIMAR PARÁMETROS [
+]
+ []
+
+[137]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6132--6132
+[]\TU/lmtt/m/n/10 ## [1] 166.5101 163.5757 174.9498 170.5589 170.5710 178.4910 
+170.2392[] 
+ []
+
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+File: Manual_de_R_files/figure-latex/loglik2-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/loglik2-1.pdf>
+
+Underfull \hbox (badness 1303) in paragraph at lines 6191--6192
+[]\TU/lmr/m/n/10 Obtenga los valores de $[]$ y $[]$ que maximizan la función de
+ log-
+ []
+
+LaTeX Info: Redefining \. on input line 6196.
+LaTeX Info: Redefining \% on input line 6196.
+[138]
+Underfull \vbox (badness 4531) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 6226.
+LaTeX Info: Redefining \% on input line 6226.
+
+Overfull \hbox (62.94003pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.61.  MÉTODO DE MÁXIMA VEROSIMILITUD PARA ESTIMAR PARÁMETROS [
+]
+ []
+
+[139]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 6263.
+LaTeX Info: Redefining \% on input line 6263.
+[140]
+LaTeX Info: Redefining \. on input line 6348.
+LaTeX Info: Redefining \% on input line 6348.
+
+Overfull \hbox (49.68004pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.61.  MÉTODO DE MÁXIMA VEROSIMILITUD PARA ESTIMAR PARÁMETROS [
+]
+ []
+
+[141]
+File: Manual_de_R_files/figure-latex/normgamma-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/normgamma-1.pdf>
+LaTeX Info: Redefining \. on input line 6377.
+LaTeX Info: Redefining \% on input line 6377.
+[142]
+File: images/tip.png Graphic file (type bmp)
+<images/tip.png>
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 6426.
+LaTeX Info: Redefining \% on input line 6426.
+
+Overfull \hbox (56.16003pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.61.  MÉTODO DE MÁXIMA VEROSIMILITUD PARA ESTIMAR PARÁMETROS [
+]
+ []
+
+[143]
+LaTeX Info: Redefining \. on input line 6480.
+LaTeX Info: Redefining \% on input line 6480.
+[144]
+File: Manual_de_R_files/figure-latex/loglikpoisson-1.pdf Graphic file (type pdf
+)
+<use Manual_de_R_files/figure-latex/loglikpoisson-1.pdf>
+
+Underfull \vbox (badness 2318) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 6501.
+LaTeX Info: Redefining \% on input line 6501.
+
+Overfull \hbox (201.16565pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.63.  MÉTODO DE MÁXIMA VEROSIMILITUD PARA ESTIMAR PARÁMETROS E
+N MODELOS DE REGRESIÓN []
+ []
+
+[145]
+LaTeX Info: Redefining \. on input line 6542.
+LaTeX Info: Redefining \% on input line 6542.
+[146]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 6582.
+LaTeX Info: Redefining \% on input line 6582.
+
+Overfull \hbox (207.42564pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.63.  MÉTODO DE MÁXIMA VEROSIMILITUD PARA ESTIMAR PARÁMETROS E
+N MODELOS DE REGRESIÓN []
+ []
+
+[147]
+LaTeX Info: Redefining \. on input line 6641.
+LaTeX Info: Redefining \% on input line 6641.
+[148]
+LaTeX Info: Redefining \. on input line 6704.
+LaTeX Info: Redefining \% on input line 6704.
+
+Overfull \hbox (205.07565pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.63.  MÉTODO DE MÁXIMA VEROSIMILITUD PARA ESTIMAR PARÁMETROS E
+N MODELOS DE REGRESIÓN []
+ []
+
+[149]
+LaTeX Info: Redefining \. on input line 6704.
+LaTeX Info: Redefining \% on input line 6704.
+[150
+
+] [151]
+File: Manual_de_R_files/figure-latex/histDist0-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/histDist0-1.pdf>
+LaTeX Info: Redefining \. on input line 6777.
+LaTeX Info: Redefining \% on input line 6777.
+[152]
+Overfull \hbox (16460.25pt too wide) in paragraph at lines 6789--6789
+[]\TU/lmtt/m/n/10 ##   |                                                       
+                       |                                                       
+               |   0%  |                                                       
+                       |===                                                    
+               |   4%  |                                                       
+                       |======                                                 
+               |   9%  |                                                       
+                       |=========                                              
+               |  13%  |                                                       
+                       |============                                           
+               |  17%  |                                                       
+                       |===============                                        
+               |  22%  |                                                       
+                       |==================                                     
+               |  26%  |                                                       
+                       |=====================                                  
+               |  30%  |                                                       
+                       |========================                               
+               |  35%  |                                                       
+                       |===========================                            
+               |  39%  |                                                       
+                       |==============================                         
+               |  43%  |                                                       
+                       |=================================                      
+               |  48%  |                                                       
+                       |=====================================                  
+               |  52%  |                                                       
+                       |========================================               
+               |  57%  |                                                       
+                       |===========================================            
+               |  61%  |                                                       
+                       |==============================================         
+               |  65%  |                                                       
+                       |=================================================      
+               |  70%  |                                                       
+                       |====================================================   
+               |  74%  |                                                       
+                       |=======================================================
+               |  78%  |                                                       
+                       |=======================================================
+===            |  83%Error in solve.default(oout$hessian) :[] 
+ []
+
+
+Overfull \hbox (699.75pt too wide) in paragraph at lines 6789--6789
+[]\TU/lmtt/m/n/10 ##   |                                                       
+                       |=======================================================
+======         |  87%Error in solve.default(oout$hessian) :[] 
+ []
+
+
+Overfull \hbox (2159.25pt too wide) in paragraph at lines 6789--6789
+[]\TU/lmtt/m/n/10 ##   |                                                       
+                       |=======================================================
+=========      |  91%  |                                                       
+                       |=======================================================
+============   |  96%  |                                                       
+                       |=======================================================
+===============| 100%[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6804--6804
+[]\TU/lmtt/m/n/10 ##       GA       GG    BCCGo     BCCG      GIG      GB2    B
+CPEo     BCPE[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6804--6804
+[]\TU/lmtt/m/n/10 ## 1368.503 1368.561 1369.284 1369.284 1370.503 1370.562 1370
+.967 1370.967[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6804--6804
+[]\TU/lmtt/m/n/10 ##      BCT     BCTo      WEI     WEI2     WEI3   exGAUS    L
+OGNO   LOGNO2[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6804--6804
+[]\TU/lmtt/m/n/10 ## 1371.284 1371.284 1376.365 1376.365 1376.365 1383.357 1401
+.925 1401.925[] 
+ []
+
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 6836.
+LaTeX Info: Redefining \% on input line 6836.
+[153]
+File: Manual_de_R_files/figure-latex/histDist1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/histDist1-1.pdf>
+LaTeX Info: Redefining \. on input line 6853.
+LaTeX Info: Redefining \% on input line 6853.
+[154] [155
+
+]
+File: Manual_de_R_files/figure-latex/normalidad1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/normalidad1-1.pdf>
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+LaTeX Info: Redefining \. on input line 6931.
+LaTeX Info: Redefining \% on input line 6931.
+[156]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 6958--6958
+[]\TU/lmtt/m/n/10 ##  [1] 87.3 80.0 82.3 73.6 74.1 85.9 73.2 76.3 65.9 90.9 89.
+1 62.3 82.7 79.1 98.2[] 
+ []
+
+LaTeX Info: Redefining \. on input line 6958.
+LaTeX Info: Redefining \% on input line 6958.
+[157]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 6958--6958
+[]\TU/lmtt/m/n/10 ##  [1] 51.6 59.0 49.2 63.0 53.6 59.0 47.6 69.8 66.8 75.2 55.
+2 54.2 62.5 42.0 50.0[] 
+ []
+
+File: Manual_de_R_files/figure-latex/normalidad2-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/normalidad2-1.pdf>
+LaTeX Info: Redefining \. on input line 6982.
+LaTeX Info: Redefining \% on input line 6982.
+[158]
+File: Manual_de_R_files/figure-latex/normalidad3-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/normalidad3-1.pdf>
+File: Manual_de_R_files/figure-latex/normalidad4-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/normalidad4-1.pdf>
+LaTeX Info: Redefining \. on input line 7025.
+LaTeX Info: Redefining \% on input line 7025.
+[159]
+LaTeX Info: Redefining \. on input line 7050.
+LaTeX Info: Redefining \% on input line 7050.
+[160]
+File: Manual_de_R_files/figure-latex/normalidad6-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/normalidad6-1.pdf>
+LaTeX Info: Redefining \. on input line 7059.
+LaTeX Info: Redefining \% on input line 7059.
+[161]
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 7069.
+LaTeX Info: Redefining \% on input line 7069.
+[162]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7096--7096
+[]\TU/lmtt/m/n/10 ##  [1] 87.3 80.0 82.3 73.6 74.1 85.9 73.2 76.3 65.9 90.9 89.
+1 62.3 82.7 79.1 98.2[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7096--7096
+[]\TU/lmtt/m/n/10 ##  [1] 51.6 59.0 49.2 63.0 53.6 59.0 47.6 69.8 66.8 75.2 55.
+2 54.2 62.5 42.0 50.0[] 
+ []
+
+File: Manual_de_R_files/figure-latex/normalidad5-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/normalidad5-1.pdf>
+LaTeX Info: Redefining \. on input line 7122.
+LaTeX Info: Redefining \% on input line 7122.
+[163]
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+File: Manual_de_R_files/figure-latex/normalidad7-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/normalidad7-1.pdf>
+LaTeX Info: Redefining \. on input line 7163.
+LaTeX Info: Redefining \% on input line 7163.
+[164]
+LaTeX Info: Redefining \. on input line 7191.
+LaTeX Info: Redefining \% on input line 7191.
+[165]
+LaTeX Info: Redefining \. on input line 7252.
+LaTeX Info: Redefining \% on input line 7252.
+[166]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7283--7283
+[]\TU/lmtt/m/n/10 ##  [1] 87.3 80.0 82.3 73.6 74.1 85.9 73.2 76.3 65.9 90.9 89.
+1 62.3 82.7 79.1 98.2[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7283--7283
+[]\TU/lmtt/m/n/10 ##  [1] 51.6 59.0 49.2 63.0 53.6 59.0 47.6 69.8 66.8 75.2 55.
+2 54.2 62.5 42.0 50.0[] 
+ []
+
+LaTeX Info: Redefining \. on input line 7308.
+LaTeX Info: Redefining \% on input line 7308.
+[167]
+LaTeX Info: Redefining \. on input line 7354.
+LaTeX Info: Redefining \% on input line 7354.
+[168] [169
+
+]
+File: Manual_de_R_files/figure-latex/ic1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/ic1-1.pdf>
+LaTeX Info: Redefining \. on input line 7458.
+LaTeX Info: Redefining \% on input line 7458.
+[170]
+Underfull \vbox (badness 2142) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 7496.
+LaTeX Info: Redefining \% on input line 7496.
+[171]
+File: Manual_de_R_files/figure-latex/ic2-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/ic2-1.pdf>
+LaTeX Info: Redefining \. on input line 7554.
+LaTeX Info: Redefining \% on input line 7554.
+[172]
+Underfull \vbox (badness 1552) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 7574.
+LaTeX Info: Redefining \% on input line 7574.
+[173]
+LaTeX Info: Redefining \. on input line 7616.
+LaTeX Info: Redefining \% on input line 7616.
+[174]
+File: Manual_de_R_files/figure-latex/ic3-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/ic3-1.pdf>
+LaTeX Info: Redefining \. on input line 7658.
+LaTeX Info: Redefining \% on input line 7658.
+[175]
+Underfull \hbox (badness 1460) in paragraph at lines 7675--7676
+[]\TU/lmr/m/n/10 Para construir intervalos de confianza unilaterales se usa el 
+argumento
+ []
+
+
+Underfull \hbox (badness 6910) in paragraph at lines 7675--7676
+\TU/lmtt/m/n/10 alternative = []less[] \TU/lmr/m/n/10 o \TU/lmtt/m/n/10 alterna
+tive=[]greater[]\TU/lmr/m/n/10 , a continuación un
+ []
+
+LaTeX Info: Redefining \. on input line 7713.
+LaTeX Info: Redefining \% on input line 7713.
+[176]
+
+LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 7717.
+
+
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+LaTeX Info: Redefining \. on input line 7782.
+LaTeX Info: Redefining \% on input line 7782.
+[177]
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+LaTeX Info: Redefining \. on input line 7835.
+LaTeX Info: Redefining \% on input line 7835.
+[178]
+LaTeX Info: Redefining \. on input line 7885.
+LaTeX Info: Redefining \% on input line 7885.
+[179]
+LaTeX Info: Redefining \. on input line 7904.
+LaTeX Info: Redefining \% on input line 7904.
+[180] [181
+
+]
+LaTeX Info: Redefining \. on input line 8010.
+LaTeX Info: Redefining \% on input line 8010.
+[182]
+LaTeX Info: Redefining \. on input line 8047.
+LaTeX Info: Redefining \% on input line 8047.
+
+Overfull \hbox (9.93005pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.73.  PRUEBA DE HIPÓTESIS PARA $[]$ CON MUESTRAS GRANDES []
+ []
+
+[183]
+LaTeX Info: Redefining \. on input line 8097.
+LaTeX Info: Redefining \% on input line 8097.
+[184]
+File: Manual_de_R_files/figure-latex/wald1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/wald1-1.pdf>
+LaTeX Info: Redefining \. on input line 8137.
+LaTeX Info: Redefining \% on input line 8137.
+[185]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 8175.
+LaTeX Info: Redefining \% on input line 8175.
+[186]
+LaTeX Info: Redefining \. on input line 8229.
+LaTeX Info: Redefining \% on input line 8229.
+[187]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 8268--8268
+[]\TU/lmtt/m/n/10 ## number of successes = 17, number of trials = 20, p-value =
+ 0.3231[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8268--8268
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true probability of success is les
+s than 0.9[] 
+ []
+
+
+Underfull \vbox (badness 2142) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 8276.
+LaTeX Info: Redefining \% on input line 8276.
+[188]
+LaTeX Info: Redefining \. on input line 8323.
+LaTeX Info: Redefining \% on input line 8323.
+
+Overfull \hbox (102.21976pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.75.  PRUEBA DE HIPÓTESIS PARA LA VARIANZA $[][]$ DE UNA POBLA
+CIÓN NORMAL []
+ []
+
+[189]
+LaTeX Info: Redefining \. on input line 8369.
+LaTeX Info: Redefining \% on input line 8369.
+[190]
+File: Manual_de_R_files/figure-latex/frijoles1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/frijoles1-1.pdf>
+LaTeX Info: Redefining \. on input line 8433.
+LaTeX Info: Redefining \% on input line 8433.
+
+Overfull \hbox (25.11386pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.76.  PRUEBA DE HIPÓTESIS PARA EL COCIENTE DE VARIANZAS $[][][
+][][]$ []
+ []
+
+[191]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 8452--8452
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true ratio of variances is not equ
+al to 1[] 
+ []
+
+LaTeX Info: Redefining \. on input line 8455.
+LaTeX Info: Redefining \% on input line 8455.
+[192]
+File: Manual_de_R_files/figure-latex/ars1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/ars1-1.pdf>
+LaTeX Info: Redefining \. on input line 8519.
+LaTeX Info: Redefining \% on input line 8519.
+
+Overfull \hbox (31.59386pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.76.  PRUEBA DE HIPÓTESIS PARA EL COCIENTE DE VARIANZAS $[][][
+][][]$ []
+ []
+
+[193]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 8538--8538
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true ratio of variances is not equ
+al to 1[] 
+ []
+
+LaTeX Info: Redefining \. on input line 8542.
+LaTeX Info: Redefining \% on input line 8542.
+[194]
+File: images/warning.png Graphic file (type bmp)
+<images/warning.png>
+LaTeX Info: Redefining \. on input line 8596.
+LaTeX Info: Redefining \% on input line 8596.
+
+Overfull \hbox (156.80165pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.77.  PRUEBA DE HIPÓTESIS PARA LA DIFERENCIA DE MEDIAS $[][] [
+] [][]$ CON VARIANZAS IGUALES []
+ []
+
+[195]
+File: Manual_de_R_files/figure-latex/frijoles2-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/frijoles2-1.pdf>
+LaTeX Info: Redefining \. on input line 8630.
+LaTeX Info: Redefining \% on input line 8630.
+[196]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 8630--8630
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true difference in means is not eq
+ual to 0[] 
+ []
+
+File: Manual_de_R_files/figure-latex/ars2-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/ars2-1.pdf>
+LaTeX Info: Redefining \. on input line 8669.
+LaTeX Info: Redefining \% on input line 8669.
+
+Overfull \hbox (183.83165pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.78.  PRUEBA DE HIPÓTESIS PARA LA DIFERENCIA DE MEDIAS $[][] [
+] [][]$ CON VARIANZAS DIFERENTES []
+ []
+
+[197]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 8688--8688
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true difference in means is not eq
+ual to 0[] 
+ []
+
+LaTeX Info: Redefining \. on input line 8691.
+LaTeX Info: Redefining \% on input line 8691.
+[198]
+File: images/tip.png Graphic file (type bmp)
+<images/tip.png>
+LaTeX Info: Redefining \. on input line 8745.
+LaTeX Info: Redefining \% on input line 8745.
+
+Overfull \hbox (68.86385pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.79.  PRUEBA DE HIPÓTESIS PARA LA DIFERENCIA DE PROPORCIONES $
+[][] [] [][]$ []
+ []
+
+[199]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 8759--8759
+[]\TU/lmtt/m/n/10 ##  2-sample test for equality of proportions with continuity
+ correction[] 
+ []
+
+LaTeX Info: Redefining \. on input line 8792.
+LaTeX Info: Redefining \% on input line 8792.
+[200]
+File: Manual_de_R_files/figure-latex/pesos1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/pesos1-1.pdf>
+LaTeX Info: Redefining \. on input line 8821.
+LaTeX Info: Redefining \% on input line 8821.
+
+Overfull \hbox (41.27785pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 0.80.  PRUEBA DE HIPÓTESIS PARA LA DIFERENCIA DE MEDIAS PAREADA
+S []
+ []
+
+[201]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 8845--8845
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true difference in means is greate
+r than 0[] 
+ []
+
+LaTeX Info: Redefining \. on input line 8850.
+LaTeX Info: Redefining \% on input line 8850.
+[202] [203
+
+]
+File: Manual_de_R_files/figure-latex/aprox1-1.pdf Graphic file (type pdf)
+<use Manual_de_R_files/figure-latex/aprox1-1.pdf>
+LaTeX Info: Redefining \. on input line 8921.
+LaTeX Info: Redefining \% on input line 8921.
+[204]
+LaTeX Info: Redefining \. on input line 8953.
+LaTeX Info: Redefining \% on input line 8953.
+[205]
+LaTeX Info: Redefining \. on input line 8953.
+LaTeX Info: Redefining \% on input line 8953.
+[206
+
+] (Manual_de_R.bbl [207]
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+[208
+
+] [209])
+LaTeX Info: Redefining \. on input line 8983.
+LaTeX Info: Redefining \% on input line 8983.
+[210] (Manual_de_R.ind) (Manual_de_R.aux
+LaTeX Info: Redefining \. on input line 26.
+LaTeX Info: Redefining \% on input line 26.
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
+)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 21942 strings out of 411271
+ 389280 string characters out of 2833087
+ 942126 words of memory out of 3000000
+ 42015 multiletter control sequences out of 15000+600000
+ 412407 words of font info for 109 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 87i,17n,120p,3222b,705s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on Manual_de_R.pdf (210 pages).
+
+! miktex-dvipdfmx: major issue: So far, you have not checked for updates as a MiKTeX user.
+! xelatex: major issue: So far, you have not checked for updates as a MiKTeX user.
