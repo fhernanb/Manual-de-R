@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14 Distribuciones discretas | Manual de R</title>
   <meta name="description" content="14 Distribuciones discretas | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14 Distribuciones discretas | Manual de R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="images/portada.png" />
+  <meta property="og:image" content="/images/portada.png" />
   <meta property="og:description" content="14 Distribuciones discretas | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
@@ -19,13 +19,13 @@
   <meta name="twitter:title" content="14 Distribuciones discretas | Manual de R" />
   
   <meta name="twitter:description" content="14 Distribuciones discretas | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="twitter:image" content="images/portada.png" />
+  <meta name="twitter:image" content="/images/portada.png" />
 
 <meta name="author" content="Freddy Hernández" />
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2021-03-12" />
+<meta name="date" content="2021-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@
   
 <link rel="prev" href="correl.html"/>
 <link rel="next" href="continuas.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,14 +52,15 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +119,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -566,17 +590,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="funciones-disponibles-para-distribuciones-discretas" class="section level2" number="14.1">
 <h2><span class="header-section-number">14.1</span> Funciones disponibles para distribuciones discretas </h2>
 <p>Para cada distribución discreta se tienen 4 funciones, a continuación el listado de funciones y su utilidad.</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="discretas.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dxxx</span>(x, ...)  <span class="co"># Función de masa de probabilidad, f(x)</span></span>
-<span id="cb413-2"><a href="discretas.html#cb413-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pxxx</span>(q, ...)  <span class="co"># Función de distribución acumulada hasta q, F(x)</span></span>
-<span id="cb413-3"><a href="discretas.html#cb413-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qxxx</span>(p, ...)  <span class="co"># Cuantil para el cual P(X &lt;= q) = p</span></span>
-<span id="cb413-4"><a href="discretas.html#cb413-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rxxx</span>(n, ...)  <span class="co"># Generador de números aleatorios.</span></span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="discretas.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dxxx</span>(x, ...)  <span class="co"># Función de masa de probabilidad, f(x)</span></span>
+<span id="cb411-2"><a href="discretas.html#cb411-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pxxx</span>(q, ...)  <span class="co"># Función de distribución acumulada hasta q, F(x)</span></span>
+<span id="cb411-3"><a href="discretas.html#cb411-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qxxx</span>(p, ...)  <span class="co"># Cuantil para el cual P(X &lt;= q) = p</span></span>
+<span id="cb411-4"><a href="discretas.html#cb411-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rxxx</span>(n, ...)  <span class="co"># Generador de números aleatorios.</span></span></code></pre></div>
 <p>En el lugar de las letras <code>xxx</code> se de debe colocar el nombre de la distribución en R, a continuación el listado de nombres disponibles para las 6 distribuciones discretas básicas.</p>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="discretas.html#cb414-1" aria-hidden="true" tabindex="-1"></a>binom     <span class="co"># Binomial</span></span>
-<span id="cb414-2"><a href="discretas.html#cb414-2" aria-hidden="true" tabindex="-1"></a>geo       <span class="co"># Geométrica</span></span>
-<span id="cb414-3"><a href="discretas.html#cb414-3" aria-hidden="true" tabindex="-1"></a>nbinom    <span class="co"># Binomial negativa</span></span>
-<span id="cb414-4"><a href="discretas.html#cb414-4" aria-hidden="true" tabindex="-1"></a>hyper     <span class="co"># Hipergeométrica</span></span>
-<span id="cb414-5"><a href="discretas.html#cb414-5" aria-hidden="true" tabindex="-1"></a>pois      <span class="co"># Poisson</span></span>
-<span id="cb414-6"><a href="discretas.html#cb414-6" aria-hidden="true" tabindex="-1"></a>multinom  <span class="co"># Multinomial</span></span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="discretas.html#cb412-1" aria-hidden="true" tabindex="-1"></a>binom     <span class="co"># Binomial</span></span>
+<span id="cb412-2"><a href="discretas.html#cb412-2" aria-hidden="true" tabindex="-1"></a>geo       <span class="co"># Geométrica</span></span>
+<span id="cb412-3"><a href="discretas.html#cb412-3" aria-hidden="true" tabindex="-1"></a>nbinom    <span class="co"># Binomial negativa</span></span>
+<span id="cb412-4"><a href="discretas.html#cb412-4" aria-hidden="true" tabindex="-1"></a>hyper     <span class="co"># Hipergeométrica</span></span>
+<span id="cb412-5"><a href="discretas.html#cb412-5" aria-hidden="true" tabindex="-1"></a>pois      <span class="co"># Poisson</span></span>
+<span id="cb412-6"><a href="discretas.html#cb412-6" aria-hidden="true" tabindex="-1"></a>multinom  <span class="co"># Multinomial</span></span></code></pre></div>
 <p>Combinando las funciones y los nombres se tiene un total de 24 funciones, por ejemplo, para obtener la función de masa de probabilidad <span class="math inline">\(f(x)\)</span> de una binomial se usa la función <code>dbinom( )</code> y para obtener la función acumulada <span class="math inline">\(F(x)\)</span> de una Poisson se usa la función <code>ppois( )</code>.</p>
 <div id="ejemplo-binomial" class="section level3 unnumbered">
 <h3>Ejemplo binomial</h3>
@@ -585,31 +609,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calcular la probabilidad de que se encuentren exactamente 2 buses que generan una mayor cantidad de humo de la permitida.</li>
 </ol>
 <p>Aquí se tiene una distribucion <span class="math inline">\(Binomial(n=18, p=0.1)\)</span> y se desea calcular <span class="math inline">\(P(X=2)\)</span>. Para obtener esta probabilidad se usa la siguiente instrucción.</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="discretas.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">2</span>, <span class="at">size=</span><span class="dv">18</span>, <span class="at">prob=</span><span class="fl">0.10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="discretas.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">2</span>, <span class="at">size=</span><span class="dv">18</span>, <span class="at">prob=</span><span class="fl">0.10</span>)</span></code></pre></div>
 <pre><code>## [1] 0.2835121</code></pre>
 <p>Así <span class="math inline">\(P(X=2)=0.2835\)</span>.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Calcular la probabilidad de que el número de buses que sobrepasan el límite de generación de gases sea al menos 4.</li>
 </ol>
 <p>En este caso interesa calcular <span class="math inline">\(P(X \geq 4)\)</span>, para obtener esta probabilidad se usa la siguiente instrucción.</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="discretas.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">4</span><span class="sc">:</span><span class="dv">18</span>, <span class="at">size=</span><span class="dv">18</span>, <span class="at">prob=</span><span class="fl">0.10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="discretas.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">4</span><span class="sc">:</span><span class="dv">18</span>, <span class="at">size=</span><span class="dv">18</span>, <span class="at">prob=</span><span class="fl">0.10</span>))</span></code></pre></div>
 <pre><code>## [1] 0.09819684</code></pre>
 <p>Así <span class="math inline">\(P(X \geq 4)=0.0982\)</span></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Calcular la probabilidad de que tres o menos buses emitan gases por encima de lo permitido en la norma.</li>
 </ol>
 <p>En este caso interesa <span class="math inline">\(P(X\leq3)\)</span> lo cual es <span class="math inline">\(F(x=3)\)</span>, por lo tanto, la instrucción para obtener esta probabilidad es</p>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="discretas.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="at">q=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">18</span>, <span class="at">prob=</span><span class="fl">0.10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="discretas.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="at">q=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">18</span>, <span class="at">prob=</span><span class="fl">0.10</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9018032</code></pre>
 <p>Así <span class="math inline">\(P(X\leq3)=F(x=3)=0.9018\)</span></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Dibujar la función de masa de probabilidad.</li>
 </ol>
 <p>Para dibujar la función de masa de probabilidad para una <span class="math inline">\(Binomial(n=18, p=0.1)\)</span> se usa el siguiente código.</p>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="discretas.html#cb421-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">18</span>  <span class="co"># Soporte (dominio) de la variable</span></span>
-<span id="cb421-2"><a href="discretas.html#cb421-2" aria-hidden="true" tabindex="-1"></a>Probabilidad <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="at">x=</span>x, <span class="at">size=</span><span class="dv">18</span>, <span class="at">prob=</span><span class="fl">0.1</span>)</span>
-<span id="cb421-3"><a href="discretas.html#cb421-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>x, <span class="at">y=</span>Probabilidad, </span>
-<span id="cb421-4"><a href="discretas.html#cb421-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">type=</span><span class="st">&#39;h&#39;</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="discretas.html#cb419-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">18</span>  <span class="co"># Soporte (dominio) de la variable</span></span>
+<span id="cb419-2"><a href="discretas.html#cb419-2" aria-hidden="true" tabindex="-1"></a>Probabilidad <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="at">x=</span>x, <span class="at">size=</span><span class="dv">18</span>, <span class="at">prob=</span><span class="fl">0.1</span>)</span>
+<span id="cb419-3"><a href="discretas.html#cb419-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>x, <span class="at">y=</span>Probabilidad, </span>
+<span id="cb419-4"><a href="discretas.html#cb419-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">type=</span><span class="st">&#39;h&#39;</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">6</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:binom1"></span>
 <img src="Manual_de_R_files/figure-html/binom1-1.png" alt="Función de masa de probabilidad para una $Binomial(n=18, p=0.1)$." width="768" />
 <p class="caption">
@@ -621,12 +645,12 @@ Figure 14.1: Función de masa de probabilidad para una <span class="math inline"
 <li>Generar con 100 de una distribución <span class="math inline">\(Binomial(n=18, p=0.1)\)</span> y luego calcular las frecuencias muestrales y compararlas con las probabilidades teóricas.</li>
 </ol>
 <p>La muestra aleatoria se obtiene con la función <code>rbinom</code> y los resultados se almacenan en el objeto <code>m</code>, por último se construye la tabla de frecuencias relativas, a continuación el código usado.</p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="discretas.html#cb422-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">size=</span><span class="dv">18</span>, <span class="at">prob=</span><span class="fl">0.1</span>)</span>
-<span id="cb422-2"><a href="discretas.html#cb422-2" aria-hidden="true" tabindex="-1"></a>m  <span class="co"># Para ver lo que hay dentro de m</span></span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="discretas.html#cb420-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">size=</span><span class="dv">18</span>, <span class="at">prob=</span><span class="fl">0.1</span>)</span>
+<span id="cb420-2"><a href="discretas.html#cb420-2" aria-hidden="true" tabindex="-1"></a>m  <span class="co"># Para ver lo que hay dentro de m</span></span></code></pre></div>
 <pre><code>##   [1] 0 1 4 1 3 4 2 3 1 0 3 2 1 4 1 1 1 3 0 5 0 3 5 3 2 3 1 1 2 4 1 3 2 2 3 2 2
 ##  [38] 3 2 3 0 2 2 2 1 1 3 1 1 1 1 1 1 1 1 3 1 2 4 4 7 2 4 0 1 2 1 1 2 3 2 1 3 1
 ##  [75] 1 2 3 5 1 5 0 1 2 1 4 1 1 2 1 2 0 2 2 3 3 0 1 1 3 2</code></pre>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="discretas.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(m))  <span class="co"># Tabla de frecuencia relativa</span></span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="discretas.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(m))  <span class="co"># Tabla de frecuencia relativa</span></span></code></pre></div>
 <pre><code>## m
 ##    0    1    2    3    4    5    7 
 ## 0.09 0.35 0.24 0.19 0.08 0.04 0.01</code></pre>
@@ -639,19 +663,19 @@ Figure 14.1: Función de masa de probabilidad para una <span class="math inline"
 <li>Calcular la probabilidad de que se necesiten probar 125 bombillos para encontrar el primer bombillo defectuoso.</li>
 </ol>
 <p>En la distribución geométrica, la variable <span class="math inline">\(X\)</span> representa el número de fracasos antes de encontrar el único éxito, por lo tanto, en este caso el interés es calcular <span class="math inline">\(P(X=124)\)</span>. La instrucción para obtener esta probabiliad es la siguiente.</p>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="discretas.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dgeom</span>(<span class="at">x=</span><span class="dv">124</span>, <span class="at">prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="discretas.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dgeom</span>(<span class="at">x=</span><span class="dv">124</span>, <span class="at">prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
 <pre><code>## [1] 0.002875836</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Calcular <span class="math inline">\(P(X \leq 8)\)</span>.</li>
 </ol>
 <p>En este caso interesa <span class="math inline">\(P(X \leq 50)\)</span> lo que equivale a <span class="math inline">\(F(8)\)</span>, la instrucción para obtener la probabilidad es la siguiente.</p>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="discretas.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pgeom</span>(<span class="at">q=</span><span class="dv">50</span>, <span class="at">prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="discretas.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pgeom</span>(<span class="at">q=</span><span class="dv">50</span>, <span class="at">prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
 <pre><code>## [1] 0.401044</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Encontrar el cuantil <span class="math inline">\(q\)</span> tal que <span class="math inline">\(P(X \leq q) = 0.40\)</span>.</li>
 </ol>
 <p>En este caso interesa encontrar el cuantil <span class="math inline">\(q\)</span> que cumpla la condición de que hasta <span class="math inline">\(q\)</span> esté el 40% de las observaciones, por esa razón se usa la función <code>qgeom</code> como se muestra a continuación.</p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="discretas.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qgeom</span>(<span class="at">p=</span><span class="fl">0.4</span>, <span class="at">prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="discretas.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qgeom</span>(<span class="at">p=</span><span class="fl">0.4</span>, <span class="at">prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
 <pre><code>## [1] 50</code></pre>
 
 <div class="rmdnote">
@@ -666,7 +690,7 @@ Note que las funciones <code>pxxx</code> y <code>qxxx</code> están relacionadas
 </ol>
 <p>En este problema se tiene una distribución binomial negativa con <span class="math inline">\(r=2\)</span> niñas, los éxitos deseados por la familia. La variable <span class="math inline">\(X\)</span> representa los fracasos, es decir los niños, hasta que se obtienen los éxitos <span class="math inline">\(r=2\)</span> deseados.</p>
 <p>En este caso lo que interesa es <span class="math inline">\(P(\text{familia tenga 4})\)</span>, en otras palabras interesa <span class="math inline">\(P(X=2)\)</span>, la instrucción para calcular la probabilidad es la siguiente.</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="discretas.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnbinom</span>(<span class="at">x=</span><span class="dv">2</span>, <span class="at">size=</span><span class="dv">2</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="discretas.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnbinom</span>(<span class="at">x=</span><span class="dv">2</span>, <span class="at">size=</span><span class="dv">2</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1875</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Calcular <span class="math inline">\(P(\text{familia tenga al menos 4 hijos})\)</span>.</li>
@@ -674,10 +698,10 @@ Note que las funciones <code>pxxx</code> y <code>qxxx</code> están relacionadas
 <p>Aquí interesa calcular <span class="math inline">\(P(X \geq 2)=P(X=2)+P(X=3)+\ldots\)</span>, como esta probabilidad va hasta infinito, se debe usar el complemento así:</p>
 <p><span class="math display">\[P(X \geq 2) = 1 - [P(X=0)+P(X=1)]\]</span>
 y para obtener la probabilidad solicitada se puede usar la función <code>dnbinom</code> de la siguiente manera.</p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="discretas.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dnbinom</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">2</span>, <span class="at">prob=</span><span class="fl">0.5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="discretas.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dnbinom</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">2</span>, <span class="at">prob=</span><span class="fl">0.5</span>))</span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 <p>Otra forma para obtener la probabilidad solicitada es por medio de la función <code>pnbinom</code> de la siguiente manera.</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="discretas.html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnbinom</span>(<span class="at">q=</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">2</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="discretas.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnbinom</span>(<span class="at">q=</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">2</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 </div>
 <div id="ejemplo-hipergeométrica" class="section level3 unnumbered">
@@ -687,13 +711,13 @@ y para obtener la probabilidad solicitada se puede usar la función <code>dnbino
 <li>Calcular la probabilidad de que todas las 4 partes de la muestra sean del proveedor A.</li>
 </ol>
 <p>Aquí se tiene una situación que se puede modelar por medio de una distribución hipergeométrica con <span class="math inline">\(m=100\)</span> éxitos en la población, <span class="math inline">\(n=200\)</span> fracasos en la población y <span class="math inline">\(k=4\)</span> el tamaño de la muestra. El objetivo es calcular <span class="math inline">\(P(X=4)\)</span>, para obtener esta probabilidad se usa la siguiente instrucción.</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="discretas.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="at">x=</span><span class="dv">4</span>, <span class="at">m=</span><span class="dv">100</span>, <span class="at">k=</span><span class="dv">4</span>, <span class="at">n=</span><span class="dv">200</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="discretas.html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dhyper</span>(<span class="at">x=</span><span class="dv">4</span>, <span class="at">m=</span><span class="dv">100</span>, <span class="at">k=</span><span class="dv">4</span>, <span class="at">n=</span><span class="dv">200</span>)</span></code></pre></div>
 <pre><code>## [1] 0.01185408</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Calcular la probabilidad de que dos o más de las partes sean del proveedor A.</li>
 </ol>
 <p>Aquí interesa <span class="math inline">\(P(X \geq 2)\)</span>, la instrucción para obtener esta probabilidad es.</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="discretas.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dhyper</span>(<span class="at">x=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">m=</span><span class="dv">100</span>, <span class="at">k=</span><span class="dv">4</span>, <span class="at">n=</span><span class="dv">200</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="discretas.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dhyper</span>(<span class="at">x=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">m=</span><span class="dv">100</span>, <span class="at">k=</span><span class="dv">4</span>, <span class="at">n=</span><span class="dv">200</span>))</span></code></pre></div>
 <pre><code>## [1] 0.4074057</code></pre>
 </div>
 <div id="ejemplo-poisson" class="section level3 unnumbered">
@@ -705,7 +729,7 @@ y para obtener la probabilidad solicitada se puede usar la función <code>dnbino
 <p>Este es un problema de distribución Poisson con tasa promedio de éxitos dada por:</p>
 <p><span class="math display">\[\lambda=\frac{50 \quad errores}{libro}=\frac{0.2 \quad errores}{pagina}\]</span>
 El objetivo es calcular <span class="math inline">\(P(X=0)\)</span>, para obtener esta probabilidad de usa la siguiente instrucción.</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="discretas.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dpois</span>(<span class="at">x=</span><span class="dv">0</span>, <span class="at">lambda=</span><span class="fl">0.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="discretas.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dpois</span>(<span class="at">x=</span><span class="dv">0</span>, <span class="at">lambda=</span><span class="fl">0.2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.8187308</code></pre>
 <p>Así <span class="math inline">\(P(X=0)=0.8187\)</span>.</p>
 </div>
@@ -726,11 +750,11 @@ Figure 14.2: Fotografía del cangrejo de herradura, tomada de <a href="http://sc
 <li>Encontrar la distribución de probabilidad para la variable <code>Sa</code> que corresponde al número de machos sobre el caparazón de cada hembra.</li>
 </ol>
 <p>Primero se debe leer la base de datos usando la url suministrada y luego se construye la tabla de frecuencia relativa y se almacena en el objeto <code>t1</code>.</p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="discretas.html#cb444-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/crab&#39;</span></span>
-<span id="cb444-2"><a href="discretas.html#cb444-2" aria-hidden="true" tabindex="-1"></a>crab <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span>
-<span id="cb444-3"><a href="discretas.html#cb444-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb444-4"><a href="discretas.html#cb444-4" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(crab<span class="sc">$</span>Sa))</span>
-<span id="cb444-5"><a href="discretas.html#cb444-5" aria-hidden="true" tabindex="-1"></a>t1</span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="discretas.html#cb442-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/crab&#39;</span></span>
+<span id="cb442-2"><a href="discretas.html#cb442-2" aria-hidden="true" tabindex="-1"></a>crab <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span>
+<span id="cb442-3"><a href="discretas.html#cb442-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb442-4"><a href="discretas.html#cb442-4" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(crab<span class="sc">$</span>Sa))</span>
+<span id="cb442-5"><a href="discretas.html#cb442-5" aria-hidden="true" tabindex="-1"></a>t1</span></code></pre></div>
 <pre><code>## 
 ##           0           1           2           3           4           5 
 ## 0.358381503 0.092485549 0.052023121 0.109826590 0.109826590 0.086705202 
@@ -739,8 +763,8 @@ Figure 14.2: Fotografía del cangrejo de herradura, tomada de <a href="http://sc
 ##          12          14          15 
 ## 0.005780347 0.005780347 0.005780347</code></pre>
 <p>La anterior tabla de frecuencias relativas se puede representar gráficamente usando el siguiente código.</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="discretas.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t1, <span class="at">las=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">5</span>, <span class="at">xlab=</span><span class="st">&#39;Número de satélites&#39;</span>,</span>
-<span id="cb446-2"><a href="discretas.html#cb446-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&#39;Proporción&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="discretas.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t1, <span class="at">las=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">5</span>, <span class="at">xlab=</span><span class="st">&#39;Número de satélites&#39;</span>,</span>
+<span id="cb444-2"><a href="discretas.html#cb444-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&#39;Proporción&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:pmfcrab"></span>
 <img src="Manual_de_R_files/figure-html/pmfcrab-1.png" alt="Función de masa de probabilidad para el número de satélites por hembra." width="768" />
 <p class="caption">
@@ -751,8 +775,8 @@ Figure 14.3: Función de masa de probabilidad para el número de satélites por 
 <li>Sea <span class="math inline">\(X\)</span> la variable número de satélites por hembra, construir la función <span class="math inline">\(F(x)\)</span>.</li>
 </ol>
 <p>Para construir <span class="math inline">\(F(x)\)</span> se utiliza la función <code>ecdf</code> o <em>empirical cumulative density function</em>, a esta función le debe ingresar el vector con la información de la variable cuantitativa, a continuación del código usado. En la Figura <a href="discretas.html#fig:Fcrab">14.4</a> se muestra la función de distribución acumulada para para el número de satélites por hembra.</p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="discretas.html#cb447-1" aria-hidden="true" tabindex="-1"></a>F <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(crab<span class="sc">$</span>Sa)</span>
-<span id="cb447-2"><a href="discretas.html#cb447-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(F, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&#39;&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="discretas.html#cb445-1" aria-hidden="true" tabindex="-1"></a>F <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(crab<span class="sc">$</span>Sa)</span>
+<span id="cb445-2"><a href="discretas.html#cb445-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(F, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&#39;&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Fcrab"></span>
 <img src="Manual_de_R_files/figure-html/Fcrab-1.png" alt="Función de distribución acumulada para el número de satélites por hembra." width="768" />
 <p class="caption">
@@ -763,30 +787,30 @@ Figure 14.4: Función de distribución acumulada para el número de satélites p
 <li>Calcular <span class="math inline">\(P(X \leq 9)\)</span>.</li>
 </ol>
 <p>Para obtener esta probabilidad se usa el objeto <code>F</code> que es en realidad una función, a continuación la instrucción usada.</p>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="discretas.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="fu">F</span>(<span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="discretas.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="fu">F</span>(<span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9595376</code></pre>
 <p>Así <span class="math inline">\(P(X \leq 9)=0.9595\)</span>.</p>
 <ol start="4" style="list-style-type: decimal">
 <li>Calcular <span class="math inline">\(P(X &gt; 4)\)</span>.</li>
 </ol>
 <p>Para obtener esta probabilidad se usa el hecho de que <span class="math inline">\(P(X &gt; 4) = 1 - P(X \leq 4)\)</span>, así la instrucción a usar es.</p>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="discretas.html#cb450-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">F</span>(<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="discretas.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">F</span>(<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 0.2774566</code></pre>
 <p>Por lo tanto <span class="math inline">\(P(X &gt; 4)=0.2775\)</span>.</p>
 <ol start="5" style="list-style-type: decimal">
 <li>Suponga que el grupo 1 está formado por las hembras cuyo ancho de caparazón es menor o igual al ancho mediano, el grupo 2 está formado por las demás hembras. ¿Será <span class="math inline">\(F(x)\)</span> diferente para los dos grupos?</li>
 </ol>
 <p>Para realizar esto vamos a particionar el vector <code>Sa</code> en los dos grupos de acuerdo a la nueva variable <code>grupo</code> creada como se muestra a continuacion.</p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="discretas.html#cb452-1" aria-hidden="true" tabindex="-1"></a>grupo <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(crab<span class="sc">$</span>Wt <span class="sc">&lt;=</span> <span class="fu">median</span>(crab<span class="sc">$</span>Wt), <span class="st">&#39;Grupo 1&#39;</span>, <span class="st">&#39;Grupo 2&#39;</span>)</span>
-<span id="cb452-2"><a href="discretas.html#cb452-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">split</span>(<span class="at">x=</span>crab<span class="sc">$</span>Sa, <span class="at">f=</span>grupo)</span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="discretas.html#cb450-1" aria-hidden="true" tabindex="-1"></a>grupo <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(crab<span class="sc">$</span>Wt <span class="sc">&lt;=</span> <span class="fu">median</span>(crab<span class="sc">$</span>Wt), <span class="st">&#39;Grupo 1&#39;</span>, <span class="st">&#39;Grupo 2&#39;</span>)</span>
+<span id="cb450-2"><a href="discretas.html#cb450-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">split</span>(<span class="at">x=</span>crab<span class="sc">$</span>Sa, <span class="at">f=</span>grupo)</span></code></pre></div>
 <p>El objeto <code>x</code> es una lista y para acceder a los vectores allí almacenados usamos dos corchetes <code>[[]]</code>, uno dentro del otro. Luego para calcular <span class="math inline">\(F(x)\)</span> para los dos grupos se procede así:</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="discretas.html#cb453-1" aria-hidden="true" tabindex="-1"></a>F1 <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(x[[<span class="dv">1</span>]])</span>
-<span id="cb453-2"><a href="discretas.html#cb453-2" aria-hidden="true" tabindex="-1"></a>F2 <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(x[[<span class="dv">2</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="discretas.html#cb451-1" aria-hidden="true" tabindex="-1"></a>F1 <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(x[[<span class="dv">1</span>]])</span>
+<span id="cb451-2"><a href="discretas.html#cb451-2" aria-hidden="true" tabindex="-1"></a>F2 <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(x[[<span class="dv">2</span>]])</span></code></pre></div>
 <p>Para obtener las dos <span class="math inline">\(F(x)\)</span> en la misma figura se usa el código siguiente.</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="discretas.html#cb454-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(F1, <span class="at">col=</span><span class="st">&#39;blue&#39;</span>, <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">las=</span><span class="dv">1</span>)</span>
-<span id="cb454-2"><a href="discretas.html#cb454-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(F2, <span class="at">col=</span><span class="st">&#39;red&#39;</span>, <span class="at">add=</span>T)</span>
-<span id="cb454-3"><a href="discretas.html#cb454-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&#39;bottomright&#39;</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">&#39;Grupo 1&#39;</span>, <span class="st">&#39;Grupo 2&#39;</span>),</span>
-<span id="cb454-4"><a href="discretas.html#cb454-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">&#39;blue&#39;</span>, <span class="st">&#39;red&#39;</span>), <span class="at">lwd=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="discretas.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(F1, <span class="at">col=</span><span class="st">&#39;blue&#39;</span>, <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">las=</span><span class="dv">1</span>)</span>
+<span id="cb452-2"><a href="discretas.html#cb452-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(F2, <span class="at">col=</span><span class="st">&#39;red&#39;</span>, <span class="at">add=</span>T)</span>
+<span id="cb452-3"><a href="discretas.html#cb452-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&#39;bottomright&#39;</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">&#39;Grupo 1&#39;</span>, <span class="st">&#39;Grupo 2&#39;</span>),</span>
+<span id="cb452-4"><a href="discretas.html#cb452-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">&#39;blue&#39;</span>, <span class="st">&#39;red&#39;</span>), <span class="at">lwd=</span><span class="dv">1</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Fcrabs"></span>
 <img src="Manual_de_R_files/figure-html/Fcrabs-1.png" alt="Función de distribución acumulada para el número de satélites por hembra diferenciando por grupo." width="768" />
 <p class="caption">
@@ -827,6 +851,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -846,7 +871,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["Manual_de_R.pdf", "Manual_de_R.epub"],
 "toc": {
 "collapse": "subsection"
 }

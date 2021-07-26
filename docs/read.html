@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Lectura de bases de datos | Manual de R</title>
   <meta name="description" content="8 Lectura de bases de datos | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Lectura de bases de datos | Manual de R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="images/portada.png" />
+  <meta property="og:image" content="/images/portada.png" />
   <meta property="og:description" content="8 Lectura de bases de datos | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
@@ -19,13 +19,13 @@
   <meta name="twitter:title" content="8 Lectura de bases de datos | Manual de R" />
   
   <meta name="twitter:description" content="8 Lectura de bases de datos | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="twitter:image" content="images/portada.png" />
+  <meta name="twitter:image" content="/images/portada.png" />
 
 <meta name="author" content="Freddy Hernández" />
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2021-03-12" />
+<meta name="date" content="2021-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@
   
 <link rel="prev" href="creafun.html"/>
 <link rel="next" href="tablas.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,14 +52,15 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +119,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -700,7 +724,7 @@ Un error frecuente es escribir la dirección o ubicación del archivo usando <co
 </div>
 <div id="lectura-de-bases-de-datos-en-excel" class="section level2" number="8.4">
 <h2><span class="header-section-number">8.4</span> Lectura de bases de datos en Excel</h2>
-<p>Algunas veces los datos están disponibles en un archivo estándar de Excel, y dentro de cada archivo hojas con la información a utilizar. En estos casos se recomienda usar el paquete <strong>readxl</strong> <span class="citation">(<a href="references.html#ref-R-readxl" role="doc-biblioref">Wickham and Bryan 2019</a>)</span> y en particular la función <code>readxl</code>. A continuación un ejemplo de cómo proceder en estos casos.</p>
+<p>Algunas veces los datos están disponibles en un archivo estándar de Excel, y dentro de cada archivo hojas con la información a utilizar. En estos casos se recomienda usar el paquete <strong>readxl</strong> <span class="citation">(<a href="#ref-R-readxl" role="doc-biblioref">Wickham and Bryan 2019</a>)</span> y en particular la función <code>readxl</code>. A continuación un ejemplo de cómo proceder en estos casos.</p>
 <div id="ejemplo-26" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>En este <a href="https://github.com/fhernanb/datos/blob/master/BD_Excel.xlsx">enlace</a> está disponible un archivo de Excel llamado BD_Excel.xlxs, una vez se ha abierto la página donde está alojado el archivo, se debe descargar y guardar en alguna carpeta. El archivo contiene dos bases de datos muy pequeñas, en la primera hoja llamada <strong>Hijos</strong> está la información de un grupo de niños y en la segunda hoja llamada <strong>Padres</strong> está la información de los padres. ¿Cómo se pueden leer las dos bases de datos?</p>
@@ -813,6 +837,12 @@ La instalación de un paquete con <code>install.packages</code> se hace sólo un
 
 </div>
 </div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-R-readxl" class="csl-entry">
+Wickham, Hadley, and Jennifer Bryan. 2019. <em>Readxl: Read Excel Files</em>. <a href="https://CRAN.R-project.org/package=readxl">https://CRAN.R-project.org/package=readxl</a>.
+</div>
+</div>
             </section>
 
           </div>
@@ -842,6 +872,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -861,7 +892,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["Manual_de_R.pdf", "Manual_de_R.epub"],
 "toc": {
 "collapse": "subsection"
 }
