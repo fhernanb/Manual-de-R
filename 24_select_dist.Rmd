@@ -28,7 +28,7 @@ El $GAIC$ se define como $GAIC=-2 \times loglik + k \times \#param$, cuando el v
 ```
 
 ### Ejemplo {-}
-Generar $n=100$ observaciones de una gamma con parámetro $\mu=2$ y parámetro $\sigma=0.5$ y verificar si la función `fitDist` logra identificar que los datos fueron generados de una distribución gamma. Use $k=2$ para calcular el $AIC$.
+Generar $n=500$ observaciones de una gamma con parámetro $\mu=2$ y parámetro $\sigma=0.5$ y verificar si la función `fitDist` logra identificar que los datos fueron generados de una distribución gamma. Use $k=2$ para calcular el $AIC$.
 
 __Solución__
 
@@ -156,9 +156,13 @@ abline(v=4.5, col="blue", lty="dashed")
 abline(v=2.62, col="red", lty="dashed")
 ```
 
+```{block2, type='rmdwarning'}
+Cuando la distribución es discreta el $E(X)$ se calcula como una sumatoria, es decir, $E(X) = \sum_{-\infty}^{\infty} x f(x) dx$.
+```
+
 ## EJERCICIOS {-}
 
-1. Simule 500 observaciones de la distribución **discreta** $PO(\mu=7.4)$ y luego use la función `fitDists` para identificar la distribución y estimar el parámetro de la distribución.
+1. Simule 500 observaciones de la distribución discreta Poisson $PO(\mu=7.4)$ y luego use la función `fitDists` para identificar la distribución y estimar el parámetro de la distribución.
 
 2. Usando los resultados anteriores responda las siguientes preguntas.
 
@@ -168,4 +172,22 @@ abline(v=2.62, col="red", lty="dashed")
 - ¿Cuál será el valor de $a$ para que $P(X \geq a)=0.74$?
 
 3. En [este enlace](https://ciencias.medellin.unal.edu.co/escuelas/estadistica/index.php/shiny.html) hay una aplicación Shiny llamada **Bondad de ajuste** que se puede utilizar para identificar la mejor distribución utilizando un archivo externo con datos. Explore la aplicación y úsela.
+
+4. En este ejercicio usted debe evaluar qué tan bien la función `fitDists` identifica la distribución correcta a partir de una muestra aleatoria de tamaño $n$. En otras palabras, para un valor $n$ fijo, usted debe generar **diez** muestras de tamaño $n$ de una población $GA(\mu=2, \sigma=0.5)$, luego usar la función `fitDists` para obtener la distribución recomendad y por último contar la cantidad de aciertos y con ello el porcentaje de aciertos dividiendo por **diez**. Los resultados los debe consignar en la siguiente tabla.
+
+ $n$  | Número de aciertos | Porcentaje acierto
+:--:  | ------------------ | ------------------
+ 5    | |
+ 10   | | 
+ 20   | |
+ 50   | | 
+ 100  | | 
+ 200  | |
+ 500  | |
+ 1000 | |
+
+¿Logra ver algún patrón en los resultados? ¿Se debería presentar algún patrón?
+
+5. Repita el ejercicio anterior pero cambiando el número de repeticiones de **diez** a **cien**. No lo haga manualmente, use una instrucción `for` algo similar para automatizar el proceso.
+
 
