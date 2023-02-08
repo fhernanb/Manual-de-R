@@ -1,6 +1,6 @@
 # Selección de la distribución {#select_dist}
 
-En este capítulo se mostrará cómo usar R para obtener obtener el listado de las distribuciones que mejor se ajustan a una variable.
+En este capítulo se mostrará cómo usar R para obtener obtener el listado de las distribuciones que mejor explican una variable.
 
 ## Función `fitDists`
 La función `fitDist` del paquete **gamlss** \index{gamlss} permite explorar las distribuciones que mejor explican un conjunto de datos.
@@ -9,11 +9,12 @@ La función `fitDist` tiene la siguiente estructura:
 
 ```{r, eval=FALSE}
 fitDist(y, k = 2, 
-      type = c("realAll", "realline", "realplus",
-               "real0to1", "counts", "binom"))
+        type = c("realAll", "realline", "realplus",
+                 "real0to1", "counts", "binom")
+        )
 ```
 
-El parámetro `y` sirve para ingresar el vector con la información; `k=2` es la penalización por cada parámetro estimado para calcular el $GAIC$, por defecto es 2; y el parámetro `type` sirve para indicar el tipo de distribución, los posibles valores son:
+El parámetro `y` sirve para ingresar el vector con la información; `k=2` es la penalización por cada parámetro estimado para calcular el criterio de información de Akaike Generalizado ($GAIC$), y el parámetro `type` sirve para indicar el tipo de distribución, los posibles valores son:
 
 - `realAll`: para hacer la búsqueda en todas las distribuciones disponibles en **gamlss**.
 - `realline`: para variables en $\Re$.
@@ -21,6 +22,10 @@ El parámetro `y` sirve para ingresar el vector con la información; `k=2` es la
 - `real0to1`: para variables en el intervalo $(0, 1)$.
 - `counts`: para variables de conteo.
 - `binom`: para variables de tipo binomial.
+
+```{block2, type='rmdnote'}
+El $GAIC$ se define como $GAIC=-2 \times loglik + k \times \#param$, cuando el valor de penalización es $k=2$, el $GAIC$ se llama $AIC$.
+```
 
 ### Ejemplo {-}
 Generar $n=100$ observaciones de una gamma con parámetro $\mu=2$ y parámetro $\sigma=0.5$ y verificar si la función `fitDist` logra identificar que los datos fueron generados de una distribución gamma. Use $k=2$ para calcular el $AIC$.
@@ -46,11 +51,11 @@ rug(x=ma, col="deepskyblue3")
 Se va a usar la función `fitDist` con `type='realplus'` porque se sabemos que la muestra aleatoria tiene valores en $\Re^+$. Los resultados de almacenan en el objeto `modelos` y para obtener la lista de los mejores modelos con su respectivo $AIC$ se escribe en la consola `modelos$fits`. Abajo el código usado.
 
 ```{r, message=FALSE, warning=FALSE, error=FALSE}
-modelos <- fitDist(y=ma, type='realplus', k=2)
+modelos <- fitDist(y=ma, type='realplus')
 modelos$fits
 ```
 
-De la lista anterior se observa que la función gamma está en el primer lugar con un $AIC=`r modelos$fits[1]`$ con el menor $AIC$. Esto significa que la distribución gamma explica mejor los datos de la muestra, y esto coincide con la realidad, ya que la muestra fue generada de una distribución gamma.
+De la lista anterior se observa que la función gamma está en el primer lugar con el menor valor de $AIC=`r modelos$fits[1]`$. Esto significa que la distribución gamma explica mejor los datos de la muestra, y esto coincide con la realidad, ya que la muestra fue generada de una distribución gamma.
 
 ```{block2, type='rmdnote'}
 En la salida anterior se observan unos mensajes de error que no deben causar preocupación. Esos errores se deben al proceso de estimación de parámetros con algunas de las distribuciones que no aparecen en la lista final.
@@ -63,12 +68,104 @@ modelos$mu
 modelos$sigma
 ```
 
+De esta última salida tenemos que $\hat{\mu}=2.09$ y $\hat{\sigma}=0.49$, mientras que los verdaderos valores eran $\mu=2$ y $\sigma=0.5$, esto significa que la función `fitDists` logró identificar correctamente la distribución y los parámetros de la distribución.
+
 Por último vamos a dibujar el histograma para la muestra aleatoria y vamos a agregar la densidad de la distribución gamma identificada como la distribución que mejor explica el comportamiento de la variable. Para hacer lo deseado se usa la función `histDist` del paquete **gamlss**, sólo es necesario ingresar los datos y el nombre de la distribución. Abajo el código usado.
 
-```{r histDist1, fig.cap='Histograma para la muestra simulada con la densidad de una Gamma(mu=2.088, sigma=0.495).', fig.asp=0.6, fig.width=9}
+```{r histDist1, fig.cap='Histograma para la muestra simulada con la densidad de una Gamma(mu=2.09, sigma=0.49).', fig.asp=0.6, fig.width=9}
 h <- histDist(y=ma, family=GA, main='', xlab='x', ylab='Densidad',
               line.col='deepskyblue3', line.wd=4, ylim=c(0, 0.45))
 rug(x=ma, col="deepskyblue3")
 ```
 
 En la Figura \@ref(fig:histDist1) se presenta el histograma para muestra aleatoria y la densidad de la gamma que mejor explica estos datos. Se observa claramente que la curva de densidad azul acompaña la forma del histograma.
+
+## ¿Qué tipo de preguntas se podrían responder luego?
+
+Una vez que tenemos identificada la distribución que mejor explica una variable $X$ y los valores de sus parámetros, podemos hacernos preguntas como las siguientes:
+
+- ¿Cuál podría ser el promedio de la variable $X$?.
+- ¿Cuál será la varianza de la variable $X$?
+- ¿$P(X < 4.5)$?
+- ¿Cuál será el valor de $a$ para que $P(X<a)=0.74$?
+
+¿Cómo se resuelven estas preguntas con R? En el siguiente ejemplo lo vamos a mostrar.
+
+### Ejemplo {-}
+Usando la distribución y los parámetros estimados ($Gamma(\mu=2.09, \sigma=0.49)$) del ejemplo incial, responder las preguntas anteriores.
+
+__Solución__
+
+- ¿Cuál podría ser el promedio de la variable $X$?.
+
+El valor promedio o valor esperado de una variable **continua** se define como $E(X) = \int_{-\infty}^{\infty} x f(x) dx$, siendo $f(x)$ la función de densidad.
+
+Para calcular el valor promedio de de $X$ asumiendo una distribución $Gamma(\mu=2.09, \sigma=0.49)$ hacemos lo siguiente:
+
+```{r}
+fun1 <- function(x, mu, sigma) x * dGA(x=x, mu=2.09, sigma=0.49)
+
+integrate(f=fun1, 
+          lower=0, upper=Inf,
+          mu=2.09, sigma=0.49)
+```
+
+El resultado anterior nos indica que el valor promedio o esperado de $X$ es 2.09 aproximadamente.
+
+- ¿Cuál será la varianza de la variable $X$?
+
+El valor promedio o valor esperado de una variable **continua** se define como $Var(X) = \int_{-\infty}^{\infty} (x-E(X))^2 f(x) dx$, siendo $f(x)$ la función de densidad.
+
+Para calcular la varianza hacemos lo siguiente:
+
+```{r}
+fun2 <- function(x, mu, sigma) (x-2.09)^2 * dGA(x=x, mu=2.09, sigma=0.49)
+
+integrate(f=fun2, 
+          lower=0, upper=Inf,
+          mu=2.09, sigma=0.49)
+```
+
+El resultado anterior nos indica que la varianza de $X$ es 1.05 aproximadamente.
+
+- ¿$P(X < 4.5)$?
+
+Para responder esto se hace lo siguiente.
+
+```{r}
+pGA(q=4.5, lower.tail=TRUE, mu=2.09, sigma=0.49)
+```
+
+- ¿Cuál será el valor de $a$ para que $P(X<a)=0.74$?
+
+Para responder esto se hace lo siguiente.
+
+```{r}
+qGA(p=0.74, lower.tail=TRUE, mu=2.09, sigma=0.49)
+```
+
+En la figura siguiente volvemos a dibujar la densidad $Gamma(\mu=2.09, \sigma=0.49)$ para que visualmente podamos interpretar los resultados anteriores. La figura está acompañada de tres líneas de colores que representan las respuestas anteriores.
+
+```{r denEje2, fig.cap='Densidad de una Gamma(mu=2.09, sigma=0.49).', fig.asp=0.6, fig.width=9}
+curve(dGA(x, mu=2.09, sigma=0.49),
+      ylab='Densidad', col='deepskyblue3', lwd=4, las=1, 
+      xlim=c(0, 7), ylim=c(0, 0.45))
+grid()
+abline(v=2.09, col="orange", lty="dashed")
+abline(v=4.5, col="blue", lty="dashed")
+abline(v=2.62, col="red", lty="dashed")
+```
+
+## EJERCICIOS {-}
+
+1. Simule 500 observaciones de la distribución **discreta** $PO(\mu=7.4)$ y luego use la función `fitDists` para identificar la distribución y estimar el parámetro de la distribución.
+
+2. Usando los resultados anteriores responda las siguientes preguntas.
+
+- ¿Cuál podría ser el promedio de la variable $X$?.
+- ¿Cuál será la varianza de la variable $X$?
+- ¿$P(X \geq 5)$?
+- ¿Cuál será el valor de $a$ para que $P(X \geq a)=0.74$?
+
+3. En [este enlace](https://ciencias.medellin.unal.edu.co/escuelas/estadistica/index.php/shiny.html) hay una aplicación Shiny llamada **Bondad de ajuste** que se puede utilizar para identificar la mejor distribución utilizando un archivo externo con datos. Explore la aplicación y úsela.
+
