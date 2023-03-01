@@ -42,7 +42,11 @@ fig:ars1
 fig:frijoles2
 fig:ars2
 fig:pesos1
+eq:fx
+eq:aproxlaplace
 fig:aprox1
+fig:normmultidensi
+fig:dispDatosSimul
 intro
 orígenes
 instalación
@@ -166,5 +170,9 @@ prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2
 prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas
 aproxint
 aproximación-de-laplace-unidimensional
+normalmulti
+función-de-densidad
+simulando-de-una-normal-multivariada
+calculando-probabilidades
 curio
 cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática

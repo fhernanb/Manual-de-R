@@ -15,7 +15,7 @@ description: "Manual de R para los estudiantes de la Escuela de Estadística de 
 
 ```{r echo=FALSE, message=FALSE}
 # lista de paquetes necesarios para compilar el libro
-list.of.packages <- c('ggplot2', 'readxl', 'corrplot')
+list.of.packages <- c("ggplot2", "readxl", "corrplot")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) 
   install.packages(new.packages,
@@ -25,16 +25,17 @@ if(length(new.packages))
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(.packages(), 
-                   'bookdown', 
-                   'knitr', 
-                   'rmarkdown',
-                   'usefultools',
-                   'stests'), 'packages.bib')
+                   "bookdown", 
+                   "knitr", 
+                   "rmarkdown",
+                   "usefultools",
+                   "stests",
+                   "mvtnorm"), "packages.bib")
 ```
 
 # Prefacio {-}
 
-```{r echo=FALSE, out.width="33%", fig.align='center'}
+```{r echo=FALSE, out.width="33%", fig.align="center"}
 knitr::include_graphics("images/portada.png")
 ```
 
@@ -71,15 +72,15 @@ a <- c(1, 5, 6)
 ## Bloques informativos {-}
 En varias partes del libro usaremos bloques informativos para resaltar algún aspecto importante. Abajo se encuentra un ejemplo de los bloques y su significado.
 
-```{block2, type='rmdnote'}
+```{block2, type="rmdnote"}
 Nota aclaratoria.
 ```
 
-```{block2, type='rmdtip'}
+```{block2, type="rmdtip"}
 Sugerencia.
 ```
 
-```{block2, type='rmdwarning'}
+```{block2, type="rmdwarning"}
 Advertencia.
 ```
 
@@ -87,7 +88,7 @@ Advertencia.
 
 Agradecemos enormemente a todos los estudiantes, profesores e investigadores que han leído este libro y nos han retroalimentado con comentarios valiosos para mejorar el documento.
 
-```{block2, type='flushright', html.tag='p'}
+```{block2, type="flushright", html.tag="p"}
 Freddy Hernández Barajas
 
 Olga Cecilia Usuga Manco

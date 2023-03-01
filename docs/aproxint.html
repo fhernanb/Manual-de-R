@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="ph.html"/>
-<link rel="next" href="curio.html"/>
+<link rel="next" href="normalmulti.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -560,9 +560,15 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="aproxint.html"><a href="aproxint.html#ejemplo-76"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>22</b> Curiosidades</a>
+<li class="chapter" data-level="22" data-path="normalmulti.html"><a href="normalmulti.html"><i class="fa fa-check"></i><b>22</b> Distribución normal multivariada</a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>22.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a>
+<li class="chapter" data-level="22.1" data-path="normalmulti.html"><a href="normalmulti.html#función-de-densidad"><i class="fa fa-check"></i><b>22.1</b> Función de densidad</a></li>
+<li class="chapter" data-level="22.2" data-path="normalmulti.html"><a href="normalmulti.html#simulando-de-una-normal-multivariada"><i class="fa fa-check"></i><b>22.2</b> Simulando de una normal multivariada</a></li>
+<li class="chapter" data-level="22.3" data-path="normalmulti.html"><a href="normalmulti.html#calculando-probabilidades"><i class="fa fa-check"></i><b>22.3</b> Calculando probabilidades</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>23</b> Curiosidades</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>23.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a>
 <ul>
 <li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-77"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
@@ -600,17 +606,19 @@ Al hacer una expansión de Taylor de segundo orden para <span class="math inline
 El segundo término de la suma se anula porque <span class="math inline">\(\log(f)^\prime(x_0)=0\)</span> por ser <span class="math inline">\(x_0\)</span> el valor donde está el máximo de <span class="math inline">\(\log(f(x))\)</span>. La expresión anterior se simplifica en:
 <span class="math display">\[ \log(f(x)) \approx \log(f(x_0)) + \frac{\log(f)^{\prime \prime}(x_0)}{2!} (x-x_0)^2 \]</span>
 al aislar <span class="math inline">\(f(x)\)</span> se tiene que</p>
-<p><span class="math display">\[\begin{equation} \label{fx}
+<p><span class="math display" id="eq:fx">\[\begin{equation}
 f(x) \approx f(x_0)  \exp \left( -\frac{c}{2} (x-x_0)^2 \right)
+\tag{21.1}
 \end{equation}\]</span></p>
 <p>donde <span class="math inline">\(c=-\frac{d^2}{dx^2} \log(f(x)) \bigg|_{x=x_0}\)</span>.</p>
-<p>La expresión <span class="math inline">\(\ref{fx}\)</span> se puede reescribir de manera que aparezca el núcleo de la función de densidad de la distribución normal con media <span class="math inline">\(x_0\)</span> y varianza <span class="math inline">\(1/c\)</span>, a continuación la expresión</p>
+<p>La expresión <a href="aproxint.html#eq:fx">(21.1)</a> se puede reescribir de manera que aparezca el núcleo de la función de densidad de la distribución normal con media <span class="math inline">\(x_0\)</span> y varianza <span class="math inline">\(1/c\)</span>, a continuación la expresión</p>
 <p><span class="math display">\[
 f(x) \approx f(x_0) \frac{\sqrt{2 \pi / c}}{\sqrt{2 \pi / c}}  \exp \left( -\frac{1}{2} \left( \frac{x-x_0}{1/\sqrt{c}} \right)^2 \right)
 \]</span>
-Así al calcular la integral de <span class="math inline">\(f(x)\)</span> en <span class="math inline">\(\Re\)</span> se tiene que:
-<span class="math display">\[\begin{equation} \label{aprox_laplace}
+Así al calcular la integral de <span class="math inline">\(f(x)\)</span> en <span class="math inline">\(\Re\)</span> se tiene que:</p>
+<p><span class="math display" id="eq:aproxlaplace">\[\begin{equation}
 I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
+\tag{21.2}
 \end{equation}\]</span></p>
 <div id="ejemplo-76" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="aproxint.html#ejemplo-76" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -632,10 +640,10 @@ Figure 21.1: Perfil de la función f(x).
 ## 
 ## $objective
 ## [1] 1</code></pre>
-<p>Para determinar el valor de <span class="math inline">\(c\)</span> de la expresión <span class="math inline">\(\ref{aprox_laplace}\)</span> se utiliza el siguiente código.</p>
+<p>Para determinar el valor de <span class="math inline">\(c\)</span> de la expresión <a href="aproxint.html#eq:aproxlaplace">(21.2)</a> se utiliza el siguiente código.</p>
 <div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="aproxint.html#cb670-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;numDeriv&quot;</span>)</span>
 <span id="cb670-2"><a href="aproxint.html#cb670-2" aria-hidden="true" tabindex="-1"></a>constant <span class="ot">&lt;-</span> <span class="sc">-</span> <span class="fu">as.numeric</span>(<span class="fu">hessian</span>(fun, res<span class="sc">$</span>maximum))</span></code></pre></div>
-<p>Para obtener la aproximación de la integral se usa la expresión <span class="math inline">\(\ref{aprox_laplace}\)</span> y para tener un punto de comparación se evalua la integral usando la función <code>integrate</code>, a continuación el código.</p>
+<p>Para obtener la aproximación de la integral se usa la expresión <a href="aproxint.html#eq:aproxlaplace">(21.2)</a> y para tener un punto de comparación se evalua la integral usando la función <code>integrate</code>, a continuación el código.</p>
 <div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="aproxint.html#cb671-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fun</span>(res<span class="sc">$</span>maximum) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">/</span>constant)</span></code></pre></div>
 <pre><code>## [1] 1.772454</code></pre>
 <div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="aproxint.html#cb673-1" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(fun, <span class="sc">-</span><span class="cn">Inf</span>, <span class="cn">Inf</span>)  <span class="co"># Para comparar</span></span></code></pre></div>
@@ -651,7 +659,7 @@ Figure 21.1: Perfil de la función f(x).
         </div>
       </div>
 <a href="ph.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="curio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="normalmulti.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
