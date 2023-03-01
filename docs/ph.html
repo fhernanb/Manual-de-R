@@ -522,7 +522,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="20.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>20.3.1</b> Prueba de Wald</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-66"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="20.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>20.3.2</b> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson</a></li>
+<li class="chapter" data-level="20.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>20.3.2</b> Prueba <span class="math inline">\(\chi^2\)</span> de Pearson</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-67"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="20.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>20.3.3</b> Prueba binomial exacta</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-68"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -592,12 +592,13 @@ div.csl-indent {
 <h1><span class="header-section-number">20</span> Prueba de hipótesis<a href="ph.html#ph" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>En este capítulo se muestran las funciones que hay disponibles en R para realizar prueba de hipótesis para:</p>
 <ol style="list-style-type: decimal">
-<li>la media <span class="math inline">\(\mu\)</span>,</li>
+<li>la media <span class="math inline">\(\mu\)</span> de una población normal,</li>
 <li>la proporción <span class="math inline">\(p\)</span>,</li>
-<li>la varianza <span class="math inline">\(\sigma^2\)</span>,</li>
-<li>la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> para muestras independientes y dependientes (o pareadas),</li>
-<li>la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span>, y</li>
-<li>la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span>.</li>
+<li>la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal,</li>
+<li>la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> de dos poblaciones normales independientes,</li>
+<li>la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con muestras pareadas,</li>
+<li>la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span>,</li>
+<li>la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span> de poblaciones normales.</li>
 </ol>
 <div id="prueba-de-hipótesis-para-mu-de-una-población-normal" class="section level2 hasAnchor" number="20.1">
 <h2><span class="header-section-number">20.1</span> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal<a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -629,7 +630,7 @@ div.csl-indent {
 ## 
 ## data:  contenido
 ## A = 0.49161, p-value = 0.1665</code></pre>
-<p>Como el valor-P de la prueba Anderson-Darling es 20% y mayor que el nivel de significancia del 5%, se puede asumir que la muestra proviene de una población normal.</p>
+<p>Como el valor-P de la prueba Anderson-Darling es 0.1665 y mayor que el nivel de significancia del 5%, se puede asumir que la muestra proviene de una población normal.</p>
 <p>Luego de haber explorado la normalidad retornamos al problema de interés que se puede resumir así:</p>
 <p><span class="math display">\[H_0: \mu = 500 \quad gr\]</span>
 <span class="math display">\[H_1: \mu \neq 500 \quad gr\]</span>
@@ -647,7 +648,7 @@ La prueba de hipótesis se puede realizar usando la función <code>t.test</code>
 ## sample estimates:
 ## mean of x 
 ##     497.8</code></pre>
-<p>Como el valor-P es 30% y mayor que el nivel de significancia 5%, no se rechaza la hipótesis nula, es decir, las evidencias no son suficientes para afirmar que el proceso de llenando no está cumpliendo con lo impreso en la envoltura.</p>
+<p>Como el valor-P es 0.3155 y mayor que el nivel de significancia 5%, no se rechaza la hipótesis nula, es decir, las evidencias no son suficientes para afirmar que el proceso de llenando no está cumpliendo con lo impreso en la envoltura.</p>
 </div>
 </div>
 <div id="prueba-de-hipótesis-para-mu-con-muestras-grandes" class="section level2 hasAnchor" number="20.2">
@@ -679,7 +680,7 @@ Para este tipo de pruebas no hay una función de R que haga los cálculos, por e
 <p>Existen varias pruebas para estudiar la propoción <span class="math inline">\(p\)</span> de una distribución binomial, a continuación el listado de las más comunes.</p>
 <ol style="list-style-type: decimal">
 <li>Prueba de <a href="https://en.wikipedia.org/wiki/Wald_test">Wald</a>,</li>
-<li>Prueba <span class="math inline">\(\Chi^2\)</span> de <a href="https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test#Fairness_of_dice">Pearson</a>,</li>
+<li>Prueba <span class="math inline">\(\chi^2\)</span> de <a href="https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test#Fairness_of_dice">Pearson</a>,</li>
 <li>Prueba <a href="https://en.wikipedia.org/wiki/Binomial_test">binomial exacta</a>.</li>
 </ol>
 <div id="prueba-de-wald" class="section level3 hasAnchor" number="20.3.1">
@@ -705,7 +706,7 @@ donde <span class="math inline">\(\hat{p}\)</span> es la proporción muestral ca
 <div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="ph.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span>z, <span class="at">lower.tail=</span><span class="cn">TRUE</span>)  <span class="co"># Para obtener el valor-P</span></span></code></pre></div>
 <pre><code>## [1] 0.0786496</code></pre>
 <p>El valor-P obtenido se puede representar gráficamente en la Figura <a href="ph.html#fig:wald1">20.1</a>.</p>
-<p>Como el valor-P obtenido fue mayor que el nivel de significancia <span class="math inline">\(\alpha=0.05\)</span> se concluye que no hay evidencias suficientes para rechazar la hipótesis nula.</p>
+<p>Como el valor-P obtenido fue mayor que el nivel de significancia <span class="math inline">\(\alpha=0.05\)</span> se concluye que no hay evidencias suficientes para rechazar la hipótesis nula. En la siguiente figura se ilustra el valor-P o área bajo la curva.</p>
 <div class="figure"><span style="display:block;" id="fig:wald1"></span>
 <img src="Manual_de_R_files/figure-html/wald1-1.png" alt="Representación del Valor-P para la prueba Wald." width="576" />
 <p class="caption">
@@ -715,8 +716,8 @@ Figure 20.1: Representación del Valor-P para la prueba Wald.
 <div style="page-break-after: always;"></div>
 </div>
 <div id="prueba-chi2-de-pearson" class="section level3 hasAnchor" number="20.3.2">
-<h3><span class="header-section-number">20.3.2</span> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson<a href="ph.html#prueba-chi2-de-pearson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Para realizar la prueba <span class="math inline">\(\Chi^2\)</span> de Pearson se usa la función <code>prop.test</code> que tiene la siguiente estructura.</p>
+<h3><span class="header-section-number">20.3.2</span> Prueba <span class="math inline">\(\chi^2\)</span> de Pearson<a href="ph.html#prueba-chi2-de-pearson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para realizar la prueba <span class="math inline">\(\chi^2\)</span> de Pearson se usa la función <code>prop.test</code> que tiene la siguiente estructura.</p>
 <div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="ph.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(x, n, <span class="at">p =</span> <span class="cn">NULL</span>,</span>
 <span id="cb628-2"><a href="ph.html#cb628-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="fu">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
 <span id="cb628-3"><a href="ph.html#cb628-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">correct =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
@@ -751,7 +752,7 @@ La forma de usar la función <code>prop.test</code> para realizar la prueba se m
 ## sample estimates:
 ##    p 
 ## 0.87</code></pre>
-<p>Como el valor-P (con valor de 0.07865 pero repotado en la salida como 0.08) es mayor que <span class="math inline">\(\alpha\)</span> no se rechaza la hipótesis nula y se concluye que no hay evidencias suficientes para rechazar la hipótesis nula.</p>
+<p>El valor-P es 0.07865 y mayor que <span class="math inline">\(\alpha\)</span>, por lo tanto no se rechaza la hipótesis nula y se concluye que no hay evidencias suficientes para rechazar la hipótesis nula.</p>
 </div>
 <div id="prueba-binomial-exacta" class="section level3 hasAnchor" number="20.3.3">
 <h3><span class="header-section-number">20.3.3</span> Prueba binomial exacta<a href="ph.html#prueba-binomial-exacta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -788,12 +789,12 @@ La forma de usar la función <code>binom.test</code> para realizar la prueba se 
 ## sample estimates:
 ## probability of success 
 ##                   0.85</code></pre>
-<p>Como el valor-P (reportado como 0.3 pero con valor de 0.3231) es mayor que <span class="math inline">\(\alpha\)</span> no se rechaza la hipótesis nula y se concluye que no hay evidencias suficientes para rechazar la hipótesis nula.</p>
+<p>El valor-P es 0.3231 y mayor que <span class="math inline">\(\alpha\)</span>, por lo tanto no se rechaza la hipótesis nula y se concluye que no hay evidencias suficientes para rechazar la hipótesis nula.</p>
 </div>
 </div>
 <div id="prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal" class="section level2 hasAnchor" number="20.4">
 <h2><span class="header-section-number">20.4</span> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal<a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Para realizar este tipo de prueba se usa la función <code>var.test</code> del paquete <strong>usefultools</strong> <span class="citation">(<a href="#ref-R-usefultools" role="doc-biblioref">Hernandez 2023</a>)</span> disponible en el repositorio <a href="https://github.com/">GitHub</a>. La función <code>var.test</code> tiene la siguiente estructura.</p>
+<p>Para realizar este tipo de prueba se usa la función <code>var.test</code> del paquete <strong>stests</strong> <span class="citation">(<a href="#ref-R-stests" role="doc-biblioref">Hernandez et al. 2023</a>)</span> disponible en el <a href="https://github.com/fhernanb/stests">repositorio</a>. La función <code>var.test</code> tiene la siguiente estructura.</p>
 <div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="ph.html#cb634-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(x, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>,</span>
 <span id="cb634-2"><a href="ph.html#cb634-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">null.value =</span> <span class="dv">1</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <p>Los argumentos a definir dentro de <code>var.test</code> para hacer la prueba son:</p>
@@ -803,9 +804,9 @@ La forma de usar la función <code>binom.test</code> para realizar la prueba se 
 <li><code>null.value</code>: valor de referencia de la prueba.</li>
 <li><code>conf.level</code>: nivel de confianza para reportar el intervalo de confianza asociado (opcional).</li>
 </ul>
-<p>Para instalar el paquete <strong>usefultools</strong> desde GitHub se debe copiar el siguiente código en la consola de R:</p>
+<p>Para instalar el paquete <strong>stests</strong> desde GitHub se debe copiar el siguiente código en la consola de R:</p>
 <div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="ph.html#cb635-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;devtools&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</span>
-<span id="cb635-2"><a href="ph.html#cb635-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;fhernanb/usefultools&#39;</span>, <span class="at">force=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb635-2"><a href="ph.html#cb635-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;fhernanb/stests&#39;</span>, <span class="at">force=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <div id="ejemplo-69" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="ph.html#ejemplo-69" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para verificar si el proceso de llenado de bolsas de café está operando con la variabilidad permitida se toman aleatoriamente muestras de tamaño diez cada cuatro horas. Una muestra de bolsas está compuesta por las siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489, 490. El proceso de llenado está bajo control si presenta un varianza de 40 o menos. ¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un nivel de significancia del 5%.</p>
@@ -818,9 +819,8 @@ La prueba de hipótesis se puede realizar usando la función <code>var.test</cod
 <div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="ph.html#cb636-1" aria-hidden="true" tabindex="-1"></a>contenido <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">510</span>, <span class="dv">492</span>, <span class="dv">494</span>, <span class="dv">498</span>, <span class="dv">492</span>,</span>
 <span id="cb636-2"><a href="ph.html#cb636-2" aria-hidden="true" tabindex="-1"></a>               <span class="dv">496</span>, <span class="dv">502</span>, <span class="dv">491</span>, <span class="dv">507</span>, <span class="dv">496</span>)</span>
 <span id="cb636-3"><a href="ph.html#cb636-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb636-4"><a href="ph.html#cb636-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(usefultools)  <span class="co"># Ya debe estar instalado</span></span>
-<span id="cb636-5"><a href="ph.html#cb636-5" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(<span class="at">x=</span>contenido, <span class="at">alternative=</span><span class="st">&#39;greater&#39;</span>,</span>
-<span id="cb636-6"><a href="ph.html#cb636-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">null.value=</span><span class="dv">40</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
+<span id="cb636-4"><a href="ph.html#cb636-4" aria-hidden="true" tabindex="-1"></a>stests<span class="sc">::</span><span class="fu">var.test</span>(<span class="at">x=</span>contenido, <span class="at">alternative=</span><span class="st">&#39;greater&#39;</span>,</span>
+<span id="cb636-5"><a href="ph.html#cb636-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">null.value=</span><span class="dv">40</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  X-squared test for variance
 ## 
@@ -875,13 +875,14 @@ Figure 20.2: QQplot para los tiempos de cocción.
 <div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="ph.html#cb642-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lillie.test</span>(T2)<span class="sc">$</span>p.value</span></code></pre></div>
 <pre><code>## [1] 0.3952748</code></pre>
 <p>Del QQplot mostrado en la Figura <a href="ph.html#fig:frijoles1">20.2</a> y las pruebas de normalidad se observa que se puede asumir que las poblaciones son normales.</p>
-<p>La función <code>var.test</code> se puede usar para probar <span class="math inline">\(H_0\)</span>, a continuación el código para realizar la prueba.</p>
-<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="ph.html#cb644-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(T1, T2, <span class="at">null.value=</span><span class="dv">1</span>, <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>,</span>
-<span id="cb644-2"><a href="ph.html#cb644-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
+<p>Para resolver este ejercicio podemos usar la función <code>var.test</code> de <strong>stats</strong> o de <strong>stests</strong>. En esta ocasión vamos a usar <strong>stats</strong> para probar <span class="math inline">\(H_0\)</span>, a continuación el código para realizar la prueba.</p>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="ph.html#cb644-1" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">var.test</span>(<span class="at">x=</span>T1, <span class="at">y=</span>T2, <span class="at">null.value=</span><span class="dv">1</span>, </span>
+<span id="cb644-2"><a href="ph.html#cb644-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>,</span>
+<span id="cb644-3"><a href="ph.html#cb644-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  F test to compare two variances
 ## 
-## data:  T1  and  T2
+## data:  T1 and T2
 ## F = 1.011, num df = 6, denom df = 6, p-value = 0.9897
 ## alternative hypothesis: true ratio of variances is not equal to 1
 ## 95 percent confidence interval:
@@ -918,9 +919,10 @@ Figure 20.3: QQplot para las concentraciones de arsénico.
 <div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="ph.html#cb649-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lillie.test</span>(rur)<span class="sc">$</span>p.value</span></code></pre></div>
 <pre><code>## [1] 0.6249628</code></pre>
 <p>Del QQplot mostrado en la Figura <a href="ph.html#fig:ars1">20.3</a> y las pruebas de normalidad se observa que se pueden asumir poblaciones normales.</p>
-<p>La función <code>var.test</code> se puede usar para probar <span class="math inline">\(H_0\)</span>, a continuación el código para realizar la prueba.</p>
-<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="ph.html#cb651-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(urb, rur, <span class="at">null.value=</span><span class="dv">1</span>, <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>,</span>
-<span id="cb651-2"><a href="ph.html#cb651-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
+<p>Para resolver este ejercicio podemos usar la función <code>var.test</code> de <strong>stats</strong> o de <strong>stests</strong>. En esta ocasión vamos a usar <strong>stests</strong> para probar <span class="math inline">\(H_0\)</span>, a continuación el código para realizar la prueba.</p>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="ph.html#cb651-1" aria-hidden="true" tabindex="-1"></a>stests<span class="sc">::</span><span class="fu">var.test</span>(<span class="at">x=</span>urb, <span class="at">y=</span>rur, <span class="at">null.value=</span><span class="dv">1</span>, </span>
+<span id="cb651-2"><a href="ph.html#cb651-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>,</span>
+<span id="cb651-3"><a href="ph.html#cb651-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  F test to compare two variances
 ## 
@@ -936,8 +938,8 @@ Figure 20.3: QQplot para las concentraciones de arsénico.
 
 <div class="rmdwarning">
 <p>¿Notó que las funciones <code>var.test</code> y <code>var.test</code> son diferentes?</p>
-<p><code>var.test</code> sirve para prueba de hipótesis sobre <span class="math inline">\(\sigma^2\)</span>.</p>
-<code>var.test</code> sirve para prueba de hipótesis sobre <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span>.
+<p><code>stats::var.test</code> sólo sirve para prueba de hipótesis sobre <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span>.</p>
+<code>stests::var.test</code> sirve para prueba de hipótesis sobre <span class="math inline">\(\sigma^2\)</span> y sobre <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span>.
 </div>
 </div>
 </div>
@@ -1157,8 +1159,8 @@ Figure 20.6: QQplot para las diferencias de peso.
 <div id="ref-R-nortest" class="csl-entry">
 Gross, Juergen, and Uwe Ligges. 2015. <em>Nortest: Tests for Normality</em>. <a href="https://CRAN.R-project.org/package=nortest">https://CRAN.R-project.org/package=nortest</a>.
 </div>
-<div id="ref-R-usefultools" class="csl-entry">
-Hernandez, Freddy. 2023. <em>Usefultools: Useful Tools for Data Analysis</em>. <a href="https://github.com/fhernanb/usefultools">https://github.com/fhernanb/usefultools</a>.
+<div id="ref-R-stests" class="csl-entry">
+Hernandez, Freddy, Olga Usuga, Valentina Garcia, and Jean Paul Piedrahita. 2023. <em>Stests: Package with Useful Statistical Tests</em>. <a href="https://fhernanb.github.io/stests">https://fhernanb.github.io/stests</a>.
 </div>
 </div>
             </section>

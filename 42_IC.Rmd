@@ -196,13 +196,12 @@ Siempre es necesario verificar si se cumple el supuesto de normalidad. A diferen
 Recuerde: siempre se debe verificar el supuesto de normalidad.
 ```
 
-
 ## Función `var.test`
 
-Para construir intervalos de confianza para la varianza se puede usar la función `var.test` del paquete básico **stats** o la función `var.test` del paquete **stests** [@R-stests] disponible en el [repositorio](https://github.com/fhernanb/stests). Ambas funciones tienen el mismo nombre la segunda es una generalización de la primera. En la siguiente nota se aclara la diferencia.
+Para construir intervalos de confianza para la varianza se puede usar la función `var.test` del paquete básico **stats** o la función `var.test` del paquete **stests** [@R-stests] disponible en el [repositorio](https://github.com/fhernanb/stests). En la siguiente nota se aclara la diferencia.
 
 ```{block2, type='rmdnote'}
-`var.test()` de **stats** sólo sirve para 1 población mientras que `var.test()` de **stests**  sirve para 1 o 2 poblaciones.
+`var.test()` de **stats** sólo sirve para 1 población mientras que `var.test()` de **stests** sirve para 1 o 2 poblaciones.
 ```
 
 Para instalar el paquete **stests** desde GitHub se debe copiar el siguiente código en la consola de R:
@@ -289,11 +288,11 @@ Recuerde: siempre se debe verificar el supuesto de normalidad.
 ```
 
 ```{block2, type='rmdwarning'}
-¿Notó que las funciones `stats::var.test` y `stests::var.test` no son exactamente iguales?
+¿Notó que las funciones `stats::var.test` y `stests::var.test` son diferentes?
 
 `stats::var.test` solo sirve para construir IC para $\sigma_1^2 / \sigma_2^2$.
 
-`var.test` sirve para construir IC para $\sigma^2$ y para $\sigma_1^2 / \sigma_2^2$.
+`stests::var.test` sirve para construir IC para $\sigma^2$ y para $\sigma_1^2 / \sigma_2^2$.
 ```
 
 ## Función `prop.test`

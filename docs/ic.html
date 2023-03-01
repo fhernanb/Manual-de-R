@@ -522,7 +522,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="20.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>20.3.1</b> Prueba de Wald</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-66"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="20.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>20.3.2</b> Prueba <span class="math inline">\(\Chi^2\)</span> de Pearson</a></li>
+<li class="chapter" data-level="20.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>20.3.2</b> Prueba <span class="math inline">\(\chi^2\)</span> de Pearson</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-67"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="20.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>20.3.3</b> Prueba binomial exacta</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-68"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -862,7 +862,7 @@ Recuerde: siempre se debe verificar el supuesto de normalidad.
 </div>
 <div id="función-var.test" class="section level2 hasAnchor" number="19.2">
 <h2><span class="header-section-number">19.2</span> Función <code>var.test</code><a href="ic.html#función-var.test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Para construir intervalos de confianza para la varianza se puede usar la función <code>var.test</code> del paquete básico <strong>stats</strong> o la función <code>var.test</code> del paquete <strong>stests</strong> <span class="citation">(<a href="#ref-R-stests" role="doc-biblioref">Hernandez et al. 2023</a>)</span> disponible en el <a href="https://github.com/fhernanb/stests">repositorio</a>. Ambas funciones tienen el mismo nombre la segunda es una generalización de la primera. En la siguiente nota se aclara la diferencia.</p>
+<p>Para construir intervalos de confianza para la varianza se puede usar la función <code>var.test</code> del paquete básico <strong>stats</strong> o la función <code>var.test</code> del paquete <strong>stests</strong> <span class="citation">(<a href="#ref-R-stests" role="doc-biblioref">Hernandez et al. 2023</a>)</span> disponible en el <a href="https://github.com/fhernanb/stests">repositorio</a>. En la siguiente nota se aclara la diferencia.</p>
 
 <div class="rmdnote">
 <code>var.test()</code> de <strong>stats</strong> sólo sirve para 1 población mientras que <code>var.test()</code> de <strong>stests</strong> sirve para 1 o 2 poblaciones.
@@ -936,9 +936,9 @@ Recuerde: siempre se debe verificar el supuesto de normalidad.
 </div>
 
 <div class="rmdwarning">
-<p>¿Notó que las funciones <code>stats::var.test</code> y <code>stests::var.test</code> no son exactamente iguales?</p>
+<p>¿Notó que las funciones <code>stats::var.test</code> y <code>stests::var.test</code> son diferentes?</p>
 <p><code>stats::var.test</code> solo sirve para construir IC para <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span>.</p>
-<code>var.test</code> sirve para construir IC para <span class="math inline">\(\sigma^2\)</span> y para <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span>.
+<code>stests::var.test</code> sirve para construir IC para <span class="math inline">\(\sigma^2\)</span> y para <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span>.
 </div>
 </div>
 </div>

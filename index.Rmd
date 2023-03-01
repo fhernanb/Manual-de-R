@@ -28,7 +28,8 @@ knitr::write_bib(c(.packages(),
                    'bookdown', 
                    'knitr', 
                    'rmarkdown',
-                   'usefultools'), 'packages.bib')
+                   'usefultools',
+                   'stests'), 'packages.bib')
 ```
 
 # Prefacio {-}
