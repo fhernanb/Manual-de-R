@@ -2,12 +2,13 @@
 
 En este capítulo se muestran las funciones que hay disponibles en R para construir intervalos de confianza para:
 
-1. la media $\mu$,
+1. la media $\mu$ de una población normal,
 2. la proporción $p$,
-3. la varianza $\sigma^2$,
-4. la diferencia de medias $\mu_1-\mu_2$ para muestras independientes y dependientes (o pareadas),
-5. la diferencia de proporciones $p_1 - p_2$, y 
-6. la razón de varianzas $\sigma_1^2 / \sigma_2^2$.
+3. la varianza $\sigma^2$ de una población normal,
+4. la diferencia de medias $\mu_1-\mu_2$ de dos poblaciones normales independientes,
+4. la diferencia de medias $\mu_1-\mu_2$ con muestras pareadas,
+5. la diferencia de proporciones $p_1 - p_2$,
+6. la razón de varianzas $\sigma_1^2 / \sigma_2^2$ de poblaciones normales.
 
 Para ilustrar el uso de las funciones se utilizará la base de datos __medidas del cuerpo__ presentada en el Capítulo \@ref(central). 
 
@@ -180,19 +181,29 @@ A partir del resultado obtenido se puede concluir con un nivel de confianza del 
 Para construir intervalos de confianza unilaterales se usa el argumento `alternative = 'less'` o `alternative='greater'`, a continuación un ejemplo.
 
 ### Ejemplo {-}
-Simule una muestra aleatoria de una $N(18, 3)$  y calcule un intervalo de confianza unilateral superior del $90\%$ para la media
+Simule una muestra aleatoria de una $N(18, 3)$ y calcule un intervalo de confianza unilateral superior del $90\%$ para la media
  
 ```{r}
 x <- rnorm(50, mean = 18, sd =3)
 t.test(x, alternative = "greater", conf.level = 0.90)$conf.int
 ```
 
-En el resultado anterior se muestra el intervalo de confianza unilateral. 
+En el resultado anterior se muestra el intervalo de confianza unilateral y vemos que el intervalo de confianza si contiene el verdadero de $\mu=18$.
+
+```{block2, type='rmdwarning'}
+Siempre es necesario verificar si se cumple el supuesto de normalidad. A diferencia de los ejemplos anteriores, aquí no lo hicimos porque la muestra aleatoria `x` fue tomada de una $N(18, 3)$ y por lo tanto se cumple el supuesto.
+
+Recuerde: siempre se debe verificar el supuesto de normalidad.
+```
 
 
 ## Función `var.test`
 
-Para construir intervalos de confianza para la varianza se usa la función `var.test` del paquete **stests** [@R-usefultools] disponible en el repositorio [GitHub](https://github.com/).
+Para construir intervalos de confianza para la varianza se puede usar la función `var.test` del paquete básico **stats** o la función `var.test` del paquete **stests** [@R-stests] disponible en el [repositorio](https://github.com/fhernanb/stests). Ambas funciones tienen el mismo nombre la segunda es una generalización de la primera. En la siguiente nota se aclara la diferencia.
+
+```{block2, type='rmdnote'}
+`var.test()` de **stats** sólo sirve para 1 población mientras que `var.test()` de **stests**  sirve para 1 o 2 poblaciones.
+```
 
 Para instalar el paquete **stests** desde GitHub se debe copiar el siguiente código en la consola de R:
 
@@ -201,7 +212,7 @@ if (!require('devtools')) install.packages('devtools')
 devtools::install_github('fhernanb/stests', force=TRUE)
 ```
 
-Una vez instalado el paquete **stests** se puede usar la función `var.test`, la cual es una generalización de la función `var.test` del paquete **stats** y por esa razón aparece el siguiente mensaje en la consola cuando se invoca el paquete.
+Una vez instalado el paquete **stests** se puede usar la función `var.test`, la cual es una generalización de la función `var.test` del paquete **stats** y por esa razón aparecerá el siguiente mensaje en la consola cuando se invoca el paquete.
 
 ```{r, eval=FALSE}
 library(stests)
@@ -214,14 +225,8 @@ library(stests)
 Si usted desea usar `var.test` del paquete **stats** o `var.test` del paquete **stests**, puede invocar las funciones explícitamente así:
 
 ```{r, eval=FALSE}
-stats::var.test()   # Para usar la fución del paquete stats
-stests::var.test()  # Para usar la fución del paquete stests
-```
-
-```{block2, type='rmdnote'}
-Recuerde que:
-  - `stats::var.test()`   sólo sirve para 1 población.
-  - `stests::var.test()`  sirve para 1 o 2 poblaciones.
+stats::var.test()   # Para usar la función var.test del paquete stats
+stests::var.test()  # Para usar la función var.test del paquete stests
 ```
 
 ### Intervalo de confianza bilateral para la varianza $\sigma^2$
@@ -242,6 +247,12 @@ res$conf.int
 
 El intervalo de confianza del $98\%$ indica que la varianza de la estatura de los estudiantes hombres se encuentra entre 21.08 y 109.93 $cm^{2}$.
 
+```{block2, type='rmdnote'}
+En este ejemplo no verificamos que la muestra aleatoria de alturas proviene de una población normal, eso ya lo habíamos hecho en el primer ejemplo de este capítulo.
+
+Recuerde: siempre se debe verificar el supuesto de normalidad.
+```
+
 ### Intervalo de confianza bilateral para la razón de varianzas $\sigma_1^2 / \sigma_2^2$
 
 Para calcular intervalos de confianza bilaterales para la razón de varianzas a partir de la función `var.test` es necesario definir 3 argumentos:
@@ -253,19 +264,36 @@ Para calcular intervalos de confianza bilaterales para la razón de varianzas a 
 ### Ejemplo {-}
 Usando la información  del ejemplo de diferencia de medias para muestras independientes se quiere obtener un intervalo de confianza del $95\%$ para la razón de las varianzas de las alturas de los estudiantes hombres y mujeres.
 
+Primero lo vamos a construir con `var.test` de **stests**.
+
 ```{r, eval=TRUE}
-var.test(x=hombres$altura, y=mujeres$altura,
+stests::var.test(x=hombres$altura, y=mujeres$altura,
+         conf.level=0.95)$conf.int
+```  
+
+Ahora los vamos a construir con `var.test` de **stats**.
+
+```{r, eval=TRUE}
+stats::var.test(x=hombres$altura, y=mujeres$altura,
          conf.level=0.95)$conf.int
 ```         
 
-El intervalo de confianza del $95\%$ indica que la razón de varianzas se encuentra entre 0.2327 y 1.6633. Puesto que el intervalo de confianza incluye el 1 se concluye que las varianzas de las alturas de los hombres y las mujeres son iguales.
+Los intervalos coinciden en los resultados.
+
+Así, el intervalo de confianza del $95\%$ indica que la razón de varianzas se encuentra entre 0.2327 y 1.6633. Puesto que el intervalo de confianza incluye el 1 se concluye que las varianzas de las alturas de los hombres y las mujeres son iguales.
+
+```{block2, type='rmdnote'}
+En este ejemplo no verificamos que la muestra aleatoria de alturas de hombres y mujeres proviene de una población normal, eso ya lo habíamos hecho en un ejemplo de este capítulo.
+
+Recuerde: siempre se debe verificar el supuesto de normalidad.
+```
 
 ```{block2, type='rmdwarning'}
-¿Notó que las funciones `var.test` y `var.test` son diferentes?
+¿Notó que las funciones `stats::var.test` y `stests::var.test` no son exactamente iguales?
 
-`var.test` sirve para construir IC para $\sigma^2$.
+`stats::var.test` solo sirve para construir IC para $\sigma_1^2 / \sigma_2^2$.
 
-`var.test` sirve para construir IC para $\sigma_1^2 / \sigma_2^2$.
+`var.test` sirve para construir IC para $\sigma^2$ y para $\sigma_1^2 / \sigma_2^2$.
 ```
 
 ## Función `prop.test`
@@ -280,7 +308,11 @@ prop.test(x, n, p=NULL,
 
 ### Intervalo de confianza bilateral para la proporción $p$
 
-Para calcular intervalos de confianza bilaterales para la proporción a partir de la función `prop.test` es necesario definir 3 argumentos: `x` considera el conteo de éxitos, `n` indica el número de eventos o de forma equivalente corresponde a la longitud de la variable que se quiere analizar, y `conf.level` corresponde al nivel de confianza. 
+Para calcular intervalos de confianza bilaterales para la proporción con la función `prop.test` es necesario definir 3 argumentos: 
+
+- `x` considera el conteo de éxitos, 
+- `n` indica el número de eventos,
+- `conf.level` corresponde al nivel de confianza. 
 
 
 ### Ejemplo {-}

@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2023-02-08" />
+<meta name="date" content="2023-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -592,12 +592,13 @@ div.csl-indent {
 <h1><span class="header-section-number">19</span> Intervalos de confianza<a href="ic.html#ic" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>En este capítulo se muestran las funciones que hay disponibles en R para construir intervalos de confianza para:</p>
 <ol style="list-style-type: decimal">
-<li>la media <span class="math inline">\(\mu\)</span>,</li>
+<li>la media <span class="math inline">\(\mu\)</span> de una población normal,</li>
 <li>la proporción <span class="math inline">\(p\)</span>,</li>
-<li>la varianza <span class="math inline">\(\sigma^2\)</span>,</li>
-<li>la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> para muestras independientes y dependientes (o pareadas),</li>
-<li>la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span>, y</li>
-<li>la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span>.</li>
+<li>la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal,</li>
+<li>la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> de dos poblaciones normales independientes,</li>
+<li>la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con muestras pareadas,</li>
+<li>la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span>,</li>
+<li>la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span> de poblaciones normales.</li>
 </ol>
 <p>Para ilustrar el uso de las funciones se utilizará la base de datos <strong>medidas del cuerpo</strong> presentada en el Capítulo <a href="central.html#central">10</a>.</p>
 <div id="función-t.test" class="section level2 hasAnchor" number="19.1">
@@ -851,30 +852,33 @@ Figure 19.3: QQplot y densidad para Diferencias.
 <pre><code>## [1] 17.58728      Inf
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.9</code></pre>
-<p>En el resultado anterior se muestra el intervalo de confianza unilateral.</p>
+<p>En el resultado anterior se muestra el intervalo de confianza unilateral y vemos que el intervalo de confianza si contiene el verdadero de <span class="math inline">\(\mu=18\)</span>.</p>
+
+<div class="rmdwarning">
+<p>Siempre es necesario verificar si se cumple el supuesto de normalidad. A diferencia de los ejemplos anteriores, aquí no lo hicimos porque la muestra aleatoria <code>x</code> fue tomada de una <span class="math inline">\(N(18, 3)\)</span> y por lo tanto se cumple el supuesto.</p>
+Recuerde: siempre se debe verificar el supuesto de normalidad.
+</div>
 </div>
 </div>
 <div id="función-var.test" class="section level2 hasAnchor" number="19.2">
 <h2><span class="header-section-number">19.2</span> Función <code>var.test</code><a href="ic.html#función-var.test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Para construir intervalos de confianza para la varianza se usa la función <code>var.test</code> del paquete <strong>stests</strong> <span class="citation">(<a href="#ref-R-usefultools" role="doc-biblioref">Hernandez 2023</a>)</span> disponible en el repositorio <a href="https://github.com/">GitHub</a>.</p>
+<p>Para construir intervalos de confianza para la varianza se puede usar la función <code>var.test</code> del paquete básico <strong>stats</strong> o la función <code>var.test</code> del paquete <strong>stests</strong> <span class="citation">(<a href="#ref-R-stests" role="doc-biblioref">Hernandez et al. 2023</a>)</span> disponible en el <a href="https://github.com/fhernanb/stests">repositorio</a>. Ambas funciones tienen el mismo nombre la segunda es una generalización de la primera. En la siguiente nota se aclara la diferencia.</p>
+
+<div class="rmdnote">
+<code>var.test()</code> de <strong>stats</strong> sólo sirve para 1 población mientras que <code>var.test()</code> de <strong>stests</strong> sirve para 1 o 2 poblaciones.
+</div>
 <p>Para instalar el paquete <strong>stests</strong> desde GitHub se debe copiar el siguiente código en la consola de R:</p>
 <div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="ic.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;devtools&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</span>
 <span id="cb601-2"><a href="ic.html#cb601-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;fhernanb/stests&#39;</span>, <span class="at">force=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p>Una vez instalado el paquete <strong>stests</strong> se puede usar la función <code>var.test</code>, la cual es una generalización de la función <code>var.test</code> del paquete <strong>stats</strong> y por esa razón aparece el siguiente mensaje en la consola cuando se invoca el paquete.</p>
+<p>Una vez instalado el paquete <strong>stests</strong> se puede usar la función <code>var.test</code>, la cual es una generalización de la función <code>var.test</code> del paquete <strong>stats</strong> y por esa razón aparecerá el siguiente mensaje en la consola cuando se invoca el paquete.</p>
 <div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="ic.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stests)</span>
 <span id="cb602-2"><a href="ic.html#cb602-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb602-3"><a href="ic.html#cb602-3" aria-hidden="true" tabindex="-1"></a><span class="do">## The following object is masked from ‘package:stats’:</span></span>
 <span id="cb602-4"><a href="ic.html#cb602-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb602-5"><a href="ic.html#cb602-5" aria-hidden="true" tabindex="-1"></a><span class="do">##     var.test</span></span></code></pre></div>
 <p>Si usted desea usar <code>var.test</code> del paquete <strong>stats</strong> o <code>var.test</code> del paquete <strong>stests</strong>, puede invocar las funciones explícitamente así:</p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="ic.html#cb603-1" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">var.test</span>()   <span class="co"># Para usar la fución del paquete stats</span></span>
-<span id="cb603-2"><a href="ic.html#cb603-2" aria-hidden="true" tabindex="-1"></a>stests<span class="sc">::</span><span class="fu">var.test</span>()  <span class="co"># Para usar la fución del paquete stests</span></span></code></pre></div>
-
-<div class="rmdnote">
-Recuerde que:
-- <code>stats::var.test()</code> sólo sirve para 1 población.
-- <code>stests::var.test()</code> sirve para 1 o 2 poblaciones.
-</div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="ic.html#cb603-1" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">var.test</span>()   <span class="co"># Para usar la función var.test del paquete stats</span></span>
+<span id="cb603-2"><a href="ic.html#cb603-2" aria-hidden="true" tabindex="-1"></a>stests<span class="sc">::</span><span class="fu">var.test</span>()  <span class="co"># Para usar la función var.test del paquete stests</span></span></code></pre></div>
 <div id="intervalo-de-confianza-bilateral-para-la-varianza-sigma2" class="section level3 hasAnchor" number="19.2.1">
 <h3><span class="header-section-number">19.2.1</span> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para calcular intervalos de confianza bilaterales para la varianza <span class="math inline">\(\sigma^2\)</span> a partir de la función <code>var.test</code> es necesario definir 2 argumentos:</p>
@@ -893,6 +897,11 @@ Recuerde que:
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.98</code></pre>
 <p>El intervalo de confianza del <span class="math inline">\(98\%\)</span> indica que la varianza de la estatura de los estudiantes hombres se encuentra entre 21.08 y 109.93 <span class="math inline">\(cm^{2}\)</span>.</p>
+
+<div class="rmdnote">
+<p>En este ejemplo no verificamos que la muestra aleatoria de alturas proviene de una población normal, eso ya lo habíamos hecho en el primer ejemplo de este capítulo.</p>
+Recuerde: siempre se debe verificar el supuesto de normalidad.
+</div>
 </div>
 <div id="intervalo-de-confianza-bilateral-para-la-razón-de-varianzas-sigma_12-sigma_22" class="section level3 hasAnchor" number="19.2.2">
 <h3><span class="header-section-number">19.2.2</span> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span><a href="ic.html#intervalo-de-confianza-bilateral-para-la-razón-de-varianzas-sigma_12-sigma_22" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -906,34 +915,52 @@ Recuerde que:
 <div id="ejemplo-61" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="ic.html#ejemplo-61" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Usando la información del ejemplo de diferencia de medias para muestras independientes se quiere obtener un intervalo de confianza del <span class="math inline">\(95\%\)</span> para la razón de las varianzas de las alturas de los estudiantes hombres y mujeres.</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="ic.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">y=</span>mujeres<span class="sc">$</span>altura,</span>
+<p>Primero lo vamos a construir con <code>var.test</code> de <strong>stests</strong>.</p>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="ic.html#cb606-1" aria-hidden="true" tabindex="-1"></a>stests<span class="sc">::</span><span class="fu">var.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">y=</span>mujeres<span class="sc">$</span>altura,</span>
 <span id="cb606-2"><a href="ic.html#cb606-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">conf.level=</span><span class="fl">0.95</span>)<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 0.2327398 1.6632830
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
-<p>El intervalo de confianza del <span class="math inline">\(95\%\)</span> indica que la razón de varianzas se encuentra entre 0.2327 y 1.6633. Puesto que el intervalo de confianza incluye el 1 se concluye que las varianzas de las alturas de los hombres y las mujeres son iguales.</p>
+<p>Ahora los vamos a construir con <code>var.test</code> de <strong>stats</strong>.</p>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="ic.html#cb608-1" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">var.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">y=</span>mujeres<span class="sc">$</span>altura,</span>
+<span id="cb608-2"><a href="ic.html#cb608-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">conf.level=</span><span class="fl">0.95</span>)<span class="sc">$</span>conf.int</span></code></pre></div>
+<pre><code>## [1] 0.2327398 1.6632830
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
+<p>Los intervalos coinciden en los resultados.</p>
+<p>Así, el intervalo de confianza del <span class="math inline">\(95\%\)</span> indica que la razón de varianzas se encuentra entre 0.2327 y 1.6633. Puesto que el intervalo de confianza incluye el 1 se concluye que las varianzas de las alturas de los hombres y las mujeres son iguales.</p>
+
+<div class="rmdnote">
+<p>En este ejemplo no verificamos que la muestra aleatoria de alturas de hombres y mujeres proviene de una población normal, eso ya lo habíamos hecho en un ejemplo de este capítulo.</p>
+Recuerde: siempre se debe verificar el supuesto de normalidad.
+</div>
 
 <div class="rmdwarning">
-<p>¿Notó que las funciones <code>var.test</code> y <code>var.test</code> son diferentes?</p>
-<p><code>var.test</code> sirve para construir IC para <span class="math inline">\(\sigma^2\)</span>.</p>
-<code>var.test</code> sirve para construir IC para <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span>.
+<p>¿Notó que las funciones <code>stats::var.test</code> y <code>stests::var.test</code> no son exactamente iguales?</p>
+<p><code>stats::var.test</code> solo sirve para construir IC para <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span>.</p>
+<code>var.test</code> sirve para construir IC para <span class="math inline">\(\sigma^2\)</span> y para <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span>.
 </div>
 </div>
 </div>
 <div id="función-prop.test" class="section level2 hasAnchor" number="19.3">
 <h2><span class="header-section-number">19.3</span> Función <code>prop.test</code><a href="ic.html#función-prop.test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La función <code>prop.test</code> se usa para calcular intervalos de confianza para la porporción y diferencia de proporciones. La función y sus argumentos son los siguientes:</p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="ic.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(x, n, <span class="at">p=</span><span class="cn">NULL</span>,</span>
-<span id="cb608-2"><a href="ic.html#cb608-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative=</span><span class="fu">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
-<span id="cb608-3"><a href="ic.html#cb608-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">correct=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="ic.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(x, n, <span class="at">p=</span><span class="cn">NULL</span>,</span>
+<span id="cb610-2"><a href="ic.html#cb610-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative=</span><span class="fu">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
+<span id="cb610-3"><a href="ic.html#cb610-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">correct=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <div id="intervalo-de-confianza-bilateral-para-la-proporción-p" class="section level3 hasAnchor" number="19.3.1">
 <h3><span class="header-section-number">19.3.1</span> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Para calcular intervalos de confianza bilaterales para la proporción a partir de la función <code>prop.test</code> es necesario definir 3 argumentos: <code>x</code> considera el conteo de éxitos, <code>n</code> indica el número de eventos o de forma equivalente corresponde a la longitud de la variable que se quiere analizar, y <code>conf.level</code> corresponde al nivel de confianza.</p>
+<p>Para calcular intervalos de confianza bilaterales para la proporción con la función <code>prop.test</code> es necesario definir 3 argumentos:</p>
+<ul>
+<li><code>x</code> considera el conteo de éxitos,</li>
+<li><code>n</code> indica el número de eventos,</li>
+<li><code>conf.level</code> corresponde al nivel de confianza.</li>
+</ul>
 </div>
 <div id="ejemplo-62" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="ic.html#ejemplo-62" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El gerente de una estación de televisión debe determinar en la ciudad qué porcentaje de casas tienen más de un televisor. Una muestra aleatoria de 500 casas revela que 275 tienen dos o más televisores. ¿Cuál es el intervalo de confianza del 90% para estimar la proporción de todas las casas que tienen dos o más televisores?</p>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="ic.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">275</span>, <span class="at">n=</span><span class="dv">500</span>, <span class="at">conf.level=</span><span class="fl">0.90</span>)<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="ic.html#cb611-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">275</span>, <span class="at">n=</span><span class="dv">500</span>, <span class="at">conf.level=</span><span class="fl">0.90</span>)<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 0.5122310 0.5872162
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.9</code></pre>
@@ -973,7 +1000,7 @@ Recuerde que:
 </tbody>
 </table>
 <p>Construir un intervalo de confianza del 90% para decidir si el cambio tuvo efecto positivo o no.</p>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="ic.html#cb611-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">80</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1500</span>, <span class="dv">2000</span>), <span class="at">conf.level=</span><span class="fl">0.90</span>)<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="ic.html#cb613-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">80</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1500</span>, <span class="dv">2000</span>), <span class="at">conf.level=</span><span class="fl">0.90</span>)<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] -0.002314573  0.022314573
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.9</code></pre>
@@ -984,8 +1011,8 @@ Recuerde que:
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-R-usefultools" class="csl-entry">
-Hernandez, Freddy. 2023. <em>Usefultools: Useful Tools for Data Analysis</em>. <a href="https://github.com/fhernanb/usefultools">https://github.com/fhernanb/usefultools</a>.
+<div id="ref-R-stests" class="csl-entry">
+Hernandez, Freddy, Olga Usuga, Valentina Garcia, and Jean Paul Piedrahita. 2023. <em>Stests: Package with Useful Statistical Tests</em>. <a href="https://fhernanb.github.io/stests">https://fhernanb.github.io/stests</a>.
 </div>
 </div>
             </section>
