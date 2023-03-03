@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Manual de R</title>
-  <meta name="description" content="Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <title>22 Distribuciones empíricas | Manual de R</title>
+  <meta name="description" content="22 Distribuciones empíricas | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Manual de R" />
+  <meta property="og:title" content="22 Distribuciones empíricas | Manual de R" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/portada.png" />
-  <meta property="og:description" content="Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta property="og:description" content="22 Distribuciones empíricas | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Manual de R" />
+  <meta name="twitter:title" content="22 Distribuciones empíricas | Manual de R" />
   
-  <meta name="twitter:description" content="Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="twitter:description" content="22 Distribuciones empíricas | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="/images/portada.png" />
 
 <meta name="author" content="Freddy Hernández" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="sobre-los-autores.html"/>
+<link rel="prev" href="aproxint.html"/>
+<link rel="next" href="normalmulti.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -609,77 +609,17 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Manual de R</h1>
-<p class="author"><em>Freddy Hernández</em></p>
-<p class="author"><em>Olga Usuga</em></p>
-<p class="date"><em>2023-03-02</em></p>
-</div>
-<div id="prefacio" class="section level1 unnumbered hasAnchor">
-<h1>Prefacio<a href="index.html#prefacio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><img src="images/portada.png" width="33%" style="display: block; margin: auto;" /></p>
-<p>Este libro fue creado con la intención de apoyar el aprendizaje del lenguaje de programación R en estudiantes de pregrado, especialización, maestría e investigadores, que necesiten realizar análisis estadísticos. En este libro se explica de una forma sencilla la utilidad de la principales funciones para realizar análisis estadístico.</p>
-<div id="estructura-del-libro" class="section level2 unnumbered hasAnchor">
-<h2>Estructura del libro<a href="index.html#estructura-del-libro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>El libro está estructurado de la siguiente manera.</p>
-<p>En el capítulo <a href="intro.html#intro">1</a> se presenta una breve introducción sobre el lenguaje de programación R; en el capítulo <a href="objetos.html#objetos">2</a> se explican los tipos de objetos más comunes en R; en el capítulo <a href="estilo.html#estilo">3</a> se muestran las normas de estilo sugeridas para escribir código en R; el capítulo <a href="funbas.html#funbas">5</a> presenta las funciones básicas que todo usuario debe conocer para usar con éxito R; el capítulo <a href="creafun.html#creafun">7</a> trata sobre cómo crear funciones; el capítulo <a href="read.html#read">8</a> muestra como leer bases de datos desde R; en el capítulo <a href="tablas.html#tablas">9</a> se ilustra la forma para construir tablas de frecuencia; en el capítulo <a href="central.html#central">10</a> se muestra como obtener las diversas medidas de tendencial central para variables cuantitativas, el capítulo <a href="varia.html#varia">11</a> muestra como calcular las medidas de variabilidad, en el capítulo <a href="posi.html#posi">12</a> se ilustra cómo usar las funciones para obtener medidas de posición; en el capítulo <a href="correl.html#correl">13</a> se muestra como obtener medidas de correlación entre pares de variables; en los capítulos <a href="discretas.html#discretas">14</a> y <a href="continuas.html#continuas">15</a> se tratan los temas de distribuciones discretas y continuas; en el capítulo <a href="loglik.html#loglik">16</a> se aborda el tema de verosimilitud; en el capítulo <a href="aproxint.html#aproxint">21</a> se muestra el tema de aproximación de integrales.</p>
-</div>
-<div id="información-del-software-y-convenciones" class="section level2 unnumbered hasAnchor">
-<h2>Información del software y convenciones<a href="index.html#información-del-software-y-convenciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Para realizar este libro se usaron los paquetes de R <strong>knitr</strong> <span class="citation">(<a href="#ref-xie2015" role="doc-biblioref">Xie 2015</a>)</span> y <strong>bookdown</strong> <span class="citation">(<a href="#ref-R-bookdown" role="doc-biblioref">Xie 2023</a>)</span>, estos paquetes permiten construir todo el libro desde R y sirven para incluir código que se ejecute de forma automática incluyendo las salidas y gráficos.</p>
-<p>En todo el libro se presentarán códigos que el lector puede copiar y pegar en su consola de R para obtener los mismos resultados aquí presentados. Los códigos se destacan en una caja de color beis (o beige) similar a la mostrada a continuación.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">6</span></span>
-<span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
-<span id="cb1-3"><a href="index.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> a</span>
-<span id="cb1-4"><a href="index.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code></pre></div>
-<p>Los resultados o salidas obtenidos de cualquier código se destacan con dos símbolos de númeral (<code>##</code>) al inicio de cada línea o renglón, esto quiere decir que todo lo que inicie con <code>##</code> son resultados obtenidos y el usuario <strong>NO</strong> los debe copiar. Abajo se muestran los resultados obtenidos luego de correr el código anterior.</p>
-<pre><code>## [1] 10</code></pre>
-<pre><code>## [1]  5 25 30</code></pre>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-</div>
-<div id="bloques-informativos" class="section level2 unnumbered hasAnchor">
-<h2>Bloques informativos<a href="index.html#bloques-informativos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En varias partes del libro usaremos bloques informativos para resaltar algún aspecto importante. Abajo se encuentra un ejemplo de los bloques y su significado.</p>
+<div id="empiricaldists" class="section level1 hasAnchor" number="22">
+<h1><span class="header-section-number">22</span> Distribuciones empíricas<a href="empiricaldists.html#empiricaldists" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 
-<div class="rmdnote">
-Nota aclaratoria.
-</div>
-
-<div class="rmdtip">
-Sugerencia.
-</div>
-
-<div class="rmdwarning">
-Advertencia.
-</div>
-</div>
-<div id="agradecimientos" class="section level2 unnumbered hasAnchor">
-<h2>Agradecimientos<a href="index.html#agradecimientos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Agradecemos enormemente a todos los estudiantes, profesores e investigadores que han leído este libro y nos han retroalimentado con comentarios valiosos para mejorar el documento.</p>
-
-<p class="flushright">
-<p>Freddy Hernández Barajas</p>
-Olga Cecilia Usuga Manco
-</p>
-
-</div>
-</div>
-<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-xie2015" class="csl-entry">
-Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.
-</div>
-<div id="ref-R-bookdown" class="csl-entry">
-———. 2023. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="sobre-los-autores.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="aproxint.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="normalmulti.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -710,7 +650,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/fhernanb/Manual-de-R/edit/master/index.Rmd",
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/81_EmpiricalDistributions.Rmd",
 "text": "Edit"
 },
 "history": {

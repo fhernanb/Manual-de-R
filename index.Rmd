@@ -30,7 +30,8 @@ knitr::write_bib(c(.packages(),
                    "rmarkdown",
                    "usefultools",
                    "stests",
-                   "mvtnorm"), "packages.bib")
+                   "mvtnorm",
+                   "MASS"), "packages.bib")
 ```
 
 # Prefacio {-}

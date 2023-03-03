@@ -1,0 +1,150 @@
+# Distribución normal multivariada {#normalmulti}
+
+En este capítulo se mostrarán aspectos importantes de la distribución normal multivariada.
+
+## Función de densidad
+
+En la densidad Normal $p$-variada, hay dos parámetros, $\boldsymbol{\mu}$ y $\boldsymbol{\Sigma}$. El primero es un vector de columna $p \times 1$ de parámetros de localización y una $n\times n$ matriz de dispersión $\boldsymbol{\Sigma}$. La función de densidad de una normal multivariada es la siguiente:
+
+\begin{equation}
+f(\mathbf{x} | \boldsymbol{\mu}, \boldsymbol{\Sigma}) =\frac{1}{\sqrt{(2\pi)^{n}|\boldsymbol{\Sigma}|}} \exp \left( -\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}) \right)
+\end{equation}
+
+El símbolo $|\boldsymbol{\Sigma}|$ se refiere al determinante de la matriz $\boldsymbol{\Sigma}$. Esta ecuación asume que $\boldsymbol{\Sigma}$ se puede invertir, y una condición suficiente para la existencia de una inversa es que el determinante no sea $0$. La matriz $\boldsymbol{\Sigma}$ debe ser semidefinida positiva para asegurar que el punto más probable es $\boldsymbol{\mu}$ y que, a medida que $\mathbf{x}$ se aleja de $\boldsymbol{\mu}$ en cualquier dirección, entonces la probabilidad de observar $\mathbf{x}$ disminuye.
+
+### Ejemplo {-}
+Dibujar la superficie de una normal bivariada para las variables Peso y Estatura con vector de medias $\boldsymbol{\mu}^\top=(65, 165)$ y matriz de varianzas/covarianzas
+
+$$
+\boldsymbol{\Sigma}=
+\begin{pmatrix}
+20 & 21 \\
+21 & 30
+\end{pmatrix}
+$$
+
+*Solución*
+
+Para crear una superficie de una normal bivariada se puede usar el siguiente código. La función `dmvnorm` del paquete **mvtnorm** [@R-mvtnorm] sirve para obtener la densidad de cada punto.
+
+```{r normmultidensi, fig.cap='Densidad de una normal bivariada.', fig.height=6, fig.width=6,}
+library(mvtnorm)
+
+media <- c(65, 165)
+Sigma <- matrix(c(20, 21, 
+                 21, 30), nrow=2 , byrow = TRUE) 
+
+N <- 60
+Peso     <- seq(from=40, to=85, length.out=N)
+Estatura <- seq(from=145, to=185, length.out=N)
+
+densidad_curva <- function(x1, x2){
+  dmvnorm(cbind(x1, x2), mean=media, sigma=Sigma)  
+}
+
+probX <- outer(Peso, Estatura, FUN="densidad_curva")
+
+persp(Peso, Estatura, probX, theta=45, phi=20, zlim=c(0, 0.013),
+      xlab="Peso",ylab="Estatura", zlab="", ticktype="detailed",
+      nticks=4, col="lightblue")
+```
+
+
+### Ejemplo {-}
+Calcular la densidad dos personas $A=(60, 160)$ y $B=(80, 170)$ asumiendo distribución normal bivariada con vector de medias $\boldsymbol{\mu}^\top=(65, 165)$ y matriz de varianzas/covarianzas
+
+$$
+\boldsymbol{\Sigma}=
+\begin{pmatrix}
+20 & 21 \\
+21 & 30
+\end{pmatrix}
+$$
+
+*Solución*
+
+Para calcular los valores de densidad de las dos personas hacemos lo siguiente:
+
+```{r}
+library(mvtnorm)
+
+media <- c(65, 165)
+Sigma <- matrix(c(20, 21, 
+                  21, 30), nrow=2 , byrow = TRUE) 
+
+dmvnorm(c(60, 160), mean=media, sigma=Sigma) # Para A
+dmvnorm(c(80, 170), mean=media, sigma=Sigma) # Para B
+```
+
+## Simulando de una normal multivariada
+
+Para simular de una normal multivariada se puede usar la función `mvrnorm` del paquete **MASS** [@R-MASS] o la función `rmvnorm` del paquete **mvtnorm** [@R-mvtnorm].
+
+### Ejemplo {-}
+
+Simular cien observaciones de pesos y estaturas y luego construir un diagrama de dispersión. Asuma que las variables tiene distribución normal bivariada con un vector de medias $\boldsymbol{\mu}^\top=(65, 165)$ y matriz de varianzas/covarianzas
+
+$$
+\boldsymbol{\Sigma}=
+\begin{pmatrix}
+20 & 21 \\
+21 & 30
+\end{pmatrix}
+$$
+
+*Solución*
+
+Para hacer lo solicitado se puede usar el siguiente código.
+
+```{r dispDatosSimul, fig.cap='Diagrama de dispersión para datos simulados de una normal bivariada.', fig.height=6, fig.width=6, message=FALSE}
+require(mvtnorm)
+n <- 100
+mu <- c(65, 165)
+Sigma <- matrix(c(20, 21, 
+                  21, 30), ncol=2, nrow=2)
+datos <- rmvnorm(n=n, mean=mu, sigma=Sigma)
+plot(datos, xlab="Peso [kg]", ylab="Estatura [cm]", pch=19)
+points(x=mu[1], y=mu[2], lwd=5, col="tomato", pch=3)
+```
+
+## Calculando probabilidades
+
+La función `pmvnorm` del paquete **mvtnorm** sirve para calcular probabilidades. [Este enlace](https://cran.r-project.org/web/packages/mvtnorm/) lo llevará a la página oficial del paquete donde se puede encontrar una viñeta con información sobre el cálculo de probabilidades.
+
+### Ejemplo {-}
+Para el ejemplo de el peso y la estatura calcular la siguiente probabilidad.
+
+$$
+P(-\infty < Peso \leq 60, -\infty < Estatura \leq 160)
+$$
+
+*Solución*
+
+Para hacer lo solicitado se puede usar el siguiente código.
+
+```{r}
+library(mvtnorm)
+mu <- c(65, 165)
+Sigma <- matrix(c(20, 21, 
+                  21, 30), ncol=2, nrow=2)
+pmvnorm(mean=mu, sigma=Sigma, 
+        lower=c(-Inf, -Inf), upper=c(60, 160))
+```
+De la salida anterior tenemos que $P(-\infty < Peso \leq 60, -\infty < Estatura \leq 160)=0.1017746$.
+
+## Calculando cuantiles
+
+La función `qmvnorm` del paquete **mvtnorm** sirve para calcular cuantiles.
+
+### Ejemplo {-}
+Para el ejemplo de el peso y la estatura calcular la siguiente probabilidad.
+
+```{r}
+library(mvtnorm)
+mu <- c(65, 165)
+Sigma <- matrix(c(20, 21, 
+                  21, 30), ncol=2, nrow=2)
+qmvnorm(p=0.1017746, mean=mu, sigma=Sigma, 
+        tail="lower.tail")
+```
+
