@@ -34,7 +34,7 @@ media <- c(65, 165)
 Sigma <- matrix(c(20, 21, 
                  21, 30), nrow=2 , byrow = TRUE) 
 
-N <- 60
+N <- 100
 Peso     <- seq(from=40, to=85, length.out=N)
 Estatura <- seq(from=145, to=185, length.out=N)
 

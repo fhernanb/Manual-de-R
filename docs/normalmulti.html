@@ -637,25 +637,25 @@ f(\mathbf{x} | \boldsymbol{\mu}, \boldsymbol{\Sigma}) =\frac{1}{\sqrt{(2\pi)^{n}
 \]</span></p>
 <p><em>Solución</em></p>
 <p>Para crear una superficie de una normal bivariada se puede usar el siguiente código. La función <code>dmvnorm</code> del paquete <strong>mvtnorm</strong> <span class="citation">(<a href="#ref-R-mvtnorm" role="doc-biblioref">Genz et al. 2021</a>)</span> sirve para obtener la densidad de cada punto.</p>
-<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="normalmulti.html#cb681-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
-<span id="cb681-2"><a href="normalmulti.html#cb681-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb681-3"><a href="normalmulti.html#cb681-3" aria-hidden="true" tabindex="-1"></a>media <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">165</span>)</span>
-<span id="cb681-4"><a href="normalmulti.html#cb681-4" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, </span>
-<span id="cb681-5"><a href="normalmulti.html#cb681-5" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">21</span>, <span class="dv">30</span>), <span class="at">nrow=</span><span class="dv">2</span> , <span class="at">byrow =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb681-6"><a href="normalmulti.html#cb681-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb681-7"><a href="normalmulti.html#cb681-7" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">60</span></span>
-<span id="cb681-8"><a href="normalmulti.html#cb681-8" aria-hidden="true" tabindex="-1"></a>Peso     <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">40</span>, <span class="at">to=</span><span class="dv">85</span>, <span class="at">length.out=</span>N)</span>
-<span id="cb681-9"><a href="normalmulti.html#cb681-9" aria-hidden="true" tabindex="-1"></a>Estatura <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">145</span>, <span class="at">to=</span><span class="dv">185</span>, <span class="at">length.out=</span>N)</span>
-<span id="cb681-10"><a href="normalmulti.html#cb681-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb681-11"><a href="normalmulti.html#cb681-11" aria-hidden="true" tabindex="-1"></a>densidad_curva <span class="ot">&lt;-</span> <span class="cf">function</span>(x1, x2){</span>
-<span id="cb681-12"><a href="normalmulti.html#cb681-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dmvnorm</span>(<span class="fu">cbind</span>(x1, x2), <span class="at">mean=</span>media, <span class="at">sigma=</span>Sigma)  </span>
-<span id="cb681-13"><a href="normalmulti.html#cb681-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb681-14"><a href="normalmulti.html#cb681-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb681-15"><a href="normalmulti.html#cb681-15" aria-hidden="true" tabindex="-1"></a>probX <span class="ot">&lt;-</span> <span class="fu">outer</span>(Peso, Estatura, <span class="at">FUN=</span><span class="st">&quot;densidad_curva&quot;</span>)</span>
-<span id="cb681-16"><a href="normalmulti.html#cb681-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb681-17"><a href="normalmulti.html#cb681-17" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(Peso, Estatura, probX, <span class="at">theta=</span><span class="dv">45</span>, <span class="at">phi=</span><span class="dv">20</span>, <span class="at">zlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.013</span>),</span>
-<span id="cb681-18"><a href="normalmulti.html#cb681-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab=</span><span class="st">&quot;Peso&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Estatura&quot;</span>, <span class="at">zlab=</span><span class="st">&quot;&quot;</span>, <span class="at">ticktype=</span><span class="st">&quot;detailed&quot;</span>,</span>
-<span id="cb681-19"><a href="normalmulti.html#cb681-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">nticks=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&quot;lightblue&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="normalmulti.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
+<span id="cb1-2"><a href="normalmulti.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="normalmulti.html#cb1-3" aria-hidden="true" tabindex="-1"></a>media <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">165</span>)</span>
+<span id="cb1-4"><a href="normalmulti.html#cb1-4" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, </span>
+<span id="cb1-5"><a href="normalmulti.html#cb1-5" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">21</span>, <span class="dv">30</span>), <span class="at">nrow=</span><span class="dv">2</span> , <span class="at">byrow =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb1-6"><a href="normalmulti.html#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="normalmulti.html#cb1-7" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb1-8"><a href="normalmulti.html#cb1-8" aria-hidden="true" tabindex="-1"></a>Peso     <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">40</span>, <span class="at">to=</span><span class="dv">85</span>, <span class="at">length.out=</span>N)</span>
+<span id="cb1-9"><a href="normalmulti.html#cb1-9" aria-hidden="true" tabindex="-1"></a>Estatura <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">145</span>, <span class="at">to=</span><span class="dv">185</span>, <span class="at">length.out=</span>N)</span>
+<span id="cb1-10"><a href="normalmulti.html#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="normalmulti.html#cb1-11" aria-hidden="true" tabindex="-1"></a>densidad_curva <span class="ot">&lt;-</span> <span class="cf">function</span>(x1, x2){</span>
+<span id="cb1-12"><a href="normalmulti.html#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dmvnorm</span>(<span class="fu">cbind</span>(x1, x2), <span class="at">mean=</span>media, <span class="at">sigma=</span>Sigma)  </span>
+<span id="cb1-13"><a href="normalmulti.html#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-14"><a href="normalmulti.html#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="normalmulti.html#cb1-15" aria-hidden="true" tabindex="-1"></a>probX <span class="ot">&lt;-</span> <span class="fu">outer</span>(Peso, Estatura, <span class="at">FUN=</span><span class="st">&quot;densidad_curva&quot;</span>)</span>
+<span id="cb1-16"><a href="normalmulti.html#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="normalmulti.html#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(Peso, Estatura, probX, <span class="at">theta=</span><span class="dv">45</span>, <span class="at">phi=</span><span class="dv">20</span>, <span class="at">zlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.013</span>),</span>
+<span id="cb1-18"><a href="normalmulti.html#cb1-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab=</span><span class="st">&quot;Peso&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Estatura&quot;</span>, <span class="at">zlab=</span><span class="st">&quot;&quot;</span>, <span class="at">ticktype=</span><span class="st">&quot;detailed&quot;</span>,</span>
+<span id="cb1-19"><a href="normalmulti.html#cb1-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">nticks=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&quot;lightblue&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:normmultidensi"></span>
 <img src="Manual_de_R_files/figure-html/normmultidensi-1.png" alt="Densidad de una normal bivariada." width="576" />
 <p class="caption">
@@ -675,21 +675,21 @@ Figure 23.1: Densidad de una normal bivariada.
 \]</span></p>
 <p><em>Solución</em></p>
 <p>Para calcular los valores de densidad de las dos personas hacemos lo siguiente:</p>
-<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="normalmulti.html#cb682-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
-<span id="cb682-2"><a href="normalmulti.html#cb682-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb682-3"><a href="normalmulti.html#cb682-3" aria-hidden="true" tabindex="-1"></a>media <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">165</span>)</span>
-<span id="cb682-4"><a href="normalmulti.html#cb682-4" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, </span>
-<span id="cb682-5"><a href="normalmulti.html#cb682-5" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">21</span>, <span class="dv">30</span>), <span class="at">nrow=</span><span class="dv">2</span> , <span class="at">byrow =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb682-6"><a href="normalmulti.html#cb682-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb682-7"><a href="normalmulti.html#cb682-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dmvnorm</span>(<span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">160</span>), <span class="at">mean=</span>media, <span class="at">sigma=</span>Sigma) <span class="co"># Para A</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="normalmulti.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
+<span id="cb2-2"><a href="normalmulti.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="normalmulti.html#cb2-3" aria-hidden="true" tabindex="-1"></a>media <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">165</span>)</span>
+<span id="cb2-4"><a href="normalmulti.html#cb2-4" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, </span>
+<span id="cb2-5"><a href="normalmulti.html#cb2-5" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">21</span>, <span class="dv">30</span>), <span class="at">nrow=</span><span class="dv">2</span> , <span class="at">byrow =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb2-6"><a href="normalmulti.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="normalmulti.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dmvnorm</span>(<span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">160</span>), <span class="at">mean=</span>media, <span class="at">sigma=</span>Sigma) <span class="co"># Para A</span></span></code></pre></div>
 <pre><code>## [1] 0.006729463</code></pre>
-<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="normalmulti.html#cb684-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dmvnorm</span>(<span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">170</span>), <span class="at">mean=</span>media, <span class="at">sigma=</span>Sigma) <span class="co"># Para B</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="normalmulti.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dmvnorm</span>(<span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">170</span>), <span class="at">mean=</span>media, <span class="at">sigma=</span>Sigma) <span class="co"># Para B</span></span></code></pre></div>
 <pre><code>## [1] 3.17488e-08</code></pre>
 </div>
 </div>
 <div id="simulando-de-una-normal-multivariada" class="section level2 hasAnchor" number="23.2">
 <h2><span class="header-section-number">23.2</span> Simulando de una normal multivariada<a href="normalmulti.html#simulando-de-una-normal-multivariada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Para simular de una normal multivariada se puede usar la función <code>mvrnorm</code> del paquete <strong>MASS</strong> <span class="citation">(<a href="#ref-R-MASS" role="doc-biblioref">Ripley 2022</a>)</span> o la función <code>rmvnorm</code> del paquete <strong>mvtnorm</strong> <span class="citation">(<a href="#ref-R-mvtnorm" role="doc-biblioref">Genz et al. 2021</a>)</span>.</p>
+<p>Para simular de una normal multivariada se puede usar la función <code>mvrnorm</code> del paquete <strong>MASS</strong> <span class="citation">(<a href="#ref-R-MASS" role="doc-biblioref"><strong>R-MASS?</strong></a>)</span> o la función <code>rmvnorm</code> del paquete <strong>mvtnorm</strong> <span class="citation">(<a href="#ref-R-mvtnorm" role="doc-biblioref">Genz et al. 2021</a>)</span>.</p>
 <div id="ejemplo-80" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="normalmulti.html#ejemplo-80" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Simular cien observaciones de pesos y estaturas y luego construir un diagrama de dispersión. Asuma que las variables tiene distribución normal bivariada con un vector de medias <span class="math inline">\(\boldsymbol{\mu}^\top=(65, 165)\)</span> y matriz de varianzas/covarianzas</p>
@@ -702,14 +702,14 @@ Figure 23.1: Densidad de una normal bivariada.
 \]</span></p>
 <p><em>Solución</em></p>
 <p>Para hacer lo solicitado se puede usar el siguiente código.</p>
-<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="normalmulti.html#cb686-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(mvtnorm)</span>
-<span id="cb686-2"><a href="normalmulti.html#cb686-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb686-3"><a href="normalmulti.html#cb686-3" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">165</span>)</span>
-<span id="cb686-4"><a href="normalmulti.html#cb686-4" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, </span>
-<span id="cb686-5"><a href="normalmulti.html#cb686-5" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">21</span>, <span class="dv">30</span>), <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span>
-<span id="cb686-6"><a href="normalmulti.html#cb686-6" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">rmvnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span>mu, <span class="at">sigma=</span>Sigma)</span>
-<span id="cb686-7"><a href="normalmulti.html#cb686-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(datos, <span class="at">xlab=</span><span class="st">&quot;Peso [kg]&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Estatura [cm]&quot;</span>, <span class="at">pch=</span><span class="dv">19</span>)</span>
-<span id="cb686-8"><a href="normalmulti.html#cb686-8" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="at">x=</span>mu[<span class="dv">1</span>], <span class="at">y=</span>mu[<span class="dv">2</span>], <span class="at">lwd=</span><span class="dv">5</span>, <span class="at">col=</span><span class="st">&quot;tomato&quot;</span>, <span class="at">pch=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="normalmulti.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(mvtnorm)</span>
+<span id="cb6-2"><a href="normalmulti.html#cb6-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb6-3"><a href="normalmulti.html#cb6-3" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">165</span>)</span>
+<span id="cb6-4"><a href="normalmulti.html#cb6-4" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, </span>
+<span id="cb6-5"><a href="normalmulti.html#cb6-5" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">21</span>, <span class="dv">30</span>), <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb6-6"><a href="normalmulti.html#cb6-6" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">rmvnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span>mu, <span class="at">sigma=</span>Sigma)</span>
+<span id="cb6-7"><a href="normalmulti.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(datos, <span class="at">xlab=</span><span class="st">&quot;Peso [kg]&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Estatura [cm]&quot;</span>, <span class="at">pch=</span><span class="dv">19</span>)</span>
+<span id="cb6-8"><a href="normalmulti.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="at">x=</span>mu[<span class="dv">1</span>], <span class="at">y=</span>mu[<span class="dv">2</span>], <span class="at">lwd=</span><span class="dv">5</span>, <span class="at">col=</span><span class="st">&quot;tomato&quot;</span>, <span class="at">pch=</span><span class="dv">3</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:dispDatosSimul"></span>
 <img src="Manual_de_R_files/figure-html/dispDatosSimul-1.png" alt="Diagrama de dispersión para datos simulados de una normal bivariada." width="576" />
 <p class="caption">
@@ -729,12 +729,12 @@ P(-\infty &lt; Peso \leq 60, -\infty &lt; Estatura \leq 160)
 \]</span></p>
 <p><em>Solución</em></p>
 <p>Para hacer lo solicitado se puede usar el siguiente código.</p>
-<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="normalmulti.html#cb687-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
-<span id="cb687-2"><a href="normalmulti.html#cb687-2" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">165</span>)</span>
-<span id="cb687-3"><a href="normalmulti.html#cb687-3" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, </span>
-<span id="cb687-4"><a href="normalmulti.html#cb687-4" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">21</span>, <span class="dv">30</span>), <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span>
-<span id="cb687-5"><a href="normalmulti.html#cb687-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pmvnorm</span>(<span class="at">mean=</span>mu, <span class="at">sigma=</span>Sigma, </span>
-<span id="cb687-6"><a href="normalmulti.html#cb687-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">lower=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="cn">Inf</span>), <span class="at">upper=</span><span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">160</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="normalmulti.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
+<span id="cb7-2"><a href="normalmulti.html#cb7-2" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">165</span>)</span>
+<span id="cb7-3"><a href="normalmulti.html#cb7-3" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, </span>
+<span id="cb7-4"><a href="normalmulti.html#cb7-4" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">21</span>, <span class="dv">30</span>), <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb7-5"><a href="normalmulti.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pmvnorm</span>(<span class="at">mean=</span>mu, <span class="at">sigma=</span>Sigma, </span>
+<span id="cb7-6"><a href="normalmulti.html#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">lower=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="cn">Inf</span>), <span class="at">upper=</span><span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">160</span>))</span></code></pre></div>
 <pre><code>## [1] 0.1017746
 ## attr(,&quot;error&quot;)
 ## [1] 1e-15
@@ -749,12 +749,12 @@ P(-\infty &lt; Peso \leq 60, -\infty &lt; Estatura \leq 160)
 <div id="ejemplo-82" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="normalmulti.html#ejemplo-82" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para el ejemplo de el peso y la estatura calcular la siguiente probabilidad.</p>
-<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="normalmulti.html#cb689-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
-<span id="cb689-2"><a href="normalmulti.html#cb689-2" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">165</span>)</span>
-<span id="cb689-3"><a href="normalmulti.html#cb689-3" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, </span>
-<span id="cb689-4"><a href="normalmulti.html#cb689-4" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">21</span>, <span class="dv">30</span>), <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span>
-<span id="cb689-5"><a href="normalmulti.html#cb689-5" aria-hidden="true" tabindex="-1"></a><span class="fu">qmvnorm</span>(<span class="at">p=</span><span class="fl">0.1017746</span>, <span class="at">mean=</span>mu, <span class="at">sigma=</span>Sigma, </span>
-<span id="cb689-6"><a href="normalmulti.html#cb689-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">tail=</span><span class="st">&quot;lower.tail&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="normalmulti.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
+<span id="cb9-2"><a href="normalmulti.html#cb9-2" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">165</span>)</span>
+<span id="cb9-3"><a href="normalmulti.html#cb9-3" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, </span>
+<span id="cb9-4"><a href="normalmulti.html#cb9-4" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">21</span>, <span class="dv">30</span>), <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb9-5"><a href="normalmulti.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">qmvnorm</span>(<span class="at">p=</span><span class="fl">0.1017746</span>, <span class="at">mean=</span>mu, <span class="at">sigma=</span>Sigma, </span>
+<span id="cb9-6"><a href="normalmulti.html#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">tail=</span><span class="st">&quot;lower.tail&quot;</span>)</span></code></pre></div>
 <pre><code>## $quantile
 ## [1] 158.0357
 ## 
@@ -771,9 +771,6 @@ P(-\infty &lt; Peso \leq 60, -\infty &lt; Estatura \leq 160)
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-R-mvtnorm" class="csl-entry">
 Genz, Alan, Frank Bretz, Tetsuhisa Miwa, Xuefei Mi, and Torsten Hothorn. 2021. <em>Mvtnorm: Multivariate Normal and t Distributions</em>. <a href="http://mvtnorm.R-forge.R-project.org">http://mvtnorm.R-forge.R-project.org</a>.
-</div>
-<div id="ref-R-MASS" class="csl-entry">
-Ripley, Brian. 2022. <em>MASS: Support Functions and Datasets for Venables and Ripley’s MASS</em>. <a href="http://www.stats.ox.ac.uk/pub/MASS4/">http://www.stats.ox.ac.uk/pub/MASS4/</a>.
 </div>
 </div>
             </section>
