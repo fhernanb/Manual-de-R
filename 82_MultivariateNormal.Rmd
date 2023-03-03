@@ -109,26 +109,32 @@ points(x=mu[1], y=mu[2], lwd=3, col="tomato", pch=3)
 
 
 ### Ejemplo {-}
-Simule nuevamente los datos y construya un diagrama de dispersión usando el paquete **plotly**.
+Usando los datos simulados construya un diagrama de dispersión usando el paquete **plotly**.
 
 *Solución*
 
 ```{r message=FALSE}
 library(mvtnorm)
-library(MASS)
 library(plotly)
 
-mu <- c(65, 165)
-Sigma <- matrix(c(20, 11, 
-                  11, 30), nrow=2 , byrow=TRUE) 
-datos <- rmvnorm(n=n, mean=mu, sigma=Sigma)
 density <- dmvnorm(datos, mean=mu, sigma=Sigma)
 
 plot_ly(x=~datos[,1], y=~datos[,2], z=~density, 
         type = "scatter3d", color=density)
 ```
 
+### Ejemplo {-}
+Usando los datos simulados construya un diagrama de dispersión usando el paquete **scatterplot3d**.
 
+*Solución*
+
+```{r}
+library(scatterplot3d)
+
+scatterplot3d(x=datos[,1], y=datos[,2], z=density, pch=16, cex.lab=1,
+              highlight.3d=TRUE, type="h", xlab="Peso",
+              ylab="Estatura", zlab="Densidad")
+```
 
 ## Calculando probabilidades
 
