@@ -53,6 +53,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -577,21 +584,23 @@ div.csl-indent {
 <li class="chapter" data-level="23.2" data-path="normalmulti.html"><a href="normalmulti.html#simulando-de-una-normal-multivariada"><i class="fa fa-check"></i><b>23.2</b> Simulando de una normal multivariada</a>
 <ul>
 <li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-80"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-81"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-82"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="23.3" data-path="normalmulti.html"><a href="normalmulti.html#calculando-probabilidades"><i class="fa fa-check"></i><b>23.3</b> Calculando probabilidades</a>
 <ul>
-<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-81"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-83"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="23.4" data-path="normalmulti.html"><a href="normalmulti.html#calculando-cuantiles"><i class="fa fa-check"></i><b>23.4</b> Calculando cuantiles</a>
 <ul>
-<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-82"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-84"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>24</b> Curiosidades</a>
 <ul>
 <li class="chapter" data-level="24.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>24.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a>
 <ul>
-<li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-83"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-85"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -621,16 +630,16 @@ div.csl-indent {
 <div id="cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática" class="section level2 hasAnchor" number="24.1">
 <h2><span class="header-section-number">24.1</span> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?<a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Muchas veces compartimos código de R con otros colegas y si ellos no tienen instalados ciertos paquetes el código no funcionará. Para evitar ese problema podemos colocar al inicio del código unas líneas que chequeen si ciertos paquetes están instalados o no, si están instalados, se cargan esos paquetes y caso contrario, el código instala los paquetes y luego los carga, todo de forma automática sin que el usuario tenga que identificar los paquetes que le faltan.</p>
-<div id="ejemplo-83" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo<a href="curio.html#ejemplo-83" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ejemplo-85" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="curio.html#ejemplo-85" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El código mostrado abajo revisa si los paquetes <code>knitr</code>, <code>png</code> y <code>markdown</code> están instalados e instala los ausentes y luego carga todos los paquetes que estén en el vector <code>packages</code>.</p>
-<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="curio.html#cb691-1" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="st">&quot;markdown&quot;</span>)</span>
-<span id="cb691-2"><a href="curio.html#cb691-2" aria-hidden="true" tabindex="-1"></a>package.check <span class="ot">&lt;-</span> <span class="fu">lapply</span>(packages, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
-<span id="cb691-3"><a href="curio.html#cb691-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb691-4"><a href="curio.html#cb691-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(x, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb691-5"><a href="curio.html#cb691-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb691-6"><a href="curio.html#cb691-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb691-7"><a href="curio.html#cb691-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="curio.html#cb693-1" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="st">&quot;markdown&quot;</span>)</span>
+<span id="cb693-2"><a href="curio.html#cb693-2" aria-hidden="true" tabindex="-1"></a>package.check <span class="ot">&lt;-</span> <span class="fu">lapply</span>(packages, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb693-3"><a href="curio.html#cb693-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb693-4"><a href="curio.html#cb693-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(x, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb693-5"><a href="curio.html#cb693-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb693-6"><a href="curio.html#cb693-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb693-7"><a href="curio.html#cb693-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 
 </div>
 </div>

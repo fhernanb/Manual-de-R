@@ -113,7 +113,7 @@ Usando los datos simulados construya un diagrama de dispersión usando el paquet
 
 *Solución*
 
-```{r message=FALSE}
+```{r simul2plotly, fig.cap='Densidad para los datos simulados de una normal bivariada usando plotly.', message=FALSE}
 library(mvtnorm)
 library(plotly)
 
@@ -128,7 +128,7 @@ Usando los datos simulados construya un diagrama de dispersión usando el paquet
 
 *Solución*
 
-```{r}
+```{r simul3d, fig.cap='Densidad para los datos simulados de una normal bivariada usando scatterplot3d.'}
 library(scatterplot3d)
 
 scatterplot3d(x=datos[,1], y=datos[,2], z=density, pch=16, cex.lab=1,
