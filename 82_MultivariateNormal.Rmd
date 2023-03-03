@@ -38,15 +38,13 @@ N <- 100
 Peso     <- seq(from=40, to=85, length.out=N)
 Estatura <- seq(from=145, to=185, length.out=N)
 
-densidad_curva <- function(x1, x2){
-  dmvnorm(cbind(x1, x2), mean=media, sigma=Sigma)  
-}
+densidad_curva <- function(x1, x2) dmvnorm(cbind(x1, x2), mean=media, sigma=Sigma)  
 
 probX <- outer(Peso, Estatura, FUN="densidad_curva")
 
 persp(Peso, Estatura, probX, theta=45, phi=20, zlim=c(0, 0.013),
       xlab="Peso",ylab="Estatura", zlab="", ticktype="detailed",
-      nticks=4, col="lightblue")
+      nticks=4, col="khaki1")
 ```
 
 
