@@ -18,8 +18,8 @@ Dibujar la superficie de una normal bivariada para las variables Peso y Estatura
 $$
 \boldsymbol{\Sigma}=
 \begin{pmatrix}
-20 & 21 \\
-21 & 30
+20 & 11 \\
+11 & 30
 \end{pmatrix}
 $$
 
@@ -30,19 +30,19 @@ Para crear una superficie de una normal bivariada se puede usar el siguiente có
 ```{r normmultidensi, fig.cap='Densidad de una normal bivariada.', fig.height=6, fig.width=6}
 library(mvtnorm)
 
-media <- c(65, 165)
-Sigma <- matrix(c(20, 21, 
-                 21, 30), nrow=2 , byrow = TRUE) 
+mu <- c(65, 165)
+Sigma <- matrix(c(20, 11, 
+                  11, 30), nrow=2 , byrow = TRUE) 
 
-N <- 100
+N <- 50
 Peso     <- seq(from=40, to=85, length.out=N)
 Estatura <- seq(from=145, to=185, length.out=N)
 
-densidad_curva <- function(x1, x2) dmvnorm(cbind(x1, x2), mean=media, sigma=Sigma)  
+densidad_curva <- function(x1, x2) dmvnorm(cbind(x1, x2), mean=mu, sigma=Sigma)  
 
 probX <- outer(Peso, Estatura, FUN="densidad_curva")
 
-persp(Peso, Estatura, probX, theta=45, phi=20, zlim=c(0, 0.013),
+persp(Peso, Estatura, probX, theta=45, phi=20, zlim=c(0, 0.008),
       xlab="Peso",ylab="Estatura", zlab="", ticktype="detailed",
       nticks=4, col="khaki1")
 ```
@@ -54,8 +54,8 @@ Calcular la densidad dos personas $A=(60, 160)$ y $B=(80, 170)$ asumiendo distri
 $$
 \boldsymbol{\Sigma}=
 \begin{pmatrix}
-20 & 21 \\
-21 & 30
+20 & 11 \\
+11 & 30
 \end{pmatrix}
 $$
 
@@ -66,12 +66,12 @@ Para calcular los valores de densidad de las dos personas hacemos lo siguiente:
 ```{r}
 library(mvtnorm)
 
-media <- c(65, 165)
-Sigma <- matrix(c(20, 21, 
-                  21, 30), nrow=2 , byrow = TRUE) 
+mu <- c(65, 165)
+Sigma <- matrix(c(20, 11, 
+                  11, 30), nrow=2 , byrow = TRUE) 
 
-dmvnorm(c(60, 160), mean=media, sigma=Sigma) # Para A
-dmvnorm(c(80, 170), mean=media, sigma=Sigma) # Para B
+dmvnorm(c(60, 160), mean=mu, sigma=Sigma) # Para A
+dmvnorm(c(80, 170), mean=mu, sigma=Sigma) # Para B
 ```
 
 ## Simulando de una normal multivariada
@@ -85,8 +85,8 @@ Simular cien observaciones de pesos y estaturas y luego construir un diagrama de
 $$
 \boldsymbol{\Sigma}=
 \begin{pmatrix}
-20 & 21 \\
-21 & 30
+20 & 11 \\
+11 & 30
 \end{pmatrix}
 $$
 
@@ -96,14 +96,39 @@ Para hacer lo solicitado se puede usar el siguiente código.
 
 ```{r dispDatosSimul, fig.cap='Diagrama de dispersión para datos simulados de una normal bivariada.', fig.height=6, fig.width=6, message=FALSE}
 require(mvtnorm)
-n <- 100
 mu <- c(65, 165)
-Sigma <- matrix(c(20, 21, 
-                  21, 30), ncol=2, nrow=2)
+Sigma <- matrix(c(20, 11, 
+                  11, 30), ncol=2, nrow=2)
+
+n <- 100
 datos <- rmvnorm(n=n, mean=mu, sigma=Sigma)
-plot(datos, xlab="Peso [kg]", ylab="Estatura [cm]", pch=19)
-points(x=mu[1], y=mu[2], lwd=5, col="tomato", pch=3)
+
+plot(datos, xlab="Peso [kg]", ylab="Estatura [cm]", pch=19, las=1)
+points(x=mu[1], y=mu[2], lwd=3, col="tomato", pch=3)
 ```
+
+
+### Ejemplo {-}
+Simule nuevamente los datos y construya un diagrama de dispersión usando el paquete **plotly**.
+
+*Solución*
+
+```{r message=FALSE}
+library(mvtnorm)
+library(MASS)
+library(plotly)
+
+mu <- c(65, 165)
+Sigma <- matrix(c(20, 11, 
+                  11, 30), nrow=2 , byrow=TRUE) 
+datos <- rmvnorm(n=n, mean=mu, sigma=Sigma)
+density <- dmvnorm(datos, mean=mu, sigma=Sigma)
+
+plot_ly(x=~datos[,1], y=~datos[,2], z=~density, 
+        type = "scatter3d", color=density)
+```
+
+
 
 ## Calculando probabilidades
 
@@ -123,8 +148,8 @@ Para hacer lo solicitado se puede usar el siguiente código.
 ```{r}
 library(mvtnorm)
 mu <- c(65, 165)
-Sigma <- matrix(c(20, 21, 
-                  21, 30), ncol=2, nrow=2)
+Sigma <- matrix(c(20, 11, 
+                  11, 30), ncol=2, nrow=2)
 pmvnorm(mean=mu, sigma=Sigma, 
         lower=c(-Inf, -Inf), upper=c(60, 160))
 ```
@@ -140,8 +165,8 @@ Para el ejemplo de el peso y la estatura calcular la siguiente probabilidad.
 ```{r}
 library(mvtnorm)
 mu <- c(65, 165)
-Sigma <- matrix(c(20, 21, 
-                  21, 30), ncol=2, nrow=2)
+Sigma <- matrix(c(20, 11, 
+                  11, 30), ncol=2, nrow=2)
 qmvnorm(p=0.1017746, mean=mu, sigma=Sigma, 
         tail="lower.tail")
 ```
