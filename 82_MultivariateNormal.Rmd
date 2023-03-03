@@ -27,7 +27,7 @@ $$
 
 Para crear una superficie de una normal bivariada se puede usar el siguiente código. La función `dmvnorm` del paquete **mvtnorm** [@R-mvtnorm] sirve para obtener la densidad de cada punto.
 
-```{r normmultidensi, fig.cap='Densidad de una normal bivariada.', fig.height=6, fig.width=6,}
+```{r normmultidensi, fig.cap='Densidad de una normal bivariada.', fig.height=6, fig.width=6}
 library(mvtnorm)
 
 media <- c(65, 165)

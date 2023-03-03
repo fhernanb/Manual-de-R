@@ -1,3 +1,71 @@
 # Distribuciones empíricas {#empiricaldists}
 
+En este capítulo se muestra la forma de crear distribuciones empíricas a partir de datos observados.
+
+## Una variable
+
+Las funciones para obtener la densidad empírica $f_n(x)$ y la función de distribución acumulada empírica $F_n(x)$ de una variable cuantitativa son `density` y `ecdf` del paquete básico **stats**. A continuación al estructura de las funciones.
+
+```{r eval=FALSE}
+density(x, bw = "nrd0", adjust = 1,
+        kernel = c("gaussian", "epanechnikov", "rectangular",
+                   "triangular", "biweight",
+                   "cosine", "optcosine"),
+        weights = NULL, window = kernel, width,
+        give.Rkern = FALSE, subdensity = FALSE,
+        n = 512, from, to, cut = 3, na.rm = FALSE, ...)
+
+ecdf(x)
+```
+
+### Ejemplo {-}
+
+Supongamos que se obtener una distribución empírica para la variable altura de los hombres de la base de datos __medidas del cuerpo__. 
+
+```{r}
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
+datos <- read.table(file=url, header=T)
+```
+
+*Solución*
+
+```{r}
+emp_f <- density(datos$altura)
+emp_F <- ecdf(datos$altura)
+```
+
+Ahora vamos a dibujar $f_n(x)$ y $F_n(x)$.
+
+```{r eval=FALSE}
+par(mfrow=c(1, 2))
+plot(emp_f, las=1, main="Empirical fn(x)", xlab="Altura", ylab="fn(x)")
+plot(emp_F, las=1, main="Empirical Fn(x)", xlab="Altura")
+```
+
+```{r fnFn, echo=FALSE, fig.cap='fn(x) y Fn(x) para las alturas.', fig.height=4, fig.width=9}
+par(mfrow=c(1, 2))
+plot(emp_f, las=1, main="Empirical fn(x)", xlab="Altura", ylab="fn(x)")
+segments(x0=170, y0=0, x1 = 170, y1 = 0.030, 
+         lty="dashed", col="lightblue")
+plot(emp_F, las=1, main="Empirical Fn(x)", xlab="Altura")
+segments(x0=170, y0=0, x1 = 170, y1 = 0.416, 
+         lty="dashed", col="lightblue")
+segments(x0=170, y0=0.416, x1 = 140, y1 = 0.416, 
+         lty="dashed", col="lightblue")
+```
+
+
+¿Cuál será el valor de $P(Altura \leq 170)$?
+
+Para responder esta pregunta podemos hacerlo de varias maneras:
+
+- Observando la figura de $f_n(x)$. Al subir desde Altura = 170 chocamos con la curva y calculamos el área bajo la curva y a la izquierda de 170.
+- Observando la figura de $F_n(x)$. Al subir desde Altura = 170 chocamos con la curva a una altura aproximada de 0.41.
+- Evaluando 170 en la función `emp_F` así:
+
+```{r}
+emp_F(170)
+```
+
+De ambas formas se llega a que $P(Altura \leq 170) = 0.4166$.
 
