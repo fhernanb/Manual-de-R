@@ -42,9 +42,8 @@ densidad_curva <- function(x1, x2) dmvnorm(cbind(x1, x2), mean=mu, sigma=Sigma)
 
 probX <- outer(Peso, Estatura, FUN="densidad_curva")
 
-persp(Peso, Estatura, probX, theta=45, phi=20, zlim=c(0, 0.008),
-      xlab="Peso",ylab="Estatura", zlab="", ticktype="detailed",
-      nticks=4, col="khaki1")
+persp(Peso, Estatura, probX, theta=45, phi=20,
+      xlab="Peso",ylab="Estatura", zlab="", ticktype="detailed", nticks=4, col="khaki1")
 ```
 
 
