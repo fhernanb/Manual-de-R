@@ -4,10 +4,10 @@ En este capítulo se mostrarán aspectos importantes de la distribución normal 
 
 ## Función de densidad
 
-En la densidad Normal $p$-variada, hay dos parámetros, $\boldsymbol{\mu}$ y $\boldsymbol{\Sigma}$. El primero es un vector de columna $p \times 1$ de parámetros de localización y una $n\times n$ matriz de dispersión $\boldsymbol{\Sigma}$. La función de densidad de una normal multivariada es la siguiente:
+En la densidad Normal $p$-variada, hay dos parámetros, $\boldsymbol{\mu}$ y $\boldsymbol{\Sigma}$. El primero es un vector de columna $p \times 1$ de parámetros de localización y una $p \times p$ matriz de dispersión $\boldsymbol{\Sigma}$. La función de densidad de una normal multivariada es la siguiente:
 
 \begin{equation}
-f(\mathbf{x} | \boldsymbol{\mu}, \boldsymbol{\Sigma}) =\frac{1}{\sqrt{(2\pi)^{n}|\boldsymbol{\Sigma}|}} \exp \left( -\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}) \right)
+f(\mathbf{x} | \boldsymbol{\mu}, \boldsymbol{\Sigma}) =\frac{1}{\sqrt{(2\pi)^{p}|\boldsymbol{\Sigma}|}} \exp \left( -\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}) \right)
 \end{equation}
 
 El símbolo $|\boldsymbol{\Sigma}|$ se refiere al determinante de la matriz $\boldsymbol{\Sigma}$. Esta ecuación asume que $\boldsymbol{\Sigma}$ se puede invertir, y una condición suficiente para la existencia de una inversa es que el determinante no sea $0$. La matriz $\boldsymbol{\Sigma}$ debe ser semidefinida positiva para asegurar que el punto más probable es $\boldsymbol{\mu}$ y que, a medida que $\mathbf{x}$ se aleja de $\boldsymbol{\mu}$ en cualquier dirección, entonces la probabilidad de observar $\mathbf{x}$ disminuye.
