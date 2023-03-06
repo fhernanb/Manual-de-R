@@ -73,6 +73,25 @@ dmvnorm(c(60, 160), mean=mu, sigma=Sigma) # Para A
 dmvnorm(c(80, 170), mean=mu, sigma=Sigma) # Para B
 ```
 
+### Ejemplo {-}
+Repetir las figuras de la densidad anterior pero usando otros paquetes.
+
+*Solución*
+
+```{r eval=FALSE}
+library(rgl)
+plot3d(densidad_curva, 
+       col = colorRampPalette(c("blue", "white")), 
+       xlab = "Peso", ylab = "Estatura", zlab = "Den", 
+       xlim = c(40, 85), ylim = c(145, 185),
+       aspect = c(1, 1, 0.5))
+
+```
+
+<p align="center">
+  <img src="images/normal_biv_rgl.png" width="500">
+</p>
+
 ## Simulando de una normal multivariada
 
 Para simular de una normal multivariada se puede usar la función `mvrnorm` del paquete **MASS** [@R-MASS] o la función `rmvnorm` del paquete **mvtnorm** [@R-mvtnorm].
