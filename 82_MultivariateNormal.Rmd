@@ -202,7 +202,7 @@ $$
 D^2 = (\mathbf{x}-\boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})
 $$
 
-y $D^2 \sim \chi_p$.
+y $D^2 \sim \chi^2_p$.
 
 ### Ejemplo {-}
 Simular 1000 observaciones de una normal multivariada con vector de medias $\boldsymbol{\mu}^\top=(65, 165)$ y matriz de varianzas/covarianzas
@@ -251,14 +251,14 @@ abline(a=0, b=1)
 
 Mejoremos la figura anterior así:
 
-```{r maha3}
+```{r maha3, message=FALSE}
 require(car)
 qqPlot(x=d2, distribution='chisq', df=2, las=1)
 ```
 
-Apliquemos ahora una prueba para estudiar $H_0:$ las $D^2$ tienen distribución $\chi_p$ versus $H_1:$ las $D^2$ NO provienen de una distribución $\chi_p$.
+Apliquemos ahora una prueba para estudiar $H_0:$ las $D^2$ tienen distribución $\chi^2_p$ versus $H_1:$ las $D^2$ NO provienen de una distribución $\chi^2_p$.
 
-Primero hagamos un histograma para $D^2$ (con $k=5$ intervalos) y luego le superponemos la densidad de $\chi_p$.
+Primero hagamos un histograma para $D^2$ (con $k=5$ intervalos o breaks) y luego le superponemos la densidad de $\chi^2_p$.
 
 ```{r maha4}
 hist(d2, breaks=5, freq=FALSE, las=1, ylim=c(0, 0.50))
@@ -273,7 +273,7 @@ h <- hist(d2, breaks=5, right=FALSE, plot=FALSE)
 h
 ```
 
-Ahora vamos a calcular las probabilidades esperadas de cada cajón asumiendo que $H_0$ es verdadera, es decir, que las distancias se distribuyen $\chi_p$.
+Ahora vamos a calcular las probabilidades esperadas de cada cajón asumiendo que $H_0$ es verdadera, es decir, que las distancias se distribuyen $\chi^2_p$.
 
 ```{r}
 null_probs <- pchisq(q=h$breaks, df=2) # Prob acumul hasta cada lim_sup del cajon
@@ -302,7 +302,7 @@ $$
 \end{pmatrix}
 $$
 
-y luego aplicar la prueba `chisq.test` para determinar si las distancias $D^2$ siguen una distribución $\chi_p$. Repetir esta operación 100 veces para cada uno de los valores $n$ de la siguiente tabla. Use $k=10$ intervalos.
+y luego aplicar la prueba `chisq.test` para determinar si las distancias $D^2$ siguen una distribución $\chi^2_p$. Repetir esta operación 100 veces para cada uno de los valores $n$ de la siguiente tabla. Use $k=10$ intervalos.
 
 $n$ | Porcentaje de veces que NO se rechaza $H_0$
 --- | -------------
