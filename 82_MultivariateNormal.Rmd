@@ -214,8 +214,8 @@ $$
 21 & 30
 \end{pmatrix}
 $$
-
-y explorar la distribución de las distancias $D^2$.
+- Calcular la distancia de Mahalanobis para las personas $A=(60, 160)$, $B=(65, 155)$ y $C=(67, 155)$. 
+- Explorar la distribución de las distancias $D^2$.
 
 **Solución**
 
@@ -232,11 +232,25 @@ dt <- mvrnorm(n=n, mu=centro, Sigma=Sigma)
 
 # ploting
 plot(dt, xlab='Peso (kg)', ylab='Estatura (cm)', pch=20,
-     xlim=c(55, 75), ylim=c(140, 190), las=1)
+     #xlim=c(55, 75), ylim=c(140, 190), 
+     las=1)
 points(x=centro[1], y=centro[2], pch='+', col='tomato', cex=3)
+points(x=60, y=160, pch=20, col='green3', cex=3)
+points(x=65, y=155, pch=20, col='dodgerblue2', cex=3)
+points(x=67, y=155, pch=20, col='purple', cex=3)
 ```
 
-Vamos a calcular las distancias $D^2$ pero sin usar la fórmula sino la función `mahalanobis`.
+Vamos a calcular las distancias $D^2$ con la función `mahalanobis`.
+
+```{r}
+new_data <- data.frame(x1=c(60, 65, 70),
+                       x2=c(160, 155, 155))
+
+mahalanobis(x=new_data, center=centro, cov=Sigma)
+```
+
+
+Vamos a calcular las distancias $D^2$ con la función `mahalanobis`.
 
 ```{r}
 d2 <- mahalanobis(x=dt, center=centro, cov=Sigma)
