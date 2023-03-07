@@ -195,3 +195,121 @@ qmvnorm(p=0.1017746, mean=mu, sigma=Sigma,
         tail="lower.tail")
 ```
 
+## Distancia de Mahalanobis
+Si $\mathbf{X}$ se distribuye $N_p(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, la distancia de Mahalanobis se define como
+
+$$
+D^2 = (\mathbf{x}-\boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})
+$$
+
+y $D^2 \sim \chi_p$.
+
+### Ejemplo {-}
+Simular 1000 observaciones de una normal multivariada con vector de medias $\boldsymbol{\mu}^\top=(65, 165)$ y matriz de varianzas/covarianzas
+
+$$
+\boldsymbol{\Sigma}=
+\begin{pmatrix}
+20 & 21 \\
+21 & 30
+\end{pmatrix}
+$$
+
+y explorar la distribución de las distancias $D^2$.
+
+**Solución**
+
+Vamos a simular unos datos con el siguiente código.
+
+```{r maha1, message=FALSE}
+require(MASS)
+set.seed(1974)
+n <- 1000
+centro <- c(65, 165)
+Sigma <- matrix(c(20, 21,
+                  21, 30), ncol=2, nrow=2)
+dt <- mvrnorm(n=n, mu=centro, Sigma=Sigma)
+
+# ploting
+plot(dt, xlab='Peso (kg)', ylab='Estatura (cm)', pch=20,
+     xlim=c(55, 75), ylim=c(140, 190), las=1)
+points(x=centro[1], y=centro[2], pch='+', col='tomato', cex=3)
+```
+
+Vamos a calcular las distancias $D^2$ pero sin usar la fórmula sino la función `mahalanobis`.
+
+```{r}
+d2 <- mahalanobis(x=dt, center=centro, cov=Sigma)
+```
+
+Construyamos un qqplot sencillo para explorar la distribución de las distancias $D^2$.
+
+```{r maha2}
+qqplot(y=d2, x=qchisq(ppoints(n), df=2), las=1)
+abline(a=0, b=1)
+```
+
+Mejoremos la figura anterior así:
+
+```{r maha3}
+require(car)
+qqPlot(x=d2, distribution='chisq', df=2, las=1)
+```
+
+Apliquemos ahora una prueba para estudiar $H_0:$ las $D^2$ tienen distribución $\chi_p$ versus $H_1:$ las $D^2$ NO provienen de una distribución $\chi_p$.
+
+Primero hagamos un histograma para $D^2$ (con $k=5$ intervalos) y luego le superponemos la densidad de $\chi_p$.
+
+```{r maha4}
+hist(d2, breaks=5, freq=FALSE, las=1, ylim=c(0, 0.50))
+curve(expr=dchisq(x, df=2), add=TRUE, col="tomato", lwd=2)
+```
+
+Para hacer la prueba de hipótesis hacemos lo siguiente:
+
+```{r}
+# Goodness of fit test
+h <- hist(d2, breaks=5, right=FALSE, plot=FALSE)
+h
+```
+
+Ahora vamos a calcular las probabilidades esperadas de cada cajón asumiendo que $H_0$ es verdadera, es decir, que las distancias se distribuyen $\chi_p$.
+
+```{r}
+null_probs <- pchisq(q=h$breaks, df=2) # Prob acumul hasta cada lim_sup del cajon
+null_probs <- diff(null_probs)         # Prob esperadas de cada cajon
+```
+
+Ahora si aplicamos la prueba.
+
+```{r}
+prueba <- chisq.test(x=h$counts, p=null_probs, 
+                     rescale.p=TRUE, simulate.p.value=TRUE)
+prueba
+```
+
+Nota: para más detalles de esta prueba consultar https://www.r-bloggers.com/goodness-of-fit-test-in-r/ 
+
+## EJERCICIOS {-}
+
+1. Simular $n$ observaciones de una normal multivariada con vector de medias $\boldsymbol{\mu}^\top=(65, 165)$ y matriz de varianzas/covarianzas
+
+$$
+\boldsymbol{\Sigma}=
+\begin{pmatrix}
+20 & 21 \\
+21 & 30
+\end{pmatrix}
+$$
+
+y luego aplicar la prueba `chisq.test` para determinar si las distancias $D^2$ siguen una distribución $\chi_p$. Repetir esta operación 100 veces para cada uno de los valores $n$ de la siguiente tabla. Use $k=10$ intervalos.
+
+$n$ | Porcentaje de veces que NO se rechaza $H_0$
+--- | -------------
+10  | 
+20  | 
+40  | 
+80  | 
+160 | 
+
+
