@@ -471,12 +471,27 @@ mlest(apple, iterlim = 400)
 ```
 
 ## Distribución Wishart
-En estadística univariada, la distribución $\chi^2$ juega un papel importante en la inferencia sobre $\sigma^2$ en una $N(\mu, \sigma^2)$. La distribución de Wishart es una generalización multivariada de la distribución univariada $\chi^2$ y desempeña un papel análogo en las estadísticas multivariadas.
+En estadística univariada, la distribución $\chi^2$ juega un papel importante en la inferencia de $\sigma^2$ cuando se tiene una población $N(\mu, \sigma^2)$. De un teorema se sabe que
+
+$$
+\frac{(n-1) S^2}{\sigma^2} \sim \chi^2_{n-1},
+$$
+
+siendo $S^2=\frac{1}{n-1}\sum_{i=1}^{n}(X_i-\bar{X})^2$.
+
+De forma análoga, la distribución Wishart $W$ sirve para explicar la distribución de $\mathbf{S}$ cuando se tienen observaciones de una $N_p(\boldsymbol{\mu}, \boldsymbol{\Sigma})$. De un teorema se sabe que
+
+$$
+(n-1) \mathbf{S} \sim W_p(\boldsymbol{\Sigma}, n),
+$$
+
+siendo $\mathbf{S}=\frac{1}{n-1}\sum_{i=1}^{n}(\mathbf{x}_i-\bar{\mathbf{x}}_i) (\mathbf{x}_i-\bar{\mathbf{x}}_i)^\top$.
 
 En esta sección se presenta la distribución Wishart y se muestra que para las variables aleatorias MVN, la matriz de covarianza de la muestra \(\mathbf S\) tiene una distribución Wishart.
 
-Sea \(\mathbf x_1, \ldots, \mathbf x_n\) una muestra aleatoria IID de \(N_p (\boldsymbol 0, \boldsymbol{\Sigma})\). Entonces se dice que \[\mathbf M= \sum_{i=1}^n \mathbf x_i \mathbf x_i^\top \in \mathbb{R}^{p\times p}\] tiene una distribución de Wishart con \ (n\) grados de libertad y matriz de escala \(\boldsymbol{\Sigma}\). Escribimos esto como \[\mathbf M\sim W_p(\boldsymbol{\Sigma}, n)\] y nos referimos a \(W_p(\mathbf I_p,n)\) como una distribución estándar de Wishart.
+Sea \(\mathbf x_1, \ldots, \mathbf x_n\) una muestra aleatoria IID de \(N_p (\boldsymbol 0, \boldsymbol{\Sigma})\). Entonces se dice que \[\mathbf M= \sum_{i=1}^n \mathbf x_i \mathbf x_i^\top \in \mathbb{R}^{p\times p}\] tiene una distribución de Wishart con $n$ grados de libertad y matriz de escala \(\boldsymbol{\Sigma}\). Escribimos esto como \[\mathbf M\sim W_p(\boldsymbol{\Sigma}, n)\] y nos referimos a \(W_p(\mathbf I_p,n)\) como una distribución estándar de Wishart.
 
+Para generar valores aleatorios de una distribución Wishart se puede usar las función `rWISHART`.
 
 ```{r message=FALSE}
 require(mixAK)
@@ -487,16 +502,19 @@ set.seed(123)
 print(M <- rWISHART(n=3, df=df, S=S))
 ```
 
+Si queremos conocer la densidad de las tres observaciones anteriores usamos lo siguiente.
+
 ```{r}
 dWISHART(M, df=df, S=S)
 ```
 
+Para verificar que cada componente es correcto hacemos lo siguiente.
 
 ```{r}
 M2 <- rWISHART(n=1000, df=df, S=S)
 apply(M2, 2, mean) # should be close to df*S
 
-(df*S)[lower.tri(S, diag=TRUE)]
+df*S[lower.tri(S, diag=TRUE)]
 ```
 
 
@@ -515,7 +533,7 @@ $$
 y luego aplicar la prueba `chisq.test` para determinar si las distancias $D^2$ siguen una distribución $\chi^2_p$. Repetir esta operación 100 veces para cada uno de los valores $n$ de la siguiente tabla. Use $k=10$ intervalos.
 
 $n$ | Porcentaje de veces que NO se rechaza $H_0$
---- | -------------
+--- | --------------------------------------------
 10  | 
 20  | 
 40  | 
