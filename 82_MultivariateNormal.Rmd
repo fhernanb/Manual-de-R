@@ -304,6 +304,202 @@ prueba
 
 Nota: para más detalles de esta prueba consultar https://www.r-bloggers.com/goodness-of-fit-test-in-r/ 
 
+## Ellipse o contornos de confianza
+Los contornos de densidad constante para la distribución normal de $p$ dimensiones son elipsoides definidos por $\mathbf{x}$ tales que
+
+$$
+(\mathbf{x}-\boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}) = c^2
+$$
+Los elipsoides están centrandos en $\boldsymbol{\mu}$ y tienen ejes $\pm c \sqrt{\lambda_i} \boldsymbol{e}_i$. El valor de $c^2$ se obtiene como el cuantil $D^2 \sim \chi_p$ de manera que la cola a izquierda tenga un valor de cierto porcentaje (85\%, 90\%, 93\%, 95\%, ...). 
+
+<p align="center">
+  <img src="images/elipse_confianza.png" width="700">
+</p>
+
+### Ejemplo {-}
+Crear dos contornos o elipses de 50\% y 90\% para una normal multivariada con vector de medias $\boldsymbol{\mu}^\top=(65, 165)$ y matriz de varianzas/covarianzas
+
+$$
+\boldsymbol{\Sigma}=
+\begin{pmatrix}
+20 & 21 \\
+21 & 30
+\end{pmatrix}
+$$
+
+**Solución**
+
+Vamos a usar el siguiente código.
+
+```{r ellipse1, message=FALSE}
+# Mean vector and covariance matrix
+centro <- c(65, 165)
+Sigma <- matrix(c(20, 21,
+                  21, 30), ncol=2, nrow=2)
+
+# To plot the ellipses
+plot(x=NULL, y=NULL, xlab='Peso (kg)', ylab='Estatura (cm)',
+     xlim=c(55, 75), ylim=c(140, 190), las=1)
+car::ellipse(center=centro, shape=Sigma, col='tomato', fill=TRUE,
+             radius=sqrt(qchisq(p=0.90, df=2)))
+car::ellipse(center=centro, shape=Sigma, col='blue', fill=TRUE,
+             radius=sqrt(qchisq(p=0.50, df=2)))
+legend('topleft', col=c('blue', 'tomato'), lwd=2, bty='n',
+       legend=c('50%', '90%'))
+
+```
+
+### Ejemplo {-}
+Con las características de la distribución bivariada anterior:
+
+- Simule 10 observaciones y haga un diagrama de dispersión.
+- Construya una elipse de confianza del 70\%. 
+- Revise si 3 observaciones quedan fuera de la elipse.
+- ¿Cuál es el valor de distancia de Mahalanobis para determinar si una observación está fuera de la elipse.
+
+**Solución**
+
+Vamos a usar el siguiente código.
+
+```{r}
+require(MASS)
+set.seed(123)
+dt <- mvrnorm(n=10, mu=centro, Sigma=Sigma)
+plot(dt, xlab='Peso (kg)', ylab='Estatura (cm)', pch=20,
+     xlim=c(55, 75), ylim=c(140, 190), las=1)
+car::ellipse(center=centro, shape=Sigma, col='blue', fill=TRUE,
+             radius=sqrt(qchisq(p=0.70, df=2)))
+legend('topleft', col=c('blue'), lwd=2, bty='n', legend=c('70%'))
+```
+
+Para determinar el valor de $c$ con el cual se comparan las distancias $D^2$ y la forma para detectar una observación fuera de la elipse, se puede usar el siguiente código.
+
+```{r}
+d2 <- mahalanobis(x=dt, center=centro, cov=Sigma)
+c_value <- qchisq(p=0.70, df=2)
+c_value
+data.frame(dt, d2, Quedo_fuera=d2 > c_value)
+```
+
+## Estimando los parámetros $\boldsymbol{\mu}$ y $\boldsymbol{\Sigma}$
+En esta sección se mostrarán las formas para estimar el vector de media y la matriz de varianzas y covarianzas.
+
+### Ejemplo {-}
+Simular 100 observacioens para una normal multivariada con vector de medias $\boldsymbol{\mu}^\top=(5, -2)$ y matriz de varianzas/covarianzas mostrada abajo. Usar varios métodos para obtener la estimación de $\boldsymbol{\mu}$ y $\boldsymbol{\Sigma}$.
+
+$$
+\boldsymbol{\Sigma}=
+\begin{pmatrix}
+0.87 & -0.5 \\
+-0.5 & 2.3
+\end{pmatrix}
+$$
+
+**Solución**
+
+```{r}
+# Simulate bivariate normal data
+mu <- c(5, -2)                         # Mean
+Sigma <- matrix(c(0.87, -0.5,
+                  -0.5, 2.3), ncol=2)  # Covariance matrix
+
+# Generate sample from N(mu, Sigma)
+library(MASS)
+dt <- mvrnorm(100, mu = mu, Sigma = Sigma )  # from Mass package
+
+plot(dt, xlab = "X1", ylab = "X2", pch=20, main = "Bivariate Normal")
+```
+
+Usando el método de máxima verosimilitud.
+
+```{r message=FALSE}
+require(mnormt)
+
+minusll <- function(theta) {
+  mu1 <- theta[1]
+  mu2 <- theta[2]
+  s12 <- theta[3]
+  s11 <- exp(theta[4]) # Must be positive
+  s22 <- exp(theta[5]) # Must be positive
+  Sigma <- matrix(c(s11, s12, 
+                    s12, s22), ncol=2)
+  ll <- sum(dmnorm(x=dt, mean=c(mu1, mu2), varcov=Sigma, log=TRUE))
+  return(-ll)
+}
+
+res <- optim(par=rep(0, 5), fn=minusll, control=list(maxit=10000))
+
+res
+```
+
+De la salida anterior tenemos que el valor de log-verosimilitud es `r -res$value` y se necesitaron `r res$counts[1]` pasos de iteración. Para obtener los parámetros estimados en la escala natural hacemos.
+
+```{r}
+theta <- c(res$par[1:3], exp(res$par[4:5]))
+theta
+```
+
+De la salida anterior tenemos que el vector $\boldsymbol{\Theta} = (`r round(theta, 4)`)^\top$
+
+Es posible obtener las estimaciones con la función `mlest` del paquete **mvnmle**. Esta función es útil cuando la base de datos tiene `NA`.
+
+```{r}
+library(mvnmle)
+mlest(dt)
+```
+
+Es posible estimar los parámetros usando funciones básicas.
+
+```{r}
+colMeans(dt)
+
+var(dt)
+cov.wt(dt, cor=TRUE, method='unbiased')
+cov.wt(dt, cor=TRUE, method='ML')
+```
+
+
+### Ejemplo {-}
+Use la función `mlest` del paquete **mvnmle** para estimar $\boldsymbol{\mu}$ y $\boldsymbol{\Sigma}$ de la base de datos `apple` disponible en **mvnmle**.
+
+**Solución**
+
+```{r}
+data(apple)
+apple
+mlest(apple, iterlim = 400)
+```
+
+## Distribución Wishart
+En estadística univariada, la distribución $\chi^2$ juega un papel importante en la inferencia sobre $\sigma^2$ en una $N(\mu, \sigma^2)$. La distribución de Wishart es una generalización multivariada de la distribución univariada $\chi^2$ y desempeña un papel análogo en las estadísticas multivariadas.
+
+En esta sección se presenta la distribución Wishart y se muestra que para las variables aleatorias MVN, la matriz de covarianza de la muestra \(\mathbf S\) tiene una distribución Wishart.
+
+Sea \(\mathbf x_1, \ldots, \mathbf x_n\) una muestra aleatoria IID de \(N_p (\boldsymbol 0, \boldsymbol{\Sigma})\). Entonces se dice que \[\mathbf M= \sum_{i=1}^n \mathbf x_i \mathbf x_i^\top \in \mathbb{R}^{p\times p}\] tiene una distribución de Wishart con \ (n\) grados de libertad y matriz de escala \(\boldsymbol{\Sigma}\). Escribimos esto como \[\mathbf M\sim W_p(\boldsymbol{\Sigma}, n)\] y nos referimos a \(W_p(\mathbf I_p,n)\) como una distribución estándar de Wishart.
+
+
+```{r message=FALSE}
+require(mixAK)
+df <- 2
+S <- matrix(c(1, 3, 
+              3, 13), nrow=2)
+set.seed(123)
+print(M <- rWISHART(n=3, df=df, S=S))
+```
+
+```{r}
+dWISHART(M, df=df, S=S)
+```
+
+
+```{r}
+M2 <- rWISHART(n=1000, df=df, S=S)
+apply(M2, 2, mean) # should be close to df*S
+
+(df*S)[lower.tri(S, diag=TRUE)]
+```
+
+
 ## EJERCICIOS {-}
 
 1. Simular $n$ observaciones de una normal multivariada con vector de medias $\boldsymbol{\mu}^\top=(65, 165)$ y matriz de varianzas/covarianzas
