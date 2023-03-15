@@ -23,7 +23,7 @@ t.test(x, y = NULL,
 Los argumentos a definir dentro de `t.test` para hacer la prueba son:
 
 - `x`: vector numérico con los datos.
-- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la hipótesis alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
+- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la hipótesis alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para el caso $>$.
 - `mu`: valor de referencia de la prueba.
 - `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
@@ -37,10 +37,9 @@ Para verificar si el proceso de llenado de bolsas de café con 500  gramos está
 Lo primero es explorar si la muestra proviene de una distribución normal, para eso ingresamos los datos y aplicamos la prueba Anderson-Darling por medio de la función `ad.test` disponible en el paquete **nortest** [@R-nortest] como se muestra a continuación.
 
 ```{r message=FALSE}
-contenido <- c(510, 492, 494, 498, 492,
-               496, 502, 491, 507, 496) 
+contenido <- c(510, 492, 494, 498, 492, 496, 502, 491, 507, 496) 
 
-require(nortest) # Se debe haber instalado antes nortest
+library(nortest) # Se debe haber instalado antes nortest
 ad.test(contenido)
 ```
 
@@ -53,8 +52,7 @@ $$H_1: \mu \neq 500 \quad gr$$
 La prueba de hipótesis se puede realizar usando la función `t.test` por medio del siguiente código.
 
 ```{r}
-t.test(contenido, alternative='two.sided',
-       conf.level=0.95, mu=500)
+t.test(contenido, alternative='two.sided', conf.level=0.95, mu=500)
 ```
 
 ```{r echo=FALSE}
@@ -230,7 +228,7 @@ var.test(x, alternative = "two.sided",
 Los argumentos a definir dentro de `var.test` para hacer la prueba son:
 
 - `x`: vector numérico con los datos.
-- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para $>$.
+- `alternative`: tipo de hipótesis alterna. Los valores disponibles son `"two.sided"` cuando la alterna es $\neq$, `"less"` para el caso $<$ y `"greater"` para el caso $>$.
 - `null.value`: valor de referencia de la prueba.
 - `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
