@@ -142,9 +142,7 @@ En R están disponibles los operadores lógicos negación, conjunción y disyunc
 ```{r, eval=F}
 !x  # Negación de x
 x & y  # Conjunción entre x e y
-x && y
 x | y  # Disyunción entre x e y
-x || y
 xor(x, y)
 ```
 
@@ -157,7 +155,7 @@ x <- c(5, 1.5, 2, 3, 2)
 !(x < 2.5)  # Negando los resultados de una prueba
 ```
 
-A continuación se presentan ejemplos de cómo aplicar la conjunción `&` y `&&`.
+A continuación se presentan ejemplos de cómo aplicar la conjunción `&`.
 
 ```{r}
 x <- c(5, 1.5, 2)  # Se construyen dos vectores para la prueba
@@ -166,10 +164,7 @@ y <- c(4, 6, 3)
 x < 4  # ¿Serán los elementos de x menores que 4?
 y > 5  # ¿Serán los elementos de y mayores que 5?
 x < 4 & y > 5  # Conjunción entre las pruebas anteriores.
-x < 4 && y > 5  # Conjunción vectorial
 ```
-
-Note las diferencias entre los dos últimos ejemplos, cuando se usa `&` se hace una prueba término a término y el resultado es un vector, cuando se usa `&&` se aplica la conjunción al vector de resultados obtenido con `&`.
 
 ### Ejemplo {-}
 Retome el marco de datos `mimarco` construído en la sección 2.4 y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años y que practican deporte.
