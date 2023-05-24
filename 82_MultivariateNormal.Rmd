@@ -177,23 +177,7 @@ Sigma <- matrix(c(20, 11,
 pmvnorm(mean=mu, sigma=Sigma, 
         lower=c(-Inf, -Inf), upper=c(60, 160))
 ```
-De la salida anterior tenemos que $P(-\infty < Peso \leq 60, -\infty < Estatura \leq 160)=0.1017746$.
-
-## Calculando cuantiles
-
-La función `qmvnorm` del paquete **mvtnorm** sirve para calcular cuantiles.
-
-### Ejemplo {-}
-Para el ejemplo de el peso y la estatura calcular la siguiente probabilidad.
-
-```{r}
-library(mvtnorm)
-mu <- c(65, 165)
-Sigma <- matrix(c(20, 11, 
-                  11, 30), ncol=2, nrow=2)
-qmvnorm(p=0.1017746, mean=mu, sigma=Sigma, 
-        tail="lower.tail")
-```
+De la salida anterior tenemos que $P(-\infty < Peso \leq 60, -\infty < Estatura \leq 160)=0.05520382$.
 
 ## Distancia de Mahalanobis
 Si $\mathbf{X}$ se distribuye $N_p(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, la distancia de Mahalanobis se define como
@@ -214,7 +198,7 @@ $$
 21 & 30
 \end{pmatrix}
 $$
-- Calcular la distancia de Mahalanobis para las personas $A=(60, 160)$, $B=(65, 155)$ y $C=(67, 155)$. 
+- Calcular la distancia de Mahalanobis para las personas $A=(60, 160)$, $B=(65, 155)$ y $C=(67, 155)$.  
 - Explorar la distribución de las distancias $D^2$.
 
 **Solución**
