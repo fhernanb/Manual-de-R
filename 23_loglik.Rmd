@@ -408,6 +408,46 @@ res2
 
 De la salida anterior se observa que el vector de parámetros estimado es $\hat{\beta}_0 = `r res2$par[1]`$, $\hat{\beta}_1 = `r res2$par[2]`$ y $\hat{\sigma} = \exp(`r res2$par[3]`)=`r exp(res2$par[3])`$, se observa también que el valor de la máxima log-verosimilitud fue de `r -res2$value`. Vemos entonces que el vector estimado está muy cerca del verdadero $\boldsymbol{\theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top$.
 
+## Paquete maxLik
+El paquete **maxLik** tiene un conjunto de funciones útiles para estación por máxima verosimilitud y varias viñetas que pueden ser consultadas [en este enlace](https://cran.r-project.org/web/packages/maxLik/index.html).
+
+### Ejemplo {-}
+En este ejemplo vamos a repetir un ejemplo anterior con la distribución normal.
+
+```{r}
+set.seed(1235)  # La semilla es 1235
+y <- rnorm(n=50, mean=170, sd=5)
+y[1:7]  # Para ver los primeros siete valores generados
+```
+
+Ahora vamos a crear la función de log-verosimilitud de la siguiente manera:
+
+```{r}
+ll <- function(param) {
+  media <- param[1]  # param es el vector de parámetros
+  desvi <- param[2] 
+  sum(dnorm(x=y, mean=media, sd=desvi, log=TRUE))
+}
+```
+
+Ahora vamos a estimar los parametros con el paquete **maxLik**.
+
+```{r}
+library(maxLik)
+
+A <- matrix(c(1, 0,
+              0, 1), byrow=TRUE, ncol=2)
+B <- c(0, 0)
+
+m <- maxLik(ll, start=c(media=163, desvi=3.4),
+            constraints=list(ineqA=A, ineqB=B))
+summary(m)
+```
+
+
+
+
+
 ## EJERCICIOS {-}
 
 1) Al inicio del Capítulo \@ref(central) se presentó la base de datos sobre medidas del cuerpo, consulte la explicación sobre la base de datos y responda lo siguiente.

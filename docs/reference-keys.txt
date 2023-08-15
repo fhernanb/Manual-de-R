@@ -138,6 +138,7 @@ método-de-máxima-verosimilitud-para-estimar-parámetros
 score-e-información-de-fisher
 score-e-información-de-fisher-en-el-caso-univariado.
 método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión
+paquete-maxlik
 select_dist
 función-fitdists
 qué-tipo-de-preguntas-se-podrían-responder-luego
@@ -179,7 +180,6 @@ normalmulti
 función-de-densidad
 simulando-de-una-normal-multivariada
 calculando-probabilidades
-calculando-cuantiles
 distancia-de-mahalanobis
 ellipse-o-contornos-de-confianza
 estimando-los-parámetros-boldsymbolmu-y-boldsymbolsigma

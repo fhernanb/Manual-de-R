@@ -15,7 +15,8 @@ description: "Manual de R para los estudiantes de la Escuela de Estadística de 
 
 ```{r echo=FALSE, message=FALSE}
 # lista de paquetes necesarios para compilar el libro
-list.of.packages <- c("ggplot2", "readxl", "corrplot")
+list.of.packages <- c("ggplot2", "readxl", "corrplot",
+                      "maxLik")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) 
   install.packages(new.packages,
@@ -31,6 +32,7 @@ knitr::write_bib(c(.packages(),
                    "usefultools",
                    "stests",
                    "mvtnorm",
+                   "maxLik",
                    "MASS"), "packages.bib")
 ```
 
