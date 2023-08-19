@@ -99,8 +99,7 @@ En la Figura \@ref(fig:loglik1) se presenta la curva solicitada.
 ```{r loglik1, fig.align='center', fig.cap='Función de log-verosimilitud para el ejemplo sobre binomial.', fig.asp=0.9, fig.width=5, echo=TRUE}
 curve(ll, lwd=4, col='dodgerblue3',
       xlab='Probabilidad de éxito (p)', las=1,
-      ylab=expression(paste("Probabilidad de éxito (p=", theta, ")"))
-      )
+      ylab="Loglik(p)")
 grid()
 ```
 
@@ -432,7 +431,7 @@ ll <- function(param) {
 
 Ahora vamos a estimar los parametros con el paquete **maxLik**.
 
-```{r}
+```{r message=FALSE}
 library(maxLik)
 
 A <- matrix(c(1, 0,

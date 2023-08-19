@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2023-08-14" />
+<meta name="date" content="2023-08-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -720,9 +720,8 @@ Necesitamos que la función <code>ll</code> esté vectorizada para poder dibujar
 <p>En la Figura <a href="loglik.html#fig:loglik1">16.2</a> se presenta la curva solicitada.</p>
 <div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="loglik.html#cb495-1" tabindex="-1"></a><span class="fu">curve</span>(ll, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&#39;dodgerblue3&#39;</span>,</span>
 <span id="cb495-2"><a href="loglik.html#cb495-2" tabindex="-1"></a>      <span class="at">xlab=</span><span class="st">&#39;Probabilidad de éxito (p)&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb495-3"><a href="loglik.html#cb495-3" tabindex="-1"></a>      <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;Probabilidad de éxito (p=&quot;</span>, theta, <span class="st">&quot;)&quot;</span>))</span>
-<span id="cb495-4"><a href="loglik.html#cb495-4" tabindex="-1"></a>      )</span>
-<span id="cb495-5"><a href="loglik.html#cb495-5" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
+<span id="cb495-3"><a href="loglik.html#cb495-3" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">&quot;Loglik(p)&quot;</span>)</span>
+<span id="cb495-4"><a href="loglik.html#cb495-4" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:loglik1"></span>
 <img src="Manual_de_R_files/figure-html/loglik1-1.png" alt="Función de log-verosimilitud para el ejemplo sobre binomial." width="480" />
 <p class="caption">
@@ -1047,21 +1046,15 @@ Cuando se usa <code>optim</code> es necesario decirle que inicie la búsqueda de
 <span id="cb529-4"><a href="loglik.html#cb529-4" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
 <span id="cb529-5"><a href="loglik.html#cb529-5" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora vamos a estimar los parametros con el paquete <strong>maxLik</strong>.</p>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="loglik.html#cb530-1" tabindex="-1"></a><span class="fu">library</span>(maxLik)</span></code></pre></div>
-<pre><code>## Loading required package: miscTools</code></pre>
-<pre><code>## 
-## Please cite the &#39;maxLik&#39; package as:
-## Henningsen, Arne and Toomet, Ott (2011). maxLik: A package for maximum likelihood estimation in R. Computational Statistics 26(3), 443-458. DOI 10.1007/s00180-010-0217-1.
-## 
-## If you have questions, suggestions, or comments regarding the &#39;maxLik&#39; package, please use a forum or &#39;tracker&#39; at maxLik&#39;s R-Forge site:
-## https://r-forge.r-project.org/projects/maxlik/</code></pre>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="loglik.html#cb533-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>,</span>
-<span id="cb533-2"><a href="loglik.html#cb533-2" tabindex="-1"></a>              <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">byrow=</span><span class="cn">TRUE</span>, <span class="at">ncol=</span><span class="dv">2</span>)</span>
-<span id="cb533-3"><a href="loglik.html#cb533-3" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb533-4"><a href="loglik.html#cb533-4" tabindex="-1"></a></span>
-<span id="cb533-5"><a href="loglik.html#cb533-5" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">maxLik</span>(ll, <span class="at">start=</span><span class="fu">c</span>(<span class="at">media=</span><span class="dv">163</span>, <span class="at">desvi=</span><span class="fl">3.4</span>),</span>
-<span id="cb533-6"><a href="loglik.html#cb533-6" tabindex="-1"></a>            <span class="at">constraints=</span><span class="fu">list</span>(<span class="at">ineqA=</span>A, <span class="at">ineqB=</span>B))</span>
-<span id="cb533-7"><a href="loglik.html#cb533-7" tabindex="-1"></a><span class="fu">summary</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="loglik.html#cb530-1" tabindex="-1"></a><span class="fu">library</span>(maxLik)</span>
+<span id="cb530-2"><a href="loglik.html#cb530-2" tabindex="-1"></a></span>
+<span id="cb530-3"><a href="loglik.html#cb530-3" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>,</span>
+<span id="cb530-4"><a href="loglik.html#cb530-4" tabindex="-1"></a>              <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">byrow=</span><span class="cn">TRUE</span>, <span class="at">ncol=</span><span class="dv">2</span>)</span>
+<span id="cb530-5"><a href="loglik.html#cb530-5" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb530-6"><a href="loglik.html#cb530-6" tabindex="-1"></a></span>
+<span id="cb530-7"><a href="loglik.html#cb530-7" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">maxLik</span>(ll, <span class="at">start=</span><span class="fu">c</span>(<span class="at">media=</span><span class="dv">163</span>, <span class="at">desvi=</span><span class="fl">3.4</span>),</span>
+<span id="cb530-8"><a href="loglik.html#cb530-8" tabindex="-1"></a>            <span class="at">constraints=</span><span class="fu">list</span>(<span class="at">ineqA=</span>A, <span class="at">ineqB=</span>B))</span>
+<span id="cb530-9"><a href="loglik.html#cb530-9" tabindex="-1"></a><span class="fu">summary</span>(m)</span></code></pre></div>
 <pre><code>## --------------------------------------------
 ## Maximum Likelihood estimation
 ## Nelder-Mead maximization, 65 iterations
