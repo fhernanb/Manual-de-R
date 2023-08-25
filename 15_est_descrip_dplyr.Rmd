@@ -98,7 +98,9 @@ mean(dt$weight, na.rm=TRUE)
 
 Vamos ahora a averiguar características de resumen para el peso de los bebés.
 
-![](pesando_bebe.jpg){width=60%}
+<p align="center">
+  <img src="images/pesando_bebe.jpg" width="300">
+</p>
 
 ¿Cual es el peso promedio de los bebés?
 
