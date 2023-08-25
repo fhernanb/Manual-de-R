@@ -31,7 +31,7 @@ Del resultado anterior vemos que existe una correlación de `r cor(x=datos$mt2, 
 
 A continuación el código para generar la Figura \@ref(fig:disp).
 
-```{r disp, fig.cap='Diagrama de dispersión para precio versus área de los apartamentos usados.', fig.asp=0.6, fig.width =10}
+```{r disp, fig.cap='Diagrama de dispersión para precio versus área de los apartamentos usados.', fig.asp=0.6, fig.width=10}
 with(datos, plot(x=mt2, y=precio, pch=20, col='blue',
                  xlab='Área del apartamento', las=1,
                  ylab='Precio del apartamento (millones COP)'))
