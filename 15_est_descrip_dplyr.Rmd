@@ -6,7 +6,7 @@ En este capítulo se mostrará como usar el paquete dplyr de R para hacer un an�
   <img src="images/babies.png" width="300">
 </p>
 
-Las variables de la base de datos que vamos a utilizar en el ejemplo se muestran a continuación.
+Las variables de la base de datos que vamos a utilizar en el ejemplo de este capítulo se muestran a continuación.
 
 - bwt: Peso del bebé al nacer, redondeado a la **onza** más cercana.
 - gestación: Duración del embarazo en **días**, calculado a partir del primer día del último período menstrual normal.

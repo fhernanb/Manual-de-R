@@ -2,10 +2,10 @@
 
 En este capítulo se mostrarán las funciones de R para distribuciones discretas.
 
-## Funciones disponibles para distribuciones discretas \index{distribucionecs discretas}
+## Funciones disponibles para distribuciones discretas
 Para cada distribución discreta se tienen 4 funciones, a continuación el listado de funciones y su utilidad.
 
-```{r, eval=F}
+```{r, eval=FALSE}
 dxxx(x, ...)  # Función de masa de probabilidad, f(x)
 pxxx(q, ...)  # Función de distribución acumulada hasta q, F(x)
 qxxx(p, ...)  # Cuantil para el cual P(X <= q) = p
@@ -14,7 +14,7 @@ rxxx(n, ...)  # Generador de números aleatorios.
 
 En el lugar de las letras `xxx` se de debe colocar el nombre de la distribución en R, a continuación el listado de nombres disponibles para las 6 distribuciones discretas básicas.
 
-```{r, eval=F}
+```{r, eval=FALSE}
 binom     # Binomial
 geo       # Geométrica
 nbinom    # Binomial negativa
