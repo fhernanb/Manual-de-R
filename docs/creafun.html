@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2023-09-12" />
+<meta name="date" content="2023-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,13 +53,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -127,28 +120,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -682,37 +653,41 @@ div.csl-indent {
 <li>Salidas: son los resultados de la función. Toda función debe tener al menos un resultado. Si una función entrega varios tipos de objetos se acostumbra a organizarlos en una lista que puede manejar los diferentes tipos de objetos.</li>
 </ul>
 <p>A continuación se muestra la estructura general de una función en R.</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="creafun.html#cb266-1" tabindex="-1"></a>nombre_de_funcion <span class="ot">&lt;-</span> <span class="cf">function</span>(par1, par2, ...) {</span>
-<span id="cb266-2"><a href="creafun.html#cb266-2" tabindex="-1"></a>  cuerpo</span>
-<span id="cb266-3"><a href="creafun.html#cb266-3" tabindex="-1"></a>  cuerpo</span>
-<span id="cb266-4"><a href="creafun.html#cb266-4" tabindex="-1"></a>  cuerpo</span>
-<span id="cb266-5"><a href="creafun.html#cb266-5" tabindex="-1"></a>  cuerpo</span>
-<span id="cb266-6"><a href="creafun.html#cb266-6" tabindex="-1"></a>  <span class="fu">return</span>(resultado)</span>
-<span id="cb266-7"><a href="creafun.html#cb266-7" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="creafun.html#cb1-1" tabindex="-1"></a>nombre_de_funcion <span class="ot">&lt;-</span> <span class="cf">function</span>(par1, par2, ...) {</span>
+<span id="cb1-2"><a href="creafun.html#cb1-2" tabindex="-1"></a>  cuerpo</span>
+<span id="cb1-3"><a href="creafun.html#cb1-3" tabindex="-1"></a>  cuerpo</span>
+<span id="cb1-4"><a href="creafun.html#cb1-4" tabindex="-1"></a>  cuerpo</span>
+<span id="cb1-5"><a href="creafun.html#cb1-5" tabindex="-1"></a>  cuerpo</span>
+<span id="cb1-6"><a href="creafun.html#cb1-6" tabindex="-1"></a>  <span class="fu">return</span>(resultado)</span>
+<span id="cb1-7"><a href="creafun.html#cb1-7" tabindex="-1"></a>}</span></code></pre></div>
+
+<div class="rmdtip">
+Se recomienda siempre que la última línea de la función tenga la instrucción <code>return()</code> para que quede en evidencia el resultado que la función retorna.
+</div>
 <p>A continuación se mostrarán varios ejemplos <font color="Fuchsia">sencillos</font> para que el lector aprenda a construir funciones en R.</p>
 <div id="ejemplo-20" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="creafun.html#ejemplo-20" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Construir una función que reciba dos números y que entregue la suma de estos números.</p>
 <p><strong>Solución</strong></p>
 <p>Lo primero es elegir un nombre apropiado para la función, aquí se usó el nombre <code>suma</code> porque así se tiene una idea clara de lo que hace la función. La función suma recibe dos parámetros, <code>x</code> representa el primer valor ingresado mientras que <code>y</code> representa el segundo. El cuerpo de la función está formado por dos líneas, en la primera se crea el objeto <code>resultado</code> en el cual se almanacena el valor de la suma, en la segunda línea se le indica a R que queremos que retorne el valor de la suma almacenada en el objeto <code>resultado</code>. A continuación se muestra el código para crear la función solicitada.</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="creafun.html#cb267-1" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb267-2"><a href="creafun.html#cb267-2" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
-<span id="cb267-3"><a href="creafun.html#cb267-3" tabindex="-1"></a>  <span class="fu">return</span>(resultado)</span>
-<span id="cb267-4"><a href="creafun.html#cb267-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="creafun.html#cb2-1" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb2-2"><a href="creafun.html#cb2-2" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb2-3"><a href="creafun.html#cb2-3" tabindex="-1"></a>  <span class="fu">return</span>(resultado)</span>
+<span id="cb2-4"><a href="creafun.html#cb2-4" tabindex="-1"></a>}</span></code></pre></div>
 <p>Para usar la función creada sólo se debe ejecutar, vamos a obtener la suma de los valores 4 y 6 usando la función <code>suma</code>, a continuación el código necesario.</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="creafun.html#cb268-1" tabindex="-1"></a><span class="fu">suma</span>(<span class="at">x=</span><span class="dv">4</span>, <span class="at">y=</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="creafun.html#cb3-1" tabindex="-1"></a><span class="fu">suma</span>(<span class="at">x=</span><span class="dv">4</span>, <span class="at">y=</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>Para funciones simples como la anterior es posible escribirlas en forma más compacta. Es posible reducir el cuerpo de la función de 2 líneas a sólo una línea solicitándole a R que retorne directamente la suma sin almacenarla en ningún objeto. A continuación la función <code>suma</code> modificada.</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="creafun.html#cb270-1" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb270-2"><a href="creafun.html#cb270-2" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y)</span>
-<span id="cb270-3"><a href="creafun.html#cb270-3" tabindex="-1"></a>}</span>
-<span id="cb270-4"><a href="creafun.html#cb270-4" tabindex="-1"></a></span>
-<span id="cb270-5"><a href="creafun.html#cb270-5" tabindex="-1"></a><span class="fu">suma</span>(<span class="at">x=</span><span class="dv">4</span>, <span class="at">y=</span><span class="dv">6</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="creafun.html#cb5-1" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb5-2"><a href="creafun.html#cb5-2" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y)</span>
+<span id="cb5-3"><a href="creafun.html#cb5-3" tabindex="-1"></a>}</span>
+<span id="cb5-4"><a href="creafun.html#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="creafun.html#cb5-5" tabindex="-1"></a><span class="fu">suma</span>(<span class="at">x=</span><span class="dv">4</span>, <span class="at">y=</span><span class="dv">6</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>Debido a que la función <code>suma</code> tiene un cuerpo muy reducido es posible escribirla en forma más compacta, en una sola línea. A continuación se muestra el código para reescribir la función.</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="creafun.html#cb272-1" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) x <span class="sc">+</span> y</span>
-<span id="cb272-2"><a href="creafun.html#cb272-2" tabindex="-1"></a></span>
-<span id="cb272-3"><a href="creafun.html#cb272-3" tabindex="-1"></a><span class="fu">suma</span>(<span class="at">x=</span><span class="dv">4</span>, <span class="at">y=</span><span class="dv">6</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="creafun.html#cb7-1" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) x <span class="sc">+</span> y</span>
+<span id="cb7-2"><a href="creafun.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="creafun.html#cb7-3" tabindex="-1"></a><span class="fu">suma</span>(<span class="at">x=</span><span class="dv">4</span>, <span class="at">y=</span><span class="dv">6</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 </div>
 <div id="ejemplo-21" class="section level3 unnumbered hasAnchor">
@@ -720,67 +695,67 @@ div.csl-indent {
 <p>Construir una función que genere números aleatorios entre cero y uno hasta que la suma de éstos números supere por primera vez el valor de 3. La función debe entregar la cantidad de números aleatorios generados para que se cumpla la condición.</p>
 <p><strong>Solución</strong></p>
 <p>Vamos a llamar la función solicitada con el nombre <code>fun1</code>, esta función <strong>NO</strong> necesita ningún parámetro de entrada. El valor de 3 que está en la condición puede ir dentro del cuerpo y por eso no se necesitan parámetros para esta función. En el cuerpo de la función se genera un vector con un número aleatorio y luego se chequea si la suma de sus elementos es menor de 3, si se cumple que la suma es menor que 3 se siguen generando números que se almacenan en el vector <code>num</code>. Una vez que la suma exceda el valor de 3 NO se ingresa al <code>while</code> y se pide la longitud del vector o el valor de <code>veces</code> solicitado. A continuación el código de la función.</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="creafun.html#cb274-1" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb274-2"><a href="creafun.html#cb274-2" tabindex="-1"></a>  num <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
-<span id="cb274-3"><a href="creafun.html#cb274-3" tabindex="-1"></a>  veces <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb274-4"><a href="creafun.html#cb274-4" tabindex="-1"></a>  <span class="cf">while</span> (<span class="fu">sum</span>(num) <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
-<span id="cb274-5"><a href="creafun.html#cb274-5" tabindex="-1"></a>    veces <span class="ot">&lt;-</span> veces <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb274-6"><a href="creafun.html#cb274-6" tabindex="-1"></a>    num[veces] <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
-<span id="cb274-7"><a href="creafun.html#cb274-7" tabindex="-1"></a>  }</span>
-<span id="cb274-8"><a href="creafun.html#cb274-8" tabindex="-1"></a>  <span class="fu">return</span>(veces)</span>
-<span id="cb274-9"><a href="creafun.html#cb274-9" tabindex="-1"></a>}</span>
-<span id="cb274-10"><a href="creafun.html#cb274-10" tabindex="-1"></a></span>
-<span id="cb274-11"><a href="creafun.html#cb274-11" tabindex="-1"></a><span class="fu">fun1</span>()  <span class="co"># primera prueba</span></span></code></pre></div>
-<pre><code>## [1] 8</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="creafun.html#cb9-1" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb9-2"><a href="creafun.html#cb9-2" tabindex="-1"></a>  num <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
+<span id="cb9-3"><a href="creafun.html#cb9-3" tabindex="-1"></a>  veces <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb9-4"><a href="creafun.html#cb9-4" tabindex="-1"></a>  <span class="cf">while</span> (<span class="fu">sum</span>(num) <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
+<span id="cb9-5"><a href="creafun.html#cb9-5" tabindex="-1"></a>    veces <span class="ot">&lt;-</span> veces <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb9-6"><a href="creafun.html#cb9-6" tabindex="-1"></a>    num[veces] <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
+<span id="cb9-7"><a href="creafun.html#cb9-7" tabindex="-1"></a>  }</span>
+<span id="cb9-8"><a href="creafun.html#cb9-8" tabindex="-1"></a>  <span class="fu">return</span>(veces)</span>
+<span id="cb9-9"><a href="creafun.html#cb9-9" tabindex="-1"></a>}</span>
+<span id="cb9-10"><a href="creafun.html#cb9-10" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="creafun.html#cb9-11" tabindex="-1"></a><span class="fu">fun1</span>()  <span class="co"># primera prueba</span></span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
 </div>
 <div id="ejemplo-22" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="creafun.html#ejemplo-22" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Construir una función que, dado un número entero positivo (cota) ingresado por el usuario, genere números aleatorios entre cero y uno hasta que la suma de los números generados exceda por primera vez la cota. La función debe entregar un vector con los números aleatorios, la suma y la cantidad de números aleatorios. Si el usuario no ingresa el valor de la cota, se debe asumir igual a 1.</p>
 <p><strong>Solución</strong></p>
 <p>La función aquí solicitada es similar a la construída en el ejemplo anterior. La función <code>fun2</code> tiene un sólo parámetro con el valor por defecto, si el usuario no ingresa valor a este parámetro, se asumirá el valor de uno. El cuerpo de la función es similar al anterior. Como la función debe entregar un vector y dos números, se construye la lista <code>resultado</code> que almacena los tres objetos solicitados. A continuación el código para función solicitada.</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="creafun.html#cb276-1" tabindex="-1"></a>fun2 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">cota=</span><span class="dv">1</span>) {</span>
-<span id="cb276-2"><a href="creafun.html#cb276-2" tabindex="-1"></a>  num <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
-<span id="cb276-3"><a href="creafun.html#cb276-3" tabindex="-1"></a>  <span class="cf">while</span> (<span class="fu">sum</span>(num) <span class="sc">&lt;</span> cota) {</span>
-<span id="cb276-4"><a href="creafun.html#cb276-4" tabindex="-1"></a>    num <span class="ot">&lt;-</span> <span class="fu">c</span>(num, <span class="fu">runif</span>(<span class="dv">1</span>))</span>
-<span id="cb276-5"><a href="creafun.html#cb276-5" tabindex="-1"></a>  }</span>
-<span id="cb276-6"><a href="creafun.html#cb276-6" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">vector=</span>num,</span>
-<span id="cb276-7"><a href="creafun.html#cb276-7" tabindex="-1"></a>                    <span class="at">suma=</span><span class="fu">sum</span>(num),</span>
-<span id="cb276-8"><a href="creafun.html#cb276-8" tabindex="-1"></a>                    <span class="at">cantidad=</span><span class="fu">length</span>(num))</span>
-<span id="cb276-9"><a href="creafun.html#cb276-9" tabindex="-1"></a>  <span class="fu">return</span>(resultado)</span>
-<span id="cb276-10"><a href="creafun.html#cb276-10" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="creafun.html#cb11-1" tabindex="-1"></a>fun2 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">cota=</span><span class="dv">1</span>) {</span>
+<span id="cb11-2"><a href="creafun.html#cb11-2" tabindex="-1"></a>  num <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
+<span id="cb11-3"><a href="creafun.html#cb11-3" tabindex="-1"></a>  <span class="cf">while</span> (<span class="fu">sum</span>(num) <span class="sc">&lt;</span> cota) {</span>
+<span id="cb11-4"><a href="creafun.html#cb11-4" tabindex="-1"></a>    num <span class="ot">&lt;-</span> <span class="fu">c</span>(num, <span class="fu">runif</span>(<span class="dv">1</span>))</span>
+<span id="cb11-5"><a href="creafun.html#cb11-5" tabindex="-1"></a>  }</span>
+<span id="cb11-6"><a href="creafun.html#cb11-6" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">vector=</span>num,</span>
+<span id="cb11-7"><a href="creafun.html#cb11-7" tabindex="-1"></a>                    <span class="at">suma=</span><span class="fu">sum</span>(num),</span>
+<span id="cb11-8"><a href="creafun.html#cb11-8" tabindex="-1"></a>                    <span class="at">cantidad=</span><span class="fu">length</span>(num))</span>
+<span id="cb11-9"><a href="creafun.html#cb11-9" tabindex="-1"></a>  <span class="fu">return</span>(resultado)</span>
+<span id="cb11-10"><a href="creafun.html#cb11-10" tabindex="-1"></a>}</span></code></pre></div>
 <p>Probando la función con cota de uno.</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="creafun.html#cb277-1" tabindex="-1"></a><span class="fu">fun2</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="creafun.html#cb12-1" tabindex="-1"></a><span class="fu">fun2</span>()</span></code></pre></div>
 <pre><code>## $vector
-## [1] 0.8523376 0.4814579
+## [1] 0.2022929 0.3493071 0.9203002
 ## 
 ## $suma
-## [1] 1.333796
+## [1] 1.4719
 ## 
 ## $cantidad
-## [1] 2</code></pre>
+## [1] 3</code></pre>
 <p>Probando la función con cota de tres.</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="creafun.html#cb279-1" tabindex="-1"></a><span class="fu">fun2</span>(<span class="at">cota=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="creafun.html#cb14-1" tabindex="-1"></a><span class="fu">fun2</span>(<span class="at">cota=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## $vector
-## [1] 0.7703864 0.6567623 0.5173527 0.7785944 0.6926085
+## [1] 0.2507899 0.8078523 0.5630181 0.5926817 0.7039929 0.2607481
 ## 
 ## $suma
-## [1] 3.415704
+## [1] 3.179083
 ## 
 ## $cantidad
-## [1] 5</code></pre>
+## [1] 6</code></pre>
 </div>
 <div id="ejemplo-23" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="creafun.html#ejemplo-23" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Construya una función que reciba dos números de la recta real y que entregue el punto médio de estos números. El resultado debe ser un mensaje por pantalla.</p>
 <p><strong>Solución</strong></p>
 <p>El punto médio entre dos valores es la suma de los números divido entre dos. La función <code>cat</code> sirve para concatenar objetos y presentarlos por pantalla. A continuación el código para la función requerida.</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="creafun.html#cb281-1" tabindex="-1"></a>medio <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb281-2"><a href="creafun.html#cb281-2" tabindex="-1"></a>  medio <span class="ot">&lt;-</span> (a <span class="sc">+</span> b) <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb281-3"><a href="creafun.html#cb281-3" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;El punto medio de los valores&quot;</span>, a, <span class="st">&quot;y&quot;</span>, b,</span>
-<span id="cb281-4"><a href="creafun.html#cb281-4" tabindex="-1"></a>      <span class="st">&quot;ingresados es&quot;</span>, medio)</span>
-<span id="cb281-5"><a href="creafun.html#cb281-5" tabindex="-1"></a>}</span>
-<span id="cb281-6"><a href="creafun.html#cb281-6" tabindex="-1"></a></span>
-<span id="cb281-7"><a href="creafun.html#cb281-7" tabindex="-1"></a><span class="fu">medio</span>(<span class="at">a=</span><span class="sc">-</span><span class="dv">3</span>, <span class="at">b=</span><span class="sc">-</span><span class="dv">1</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="creafun.html#cb16-1" tabindex="-1"></a>medio <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb16-2"><a href="creafun.html#cb16-2" tabindex="-1"></a>  medio <span class="ot">&lt;-</span> (a <span class="sc">+</span> b) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb16-3"><a href="creafun.html#cb16-3" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;El punto medio de los valores&quot;</span>, a, <span class="st">&quot;y&quot;</span>, b,</span>
+<span id="cb16-4"><a href="creafun.html#cb16-4" tabindex="-1"></a>      <span class="st">&quot;ingresados es&quot;</span>, medio)</span>
+<span id="cb16-5"><a href="creafun.html#cb16-5" tabindex="-1"></a>}</span>
+<span id="cb16-6"><a href="creafun.html#cb16-6" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="creafun.html#cb16-7" tabindex="-1"></a><span class="fu">medio</span>(<span class="at">a=</span><span class="sc">-</span><span class="dv">3</span>, <span class="at">b=</span><span class="sc">-</span><span class="dv">1</span>)  <span class="co"># Probando la función</span></span></code></pre></div>
 <pre><code>## El punto medio de los valores -3 y -1 ingresados es -2</code></pre>
 
 <div class="rmdnote">
@@ -807,42 +782,42 @@ La función <code>cat</code> es muy útil para presentar resultados por pantalla
 <li><p>Construya una función a la cual le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto.</p></li>
 <li><p>Construya una función llamada <code>precio</code> que calcule el precio total de sacar A fotocopias y B impresiones, sabiendo que los precios son 50 y 100 pesos para A y B respectivamente si el cliente es un estudiante, y de 75 y 150 para A y B si el cliente es un profesor. La función debe tener dos argumentos cuantitativos (<code>A</code> y <code>B</code>) y el argumento lógico <code>estudiante</code> que por defecto tenga el valor de <code>TRUE</code>. Use la estructura mostrada abajo.</p></li>
 </ol>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="creafun.html#cb283-1" tabindex="-1"></a>precio <span class="ot">&lt;-</span> <span class="cf">function</span>(A, B, <span class="at">estudiante=</span><span class="cn">TRUE</span>) {</span>
-<span id="cb283-2"><a href="creafun.html#cb283-2" tabindex="-1"></a>  ...</span>
-<span id="cb283-3"><a href="creafun.html#cb283-3" tabindex="-1"></a>  ...</span>
-<span id="cb283-4"><a href="creafun.html#cb283-4" tabindex="-1"></a>  ...</span>
-<span id="cb283-5"><a href="creafun.html#cb283-5" tabindex="-1"></a>  <span class="fu">return</span>(precio.total)</span>
-<span id="cb283-6"><a href="creafun.html#cb283-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="creafun.html#cb18-1" tabindex="-1"></a>precio <span class="ot">&lt;-</span> <span class="cf">function</span>(A, B, <span class="at">estudiante=</span><span class="cn">TRUE</span>) {</span>
+<span id="cb18-2"><a href="creafun.html#cb18-2" tabindex="-1"></a>  ...</span>
+<span id="cb18-3"><a href="creafun.html#cb18-3" tabindex="-1"></a>  ...</span>
+<span id="cb18-4"><a href="creafun.html#cb18-4" tabindex="-1"></a>  ...</span>
+<span id="cb18-5"><a href="creafun.html#cb18-5" tabindex="-1"></a>  <span class="fu">return</span>(precio_total)</span>
+<span id="cb18-6"><a href="creafun.html#cb18-6" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="8" style="list-style-type: decimal">
 <li>Construya una función llamada <code>salario</code> que le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto semanal, teniendo en cuenta que si el número de horas trabajadas durante la semana es mayor de 48, esas horas de demás se consideran horas extras y tienen un 35% de recargo. Imprima el salario neto. Use la estructura mostrada abajo.</li>
 </ol>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="creafun.html#cb284-1" tabindex="-1"></a>salario <span class="ot">&lt;-</span> <span class="cf">function</span>(num.horas, valor.hora) {</span>
-<span id="cb284-2"><a href="creafun.html#cb284-2" tabindex="-1"></a>  ...</span>
-<span id="cb284-3"><a href="creafun.html#cb284-3" tabindex="-1"></a>  ...</span>
-<span id="cb284-4"><a href="creafun.html#cb284-4" tabindex="-1"></a>  ...</span>
-<span id="cb284-5"><a href="creafun.html#cb284-5" tabindex="-1"></a>  <span class="fu">return</span>(salario.neto)</span>
-<span id="cb284-6"><a href="creafun.html#cb284-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="creafun.html#cb19-1" tabindex="-1"></a>salario <span class="ot">&lt;-</span> <span class="cf">function</span>(num.horas, valor_hora) {</span>
+<span id="cb19-2"><a href="creafun.html#cb19-2" tabindex="-1"></a>  ...</span>
+<span id="cb19-3"><a href="creafun.html#cb19-3" tabindex="-1"></a>  ...</span>
+<span id="cb19-4"><a href="creafun.html#cb19-4" tabindex="-1"></a>  ...</span>
+<span id="cb19-5"><a href="creafun.html#cb19-5" tabindex="-1"></a>  <span class="fu">return</span>(salario_neto)</span>
+<span id="cb19-6"><a href="creafun.html#cb19-6" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="9" style="list-style-type: decimal">
 <li>Construya una función llamada <code>nota</code> que calcule la nota obtenida por un alumno en una evaluación de tres puntos cuya ponderación o importancia son 20%, 30% y 50% para los puntos I, II y III respectivamente. Adicionalmente la función debe generar un mensaje sobre si el estudiante aprobó la evaluación o no. El usuario debe ingresar las notas individuales de los tres puntos y la función debe entregar la nota final de la evaluación. Use la estructura mostrada abajo.</li>
 </ol>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="creafun.html#cb285-1" tabindex="-1"></a>nota <span class="ot">&lt;-</span> <span class="cf">function</span>(p1, p2, p3) {</span>
-<span id="cb285-2"><a href="creafun.html#cb285-2" tabindex="-1"></a>  ...</span>
-<span id="cb285-3"><a href="creafun.html#cb285-3" tabindex="-1"></a>  ...</span>
-<span id="cb285-4"><a href="creafun.html#cb285-4" tabindex="-1"></a>  ...</span>
-<span id="cb285-5"><a href="creafun.html#cb285-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="creafun.html#cb20-1" tabindex="-1"></a>nota <span class="ot">&lt;-</span> <span class="cf">function</span>(p1, p2, p3) {</span>
+<span id="cb20-2"><a href="creafun.html#cb20-2" tabindex="-1"></a>  ...</span>
+<span id="cb20-3"><a href="creafun.html#cb20-3" tabindex="-1"></a>  ...</span>
+<span id="cb20-4"><a href="creafun.html#cb20-4" tabindex="-1"></a>  ...</span>
+<span id="cb20-5"><a href="creafun.html#cb20-5" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="10" style="list-style-type: decimal">
 <li>Escriba una función llamada <code>minimo</code> que permita obtener el valor mínimo de un vector numérico. No puede usar ninguna de las funciones básicas de R como <code>which.min()</code>, <code>which.max()</code>, <code>order()</code>, <code>min( )</code>, <code>max( )</code>, <code>sort( )</code> u <code>order( )</code>. Use la estructura mostrada abajo.</li>
 </ol>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="creafun.html#cb286-1" tabindex="-1"></a>minimo <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb286-2"><a href="creafun.html#cb286-2" tabindex="-1"></a>  ...</span>
-<span id="cb286-3"><a href="creafun.html#cb286-3" tabindex="-1"></a>  ...</span>
-<span id="cb286-4"><a href="creafun.html#cb286-4" tabindex="-1"></a>  <span class="fu">return</span>(minimo)</span>
-<span id="cb286-5"><a href="creafun.html#cb286-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="creafun.html#cb21-1" tabindex="-1"></a>minimo <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb21-2"><a href="creafun.html#cb21-2" tabindex="-1"></a>  ...</span>
+<span id="cb21-3"><a href="creafun.html#cb21-3" tabindex="-1"></a>  ...</span>
+<span id="cb21-4"><a href="creafun.html#cb21-4" tabindex="-1"></a>  <span class="fu">return</span>(minimo)</span>
+<span id="cb21-5"><a href="creafun.html#cb21-5" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="11" style="list-style-type: decimal">
 <li>Construya una función que calcule las coordenadas del punto medio <span class="math inline">\(M\)</span> entre dos puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>. Vea la siguiente figura para una ilustración. ¿Cuáles cree usted que deben ser los parámetros de entrada de la función?</li>
 </ol>
 <p align="center">
-<img src="images/midpoint.png" width="300">
+<img src="images/midpoint.png" width="500">
 </p>
 
 </div>

@@ -20,14 +20,14 @@ nombre_de_funcion(parametro1, parametro2, ...) {
 }
 ```
 
-Cuando usamos una función sólo debemos escribir bien el nombre e ingresar correctamente los parámetros de la función, el cuerpo de la función ni lo vemos ni lo debemos modificar. A continuación se presenta un ejemplo de cómo usar la función `mean` para calcular un promedio.
+A continuación se presenta un ejemplo de cómo usar la función `mean` para calcular un promedio.
 
 ```{r}
 notas <- c(4.0, 1.3, 3.8, 2.0)  # Notas de un estudiante
 mean(notas)
 ```
 
-## Operadores de asignación
+## Asignación en R
 En R se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.
 
 - `<-` este es el operador de asignación a izquierda, es el más usado y recomendado.
@@ -50,8 +50,8 @@ age = 25 # Not recomended
 Aunque una asignación se puede hacer de tres formas diferentes, se recomienda sólo usar el símbolo `<-`.
 ```
 
-## Operaciones básicas
-En R se pueden hacer diversas operaciones usando operadores binarios. Este tipo de operadores se denomina binarios porque actuan entre dos objetos, a continuación el listado.
+## Operadores
+En R se pueden hacer diversas operaciones usando operadores binarios. Este tipo de operadores se denomina binarios porque actuan entre dos objetos, a continuación el listado. Los operadores binarios son también funciones.
 
 - `+` operador binario para sumar.
 - `-` operador binario para restar.
@@ -140,9 +140,9 @@ Note que la condición `mimarco$edad >= 15` se debe ubicar __antes__ de la coma 
 En R están disponibles los operadores lógicos negación, conjunción y disyunción. A continuación el listado de los operadores entre los elementos `x` e `y`.
 
 ```{r, eval=F}
-!x  # Negación de x
-x & y  # Conjunción entre x e y
-x | y  # Disyunción entre x e y
+!x         # Negación de x
+x & y      # Conjunción entre x e y
+x | y      # Disyunción entre x e y
 xor(x, y)
 ```
 

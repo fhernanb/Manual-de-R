@@ -28,6 +28,10 @@ nombre_de_funcion <- function(par1, par2, ...) {
 }
 ```
 
+```{block2, type="rmdtip"}
+Se recomienda siempre que la última línea de la función tenga la instrucción `return()` para que quede en evidencia el resultado que la función retorna.
+```
+
 A continuación se mostrarán varios ejemplos <font color="Fuchsia">sencillos</font> para que el lector aprenda a construir funciones en R.
 
 ### Ejemplo {-}
@@ -169,18 +173,18 @@ precio <- function(A, B, estudiante=TRUE) {
   ...
   ...
   ...
-  return(precio.total)
+  return(precio_total)
 }
 ```
 
 8. Construya una función llamada `salario` que le ingrese el salario por hora y el número de horas trabajadas durante una semana por un trabajador. La función debe calcular el salario neto semanal, teniendo en cuenta que si el número de horas trabajadas durante la semana es mayor de 48, esas horas de demás se consideran horas extras y tienen un 35\% de recargo. Imprima el salario neto. Use la estructura mostrada abajo.
 
 ```{r, eval=FALSE}
-salario <- function(num.horas, valor.hora) {
+salario <- function(num.horas, valor_hora) {
   ...
   ...
   ...
-  return(salario.neto)
+  return(salario_neto)
 }
 ```
 
@@ -207,6 +211,6 @@ minimo <- function(x) {
 11. Construya una función que calcule las coordenadas del punto medio $M$ entre dos puntos $A$ y $B$. Vea la siguiente figura para una ilustración. ¿Cuáles cree usted que deben ser los parámetros de entrada de la función?
 
 <p align="center">
-  <img src="images/midpoint.png" width="300">
+  <img src="images/midpoint.png" width="500">
 </p>
 
