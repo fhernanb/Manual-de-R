@@ -29,6 +29,13 @@ fig:crabcont1
 fig:crabcont2
 fig:crabcont3
 fig:crabcont4
+fig:personasnormal
+fig:distnorm1
+fig:distnorm2
+fig:norm3
+fig:reglaEmpiricNormal
+fig:casesDistNormal
+fig:quantileProblem
 fig:fisher
 eq:lik
 eq:loglik
@@ -93,8 +100,8 @@ usando-ventana-emergente-con-svdialogs
 botones-para-responder
 funbas
 qué-es-una-función-de-r
-operadores-de-asignación
-operaciones-básicas
+asignación-en-r
+operadores
 pruebas-lógicas
 operadores-lógicos
 funciones-sobre-vectores
@@ -155,6 +162,14 @@ distribuciones-discretas-generales
 continuas
 funciones-disponibles-para-distribuciones-continuas
 distribuciones-continuas-generales
+normal
+función-de-densidad
+visualización-de-la-distribución
+características-de-la-distribución-normal
+funciones-útiles-asociadas-a-la-normal
+cálculo-de-probabilidades
+cálculo-de-cuantiles
+ejemplo-de-generación-de-datos
 loglik
 función-de-verosimilitud
 función-de-log-verosimilitud
@@ -201,7 +216,7 @@ aproximación-de-laplace-unidimensional
 empiricaldists
 una-variable
 normalmulti
-función-de-densidad
+función-de-densidad-1
 simulando-de-una-normal-multivariada
 calculando-probabilidades
 distancia-de-mahalanobis
@@ -211,5 +226,3 @@ distribución-wishart
 mezcla-de-dos-normales-multivariadas
 curio
 cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática
-asignación-en-r
-operadores

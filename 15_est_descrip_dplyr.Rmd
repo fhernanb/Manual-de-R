@@ -21,7 +21,7 @@ Las unidades de algunas de las variables están en sistema inglés, más adelant
 Para leer la base de datos usamos el siguiente código.
 
 ```{r}
-url <- 'https://tinyurl.com/ya9fvteb'
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/babies.txt'
 dt <- read.table(url, header=TRUE, sep='\t')
 ```
 

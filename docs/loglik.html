@@ -4,34 +4,34 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>18 Verosimilitud | Manual de R</title>
-  <meta name="description" content="18 Verosimilitud | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <title>19 Verosimilitud | Manual de R</title>
+  <meta name="description" content="19 Verosimilitud | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="18 Verosimilitud | Manual de R" />
+  <meta property="og:title" content="19 Verosimilitud | Manual de R" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/portada.png" />
-  <meta property="og:description" content="18 Verosimilitud | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta property="og:description" content="19 Verosimilitud | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="18 Verosimilitud | Manual de R" />
+  <meta name="twitter:title" content="19 Verosimilitud | Manual de R" />
   
-  <meta name="twitter:description" content="18 Verosimilitud | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="twitter:description" content="19 Verosimilitud | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="/images/portada.png" />
 
 <meta name="author" content="Freddy Hernández" />
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2023-09-17" />
+<meta name="date" content="2023-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="continuas.html"/>
+<link rel="prev" href="normal.html"/>
 <link rel="next" href="select_dist.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -231,11 +231,11 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
-<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#operadores-de-asignación"><i class="fa fa-check"></i><b>5.2</b> Operadores de asignación</a>
+<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#asignación-en-r"><i class="fa fa-check"></i><b>5.2</b> Asignación en R</a>
 <ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operaciones-básicas"><i class="fa fa-check"></i><b>5.3</b> Operaciones básicas</a></li>
+<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores"><i class="fa fa-check"></i><b>5.3</b> Operadores</a></li>
 <li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -453,193 +453,211 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-50"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="loglik.html"><a href="loglik.html"><i class="fa fa-check"></i><b>18</b> Verosimilitud</a>
+<li class="chapter" data-level="18" data-path="normal.html"><a href="normal.html"><i class="fa fa-check"></i><b>18</b> Distribución normal</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="loglik.html"><a href="loglik.html#función-de-verosimilitud"><i class="fa fa-check"></i><b>18.1</b> Función de verosimilitud</a></li>
-<li class="chapter" data-level="18.2" data-path="loglik.html"><a href="loglik.html#función-de-log-verosimilitud"><i class="fa fa-check"></i><b>18.2</b> Función de log-verosimilitud</a></li>
-<li class="chapter" data-level="18.3" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros"><i class="fa fa-check"></i><b>18.3</b> Método de máxima verosimilitud para estimar parámetros</a>
+<li class="chapter" data-level="18.1" data-path="normal.html"><a href="normal.html#función-de-densidad"><i class="fa fa-check"></i><b>18.1</b> Función de densidad</a></li>
+<li class="chapter" data-level="18.2" data-path="normal.html"><a href="normal.html#visualización-de-la-distribución"><i class="fa fa-check"></i><b>18.2</b> Visualización de la distribución</a></li>
+<li class="chapter" data-level="18.3" data-path="normal.html"><a href="normal.html#características-de-la-distribución-normal"><i class="fa fa-check"></i><b>18.3</b> Características de la Distribución Normal</a></li>
+<li class="chapter" data-level="18.4" data-path="normal.html"><a href="normal.html#funciones-útiles-asociadas-a-la-normal"><i class="fa fa-check"></i><b>18.4</b> Funciones útiles asociadas a la normal</a></li>
+<li class="chapter" data-level="18.5" data-path="normal.html"><a href="normal.html#cálculo-de-probabilidades"><i class="fa fa-check"></i><b>18.5</b> Cálculo de Probabilidades</a>
 <ul>
-<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-51"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-52"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-53"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normal.html"><a href="normal.html#ejemplo-51"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normal.html"><a href="normal.html#ejemplo-52"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normal.html"><a href="normal.html#ejemplo-53"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>18.4</b> Score e Información de Fisher</a>
+<li class="chapter" data-level="18.6" data-path="normal.html"><a href="normal.html#cálculo-de-cuantiles"><i class="fa fa-check"></i><b>18.6</b> Cálculo de cuantiles</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher-en-el-caso-univariado."><i class="fa fa-check"></i><b>18.4.1</b> Score e Información de Fisher en el caso univariado.</a></li>
-<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-54"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normal.html"><a href="normal.html#ejemplo-54"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="18.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>18.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a>
+<li class="chapter" data-level="18.7" data-path="normal.html"><a href="normal.html#ejemplo-de-generación-de-datos"><i class="fa fa-check"></i><b>18.7</b> Ejemplo de generación de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="loglik.html"><a href="loglik.html"><i class="fa fa-check"></i><b>19</b> Verosimilitud</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="loglik.html"><a href="loglik.html#función-de-verosimilitud"><i class="fa fa-check"></i><b>19.1</b> Función de verosimilitud</a></li>
+<li class="chapter" data-level="19.2" data-path="loglik.html"><a href="loglik.html#función-de-log-verosimilitud"><i class="fa fa-check"></i><b>19.2</b> Función de log-verosimilitud</a></li>
+<li class="chapter" data-level="19.3" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros"><i class="fa fa-check"></i><b>19.3</b> Método de máxima verosimilitud para estimar parámetros</a>
 <ul>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-55"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="18.6" data-path="loglik.html"><a href="loglik.html#paquete-maxlik"><i class="fa fa-check"></i><b>18.6</b> Paquete maxLik</a>
-<ul>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-56"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-57"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>19.4</b> Score e Información de Fisher</a>
+<ul>
+<li class="chapter" data-level="19.4.1" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher-en-el-caso-univariado."><i class="fa fa-check"></i><b>19.4.1</b> Score e Información de Fisher en el caso univariado.</a></li>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-58"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="19.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>19.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a>
+<ul>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-59"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="19.6" data-path="loglik.html"><a href="loglik.html#paquete-maxlik"><i class="fa fa-check"></i><b>19.6</b> Paquete maxLik</a>
+<ul>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-60"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejercicios-6"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="select_dist.html"><a href="select_dist.html"><i class="fa fa-check"></i><b>19</b> Selección de la distribución</a>
+<li class="chapter" data-level="20" data-path="select_dist.html"><a href="select_dist.html"><i class="fa fa-check"></i><b>20</b> Selección de la distribución</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="select_dist.html"><a href="select_dist.html#función-fitdists"><i class="fa fa-check"></i><b>19.1</b> Función <code>fitDists</code></a>
+<li class="chapter" data-level="20.1" data-path="select_dist.html"><a href="select_dist.html#función-fitdists"><i class="fa fa-check"></i><b>20.1</b> Función <code>fitDists</code></a>
 <ul>
-<li class="chapter" data-level="" data-path="select_dist.html"><a href="select_dist.html#ejemplo-57"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="select_dist.html"><a href="select_dist.html#ejemplo-61"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="19.2" data-path="select_dist.html"><a href="select_dist.html#qué-tipo-de-preguntas-se-podrían-responder-luego"><i class="fa fa-check"></i><b>19.2</b> ¿Qué tipo de preguntas se podrían responder luego?</a>
+<li class="chapter" data-level="20.2" data-path="select_dist.html"><a href="select_dist.html#qué-tipo-de-preguntas-se-podrían-responder-luego"><i class="fa fa-check"></i><b>20.2</b> ¿Qué tipo de preguntas se podrían responder luego?</a>
 <ul>
-<li class="chapter" data-level="" data-path="select_dist.html"><a href="select_dist.html#ejemplo-58"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="select_dist.html"><a href="select_dist.html#ejemplo-62"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="select_dist.html"><a href="select_dist.html#ejercicios-7"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>20</b> Estudiando la normalidad</a>
+<li class="chapter" data-level="21" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>21</b> Estudiando la normalidad</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="normalidad.html"><a href="normalidad.html#consideraciones-iniciales"><i class="fa fa-check"></i><b>20.1</b> Consideraciones iniciales</a></li>
-<li class="chapter" data-level="20.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>20.2</b> Histograma y densidad</a>
+<li class="chapter" data-level="21.1" data-path="normalidad.html"><a href="normalidad.html#consideraciones-iniciales"><i class="fa fa-check"></i><b>21.1</b> Consideraciones iniciales</a></li>
+<li class="chapter" data-level="21.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>21.2</b> Histograma y densidad</a>
 <ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo densidad con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-del-peso-corporal"><i class="fa fa-check"></i>Ejemplo densidad del peso corporal</a></li>
 </ul></li>
-<li class="chapter" data-level="20.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>20.3</b> Gráficos cuantil cuantil </a>
+<li class="chapter" data-level="21.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>21.3</b> Gráficos cuantil cuantil </a>
 <ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-1-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 1 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-2-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 2 QQplot con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo QQplot para peso corporal</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-con-bandas"><i class="fa fa-check"></i>Ejemplo QQplot con bandas</a></li>
 </ul></li>
-<li class="chapter" data-level="20.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>20.4</b> Pruebas de normalidad</a>
+<li class="chapter" data-level="21.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>21.4</b> Pruebas de normalidad</a>
 <ul>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo con datos simulados</a></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-normalidad-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo normalidad para peso corporal</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejercicios-8"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>21</b> Intervalos de confianza</a>
+<li class="chapter" data-level="22" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>22</b> Intervalos de confianza</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>21.1</b> Función <code>t.test</code></a>
+<li class="chapter" data-level="22.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>22.1</b> Función <code>t.test</code></a>
 <ul>
-<li class="chapter" data-level="21.1.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu"><i class="fa fa-check"></i><b>21.1.1</b> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span></a></li>
-<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-59"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="21.1.2" data-path="ic.html"><a href="ic.html#ICDifMed"><i class="fa fa-check"></i><b>21.1.2</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras independientes</a></li>
-<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-60"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="21.1.3" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-dependientes-o-pareadas"><i class="fa fa-check"></i><b>21.1.3</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras dependientes o pareadas</a></li>
-<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-61"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="21.1.4" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-unilateral-para-la-media-mu"><i class="fa fa-check"></i><b>21.1.4</b> Intervalo de confianza unilateral para la media <span class="math inline">\(\mu\)</span></a></li>
-<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-62"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="21.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>21.2</b> Función <code>var.test</code></a>
-<ul>
-<li class="chapter" data-level="21.2.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2"><i class="fa fa-check"></i><b>21.2.1</b> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="22.1.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu"><i class="fa fa-check"></i><b>22.1.1</b> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-63"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="21.2.2" data-path="ic.html"><a href="ic.html#ICCocVar"><i class="fa fa-check"></i><b>21.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
+<li class="chapter" data-level="22.1.2" data-path="ic.html"><a href="ic.html#ICDifMed"><i class="fa fa-check"></i><b>22.1.2</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras independientes</a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-64"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="21.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>21.3</b> Función <code>prop.test</code></a>
-<ul>
-<li class="chapter" data-level="21.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p"><i class="fa fa-check"></i><b>21.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
+<li class="chapter" data-level="22.1.3" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-dependientes-o-pareadas"><i class="fa fa-check"></i><b>22.1.3</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras dependientes o pareadas</a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-65"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="21.3.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>21.3.2</b> Intervalo de confianza bilateral para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a></li>
+<li class="chapter" data-level="22.1.4" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-unilateral-para-la-media-mu"><i class="fa fa-check"></i><b>22.1.4</b> Intervalo de confianza unilateral para la media <span class="math inline">\(\mu\)</span></a></li>
 <li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-66"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
+<li class="chapter" data-level="22.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>22.2</b> Función <code>var.test</code></a>
+<ul>
+<li class="chapter" data-level="22.2.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2"><i class="fa fa-check"></i><b>22.2.1</b> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-67"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="22.2.2" data-path="ic.html"><a href="ic.html#ICCocVar"><i class="fa fa-check"></i><b>22.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-68"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>22</b> Prueba de hipótesis</a>
+<li class="chapter" data-level="22.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>22.3</b> Función <code>prop.test</code></a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>22.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a>
-<ul>
-<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-67"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="22.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p"><i class="fa fa-check"></i><b>22.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-69"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="22.3.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>22.3.2</b> Intervalo de confianza bilateral para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-70"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="22.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>22.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a>
-<ul>
-<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-68"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="22.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>22.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a>
+<li class="chapter" data-level="23" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>23</b> Prueba de hipótesis</a>
 <ul>
-<li class="chapter" data-level="22.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>22.3.1</b> Prueba de Wald</a></li>
-<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-69"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="22.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>22.3.2</b> Prueba <span class="math inline">\(\chi^2\)</span> de Pearson</a></li>
-<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-70"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="22.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>22.3.3</b> Prueba binomial exacta</a></li>
+<li class="chapter" data-level="23.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>23.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a>
+<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-71"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="22.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>22.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a>
+<li class="chapter" data-level="23.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>23.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a>
 <ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-72"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="22.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>22.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a>
+<li class="chapter" data-level="23.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>23.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a>
 <ul>
+<li class="chapter" data-level="23.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>23.3.1</b> Prueba de Wald</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-73"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="23.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>23.3.2</b> Prueba <span class="math inline">\(\chi^2\)</span> de Pearson</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-74"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="22.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>22.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a>
-<ul>
+<li class="chapter" data-level="23.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>23.3.3</b> Prueba binomial exacta</a></li>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-75"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="22.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>22.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a>
+<li class="chapter" data-level="23.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>23.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a>
 <ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-76"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="22.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>22.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a>
+<li class="chapter" data-level="23.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>23.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a>
 <ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-77"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="22.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>22.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a>
-<ul>
 <li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-78"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
+<li class="chapter" data-level="23.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>23.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a>
+<ul>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-79"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>23</b> Aproximación de integrales</a>
+<li class="chapter" data-level="23.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>23.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a>
 <ul>
-<li class="chapter" data-level="23.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>23.1</b> Aproximación de Laplace unidimensional</a>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-80"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="23.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>23.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a>
 <ul>
-<li class="chapter" data-level="" data-path="aproxint.html"><a href="aproxint.html#ejemplo-79"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-81"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="23.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>23.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a>
+<ul>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-82"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="empiricaldists.html"><a href="empiricaldists.html"><i class="fa fa-check"></i><b>24</b> Distribuciones empíricas</a>
+<li class="chapter" data-level="24" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>24</b> Aproximación de integrales</a>
 <ul>
-<li class="chapter" data-level="24.1" data-path="empiricaldists.html"><a href="empiricaldists.html#una-variable"><i class="fa fa-check"></i><b>24.1</b> Una variable</a>
+<li class="chapter" data-level="24.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>24.1</b> Aproximación de Laplace unidimensional</a>
 <ul>
-<li class="chapter" data-level="" data-path="empiricaldists.html"><a href="empiricaldists.html#ejemplo-80"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="aproxint.html"><a href="aproxint.html#ejemplo-83"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="normalmulti.html"><a href="normalmulti.html"><i class="fa fa-check"></i><b>25</b> Distribución normal multivariada</a>
+<li class="chapter" data-level="25" data-path="empiricaldists.html"><a href="empiricaldists.html"><i class="fa fa-check"></i><b>25</b> Distribuciones empíricas</a>
 <ul>
-<li class="chapter" data-level="25.1" data-path="normalmulti.html"><a href="normalmulti.html#función-de-densidad"><i class="fa fa-check"></i><b>25.1</b> Función de densidad</a>
+<li class="chapter" data-level="25.1" data-path="empiricaldists.html"><a href="empiricaldists.html#una-variable"><i class="fa fa-check"></i><b>25.1</b> Una variable</a>
 <ul>
-<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-81"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-82"><i class="fa fa-check"></i>Ejemplo</a></li>
-<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-83"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="empiricaldists.html"><a href="empiricaldists.html#ejemplo-84"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="25.2" data-path="normalmulti.html"><a href="normalmulti.html#simulando-de-una-normal-multivariada"><i class="fa fa-check"></i><b>25.2</b> Simulando de una normal multivariada</a>
+</ul></li>
+<li class="chapter" data-level="26" data-path="normalmulti.html"><a href="normalmulti.html"><i class="fa fa-check"></i><b>26</b> Distribución normal multivariada</a>
 <ul>
-<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-84"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="26.1" data-path="normalmulti.html"><a href="normalmulti.html#función-de-densidad-1"><i class="fa fa-check"></i><b>26.1</b> Función de densidad</a>
+<ul>
 <li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-85"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-86"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="25.3" data-path="normalmulti.html"><a href="normalmulti.html#calculando-probabilidades"><i class="fa fa-check"></i><b>25.3</b> Calculando probabilidades</a>
-<ul>
 <li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-87"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="25.4" data-path="normalmulti.html"><a href="normalmulti.html#distancia-de-mahalanobis"><i class="fa fa-check"></i><b>25.4</b> Distancia de Mahalanobis</a>
+<li class="chapter" data-level="26.2" data-path="normalmulti.html"><a href="normalmulti.html#simulando-de-una-normal-multivariada"><i class="fa fa-check"></i><b>26.2</b> Simulando de una normal multivariada</a>
 <ul>
 <li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-88"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="25.5" data-path="normalmulti.html"><a href="normalmulti.html#ellipse-o-contornos-de-confianza"><i class="fa fa-check"></i><b>25.5</b> Ellipse o contornos de confianza</a>
-<ul>
 <li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-89"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-90"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="25.6" data-path="normalmulti.html"><a href="normalmulti.html#estimando-los-parámetros-boldsymbolmu-y-boldsymbolsigma"><i class="fa fa-check"></i><b>25.6</b> Estimando los parámetros <span class="math inline">\(\boldsymbol{\mu}\)</span> y <span class="math inline">\(\boldsymbol{\Sigma}\)</span></a>
+<li class="chapter" data-level="26.3" data-path="normalmulti.html"><a href="normalmulti.html#calculando-probabilidades"><i class="fa fa-check"></i><b>26.3</b> Calculando probabilidades</a>
 <ul>
 <li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-91"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="26.4" data-path="normalmulti.html"><a href="normalmulti.html#distancia-de-mahalanobis"><i class="fa fa-check"></i><b>26.4</b> Distancia de Mahalanobis</a>
+<ul>
 <li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-92"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="25.7" data-path="normalmulti.html"><a href="normalmulti.html#distribución-wishart"><i class="fa fa-check"></i><b>25.7</b> Distribución Wishart</a></li>
-<li class="chapter" data-level="25.8" data-path="normalmulti.html"><a href="normalmulti.html#mezcla-de-dos-normales-multivariadas"><i class="fa fa-check"></i><b>25.8</b> Mezcla de dos normales multivariadas</a></li>
+<li class="chapter" data-level="26.5" data-path="normalmulti.html"><a href="normalmulti.html#ellipse-o-contornos-de-confianza"><i class="fa fa-check"></i><b>26.5</b> Ellipse o contornos de confianza</a>
+<ul>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-93"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-94"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="26.6" data-path="normalmulti.html"><a href="normalmulti.html#estimando-los-parámetros-boldsymbolmu-y-boldsymbolsigma"><i class="fa fa-check"></i><b>26.6</b> Estimando los parámetros <span class="math inline">\(\boldsymbol{\mu}\)</span> y <span class="math inline">\(\boldsymbol{\Sigma}\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-95"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-96"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="26.7" data-path="normalmulti.html"><a href="normalmulti.html#distribución-wishart"><i class="fa fa-check"></i><b>26.7</b> Distribución Wishart</a></li>
+<li class="chapter" data-level="26.8" data-path="normalmulti.html"><a href="normalmulti.html#mezcla-de-dos-normales-multivariadas"><i class="fa fa-check"></i><b>26.8</b> Mezcla de dos normales multivariadas</a></li>
 <li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejercicios-9"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>26</b> Curiosidades</a>
+<li class="chapter" data-level="27" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>27</b> Curiosidades</a>
 <ul>
-<li class="chapter" data-level="26.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>26.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a>
+<li class="chapter" data-level="27.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>27.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a>
 <ul>
-<li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-93"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-97"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -663,72 +681,72 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="loglik" class="section level1 hasAnchor" number="18">
-<h1><span class="header-section-number">18</span> Verosimilitud<a href="loglik.html#loglik" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="loglik" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">19</span> Verosimilitud<a href="loglik.html#loglik" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>En este capítulo se mostrará como usar R para obtener la función de log-verosimilitud y estimadores por el método de máxima verosimilitud.</p>
-<div id="función-de-verosimilitud" class="section level2 hasAnchor" number="18.1">
-<h2><span class="header-section-number">18.1</span> Función de verosimilitud<a href="loglik.html#función-de-verosimilitud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>El concepto de verosimilitud fue propuesto por <span class="citation">Fisher (<a href="#ref-Fisher22">1922</a>)</span> en el contexto de estimación de parámetros. En la Figura <a href="loglik.html#fig:fisher">18.1</a> se muestra una fotografía de Ronald Aylmer Fisher.</p>
+<div id="función-de-verosimilitud" class="section level2 hasAnchor" number="19.1">
+<h2><span class="header-section-number">19.1</span> Función de verosimilitud<a href="loglik.html#función-de-verosimilitud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El concepto de verosimilitud fue propuesto por <span class="citation">Fisher (<a href="#ref-Fisher22">1922</a>)</span> en el contexto de estimación de parámetros. En la Figura <a href="loglik.html#fig:fisher">19.1</a> se muestra una fotografía de Ronald Aylmer Fisher.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fisher"></span>
 <img src="images/Fisher.png" alt="Fotografía de Ronald Aylmer Fisher (1890-1962)." width="40%" />
 <p class="caption">
-Figure 18.1: Fotografía de Ronald Aylmer Fisher (1890-1962).
+Figure 19.1: Fotografía de Ronald Aylmer Fisher (1890-1962).
 </p>
 </div>
 <p>La función de verosimilitud para un vector de parámetros <span class="math inline">\(\boldsymbol{\theta}\)</span> dada una muestra aleatoria <span class="math inline">\(\boldsymbol{x}=(x_1, \ldots,x_n)^\top\)</span> con una distribución asumida se define usualmente como:</p>
 <p><span class="math display" id="eq:lik">\[\begin{equation}
 L(\boldsymbol{\theta} | \boldsymbol{x}) = \prod_{i=1}^{n}  f(x_i | \boldsymbol{\theta}),
-\tag{18.1}
+\tag{19.1}
 \end{equation}\]</span></p>
 <p>donde <span class="math inline">\(x_i\)</span> representa uno de los elementos de la muestra aleatoria y <span class="math inline">\(f(\cdot)\)</span> es la función de masa/densidad de la distribución de la cual se obtuvo <span class="math inline">\(\boldsymbol{x}\)</span>.</p>
 </div>
-<div id="función-de-log-verosimilitud" class="section level2 hasAnchor" number="18.2">
-<h2><span class="header-section-number">18.2</span> Función de log-verosimilitud<a href="loglik.html#función-de-log-verosimilitud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="función-de-log-verosimilitud" class="section level2 hasAnchor" number="19.2">
+<h2><span class="header-section-number">19.2</span> Función de log-verosimilitud<a href="loglik.html#función-de-log-verosimilitud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La función de log-verosimilitud <span class="math inline">\(l(\boldsymbol{\theta} | \boldsymbol{x})\)</span> se define como el logaritmo de la función de verosimilitud <span class="math inline">\(L(\boldsymbol{\theta} | \boldsymbol{x})\)</span>, es decir</p>
 <p><span class="math display" id="eq:loglik">\[\begin{equation}
 l(\boldsymbol{\theta} | \boldsymbol{x}) = \log L(\boldsymbol{\theta} | \boldsymbol{x}) = \sum_{i=1}^{n} \log f(x_i | \boldsymbol{\theta})
-\tag{18.2}
+\tag{19.2}
 \end{equation}\]</span></p>
 </div>
-<div id="método-de-máxima-verosimilitud-para-estimar-parámetros" class="section level2 hasAnchor" number="18.3">
-<h2><span class="header-section-number">18.3</span> Método de máxima verosimilitud para estimar parámetros<a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="método-de-máxima-verosimilitud-para-estimar-parámetros" class="section level2 hasAnchor" number="19.3">
+<h2><span class="header-section-number">19.3</span> Método de máxima verosimilitud para estimar parámetros<a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El método de máxima verosimilitud se usa para estimar los parámetros de una distribución. El objetivo de este método es encontrar los valores de <span class="math inline">\(\boldsymbol{\theta}\)</span> que maximizan a <span class="math inline">\(L(\boldsymbol{\theta} | \boldsymbol{x})\)</span> o a <span class="math inline">\(l(\boldsymbol{\theta} | \boldsymbol{x})\)</span>, los valores encontrados se representan usualmente por <span class="math inline">\(\hat{\boldsymbol{\theta}}\)</span>.</p>
 
 <div class="rmdnote">
 Asumiendo un modelo estadístico parametrizado por una cantidad fija y desconocida <span class="math inline">\(\theta\)</span>, la verosimilitud <span class="math inline">\(L(\theta)\)</span> es la probabilidad de los datos observados <span class="math inline">\(x\)</span> como una función de <span class="math inline">\(\theta\)</span> <span class="citation">(<a href="#ref-pawitan_2013">Pawitan 2013</a>)</span>. Si la variable de interés es discreta se usa la probabilidad y si es continua se usa la densidad para obtener la verosimilitud.
 </div>
-<div id="ejemplo-51" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo<a href="loglik.html#ejemplo-51" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ejemplo-55" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="loglik.html#ejemplo-55" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En este ejemplo vamos a considerar la distribución binomial cuya función de masa de probabilidad está dada por:</p>
 <p><span class="math display">\[f(x)=P(X=x)=\binom{n}{x} p^x (1-p)^{n-x}, \quad 0&lt;p&lt;1, \quad n \leq 1, 2, \ldots, \quad 0 \leq x \leq n\]</span></p>
 <p>La distribución binomial anterior tiene sólo un parámetro <span class="math inline">\(p\)</span>, por lo tanto en este caso se <span class="math inline">\(\theta=p\)</span>.</p>
 <p>Suponga que se tiene el vector <code>rta</code> que corresponde a una muestra aleatoria de una distribución binomial con parámetro <span class="math inline">\(n=5\)</span> conocido.</p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="loglik.html#cb585-1" tabindex="-1"></a>rta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>,</span>
-<span id="cb585-2"><a href="loglik.html#cb585-2" tabindex="-1"></a>         <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="loglik.html#cb601-1" tabindex="-1"></a>rta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>,</span>
+<span id="cb601-2"><a href="loglik.html#cb601-2" tabindex="-1"></a>         <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Calcular el valor de log-verosimilitud <span class="math inline">\(l(\theta)\)</span> si asumiendo que <span class="math inline">\(p=0.30\)</span> en la distribución binomial.</li>
 </ol>
-<p>Para obtener el valor de <span class="math inline">\(l(\theta)\)</span> en el punto <span class="math inline">\(p=0.30\)</span> se aplica la definición dada en la expresión <a href="loglik.html#eq:loglik">(18.2)</a>. Como el problema trata de una binomial se usa entonces la función de masa <code>dbinom</code> evaluada en la muestra <code>rta</code>, el parámetro <code>size</code> como es conocido se reemplaza por el valor de cinco y en el parámetro <code>prob</code> se cambia por 0.3. Como interesa la función de log-verosimilitud se debe incluir <code>log=TRUE</code>. A continuación el código necesario.</p>
-<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="loglik.html#cb586-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span>rta, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span><span class="fl">0.3</span>, <span class="at">log=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<p>Para obtener el valor de <span class="math inline">\(l(\theta)\)</span> en el punto <span class="math inline">\(p=0.30\)</span> se aplica la definición dada en la expresión <a href="loglik.html#eq:loglik">(19.2)</a>. Como el problema trata de una binomial se usa entonces la función de masa <code>dbinom</code> evaluada en la muestra <code>rta</code>, el parámetro <code>size</code> como es conocido se reemplaza por el valor de cinco y en el parámetro <code>prob</code> se cambia por 0.3. Como interesa la función de log-verosimilitud se debe incluir <code>log=TRUE</code>. A continuación el código necesario.</p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="loglik.html#cb602-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span>rta, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span><span class="fl">0.3</span>, <span class="at">log=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## [1] -24.55231</code></pre>
 <p>Por lo tanto <span class="math inline">\(l(\theta)= -24.55\)</span></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Construir una función llamada <code>ll</code> a la cual le ingrese valores del parámetro <span class="math inline">\(p\)</span> de la binomial y que la función entregue el valor de log-verosimilitud.</li>
 </ol>
 <p>La función solicitada tiene un cuerpo igual al usado en el numeral anterior, a continuación el código necesario para crearla.</p>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="loglik.html#cb588-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(prob) <span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span>rta, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span>prob, <span class="at">log=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="loglik.html#cb604-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(prob) <span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span>rta, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span>prob, <span class="at">log=</span>T))</span></code></pre></div>
 <p>Vamos a probar la función en dos valores arbitrarios <span class="math inline">\(p=0.15\)</span> y <span class="math inline">\(p=0.80\)</span> que pertenezcan al dominio del parámetro <span class="math inline">\(p\)</span> de la distribución binomial.</p>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="loglik.html#cb589-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fl">0.15</span>)  <span class="co"># Individual para p=0.15</span></span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="loglik.html#cb605-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fl">0.15</span>)  <span class="co"># Individual para p=0.15</span></span></code></pre></div>
 <pre><code>## [1] -25.54468</code></pre>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="loglik.html#cb591-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fl">0.80</span>)  <span class="co"># Individual para p=0.80</span></span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="loglik.html#cb607-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fl">0.80</span>)  <span class="co"># Individual para p=0.80</span></span></code></pre></div>
 <pre><code>## [1] -98.45598</code></pre>
 <p>El valor de log-verosimilitud para <span class="math inline">\(p=0.15\)</span> fue de -25.54 mientras que para <span class="math inline">\(p=0.80\)</span> fue de -98.46.</p>
 <p>Vamos ahora a chequear si la función <code>ll</code> está vectorizada y para esto usamos el código mostrado a continuación y deberíamos obtener un vector con los valores <code>c(-25.54, -98.56)</code>.</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="loglik.html#cb593-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.80</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="loglik.html#cb609-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.80</span>))</span></code></pre></div>
 <pre><code>## [1] -57.31899</code></pre>
 <p>No obtuvimos el resultado esperado, eso significa que nuestra función no está vectorizada. Ese problema lo podemos solucionar así:</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="loglik.html#cb595-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll)</span>
-<span id="cb595-2"><a href="loglik.html#cb595-2" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.80</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="loglik.html#cb611-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll)</span>
+<span id="cb611-2"><a href="loglik.html#cb611-2" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.80</span>))</span></code></pre></div>
 <pre><code>## [1] -25.54468 -98.45598</code></pre>
 <p>Vemos que ahora que cuando se ingresa un vector a la función <code>ll</code> se obtiene un vector.</p>
 
@@ -738,28 +756,28 @@ Necesitamos que la función <code>ll</code> esté vectorizada para poder dibujar
 <ol start="3" style="list-style-type: decimal">
 <li>Dibujar la curva log-verosimilitud <span class="math inline">\(l(\theta)\)</span>, en el eje X debe estar el parámetro <span class="math inline">\(p\)</span> del cual depende la función de log-verosimilitud.</li>
 </ol>
-<p>En la Figura <a href="loglik.html#fig:loglik1">18.2</a> se presenta la curva solicitada.</p>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="loglik.html#cb597-1" tabindex="-1"></a><span class="fu">curve</span>(ll, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&#39;dodgerblue3&#39;</span>,</span>
-<span id="cb597-2"><a href="loglik.html#cb597-2" tabindex="-1"></a>      <span class="at">xlab=</span><span class="st">&#39;Probabilidad de éxito (p)&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb597-3"><a href="loglik.html#cb597-3" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">&quot;Loglik(p)&quot;</span>)</span>
-<span id="cb597-4"><a href="loglik.html#cb597-4" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
+<p>En la Figura <a href="loglik.html#fig:loglik1">19.2</a> se presenta la curva solicitada.</p>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="loglik.html#cb613-1" tabindex="-1"></a><span class="fu">curve</span>(ll, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&#39;dodgerblue3&#39;</span>,</span>
+<span id="cb613-2"><a href="loglik.html#cb613-2" tabindex="-1"></a>      <span class="at">xlab=</span><span class="st">&#39;Probabilidad de éxito (p)&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb613-3"><a href="loglik.html#cb613-3" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">&quot;Loglik(p)&quot;</span>)</span>
+<span id="cb613-4"><a href="loglik.html#cb613-4" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:loglik1"></span>
 <img src="Manual_de_R_files/figure-html/loglik1-1.png" alt="Función de log-verosimilitud para el ejemplo sobre binomial." width="480" />
 <p class="caption">
-Figure 18.2: Función de log-verosimilitud para el ejemplo sobre binomial.
+Figure 19.2: Función de log-verosimilitud para el ejemplo sobre binomial.
 </p>
 </div>
 <ol start="4" style="list-style-type: decimal">
-<li>Observando la Figura <a href="loglik.html#fig:loglik1">18.2</a>, ¿cuál esl el valor de <span class="math inline">\(p\)</span> que maximiza la función de log-verosimilitud?</li>
+<li>Observando la Figura <a href="loglik.html#fig:loglik1">19.2</a>, ¿cuál esl el valor de <span class="math inline">\(p\)</span> que maximiza la función de log-verosimilitud?</li>
 </ol>
-<p>Al observar la Figura <a href="loglik.html#fig:loglik1">18.2</a> se nota que el valor de <span class="math inline">\(p\)</span> que maximiza la función log-verosimilitud está muy cerca de 0.2.</p>
+<p>Al observar la Figura <a href="loglik.html#fig:loglik1">19.2</a> se nota que el valor de <span class="math inline">\(p\)</span> que maximiza la función log-verosimilitud está muy cerca de 0.2.</p>
 <ol start="5" style="list-style-type: decimal">
 <li>¿Cuál es el valor exacto de <span class="math inline">\(p\)</span> que maximiza la función log-verosimilitud?</li>
 </ol>
 <p>En R existe la función <code>optimize</code> que sirve para encontrar el valor que <strong>minimiza</strong> una función uniparamétrica en un intervalo dado, sin embargo, aquí interesa es maximimizar la función de log-verosimilitud, por esa razón se construye la función <code>minusll</code> que es el negativo de la función <code>ll</code> para así poder usar <code>optimize</code>. A continuación el código usado. </p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="loglik.html#cb598-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span><span class="fu">ll</span>(x)</span>
-<span id="cb598-2"><a href="loglik.html#cb598-2" tabindex="-1"></a></span>
-<span id="cb598-3"><a href="loglik.html#cb598-3" tabindex="-1"></a><span class="fu">optimize</span>(<span class="at">f=</span>minusll, <span class="at">interval=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="loglik.html#cb614-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span><span class="fu">ll</span>(x)</span>
+<span id="cb614-2"><a href="loglik.html#cb614-2" tabindex="-1"></a></span>
+<span id="cb614-3"><a href="loglik.html#cb614-3" tabindex="-1"></a><span class="fu">optimize</span>(<span class="at">f=</span>minusll, <span class="at">interval=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>## $minimum
 ## [1] 0.229993
 ## 
@@ -767,23 +785,23 @@ Figure 18.2: Función de log-verosimilitud para el ejemplo sobre binomial.
 ## [1] 23.3246</code></pre>
 <p>Del resultado anterior se observa que cuando <span class="math inline">\(p=0.23\)</span> el valor máximo de log-verosimilitud es -23.32 (negativo de <code>minusll</code>).</p>
 </div>
-<div id="ejemplo-52" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo<a href="loglik.html#ejemplo-52" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ejemplo-56" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="loglik.html#ejemplo-56" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suponga que la estatura de una población se puede asumir como una normal <span class="math inline">\(N(170, 25)\)</span>. Suponga también que se genera una muestra aleatoria de 50 observaciones de la población con el objetivo de recuperar los valores de la media y varianza poblacionales a partir de la muestra aleatoria.</p>
 <p>La muestra se va a generar con la función <code>rnorm</code> pero antes se fijará una semilla con la intención de que el lector pueda replicar el ejemplo y obtener la misma muestra aleatoria aquí generada, el código para hacerlo es el siguiente.</p>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="loglik.html#cb600-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1235</span>)  <span class="co"># La semilla es 1235</span></span>
-<span id="cb600-2"><a href="loglik.html#cb600-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">mean=</span><span class="dv">170</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
-<span id="cb600-3"><a href="loglik.html#cb600-3" tabindex="-1"></a>y[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]  <span class="co"># Para ver los primeros siete valores generados</span></span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="loglik.html#cb616-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1235</span>)  <span class="co"># La semilla es 1235</span></span>
+<span id="cb616-2"><a href="loglik.html#cb616-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">mean=</span><span class="dv">170</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
+<span id="cb616-3"><a href="loglik.html#cb616-3" tabindex="-1"></a>y[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]  <span class="co"># Para ver los primeros siete valores generados</span></span></code></pre></div>
 <pre><code>## [1] 166.5101 163.5757 174.9498 170.5589 170.5710 178.4910 170.2392</code></pre>
 <ol style="list-style-type: decimal">
 <li>Construya la función de log-verosimilitud para los parámetros de la normal dada la muestra aleatoria <code>y</code>.</li>
 </ol>
 <p>Abajo se muestra la forma de construir la función de log-verosimilitud.</p>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="loglik.html#cb602-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
-<span id="cb602-2"><a href="loglik.html#cb602-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> param[<span class="dv">1</span>]  <span class="co"># param es el vector de parámetros</span></span>
-<span id="cb602-3"><a href="loglik.html#cb602-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> param[<span class="dv">2</span>] </span>
-<span id="cb602-4"><a href="loglik.html#cb602-4" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
-<span id="cb602-5"><a href="loglik.html#cb602-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="loglik.html#cb618-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
+<span id="cb618-2"><a href="loglik.html#cb618-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> param[<span class="dv">1</span>]  <span class="co"># param es el vector de parámetros</span></span>
+<span id="cb618-3"><a href="loglik.html#cb618-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> param[<span class="dv">2</span>] </span>
+<span id="cb618-4"><a href="loglik.html#cb618-4" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb618-5"><a href="loglik.html#cb618-5" tabindex="-1"></a>}</span></code></pre></div>
 
 <div class="rmdwarning">
 Siempre que el interés sea encontrar los valores que maximizan una función de log-verosimilitud, los parámetros de la distribución <strong>deben</strong> ingresar a la función <code>ll</code> como un vector. Esto se debe hacer para poder usar las funciones de búsqueda <code>optim</code> y <code>nlminb</code>.
@@ -791,28 +809,28 @@ Siempre que el interés sea encontrar los valores que maximizan una función de 
 <ol start="2" style="list-style-type: decimal">
 <li>Dibujar la función de log-verosimilitud.</li>
 </ol>
-<p>En la Figura <a href="loglik.html#fig:loglik2">18.3</a> se muestra el gráfico de niveles para la superficie de log-verosimilitud. De esta figura se nota claramente que los valores que maximizan la superficie están alrededor de <span class="math inline">\(\mu=170\)</span> y <span class="math inline">\(\sigma=5\)</span>.</p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="loglik.html#cb603-1" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>a, <span class="at">sd=</span>b, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
-<span id="cb603-2"><a href="loglik.html#cb603-2" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll1)</span>
-<span id="cb603-3"><a href="loglik.html#cb603-3" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">160</span>, <span class="at">to=</span><span class="dv">180</span>, <span class="at">by=</span><span class="fl">0.5</span>)</span>
-<span id="cb603-4"><a href="loglik.html#cb603-4" tabindex="-1"></a>yy <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">3</span>, <span class="at">to=</span><span class="dv">7</span>, <span class="at">by=</span><span class="fl">0.5</span>)</span>
-<span id="cb603-5"><a href="loglik.html#cb603-5" tabindex="-1"></a>zz <span class="ot">&lt;-</span> <span class="fu">outer</span>(<span class="at">X=</span>xx, <span class="at">Y=</span>yy, ll1)</span>
-<span id="cb603-6"><a href="loglik.html#cb603-6" tabindex="-1"></a><span class="fu">filled.contour</span>(<span class="at">x=</span>xx, <span class="at">y=</span>yy, <span class="at">z=</span>zz, <span class="at">nlevels=</span><span class="dv">20</span>,</span>
-<span id="cb603-7"><a href="loglik.html#cb603-7" tabindex="-1"></a>               <span class="at">xlab=</span><span class="fu">expression</span>(mu), <span class="at">ylab=</span><span class="fu">expression</span>(sigma),</span>
-<span id="cb603-8"><a href="loglik.html#cb603-8" tabindex="-1"></a>               <span class="at">color =</span> topo.colors)</span></code></pre></div>
+<p>En la Figura <a href="loglik.html#fig:loglik2">19.3</a> se muestra el gráfico de niveles para la superficie de log-verosimilitud. De esta figura se nota claramente que los valores que maximizan la superficie están alrededor de <span class="math inline">\(\mu=170\)</span> y <span class="math inline">\(\sigma=5\)</span>.</p>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="loglik.html#cb619-1" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>a, <span class="at">sd=</span>b, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb619-2"><a href="loglik.html#cb619-2" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll1)</span>
+<span id="cb619-3"><a href="loglik.html#cb619-3" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">160</span>, <span class="at">to=</span><span class="dv">180</span>, <span class="at">by=</span><span class="fl">0.5</span>)</span>
+<span id="cb619-4"><a href="loglik.html#cb619-4" tabindex="-1"></a>yy <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">3</span>, <span class="at">to=</span><span class="dv">7</span>, <span class="at">by=</span><span class="fl">0.5</span>)</span>
+<span id="cb619-5"><a href="loglik.html#cb619-5" tabindex="-1"></a>zz <span class="ot">&lt;-</span> <span class="fu">outer</span>(<span class="at">X=</span>xx, <span class="at">Y=</span>yy, ll1)</span>
+<span id="cb619-6"><a href="loglik.html#cb619-6" tabindex="-1"></a><span class="fu">filled.contour</span>(<span class="at">x=</span>xx, <span class="at">y=</span>yy, <span class="at">z=</span>zz, <span class="at">nlevels=</span><span class="dv">20</span>,</span>
+<span id="cb619-7"><a href="loglik.html#cb619-7" tabindex="-1"></a>               <span class="at">xlab=</span><span class="fu">expression</span>(mu), <span class="at">ylab=</span><span class="fu">expression</span>(sigma),</span>
+<span id="cb619-8"><a href="loglik.html#cb619-8" tabindex="-1"></a>               <span class="at">color =</span> topo.colors)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:loglik2"></span>
 <img src="Manual_de_R_files/figure-html/loglik2-1.png" alt="Gráfico de niveles para la función de log-verosimilitud para el ejemplo sobre normal." width="864" />
 <p class="caption">
-Figure 18.3: Gráfico de niveles para la función de log-verosimilitud para el ejemplo sobre normal.
+Figure 19.3: Gráfico de niveles para la función de log-verosimilitud para el ejemplo sobre normal.
 </p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Obtenga los valores de <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> que maximizan la función de log-verosimilitud.</li>
 </ol>
 <p>Para obtener los valores solicitados vamos a usar la función <code>nlminb</code> que es un optimizador. A la función <code>nlminb</code> se le debe indicar por medio del parámetro <code>objective</code> la función que queremos optimizar (minimizar); el parámetro <code>start</code> es un vector con los valores iniciales para comenzar la búsqueda de <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span>; los parámetros <code>lower</code> y <code>upper</code> sirven para delimitar el espacio de búsqueda. A continuación se muestra el código usado para obtener los valores que minimizan a <code>minusll</code>, es decir, los valores que maximizan la función de log-verosimilitud. </p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="loglik.html#cb604-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span><span class="fu">ll</span>(x)</span>
-<span id="cb604-2"><a href="loglik.html#cb604-2" tabindex="-1"></a><span class="fu">nlminb</span>(<span class="at">objective=</span>minusll, <span class="at">start=</span><span class="fu">c</span>(<span class="dv">163</span>, <span class="fl">3.4</span>),</span>
-<span id="cb604-3"><a href="loglik.html#cb604-3" tabindex="-1"></a>       <span class="at">lower=</span><span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">3</span>), <span class="at">upper=</span><span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">7</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="loglik.html#cb620-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span><span class="fu">ll</span>(x)</span>
+<span id="cb620-2"><a href="loglik.html#cb620-2" tabindex="-1"></a><span class="fu">nlminb</span>(<span class="at">objective=</span>minusll, <span class="at">start=</span><span class="fu">c</span>(<span class="dv">163</span>, <span class="fl">3.4</span>),</span>
+<span id="cb620-3"><a href="loglik.html#cb620-3" tabindex="-1"></a>       <span class="at">lower=</span><span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">3</span>), <span class="at">upper=</span><span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">7</span>))</span></code></pre></div>
 <pre><code>## $par
 ## [1] 170.338374   5.423529
 ## 
@@ -831,7 +849,7 @@ Figure 18.3: Gráfico de niveles para la función de log-verosimilitud para el e
 ## 
 ## $message
 ## [1] &quot;relative convergence (4)&quot;</code></pre>
-<p>De la salida anterior podemos observar que los valores óptimos de <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> son 170.338 y 5.424 respectivamente, resultado que coincide con lo observado en la Figura <a href="loglik.html#fig:loglik2">18.3</a> y con los valores reales de simulación de la muestra. Esto indica que el procedimiento de estimación de parámetros por máxima verosimilitud entrega valores insesgados de los parámetros a estimar.</p>
+<p>De la salida anterior podemos observar que los valores óptimos de <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> son 170.338 y 5.424 respectivamente, resultado que coincide con lo observado en la Figura <a href="loglik.html#fig:loglik2">19.3</a> y con los valores reales de simulación de la muestra. Esto indica que el procedimiento de estimación de parámetros por máxima verosimilitud entrega valores insesgados de los parámetros a estimar.</p>
 <p>Un resultado interesante de la salida anterior es que se reporta el valor mínimo que alcanza la función <code>minusll</code>, este valor fue de 155.5, por lo tanto, se puede afirmar que el valor máximo de log-verosimilitud es -155.5.</p>
 <p>Otros resultados importantes de la salida anterior son el valor de <code>convergence=0</code> que indica que la búsqueda fue exitosa; <code>iterations=13</code> indica que se realizaron 13 pasos desde el punto inicial <code>start</code> hasta las coordenadas de optimización.</p>
 
@@ -842,41 +860,41 @@ En R se tienen dos funciones básicas para optimizar funciones, es decir, para e
 <li>¿Hay alguna función para obtener directamente el valor que maximiza la función log-verosimilitud?</li>
 </ol>
 <p>La respuesta es si. Si la distribución estudiada es una de las distribuciones básicas se puede usar la función <code>fitdistr</code> del paquete básico <strong>MASS</strong>. Esta función requiere de los datos que se ingresan por medio del parámetro <code>x</code>, y de la distribución de los datos que se ingresa por medio del parámetro <code>densfun</code>. La función <code>fitdistr</code> admite 15 distribuciones diferentes para hacer la búsqueda de los parámetros que caracterizan una distribución, se sugiere consultar la ayuda de la función <code>fitdistr</code> escribiendo en la consola <code>help(fitdistr)</code>. A continuación el código usado. </p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="loglik.html#cb606-1" tabindex="-1"></a><span class="fu">require</span>(MASS) <span class="co"># El paquete ya está instalado, solo se debe cargar</span></span>
-<span id="cb606-2"><a href="loglik.html#cb606-2" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>y, <span class="at">densfun=</span><span class="st">&#39;normal&#39;</span>)</span>
-<span id="cb606-3"><a href="loglik.html#cb606-3" tabindex="-1"></a>res</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="loglik.html#cb622-1" tabindex="-1"></a><span class="fu">require</span>(MASS) <span class="co"># El paquete ya está instalado, solo se debe cargar</span></span>
+<span id="cb622-2"><a href="loglik.html#cb622-2" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>y, <span class="at">densfun=</span><span class="st">&#39;normal&#39;</span>)</span>
+<span id="cb622-3"><a href="loglik.html#cb622-3" tabindex="-1"></a>res</span></code></pre></div>
 <pre><code>##       mean           sd     
 ##   170.3383794     5.4235271 
 ##  (  0.7670026) (  0.5423527)</code></pre>
 <p>El objeto <code>res</code> contiene los resultados de usar <code>fitdistr</code>. En la primer línea están los valores de los parámetros que maximizan la función de log-verosimilitud, en la parte de abajo, dentro de paréntesis, están los errores estándar o desviaciones de éstos estimadores.</p>
 <p>Al objeto <code>res</code> es de la clase <em>fitdistr</em> y por lo tanto se le puede aplicar la función genérica <code>logLik</code> para obtener el valor de la log-verosimilitud. Se sugiere consultar la ayuda de la función <code>logLik</code> escribiendo en la consola <code>help(logLik)</code>. A continuación el código para usar <code>logLik</code> sobre el objeto <code>res</code>.</p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="loglik.html#cb608-1" tabindex="-1"></a><span class="fu">logLik</span>(res)</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="loglik.html#cb624-1" tabindex="-1"></a><span class="fu">logLik</span>(res)</span></code></pre></div>
 <pre><code>## &#39;log Lik.&#39; -155.4842 (df=2)</code></pre>
 <p>De esta última salida se observa que el valor coincide con el obtenido cuando se usó <code>nlminb</code>.</p>
 </div>
-<div id="ejemplo-53" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo<a href="loglik.html#ejemplo-53" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ejemplo-57" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="loglik.html#ejemplo-57" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Generar <span class="math inline">\(n=100\)</span> observaciones de una gamma con parámetro de forma igual a 2, parámetro de tasa igual a 0.5 y luego responder las preguntas.</p>
 <ol style="list-style-type: decimal">
 <li>¿Cómo se puede generar la muestra aleatoria solicitada?</li>
 </ol>
 <p>Para generar la muestra aleatoria (<code>ma</code>) solicitada se fijó la semilla con el objetivo de que el lector pueda obtener los mismos resultados de este ejemplo.</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="loglik.html#cb610-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb610-2"><a href="loglik.html#cb610-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
-<span id="cb610-3"><a href="loglik.html#cb610-3" tabindex="-1"></a>ma <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="at">n=</span>n, <span class="at">shape=</span><span class="dv">2</span>, <span class="at">rate=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="loglik.html#cb626-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb626-2"><a href="loglik.html#cb626-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb626-3"><a href="loglik.html#cb626-3" tabindex="-1"></a>ma <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="at">n=</span>n, <span class="at">shape=</span><span class="dv">2</span>, <span class="at">rate=</span><span class="fl">0.5</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Asumiendo que la muestra aleatoria proviene de una normal (lo cual es incorrecto), estime los parámetros de la distribución normal.</li>
 </ol>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="loglik.html#cb611-1" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>ma, <span class="at">densfun=</span><span class="st">&#39;normal&#39;</span>)</span>
-<span id="cb611-2"><a href="loglik.html#cb611-2" tabindex="-1"></a>fit1</span></code></pre></div>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="loglik.html#cb627-1" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>ma, <span class="at">densfun=</span><span class="st">&#39;normal&#39;</span>)</span>
+<span id="cb627-2"><a href="loglik.html#cb627-2" tabindex="-1"></a>fit1</span></code></pre></div>
 <pre><code>##      mean         sd    
 ##   4.3082767   2.8084910 
 ##  (0.2808491) (0.1985903)</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Asumiendo que la muestra aleatoria proviene de una gamma estime los parámetros de la distribución gamma.</li>
 </ol>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="loglik.html#cb613-1" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>ma, <span class="at">densfun=</span><span class="st">&#39;gamma&#39;</span>)</span>
-<span id="cb613-2"><a href="loglik.html#cb613-2" tabindex="-1"></a>fit2</span></code></pre></div>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="loglik.html#cb629-1" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>ma, <span class="at">densfun=</span><span class="st">&#39;gamma&#39;</span>)</span>
+<span id="cb629-2"><a href="loglik.html#cb629-2" tabindex="-1"></a>fit2</span></code></pre></div>
 <pre><code>##      shape         rate   
 ##   2.23978235   0.51987909 
 ##  (0.29620136) (0.07702892)</code></pre>
@@ -885,26 +903,26 @@ En R se tienen dos funciones básicas para optimizar funciones, es decir, para e
 <li>Dibuje dos qqplot, uno asumiendo distribución normal y el otro distribución gamma. ¿Cuál distribución se ajusta mejor a los datos simulados?</li>
 </ol>
 <p>Para dibujar el qqplot se usa la función genérica <code>qqplot</code>, recomendamos consultar <span class="citation">Hernández (<a href="#ref-hernandez_correa">2018</a>)</span> para los detalles de cómo usar esta función. Al usar <code>qqplot</code> para obtener el qqplot normal y gamma es necesario indicar los valores <span class="math inline">\(\hat{\boldsymbol{\theta}}\)</span> obtenidos en el numeral anterior, por eso es que en el código mostrado a continuación aparece <code>mean=4.3083, sd=2.8085</code> en el qqplot normal y <code>shape=2.23978, rate=0.51988</code> en el qqplot gamma.</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="loglik.html#cb615-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb615-2"><a href="loglik.html#cb615-2" tabindex="-1"></a></span>
-<span id="cb615-3"><a href="loglik.html#cb615-3" tabindex="-1"></a><span class="fu">qqplot</span>(<span class="at">y=</span>ma, <span class="at">pch=</span><span class="dv">19</span>,</span>
-<span id="cb615-4"><a href="loglik.html#cb615-4" tabindex="-1"></a>       <span class="at">x=</span><span class="fu">qnorm</span>(<span class="fu">ppoints</span>(n), <span class="at">mean=</span><span class="fl">4.3083</span>, <span class="at">sd=</span><span class="fl">2.8085</span>),</span>
-<span id="cb615-5"><a href="loglik.html#cb615-5" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;Normal Q-Q Plot&#39;</span>,</span>
-<span id="cb615-6"><a href="loglik.html#cb615-6" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Theoretical Quantiles&#39;</span>,</span>
-<span id="cb615-7"><a href="loglik.html#cb615-7" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&#39;Sample Quantiles&#39;</span>)</span>
-<span id="cb615-8"><a href="loglik.html#cb615-8" tabindex="-1"></a></span>
-<span id="cb615-9"><a href="loglik.html#cb615-9" tabindex="-1"></a><span class="fu">qqplot</span>(<span class="at">y=</span>ma, <span class="at">pch=</span><span class="dv">19</span>,</span>
-<span id="cb615-10"><a href="loglik.html#cb615-10" tabindex="-1"></a>       <span class="at">x=</span><span class="fu">qgamma</span>(<span class="fu">ppoints</span>(n), <span class="at">shape=</span><span class="fl">2.23978</span>, <span class="at">rate=</span><span class="fl">0.51988</span>),</span>
-<span id="cb615-11"><a href="loglik.html#cb615-11" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;Gamma Q-Q Plot&#39;</span>,</span>
-<span id="cb615-12"><a href="loglik.html#cb615-12" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Theoretical Quantiles&#39;</span>,</span>
-<span id="cb615-13"><a href="loglik.html#cb615-13" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&#39;Sample Quantiles&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="loglik.html#cb631-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb631-2"><a href="loglik.html#cb631-2" tabindex="-1"></a></span>
+<span id="cb631-3"><a href="loglik.html#cb631-3" tabindex="-1"></a><span class="fu">qqplot</span>(<span class="at">y=</span>ma, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb631-4"><a href="loglik.html#cb631-4" tabindex="-1"></a>       <span class="at">x=</span><span class="fu">qnorm</span>(<span class="fu">ppoints</span>(n), <span class="at">mean=</span><span class="fl">4.3083</span>, <span class="at">sd=</span><span class="fl">2.8085</span>),</span>
+<span id="cb631-5"><a href="loglik.html#cb631-5" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;Normal Q-Q Plot&#39;</span>,</span>
+<span id="cb631-6"><a href="loglik.html#cb631-6" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Theoretical Quantiles&#39;</span>,</span>
+<span id="cb631-7"><a href="loglik.html#cb631-7" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&#39;Sample Quantiles&#39;</span>)</span>
+<span id="cb631-8"><a href="loglik.html#cb631-8" tabindex="-1"></a></span>
+<span id="cb631-9"><a href="loglik.html#cb631-9" tabindex="-1"></a><span class="fu">qqplot</span>(<span class="at">y=</span>ma, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb631-10"><a href="loglik.html#cb631-10" tabindex="-1"></a>       <span class="at">x=</span><span class="fu">qgamma</span>(<span class="fu">ppoints</span>(n), <span class="at">shape=</span><span class="fl">2.23978</span>, <span class="at">rate=</span><span class="fl">0.51988</span>),</span>
+<span id="cb631-11"><a href="loglik.html#cb631-11" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;Gamma Q-Q Plot&#39;</span>,</span>
+<span id="cb631-12"><a href="loglik.html#cb631-12" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Theoretical Quantiles&#39;</span>,</span>
+<span id="cb631-13"><a href="loglik.html#cb631-13" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&#39;Sample Quantiles&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:normgamma"></span>
 <img src="Manual_de_R_files/figure-html/normgamma-1.png" alt="Gráfico cuantil cuantil normal y gamma para la muestra simulada." width="864" />
 <p class="caption">
-Figure 18.4: Gráfico cuantil cuantil normal y gamma para la muestra simulada.
+Figure 19.4: Gráfico cuantil cuantil normal y gamma para la muestra simulada.
 </p>
 </div>
-<p>En la Figura <a href="loglik.html#fig:normgamma">18.4</a> se muestran los qqplot solicitados. Se observa claramente que al asumir normalidad (lo cual es incorrecto), los puntos del qqplot no están alineados, mientras que al asumir distribución gamma (lo cual es correcto), los puntos si están alineados. De esta figura se concluye que la muestra <code>ma</code> puede provenir de una <span class="math inline">\(Gamma(2.23978, 0.51988)\)</span>.</p>
+<p>En la Figura <a href="loglik.html#fig:normgamma">19.4</a> se muestran los qqplot solicitados. Se observa claramente que al asumir normalidad (lo cual es incorrecto), los puntos del qqplot no están alineados, mientras que al asumir distribución gamma (lo cual es correcto), los puntos si están alineados. De esta figura se concluye que la muestra <code>ma</code> puede provenir de una <span class="math inline">\(Gamma(2.23978, 0.51988)\)</span>.</p>
 
 <div class="rmdtip">
 Para obtener el gráfico cuantil cuantil bajo normalidad se puede usar directamente la función <code>qqnorm</code>, consultar <span class="citation">Hernández (<a href="#ref-hernandez_correa">2018</a>)</span> para mayores detalles.
@@ -916,9 +934,9 @@ En este ejemplo se eligió la mejor distribución entre dos candidatas usando un
 <ol start="5" style="list-style-type: decimal">
 <li>Para comparar modelos se puede utilizar el <em>Akaike information criterion</em> (<span class="math inline">\(AIC\)</span>) propuesto por <span class="citation">Akaike (<a href="#ref-Akaike74">1974</a>)</span> que sirve para medir la calidad relativa de los modelos estadísticos, la expresión para calcular el indicador es <span class="math inline">\(AIC=-2 \, \hat{l}+2 \, df\)</span>, donde <span class="math inline">\(\hat{l}\)</span> corresponde al valor de <span class="math inline">\(\log\)</span>-verosimilitud y <span class="math inline">\(df\)</span> corresponde al número de parámetros estimados del modelo. Siempre el modelo elegido es aquel modelo con el menor valor de <span class="math inline">\(AIC\)</span>. Calcular el <span class="math inline">\(AIC\)</span> para los modelos asumidos normal y gamma.</li>
 </ol>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="loglik.html#cb616-1" tabindex="-1"></a><span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">logLik</span>(fit1) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># AIC para modelo normal</span></span></code></pre></div>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="loglik.html#cb632-1" tabindex="-1"></a><span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">logLik</span>(fit1) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># AIC para modelo normal</span></span></code></pre></div>
 <pre><code>## &#39;log Lik.&#39; 494.3172 (df=2)</code></pre>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="loglik.html#cb618-1" tabindex="-1"></a><span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">logLik</span>(fit2) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># AIC para modelo gamma</span></span></code></pre></div>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="loglik.html#cb634-1" tabindex="-1"></a><span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">logLik</span>(fit2) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># AIC para modelo gamma</span></span></code></pre></div>
 <pre><code>## &#39;log Lik.&#39; 466.0479 (df=2)</code></pre>
 <p>De los resultados anteriores se concluye que entre los dos modelos, el mejor es el gamma porque su <span class="math inline">\(AIC=466\)</span> es el menor de toos los <span class="math inline">\(AIC\)</span>.</p>
 
@@ -927,11 +945,11 @@ Modelos anidados pueden ser comparados por medio del <em>global deviance</em> (<
 </div>
 </div>
 </div>
-<div id="score-e-información-de-fisher" class="section level2 hasAnchor" number="18.4">
-<h2><span class="header-section-number">18.4</span> Score e Información de Fisher<a href="loglik.html#score-e-información-de-fisher" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="score-e-información-de-fisher" class="section level2 hasAnchor" number="19.4">
+<h2><span class="header-section-number">19.4</span> Score e Información de Fisher<a href="loglik.html#score-e-información-de-fisher" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En esta sección se explican los conceptos y utilidad de la función Score y la Información de Fisher.</p>
-<div id="score-e-información-de-fisher-en-el-caso-univariado." class="section level3 hasAnchor" number="18.4.1">
-<h3><span class="header-section-number">18.4.1</span> Score e Información de Fisher en el caso univariado.<a href="loglik.html#score-e-información-de-fisher-en-el-caso-univariado." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="score-e-información-de-fisher-en-el-caso-univariado." class="section level3 hasAnchor" number="19.4.1">
+<h3><span class="header-section-number">19.4.1</span> Score e Información de Fisher en el caso univariado.<a href="loglik.html#score-e-información-de-fisher-en-el-caso-univariado." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La función Score denotada por <span class="math inline">\(S(\theta)\)</span> se define como la primera derivada de la función de log-verosimilitud así:</p>
 <p><span class="math display">\[
 S(\theta) \equiv \frac{\partial}{\partial \theta} l(\theta)
@@ -947,8 +965,8 @@ I(\theta) \equiv - \frac{\partial^2}{\partial \theta^2} l(\theta)
 <p>Una curvatura grande <span class="math inline">\(I(\hat{\theta})\)</span> está asociada con un gran pico en la función de log-verosimilitud y eso significa una menor incertidumbre sobre el parámetro <span class="math inline">\(\theta\)</span> <span class="citation">(<a href="#ref-pawitan_2013">Pawitan 2013</a>)</span>. En particular la varianza del estimador de máxima verosimilitud está dada por</p>
 <p><span class="math display">\[Var(\hat{\theta})=I^{-1}(\hat{\theta})\]</span></p>
 </div>
-<div id="ejemplo-54" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo<a href="loglik.html#ejemplo-54" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ejemplo-58" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="loglik.html#ejemplo-58" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suponga que se desea estudiar una variable que tiene distribución Poisson con parámetro <span class="math inline">\(\lambda\)</span> desconocido. Suponga además que se tienen dos situciones:</p>
 <ul>
 <li>Un solo valor 5 para estimar <span class="math inline">\(\lambda\)</span>.</li>
@@ -956,29 +974,29 @@ I(\theta) \equiv - \frac{\partial^2}{\partial \theta^2} l(\theta)
 </ul>
 <p>Dibujar la función <span class="math inline">\(l(\lambda)\)</span> para ambos casos e identificar la curvatura.</p>
 <p>A continuación el código para evaluar la función <span class="math inline">\(l(\lambda)\)</span> para cada caso.</p>
-<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="loglik.html#cb620-1" tabindex="-1"></a><span class="co"># Caso 1</span></span>
-<span id="cb620-2"><a href="loglik.html#cb620-2" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>)</span>
-<span id="cb620-3"><a href="loglik.html#cb620-3" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda) <span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x=</span>w, <span class="at">lambda=</span>lambda, <span class="at">log=</span>T))</span>
-<span id="cb620-4"><a href="loglik.html#cb620-4" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll1)</span>
-<span id="cb620-5"><a href="loglik.html#cb620-5" tabindex="-1"></a></span>
-<span id="cb620-6"><a href="loglik.html#cb620-6" tabindex="-1"></a><span class="co"># Caso 2</span></span>
-<span id="cb620-7"><a href="loglik.html#cb620-7" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">15</span>)</span>
-<span id="cb620-8"><a href="loglik.html#cb620-8" tabindex="-1"></a>ll2 <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda) <span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x=</span>y, <span class="at">lambda=</span>lambda, <span class="at">log=</span>T))</span>
-<span id="cb620-9"><a href="loglik.html#cb620-9" tabindex="-1"></a>ll2 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll2)</span></code></pre></div>
-<p>En la Figura <a href="loglik.html#fig:loglikpoisson">18.5</a> se muestran las dos curvas <span class="math inline">\(l(\lambda)\)</span> para cada uno de los casos. De la figura se observa claramente que cuando se tienen 4 observaciones la curva es más puntiaguda y por lo tanto menor incertibumbre sobre el parámetro <span class="math inline">\(\lambda\)</span> a estimar.</p>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="loglik.html#cb636-1" tabindex="-1"></a><span class="co"># Caso 1</span></span>
+<span id="cb636-2"><a href="loglik.html#cb636-2" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>)</span>
+<span id="cb636-3"><a href="loglik.html#cb636-3" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda) <span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x=</span>w, <span class="at">lambda=</span>lambda, <span class="at">log=</span>T))</span>
+<span id="cb636-4"><a href="loglik.html#cb636-4" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll1)</span>
+<span id="cb636-5"><a href="loglik.html#cb636-5" tabindex="-1"></a></span>
+<span id="cb636-6"><a href="loglik.html#cb636-6" tabindex="-1"></a><span class="co"># Caso 2</span></span>
+<span id="cb636-7"><a href="loglik.html#cb636-7" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">15</span>)</span>
+<span id="cb636-8"><a href="loglik.html#cb636-8" tabindex="-1"></a>ll2 <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda) <span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x=</span>y, <span class="at">lambda=</span>lambda, <span class="at">log=</span>T))</span>
+<span id="cb636-9"><a href="loglik.html#cb636-9" tabindex="-1"></a>ll2 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll2)</span></code></pre></div>
+<p>En la Figura <a href="loglik.html#fig:loglikpoisson">19.5</a> se muestran las dos curvas <span class="math inline">\(l(\lambda)\)</span> para cada uno de los casos. De la figura se observa claramente que cuando se tienen 4 observaciones la curva es más puntiaguda y por lo tanto menor incertibumbre sobre el parámetro <span class="math inline">\(\lambda\)</span> a estimar.</p>
 <div class="figure"><span style="display:block;" id="fig:loglikpoisson"></span>
 <img src="Manual_de_R_files/figure-html/loglikpoisson-1.png" alt="Curvas de log-verosimilitud para los dos casos." width="480" />
 <p class="caption">
-Figure 18.5: Curvas de log-verosimilitud para los dos casos.
+Figure 19.5: Curvas de log-verosimilitud para los dos casos.
 </p>
 </div>
 </div>
 </div>
-<div id="método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión" class="section level2 hasAnchor" number="18.5">
-<h2><span class="header-section-number">18.5</span> Método de máxima verosimilitud para estimar parámetros en modelos de regresión<a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión" class="section level2 hasAnchor" number="19.5">
+<h2><span class="header-section-number">19.5</span> Método de máxima verosimilitud para estimar parámetros en modelos de regresión<a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En esta sección se mostrará como estimar los parámetros de un modelo de regresión general.</p>
-<div id="ejemplo-55" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo<a href="loglik.html#ejemplo-55" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ejemplo-59" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="loglik.html#ejemplo-59" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Considere el modelo de regresión mostrado abajo. Simule 1000 observaciones del modelo y use la función <code>optim</code> para estimar los parámetros del modelo.</p>
 <p><span class="math display">\[\begin{align*}
 y_i &amp;\sim N(\mu_i, \sigma^2), \\
@@ -987,21 +1005,21 @@ y_i &amp;\sim N(\mu_i, \sigma^2), \\
 x_1 &amp;\sim U(-5, 6).
 \end{align*}\]</span></p>
 <p>El código mostrado a continuación permite simular un conjunto de valores con la estructura anteior.</p>
-<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="loglik.html#cb621-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb621-2"><a href="loglik.html#cb621-2" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span>n, <span class="at">min=</span><span class="sc">-</span><span class="dv">5</span>, <span class="at">max=</span><span class="dv">6</span>)</span>
-<span id="cb621-3"><a href="loglik.html#cb621-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span><span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> x1, <span class="at">sd=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="loglik.html#cb637-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb637-2"><a href="loglik.html#cb637-2" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span>n, <span class="at">min=</span><span class="sc">-</span><span class="dv">5</span>, <span class="at">max=</span><span class="dv">6</span>)</span>
+<span id="cb637-3"><a href="loglik.html#cb637-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span><span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> x1, <span class="at">sd=</span><span class="dv">5</span>)</span></code></pre></div>
 <p>El vector de parámetros del modelo anterior es <span class="math inline">\(\boldsymbol{\theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top\)</span>, el primer elemento corresponde al intercepto, el segundo a la pendiente y el último a la desviación.</p>
-<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="loglik.html#cb622-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, y, x1) {</span>
-<span id="cb622-2"><a href="loglik.html#cb622-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> x1  <span class="co"># Se define la media</span></span>
-<span id="cb622-3"><a href="loglik.html#cb622-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> theta[<span class="dv">3</span>]                  <span class="co"># Se define la desviación.</span></span>
-<span id="cb622-4"><a href="loglik.html#cb622-4" tabindex="-1"></a>  <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
-<span id="cb622-5"><a href="loglik.html#cb622-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="loglik.html#cb638-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, y, x1) {</span>
+<span id="cb638-2"><a href="loglik.html#cb638-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> x1  <span class="co"># Se define la media</span></span>
+<span id="cb638-3"><a href="loglik.html#cb638-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> theta[<span class="dv">3</span>]                  <span class="co"># Se define la desviación.</span></span>
+<span id="cb638-4"><a href="loglik.html#cb638-4" tabindex="-1"></a>  <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb638-5"><a href="loglik.html#cb638-5" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora vamos a usar la función <code>optim</code> para encontrar los valores que maximizan la función de log-verosimilitud, el código para hacer eso se muestra a continuación. En el parámetro <code>par</code> se coloca un vector de posibles valores de <span class="math inline">\(\boldsymbol{\theta}\)</span> para iniciar la búsqueda, en <code>fn</code> se coloca la función de interés, en <code>lower</code> y <code>upper</code> se colocan vectores que indican los límites de búsqueda de cada parámetro, los <span class="math inline">\(\beta_k\)</span> pueden variar entre <span class="math inline">\(-\infty\)</span> y <span class="math inline">\(\infty\)</span> mientras que el parámetro <span class="math inline">\(\sigma\)</span> toma valores en el intervalo <span class="math inline">\((0, \infty)\)</span>. Como la función <code>minusll</code> tiene argumentos adicionales <code>y</code> e <code>x1</code>, estos pasan a la función <code>optim</code> al final como se muestra en el código.</p>
-<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="loglik.html#cb623-1" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">fn=</span>minusll, <span class="at">method=</span><span class="st">&#39;L-BFGS-B&#39;</span>,</span>
-<span id="cb623-2"><a href="loglik.html#cb623-2" tabindex="-1"></a>              <span class="at">lower=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>), <span class="at">upper=</span><span class="fu">c</span>(<span class="cn">Inf</span>, <span class="cn">Inf</span>, <span class="cn">Inf</span>), </span>
-<span id="cb623-3"><a href="loglik.html#cb623-3" tabindex="-1"></a>              <span class="at">y=</span>y, <span class="at">x1=</span>x1)</span></code></pre></div>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="loglik.html#cb639-1" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">fn=</span>minusll, <span class="at">method=</span><span class="st">&#39;L-BFGS-B&#39;</span>,</span>
+<span id="cb639-2"><a href="loglik.html#cb639-2" tabindex="-1"></a>              <span class="at">lower=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>), <span class="at">upper=</span><span class="fu">c</span>(<span class="cn">Inf</span>, <span class="cn">Inf</span>, <span class="cn">Inf</span>), </span>
+<span id="cb639-3"><a href="loglik.html#cb639-3" tabindex="-1"></a>              <span class="at">y=</span>y, <span class="at">x1=</span>x1)</span></code></pre></div>
 <p>En el objeto <code>res1</code> está el resultado de la optimización, para explorar los resultados usamos</p>
-<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="loglik.html#cb624-1" tabindex="-1"></a>res1</span></code></pre></div>
+<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="loglik.html#cb640-1" tabindex="-1"></a>res1</span></code></pre></div>
 <pre><code>## $par
 ## [1] -1.904603  3.079600  5.014184
 ## 
@@ -1023,15 +1041,15 @@ x_1 &amp;\sim U(-5, 6).
 Cuando se usa <code>optim</code> es necesario decirle que inicie la búsqueda de <span class="math inline">\(\boldsymbol{\theta}\)</span> a partir de un lugar. Por esa razón se usó <code>par=c(0, 0, 1)</code>, esto significa que la búsqueda inicia en el tripleta <span class="math inline">\(\beta_0=0\)</span>, <span class="math inline">\(\beta_1=0\)</span> y <span class="math inline">\(\sigma=1\)</span>.
 </div>
 <p>En algunas ocasiones es mejor hacer la búsqueda de los parámetros en el intervalo <span class="math inline">\((-\infty, \infty)\)</span> que en una región limitada como por ejemplo <span class="math inline">\((0, \infty)\)</span> o <span class="math inline">\((-1, 1)\)</span>, ya que las funciones de búsqueda podrían tener problemas en los bordes de esos intervalos. Una estrategia usual en este tipo de casos es aplicar una transformación apropiada al parámetro que tiene el dominio limitado. En el presente ejemplo <span class="math inline">\(\sigma\)</span> sólo puede tomar valores mayores que cero y una transformación de tipo <span class="math inline">\(\log\)</span> podría ser muy útil ya que <span class="math inline">\(\log\)</span> relaciona los reales positivos con todos los reales. La transformación para este problema sería <span class="math inline">\(\log(\sigma)=\beta_3\)</span> o escrita de forma inversa <span class="math inline">\(\sigma=\exp(\beta_3)\)</span>. El nuevo parámetro <span class="math inline">\(\beta_3\)</span> puede variar en <span class="math inline">\((-\infty, \infty)\)</span> pero al ser transformado por la función exponencial este se volvería un valor apropiado para <span class="math inline">\(\sigma\)</span>. Para implementar esta variación lo único que se debe hacer es modificar la línea 3 de la función <code>minusll</code> como se muestra a continuación:</p>
-<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="loglik.html#cb626-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, y, x1) {</span>
-<span id="cb626-2"><a href="loglik.html#cb626-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> x1  </span>
-<span id="cb626-3"><a href="loglik.html#cb626-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> <span class="fu">exp</span>(theta[<span class="dv">3</span>])  <span class="co"># &lt;&lt;&lt;&lt;&lt;---- El cambio fue aquí</span></span>
-<span id="cb626-4"><a href="loglik.html#cb626-4" tabindex="-1"></a>  <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
-<span id="cb626-5"><a href="loglik.html#cb626-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="loglik.html#cb642-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, y, x1) {</span>
+<span id="cb642-2"><a href="loglik.html#cb642-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> x1  </span>
+<span id="cb642-3"><a href="loglik.html#cb642-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> <span class="fu">exp</span>(theta[<span class="dv">3</span>])  <span class="co"># &lt;&lt;&lt;&lt;&lt;---- El cambio fue aquí</span></span>
+<span id="cb642-4"><a href="loglik.html#cb642-4" tabindex="-1"></a>  <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb642-5"><a href="loglik.html#cb642-5" tabindex="-1"></a>}</span></code></pre></div>
 <p>Para hacer la búsqueda se procede de forma similar, abajo el código necesario.</p>
-<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="loglik.html#cb627-1" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">fn=</span>minusll, <span class="at">method=</span><span class="st">&#39;L-BFGS-B&#39;</span>,</span>
-<span id="cb627-2"><a href="loglik.html#cb627-2" tabindex="-1"></a>              <span class="at">y=</span>y, <span class="at">x1=</span>x1)</span>
-<span id="cb627-3"><a href="loglik.html#cb627-3" tabindex="-1"></a>res2</span></code></pre></div>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="loglik.html#cb643-1" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">fn=</span>minusll, <span class="at">method=</span><span class="st">&#39;L-BFGS-B&#39;</span>,</span>
+<span id="cb643-2"><a href="loglik.html#cb643-2" tabindex="-1"></a>              <span class="at">y=</span>y, <span class="at">x1=</span>x1)</span>
+<span id="cb643-3"><a href="loglik.html#cb643-3" tabindex="-1"></a>res2</span></code></pre></div>
 <pre><code>## $par
 ## [1] -1.904609  3.079598  1.612271
 ## 
@@ -1050,32 +1068,32 @@ Cuando se usa <code>optim</code> es necesario decirle que inicie la búsqueda de
 <p>De la salida anterior se observa que el vector de parámetros estimado es <span class="math inline">\(\hat{\beta}_0 = -1.9046094\)</span>, <span class="math inline">\(\hat{\beta}_1 = 3.0795984\)</span> y <span class="math inline">\(\hat{\sigma} = \exp(1.6122706)=5.0141834\)</span>, se observa también que el valor de la máxima log-verosimilitud fue de -3031.2092104. Vemos entonces que el vector estimado está muy cerca del verdadero <span class="math inline">\(\boldsymbol{\theta}=(\beta_0=-2, \beta_1=3, \sigma=5)^\top\)</span>.</p>
 </div>
 </div>
-<div id="paquete-maxlik" class="section level2 hasAnchor" number="18.6">
-<h2><span class="header-section-number">18.6</span> Paquete maxLik<a href="loglik.html#paquete-maxlik" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="paquete-maxlik" class="section level2 hasAnchor" number="19.6">
+<h2><span class="header-section-number">19.6</span> Paquete maxLik<a href="loglik.html#paquete-maxlik" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El paquete <strong>maxLik</strong> tiene un conjunto de funciones útiles para estación por máxima verosimilitud y varias viñetas que pueden ser consultadas <a href="https://cran.r-project.org/web/packages/maxLik/index.html">en este enlace</a>.</p>
-<div id="ejemplo-56" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo<a href="loglik.html#ejemplo-56" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ejemplo-60" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="loglik.html#ejemplo-60" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En este ejemplo vamos a repetir un ejemplo anterior con la distribución normal.</p>
-<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="loglik.html#cb629-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1235</span>)  <span class="co"># La semilla es 1235</span></span>
-<span id="cb629-2"><a href="loglik.html#cb629-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">mean=</span><span class="dv">170</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
-<span id="cb629-3"><a href="loglik.html#cb629-3" tabindex="-1"></a>y[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]  <span class="co"># Para ver los primeros siete valores generados</span></span></code></pre></div>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="loglik.html#cb645-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1235</span>)  <span class="co"># La semilla es 1235</span></span>
+<span id="cb645-2"><a href="loglik.html#cb645-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">mean=</span><span class="dv">170</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
+<span id="cb645-3"><a href="loglik.html#cb645-3" tabindex="-1"></a>y[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]  <span class="co"># Para ver los primeros siete valores generados</span></span></code></pre></div>
 <pre><code>## [1] 166.5101 163.5757 174.9498 170.5589 170.5710 178.4910 170.2392</code></pre>
 <p>Ahora vamos a crear la función de log-verosimilitud de la siguiente manera:</p>
-<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="loglik.html#cb631-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
-<span id="cb631-2"><a href="loglik.html#cb631-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> param[<span class="dv">1</span>]  <span class="co"># param es el vector de parámetros</span></span>
-<span id="cb631-3"><a href="loglik.html#cb631-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> param[<span class="dv">2</span>] </span>
-<span id="cb631-4"><a href="loglik.html#cb631-4" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
-<span id="cb631-5"><a href="loglik.html#cb631-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="loglik.html#cb647-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
+<span id="cb647-2"><a href="loglik.html#cb647-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> param[<span class="dv">1</span>]  <span class="co"># param es el vector de parámetros</span></span>
+<span id="cb647-3"><a href="loglik.html#cb647-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> param[<span class="dv">2</span>] </span>
+<span id="cb647-4"><a href="loglik.html#cb647-4" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb647-5"><a href="loglik.html#cb647-5" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora vamos a estimar los parametros con el paquete <strong>maxLik</strong>.</p>
-<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="loglik.html#cb632-1" tabindex="-1"></a><span class="fu">library</span>(maxLik)</span>
-<span id="cb632-2"><a href="loglik.html#cb632-2" tabindex="-1"></a></span>
-<span id="cb632-3"><a href="loglik.html#cb632-3" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>,</span>
-<span id="cb632-4"><a href="loglik.html#cb632-4" tabindex="-1"></a>              <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">byrow=</span><span class="cn">TRUE</span>, <span class="at">ncol=</span><span class="dv">2</span>)</span>
-<span id="cb632-5"><a href="loglik.html#cb632-5" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb632-6"><a href="loglik.html#cb632-6" tabindex="-1"></a></span>
-<span id="cb632-7"><a href="loglik.html#cb632-7" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">maxLik</span>(ll, <span class="at">start=</span><span class="fu">c</span>(<span class="at">media=</span><span class="dv">163</span>, <span class="at">desvi=</span><span class="fl">3.4</span>),</span>
-<span id="cb632-8"><a href="loglik.html#cb632-8" tabindex="-1"></a>            <span class="at">constraints=</span><span class="fu">list</span>(<span class="at">ineqA=</span>A, <span class="at">ineqB=</span>B))</span>
-<span id="cb632-9"><a href="loglik.html#cb632-9" tabindex="-1"></a><span class="fu">summary</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="loglik.html#cb648-1" tabindex="-1"></a><span class="fu">library</span>(maxLik)</span>
+<span id="cb648-2"><a href="loglik.html#cb648-2" tabindex="-1"></a></span>
+<span id="cb648-3"><a href="loglik.html#cb648-3" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>,</span>
+<span id="cb648-4"><a href="loglik.html#cb648-4" tabindex="-1"></a>              <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">byrow=</span><span class="cn">TRUE</span>, <span class="at">ncol=</span><span class="dv">2</span>)</span>
+<span id="cb648-5"><a href="loglik.html#cb648-5" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb648-6"><a href="loglik.html#cb648-6" tabindex="-1"></a></span>
+<span id="cb648-7"><a href="loglik.html#cb648-7" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">maxLik</span>(ll, <span class="at">start=</span><span class="fu">c</span>(<span class="at">media=</span><span class="dv">163</span>, <span class="at">desvi=</span><span class="fl">3.4</span>),</span>
+<span id="cb648-8"><a href="loglik.html#cb648-8" tabindex="-1"></a>            <span class="at">constraints=</span><span class="fu">list</span>(<span class="at">ineqA=</span>A, <span class="at">ineqB=</span>B))</span>
+<span id="cb648-9"><a href="loglik.html#cb648-9" tabindex="-1"></a><span class="fu">summary</span>(m)</span></code></pre></div>
 <pre><code>## --------------------------------------------
 ## Maximum Likelihood estimation
 ## Nelder-Mead maximization, 65 iterations
@@ -1168,7 +1186,7 @@ Schwarz, G. 1978. <span>“<span class="nocase">Estimating the dimension of a mo
           </div>
         </div>
       </div>
-<a href="continuas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="normal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="select_dist.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -1200,7 +1218,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/fhernanb/Manual-de-R/edit/master/23_loglik.Rmd",
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/24_loglik.Rmd",
 "text": "Edit"
 },
 "history": {

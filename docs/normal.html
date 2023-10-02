@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>18 Distribución normal | Manual de R</title>
+  <meta name="description" content="18 Distribución normal | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="18 Distribución normal | Manual de R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/images/portada.png" />
+  <meta property="og:description" content="18 Distribución normal | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="github-repo" content="fhernanb/Manual-de-R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="18 Distribución normal | Manual de R" />
+  
+  <meta name="twitter:description" content="18 Distribución normal | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="twitter:image" content="/images/portada.png" />
+
+<meta name="author" content="Freddy Hernández" />
+<meta name="author" content="Olga Usuga" />
+
+
+<meta name="date" content="2023-10-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="continuas.html"/>
+<link rel="next" href="loglik.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Manual de R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#información-del-software-y-convenciones"><i class="fa fa-check"></i>Información del software y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#bloques-informativos"><i class="fa fa-check"></i>Bloques informativos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sobre-los-autores.html"><a href="sobre-los-autores.html"><i class="fa fa-check"></i>Sobre los autores</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#orígenes"><i class="fa fa-check"></i><b>1.1</b> Orígenes</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#instalación"><i class="fa fa-check"></i><b>1.2</b> Instalación</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#apariencia-del-programa"><i class="fa fa-check"></i><b>1.3</b> Apariencia del programa</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>2</b> Tipos de objetos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="objetos.html"><a href="objetos.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="objetos.html"><a href="objetos.html#vectores"><i class="fa fa-check"></i><b>2.2</b> Vectores </a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-vector"><i class="fa fa-check"></i><b>2.2.1</b> ¿Cómo extraer elementos de un vector?</a></li>
+<li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="objetos.html"><a href="objetos.html#matrices"><i class="fa fa-check"></i><b>2.3</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-una-matriz"><i class="fa fa-check"></i><b>2.3.1</b> ¿Cómo extraer elementos de una matriz?</a></li>
+<li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="objetos.html"><a href="objetos.html#arreglos"><i class="fa fa-check"></i><b>2.4</b> Arreglos </a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-arreglo"><i class="fa fa-check"></i><b>2.4.1</b> ¿Cómo extraer elementos de un arreglo?</a></li>
+<li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="objetos.html"><a href="objetos.html#marco-de-datos"><i class="fa fa-check"></i><b>2.5</b> Marco de datos </a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.5.1</b> ¿Cómo extraer elementos de un marco de datos?</a></li>
+<li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="2.5.2" data-path="objetos.html"><a href="objetos.html#cómo-extraer-subconjuntos-de-un-marco-de-datos"><i class="fa fa-check"></i><b>2.5.2</b> ¿Cómo extraer subconjuntos de un marco de datos? </a></li>
+<li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="objetos.html"><a href="objetos.html#listas"><i class="fa fa-check"></i><b>2.6</b> Listas </a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="objetos.html"><a href="objetos.html#cómo-extraer-elementos-de-una-lista"><i class="fa fa-check"></i><b>2.6.1</b> ¿Cómo extraer elementos de una lista?</a></li>
+<li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="objetos.html"><a href="objetos.html#ejercicios"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estilo.html"><a href="estilo.html"><i class="fa fa-check"></i><b>3</b> Guía de estilo</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="estilo.html"><a href="estilo.html#nombres-de-los-archivos"><i class="fa fa-check"></i><b>3.1</b> Nombres de los archivos</a></li>
+<li class="chapter" data-level="3.2" data-path="estilo.html"><a href="estilo.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>3.2</b> Nombres de los objetos</a></li>
+<li class="chapter" data-level="3.3" data-path="estilo.html"><a href="estilo.html#longitud-de-una-línea-de-código"><i class="fa fa-check"></i><b>3.3</b> Longitud de una línea de código</a></li>
+<li class="chapter" data-level="3.4" data-path="estilo.html"><a href="estilo.html#espacios"><i class="fa fa-check"></i><b>3.4</b> Espacios</a></li>
+<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación"><i class="fa fa-check"></i><b>3.5</b> Asignación</a></li>
+<li class="chapter" data-level="3.6" data-path="estilo.html"><a href="estilo.html#punto-y-coma"><i class="fa fa-check"></i><b>3.6</b> Punto y coma</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-la-consola"><i class="fa fa-check"></i><b>4.1</b> Usando la consola</a></li>
+<li class="chapter" data-level="4.2" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#usando-ventana-emergente-con-svdialogs"><i class="fa fa-check"></i><b>4.2</b> Usando ventana emergente con <strong>svDialogs</strong></a></li>
+<li class="chapter" data-level="4.3" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html#botones-para-responder"><i class="fa fa-check"></i><b>4.3</b> Botones para responder</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
+<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#asignación-en-r"><i class="fa fa-check"></i><b>5.2</b> Asignación en R</a>
+<ul>
+<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores"><i class="fa fa-check"></i><b>5.3</b> Operadores</a></li>
+<li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a>
+<ul>
+<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="funbas.html"><a href="funbas.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.5</b> Operadores lógicos</a>
+<ul>
+<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="funbas.html"><a href="funbas.html#funciones-sobre-vectores"><i class="fa fa-check"></i><b>5.6</b> Funciones sobre vectores</a>
+<ul>
+<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="funbas.html"><a href="funbas.html#funciones-matemáticas"><i class="fa fa-check"></i><b>5.7</b> Funciones matemáticas</a></li>
+<li class="chapter" data-level="5.8" data-path="funbas.html"><a href="funbas.html#función-seq"><i class="fa fa-check"></i><b>5.8</b> Función <code>seq</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-10"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="funbas.html"><a href="funbas.html#función-rep"><i class="fa fa-check"></i><b>5.9</b> Función <code>rep</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-11"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-12"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="funbas.html"><a href="funbas.html#funciones-round-ceiling-floor-y-trunc"><i class="fa fa-check"></i><b>5.10</b> Funciones <code>round</code>, <code>ceiling</code>, <code>floor</code> y <code>trunc</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-13"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="funbas.html"><a href="funbas.html#funciones-sort-y-rank"><i class="fa fa-check"></i><b>5.11</b> Funciones <code>sort</code> y <code>rank</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-14"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejercicios-1"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>6</b> Instrucciones de control</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="bucles.html"><a href="bucles.html#instrucción-if"><i class="fa fa-check"></i><b>6.1</b> Instrucción <code>if</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-15"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="bucles.html"><a href="bucles.html#instrucción-if-else"><i class="fa fa-check"></i><b>6.2</b> Instrucción <code>if</code> <code>else</code></a></li>
+<li class="chapter" data-level="6.3" data-path="bucles.html"><a href="bucles.html#instrucción-ifelse"><i class="fa fa-check"></i><b>6.3</b> Instrucción <code>ifelse</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-16"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="bucles.html"><a href="bucles.html#instrucción-for"><i class="fa fa-check"></i><b>6.4</b> Instrucción <code>for</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-17"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="bucles.html"><a href="bucles.html#instrucción-while"><i class="fa fa-check"></i><b>6.5</b> Instrucción <code>while</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-18"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="bucles.html"><a href="bucles.html#instrucción-repeat"><i class="fa fa-check"></i><b>6.6</b> Instrucción <code>repeat</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="bucles.html"><a href="bucles.html#ejemplo-19"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="creafun.html"><a href="creafun.html"><i class="fa fa-check"></i><b>7</b> Creación de funciones en R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="creafun.html"><a href="creafun.html#qué-es-una-función-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Qué es una función en R?</a></li>
+<li class="chapter" data-level="7.2" data-path="creafun.html"><a href="creafun.html#partes-de-una-función-en-r"><i class="fa fa-check"></i><b>7.2</b> Partes de una función en R</a>
+<ul>
+<li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejemplo-23"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="creafun.html"><a href="creafun.html#ejercicios-2"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="read.html"><a href="read.html"><i class="fa fa-check"></i><b>8</b> Lectura de bases de datos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="read.html"><a href="read.html#qué-es-una-base-de-datos"><i class="fa fa-check"></i><b>8.1</b> ¿Qué es una base de datos?</a></li>
+<li class="chapter" data-level="8.2" data-path="read.html"><a href="read.html#en-qué-formato-almacenar-una-base-de-datos"><i class="fa fa-check"></i><b>8.2</b> ¿En qué formato almacenar una base de datos?</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-excel"><i class="fa fa-check"></i><b>8.2.1</b> Almacenamiento de información en Excel</a></li>
+<li class="chapter" data-level="8.2.2" data-path="read.html"><a href="read.html#almacenamiento-de-información-en-bloc-de-notas"><i class="fa fa-check"></i><b>8.2.2</b> Almacenamiento de información en bloc de notas</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="read.html"><a href="read.html#función-read.table"><i class="fa fa-check"></i><b>8.3</b> Función <code>read.table</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-24"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-25"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="read.html"><a href="read.html#lectura-de-bases-de-datos-en-excel"><i class="fa fa-check"></i><b>8.4</b> Lectura de bases de datos en Excel</a>
+<ul>
+<li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejemplo-26"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="read.html"><a href="read.html#ejercicios-3"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>9</b> Tablas de frecuencia</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="tablas.html"><a href="tablas.html#tabla-de-contingencia-con-table"><i class="fa fa-check"></i><b>9.1</b> Tabla de contingencia con <code>table</code> </a>
+<ul>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-una-vía"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de una vía</a></li>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-de-dos-vías"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia de dos vías</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="tablas.html"><a href="tablas.html#función-prop.table"><i class="fa fa-check"></i><b>9.2</b> Función <code>prop.table</code> </a>
+<ul>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-una-vía"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de una vía</a></li>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-tabla-de-frecuencia-relativa-de-dos-vías"><i class="fa fa-check"></i>Ejemplo: tabla de frecuencia relativa de dos vías</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="tablas.html"><a href="tablas.html#función-addmargins"><i class="fa fa-check"></i><b>9.3</b> Función <code>addmargins</code> </a>
+<ul>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-27"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="tablas.html"><a href="tablas.html#función-hist"><i class="fa fa-check"></i><b>9.4</b> Función <code>hist</code> </a>
+<ul>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-28"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejemplo-29"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tablas.html"><a href="tablas.html#ejercicios-4"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="central.html"><a href="central.html"><i class="fa fa-check"></i><b>10</b> Medidas de tendencia central</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="central.html"><a href="central.html#media"><i class="fa fa-check"></i><b>10.1</b> Media </a>
+<ul>
+<li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-30"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-31"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-32"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="central.html"><a href="central.html#mediana"><i class="fa fa-check"></i><b>10.2</b> Mediana </a>
+<ul>
+<li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-33"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="central.html"><a href="central.html#moda"><i class="fa fa-check"></i><b>10.3</b> Moda </a>
+<ul>
+<li class="chapter" data-level="" data-path="central.html"><a href="central.html#ejemplo-34"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="varia.html"><a href="varia.html"><i class="fa fa-check"></i><b>11</b> Medidas de variabilidad</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="varia.html"><a href="varia.html#rango"><i class="fa fa-check"></i><b>11.1</b> Rango </a>
+<ul>
+<li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="varia.html"><a href="varia.html#varianza"><i class="fa fa-check"></i><b>11.2</b> Varianza</a>
+<ul>
+<li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="varia.html"><a href="varia.html#desviación-estándar"><i class="fa fa-check"></i><b>11.3</b> Desviación estándar</a>
+<ul>
+<li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="varia.html"><a href="varia.html#coeficiente-de-variación-cv"><i class="fa fa-check"></i><b>11.4</b> Coeficiente de variación (<span class="math inline">\(CV\)</span>) </a>
+<ul>
+<li class="chapter" data-level="" data-path="varia.html"><a href="varia.html#ejemplo-41"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="posi.html"><a href="posi.html"><i class="fa fa-check"></i><b>12</b> Medidas de posición</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="posi.html"><a href="posi.html#cuantiles"><i class="fa fa-check"></i><b>12.1</b> Cuantiles </a>
+<ul>
+<li class="chapter" data-level="" data-path="posi.html"><a href="posi.html#ejemplo-42"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="correl.html"><a href="correl.html"><i class="fa fa-check"></i><b>13</b> Medidas de correlación</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="correl.html"><a href="correl.html#función-cor"><i class="fa fa-check"></i><b>13.1</b> Función <code>cor</code> </a>
+<ul>
+<li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-43"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-44"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-45"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejemplo-46"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="correl.html"><a href="correl.html#ejercicios-5"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="estadística-descriptiva-con-dplyr.html"><a href="estadística-descriptiva-con-dplyr.html"><i class="fa fa-check"></i><b>14</b> Estadística descriptiva con dplyr</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="estadística-descriptiva-con-dplyr.html"><a href="estadística-descriptiva-con-dplyr.html#medidas-de-tendencia-central-variabilidad-posición-y-correlación"><i class="fa fa-check"></i><b>14.1</b> Medidas de tendencia central, variabilidad, posición y correlación</a></li>
+<li class="chapter" data-level="14.2" data-path="estadística-descriptiva-con-dplyr.html"><a href="estadística-descriptiva-con-dplyr.html#paquete-dplyr"><i class="fa fa-check"></i><b>14.2</b> Paquete dplyr</a></li>
+<li class="chapter" data-level="14.3" data-path="estadística-descriptiva-con-dplyr.html"><a href="estadística-descriptiva-con-dplyr.html#pipes-en-r"><i class="fa fa-check"></i><b>14.3</b> Pipes en R</a></li>
+<li class="chapter" data-level="14.4" data-path="estadística-descriptiva-con-dplyr.html"><a href="estadística-descriptiva-con-dplyr.html#estadística-descriptiva-con-dplyr-1"><i class="fa fa-check"></i><b>14.4</b> Estadística descriptiva con dplyr</a></li>
+<li class="chapter" data-level="14.5" data-path="estadística-descriptiva-con-dplyr.html"><a href="estadística-descriptiva-con-dplyr.html#creando-nuevas-variables"><i class="fa fa-check"></i><b>14.5</b> Creando nuevas variables</a></li>
+<li class="chapter" data-level="14.6" data-path="estadística-descriptiva-con-dplyr.html"><a href="estadística-descriptiva-con-dplyr.html#tablas-de-frecuencia"><i class="fa fa-check"></i><b>14.6</b> Tablas de frecuencia</a></li>
+<li class="chapter" data-level="14.7" data-path="estadística-descriptiva-con-dplyr.html"><a href="estadística-descriptiva-con-dplyr.html#gráficos"><i class="fa fa-check"></i><b>14.7</b> Gráficos</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html"><i class="fa fa-check"></i><b>15</b> Variables aleatorias</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#variable-aleatoria-discreta"><i class="fa fa-check"></i><b>15.1</b> Variable aleatoria discreta</a>
+<ul>
+<li class="chapter" data-level="" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#ejemplo-47"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#variable-aleatoria-continua"><i class="fa fa-check"></i><b>15.2</b> Variable aleatoria continua</a>
+<ul>
+<li class="chapter" data-level="" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#ejemplo-48"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="discretas.html"><a href="discretas.html"><i class="fa fa-check"></i><b>16</b> Distribuciones discretas</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="discretas.html"><a href="discretas.html#funciones-disponibles-para-distribuciones-discretas"><i class="fa fa-check"></i><b>16.1</b> Funciones disponibles para distribuciones discretas</a>
+<ul>
+<li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-binomial"><i class="fa fa-check"></i>Ejemplo binomial</a></li>
+<li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-geométrica"><i class="fa fa-check"></i>Ejemplo geométrica</a></li>
+<li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-binomial-negativa"><i class="fa fa-check"></i>Ejemplo binomial negativa</a></li>
+<li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-hipergeométrica"><i class="fa fa-check"></i>Ejemplo hipergeométrica</a></li>
+<li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-poisson"><i class="fa fa-check"></i>Ejemplo Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="discretas.html"><a href="discretas.html#distribuciones-discretas-generales"><i class="fa fa-check"></i><b>16.2</b> Distribuciones discretas generales</a>
+<ul>
+<li class="chapter" data-level="" data-path="discretas.html"><a href="discretas.html#ejemplo-49"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="continuas.html"><a href="continuas.html"><i class="fa fa-check"></i><b>17</b> Distribuciones continuas</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>17.1</b> Funciones disponibles para distribuciones continuas</a>
+<ul>
+<li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-beta"><i class="fa fa-check"></i>Ejemplo beta</a></li>
+<li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-estándar"><i class="fa fa-check"></i>Ejemplo normal estándar</a></li>
+<li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-general"><i class="fa fa-check"></i>Ejemplo normal general</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>17.2</b> Distribuciones continuas generales</a>
+<ul>
+<li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-50"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="normal.html"><a href="normal.html"><i class="fa fa-check"></i><b>18</b> Distribución normal</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="normal.html"><a href="normal.html#función-de-densidad"><i class="fa fa-check"></i><b>18.1</b> Función de densidad</a></li>
+<li class="chapter" data-level="18.2" data-path="normal.html"><a href="normal.html#visualización-de-la-distribución"><i class="fa fa-check"></i><b>18.2</b> Visualización de la distribución</a></li>
+<li class="chapter" data-level="18.3" data-path="normal.html"><a href="normal.html#características-de-la-distribución-normal"><i class="fa fa-check"></i><b>18.3</b> Características de la Distribución Normal</a></li>
+<li class="chapter" data-level="18.4" data-path="normal.html"><a href="normal.html#funciones-útiles-asociadas-a-la-normal"><i class="fa fa-check"></i><b>18.4</b> Funciones útiles asociadas a la normal</a></li>
+<li class="chapter" data-level="18.5" data-path="normal.html"><a href="normal.html#cálculo-de-probabilidades"><i class="fa fa-check"></i><b>18.5</b> Cálculo de Probabilidades</a>
+<ul>
+<li class="chapter" data-level="" data-path="normal.html"><a href="normal.html#ejemplo-51"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normal.html"><a href="normal.html#ejemplo-52"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normal.html"><a href="normal.html#ejemplo-53"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="normal.html"><a href="normal.html#cálculo-de-cuantiles"><i class="fa fa-check"></i><b>18.6</b> Cálculo de cuantiles</a>
+<ul>
+<li class="chapter" data-level="" data-path="normal.html"><a href="normal.html#ejemplo-54"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="normal.html"><a href="normal.html#ejemplo-de-generación-de-datos"><i class="fa fa-check"></i><b>18.7</b> Ejemplo de generación de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="loglik.html"><a href="loglik.html"><i class="fa fa-check"></i><b>19</b> Verosimilitud</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="loglik.html"><a href="loglik.html#función-de-verosimilitud"><i class="fa fa-check"></i><b>19.1</b> Función de verosimilitud</a></li>
+<li class="chapter" data-level="19.2" data-path="loglik.html"><a href="loglik.html#función-de-log-verosimilitud"><i class="fa fa-check"></i><b>19.2</b> Función de log-verosimilitud</a></li>
+<li class="chapter" data-level="19.3" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros"><i class="fa fa-check"></i><b>19.3</b> Método de máxima verosimilitud para estimar parámetros</a>
+<ul>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-55"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-56"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-57"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher"><i class="fa fa-check"></i><b>19.4</b> Score e Información de Fisher</a>
+<ul>
+<li class="chapter" data-level="19.4.1" data-path="loglik.html"><a href="loglik.html#score-e-información-de-fisher-en-el-caso-univariado."><i class="fa fa-check"></i><b>19.4.1</b> Score e Información de Fisher en el caso univariado.</a></li>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-58"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="19.5" data-path="loglik.html"><a href="loglik.html#método-de-máxima-verosimilitud-para-estimar-parámetros-en-modelos-de-regresión"><i class="fa fa-check"></i><b>19.5</b> Método de máxima verosimilitud para estimar parámetros en modelos de regresión</a>
+<ul>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-59"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="19.6" data-path="loglik.html"><a href="loglik.html#paquete-maxlik"><i class="fa fa-check"></i><b>19.6</b> Paquete maxLik</a>
+<ul>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejemplo-60"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="loglik.html"><a href="loglik.html#ejercicios-6"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="select_dist.html"><a href="select_dist.html"><i class="fa fa-check"></i><b>20</b> Selección de la distribución</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="select_dist.html"><a href="select_dist.html#función-fitdists"><i class="fa fa-check"></i><b>20.1</b> Función <code>fitDists</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="select_dist.html"><a href="select_dist.html#ejemplo-61"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="select_dist.html"><a href="select_dist.html#qué-tipo-de-preguntas-se-podrían-responder-luego"><i class="fa fa-check"></i><b>20.2</b> ¿Qué tipo de preguntas se podrían responder luego?</a>
+<ul>
+<li class="chapter" data-level="" data-path="select_dist.html"><a href="select_dist.html#ejemplo-62"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="select_dist.html"><a href="select_dist.html#ejercicios-7"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="normalidad.html"><a href="normalidad.html"><i class="fa fa-check"></i><b>21</b> Estudiando la normalidad</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="normalidad.html"><a href="normalidad.html#consideraciones-iniciales"><i class="fa fa-check"></i><b>21.1</b> Consideraciones iniciales</a></li>
+<li class="chapter" data-level="21.2" data-path="normalidad.html"><a href="normalidad.html#histograma-y-densidad"><i class="fa fa-check"></i><b>21.2</b> Histograma y densidad</a>
+<ul>
+<li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo densidad con datos simulados</a></li>
+<li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-densidad-del-peso-corporal"><i class="fa fa-check"></i>Ejemplo densidad del peso corporal</a></li>
+</ul></li>
+<li class="chapter" data-level="21.3" data-path="normalidad.html"><a href="normalidad.html#gráficos-cuantil-cuantil"><i class="fa fa-check"></i><b>21.3</b> Gráficos cuantil cuantil </a>
+<ul>
+<li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-1-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 1 QQplot con datos simulados</a></li>
+<li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-2-qqplot-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo 2 QQplot con datos simulados</a></li>
+<li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo QQplot para peso corporal</a></li>
+<li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-qqplot-con-bandas"><i class="fa fa-check"></i>Ejemplo QQplot con bandas</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="normalidad.html"><a href="normalidad.html#pruebas-de-normalidad"><i class="fa fa-check"></i><b>21.4</b> Pruebas de normalidad</a>
+<ul>
+<li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-con-datos-simulados"><i class="fa fa-check"></i>Ejemplo con datos simulados</a></li>
+<li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejemplo-normalidad-para-peso-corporal"><i class="fa fa-check"></i>Ejemplo normalidad para peso corporal</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="normalidad.html"><a href="normalidad.html#ejercicios-8"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="ic.html"><a href="ic.html"><i class="fa fa-check"></i><b>22</b> Intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="ic.html"><a href="ic.html#función-t.test"><i class="fa fa-check"></i><b>22.1</b> Función <code>t.test</code></a>
+<ul>
+<li class="chapter" data-level="22.1.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu"><i class="fa fa-check"></i><b>22.1.1</b> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-63"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="22.1.2" data-path="ic.html"><a href="ic.html#ICDifMed"><i class="fa fa-check"></i><b>22.1.2</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras independientes</a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-64"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="22.1.3" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-medias-mu_1-mu_2-de-muestras-dependientes-o-pareadas"><i class="fa fa-check"></i><b>22.1.3</b> Intervalo de confianza bilateral para la diferencia de medias (<span class="math inline">\(\mu_1-\mu_2\)</span>) de muestras dependientes o pareadas</a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-65"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="22.1.4" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-unilateral-para-la-media-mu"><i class="fa fa-check"></i><b>22.1.4</b> Intervalo de confianza unilateral para la media <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-66"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="22.2" data-path="ic.html"><a href="ic.html#función-var.test"><i class="fa fa-check"></i><b>22.2</b> Función <code>var.test</code></a>
+<ul>
+<li class="chapter" data-level="22.2.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2"><i class="fa fa-check"></i><b>22.2.1</b> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-67"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="22.2.2" data-path="ic.html"><a href="ic.html#ICCocVar"><i class="fa fa-check"></i><b>22.2.2</b> Intervalo de confianza bilateral para la razón de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-68"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="22.3" data-path="ic.html"><a href="ic.html#función-prop.test"><i class="fa fa-check"></i><b>22.3</b> Función <code>prop.test</code></a>
+<ul>
+<li class="chapter" data-level="22.3.1" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p"><i class="fa fa-check"></i><b>22.3.1</b> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span></a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-69"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="22.3.2" data-path="ic.html"><a href="ic.html#intervalo-de-confianza-bilateral-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>22.3.2</b> Intervalo de confianza bilateral para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a></li>
+<li class="chapter" data-level="" data-path="ic.html"><a href="ic.html#ejemplo-70"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="ph.html"><a href="ph.html"><i class="fa fa-check"></i><b>23</b> Prueba de hipótesis</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-de-una-población-normal"><i class="fa fa-check"></i><b>23.1</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> de una población normal</a>
+<ul>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-71"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="23.2" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-mu-con-muestras-grandes"><i class="fa fa-check"></i><b>23.2</b> Prueba de hipótesis para <span class="math inline">\(\mu\)</span> con muestras grandes</a>
+<ul>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-72"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="23.3" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-proporción-p"><i class="fa fa-check"></i><b>23.3</b> Prueba de hipótesis para la proporción <span class="math inline">\(p\)</span></a>
+<ul>
+<li class="chapter" data-level="23.3.1" data-path="ph.html"><a href="ph.html#prueba-de-wald"><i class="fa fa-check"></i><b>23.3.1</b> Prueba de Wald</a></li>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-73"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="23.3.2" data-path="ph.html"><a href="ph.html#prueba-chi2-de-pearson"><i class="fa fa-check"></i><b>23.3.2</b> Prueba <span class="math inline">\(\chi^2\)</span> de Pearson</a></li>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-74"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="23.3.3" data-path="ph.html"><a href="ph.html#prueba-binomial-exacta"><i class="fa fa-check"></i><b>23.3.3</b> Prueba binomial exacta</a></li>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-75"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="23.4" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-varianza-sigma2-de-una-población-normal"><i class="fa fa-check"></i><b>23.4</b> Prueba de hipótesis para la varianza <span class="math inline">\(\sigma^2\)</span> de una población normal</a>
+<ul>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-76"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="23.5" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-el-cociente-de-varianzas-sigma_12-sigma_22"><i class="fa fa-check"></i><b>23.5</b> Prueba de hipótesis para el cociente de varianzas <span class="math inline">\(\sigma_1^2 / \sigma_2^2\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-77"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-78"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="23.6" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-iguales"><i class="fa fa-check"></i><b>23.6</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas iguales</a>
+<ul>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-79"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="23.7" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-mu_1-mu_2-con-varianzas-diferentes"><i class="fa fa-check"></i><b>23.7</b> Prueba de hipótesis para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> con varianzas diferentes</a>
+<ul>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-80"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="23.8" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-proporciones-p_1---p_2"><i class="fa fa-check"></i><b>23.8</b> Prueba de hipótesis para la diferencia de proporciones <span class="math inline">\(p_1 - p_2\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-81"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="23.9" data-path="ph.html"><a href="ph.html#prueba-de-hipótesis-para-la-diferencia-de-medias-pareadas"><i class="fa fa-check"></i><b>23.9</b> Prueba de hipótesis para la diferencia de medias pareadas</a>
+<ul>
+<li class="chapter" data-level="" data-path="ph.html"><a href="ph.html#ejemplo-82"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="aproxint.html"><a href="aproxint.html"><i class="fa fa-check"></i><b>24</b> Aproximación de integrales</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="aproxint.html"><a href="aproxint.html#aproximación-de-laplace-unidimensional"><i class="fa fa-check"></i><b>24.1</b> Aproximación de Laplace unidimensional</a>
+<ul>
+<li class="chapter" data-level="" data-path="aproxint.html"><a href="aproxint.html#ejemplo-83"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="empiricaldists.html"><a href="empiricaldists.html"><i class="fa fa-check"></i><b>25</b> Distribuciones empíricas</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="empiricaldists.html"><a href="empiricaldists.html#una-variable"><i class="fa fa-check"></i><b>25.1</b> Una variable</a>
+<ul>
+<li class="chapter" data-level="" data-path="empiricaldists.html"><a href="empiricaldists.html#ejemplo-84"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="normalmulti.html"><a href="normalmulti.html"><i class="fa fa-check"></i><b>26</b> Distribución normal multivariada</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="normalmulti.html"><a href="normalmulti.html#función-de-densidad-1"><i class="fa fa-check"></i><b>26.1</b> Función de densidad</a>
+<ul>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-85"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-86"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-87"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="26.2" data-path="normalmulti.html"><a href="normalmulti.html#simulando-de-una-normal-multivariada"><i class="fa fa-check"></i><b>26.2</b> Simulando de una normal multivariada</a>
+<ul>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-88"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-89"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-90"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="26.3" data-path="normalmulti.html"><a href="normalmulti.html#calculando-probabilidades"><i class="fa fa-check"></i><b>26.3</b> Calculando probabilidades</a>
+<ul>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-91"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="26.4" data-path="normalmulti.html"><a href="normalmulti.html#distancia-de-mahalanobis"><i class="fa fa-check"></i><b>26.4</b> Distancia de Mahalanobis</a>
+<ul>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-92"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="26.5" data-path="normalmulti.html"><a href="normalmulti.html#ellipse-o-contornos-de-confianza"><i class="fa fa-check"></i><b>26.5</b> Ellipse o contornos de confianza</a>
+<ul>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-93"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-94"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="26.6" data-path="normalmulti.html"><a href="normalmulti.html#estimando-los-parámetros-boldsymbolmu-y-boldsymbolsigma"><i class="fa fa-check"></i><b>26.6</b> Estimando los parámetros <span class="math inline">\(\boldsymbol{\mu}\)</span> y <span class="math inline">\(\boldsymbol{\Sigma}\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-95"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejemplo-96"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="26.7" data-path="normalmulti.html"><a href="normalmulti.html#distribución-wishart"><i class="fa fa-check"></i><b>26.7</b> Distribución Wishart</a></li>
+<li class="chapter" data-level="26.8" data-path="normalmulti.html"><a href="normalmulti.html#mezcla-de-dos-normales-multivariadas"><i class="fa fa-check"></i><b>26.8</b> Mezcla de dos normales multivariadas</a></li>
+<li class="chapter" data-level="" data-path="normalmulti.html"><a href="normalmulti.html#ejercicios-9"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="curio.html"><a href="curio.html"><i class="fa fa-check"></i><b>27</b> Curiosidades</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="curio.html"><a href="curio.html#cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática"><i class="fa fa-check"></i><b>27.1</b> ¿Cómo verificar si un paquete no está instalado para instalarlo de forma automática?</a>
+<ul>
+<li class="chapter" data-level="" data-path="curio.html"><a href="curio.html#ejemplo-97"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Manual de R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="normal" class="section level1 hasAnchor" number="18">
+<h1><span class="header-section-number">18</span> Distribución normal<a href="normal.html#normal" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>En este capítulo se mostrará en detalle la distribución normal, la distribución más importante en estadística.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:personasnormal"></span>
+<img src="images/personas_en_normal.jpg" alt="Personas formando la normal con su estatura." width="100%" />
+<p class="caption">
+Figure 18.1: Personas formando la normal con su estatura.
+</p>
+</div>
+<p>A continuación un video donde se explica de manera sencilla la distribución normal.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ga9md4GPFhE?si=Ow6JmnAQfLXNuWEL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<div id="función-de-densidad" class="section level2 hasAnchor" number="18.1">
+<h2><span class="header-section-number">18.1</span> Función de densidad<a href="normal.html#función-de-densidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La distribución normal, también conocida como distribución gaussiana o curva de campana, es una de las distribuciones de probabilidad más importantes en estadística. Se caracteriza por ser simétrica y tiene una forma de campana. Su función de densidad de probabilidad se define mediante la siguiente ecuación:</p>
+<p><span class="math display">\[
+f(x | \mu, \sigma^2) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2} \left(\frac{x - \mu}{\sigma}\right)^2},
+\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(x\)</span> es el valor de la variable aleatoria <span class="math inline">\(X\)</span>.</li>
+<li><span class="math inline">\(\mu\)</span> es la media (promedio) de la distribución.</li>
+<li><span class="math inline">\(\sigma\)</span> es la desviación estándar, que mide la dispersión de los datos.</li>
+</ul>
+
+<div class="rmdnote">
+Si una variable aleatoria <span class="math inline">\(X\)</span> se distribuye normal con media <span class="math inline">\(\mu\)</span> y desviación estándar <span class="math inline">\(\sigma\)</span>, esto se denota por <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>.
+</div>
+</div>
+<div id="visualización-de-la-distribución" class="section level2 hasAnchor" number="18.2">
+<h2><span class="header-section-number">18.2</span> Visualización de la distribución<a href="normal.html#visualización-de-la-distribución" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Generemos un gráfico de la función de densidad de probabilidad de la distribución normal estándar.</p>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="normal.html#cb585-1" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>), </span>
+<span id="cb585-2"><a href="normal.html#cb585-2" tabindex="-1"></a>      <span class="at">from=</span><span class="sc">-</span><span class="dv">4</span>, <span class="at">to=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,</span>
+<span id="cb585-3"><a href="normal.html#cb585-3" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">&quot;N(0, 1)&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;f(x)&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:distnorm1"></span>
+<img src="Manual_de_R_files/figure-html/distnorm1-1.png" alt="Ejemplo 1 de distribución normal." width="576" />
+<p class="caption">
+Figure 18.2: Ejemplo 1 de distribución normal.
+</p>
+</div>
+<p>En el gráfico anterior, la curva azul representa la distribución normal estándar. Como se puede observar, tiene una forma de campana y es simétrica en torno a la media de 0.</p>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="normal.html#cb586-1" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span><span class="fl">1.65</span>, <span class="at">sd=</span><span class="fl">0.15</span>), </span>
+<span id="cb586-2"><a href="normal.html#cb586-2" tabindex="-1"></a>      <span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;tomato&quot;</span>,</span>
+<span id="cb586-3"><a href="normal.html#cb586-3" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">&quot;N(mu=1.65, sigma2=0.15^2)&quot;</span>, </span>
+<span id="cb586-4"><a href="normal.html#cb586-4" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;f(x)&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:distnorm2"></span>
+<img src="Manual_de_R_files/figure-html/distnorm2-1.png" alt="Ejemplo 2 de distribución normal." width="576" />
+<p class="caption">
+Figure 18.3: Ejemplo 2 de distribución normal.
+</p>
+</div>
+<p>Vamos a comparar el efecto de la media y la desviación.</p>
+<div class="figure"><span style="display:block;" id="fig:norm3"></span>
+<img src="Manual_de_R_files/figure-html/norm3-1.png" alt="Varias densidades normal." width="576" />
+<p class="caption">
+Figure 18.4: Varias densidades normal.
+</p>
+</div>
+</div>
+<div id="características-de-la-distribución-normal" class="section level2 hasAnchor" number="18.3">
+<h2><span class="header-section-number">18.3</span> Características de la Distribución Normal<a href="normal.html#características-de-la-distribución-normal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La distribución normal tiene las siguientes características clave:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Simetría</strong>: Es simétrica alrededor de la media (<span class="math inline">\(\mu\)</span>), lo que significa que las colas izquierda y derecha de la distribución son idénticas.</p></li>
+<li><p><strong>Unimodal</strong>: Tiene un solo pico en la media (<span class="math inline">\(\mu\)</span>).</p></li>
+<li><p><strong>Forma de Campana</strong>: La función de densidad de probabilidad forma una curva en forma de campana.</p></li>
+<li><p><strong>Regla Empírica</strong>: Aproximadamente el 68% de los datos caen dentro de una desviación estándar de la media, el 95% dentro de dos desviaciones estándar y el 99.7% dentro de tres desviaciones estándar.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:reglaEmpiricNormal"></span>
+<img src="images/regla_empirica_normal.png" alt="Regla empírica normal." width="80%" />
+<p class="caption">
+Figure 18.5: Regla empírica normal.
+</p>
+</div>
+</div>
+<div id="funciones-útiles-asociadas-a-la-normal" class="section level2 hasAnchor" number="18.4">
+<h2><span class="header-section-number">18.4</span> Funciones útiles asociadas a la normal<a href="normal.html#funciones-útiles-asociadas-a-la-normal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Algunas de las funciones asociadas a la normal son</p>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="normal.html#cb587-1" tabindex="-1"></a><span class="fu">dnorm</span>(x, mean, sd)                    <span class="co"># Calcula f(x)</span></span>
+<span id="cb587-2"><a href="normal.html#cb587-2" tabindex="-1"></a><span class="fu">pnorm</span>(q, mean, sd, <span class="at">lower.tail=</span><span class="cn">TRUE</span>)   <span class="co"># Calcula P(X&lt;x)</span></span>
+<span id="cb587-3"><a href="normal.html#cb587-3" tabindex="-1"></a><span class="fu">qnorm</span>(p, mean, sd, <span class="at">lower.tail=</span><span class="cn">TRUE</span>)   <span class="co"># Calcula q tal que P(X&lt;q) = p</span></span>
+<span id="cb587-4"><a href="normal.html#cb587-4" tabindex="-1"></a><span class="fu">rnorm</span>(n, mean, sd)                    <span class="co"># Genera números aleatorios</span></span></code></pre></div>
+</div>
+<div id="cálculo-de-probabilidades" class="section level2 hasAnchor" number="18.5">
+<h2><span class="header-section-number">18.5</span> Cálculo de Probabilidades<a href="normal.html#cálculo-de-probabilidades" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Calculemos algunas probabilidades utilizando la función <code>pnorm(q, mean, sd)</code>. Los casos usuales de probabilidades en distribución normal se muestran en la siguiente figura.</p>
+<div class="figure"><span style="display:block;" id="fig:casesDistNormal"></span>
+<img src="Manual_de_R_files/figure-html/casesDistNormal-1.png" alt="Casos de probabilidades en distribución normal." width="480" />
+<p class="caption">
+Figure 18.6: Casos de probabilidades en distribución normal.
+</p>
+</div>
+
+<div class="rmdwarning">
+Recuerde que <code>pnorm()</code> nos da la probabilidad de cola a izquierda.
+</div>
+<div id="ejemplo-51" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="normal.html#ejemplo-51" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suponga que <span class="math inline">\(Z \sim N(0, 1)\)</span>. Calcular <span class="math inline">\(P(Z &lt; 1.5)\)</span>.</p>
+<p>Para calcular esta probabilidad utilizamos el siguiente código:</p>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="normal.html#cb588-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">1.5</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9331928</code></pre>
+<p>La probabilidad de que <span class="math inline">\(Z\)</span> sea menor que 1.5 en la distribución normal estándar es aproximadamente 93.32%.</p>
+</div>
+<div id="ejemplo-52" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="normal.html#ejemplo-52" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suponga que <span class="math inline">\(Y \sim N(5, 9)\)</span>. Calcular <span class="math inline">\(P(Y &gt; 5.3)\)</span>.</p>
+<p>Para obtener la probabilidad lo podemos hacer de dos formas.</p>
+<p><strong>Forma 1</strong></p>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="normal.html#cb590-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">5.3</span>, <span class="at">mean=</span><span class="dv">5</span>, <span class="at">sd=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 0.4601722</code></pre>
+<p><strong>Forma 2</strong></p>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="normal.html#cb592-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">5.3</span>, <span class="at">mean=</span><span class="dv">5</span>, <span class="at">sd=</span><span class="dv">3</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.4601722</code></pre>
+<p>La probabilidad de que <span class="math inline">\(Y\)</span> sea mayor que 5.3 es aproximadamente 46.01%.</p>
+</div>
+<div id="ejemplo-53" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="normal.html#ejemplo-53" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suponga que <span class="math inline">\(W \sim N(150, 25)\)</span>. Calcular <span class="math inline">\(P(140 &lt; W &lt; 156)\)</span>.</p>
+<p>Para calcular esta probabilidad utilizamos el siguiente código:</p>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="normal.html#cb594-1" tabindex="-1"></a>p_156 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">156</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
+<span id="cb594-2"><a href="normal.html#cb594-2" tabindex="-1"></a>p_140 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">140</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
+<span id="cb594-3"><a href="normal.html#cb594-3" tabindex="-1"></a>p_156 <span class="sc">-</span> p_140</span></code></pre></div>
+<pre><code>## [1] 0.8621802</code></pre>
+<p>La probabilidad de que <span class="math inline">\(P(140 &lt; W &lt; 156)\)</span> es aproximadamente 86.21%.</p>
+</div>
+</div>
+<div id="cálculo-de-cuantiles" class="section level2 hasAnchor" number="18.6">
+<h2><span class="header-section-number">18.6</span> Cálculo de cuantiles<a href="normal.html#cálculo-de-cuantiles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Calcular un cuantil significa que estamos interesados en averiguar el valor de la variable aleatoria <span class="math inline">\(X\)</span> tal que <span class="math inline">\(P(X&lt;q) = p\)</span>, en otras palabras, aquí sabemos que la probabilidad vale <span class="math inline">\(p\)</span> y nosotros debemos obtener el valor de <span class="math inline">\(q\)</span> que la probabilidad a la izquierda sea ese valor <span class="math inline">\(p\)</span>. En la siguiente figura se muestra una ilustración del problema.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:quantileProblem"></span>
+<img src="images/quantile_problem.png" alt="Calculando un cuantil." width="80%" />
+<p class="caption">
+Figure 18.7: Calculando un cuantil.
+</p>
+</div>
+<div id="ejemplo-54" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="normal.html#ejemplo-54" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>(Ejercicio propuesto 14) La duración de un determinado tipo de lavadora automática tiene una distribución normal con una media de 3.1 años y una desviación estándar de 1.2 años. El fabricante quiere ofrecer un cambio de lavadora al 15% de las lavadoras que duren menos. ¿Cuál es el tiempo de duración máximo que debería poner en la publicidad para reponer solo el 15% de las lavadoras.</p>
+<p>Gráficamente el problema se puede resumir de la siguiente manera.</p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="normal.html#cb596-1" tabindex="-1"></a><span class="fu">shadow.dist</span>(<span class="at">dist=</span><span class="st">&#39;dnorm&#39;</span>, <span class="at">param=</span><span class="fu">list</span>(<span class="at">mean=</span><span class="fl">3.1</span>, <span class="at">sd=</span><span class="fl">1.2</span>),</span>
+<span id="cb596-2"><a href="normal.html#cb596-2" tabindex="-1"></a>            <span class="at">a=</span><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.15</span>, <span class="at">mean=</span><span class="fl">3.1</span>, <span class="at">sd=</span><span class="fl">1.2</span>), <span class="at">type=</span><span class="st">&#39;lower&#39;</span>, <span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">6</span>,</span>
+<span id="cb596-3"><a href="normal.html#cb596-3" tabindex="-1"></a>            <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb596-4"><a href="normal.html#cb596-4" tabindex="-1"></a>            <span class="at">col.shadow=</span><span class="st">&#39;springgreen3&#39;</span>, <span class="at">xlab=</span><span class="st">&#39;X&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span>
+<span id="cb596-5"><a href="normal.html#cb596-5" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x=</span><span class="fl">1.3</span>, <span class="at">y=</span><span class="fl">0.05</span>, <span class="st">&quot;0.15&quot;</span>, <span class="at">col=</span><span class="st">&quot;yellow1&quot;</span>, <span class="at">cex=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="Manual_de_R_files/figure-html/cuantilNormal1-1.png" width="672" /></p>
+<p>Para calcular el valor solicitado usamos el siguiente código:</p>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="normal.html#cb597-1" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.15</span>, <span class="at">mean=</span><span class="fl">3.1</span>, <span class="at">sd=</span><span class="fl">1.2</span>)</span></code></pre></div>
+<pre><code>## [1] 1.85628</code></pre>
+<p>Del resultado anterior podemos afirmar que el anuncio publicitario debería decir algo como “Si su lavadora dura 1.85 años o menos, nosotros se la reemplazaremos por una nueva lavadora”. De esa manera el fabricante sólo debería tener un 15% de reclamaciones.</p>
+</div>
+</div>
+<div id="ejemplo-de-generación-de-datos" class="section level2 hasAnchor" number="18.7">
+<h2><span class="header-section-number">18.7</span> Ejemplo de generación de datos<a href="normal.html#ejemplo-de-generación-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Vamos a generar datos aleatorios a partir de una distribución normal y visualizarlos en un histograma.</p>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="normal.html#cb599-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb599-2"><a href="normal.html#cb599-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span></code></pre></div>
+<p>Crear un histograma</p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="normal.html#cb600-1" tabindex="-1"></a><span class="fu">hist</span>(datos, <span class="at">main=</span><span class="st">&quot;Histograma de datos generados aleatoriamente&quot;</span>, </span>
+<span id="cb600-2"><a href="normal.html#cb600-2" tabindex="-1"></a>     <span class="at">freq=</span><span class="cn">FALSE</span>, <span class="at">col=</span><span class="st">&quot;lightblue&quot;</span>, <span class="at">border=</span><span class="st">&quot;black&quot;</span>,</span>
+<span id="cb600-3"><a href="normal.html#cb600-3" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;X&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Frecuencia&quot;</span>)</span></code></pre></div>
+<p><img src="Manual_de_R_files/figure-html/histNormalAleat-1.png" width="672" /></p>
+<p>En el histograma anterior, hemos generado 1000 puntos de datos aleatorios de una distribución normal estándar (<span class="math inline">\(\mu = 0\)</span> y <span class="math inline">\(\sigma = 1\)</span>). Como puedes ver, el histograma tiene una forma de campana.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="continuas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="loglik.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/23_Normal.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Manual_de_R.pdf", "Manual_de_R.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -202,7 +202,6 @@ shadow.dist(dist='dnorm', param=list(mean=10, sd=2),
             col.shadow='yellow1', xlab='Diámetro', ylab='Densidad')
 ```
 
-
 ## Distribuciones continuas generales
 
 En la práctica nos podemos encontramos con variables aleatorias continuas que no se ajustan a una de las distribuciones mostradas anteriormente, en esos casos, es posible manejar ese tipo de variables por medio de unas funciones básicas de R como se muestra en el siguiente ejemplo.
