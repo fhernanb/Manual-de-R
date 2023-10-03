@@ -282,4 +282,78 @@ curve(dnorm(x, mean=150, sd=5), lwd=3, col="tomato", add=TRUE)
 
 En el histograma tiene una forma de campana y es parecido a la densidad teórica de color rojo. Entre más valores se simulen, mejor se verá el histograma y se parecerá cada vez más a la densidad teórica.
 
-## Estimación de 
+## Estimación de los parámetros $\mu$ y $\sigma$
+
+En el paquete **MASS** de R hay una función llamada `fitdistr()` que sirve para estimar los parámetros de varias distribuciones, entre ellas la distribución normal. La estructura de la función es la siguiente:
+
+```{r eval=FALSE}
+fitdistr(x, densfun)
+```
+
+Los parámetros de la función son:
+
+- `x`: vector con los datos.
+- `densfun`: nombre de la distribución que se asume para los datos. Los posibles valores son "beta", "cauchy", "chi-squared", "exponential", "gamma", "geometric", "log-normal", "lognormal", "logistic", "negative binomial", "normal", "Poisson", "t" y "weibull".
+
+### Ejemplo {-}
+Suponga que vamos a simular observaciones una $N(150, 81)$.
+a) Genere $n=15$ observaciones y con los datos simulados estime $\mu$ y $\sigma$.
+b) Genere $n=1500$ observaciones y con los datos simulados estime $\mu$ y $\sigma$.
+c) Compare los resultados y concluya.
+
+_Solución_
+
+Vamos a simular la primera muestra.
+
+```{r}
+library(MASS)
+set.seed(123)
+x1 <- rnorm(n=15, mean=150, s=9)
+fitdistr(x=x1, densfun="normal")
+```
+
+De la salida anterior tenemos que $\hat{\mu}=151.37$ y $\hat{\sigma}=7.35$.
+
+```{block2, type="rmdnote"}
+Los valores entre paréntesis que salen al usar `fitdistr` se llaman "errores estándar", son la variabilidad que tiene la estimación.
+```
+
+Vamos a simular la segunda muestra.
+
+```{r}
+set.seed(1234)
+x2 <- rnorm(n=1500, mean=150, sd=9)
+fitdistr(x=x2, densfun="normal")
+```
+
+De la salida anterior tenemos que $\hat{\mu}=149.94$ y $\hat{\sigma}=8.80$.
+
+Al comparar las estimaciones vemos que $\hat{\mu}$ y $\hat{\sigma}$ son más cercanos a los verdaderos valores cuando $n=1500$. Esto significa que al tener un tamaño muestral mayor, las estimaciones son mejores.
+
+Otra cosa interesante es que los errores estándar disminuyen al aumentar el tamaño de la muestra. Esto es coherente, al tener mayor información, mejor es la estimación.
+
+## Ejercicios
+
+1) Determinar las siguientes probabilidades para la variable aleatoria normal estándar (Dibuje una curva normal y sombree el área bajo la curva):
+
+a)	P (Z < 1.32 )
+b)	P (-2.34 < Z < 1.76 )
+c)	P (Z < 3)
+d)	P (0 < Z < 1)
+e)	P (Z > 1.457)
+f)	P (-3 < Z < 3)
+g)	P (Z > -2.153)
+Rtas: 0.9066, 0.9511, 0.9986, 0.3413, 0.0726, 0. 9973, 0.9843
+
+2)	Suponga que Z tiene una distribución normal estándar. Determine el valor de z que resuelve las siguientes probabilidades (Dibuje una curva normal, sombree el área bajo la curva y ponga los valores correspondientes en el eje horizontal):
+
+a)	P (-z < Z < z) = 0.95
+b)	P (Z < z) = 0.9
+c)	P (-z < Z < z) = 0.99
+d)	P (Z < z) = 0.5
+e)	P (-z < Z < z) = 0.684
+f)	P(Z > z) = 0.1
+g)	P (-z < Z < z) = 0.9973
+h)	P (-1.24 < Z < z) = 0.8
+Rtas: 1.96, 1.28, 2.58, 0, -1, la misma del literal b, 3, 
+
