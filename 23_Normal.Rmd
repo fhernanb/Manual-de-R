@@ -10,7 +10,6 @@ A continuación un video donde se explica de manera sencilla la distribución no
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ga9md4GPFhE?si=Ow6JmnAQfLXNuWEL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-
 ## Función de densidad
 
 La distribución normal, también conocida como distribución gaussiana o curva de campana, es una de las distribuciones de probabilidad más importantes en estadística. Se caracteriza por ser simétrica y tiene una forma de campana. Su función de densidad de probabilidad se define mediante la siguiente ecuación:
@@ -26,7 +25,7 @@ donde:
 - \(\sigma\) es la desviación estándar, que mide la dispersión de los datos.
 
 ```{block2, type="rmdnote"}
-Si una variable aleatoria $X$ se distribuye normal con media $\mu$ y desviación estándar $\sigma$, esto se denota por $X \sim N(\mu, \sigma^2)$.
+Si una variable aleatoria $X$ se distribuye normal con media $\mu$ y varianza $\sigma^2$, esto se denota por $X \sim N(\mu, \sigma^2)$. El segundo elemento de la notación es la varianza, no la desviación estándar.
 ```
 
 ## Visualización de la distribución
@@ -95,7 +94,7 @@ Algunas de las funciones asociadas a la normal son
 
 ```{r eval=FALSE}
 dnorm(x, mean, sd)                    # Calcula f(x)
-pnorm(q, mean, sd, lower.tail=TRUE)   # Calcula P(X<x)
+pnorm(q, mean, sd, lower.tail=TRUE)   # Calcula P(X<q)
 qnorm(p, mean, sd, lower.tail=TRUE)   # Calcula q tal que P(X<q) = p
 rnorm(n, mean, sd)                    # Genera números aleatorios
 ```
@@ -104,16 +103,16 @@ rnorm(n, mean, sd)                    # Genera números aleatorios
 
 Calculemos algunas probabilidades utilizando la función `pnorm(q, mean, sd)`. Los casos usuales de probabilidades en distribución normal se muestran en la siguiente figura.
 
-```{r casesDistNormal, fig.cap='Casos de probabilidades en distribución normal.', fig.height=10, fig.width=5, echo=FALSE, message=FALSE}
+```{r casesDistNormal, fig.cap='Casos de probabilidades en distribución normal.', fig.height=6, fig.width=8, echo=FALSE, message=FALSE}
 require(usefultools)
-par(mfrow=c(3, 1))
+par(mfrow=c(2, 2))
 shadow.dist(dist='dnorm', param=list(mean=10, sd=2),
             a=8, type='lower', from=4, to=16,
             main='Cola a izquierda', las=1,
             col.shadow='springgreen3', xlab='X', ylab='Densidad')
 
 shadow.dist(dist='dnorm', param=list(mean=10, sd=2),
-            a=8, b=12, type='middle', from=4, to=16,
+            a=8, b=14, type='middle', from=4, to=16,
             main='Entre dos valores', las=1, 
             col.shadow='tomato', xlab='X', ylab='Densidad')
 
@@ -122,15 +121,23 @@ shadow.dist(dist='dnorm', param=list(mean=10, sd=2),
             from=4, to=16,
             main='Cola a derecha', las=1,
             col.shadow='yellow1', xlab='X', ylab='Densidad')
+
+shadow.dist(dist='dnorm', param=list(mean=10, sd=2),
+            a=8, b=12, type='two', 
+            from=4, to=16,
+            main='Ambas colas', las=1,
+            col.shadow='pink', xlab='X', ylab='Densidad')
 ```
 
 ```{block2, type="rmdwarning"}
-Recuerde que `pnorm()` nos da la probabilidad de cola a izquierda.
+Recuerde que `pnorm()` entrega la probabilidad de cola a izquierda.
 ```
 
 ### Ejemplo {-}
 
 Suponga que $Z \sim N(0, 1)$. Calcular \( P(Z < 1.5) \).
+
+_Solución_
 
 Para calcular esta probabilidad utilizamos el siguiente código:
 
@@ -143,6 +150,8 @@ La probabilidad de que \(Z\) sea menor que 1.5 en la distribución normal están
 ### Ejemplo {-}
 
 Suponga que $Y \sim N(5, 9)$. Calcular \( P(Y > 5.3) \).
+
+_Solución_
 
 Para obtener la probabilidad lo podemos hacer de dos formas.
 
@@ -164,6 +173,8 @@ La probabilidad de que \(Y\) sea mayor que 5.3 es aproximadamente 46.01%.
 
 Suponga que $W \sim N(150, 25)$. Calcular \( P(140 < W < 156) \).
 
+_Solución_
+
 Para calcular esta probabilidad utilizamos el siguiente código:
 
 ```{r}
@@ -174,17 +185,52 @@ p_156 - p_140
 
 La probabilidad de que \( P(140 < W < 156) \) es aproximadamente 86.21%.
 
+### Ejemplo {-}
+
+Suponga que $Q \sim N(16, 16)$. Calcular \( P(Q < 14 \, \text{ó} \, Q > 18) \).
+
+_Solución_
+
+Para calcular esta probabilidad utilizamos el siguiente código:
+
+```{r}
+cola_izq_de_14 <- pnorm(q=14, mean=16, sd=4)
+cola_der_de_18 <- pnorm(q=18, mean=16, sd=4, lower.tail=FALSE)
+rta <- cola_izq_de_14 + cola_der_de_18
+rta
+```
+
+La probabilidad de que \( P(Q < 14 \, \text{ó} \, Q > 18) \) es aproximadamente 61.71%.
+
+### Ejemplo {-}
+
+Una empresa tiene 1700 empleados y los sueldos mensuales de los empleados siguen una distribución normal con media de 4.5 millones de pesos, con una desviación estándar de 1.2 millones de pesos. ¿Cuál es el número esperado de trabajadores que reciben sueldos entre 3 y 5 millones de pesos?
+
+_Solución_
+
+Para calcular esta probabilidad utilizamos el siguiente código:
+
+```{r}
+p_3 <- pnorm(q=3, mean=4.5, sd=1.2)
+p_5 <- pnorm(q=5, mean=4.5, sd=1.2)
+1700 * (p_5 - p_3)
+```
+
+Primero se calcula la probabilidad de que \( P(3 < S < 5) \) y luego se multiplica por el número de empleados, eso nos da que aproximadamente 945 empleados reciben sueldos entre 3 y 5 millones de pesos.
+
 ## Cálculo de cuantiles
 
 Calcular un cuantil significa que estamos interesados en averiguar el valor de la variable aleatoria $X$ tal que $P(X<q) = p$, en otras palabras, aquí sabemos que la probabilidad vale $p$ y nosotros debemos obtener el valor de $q$ que la probabilidad a la izquierda sea ese valor $p$. En la siguiente figura se muestra una ilustración del problema.
 
-```{r quantileProblem, echo=FALSE, fig.cap='Calculando un cuantil.', dpi=300, fig.align='center', out.width = '80%'}
+```{r quantileProblem, echo=FALSE, fig.cap='Calculando un cuantil.', dpi=200, fig.align='center', out.width = '80%'}
 knitr::include_graphics("images/quantile_problem.png")
 ```
 
 ### Ejemplo {-}
 
 (Ejercicio propuesto 14) La duración de un determinado tipo de lavadora automática tiene una distribución normal con una media de 3.1 años y una desviación estándar de 1.2 años. El fabricante quiere ofrecer un cambio de lavadora al 15% de las lavadoras que duren menos. ¿Cuál es el tiempo de duración máximo que debería poner en la publicidad para reponer solo el 15% de las lavadoras.
+
+_Solución_
 
 Gráficamente el problema se puede resumir de la siguiente manera.
 
@@ -206,20 +252,34 @@ Del resultado anterior podemos afirmar que el anuncio publicitario debería deci
 
 ## Ejemplo de generación de datos
 
-Vamos a generar datos aleatorios a partir de una distribución normal y visualizarlos en un histograma.
+La función `rnorm()` es muy utilizada para simular datos de una población normal. Con los datos simulados se pueden poner a prueba procedimientos estadísticos o realizar simulaciones de sistemas reales.
+
+### Ejemplo {-}
+
+Generar $n=350$ observaciones de una $N(150, 25)$. Con los datos simulados construya un histograma y sobre el histograma superponga la curva de densidad de una $N(150, 25)$. Comente los resultados gráficos.
+
+_Solución_
 
 ```{r}
-set.seed(123)
-datos <- rnorm(1000, mean=0, sd=1)
+set.seed(12345)  # Funcion para fijar la semilla y poder replicar la simulacion
+x <- rnorm(n=350, mean=150, sd=5)
 ```
 
-Crear un histograma
+Vamos a explorar los primeros diez valores que están dentro del vector `x`.
+
+```{r}
+x[1:10]
+```
+
+Usando el vector `x` vamos ahora a dibujar el histograma y la densidad.
 
 ```{r histNormalAleat}
-hist(datos, main="Histograma de datos generados aleatoriamente", 
-     freq=FALSE, col="lightblue", border="black",
-     xlab="X", ylab="Frecuencia")
+hist(x, freq=FALSE, col="lightblue", border="black", ylim=c(0, 0.10),
+     main="Histograma y densidad", xlab="X", ylab="f(x)")
+
+curve(dnorm(x, mean=150, sd=5), lwd=3, col="tomato", add=TRUE)
 ```
 
-En el histograma anterior, hemos generado 1000 puntos de datos aleatorios de una distribución normal estándar (\(\mu = 0\) y \(\sigma = 1\)). Como puedes ver, el histograma tiene una forma de campana.
+En el histograma tiene una forma de campana y es parecido a la densidad teórica de color rojo. Entre más valores se simulen, mejor se verá el histograma y se parecerá cada vez más a la densidad teórica.
 
+## Estimación de 
