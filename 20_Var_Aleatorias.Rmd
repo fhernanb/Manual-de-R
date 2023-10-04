@@ -158,7 +158,7 @@ f <- function(x) {
 }
 ```
 
-Ahora vamos a verificar que es una función de densidad de probabilidad, es decir, que la integral es 1.
+Ahora vamos a verificar que es una función de densidad de probabilidad, es decir, que el área bajo la curva es 1.
 
 ```{r}
 integrate(f=f, lower=12.5, upper=Inf)                  # Debe sumar 1
@@ -167,14 +167,40 @@ integrate(f=f, lower=12.5, upper=Inf)                  # Debe sumar 1
 Vamos a dibujar la función de densidad $f(x)$ así:
 
 ```{r funMasVarCont, fig.align='center', fig.cap='Función f(x) para el ejemplo 2.', fig.asp=0.9, fig.width=5, echo=TRUE}
-curve(expr=f, from=12.5, to=13,
+curve(expr=f(x), from=12.5, to=13,
       lwd=3, col="blue", las=1,
-     xlab="X", ylab="f(X=x)")
+      xlab="X", ylab="f(X=x)")
 ```
 
-La función $F(x)$ la podemos obtener integrando la función $f(x)$ de la siguiente manera:
+La función $F(x)$ la podemos obtener integrando la función $f(x)$ de forma computacional así:
 
-$$
-F(x) = \int_{12.5}^x f(t) dt = 20 e^{-20(t-12.5)} dt = 
-$$
+```{r}
+F <- function(x, a)  integrate(f=f, lower=a, upper=x)$value
+
+F <- Vectorize(F) # Para vectorizar la función y que pueda usar vectores
+```
+
+Vamos a dibujar la función $F(x)$ así:
+
+```{r funFVarCont, fig.align='center', fig.cap='Función F(x) para el ejemplo 2.', fig.asp=0.9, fig.width=5, echo=TRUE}
+curve(expr=F(x, a=12.5), from=12.5, to=13,
+      lwd=3, col="tomato", las=1,
+      xlab="X", ylab="F(X=x)")
+```
+
+Para obtener $E(X)$ vamos a realizar lo siguiente:
+
+```{r}
+aux_fun <- function(x) x * f(x) # Función auxiliar para aplicar definición
+
+integrate(f=aux_fun, lower=12.5, upper=Inf)
+```
+
+Para obtener $Var(X)$ vamos a realizar lo siguiente:
+
+```{r}
+aux_fun <- function(x) (x-12.55)^2 * f(x) # Función auxiliar para aplicar definición
+
+integrate(f=aux_fun, lower=12.5, upper=Inf)
+```
 

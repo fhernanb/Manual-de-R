@@ -17,6 +17,7 @@ fig:funMasVarDis
 fig:funAcumVarDis
 fig:ejemVarCont
 fig:funMasVarCont
+fig:funFVarCont
 fig:binom1
 fig:crab
 fig:pmfcrab
@@ -170,7 +171,8 @@ funciones-útiles-asociadas-a-la-normal
 cálculo-de-probabilidades
 cálculo-de-cuantiles
 ejemplo-de-generación-de-datos
-estimación-de
+estimación-de-los-parámetros-mu-y-sigma
+ejercicios-6
 loglik
 función-de-verosimilitud
 función-de-log-verosimilitud
@@ -227,5 +229,3 @@ distribución-wishart
 mezcla-de-dos-normales-multivariadas
 curio
 cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática
-ejercicios-6
-estimación-de-los-parámetros-mu-y-sigma

@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2023-10-03" />
+<meta name="date" content="2023-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,6 +53,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -120,6 +127,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -694,9 +723,9 @@ Si una variable aleatoria <span class="math inline">\(X\)</span> se distribuye n
 <div id="visualización-de-la-distribución" class="section level2 hasAnchor" number="18.2">
 <h2><span class="header-section-number">18.2</span> Visualización de la distribución<a href="normal.html#visualización-de-la-distribución" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Generemos un gráfico de la función de densidad de probabilidad de la distribución normal estándar.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="normal.html#cb1-1" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>), </span>
-<span id="cb1-2"><a href="normal.html#cb1-2" tabindex="-1"></a>      <span class="at">from=</span><span class="sc">-</span><span class="dv">4</span>, <span class="at">to=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,</span>
-<span id="cb1-3"><a href="normal.html#cb1-3" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">&quot;N(0, 1)&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;f(x)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="normal.html#cb591-1" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>), </span>
+<span id="cb591-2"><a href="normal.html#cb591-2" tabindex="-1"></a>      <span class="at">from=</span><span class="sc">-</span><span class="dv">4</span>, <span class="at">to=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,</span>
+<span id="cb591-3"><a href="normal.html#cb591-3" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">&quot;N(0, 1)&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;f(x)&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:distnorm1"></span>
 <img src="Manual_de_R_files/figure-html/distnorm1-1.png" alt="Ejemplo 1 de distribución normal." width="576" />
 <p class="caption">
@@ -704,10 +733,10 @@ Figure 18.2: Ejemplo 1 de distribución normal.
 </p>
 </div>
 <p>En el gráfico anterior, la curva azul representa la distribución normal estándar. Como se puede observar, tiene una forma de campana y es simétrica en torno a la media de 0.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="normal.html#cb2-1" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span><span class="fl">1.65</span>, <span class="at">sd=</span><span class="fl">0.15</span>), </span>
-<span id="cb2-2"><a href="normal.html#cb2-2" tabindex="-1"></a>      <span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;tomato&quot;</span>,</span>
-<span id="cb2-3"><a href="normal.html#cb2-3" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">&quot;N(mu=1.65, sigma2=0.15^2)&quot;</span>, </span>
-<span id="cb2-4"><a href="normal.html#cb2-4" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;f(x)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="normal.html#cb592-1" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span><span class="fl">1.65</span>, <span class="at">sd=</span><span class="fl">0.15</span>), </span>
+<span id="cb592-2"><a href="normal.html#cb592-2" tabindex="-1"></a>      <span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;tomato&quot;</span>,</span>
+<span id="cb592-3"><a href="normal.html#cb592-3" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">&quot;N(mu=1.65, sigma2=0.15^2)&quot;</span>, </span>
+<span id="cb592-4"><a href="normal.html#cb592-4" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;f(x)&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:distnorm2"></span>
 <img src="Manual_de_R_files/figure-html/distnorm2-1.png" alt="Ejemplo 2 de distribución normal." width="576" />
 <p class="caption">
@@ -741,10 +770,10 @@ Figure 18.5: Regla empírica normal.
 <div id="funciones-útiles-asociadas-a-la-normal" class="section level2 hasAnchor" number="18.4">
 <h2><span class="header-section-number">18.4</span> Funciones útiles asociadas a la normal<a href="normal.html#funciones-útiles-asociadas-a-la-normal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Algunas de las funciones asociadas a la normal son</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="normal.html#cb3-1" tabindex="-1"></a><span class="fu">dnorm</span>(x, mean, sd)                    <span class="co"># Calcula f(x)</span></span>
-<span id="cb3-2"><a href="normal.html#cb3-2" tabindex="-1"></a><span class="fu">pnorm</span>(q, mean, sd, <span class="at">lower.tail=</span><span class="cn">TRUE</span>)   <span class="co"># Calcula P(X&lt;q)</span></span>
-<span id="cb3-3"><a href="normal.html#cb3-3" tabindex="-1"></a><span class="fu">qnorm</span>(p, mean, sd, <span class="at">lower.tail=</span><span class="cn">TRUE</span>)   <span class="co"># Calcula q tal que P(X&lt;q) = p</span></span>
-<span id="cb3-4"><a href="normal.html#cb3-4" tabindex="-1"></a><span class="fu">rnorm</span>(n, mean, sd)                    <span class="co"># Genera números aleatorios</span></span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="normal.html#cb593-1" tabindex="-1"></a><span class="fu">dnorm</span>(x, mean, sd)                    <span class="co"># Calcula f(x)</span></span>
+<span id="cb593-2"><a href="normal.html#cb593-2" tabindex="-1"></a><span class="fu">pnorm</span>(q, mean, sd, <span class="at">lower.tail=</span><span class="cn">TRUE</span>)   <span class="co"># Calcula P(X&lt;q)</span></span>
+<span id="cb593-3"><a href="normal.html#cb593-3" tabindex="-1"></a><span class="fu">qnorm</span>(p, mean, sd, <span class="at">lower.tail=</span><span class="cn">TRUE</span>)   <span class="co"># Calcula q tal que P(X&lt;q) = p</span></span>
+<span id="cb593-4"><a href="normal.html#cb593-4" tabindex="-1"></a><span class="fu">rnorm</span>(n, mean, sd)                    <span class="co"># Genera números aleatorios</span></span></code></pre></div>
 </div>
 <div id="cálculo-de-probabilidades" class="section level2 hasAnchor" number="18.5">
 <h2><span class="header-section-number">18.5</span> Cálculo de Probabilidades<a href="normal.html#cálculo-de-probabilidades" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -764,7 +793,7 @@ Recuerde que <code>pnorm()</code> entrega la probabilidad de cola a izquierda.
 <p>Suponga que <span class="math inline">\(Z \sim N(0, 1)\)</span>. Calcular <span class="math inline">\(P(Z &lt; 1.5)\)</span>.</p>
 <p><em>Solución</em></p>
 <p>Para calcular esta probabilidad utilizamos el siguiente código:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="normal.html#cb4-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">1.5</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="normal.html#cb594-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">1.5</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9331928</code></pre>
 <p>La probabilidad de que <span class="math inline">\(Z\)</span> sea menor que 1.5 en la distribución normal estándar es aproximadamente 93.32%.</p>
 </div>
@@ -774,10 +803,10 @@ Recuerde que <code>pnorm()</code> entrega la probabilidad de cola a izquierda.
 <p><em>Solución</em></p>
 <p>Para obtener la probabilidad lo podemos hacer de dos formas.</p>
 <p><strong>Forma 1</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="normal.html#cb6-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">5.3</span>, <span class="at">mean=</span><span class="dv">5</span>, <span class="at">sd=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="normal.html#cb596-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">5.3</span>, <span class="at">mean=</span><span class="dv">5</span>, <span class="at">sd=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 0.4601722</code></pre>
 <p><strong>Forma 2</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="normal.html#cb8-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">5.3</span>, <span class="at">mean=</span><span class="dv">5</span>, <span class="at">sd=</span><span class="dv">3</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="normal.html#cb598-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q=</span><span class="fl">5.3</span>, <span class="at">mean=</span><span class="dv">5</span>, <span class="at">sd=</span><span class="dv">3</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] 0.4601722</code></pre>
 <p>La probabilidad de que <span class="math inline">\(Y\)</span> sea mayor que 5.3 es aproximadamente 46.01%.</p>
 </div>
@@ -786,9 +815,9 @@ Recuerde que <code>pnorm()</code> entrega la probabilidad de cola a izquierda.
 <p>Suponga que <span class="math inline">\(W \sim N(150, 25)\)</span>. Calcular <span class="math inline">\(P(140 &lt; W &lt; 156)\)</span>.</p>
 <p><em>Solución</em></p>
 <p>Para calcular esta probabilidad utilizamos el siguiente código:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="normal.html#cb10-1" tabindex="-1"></a>p_156 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">156</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
-<span id="cb10-2"><a href="normal.html#cb10-2" tabindex="-1"></a>p_140 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">140</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
-<span id="cb10-3"><a href="normal.html#cb10-3" tabindex="-1"></a>p_156 <span class="sc">-</span> p_140</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="normal.html#cb600-1" tabindex="-1"></a>p_156 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">156</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
+<span id="cb600-2"><a href="normal.html#cb600-2" tabindex="-1"></a>p_140 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">140</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
+<span id="cb600-3"><a href="normal.html#cb600-3" tabindex="-1"></a>p_156 <span class="sc">-</span> p_140</span></code></pre></div>
 <pre><code>## [1] 0.8621802</code></pre>
 <p>La probabilidad de que <span class="math inline">\(P(140 &lt; W &lt; 156)\)</span> es aproximadamente 86.21%.</p>
 </div>
@@ -797,10 +826,10 @@ Recuerde que <code>pnorm()</code> entrega la probabilidad de cola a izquierda.
 <p>Suponga que <span class="math inline">\(Q \sim N(16, 16)\)</span>. Calcular <span class="math inline">\(P(Q &lt; 14 \, \text{ó} \, Q &gt; 18)\)</span>.</p>
 <p><em>Solución</em></p>
 <p>Para calcular esta probabilidad utilizamos el siguiente código:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="normal.html#cb12-1" tabindex="-1"></a>cola_izq_de_14 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">14</span>, <span class="at">mean=</span><span class="dv">16</span>, <span class="at">sd=</span><span class="dv">4</span>)</span>
-<span id="cb12-2"><a href="normal.html#cb12-2" tabindex="-1"></a>cola_der_de_18 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">18</span>, <span class="at">mean=</span><span class="dv">16</span>, <span class="at">sd=</span><span class="dv">4</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span>
-<span id="cb12-3"><a href="normal.html#cb12-3" tabindex="-1"></a>rta <span class="ot">&lt;-</span> cola_izq_de_14 <span class="sc">+</span> cola_der_de_18</span>
-<span id="cb12-4"><a href="normal.html#cb12-4" tabindex="-1"></a>rta</span></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="normal.html#cb602-1" tabindex="-1"></a>cola_izq_de_14 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">14</span>, <span class="at">mean=</span><span class="dv">16</span>, <span class="at">sd=</span><span class="dv">4</span>)</span>
+<span id="cb602-2"><a href="normal.html#cb602-2" tabindex="-1"></a>cola_der_de_18 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">18</span>, <span class="at">mean=</span><span class="dv">16</span>, <span class="at">sd=</span><span class="dv">4</span>, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span>
+<span id="cb602-3"><a href="normal.html#cb602-3" tabindex="-1"></a>rta <span class="ot">&lt;-</span> cola_izq_de_14 <span class="sc">+</span> cola_der_de_18</span>
+<span id="cb602-4"><a href="normal.html#cb602-4" tabindex="-1"></a>rta</span></code></pre></div>
 <pre><code>## [1] 0.6170751</code></pre>
 <p>La probabilidad de que <span class="math inline">\(P(Q &lt; 14 \, \text{ó} \, Q &gt; 18)\)</span> es aproximadamente 61.71%.</p>
 </div>
@@ -809,9 +838,9 @@ Recuerde que <code>pnorm()</code> entrega la probabilidad de cola a izquierda.
 <p>Una empresa tiene 1700 empleados y los sueldos mensuales de los empleados siguen una distribución normal con media de 4.5 millones de pesos, con una desviación estándar de 1.2 millones de pesos. ¿Cuál es el número esperado de trabajadores que reciben sueldos entre 3 y 5 millones de pesos?</p>
 <p><em>Solución</em></p>
 <p>Para calcular esta probabilidad utilizamos el siguiente código:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="normal.html#cb14-1" tabindex="-1"></a>p_3 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">3</span>, <span class="at">mean=</span><span class="fl">4.5</span>, <span class="at">sd=</span><span class="fl">1.2</span>)</span>
-<span id="cb14-2"><a href="normal.html#cb14-2" tabindex="-1"></a>p_5 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">5</span>, <span class="at">mean=</span><span class="fl">4.5</span>, <span class="at">sd=</span><span class="fl">1.2</span>)</span>
-<span id="cb14-3"><a href="normal.html#cb14-3" tabindex="-1"></a><span class="dv">1700</span> <span class="sc">*</span> (p_5 <span class="sc">-</span> p_3)</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="normal.html#cb604-1" tabindex="-1"></a>p_3 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">3</span>, <span class="at">mean=</span><span class="fl">4.5</span>, <span class="at">sd=</span><span class="fl">1.2</span>)</span>
+<span id="cb604-2"><a href="normal.html#cb604-2" tabindex="-1"></a>p_5 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q=</span><span class="dv">5</span>, <span class="at">mean=</span><span class="fl">4.5</span>, <span class="at">sd=</span><span class="fl">1.2</span>)</span>
+<span id="cb604-3"><a href="normal.html#cb604-3" tabindex="-1"></a><span class="dv">1700</span> <span class="sc">*</span> (p_5 <span class="sc">-</span> p_3)</span></code></pre></div>
 <pre><code>## [1] 945.0115</code></pre>
 <p>Primero se calcula la probabilidad de que <span class="math inline">\(P(3 &lt; S &lt; 5)\)</span> y luego se multiplica por el número de empleados, eso nos da que aproximadamente 945 empleados reciben sueldos entre 3 y 5 millones de pesos.</p>
 </div>
@@ -830,14 +859,14 @@ Figure 18.7: Calculando un cuantil.
 <p>(Ejercicio propuesto 14) La duración de un determinado tipo de lavadora automática tiene una distribución normal con una media de 3.1 años y una desviación estándar de 1.2 años. El fabricante quiere ofrecer un cambio de lavadora al 15% de las lavadoras que duren menos. ¿Cuál es el tiempo de duración máximo que debería poner en la publicidad para reponer solo el 15% de las lavadoras.</p>
 <p><em>Solución</em></p>
 <p>Gráficamente el problema se puede resumir de la siguiente manera.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="normal.html#cb16-1" tabindex="-1"></a><span class="fu">shadow.dist</span>(<span class="at">dist=</span><span class="st">&#39;dnorm&#39;</span>, <span class="at">param=</span><span class="fu">list</span>(<span class="at">mean=</span><span class="fl">3.1</span>, <span class="at">sd=</span><span class="fl">1.2</span>),</span>
-<span id="cb16-2"><a href="normal.html#cb16-2" tabindex="-1"></a>            <span class="at">a=</span><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.15</span>, <span class="at">mean=</span><span class="fl">3.1</span>, <span class="at">sd=</span><span class="fl">1.2</span>), <span class="at">type=</span><span class="st">&#39;lower&#39;</span>, <span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">6</span>,</span>
-<span id="cb16-3"><a href="normal.html#cb16-3" tabindex="-1"></a>            <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb16-4"><a href="normal.html#cb16-4" tabindex="-1"></a>            <span class="at">col.shadow=</span><span class="st">&#39;springgreen3&#39;</span>, <span class="at">xlab=</span><span class="st">&#39;X&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span>
-<span id="cb16-5"><a href="normal.html#cb16-5" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x=</span><span class="fl">1.3</span>, <span class="at">y=</span><span class="fl">0.05</span>, <span class="st">&quot;0.15&quot;</span>, <span class="at">col=</span><span class="st">&quot;yellow1&quot;</span>, <span class="at">cex=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="normal.html#cb606-1" tabindex="-1"></a><span class="fu">shadow.dist</span>(<span class="at">dist=</span><span class="st">&#39;dnorm&#39;</span>, <span class="at">param=</span><span class="fu">list</span>(<span class="at">mean=</span><span class="fl">3.1</span>, <span class="at">sd=</span><span class="fl">1.2</span>),</span>
+<span id="cb606-2"><a href="normal.html#cb606-2" tabindex="-1"></a>            <span class="at">a=</span><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.15</span>, <span class="at">mean=</span><span class="fl">3.1</span>, <span class="at">sd=</span><span class="fl">1.2</span>), <span class="at">type=</span><span class="st">&#39;lower&#39;</span>, <span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">6</span>,</span>
+<span id="cb606-3"><a href="normal.html#cb606-3" tabindex="-1"></a>            <span class="at">main=</span><span class="st">&#39;&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb606-4"><a href="normal.html#cb606-4" tabindex="-1"></a>            <span class="at">col.shadow=</span><span class="st">&#39;springgreen3&#39;</span>, <span class="at">xlab=</span><span class="st">&#39;X&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span>
+<span id="cb606-5"><a href="normal.html#cb606-5" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x=</span><span class="fl">1.3</span>, <span class="at">y=</span><span class="fl">0.05</span>, <span class="st">&quot;0.15&quot;</span>, <span class="at">col=</span><span class="st">&quot;yellow1&quot;</span>, <span class="at">cex=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="Manual_de_R_files/figure-html/cuantilNormal1-1.png" width="672" /></p>
 <p>Para calcular el valor solicitado usamos el siguiente código:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="normal.html#cb17-1" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.15</span>, <span class="at">mean=</span><span class="fl">3.1</span>, <span class="at">sd=</span><span class="fl">1.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="normal.html#cb607-1" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.15</span>, <span class="at">mean=</span><span class="fl">3.1</span>, <span class="at">sd=</span><span class="fl">1.2</span>)</span></code></pre></div>
 <pre><code>## [1] 1.85628</code></pre>
 <p>Del resultado anterior podemos afirmar que el anuncio publicitario debería decir algo como “Si su lavadora dura 1.85 años o menos, nosotros se la reemplazaremos por una nueva lavadora”. De esa manera el fabricante sólo debería tener un 15% de reclamaciones.</p>
 </div>
@@ -849,17 +878,17 @@ Figure 18.7: Calculando un cuantil.
 <h3>Ejemplo<a href="normal.html#ejemplo-57" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Generar <span class="math inline">\(n=350\)</span> observaciones de una <span class="math inline">\(N(150, 25)\)</span>. Con los datos simulados construya un histograma y sobre el histograma superponga la curva de densidad de una <span class="math inline">\(N(150, 25)\)</span>. Comente los resultados gráficos.</p>
 <p><em>Solución</em></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="normal.html#cb19-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)  <span class="co"># Funcion para fijar la semilla y poder replicar la simulacion</span></span>
-<span id="cb19-2"><a href="normal.html#cb19-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">350</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="normal.html#cb609-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)  <span class="co"># Funcion para fijar la semilla y poder replicar la simulacion</span></span>
+<span id="cb609-2"><a href="normal.html#cb609-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">350</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">5</span>)</span></code></pre></div>
 <p>Vamos a explorar los primeros diez valores que están dentro del vector <code>x</code>.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="normal.html#cb20-1" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="normal.html#cb610-1" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##  [1] 152.9276 153.5473 149.4535 147.7325 153.0294 140.9102 153.1505 148.6191
 ##  [9] 148.5792 145.4034</code></pre>
 <p>Usando el vector <code>x</code> vamos ahora a dibujar el histograma y la densidad.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="normal.html#cb22-1" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">freq=</span><span class="cn">FALSE</span>, <span class="at">col=</span><span class="st">&quot;lightblue&quot;</span>, <span class="at">border=</span><span class="st">&quot;black&quot;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.10</span>),</span>
-<span id="cb22-2"><a href="normal.html#cb22-2" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&quot;Histograma y densidad&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;X&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;f(x)&quot;</span>)</span>
-<span id="cb22-3"><a href="normal.html#cb22-3" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="normal.html#cb22-4" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">5</span>), <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;tomato&quot;</span>, <span class="at">add=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="normal.html#cb612-1" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">freq=</span><span class="cn">FALSE</span>, <span class="at">col=</span><span class="st">&quot;lightblue&quot;</span>, <span class="at">border=</span><span class="st">&quot;black&quot;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.10</span>),</span>
+<span id="cb612-2"><a href="normal.html#cb612-2" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&quot;Histograma y densidad&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;X&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;f(x)&quot;</span>)</span>
+<span id="cb612-3"><a href="normal.html#cb612-3" tabindex="-1"></a></span>
+<span id="cb612-4"><a href="normal.html#cb612-4" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">5</span>), <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;tomato&quot;</span>, <span class="at">add=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Manual_de_R_files/figure-html/histNormalAleat-1.png" width="672" /></p>
 <p>En el histograma tiene una forma de campana y es parecido a la densidad teórica de color rojo. Entre más valores se simulen, mejor se verá el histograma y se parecerá cada vez más a la densidad teórica.</p>
 </div>
@@ -867,7 +896,7 @@ Figure 18.7: Calculando un cuantil.
 <div id="estimación-de-los-parámetros-mu-y-sigma" class="section level2 hasAnchor" number="18.8">
 <h2><span class="header-section-number">18.8</span> Estimación de los parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span><a href="normal.html#estimación-de-los-parámetros-mu-y-sigma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En el paquete <strong>MASS</strong> de R hay una función llamada <code>fitdistr()</code> que sirve para estimar los parámetros de varias distribuciones, entre ellas la distribución normal. La estructura de la función es la siguiente:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="normal.html#cb23-1" tabindex="-1"></a><span class="fu">fitdistr</span>(x, densfun)</span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="normal.html#cb613-1" tabindex="-1"></a><span class="fu">fitdistr</span>(x, densfun)</span></code></pre></div>
 <p>Los parámetros de la función son:</p>
 <ul>
 <li><code>x</code>: vector con los datos.</li>
@@ -881,10 +910,15 @@ b) Genere <span class="math inline">\(n=1500\)</span> observaciones y con los da
 c) Compare los resultados y concluya.</p>
 <p><em>Solución</em></p>
 <p>Vamos a simular la primera muestra.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="normal.html#cb24-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb24-2"><a href="normal.html#cb24-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb24-3"><a href="normal.html#cb24-3" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">15</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">s=</span><span class="dv">9</span>)</span>
-<span id="cb24-4"><a href="normal.html#cb24-4" tabindex="-1"></a><span class="fu">fitdistr</span>(<span class="at">x=</span>x1, <span class="at">densfun=</span><span class="st">&quot;normal&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="normal.html#cb614-1" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;MASS&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     select</code></pre>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="normal.html#cb617-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb617-2"><a href="normal.html#cb617-2" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">15</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">s=</span><span class="dv">9</span>)</span>
+<span id="cb617-3"><a href="normal.html#cb617-3" tabindex="-1"></a><span class="fu">fitdistr</span>(<span class="at">x=</span>x1, <span class="at">densfun=</span><span class="st">&quot;normal&quot;</span>)</span></code></pre></div>
 <pre><code>##       mean          sd    
 ##   151.371459     7.350079 
 ##  (  1.897782) (  1.341935)</code></pre>
@@ -894,9 +928,9 @@ c) Compare los resultados y concluya.</p>
 Los valores entre paréntesis que salen al usar <code>fitdistr</code> se llaman “errores estándar”, son la variabilidad que tiene la estimación.
 </div>
 <p>Vamos a simular la segunda muestra.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="normal.html#cb26-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb26-2"><a href="normal.html#cb26-2" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">1500</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">9</span>)</span>
-<span id="cb26-3"><a href="normal.html#cb26-3" tabindex="-1"></a><span class="fu">fitdistr</span>(<span class="at">x=</span>x2, <span class="at">densfun=</span><span class="st">&quot;normal&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="normal.html#cb619-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb619-2"><a href="normal.html#cb619-2" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">1500</span>, <span class="at">mean=</span><span class="dv">150</span>, <span class="at">sd=</span><span class="dv">9</span>)</span>
+<span id="cb619-3"><a href="normal.html#cb619-3" tabindex="-1"></a><span class="fu">fitdistr</span>(<span class="at">x=</span>x2, <span class="at">densfun=</span><span class="st">&quot;normal&quot;</span>)</span></code></pre></div>
 <pre><code>##       mean           sd     
 ##   149.9354547     8.7982331 
 ##  (  0.2271694) (  0.1606330)</code></pre>
@@ -908,32 +942,142 @@ Los valores entre paréntesis que salen al usar <code>fitdistr</code> se llaman 
 <div id="ejercicios-6" class="section level2 hasAnchor" number="18.9">
 <h2><span class="header-section-number">18.9</span> Ejercicios<a href="normal.html#ejercicios-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
+<li>¿Cuáles de los siguientes enunciados son verdaderos?</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>La distribución normal es asimétrica.</li>
+<li>Es necesario conocer la media y la desviación estándar para construir una distribución normal específica.</li>
+<li>Cada combinación de media y desviación estándar en una distribución normal define una densidad diferente.</li>
+<li>La distribución normal se extiende al infinito en cualquier dirección a partir de la media.</li>
+<li>La distribución normal se mide en una escala discreta.</li>
+<li>El área total bajo la curva es igual a 1.</li>
+<li>La probabilidad de que una variable aleatoria tenga un valor entre dos puntos cualesquiera es igual al área bajo la curva entre esos dos puntos.</li>
+<li>La distribución normal estándar tiene media 1 y varianza 0.</li>
+<li>La tabla de distribución normal estándar sirve para calcular probabilidades de cualquier distribución normal.</li>
+<li>Estandarizar un valor x significa restarle la desviación y dividir por la media.</li>
+<li>La probabilidad de que una variable aleatoria continua tome un valor dado es cero.</li>
+<li>La función de densidad de probabilidad (fdp) de una variable aleatoria continua sirve para conocer en qué región es más probable encontrar valores de la variable.</li>
+</ol>
+<p>Rtas: F, V, V, V, F, V, V, F, V, F, V, V.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Si Z es una variable aleatoria normal estandarizada,</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>¿Cuál es el rango de la variable aleatoria Z?</li>
+<li>¿Cuál es la probabilidad de tomar un valor menor que cero?</li>
+<li>¿Cuál es la probabilidad de que Z tome un valor entre -3 y +3?</li>
+<li>¿Cuál es la probabilidad de obtener un valor en el rango media más menos dos desviaciones estándar?</li>
+<li>¿Cuál es la probabilidad de que Z tome un valor comprendido entre -1.28 y +1.65?</li>
+</ol>
+<p>Rtas: reales, ½, 0.9973, 0.9544, 0.8502</p>
+<ol start="3" style="list-style-type: decimal">
 <li>Determinar las siguientes probabilidades para la variable aleatoria normal estándar (Dibuje una curva normal y sombree el área bajo la curva):</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
-<li>P (Z &lt; 1.32 )</li>
-<li>P (-2.34 &lt; Z &lt; 1.76 )</li>
-<li>P (Z &lt; 3)</li>
-<li>P (0 &lt; Z &lt; 1)</li>
-<li>P (Z &gt; 1.457)</li>
-<li>P (-3 &lt; Z &lt; 3)</li>
-<li>P (Z &gt; -2.153)
-Rtas: 0.9066, 0.9511, 0.9986, 0.3413, 0.0726, 0. 9973, 0.9843</li>
+<li>P (Z &lt; 1.32).</li>
+<li>P (-2.34 &lt; Z &lt; 1.76).</li>
+<li>P (Z &lt; 3).</li>
+<li>P (0 &lt; Z &lt; 1).</li>
+<li>P (Z &gt; 1.457).</li>
+<li>P (-3 &lt; Z &lt; 3).</li>
+<li>P (Z &gt; -2.153).</li>
 </ol>
-<ol start="2" style="list-style-type: decimal">
+<p>Rtas: 0.9066, 0.9511, 0.9986, 0.3413, 0.0726, 0. 9973, 0.9843</p>
+<ol start="4" style="list-style-type: decimal">
 <li>Suponga que Z tiene una distribución normal estándar. Determine el valor de z que resuelve las siguientes probabilidades (Dibuje una curva normal, sombree el área bajo la curva y ponga los valores correspondientes en el eje horizontal):</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
-<li>P (-z &lt; Z &lt; z) = 0.95</li>
-<li>P (Z &lt; z) = 0.9</li>
-<li>P (-z &lt; Z &lt; z) = 0.99</li>
-<li>P (Z &lt; z) = 0.5</li>
-<li>P (-z &lt; Z &lt; z) = 0.684</li>
-<li>P(Z &gt; z) = 0.1</li>
-<li>P (-z &lt; Z &lt; z) = 0.9973</li>
-<li>P (-1.24 &lt; Z &lt; z) = 0.8
-Rtas: 1.96, 1.28, 2.58, 0, -1, la misma del literal b, 3,</li>
+<li>P (-z &lt; Z &lt; z) = 0.95.</li>
+<li>P (Z &lt; z) = 0.9.</li>
+<li>P (-z &lt; Z &lt; z) = 0.99.</li>
+<li>P (Z &lt; z) = 0.5.</li>
+<li>P (-z &lt; Z &lt; z) = 0.684.</li>
+<li>P(Z &gt; z) = 0.1.</li>
+<li>P (-z &lt; Z &lt; z) = 0.9973.</li>
+<li>P (-1.24 &lt; Z &lt; z) = 0.8.</li>
 </ol>
+<p>Rtas: 1.96, 1.28, 2.58, 0, -1, la misma del literal b, 3,</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Averigüe el valor z que corresponde a cada área descrita:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>El 70% de los elementos está a la derecha de este valor z.</li>
+<li>El 20% de los elementos se encuentra a la izquierda de este valor z.</li>
+<li>El 10% de los elementos es mayor que este valor z.</li>
+<li>El 60% de los elementos es menor que este valor z.</li>
+<li>El 50% de los elementos se encuentran a la derecha de este valor z.</li>
+<li>El 30% de los elementos se encuentran a la izquierda de este valor z.</li>
+</ol>
+<p>Rtas) <code>qnorm(p=0.7, lower.tail=F)</code>; <code>qnorm(p=0.2)</code>, <code>qnorm(p=0.1, lower.tail=F)</code>; <code>qnorm(p=0.6, lower.tail=T)</code>; <code>qnorm(p=0.5)</code>, <code>qnorm(p=0.3)</code>.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>La duración de un determinado tipo de lavadora automática tiene una distribución normal, con una media de 3.1 años y una desviación estándar de 1.2 años. La compañía ofrece en su garantía que si la lavadora presenta algún defecto será reemplazada.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Describa gráficamente esta distribución en particular.</li>
+<li>Si la lavadora está garantizada por un año, ¿qué proporción del total de unidades vendidas tendrá que ser reemplazada?</li>
+<li>Si el fabricante de las lavadoras está dispuesto a reemplazar sólo el 3% de las lavadoras que vende. ¿Por cuántos meses debe ofrecer la garantía para asegurar que no más de un 3% de las lavadoras tendrá que ser reemplazada?</li>
+<li>¿Qué porcentaje de las lavadoras vendidas van a durar entre 3 y 6 años?</li>
+</ol>
+<p>Rtas) <code>curve(dnorm(x,mean=3.1,sd=1.2), xlim=c(0,6))</code>; <code>pnorm(q=1, mean=3.1, sd=1.2)</code>; <code>qnorm(p=0.03, mean=3.1, sd=1.2)</code>; <code>pnorm(q=6, mean=3.1, sd=1.2) - pnorm(q=3, mean=3.1, sd=1.2)</code>.</p>
+<ol start="7" style="list-style-type: decimal">
+<li>El consumo promedio de combustible de una flota de 1000 camiones sigue una distribución normal con una media de 12 millas por galón y una desviación estándar de 2 millas por galón. Escriba las instrucciones en R para calcular cada una de las siguientes probabilidades.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>¿Cuántos camiones tendrán un promedio de 11 millas o más por galón?</li>
+<li>¿Cuántos camiones tendrán un promedio de menos de 10 millas por galón?</li>
+<li>¿Cuántos camiones tendrán un promedio entre 9.5 y 14 millas por galón?</li>
+<li>Averigüe la probabilidad de que un camión elegido al azar tenga un promedio de 13.5 millas por galón o más.</li>
+<li>¿El 70% de los camiones tuvo un promedio más alto que cuántas millas por galón?</li>
+<li>¿El 10% de los camiones tuvo un promedio menor que cuántas millas por galón?</li>
+</ol>
+<p>Rtas)
+<code>1000*pnorm(q=11, mean=12, sd=2, lower.tail=F)</code>;
+<code>1000*pnorm(q=10, mean=12, sd=2)</code>;
+<code>1000*(pnorm(q=14, mean=12, sd=2)-pnorm(q=9.5, mean=12, sd=2))</code>;
+<code>1-pnorm(q=13.5, mean=12, sd=2)</code>;
+<code>qnorm(p=0.3, mean=12, sd=2)</code>;
+<code>qnorm(p=0.1, mean=12, sd=2)</code>;</p>
+<ol start="8" style="list-style-type: decimal">
+<li><p>Para medir los conocimientos sobre cierta materia en una misma población, se utilizan dos tipos de pruebas, A y B. Los resultados en ambas tienen distribución normal y la media de los resultados en la prueba A es 78.3 con una desviación estándar de 4.2 puntos. La media de las puntuaciones en la prueba B es 58.1 y su desviación estándar de 3.2 puntos. Una persona ha obtenido 83.1 puntos en la prueba A y otra persona ha conseguido 67.5 en la prueba B. ¿Cuál de las dos personas se encuentra en mejor posición? ¿Por qué? Rta: La persona que presentó B se encuentra en mejor posición.</p></li>
+<li><p>Una empresa ha encontrado que la duración de sus llamadas telefónicas a larga distancia tiene aproximadamente una distribución normal, con media de 30 minutos y desviación típica de 3 minutos. Escriba el código en R para calcular lo siguiente.</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>¿Qué proporción de las llamadas a larga distancia tienen una duración de más de 20 minutos, pero de menos de 30 y medio minutos?</li>
+<li>¿Qué proporción de llamadas se completan en 10 minutos o menos?</li>
+<li>Una secretaria va a hacer una llamada a larga distancia. ¿Cuál es la probabilidad de que dure más de 50 minutos?</li>
+</ol>
+<p>Rtas)
+<code>pnorm(q=30, mean=30, sd=3)- pnorm(q=20, mean=3, sd=3)</code>;
+<code>pnorm(q=10, mean=30, sd=3)</code>;
+<code>pnorm(q=50, mean=30, sd=3, lower.tail=F)</code>.</p>
+<ol start="10" style="list-style-type: decimal">
+<li>El gerente de personal de una gran compañía requiere que los postulantes a un puesto efectúen una prueba de aptitud y que en ella obtengan una calificación mínima de 500. Si las calificaciones de la prueba se distribuyen normalmente con una media de 485 y desviación estándar de 30:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>¿Qué porcentaje de postulantes aprobará la prueba?</li>
+<li>Si aquellos postulantes que obtienen un puntaje comprendido entre 471 y 499 pueden optar a una segunda oportunidad, y un total de 1200 postulantes rindió la primera prueba, ¿cuántos de los 1200 postulantes tendrán derecho a rendir la prueba por segunda vez?</li>
+<li>Si el puntaje de la segunda prueba se relaciona con el puntaje de la primera prueba a través de la expresión: Y=1.25 X + 2.5, donde Y es el puntaje en la segunda prueba y X es el puntaje obtenido en la primera prueba, determine la probabilidad de que en la segunda prueba un postulante cualquiera elegido al azar obtenga el puntaje aprobatorio de 500 puntos o más.</li>
+<li>Determine un puntaje “k” correspondiente al percentil 90 de la distribución. Interprete.</li>
+</ol>
+<ol start="11" style="list-style-type: decimal">
+<li>Se regula una máquina despachadora de refresco para que sirva un promedio de 200 mililitros por vaso. Si la cantidad de bebida se distribuye normalmente con una varianza igual a 225 mililitros2,</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>¿cuál es la probabilidad de que un vaso contenga entre 191 y 209 mililitros?</li>
+<li>¿cuántos vasos probablemente se derramarán si se utilizan vasos de 230 mililitros para las siguientes 800 bebidas?</li>
+</ol>
+<p>Rtas: 0.4514; aproximadamente 18 vasos.</p>
+<ol start="12" style="list-style-type: decimal">
+<li>Los salarios de los profesionales en cierto departamento son en promedio 11.9$ por hora y la desviación estándar de 0.4$. Si los salarios tienen una distribución normal. ¿Cuál es la probabilidad de que un profesional seleccionado al azar:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Reciba salarios entre 10.9 y 11.9.</li>
+<li>Reciba salarios inferiores a 11.</li>
+<li>Reciba salarios superiores a 12.95.</li>
+<li>¿Cuál debe ser el salario menor que gana un trabajador que se encuentra entre el 10% de los trabajadores que más ganan?</li>
+<li>Si el dueño de la industria va a aumentarle el salario al 15% de los trabajadores que menos ganan. ¿Cuál será el salario máximo que deberá ganar un trabajador para ser beneficiado con el aumento?</li>
+</ol>
+<p>Rtas: 0.4938; 0.0122; 0.0043; $12.412; $11.484</p>
 
 </div>
 </div>

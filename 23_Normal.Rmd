@@ -334,26 +334,130 @@ Otra cosa interesante es que los errores estándar disminuyen al aumentar el tam
 
 ## Ejercicios
 
-1) Determinar las siguientes probabilidades para la variable aleatoria normal estándar (Dibuje una curva normal y sombree el área bajo la curva):
+1) ¿Cuáles de los siguientes enunciados son verdaderos?
 
-a)	P (Z < 1.32 )
-b)	P (-2.34 < Z < 1.76 )
-c)	P (Z < 3)
-d)	P (0 < Z < 1)
-e)	P (Z > 1.457)
-f)	P (-3 < Z < 3)
-g)	P (Z > -2.153)
+a)	La distribución normal es asimétrica.
+a)	Es necesario conocer la media y la desviación estándar para construir una distribución normal específica.
+a)	Cada combinación de media y desviación estándar en una distribución normal define una densidad diferente.
+a)	La distribución normal se extiende al infinito en cualquier dirección a partir de la media.
+a)	La distribución normal se mide en una escala discreta.
+a)	El área total bajo la curva es igual a 1.
+a)	La probabilidad de que una variable aleatoria tenga un valor entre dos puntos cualesquiera es igual al área bajo la curva entre esos dos puntos.
+a)	La distribución normal estándar tiene media 1 y varianza 0.
+a)	La tabla de distribución normal estándar sirve para calcular probabilidades de cualquier distribución normal.
+a)	Estandarizar un valor x significa restarle la desviación y dividir por la media.
+a)	La probabilidad de que una variable aleatoria continua tome un valor dado es cero.
+a)	La función de densidad de probabilidad (fdp) de una variable aleatoria continua sirve para conocer en qué región es más probable encontrar valores de la variable.
+
+Rtas: F, V, V, V, F, V, V, F, V, F, V, V.
+
+2) Si Z es una variable aleatoria normal estandarizada,
+a)	¿Cuál es el rango de la variable aleatoria Z?
+b)	¿Cuál es la probabilidad de tomar un valor menor que cero?
+c)	¿Cuál es la probabilidad de que Z tome un valor entre -3 y +3?
+d)	¿Cuál es la probabilidad de obtener un valor en el rango media más menos dos desviaciones estándar?
+e)	¿Cuál es la probabilidad de que Z tome un valor comprendido entre -1.28 y +1.65?
+
+Rtas: reales, ½, 0.9973, 0.9544, 0.8502
+
+3) Determinar las siguientes probabilidades para la variable aleatoria normal estándar (Dibuje una curva normal y sombree el área bajo la curva):
+
+a)	P (Z < 1.32).
+b)	P (-2.34 < Z < 1.76).
+c)	P (Z < 3).
+d)	P (0 < Z < 1).
+e)	P (Z > 1.457).
+f)	P (-3 < Z < 3).
+g)	P (Z > -2.153).
+
 Rtas: 0.9066, 0.9511, 0.9986, 0.3413, 0.0726, 0. 9973, 0.9843
 
-2)	Suponga que Z tiene una distribución normal estándar. Determine el valor de z que resuelve las siguientes probabilidades (Dibuje una curva normal, sombree el área bajo la curva y ponga los valores correspondientes en el eje horizontal):
+4)	Suponga que Z tiene una distribución normal estándar. Determine el valor de z que resuelve las siguientes probabilidades (Dibuje una curva normal, sombree el área bajo la curva y ponga los valores correspondientes en el eje horizontal):
 
-a)	P (-z < Z < z) = 0.95
-b)	P (Z < z) = 0.9
-c)	P (-z < Z < z) = 0.99
-d)	P (Z < z) = 0.5
-e)	P (-z < Z < z) = 0.684
-f)	P(Z > z) = 0.1
-g)	P (-z < Z < z) = 0.9973
-h)	P (-1.24 < Z < z) = 0.8
+a)	P (-z < Z < z) = 0.95.
+b)	P (Z < z) = 0.9.
+c)	P (-z < Z < z) = 0.99.
+d)	P (Z < z) = 0.5.
+e)	P (-z < Z < z) = 0.684.
+f)	P(Z > z) = 0.1.
+g)	P (-z < Z < z) = 0.9973.
+h)	P (-1.24 < Z < z) = 0.8.
+
 Rtas: 1.96, 1.28, 2.58, 0, -1, la misma del literal b, 3, 
+
+5)	Averigüe el valor z que corresponde a cada área descrita:
+
+a)	El 70% de los elementos está a la derecha de este valor z.
+b)	El 20% de los elementos se encuentra a la izquierda de este valor z.
+c)	El 10% de los elementos es mayor que este valor z.
+d)	El 60% de los elementos es menor que este valor z.
+e)	El 50% de los elementos se encuentran a la derecha de este valor z.
+f)	El 30% de los elementos se encuentran a la izquierda de este valor z.
+
+Rtas) `qnorm(p=0.7, lower.tail=F)`; `qnorm(p=0.2)`, `qnorm(p=0.1, lower.tail=F)`; `qnorm(p=0.6, lower.tail=T)`; `qnorm(p=0.5)`, `qnorm(p=0.3)`.
+
+6)	La duración de un determinado tipo de lavadora automática tiene una distribución normal, con una media de 3.1 años y una desviación estándar de 1.2 años. La compañía ofrece en su garantía que si la lavadora presenta algún defecto será reemplazada.
+
+a)	Describa gráficamente esta distribución en particular.
+b)	Si la lavadora está garantizada por un año, ¿qué proporción del total de unidades vendidas tendrá que ser reemplazada?
+c)	Si el fabricante de las lavadoras está dispuesto a reemplazar sólo el 3% de las lavadoras que vende. ¿Por cuántos meses debe ofrecer la garantía para asegurar que no más de un 3% de las lavadoras tendrá que ser reemplazada?
+d)	¿Qué porcentaje de las lavadoras vendidas van a durar entre 3 y 6 años?
+
+
+Rtas) `curve(dnorm(x,mean=3.1,sd=1.2), xlim=c(0,6))`; `pnorm(q=1, mean=3.1, sd=1.2)`; `qnorm(p=0.03, mean=3.1, sd=1.2)`; `pnorm(q=6, mean=3.1, sd=1.2) - pnorm(q=3, mean=3.1, sd=1.2)`.
+
+7)	El consumo promedio de combustible de una flota de 1000 camiones sigue una distribución normal con una media de 12 millas por galón y una desviación estándar de 2 millas por galón. Escriba las instrucciones en R para calcular cada una de las siguientes probabilidades.
+
+a)	¿Cuántos camiones tendrán un promedio de 11 millas o más por galón?
+b)	¿Cuántos camiones tendrán un promedio de menos de 10 millas por galón?
+c)	¿Cuántos camiones tendrán un promedio entre 9.5 y 14 millas por galón?
+d)	Averigüe la probabilidad de que un camión elegido al azar tenga un promedio de 13.5 millas por galón o más.
+e)	¿El 70% de los camiones tuvo un promedio más alto que cuántas millas por galón?
+f)	¿El 10% de los camiones tuvo un promedio menor que cuántas millas por galón?
+
+Rtas) 
+`1000*pnorm(q=11, mean=12, sd=2, lower.tail=F)`; 
+`1000*pnorm(q=10, mean=12, sd=2)`; 
+`1000*(pnorm(q=14, mean=12, sd=2)-pnorm(q=9.5, mean=12, sd=2))`; 
+`1-pnorm(q=13.5, mean=12, sd=2)`; 
+`qnorm(p=0.3, mean=12, sd=2)`; 
+`qnorm(p=0.1, mean=12, sd=2)`; 
+
+
+
+8)	Para medir los conocimientos sobre cierta materia en una misma población, se utilizan dos tipos de pruebas, A y B. Los resultados en ambas tienen distribución normal y la media de los resultados en la prueba A es 78.3 con una desviación estándar de 4.2 puntos. La media de las puntuaciones en la prueba B es 58.1 y su desviación estándar de 3.2 puntos. Una persona ha obtenido 83.1 puntos en la prueba A y otra persona ha conseguido 67.5 en la prueba B. ¿Cuál de las dos personas se encuentra en mejor posición? ¿Por qué? Rta: La persona que presentó B se encuentra en mejor posición.
+
+9)	Una empresa ha encontrado que la duración de sus llamadas telefónicas a larga distancia tiene aproximadamente una distribución normal, con media de 30 minutos y desviación típica de 3 minutos. Escriba el código en R para calcular lo siguiente.
+
+a)	¿Qué proporción de las llamadas a larga distancia tienen una duración de más de 20 minutos, pero de menos de 30 y medio minutos?
+b)	¿Qué proporción de llamadas se completan en 10 minutos o menos?
+c)	Una secretaria va a hacer una llamada a larga distancia. ¿Cuál es la probabilidad de que dure más de 50 minutos?
+
+Rtas) 
+`pnorm(q=30, mean=30, sd=3)- pnorm(q=20, mean=3, sd=3)`; 
+`pnorm(q=10, mean=30, sd=3)`; 
+`pnorm(q=50, mean=30, sd=3, lower.tail=F)`. 
+
+10)	El gerente de personal de una gran compañía requiere que los postulantes a un puesto efectúen una prueba de aptitud y que en ella obtengan una calificación mínima de 500. Si las calificaciones de la prueba se distribuyen normalmente con una media de 485 y desviación estándar de 30:
+
+a)	¿Qué porcentaje de postulantes aprobará la prueba?
+b)	Si aquellos postulantes que obtienen un puntaje comprendido entre 471 y 499 pueden optar a una segunda oportunidad, y un total de 1200 postulantes rindió la primera prueba, ¿cuántos de los 1200 postulantes tendrán derecho a rendir la prueba por segunda vez?
+c)	Si el puntaje de la segunda prueba se relaciona con el puntaje de la primera prueba a través de la expresión: Y=1.25 X + 2.5, donde Y es el puntaje en la segunda prueba y X es el puntaje obtenido en la primera prueba, determine la probabilidad de que en la segunda prueba un postulante cualquiera elegido al azar obtenga el puntaje aprobatorio de 500 puntos o más.
+d)	Determine un puntaje “k” correspondiente al percentil 90 de la distribución. Interprete. 
+
+11)	Se regula una máquina despachadora de refresco para que sirva un promedio de 200 mililitros por vaso. Si la cantidad de bebida se distribuye normalmente con una varianza igual a 225 mililitros2,
+a)	¿cuál es la probabilidad de que un vaso contenga entre 191 y 209 mililitros?
+b)	¿cuántos vasos probablemente se derramarán si se utilizan vasos de 230 mililitros para las siguientes 800 bebidas?
+
+Rtas: 0.4514; aproximadamente 18 vasos.
+
+12)	Los salarios de los profesionales en cierto departamento son en promedio 11.9\$ por hora y la desviación estándar de 0.4\$. Si los salarios tienen una distribución normal. ¿Cuál es la probabilidad de que un profesional seleccionado al azar:
+
+a)	Reciba salarios entre 10.9 y 11.9.
+b)	Reciba salarios inferiores a 11.
+c)	Reciba salarios superiores a 12.95.
+d)	¿Cuál debe ser el salario menor que gana un trabajador que se encuentra entre el 10% de los trabajadores que más ganan?
+e)	Si el dueño de la industria va a aumentarle el salario al 15% de los trabajadores que menos ganan. ¿Cuál será el salario máximo que deberá ganar un trabajador para ser beneficiado con el aumento?
+
+Rtas: 0.4938; 0.0122; 0.0043; $12.412; $11.484
 
