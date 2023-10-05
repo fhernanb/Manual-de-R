@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2023-10-04" />
+<meta name="date" content="2023-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -420,10 +420,12 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#ejemplo-47"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#variable-aleatoria-continua"><i class="fa fa-check"></i><b>15.2</b> Variable aleatoria continua</a>
+<li class="chapter" data-level="15.2" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#app-shiny-pmf"><i class="fa fa-check"></i><b>15.2</b> App shiny pmf</a></li>
+<li class="chapter" data-level="15.3" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#variable-aleatoria-continua"><i class="fa fa-check"></i><b>15.3</b> Variable aleatoria continua</a>
 <ul>
 <li class="chapter" data-level="" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#ejemplo-48"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
+<li class="chapter" data-level="15.4" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#app-shiny-pdf"><i class="fa fa-check"></i><b>15.4</b> App shiny pdf</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="discretas.html"><a href="discretas.html"><i class="fa fa-check"></i><b>16</b> Distribuciones discretas</a>
 <ul>
@@ -707,10 +709,10 @@ div.csl-indent {
 <div id="función-t.test" class="section level2 hasAnchor" number="22.1">
 <h2><span class="header-section-number">22.1</span> Función <code>t.test</code><a href="ic.html#función-t.test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La función <code>t.test</code> se usa para calcular intervalos de confianza para la media y diferencia de medias, con muestras independientes y dependientes (o pareadas). La función y sus argumentos son los siguientes:</p>
-<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="ic.html#cb718-1" tabindex="-1"></a><span class="fu">t.test</span>(x, <span class="at">y =</span> <span class="cn">NULL</span>,</span>
-<span id="cb718-2"><a href="ic.html#cb718-2" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="fu">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
-<span id="cb718-3"><a href="ic.html#cb718-3" tabindex="-1"></a>       <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb718-4"><a href="ic.html#cb718-4" tabindex="-1"></a>       <span class="at">conf.level =</span> <span class="fl">0.95</span>, ...)</span></code></pre></div>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="ic.html#cb720-1" tabindex="-1"></a><span class="fu">t.test</span>(x, <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb720-2"><a href="ic.html#cb720-2" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="fu">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
+<span id="cb720-3"><a href="ic.html#cb720-3" tabindex="-1"></a>       <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb720-4"><a href="ic.html#cb720-4" tabindex="-1"></a>       <span class="at">conf.level =</span> <span class="fl">0.95</span>, ...)</span></code></pre></div>
 <div id="intervalo-de-confianza-bilateral-para-la-media-mu" class="section level3 hasAnchor" number="22.1.1">
 <h3><span class="header-section-number">22.1.1</span> Intervalo de confianza bilateral para la media <span class="math inline">\(\mu\)</span><a href="ic.html#intervalo-de-confianza-bilateral-para-la-media-mu" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para calcular intervalos de confianza bilaterales para la media a partir de la función <code>t.test</code> es necesario definir 2 argumentos:</p>
@@ -725,21 +727,21 @@ div.csl-indent {
 <p>Suponga que se quiere obtener un intervalo de confianza bilateral del 90% para la altura promedio de los hombres de la base de datos <strong>medidas del cuerpo</strong>.</p>
 <p><em>Solución</em></p>
 <p>Para calcular el intervalo de confianza, primero se carga la base de datos usando la url apropiada, luego se crea un subconjunto de <code>datos</code> y se aloja en el objeto <code>hombres</code> como sigue a continuación:</p>
-<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="ic.html#cb719-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
-<span id="cb719-2"><a href="ic.html#cb719-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
-<span id="cb719-3"><a href="ic.html#cb719-3" tabindex="-1"></a>hombres <span class="ot">&lt;-</span> datos[datos<span class="sc">$</span>sexo<span class="sc">==</span><span class="st">&quot;Hombre&quot;</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="ic.html#cb721-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb721-2"><a href="ic.html#cb721-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb721-3"><a href="ic.html#cb721-3" tabindex="-1"></a>hombres <span class="ot">&lt;-</span> datos[datos<span class="sc">$</span>sexo<span class="sc">==</span><span class="st">&quot;Hombre&quot;</span>, ]</span></code></pre></div>
 <p>Una vez leídos los datos, se analiza la normalidad de la variable altura de los hombres, a partir de un QQplot y un histograma</p>
-<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="ic.html#cb720-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb720-2"><a href="ic.html#cb720-2" tabindex="-1"></a><span class="fu">require</span>(car)  <span class="co"># Debe instalar antes el paquete car</span></span>
-<span id="cb720-3"><a href="ic.html#cb720-3" tabindex="-1"></a><span class="fu">qqPlot</span>(hombres<span class="sc">$</span>altura, <span class="at">pch=</span><span class="dv">19</span>,</span>
-<span id="cb720-4"><a href="ic.html#cb720-4" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;QQplot para la altura de hombres&#39;</span>,</span>
-<span id="cb720-5"><a href="ic.html#cb720-5" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Cuantiles teóricos&#39;</span>,</span>
-<span id="cb720-6"><a href="ic.html#cb720-6" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&#39;Cuantiles muestrales&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="ic.html#cb722-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb722-2"><a href="ic.html#cb722-2" tabindex="-1"></a><span class="fu">require</span>(car)  <span class="co"># Debe instalar antes el paquete car</span></span>
+<span id="cb722-3"><a href="ic.html#cb722-3" tabindex="-1"></a><span class="fu">qqPlot</span>(hombres<span class="sc">$</span>altura, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb722-4"><a href="ic.html#cb722-4" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;QQplot para la altura de hombres&#39;</span>,</span>
+<span id="cb722-5"><a href="ic.html#cb722-5" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Cuantiles teóricos&#39;</span>,</span>
+<span id="cb722-6"><a href="ic.html#cb722-6" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&#39;Cuantiles muestrales&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] 5 8</code></pre>
-<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="ic.html#cb722-1" tabindex="-1"></a><span class="fu">hist</span>(hombres<span class="sc">$</span>altura, <span class="at">freq=</span><span class="cn">TRUE</span>,</span>
-<span id="cb722-2"><a href="ic.html#cb722-2" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&#39;Histograma para la altura de hombres&#39;</span>,</span>
-<span id="cb722-3"><a href="ic.html#cb722-3" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Altura (cm)&#39;</span>,</span>
-<span id="cb722-4"><a href="ic.html#cb722-4" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&#39;Frecuencia&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="ic.html#cb724-1" tabindex="-1"></a><span class="fu">hist</span>(hombres<span class="sc">$</span>altura, <span class="at">freq=</span><span class="cn">TRUE</span>,</span>
+<span id="cb724-2"><a href="ic.html#cb724-2" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&#39;Histograma para la altura de hombres&#39;</span>,</span>
+<span id="cb724-3"><a href="ic.html#cb724-3" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Altura (cm)&#39;</span>,</span>
+<span id="cb724-4"><a href="ic.html#cb724-4" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&#39;Frecuencia&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:ic1"></span>
 <img src="Manual_de_R_files/figure-html/ic1-1.png" alt="QQplot e histograma para la altura de los hombres." width="768" />
 <p class="caption">
@@ -748,8 +750,8 @@ Figure 22.1: QQplot e histograma para la altura de los hombres.
 </div>
 <p>En la Figura <a href="ic.html#fig:ic1">22.1</a> se muestra el QQplot e histograma para la variable altura, de estas figuras no se observa un claro patrón normal, sin embargo, al aplicar la prueba Shapiro-Wilk a la muestra de alturas de los hombres se obtuvo un valor-P de 0.3599, por lo tanto, se asume que la muestra de alturas provienen de una población normal.</p>
 <p>Una vez chequeado el supuesto de normalidad se puede usar la función <code>t.test</code> sobre la variable de interés para construir el intervalo de confianza. El resultado de usar <code>t.test</code> es una lista, uno de los elementos de esa lista es justamente el intevalo de confianza y para extraerlo es que se usa <code>$conf.int</code> al final de la instrucción. A continuación se muestra el código utilizado.</p>
-<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="ic.html#cb723-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">conf.level=</span><span class="fl">0.90</span>)</span>
-<span id="cb723-2"><a href="ic.html#cb723-2" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="ic.html#cb725-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">conf.level=</span><span class="fl">0.90</span>)</span>
+<span id="cb725-2"><a href="ic.html#cb725-2" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 176.4384 181.7172
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.9</code></pre>
@@ -775,24 +777,24 @@ La función <code>t.test</code> entrega como resultado un objeto de la clase “
 <p>Se quiere saber si existe diferencia estadísticamente significativa entre las alturas de los hombres y las mujeres. Para responder esto se va a construir un intervalo de confianza del <span class="math inline">\(95\%\)</span> para la diferencia de las altura promedio de los hombres y de las mujeres (<span class="math inline">\(\mu_{hombres}-\mu_{mujeres}\)</span>).</p>
 <p><em>Solución</em></p>
 <p>Para construir el intervalo de confianza, primero se carga la base de datos usando la url apropiada, luego se crean dos subconjuntos de datos y se alojan en los objetos <code>hombres</code> y <code>mujeres</code> como sigue a continuación:</p>
-<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="ic.html#cb725-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
-<span id="cb725-2"><a href="ic.html#cb725-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
-<span id="cb725-3"><a href="ic.html#cb725-3" tabindex="-1"></a>hombres <span class="ot">&lt;-</span> datos[datos<span class="sc">$</span>sexo<span class="sc">==</span><span class="st">&quot;Hombre&quot;</span>, ]</span>
-<span id="cb725-4"><a href="ic.html#cb725-4" tabindex="-1"></a>mujeres <span class="ot">&lt;-</span> datos[datos<span class="sc">$</span>sexo<span class="sc">==</span><span class="st">&quot;Mujer&quot;</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="ic.html#cb727-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb727-2"><a href="ic.html#cb727-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb727-3"><a href="ic.html#cb727-3" tabindex="-1"></a>hombres <span class="ot">&lt;-</span> datos[datos<span class="sc">$</span>sexo<span class="sc">==</span><span class="st">&quot;Hombre&quot;</span>, ]</span>
+<span id="cb727-4"><a href="ic.html#cb727-4" tabindex="-1"></a>mujeres <span class="ot">&lt;-</span> datos[datos<span class="sc">$</span>sexo<span class="sc">==</span><span class="st">&quot;Mujer&quot;</span>, ]</span></code></pre></div>
 <p>Una vez leídos los datos, se analiza la normalidad de la variable altura de los hombres y las mujeres, a partir de un QQplot y un histograma</p>
-<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="ic.html#cb726-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb726-2"><a href="ic.html#cb726-2" tabindex="-1"></a><span class="fu">require</span>(car)  <span class="co"># Debe instalar antes el paquete car</span></span>
-<span id="cb726-3"><a href="ic.html#cb726-3" tabindex="-1"></a><span class="fu">qqPlot</span>(hombres<span class="sc">$</span>altura, <span class="at">pch=</span><span class="dv">19</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&#39;QQplot altura hombres&#39;</span>,</span>
-<span id="cb726-4"><a href="ic.html#cb726-4" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Cuantiles teóricos&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Cuantiles muestrales&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="ic.html#cb728-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb728-2"><a href="ic.html#cb728-2" tabindex="-1"></a><span class="fu">require</span>(car)  <span class="co"># Debe instalar antes el paquete car</span></span>
+<span id="cb728-3"><a href="ic.html#cb728-3" tabindex="-1"></a><span class="fu">qqPlot</span>(hombres<span class="sc">$</span>altura, <span class="at">pch=</span><span class="dv">19</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&#39;QQplot altura hombres&#39;</span>,</span>
+<span id="cb728-4"><a href="ic.html#cb728-4" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Cuantiles teóricos&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Cuantiles muestrales&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] 5 8</code></pre>
-<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="ic.html#cb728-1" tabindex="-1"></a><span class="fu">hist</span>(hombres<span class="sc">$</span>altura, <span class="at">las=</span><span class="dv">1</span>, <span class="at">xlab=</span><span class="st">&#39;Altura&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Frecuencia&#39;</span>,</span>
-<span id="cb728-2"><a href="ic.html#cb728-2" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&#39;Histograma altura hombres&#39;</span>)</span>
-<span id="cb728-3"><a href="ic.html#cb728-3" tabindex="-1"></a></span>
-<span id="cb728-4"><a href="ic.html#cb728-4" tabindex="-1"></a><span class="fu">qqPlot</span>(mujeres<span class="sc">$</span>altura, <span class="at">pch=</span><span class="dv">19</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&#39;QQplot altura mujeres&#39;</span>,</span>
-<span id="cb728-5"><a href="ic.html#cb728-5" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Cuantiles teóricos&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Cuantiles muestrales&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="ic.html#cb730-1" tabindex="-1"></a><span class="fu">hist</span>(hombres<span class="sc">$</span>altura, <span class="at">las=</span><span class="dv">1</span>, <span class="at">xlab=</span><span class="st">&#39;Altura&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Frecuencia&#39;</span>,</span>
+<span id="cb730-2"><a href="ic.html#cb730-2" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&#39;Histograma altura hombres&#39;</span>)</span>
+<span id="cb730-3"><a href="ic.html#cb730-3" tabindex="-1"></a></span>
+<span id="cb730-4"><a href="ic.html#cb730-4" tabindex="-1"></a><span class="fu">qqPlot</span>(mujeres<span class="sc">$</span>altura, <span class="at">pch=</span><span class="dv">19</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&#39;QQplot altura mujeres&#39;</span>,</span>
+<span id="cb730-5"><a href="ic.html#cb730-5" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Cuantiles teóricos&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Cuantiles muestrales&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] 16  9</code></pre>
-<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="ic.html#cb730-1" tabindex="-1"></a><span class="fu">hist</span>(mujeres<span class="sc">$</span>altura, <span class="at">las=</span><span class="dv">1</span>, <span class="at">xlab=</span><span class="st">&#39;Altura&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Frecuencia&#39;</span>,</span>
-<span id="cb730-2"><a href="ic.html#cb730-2" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&#39;Histograma altura mujeres&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="ic.html#cb732-1" tabindex="-1"></a><span class="fu">hist</span>(mujeres<span class="sc">$</span>altura, <span class="at">las=</span><span class="dv">1</span>, <span class="at">xlab=</span><span class="st">&#39;Altura&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Frecuencia&#39;</span>,</span>
+<span id="cb732-2"><a href="ic.html#cb732-2" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&#39;Histograma altura mujeres&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:ic2"></span>
 <img src="Manual_de_R_files/figure-html/ic2-1.png" alt="QQplot e histograma para la altura de hombres y mujeres." width="768" />
 <p class="caption">
@@ -801,9 +803,9 @@ Figure 22.2: QQplot e histograma para la altura de hombres y mujeres.
 </div>
 <p>De la Figura <a href="ic.html#fig:ic2">22.2</a> se puede concluir que las alturas de los estudiantes hombres y mujeres siguen una distribución normal. Al aplicar la prueba Shapiro-Wilk para estudiar la normalidad de la altura se encontró un valor-P de 0.3599 para el grupo de hombres y un valor-P de 0.5921 para el grupo de mujeres, esto confirma que se cumple el supuesto de normalidad.</p>
 <p>Como se cumple el supuesto de normalidad se puede usar la función <code>t.test</code> para construir el intervalo de confianza requerido. A continuación se muestra el código</p>
-<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="ic.html#cb731-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">y=</span>mujeres<span class="sc">$</span>altura,</span>
-<span id="cb731-2"><a href="ic.html#cb731-2" tabindex="-1"></a>              <span class="at">paired=</span><span class="cn">FALSE</span>, <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb731-3"><a href="ic.html#cb731-3" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="ic.html#cb733-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">y=</span>mujeres<span class="sc">$</span>altura,</span>
+<span id="cb733-2"><a href="ic.html#cb733-2" tabindex="-1"></a>              <span class="at">paired=</span><span class="cn">FALSE</span>, <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb733-3"><a href="ic.html#cb733-3" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 10.06571 20.02318
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
@@ -929,19 +931,19 @@ Siempre que estemos interesados en un intervalo de confianza para <span class="m
 </table>
 <p><em>Solución</em></p>
 <p>Para construir el intervalo de confianza primero se crean dos vectores con los datos y se nombran <code>Antes</code> y <code>Despues</code>, luego se calcula la diferencia y se aloja en el vector <code>Diferencia</code>, como sigue a continuación:</p>
-<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="ic.html#cb733-1" tabindex="-1"></a>Antes   <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">81</span>, <span class="dv">87</span>, <span class="dv">86</span>, <span class="dv">82</span>, <span class="dv">90</span>, <span class="dv">86</span>, <span class="dv">96</span>, <span class="dv">73</span>,</span>
-<span id="cb733-2"><a href="ic.html#cb733-2" tabindex="-1"></a>             <span class="dv">74</span>, <span class="dv">75</span>, <span class="dv">72</span>, <span class="dv">80</span>, <span class="dv">66</span>, <span class="dv">72</span>, <span class="dv">56</span>, <span class="dv">82</span>)</span>
-<span id="cb733-3"><a href="ic.html#cb733-3" tabindex="-1"></a>Despues <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">78</span>, <span class="dv">91</span>, <span class="dv">78</span>, <span class="dv">78</span>, <span class="dv">84</span>, <span class="dv">67</span>, <span class="dv">92</span>, <span class="dv">70</span>,</span>
-<span id="cb733-4"><a href="ic.html#cb733-4" tabindex="-1"></a>             <span class="dv">58</span>, <span class="dv">62</span>, <span class="dv">70</span>, <span class="dv">58</span>, <span class="dv">66</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">73</span>)</span>
-<span id="cb733-5"><a href="ic.html#cb733-5" tabindex="-1"></a>Diferencia <span class="ot">&lt;-</span> Antes <span class="sc">-</span> Despues</span></code></pre></div>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="ic.html#cb735-1" tabindex="-1"></a>Antes   <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">81</span>, <span class="dv">87</span>, <span class="dv">86</span>, <span class="dv">82</span>, <span class="dv">90</span>, <span class="dv">86</span>, <span class="dv">96</span>, <span class="dv">73</span>,</span>
+<span id="cb735-2"><a href="ic.html#cb735-2" tabindex="-1"></a>             <span class="dv">74</span>, <span class="dv">75</span>, <span class="dv">72</span>, <span class="dv">80</span>, <span class="dv">66</span>, <span class="dv">72</span>, <span class="dv">56</span>, <span class="dv">82</span>)</span>
+<span id="cb735-3"><a href="ic.html#cb735-3" tabindex="-1"></a>Despues <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">78</span>, <span class="dv">91</span>, <span class="dv">78</span>, <span class="dv">78</span>, <span class="dv">84</span>, <span class="dv">67</span>, <span class="dv">92</span>, <span class="dv">70</span>,</span>
+<span id="cb735-4"><a href="ic.html#cb735-4" tabindex="-1"></a>             <span class="dv">58</span>, <span class="dv">62</span>, <span class="dv">70</span>, <span class="dv">58</span>, <span class="dv">66</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">73</span>)</span>
+<span id="cb735-5"><a href="ic.html#cb735-5" tabindex="-1"></a>Diferencia <span class="ot">&lt;-</span> Antes <span class="sc">-</span> Despues</span></code></pre></div>
 <p>En seguida se analiza la normalidad de la variable <code>Diferencia</code> de los cambios en las condiciones de trabajo, a partir de un qqplot y una densidad.</p>
-<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="ic.html#cb734-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb734-2"><a href="ic.html#cb734-2" tabindex="-1"></a><span class="fu">require</span>(car)</span>
-<span id="cb734-3"><a href="ic.html#cb734-3" tabindex="-1"></a><span class="fu">qqPlot</span>(Diferencia, <span class="at">pch=</span><span class="dv">19</span>, <span class="at">main=</span><span class="st">&#39;QQplot para Diferencias&#39;</span>, <span class="at">las=</span><span class="dv">1</span>, </span>
-<span id="cb734-4"><a href="ic.html#cb734-4" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Cuantiles teóricos&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Cuantiles muestrales&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="ic.html#cb736-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb736-2"><a href="ic.html#cb736-2" tabindex="-1"></a><span class="fu">require</span>(car)</span>
+<span id="cb736-3"><a href="ic.html#cb736-3" tabindex="-1"></a><span class="fu">qqPlot</span>(Diferencia, <span class="at">pch=</span><span class="dv">19</span>, <span class="at">main=</span><span class="st">&#39;QQplot para Diferencias&#39;</span>, <span class="at">las=</span><span class="dv">1</span>, </span>
+<span id="cb736-4"><a href="ic.html#cb736-4" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Cuantiles teóricos&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Cuantiles muestrales&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] 15 12</code></pre>
-<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="ic.html#cb736-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(Diferencia), <span class="at">main=</span><span class="st">&#39;Densidad para Diferencias&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb736-2"><a href="ic.html#cb736-2" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Diferencia de tiempo&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="ic.html#cb738-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(Diferencia), <span class="at">main=</span><span class="st">&#39;Densidad para Diferencias&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb738-2"><a href="ic.html#cb738-2" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Diferencia de tiempo&#39;</span>, <span class="at">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:ic3"></span>
 <img src="Manual_de_R_files/figure-html/ic3-1.png" alt="QQplot y densidad para Diferencias." width="768" />
 <p class="caption">
@@ -950,8 +952,8 @@ Figure 22.3: QQplot y densidad para Diferencias.
 </div>
 <p>De la Figura <a href="ic.html#fig:ic3">22.3</a> se observa que la diferencia de los tiempos sigue una distribución normal, debido a que en el QQplot se observa un patron lineal y la densidad muestra una forma cercana a la simétrica.</p>
 <p>Luego de chequear la normalidad de la variable <code>Diferencia</code> se usa la función <code>t.test</code> para construir el intervalo. A continuación se muestra el código utilizado.</p>
-<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="ic.html#cb737-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">x=</span>Antes, <span class="at">y=</span>Despues, <span class="at">paired=</span><span class="cn">TRUE</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span>
-<span id="cb737-2"><a href="ic.html#cb737-2" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="ic.html#cb739-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">x=</span>Antes, <span class="at">y=</span>Despues, <span class="at">paired=</span><span class="cn">TRUE</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span>
+<span id="cb739-2"><a href="ic.html#cb739-2" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1]  2.362371 11.137629
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
@@ -965,9 +967,9 @@ Figure 22.3: QQplot y densidad para Diferencias.
 <h3>Ejemplo<a href="ic.html#ejemplo-70" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Simule una muestra aleatoria de una <span class="math inline">\(N(18, 3)\)</span> y calcule un intervalo de confianza unilateral superior del <span class="math inline">\(90\%\)</span> para la media.</p>
 <p><em>Solución</em></p>
-<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="ic.html#cb739-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">18</span>, <span class="at">sd =</span><span class="dv">3</span>)</span>
-<span id="cb739-2"><a href="ic.html#cb739-2" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">t.test</span>(x, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.90</span>)</span>
-<span id="cb739-3"><a href="ic.html#cb739-3" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="ic.html#cb741-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">18</span>, <span class="at">sd =</span><span class="dv">3</span>)</span>
+<span id="cb741-2"><a href="ic.html#cb741-2" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">t.test</span>(x, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.90</span>)</span>
+<span id="cb741-3"><a href="ic.html#cb741-3" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 17.07872      Inf
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.9</code></pre>
@@ -987,17 +989,17 @@ Recuerde: siempre se debe verificar el supuesto de normalidad.
 <code>var.test()</code> de <strong>stats</strong> sólo sirve para 1 población mientras que <code>var.test()</code> de <strong>stests</strong> sirve para 1 o 2 poblaciones.
 </div>
 <p>Para instalar el paquete <strong>stests</strong> desde GitHub se debe copiar el siguiente código en la consola de R:</p>
-<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="ic.html#cb741-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;devtools&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</span>
-<span id="cb741-2"><a href="ic.html#cb741-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;fhernanb/stests&#39;</span>, <span class="at">force=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="ic.html#cb743-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;devtools&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</span>
+<span id="cb743-2"><a href="ic.html#cb743-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;fhernanb/stests&#39;</span>, <span class="at">force=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Una vez instalado el paquete <strong>stests</strong> se puede usar la función <code>var.test</code>, la cual es una generalización de la función <code>var.test</code> del paquete <strong>stats</strong> y por esa razón aparecerá el siguiente mensaje en la consola cuando se carga el paquete.</p>
-<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="ic.html#cb742-1" tabindex="-1"></a><span class="fu">library</span>(stests)</span>
-<span id="cb742-2"><a href="ic.html#cb742-2" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb742-3"><a href="ic.html#cb742-3" tabindex="-1"></a><span class="do">## The following object is masked from ‘package:stats’:</span></span>
-<span id="cb742-4"><a href="ic.html#cb742-4" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb742-5"><a href="ic.html#cb742-5" tabindex="-1"></a><span class="do">##     var.test</span></span></code></pre></div>
+<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="ic.html#cb744-1" tabindex="-1"></a><span class="fu">library</span>(stests)</span>
+<span id="cb744-2"><a href="ic.html#cb744-2" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb744-3"><a href="ic.html#cb744-3" tabindex="-1"></a><span class="do">## The following object is masked from ‘package:stats’:</span></span>
+<span id="cb744-4"><a href="ic.html#cb744-4" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb744-5"><a href="ic.html#cb744-5" tabindex="-1"></a><span class="do">##     var.test</span></span></code></pre></div>
 <p>Si usted desea usar <code>var.test</code> del paquete <strong>stats</strong> o <code>var.test</code> del paquete <strong>stests</strong>, puede invocar las funciones explícitamente así:</p>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="ic.html#cb743-1" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">var.test</span>()   <span class="co"># Para usar la función var.test del paquete stats</span></span>
-<span id="cb743-2"><a href="ic.html#cb743-2" tabindex="-1"></a>stests<span class="sc">::</span><span class="fu">var.test</span>()  <span class="co"># Para usar la función var.test del paquete stests</span></span></code></pre></div>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="ic.html#cb745-1" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">var.test</span>()   <span class="co"># Para usar la función var.test del paquete stats</span></span>
+<span id="cb745-2"><a href="ic.html#cb745-2" tabindex="-1"></a>stests<span class="sc">::</span><span class="fu">var.test</span>()  <span class="co"># Para usar la función var.test del paquete stests</span></span></code></pre></div>
 <div id="intervalo-de-confianza-bilateral-para-la-varianza-sigma2" class="section level3 hasAnchor" number="22.2.1">
 <h3><span class="header-section-number">22.2.1</span> Intervalo de confianza bilateral para la varianza <span class="math inline">\(\sigma^2\)</span><a href="ic.html#intervalo-de-confianza-bilateral-para-la-varianza-sigma2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para calcular intervalos de confianza bilaterales para la varianza <span class="math inline">\(\sigma^2\)</span> a partir de la función <code>var.test</code> es necesario definir 2 argumentos:</p>
@@ -1010,9 +1012,9 @@ Recuerde: siempre se debe verificar el supuesto de normalidad.
 <h3>Ejemplo<a href="ic.html#ejemplo-71" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Considerando la información del ejemplo de intervalos de confianza bilaterales para la media, construir un intervalo de confianza del 98% para la varianza de la altura de los estudiantes hombres.</p>
 <p><em>Solución</em></p>
-<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="ic.html#cb744-1" tabindex="-1"></a><span class="fu">require</span>(stests)  <span class="co"># Para cargar el paquete</span></span>
-<span id="cb744-2"><a href="ic.html#cb744-2" tabindex="-1"></a>res <span class="ot">&lt;-</span> stests<span class="sc">::</span><span class="fu">var.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">conf.level=</span><span class="fl">0.98</span>)</span>
-<span id="cb744-3"><a href="ic.html#cb744-3" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="ic.html#cb746-1" tabindex="-1"></a><span class="fu">require</span>(stests)  <span class="co"># Para cargar el paquete</span></span>
+<span id="cb746-2"><a href="ic.html#cb746-2" tabindex="-1"></a>res <span class="ot">&lt;-</span> stests<span class="sc">::</span><span class="fu">var.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">conf.level=</span><span class="fl">0.98</span>)</span>
+<span id="cb746-3"><a href="ic.html#cb746-3" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1]  21.08468 109.93095
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.98</code></pre>
@@ -1037,14 +1039,14 @@ Recuerde: siempre se debe verificar el supuesto de normalidad.
 <p>Usando la información del ejemplo de diferencia de medias para muestras independientes se quiere obtener un intervalo de confianza del <span class="math inline">\(95\%\)</span> para la razón de las varianzas de las alturas de los estudiantes hombres y mujeres.</p>
 <p><em>Solución</em></p>
 <p>Primero lo vamos a construir con <code>var.test</code> de <strong>stests</strong>.</p>
-<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="ic.html#cb746-1" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> stests<span class="sc">::</span><span class="fu">var.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">y=</span>mujeres<span class="sc">$</span>altura, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span>
-<span id="cb746-2"><a href="ic.html#cb746-2" tabindex="-1"></a>res1<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="ic.html#cb748-1" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> stests<span class="sc">::</span><span class="fu">var.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">y=</span>mujeres<span class="sc">$</span>altura, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span>
+<span id="cb748-2"><a href="ic.html#cb748-2" tabindex="-1"></a>res1<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 0.2327398 1.6632830
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
 <p>Ahora los vamos a construir con <code>var.test</code> de <strong>stats</strong>.</p>
-<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="ic.html#cb748-1" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">var.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">y=</span>mujeres<span class="sc">$</span>altura, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span>
-<span id="cb748-2"><a href="ic.html#cb748-2" tabindex="-1"></a>res2<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="ic.html#cb750-1" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">var.test</span>(<span class="at">x=</span>hombres<span class="sc">$</span>altura, <span class="at">y=</span>mujeres<span class="sc">$</span>altura, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span>
+<span id="cb750-2"><a href="ic.html#cb750-2" tabindex="-1"></a>res2<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 0.2327398 1.6632830
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
@@ -1066,9 +1068,9 @@ Recuerde: siempre se debe verificar el supuesto de normalidad.
 <div id="función-prop.test" class="section level2 hasAnchor" number="22.3">
 <h2><span class="header-section-number">22.3</span> Función <code>prop.test</code><a href="ic.html#función-prop.test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La función <code>prop.test</code> se usa para calcular intervalos de confianza para la porporción y diferencia de proporciones. La función y sus argumentos son los siguientes:</p>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="ic.html#cb750-1" tabindex="-1"></a><span class="fu">prop.test</span>(x, n, <span class="at">p=</span><span class="cn">NULL</span>,</span>
-<span id="cb750-2"><a href="ic.html#cb750-2" tabindex="-1"></a>          <span class="at">alternative=</span><span class="fu">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
-<span id="cb750-3"><a href="ic.html#cb750-3" tabindex="-1"></a>          <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">correct=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="ic.html#cb752-1" tabindex="-1"></a><span class="fu">prop.test</span>(x, n, <span class="at">p=</span><span class="cn">NULL</span>,</span>
+<span id="cb752-2"><a href="ic.html#cb752-2" tabindex="-1"></a>          <span class="at">alternative=</span><span class="fu">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>),</span>
+<span id="cb752-3"><a href="ic.html#cb752-3" tabindex="-1"></a>          <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">correct=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <div id="intervalo-de-confianza-bilateral-para-la-proporción-p" class="section level3 hasAnchor" number="22.3.1">
 <h3><span class="header-section-number">22.3.1</span> Intervalo de confianza bilateral para la proporción <span class="math inline">\(p\)</span><a href="ic.html#intervalo-de-confianza-bilateral-para-la-proporción-p" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para calcular intervalos de confianza bilaterales para la proporción con la función <code>prop.test</code> es necesario definir 3 argumentos:</p>
@@ -1082,8 +1084,8 @@ Recuerde: siempre se debe verificar el supuesto de normalidad.
 <h3>Ejemplo<a href="ic.html#ejemplo-73" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El gerente de una estación de televisión debe determinar en la ciudad qué porcentaje de casas tienen más de un televisor. Una muestra aleatoria de 500 casas revela que 275 tienen dos o más televisores. ¿Cuál es el intervalo de confianza del 90% para estimar la proporción de todas las casas que tienen dos o más televisores?</p>
 <p><em>Solución</em></p>
-<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="ic.html#cb751-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">275</span>, <span class="at">n=</span><span class="dv">500</span>, <span class="at">conf.level=</span><span class="fl">0.90</span>)</span>
-<span id="cb751-2"><a href="ic.html#cb751-2" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="ic.html#cb753-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">275</span>, <span class="at">n=</span><span class="dv">500</span>, <span class="at">conf.level=</span><span class="fl">0.90</span>)</span>
+<span id="cb753-2"><a href="ic.html#cb753-2" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 0.5122310 0.5872162
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.9</code></pre>
@@ -1124,8 +1126,8 @@ Recuerde: siempre se debe verificar el supuesto de normalidad.
 </table>
 <p>Construir un intervalo de confianza del 90% para decidir si el cambio tuvo efecto positivo o no.</p>
 <p><em>Solución</em></p>
-<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="ic.html#cb753-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">80</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1500</span>, <span class="dv">2000</span>), <span class="at">conf.level=</span><span class="fl">0.90</span>)</span>
-<span id="cb753-2"><a href="ic.html#cb753-2" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="ic.html#cb755-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">80</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1500</span>, <span class="dv">2000</span>), <span class="at">conf.level=</span><span class="fl">0.90</span>)</span>
+<span id="cb755-2"><a href="ic.html#cb755-2" tabindex="-1"></a>res<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] -0.002314573  0.022314573
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.9</code></pre>

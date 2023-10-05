@@ -114,6 +114,15 @@ Para calcular $E(h(x))$ con $h(x)=3x^2+x$ podemos usar el siguiente código.
 sum((3*x_vals^2 + x_vals) * probs)
 ```
 
+## App shiny pmf
+En el repositorio semilleroApps que está en [github](https://github.com/fhernanb/semilleroApps/tree/master) hay una aplicación llamada **pmf** que recibe un función de masa de probabilidad y ella entrega el dibujo de $f(x)$, $F(x)$, $E(X)$ y $Var(X)$. Para usar la aplicación usted debe copiar el siguiente código en la consola de R y esperar unos segundos para ejecutar la aplicación.
+
+```{r eval=FALSE}
+if (!require('shiny')) install.packages("shiny")
+shiny::runGitHub(repo="semilleroApps", user="fhernanb", sub="pmf")
+```
+
+
 ## Variable aleatoria continua
 Una variable aleatoria continua $X$ definida en el espacio muestral $S$ se considera continua si ella puede tomar valores en los números reales $\Re$. A continuación se presentan dos ejemplos.
 
@@ -202,5 +211,13 @@ Para obtener $Var(X)$ vamos a realizar lo siguiente:
 aux_fun <- function(x) (x-12.55)^2 * f(x) # Función auxiliar para aplicar definición
 
 integrate(f=aux_fun, lower=12.5, upper=Inf)
+```
+
+## App shiny pdf
+En el repositorio semilleroApps que está en [github](https://github.com/fhernanb/semilleroApps/tree/master) hay una aplicación llamada **pdf** que recibe un función de densidad de probabilidad y ella entrega el dibujo de $f(x)$, $F(x)$, $E(X)$ y $Var(X)$. Para usar la aplicación usted debe copiar el siguiente código en la consola de R y esperar unos segundos para ejecutar la aplicación.
+
+```{r eval=FALSE}
+if (!require('shiny')) install.packages("shiny")
+shiny::runGitHub(repo="semilleroApps", user="fhernanb", sub="pdf")
 ```
 

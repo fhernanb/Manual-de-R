@@ -1,3 +1,7 @@
+---
+output: html_document
+runtime: shiny
+---
 # Curiosidades {#curio}
 
 En este capítulo se mostrarán algunos procedimientos de R para solucionar problemas frecuentes.
@@ -17,8 +21,4 @@ package.check <- lapply(packages, FUN = function(x) {
   }
 })
 ```
-
-
-
-
 
