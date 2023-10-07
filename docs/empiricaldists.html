@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2023-10-05" />
+<meta name="date" content="2023-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -444,13 +444,18 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="17" data-path="continuas.html"><a href="continuas.html"><i class="fa fa-check"></i><b>17</b> Distribuciones continuas</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>17.1</b> Funciones disponibles para distribuciones continuas</a>
+<li class="chapter" data-level="17.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>17.1</b> Funciones disponibles para distribuciones continuas</a></li>
+<li class="chapter" data-level="17.2" data-path="continuas.html"><a href="continuas.html#distribución-beta"><i class="fa fa-check"></i><b>17.2</b> Distribución beta</a>
 <ul>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-beta"><i class="fa fa-check"></i>Ejemplo beta</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="continuas.html"><a href="continuas.html#distribución-exponencial"><i class="fa fa-check"></i><b>17.3</b> Distribución exponencial</a>
+<ul>
+<li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-exponencial"><i class="fa fa-check"></i>Ejemplo exponencial</a></li>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-estándar"><i class="fa fa-check"></i>Ejemplo normal estándar</a></li>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-general"><i class="fa fa-check"></i>Ejemplo normal general</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>17.2</b> Distribuciones continuas generales</a>
+<li class="chapter" data-level="17.4" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>17.4</b> Distribuciones continuas generales</a>
 <ul>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-50"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
@@ -699,27 +704,27 @@ div.csl-indent {
 <div id="una-variable" class="section level2 hasAnchor" number="25.1">
 <h2><span class="header-section-number">25.1</span> Una variable<a href="empiricaldists.html#una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Las funciones para obtener la densidad empírica <span class="math inline">\(f_n(x)\)</span> y la función de distribución acumulada empírica <span class="math inline">\(F_n(x)\)</span> de una variable cuantitativa son <code>density</code> y <code>ecdf</code> del paquete básico <strong>stats</strong>. A continuación al estructura de las funciones.</p>
-<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="empiricaldists.html#cb817-1" tabindex="-1"></a><span class="fu">density</span>(x, <span class="at">bw =</span> <span class="st">&quot;nrd0&quot;</span>, <span class="at">adjust =</span> <span class="dv">1</span>,</span>
-<span id="cb817-2"><a href="empiricaldists.html#cb817-2" tabindex="-1"></a>        <span class="at">kernel =</span> <span class="fu">c</span>(<span class="st">&quot;gaussian&quot;</span>, <span class="st">&quot;epanechnikov&quot;</span>, <span class="st">&quot;rectangular&quot;</span>,</span>
-<span id="cb817-3"><a href="empiricaldists.html#cb817-3" tabindex="-1"></a>                   <span class="st">&quot;triangular&quot;</span>, <span class="st">&quot;biweight&quot;</span>,</span>
-<span id="cb817-4"><a href="empiricaldists.html#cb817-4" tabindex="-1"></a>                   <span class="st">&quot;cosine&quot;</span>, <span class="st">&quot;optcosine&quot;</span>),</span>
-<span id="cb817-5"><a href="empiricaldists.html#cb817-5" tabindex="-1"></a>        <span class="at">weights =</span> <span class="cn">NULL</span>, <span class="at">window =</span> kernel, width,</span>
-<span id="cb817-6"><a href="empiricaldists.html#cb817-6" tabindex="-1"></a>        <span class="at">give.Rkern =</span> <span class="cn">FALSE</span>, <span class="at">subdensity =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb817-7"><a href="empiricaldists.html#cb817-7" tabindex="-1"></a>        <span class="at">n =</span> <span class="dv">512</span>, from, to, <span class="at">cut =</span> <span class="dv">3</span>, <span class="at">na.rm =</span> <span class="cn">FALSE</span>, ...)</span>
-<span id="cb817-8"><a href="empiricaldists.html#cb817-8" tabindex="-1"></a></span>
-<span id="cb817-9"><a href="empiricaldists.html#cb817-9" tabindex="-1"></a><span class="fu">ecdf</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="empiricaldists.html#cb820-1" tabindex="-1"></a><span class="fu">density</span>(x, <span class="at">bw =</span> <span class="st">&quot;nrd0&quot;</span>, <span class="at">adjust =</span> <span class="dv">1</span>,</span>
+<span id="cb820-2"><a href="empiricaldists.html#cb820-2" tabindex="-1"></a>        <span class="at">kernel =</span> <span class="fu">c</span>(<span class="st">&quot;gaussian&quot;</span>, <span class="st">&quot;epanechnikov&quot;</span>, <span class="st">&quot;rectangular&quot;</span>,</span>
+<span id="cb820-3"><a href="empiricaldists.html#cb820-3" tabindex="-1"></a>                   <span class="st">&quot;triangular&quot;</span>, <span class="st">&quot;biweight&quot;</span>,</span>
+<span id="cb820-4"><a href="empiricaldists.html#cb820-4" tabindex="-1"></a>                   <span class="st">&quot;cosine&quot;</span>, <span class="st">&quot;optcosine&quot;</span>),</span>
+<span id="cb820-5"><a href="empiricaldists.html#cb820-5" tabindex="-1"></a>        <span class="at">weights =</span> <span class="cn">NULL</span>, <span class="at">window =</span> kernel, width,</span>
+<span id="cb820-6"><a href="empiricaldists.html#cb820-6" tabindex="-1"></a>        <span class="at">give.Rkern =</span> <span class="cn">FALSE</span>, <span class="at">subdensity =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb820-7"><a href="empiricaldists.html#cb820-7" tabindex="-1"></a>        <span class="at">n =</span> <span class="dv">512</span>, from, to, <span class="at">cut =</span> <span class="dv">3</span>, <span class="at">na.rm =</span> <span class="cn">FALSE</span>, ...)</span>
+<span id="cb820-8"><a href="empiricaldists.html#cb820-8" tabindex="-1"></a></span>
+<span id="cb820-9"><a href="empiricaldists.html#cb820-9" tabindex="-1"></a><span class="fu">ecdf</span>(x)</span></code></pre></div>
 <div id="ejemplo-88" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="empiricaldists.html#ejemplo-88" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Supongamos que se obtener una distribución empírica para la variable altura de los hombres de la base de datos <strong>medidas del cuerpo</strong>.</p>
-<div class="sourceCode" id="cb818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb818-1"><a href="empiricaldists.html#cb818-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
-<span id="cb818-2"><a href="empiricaldists.html#cb818-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="empiricaldists.html#cb821-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb821-2"><a href="empiricaldists.html#cb821-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span></code></pre></div>
 <p><em>Solución</em></p>
-<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="empiricaldists.html#cb819-1" tabindex="-1"></a>emp_f <span class="ot">&lt;-</span> <span class="fu">density</span>(datos<span class="sc">$</span>altura)</span>
-<span id="cb819-2"><a href="empiricaldists.html#cb819-2" tabindex="-1"></a>emp_F <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(datos<span class="sc">$</span>altura)</span></code></pre></div>
+<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="empiricaldists.html#cb822-1" tabindex="-1"></a>emp_f <span class="ot">&lt;-</span> <span class="fu">density</span>(datos<span class="sc">$</span>altura)</span>
+<span id="cb822-2"><a href="empiricaldists.html#cb822-2" tabindex="-1"></a>emp_F <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(datos<span class="sc">$</span>altura)</span></code></pre></div>
 <p>Ahora vamos a dibujar <span class="math inline">\(f_n(x)\)</span> y <span class="math inline">\(F_n(x)\)</span>.</p>
-<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="empiricaldists.html#cb820-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb820-2"><a href="empiricaldists.html#cb820-2" tabindex="-1"></a><span class="fu">plot</span>(emp_f, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&quot;Empirical fn(x)&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Altura&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;fn(x)&quot;</span>)</span>
-<span id="cb820-3"><a href="empiricaldists.html#cb820-3" tabindex="-1"></a><span class="fu">plot</span>(emp_F, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&quot;Empirical Fn(x)&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Altura&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="empiricaldists.html#cb823-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb823-2"><a href="empiricaldists.html#cb823-2" tabindex="-1"></a><span class="fu">plot</span>(emp_f, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&quot;Empirical fn(x)&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Altura&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;fn(x)&quot;</span>)</span>
+<span id="cb823-3"><a href="empiricaldists.html#cb823-3" tabindex="-1"></a><span class="fu">plot</span>(emp_F, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&quot;Empirical Fn(x)&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Altura&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:fnFn"></span>
 <img src="Manual_de_R_files/figure-html/fnFn-1.png" alt="fn(x) y Fn(x) para las alturas." width="864" />
 <p class="caption">
@@ -733,7 +738,7 @@ Figure 25.1: fn(x) y Fn(x) para las alturas.
 <li>Observando la figura de <span class="math inline">\(F_n(x)\)</span>. Al subir desde Altura = 170 chocamos con la curva a una altura aproximada de 0.41.</li>
 <li>Evaluando 170 en la función <code>emp_F</code> así:</li>
 </ul>
-<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="empiricaldists.html#cb821-1" tabindex="-1"></a><span class="fu">emp_F</span>(<span class="dv">170</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb824-1"><a href="empiricaldists.html#cb824-1" tabindex="-1"></a><span class="fu">emp_F</span>(<span class="dv">170</span>)</span></code></pre></div>
 <pre><code>## [1] 0.4166667</code></pre>
 <p>De ambas formas se llega a que <span class="math inline">\(P(Altura \leq 170) = 0.4166\)</span>.</p>
 

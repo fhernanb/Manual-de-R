@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2023-10-05" />
+<meta name="date" content="2023-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -444,13 +444,18 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="17" data-path="continuas.html"><a href="continuas.html"><i class="fa fa-check"></i><b>17</b> Distribuciones continuas</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>17.1</b> Funciones disponibles para distribuciones continuas</a>
+<li class="chapter" data-level="17.1" data-path="continuas.html"><a href="continuas.html#funciones-disponibles-para-distribuciones-continuas"><i class="fa fa-check"></i><b>17.1</b> Funciones disponibles para distribuciones continuas</a></li>
+<li class="chapter" data-level="17.2" data-path="continuas.html"><a href="continuas.html#distribución-beta"><i class="fa fa-check"></i><b>17.2</b> Distribución beta</a>
 <ul>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-beta"><i class="fa fa-check"></i>Ejemplo beta</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="continuas.html"><a href="continuas.html#distribución-exponencial"><i class="fa fa-check"></i><b>17.3</b> Distribución exponencial</a>
+<ul>
+<li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-exponencial"><i class="fa fa-check"></i>Ejemplo exponencial</a></li>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-estándar"><i class="fa fa-check"></i>Ejemplo normal estándar</a></li>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-normal-general"><i class="fa fa-check"></i>Ejemplo normal general</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>17.2</b> Distribuciones continuas generales</a>
+<li class="chapter" data-level="17.4" data-path="continuas.html"><a href="continuas.html#distribuciones-continuas-generales"><i class="fa fa-check"></i><b>17.4</b> Distribuciones continuas generales</a>
 <ul>
 <li class="chapter" data-level="" data-path="continuas.html"><a href="continuas.html#ejemplo-50"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
@@ -702,13 +707,13 @@ div.csl-indent {
 <div id="ejemplo-101" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="curio.html#ejemplo-101" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El código mostrado abajo revisa si los paquetes <code>knitr</code>, <code>png</code> y <code>markdown</code> están instalados e instala los ausentes y luego carga todos los paquetes que estén en el vector <code>packages</code>.</p>
-<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb881-1"><a href="curio.html#cb881-1" tabindex="-1"></a>packages <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="st">&quot;markdown&quot;</span>)</span>
-<span id="cb881-2"><a href="curio.html#cb881-2" tabindex="-1"></a>package.check <span class="ot">&lt;-</span> <span class="fu">lapply</span>(packages, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
-<span id="cb881-3"><a href="curio.html#cb881-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb881-4"><a href="curio.html#cb881-4" tabindex="-1"></a>    <span class="fu">install.packages</span>(x, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb881-5"><a href="curio.html#cb881-5" tabindex="-1"></a>    <span class="fu">library</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb881-6"><a href="curio.html#cb881-6" tabindex="-1"></a>  }</span>
-<span id="cb881-7"><a href="curio.html#cb881-7" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb884-1"><a href="curio.html#cb884-1" tabindex="-1"></a>packages <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="st">&quot;markdown&quot;</span>)</span>
+<span id="cb884-2"><a href="curio.html#cb884-2" tabindex="-1"></a>package.check <span class="ot">&lt;-</span> <span class="fu">lapply</span>(packages, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb884-3"><a href="curio.html#cb884-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb884-4"><a href="curio.html#cb884-4" tabindex="-1"></a>    <span class="fu">install.packages</span>(x, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb884-5"><a href="curio.html#cb884-5" tabindex="-1"></a>    <span class="fu">library</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb884-6"><a href="curio.html#cb884-6" tabindex="-1"></a>  }</span>
+<span id="cb884-7"><a href="curio.html#cb884-7" tabindex="-1"></a>})</span></code></pre></div>
 
 </div>
 </div>

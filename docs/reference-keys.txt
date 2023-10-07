@@ -23,7 +23,10 @@ fig:crab
 fig:pmfcrab
 fig:Fcrab
 fig:Fcrabs
+fig:curvasPDFbeta
 fig:beta1
+fig:curvasPDexponencial
+fig:exp1
 fig:norm1
 fig:norm2
 fig:crabcont1
@@ -164,6 +167,8 @@ funciones-disponibles-para-distribuciones-discretas
 distribuciones-discretas-generales
 continuas
 funciones-disponibles-para-distribuciones-continuas
+distribución-beta
+distribución-exponencial
 distribuciones-continuas-generales
 normal
 función-de-densidad

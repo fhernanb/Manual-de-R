@@ -31,8 +31,26 @@ weibull  # Weibull
 
 Combinando las funciones y los nombres se tiene un total de 44 funciones, por ejemplo, para obtener la función de densidad de probabilidad $f(x)$ de una normal se usa la función `dnorm( )` y para obtener la función acumulada $F(x)$ de una Beta se usa la función `pbeta( )`.
 
+## Distribución beta
+La distribución beta es muy útil para modelar fenómenos o variables que están en el intervalo $(0, 1)$. Algunas variables que se podrían modelar con la beta son: \% de productos defectuosos, \% de votantes por un candidato entre otros.
+
+La función de densidad de la distribución beta es la siguiente
+
+$$
+f(x) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}x^{a-1}(1-x)^{b-1},
+$$
+
+donde $0<x<1$, con parámetros que deben cumplir $a>0$ y $b>0$. 
+
+En la siguiente figura se muestran tres densidades de la beta para diferentes valores de los parámetros.
+
+```{r curvasPDFbeta, echo=FALSE, fig.cap='Ejemplo de tres densidades para la beta.', dpi=400, fig.align='center', out.width = '70%'}
+knitr::include_graphics("images/curves_pdf_beta.png")
+```
+
+En R los parámetros $a$ y $b$ de la beta se escriben como `shape1` y `shape2` respectivamente.
+
 ### Ejemplo beta {-}
- 
 Considere que una variable aleatoria $X$ se distribuye beta con parámetros $a=2$ y $b=5$.
 
 1) Dibuje la densidad de la distribución.
@@ -40,8 +58,7 @@ Considere que una variable aleatoria $X$ se distribuye beta con parámetros $a=2
 La función `dbeta` sirve para obtener la altura de la curva de una distribución beta y combinándola con la función `curve` se puede dibujar la densidad solicitada. En la Figura \@ref(fig:beta1) se presenta la densidad, observe que para la combinación de parámetros $a=2$ y $b=5$ la distribución es sesgada a la derecha.
 
 ```{r beta1, fig.cap='Función de densidad para una $Beta(2, 5)$.', fig.asp=0.7, fig.width=6}
-curve(dbeta(x, shape1=2, shape2=5), lwd=3, las=1,
-      ylab='Densidad')
+curve(dbeta(x, shape1=2, shape2=5), lwd=3, las=1, ylab='Densidad')
 ```
 
 2) Calcular $P(0.3 \leq X \leq 0.7)$.
@@ -49,8 +66,7 @@ curve(dbeta(x, shape1=2, shape2=5), lwd=3, las=1,
 Para obtener la probabilidad o área bajo la densidad se puede usar la función `integrate`, los límites de la integral se ingresan por medio de los parámetros `lower` y `upper`. Si la función a integrar tiene parámetros adicionales como en este caso, éstos parámetros se ingresan luego de los límites de la integral. A continuación el código necesario para obtener la probabiliad solicitada.
 
 ```{r}
-integrate(f=dbeta, lower=0.3, upper=0.7,
-          shape1=2, shape2=5)
+integrate(f=dbeta, lower=0.3, upper=0.7, shape1=2, shape2=5)
 ```
 
 Otra forma de obtener la probabilidad solicitada es restando de $F(x_{max})$ la probabilidad $F(x_{min})$. Las probabilidades acumuladas hasta un valor dado se obtienen con la función `pbeta`, a continuación el código necesario.
@@ -65,6 +81,42 @@ De ambas formas se obtiene que $P(0.3 \leq X \leq 0.7)=0.4092$.
 Recuerde que para distribuciones continuas
 
 $$ P(a < X < b) = P(a \leq X < b) = P(a < X \leq b) = P(a \leq X \leq b)$$
+```
+
+## Distribución exponencial
+La distribución exponencial es muy útil para modelar fenómenos o variables que están en el intervalo $(0, \infty)$. Algunas variables que se podrían modelar con la exponencial son: duración de una batería, tiempo de sobrevivencia de un paciente luego de una cirugía, entre otros.
+
+La función de densidad de la distribución exponecial es la siguiente
+
+$$
+f(x) = \lambda e^{-\lambda x},
+$$
+
+donde $0<x<\infty$ con parámetro que deben cumplir $\lambda>0$. El parámetro $\lambda$ se le conoce como "rate".
+
+En la siguiente figura se muestran tres densidades de la exponecial para diferentes valores de los parámetros.
+
+```{r curvasPDexponencial, echo=FALSE, fig.cap='Ejemplo de tres densidades para la exponencial.', dpi=400, fig.align='center', out.width = '70%'}
+knitr::include_graphics("images/curves_pdf_exponencial.png")
+```
+
+### Ejemplo exponencial {-}
+Considere que una variable aleatoria $X$ se distribuye exponencial con parámetro $\lambda=2.5$.
+
+1) Dibuje la densidad de la distribución.
+
+La función `dexp` sirve para obtener la altura de la curva de una distribución exponencial y combinándola con la función `curve` se puede dibujar la densidad solicitada. En la Figura \@ref(fig:exp1) se presenta la densidad.
+
+```{r exp1, fig.cap='Función de densidad para una $Exp(2.5)$.', fig.asp=0.7, fig.width=6}
+curve(dexp(x, rate=2.5), lwd=3, las=1, ylab='Densidad', from=0, to=3)
+```
+
+2) Calcular $P(0.5 \leq X \leq 1.5)$.
+
+Para calcular la probabilidad podemos usar el siguiente código.
+
+```{r}
+pexp(q=1.5, rate=2.5) - pexp(q=0.5, rate=2.5)
 ```
 
 ### Ejemplo normal estándar {-}
