@@ -15,7 +15,9 @@ description: "Manual de R para los estudiantes de la Escuela de Estadística de 
 
 ```{r echo=FALSE, message=FALSE}
 # lista de paquetes necesarios para compilar el libro
-list.of.packages <- c("ggplot2", "readxl", "corrplot",
+list.of.packages <- c("ggplot2", 
+                      "readxl", 
+                      "corrplot",
                       "maxLik")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) 
@@ -33,7 +35,9 @@ knitr::write_bib(c(.packages(),
                    "stests",
                    "mvtnorm",
                    "maxLik",
-                   "MASS"), "packages.bib")
+                   "MASS",
+                   "nortest"), 
+                 "packages.bib")
 ```
 
 # Prefacio {-}
@@ -42,7 +46,7 @@ knitr::write_bib(c(.packages(),
 knitr::include_graphics("images/portada.png")
 ```
 
-Este libro fue creado con la intención de apoyar el aprendizaje del lenguaje de programación R en estudiantes de pregrado, especialización, maestría e investigadores, que necesiten realizar análisis estadísticos. En este libro se explica de una forma sencilla la utilidad de la principales funciones para realizar análisis estadístico.
+Este libro fue creado con la intención de apoyar el aprendizaje del lenguaje de programación R en estudiantes de pregrado, especialización, maestría e investigadores que necesiten realizar análisis estadísticos. En este libro se explica de una forma sencilla la utilidad de la principales funciones para realizar análisis estadístico.
 
 ## Estructura del libro {-}
 

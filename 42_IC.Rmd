@@ -14,13 +14,13 @@ Para ilustrar el uso de las funciones se utilizará la base de datos __medidas d
 
 ## Función `t.test`
 
-La función `t.test` se usa para calcular intervalos de confianza para la media y diferencia de medias, con muestras independientes y dependientes (o pareadas). La función y sus argumentos son los siguientes:
+La función `t.test` se usa para calcular intervalos de confianza para la media y para diferencia de medias, con muestras independientes y con muestras dependientes (o pareadas). La función y sus argumentos son los siguientes:
 
 ```{r, eval=FALSE}
-t.test(x, y = NULL,
-       alternative = c("two.sided", "less", "greater"),
-       mu = 0, paired = FALSE, var.equal = FALSE,
-       conf.level = 0.95, ...)
+t.test(x, y=NULL,
+       alternative=c("two.sided", "less", "greater"),
+       mu=0, paired=FALSE, var.equal=FALSE,
+       conf.level=0.95, ...)
 ```
 
 ### Intervalo de confianza bilateral para la media $\mu$
@@ -50,7 +50,7 @@ Una vez leídos los datos, se analiza la normalidad de la variable altura de los
 ```{r ic1, fig.cap='QQplot e histograma para la altura de los hombres.', fig.asp=0.5, fig.width=8, message=FALSE}
 par(mfrow=c(1, 2))
 require(car)  # Debe instalar antes el paquete car
-qqPlot(hombres$altura, pch=19,
+qqPlot(hombres$altura, pch=19, id=FALSE,
        main='QQplot para la altura de hombres',
        xlab='Cuantiles teóricos',
        ylab='Cuantiles muestrales')
@@ -103,16 +103,24 @@ Una vez leídos los datos, se analiza la normalidad de la variable altura de los
 
 ```{r ic2, fig.cap='QQplot e histograma para la altura de hombres y mujeres.', fig.asp=0.9, fig.width=8}
 par(mfrow=c(2,2))
-require(car)  # Debe instalar antes el paquete car
-qqPlot(hombres$altura, pch=19, las=1, main='QQplot altura hombres',
-       xlab='Cuantiles teóricos', ylab='Cuantiles muestrales')
-hist(hombres$altura, las=1, xlab='Altura', ylab='Frecuencia',
-     main='Histograma altura hombres')
+library(car)  # Debe instalar antes el paquete car
+qqPlot(hombres$altura, pch=19, las=1, id=FALSE,
+       main='QQplot altura hombres',
+       xlab='Cuantiles teóricos', 
+       ylab='Cuantiles muestrales')
+hist(hombres$altura, las=1,
+     main='Histograma altura hombres',
+     xlab='Altura', 
+     ylab='Frecuencia')
 
-qqPlot(mujeres$altura, pch=19, las=1, main='QQplot altura mujeres',
-       xlab='Cuantiles teóricos', ylab='Cuantiles muestrales')
-hist(mujeres$altura, las=1, xlab='Altura', ylab='Frecuencia',
-     main='Histograma altura mujeres')
+qqPlot(mujeres$altura, pch=19, las=1, id=FALSE,
+       main='QQplot altura mujeres',
+       xlab='Cuantiles teóricos', 
+       ylab='Cuantiles muestrales')
+hist(mujeres$altura, las=1, 
+     main='Histograma altura mujeres',
+     xlab='Altura', 
+     ylab='Frecuencia')
 ```
 
 De la Figura \@ref(fig:ic2) se puede concluir que las alturas de los estudiantes hombres y mujeres siguen una distribución normal. Al aplicar la prueba Shapiro-Wilk para estudiar la normalidad de la altura se encontró un valor-P de `r round(shapiro.test(hombres$altura)$p.value, 4)` para el grupo de hombres y un valor-P de `r round(shapiro.test(mujeres$altura)$p.value, 4)` para el grupo de mujeres, esto confirma que se cumple el supuesto de normalidad.
@@ -175,10 +183,14 @@ En seguida se analiza la normalidad de la variable `Diferencia` de los cambios e
 ```{r ic3, fig.cap='QQplot y densidad para Diferencias.', fig.asp=0.5, fig.width=8}
 par(mfrow=c(1,2))
 require(car)
-qqPlot(Diferencia, pch=19, main='QQplot para Diferencias', las=1, 
-       xlab='Cuantiles teóricos', ylab='Cuantiles muestrales')
-plot(density(Diferencia), main='Densidad para Diferencias', las=1,
-     xlab='Diferencia de tiempo', ylab='Densidad')
+qqPlot(Diferencia, pch=19, las=1, id=FALSE,
+       main='QQplot para Diferencias',  
+       xlab='Cuantiles teóricos', 
+       ylab='Cuantiles muestrales')
+plot(density(Diferencia), las=1,
+     main='Densidad para Diferencias', 
+     xlab='Diferencia de tiempo', 
+     ylab='Densidad')
 ```
 
 De la Figura \@ref(fig:ic3) se observa que la diferencia de los tiempos sigue una distribución normal, debido a que en el QQplot se observa un patron lineal y la densidad muestra una forma cercana a la simétrica. 
@@ -203,8 +215,8 @@ Simule una muestra aleatoria de una $N(18, 3)$ y calcule un intervalo de confian
 *Solución*
  
 ```{r}
-x <- rnorm(50, mean = 18, sd =3)
-res <- t.test(x, alternative = "greater", conf.level = 0.90)
+x <- rnorm(n=50, mean=18, sd=3)
+res <- t.test(x, alternative="greater", conf.level=0.90)
 res$conf.int
 ```
 
@@ -269,7 +281,7 @@ res$conf.int
 El intervalo de confianza del $98\%$ indica que la varianza de la estatura de los estudiantes hombres se encuentra entre 21.08 y 109.93 $cm^{2}$.
 
 ```{block2, type='rmdnote'}
-En este ejemplo no verificamos que la muestra aleatoria de alturas proviene de una población normal poruq eso ya lo habíamos hecho en el primer ejemplo de la sección \@ref(ICDifMed).
+En este ejemplo no verificamos que la muestra aleatoria de alturas proviene de una población normal porqe eso ya lo habíamos hecho en el primer ejemplo de la sección \@ref(ICDifMed).
 
 Recuerde: siempre se debe verificar el supuesto de normalidad.
 ```

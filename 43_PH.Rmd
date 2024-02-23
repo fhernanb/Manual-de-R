@@ -14,10 +14,10 @@ En este capítulo se muestran las funciones que hay disponibles en R para realiz
 Para realizar este tipo de prueba se puede usar la función `t.test` que tiene la siguiente estructura.
 
 ```{r, eval=FALSE}
-t.test(x, y = NULL,
-       alternative = c("two.sided", "less", "greater"),
-       mu = 0, paired = FALSE, var.equal = FALSE,
-       conf.level = 0.95, ...)
+t.test(x, y=NULL,
+       alternative=c("two.sided", "less", "greater"),
+       mu=0, paired=FALSE, var.equal=FALSE,
+       conf.level=0.95, ...)
 ```
 
 Los argumentos a definir dentro de `t.test` para hacer la prueba son:
@@ -28,13 +28,13 @@ Los argumentos a definir dentro de `t.test` para hacer la prueba son:
 - `conf.level`: nivel de confianza para reportar el intervalo de confianza asociado (opcional).
 
 ### Ejemplo {-}
-Para verificar si el proceso de llenado de bolsas de café con 500  gramos está operando correctamente se toman aleatoriamente muestras de tamaño diez cada cuatro horas. Una muestra de bolsas está compuesta por las siguientes observaciones: 502, 501, 497, 491, 496, 501, 502, 500, 489, 490.
+Para verificar si el proceso de llenado de bolsas de café con 500  gramos está operando correctamente se toman aleatoriamente muestras de tamaño diez cada cuatro horas. Una muestra de bolsas está compuesta por las siguientes observaciones: 510, 492, 494, 498, 492, 496, 502, 491, 507, 496.
 
 ¿Está el proceso llenando bolsas conforme lo dice la envoltura? Use un nivel de significancia del 5%.
 
 *Solución*
 
-Lo primero es explorar si la muestra proviene de una distribución normal, para eso ingresamos los datos y aplicamos la prueba Anderson-Darling por medio de la función `ad.test` disponible en el paquete **nortest** [@R-nortest] como se muestra a continuación.
+Lo primero es explorar si la muestra proviene de una distribución normal, para eso ingresamos los datos y aplicamos la prueba Anderson-Darling por medio de la función `ad.test` disponible en el paquete **nortest** de @nortest como se muestra a continuación.
 
 ```{r message=FALSE}
 contenido <- c(510, 492, 494, 498, 492, 496, 502, 491, 507, 496) 
@@ -144,8 +144,6 @@ arrows(x0=-1.8, y0=0.05, x1=-3, y1=0.2)
 valorP <- round(pnorm(z), 4)
 text(x=-3, y=0.24, valorP, col='blue', cex=0.8)
 ```
-
-\newpage
 
 ### Prueba $\chi^2$ de Pearson
 Para realizar la prueba $\chi^2$ de Pearson se usa la función `prop.test` que tiene la siguiente estructura.

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Lectura de bases de datos | Manual de R</title>
   <meta name="description" content="8 Lectura de bases de datos | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Lectura de bases de datos | Manual de R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2023-10-07" />
+<meta name="date" content="2024-02-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,11 +53,11 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.4/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
@@ -127,6 +127,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -759,11 +763,11 @@ Recuerde que el archivo de Excel se debe guardar con extensión .csv.
 <h3><span class="header-section-number">8.2.2</span> Almacenamiento de información en bloc de notas<a href="read.html#almacenamiento-de-información-en-bloc-de-notas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para almacenar la información del Cuadro <a href="read.html#tab:dt1">8.1</a> en un bloc de notas abrimos un archivo nuevo de bloc de notas y copiamos la información tal como se muestra en la figura de abajo. Se copian los nombres de las variables o los datos separados por un espacio obtenido con la tecla tabuladora, cada línea se finaliza con un <em>enter</em>. Para guardar el archivo se recomienda que el cursor quede al inicio de una línea vacía. En la figura de abajo se señala la posición del cursor con la flecha roja, a pesar de que no éxiste línea número 5, el curso debe quedar al inicio de esa línea número 5.</p>
 <p align="center">
-<img src="images/bloc1.PNG" width="500">
+<img src="images/bloc1.png" width="500">
 </p>
 <p>Es posible mejorar la apariencia de la información almacenada en el bloc de notas si, en lugar de usar espacios con la barra espaciadora, se colocan los espacios con la barra tabuladora, así la información se ve más organizada y se puede chequear fácilmente la información ingresada. En la siguiente figura se muestra la información para el ejemplo, claramente se nota la organización de la información.</p>
 <p align="center">
-<img src="images/bloc2.PNG" width="500">
+<img src="images/bloc2.png" width="500">
 </p>
 
 <div class="rmdtip">
@@ -838,7 +842,7 @@ Un error frecuente es escribir la dirección o ubicación del archivo usando <co
 </div>
 <div id="lectura-de-bases-de-datos-en-excel" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Lectura de bases de datos en Excel<a href="read.html#lectura-de-bases-de-datos-en-excel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Algunas veces los datos están disponibles en un archivo estándar de Excel, y dentro de cada archivo hojas con la información a utilizar. En estos casos se recomienda usar el paquete <strong>readxl</strong> <span class="citation">(<a href="#ref-R-readxl">Wickham and Bryan 2022</a>)</span> y en particular la función <code>readxl</code>. A continuación un ejemplo de cómo proceder en estos casos.</p>
+<p>Algunas veces los datos están disponibles en un archivo estándar de Excel, y dentro de cada archivo hojas con la información a utilizar. En estos casos se recomienda usar el paquete <strong>readxl</strong> <span class="citation">(<a href="#ref-R-readxl">Wickham and Bryan 2023</a>)</span> y en particular la función <code>readxl</code>. A continuación un ejemplo de cómo proceder en estos casos.</p>
 <div id="ejemplo-26" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="read.html#ejemplo-26" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En este <a href="https://github.com/fhernanb/datos/blob/master/BD_Excel.xlsx">enlace</a> está disponible un archivo de Excel llamado BD_Excel.xlxs, una vez se ha abierto la página donde está alojado el archivo, se debe descargar y guardar en alguna carpeta. El archivo contiene dos bases de datos muy pequeñas, en la primera hoja llamada <strong>Hijos</strong> está la información de un grupo de niños y en la segunda hoja llamada <strong>Padres</strong> está la información de los padres. ¿Cómo se pueden leer las dos bases de datos?</p>
@@ -954,7 +958,7 @@ La instalación de un paquete con <code>install.packages</code> se hace sólo un
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-R-readxl" class="csl-entry">
-Wickham, Hadley, and Jennifer Bryan. 2022. <em>Readxl: Read Excel Files</em>. <a href="https://CRAN.R-project.org/package=readxl">https://CRAN.R-project.org/package=readxl</a>.
+Wickham, Hadley, and Jennifer Bryan. 2023. <em>Readxl: Read Excel Files</em>. <a href="https://readxl.tidyverse.org">https://readxl.tidyverse.org</a>.
 </div>
 </div>
             </section>
