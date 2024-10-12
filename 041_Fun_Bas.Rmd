@@ -20,38 +20,41 @@ nombre_de_funcion(parametro1, parametro2, ...) {
 }
 ```
 
-A continuación se presenta un ejemplo de cómo usar la función `mean` para calcular un promedio.
+A continuación se presenta un ejemplo de cómo usar la función `mean` para calcular un promedio usando los datos almacenados en un vector.
 
 ```{r}
-notas <- c(4.0, 1.3, 3.8, 2.0)  # Notas de un estudiante
+notas <- c(4.0, 1.3, 3.8, 2.0)  # Vector con las notas de un estudiante
 mean(notas)
 ```
 
-## Asignación en R
-En R se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.
+## Funciones básicas
 
-- `<-` este es el operador de asignación a izquierda, es el más usado y recomendado.
-- `->` este es el operador de asignación a derecha, no es frecuente su uso.
-- `=` el símbolo igual sirve para hacer asignaciones pero __NO__ se recomienda usarlo.
-- `<<-` este es un operador de asignación global y sólo debe ser usado por usuarios avanzados.
+Al instalar R por primera vez, se incluyen automáticamente un conjunto de paquetes básicos que son esenciales para su funcionamiento. Estos paquetes son:
 
-### Ejemplo {-}
-Almacene los valores 5.3, 4.6 y 25 en los objetos `a`, `b` y `age` respectivamente, use diferentes símbolos de asignación.
+- `base`: Este es el núcleo de R y contiene las funciones fundamentales necesarias para realizar cálculos y manipular datos.
+- `stats`: Proporciona funciones para realizar análisis estadísticos, incluyendo pruebas de hipótesis y modelos lineales.
+- `graphics`: Ofrece herramientas para crear gráficos y visualizaciones de datos.
+- `grDevices`: Permite la creación de dispositivos gráficos y la gestión de gráficos en R.
+- `utils`: Incluye funciones útiles para la manipulación de datos, gestión de archivos y otras tareas auxiliares.
+- `datasets`: Proporciona conjuntos de datos de ejemplo que se pueden utilizar para practicar y aprender R.
 
-Para hacer lo solicitado se podría usar el siguiente código.
+Para ver todas las funciones del paquete `base` se escribe el siguiente código en la consola y luego se da clic en el hiper-enlace **index** que aparezca.
 
-```{r}
-a <- 5.3 # Recomended
-4.6 -> b # It is not usual
-age = 25 # Not recomended
+```{r eval=FALSE}
+help("base")
 ```
 
-```{block2, type='rmdimportant'}
-Aunque una asignación se puede hacer de tres formas diferentes, se recomienda sólo usar el símbolo `<-`.
-```
+Existen hojas de trucos (cheatsheets) con el listado de las funciones básicas más importantes, a continuación se muestran dos enlace en los cuales se pueden encontrar esas hoja de trucos.
 
-## Operadores
-En R se pueden hacer diversas operaciones usando operadores binarios. Este tipo de operadores se denomina binarios porque actuan entre dos objetos, a continuación el listado. Los operadores binarios son también funciones.
+- Cheatsheet del cran: https://cran.r-project.org/doc/contrib/Short-refcard.pdf
+- Cheatsheets Posit: https://rstudio.github.io/cheatsheets/ 
+
+
+
+## Operadores binarios
+En R se pueden hacer diversas operaciones usando operadores binarios como `+` y como `^`, estos operadores son a su vez funciones.
+
+A continuación el listado de los operadores binarios más comunes:
 
 - `+` operador binario para sumar.
 - `-` operador binario para restar.
@@ -60,7 +63,6 @@ En R se pueden hacer diversas operaciones usando operadores binarios. Este tipo 
 - `^` operador binario para potencia.
 - `%/%` operador binario para obtener el cociente en una división (número entero).
 - `%%` operador binario para obtener el residuo en una división.
-
 
 A continuación se presentan ejemplos de cómo usar las anteriores funciones.
 
@@ -398,32 +400,90 @@ rank(x)
 ## EJERCICIOS {-}
 Use funciones o procedimientos (varias líneas) de R para responder cada una de las siguientes preguntas.
 
-1. ¿Qué cantidad de dinero sobra al repartir 10000\$ entre 3 personas?
-2. ¿Es el número 4560 divisible por 3?
-3. Construya un vector con los números enteros del 2 al 87. ¿Cuáles de esos números son divisibles por 7?
+1. ¿Qué cantidad de dinero sobra al repartir 10000\$ entre 3 personas? Hint: use el operador `%%`.
+
+2. ¿Es el número 4560 divisible por 3? Hint: use los operadores binarios `%%` y `==`.
+
+3. Construya un vector con los números enteros del 2 al 87. ¿Cuáles de esos números son divisibles por 7? Hint: use los operadores binarios `%%` y `==`.
+
 4. Construya dos vectores, el primero con los números enteros desde 7 hasta 3, el segundo vector con los primeros cinco números positivos divisibles por 5. Sea A la condición de ser par en el primer vector. Sea B la condición de ser mayor que 10 en el segundo vector. ¿En cuál de las 5 posiciones se cumple A y B simultáneamente?
+
 5. Consulte [este enlace](https://github.com/fhernanb/Manual-de-R/blob/master/images/anecdota_gauss.PNG) en el cual hay una anéctoda de Gauss niño. Use R para obtener el resultado de la suma solicitada por el profesor del niño Gauss.
-6. Construya un vector con los siguientes elementos: 1, -4, 5, 9, -4. Escriba un procedimiento para extraer __las posiciones__ donde está el valor mínimo en el vector.
-7. Calcular $8!$
-8. Evaluar la siguiente suma $\sum_{i=3}^{i=7}e^i$
-9. Evaluar la siguiente productoria $\prod_{i=1}^{i=10}\log\sqrt{i}$
-10. Construya un vector cualquiera e inviertalo, es decir, que el primer elemento quede de último, el segundo de penúltimo y así sucesivamente. Compare su resultado con el de la función `rev`.
-11. Create the vector: $1, 2, 3, \ldots, 19, 20$.
-12. Create the vector: $20, 19, \ldots , 2, 1$.
-13. Create the vector: $1, -2, 3, -4, 5, -6, \ldots, 19, -20$.
-14. Create the vector: $0.1^3, 0.2^1, 0.1^6, 0.2^4, . . . , 0.1^{36}, 0.2^{34}$.
-15. Calculate the following: $\sum_{i=10}^{100}(i^3+4i^2)$ and $\sum_{i=1}^{25}\left( \frac{2^i}{i} + \frac{3^i}{i^2} \right)$.
+
+6. Construya un vector con los siguientes elementos: 1, -4, 5, 9, -4. Escriba un procedimiento para extraer __las posiciones__ donde está el valor mínimo en el vector. Hint: use las funciones `min` y `which`.
+
+A continuación construya los vectores solicitados pero sin escribir uno a uno los elementos, escriba el vector usando funciones de R. Use las funciones `seq` o `:` para obtener el resultado deseado.
+
+7. Contruya el vector: $1, 2, 3, \ldots, 19, 20$.
+
+8. Contruya el vector: $20, 19, \ldots , 2, 1$.
+
+9. Contruya el vector: $1, -2, 3, -4, 5, -6, \ldots, 19, -20$.
+
+10. Contruya el vector: $0.1^3, 0.2^1, 0.1^6, 0.2^4, . . . , 0.1^{36}, 0.2^{34}$.
+
+11. Evaluar la siguiente suma $\sum_{i=3}^{i=7}e^i$. Hint: use la función `sum`.
+
+12. Calcule las siguientes sumas $\sum_{i=10}^{100}(i^3+4i^2)$ y $\sum_{i=1}^{25}\left( \frac{2^i}{i} + \frac{3^i}{i^2} \right)$. Hint: use la función `sum`.
+
+13. Calcular $8!$. Hint: use la función `prod`.
+
+14. Evaluar la siguiente productoria $\prod_{i=1}^{i=10}\log\sqrt{i}$.
+
+15. Construya un vector cualquiera e inviertalo, es decir, que el primer elemento quede de último, el segundo de penúltimo y así sucesivamente. Compare su resultado con el de la función `rev`.
+
+16. Encuentre con R las ocho "pintas" de ropa o combinaciones que se pueden hacer con el siguiente vestuario. Hint: use la función `expand.grid`.
+
+```{r eval=FALSE}
+camisa <- c("azul", "blanca")
+pantalon <- c("blue jean", "drill")
+zapatos <- c("botas", "tenis")
+```
+
+17. Encuentre la unión de los vectores (o conjuntos) siguientes usando R. Hint: use la función `union`.
+
+```{r eval=FALSE}
+A <- c(2, 6,  7, 8)
+B <- c(7, 2, 9, 1)
+```
+
+18. Suponga que se tienen los siguientes vectores A y B. ¿Cuál es el resultado de quitarle al vector A el vector B? Tenga en cuenta que el orden, a A se le quita B, no lo contrario. Hint: use la función `setdiff`.
+
+```{r eval=FALSE}
+A <- c(2, 6,  7, 8)
+B <- c(7, 2, 9, 1)
+```
+
+19. Abajo se tiene un vector con las edades de varias personas. Calcule la edad para la cual una persona se puede considerar que está en el grupo del 30% de las viejas. En otras palabras, queremos calcular el cuantil 0.30. Hint: use la función `quantile`.
+
+```{r eval=FALSE}
+edad <- c(31L, 47L, 44L, 27L, 53L, 40L, 45L, 45L, 51L, 43L, 43L, 48L, 35L, 37L, 44L)
+```
+
+20. Use la función `sample` para sacar muestras de tres personas del siguiente vector:
+
+```{r eval=FALSE}
+semillerista <- c("Ana", "Carlos", "María", "Luis", "Sofía", "Javier", "Elena", "Pedro")
+```
+
 16. Read the data set available in: https://raw.githubusercontent.com/fhernanb/datos/master/Paises.txt
+
 17. Use a code to obtain the number of variables of the data set.
+
 18. Use a code to obtain the number of countries in the data set.
+
 19. Which is the country with the higher population?
+
 20. Which is the country with the lowest literacy rate?
+
 21. ¿Qué valor de verdad tiene la siguiente afirmación? "Los resultados de la función `floor` y `trunc` son siempre los mismos".
 
 En R hay unas bases de datos incluídas, una de ellas es la base de datos llamada `mtcars`. Para conocer las variables que están en `mtcars` usted puede escribir en la consola `?mtcars` o también `help(mtcars)`. De la base `mtcars` obtenga bases de datos que cumplan las siguientes condiciones.
 
 22. Autos que tengan un rendimiento menor a 18 millas por galón de combustible.
+
 23. Autos que tengan 4 cilindros.
+
 24. Autos que pesen más de 2500 libras y tengan transmisión manual.
 
 

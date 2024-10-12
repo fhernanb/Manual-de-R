@@ -108,7 +108,30 @@ else                     # Incorrecto
   one line
 ```
 
-## Asignación
+## Asignación en R
+En R se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.
+
+- `<-` este es el operador de asignación a izquierda, es el más usado y recomendado.
+- `->` este es el operador de asignación a derecha, no es frecuente su uso.
+- `=` el símbolo igual sirve para hacer asignaciones pero __NO__ se recomienda usarlo.
+- `<<-` este es un operador de asignación global y sólo debe ser usado por usuarios avanzados.
+
+Para una explicación más detallada sobre el símbolo de asignación se recomienda visitar este [enlace](http://www.win-vector.com/blog/2016/12/the-case-for-using-in-r/).
+
+### Ejemplo {-}
+Almacene los valores 5.3, 4.6 y 25 en los objetos `a`, `b` y `age` respectivamente, use diferentes símbolos de asignación.
+
+Para hacer lo solicitado se podría usar el siguiente código.
+
+```{r}
+a <- 5.3 # Recomended
+4.6 -> b # It is not usual
+age = 25 # Not recomended
+```
+
+```{block2, type='rmdimportant'}
+Aunque una asignación se puede hacer de tres formas diferentes, se recomienda sólo usar el símbolo `<-`.
+```
 
 Para realizar asignaciones se recomienda usar el símbolo `<-`, el símbolo de igualdad `=` no se recomienda usarlo para asignaciones.
 
@@ -116,8 +139,6 @@ Para realizar asignaciones se recomienda usar el símbolo `<-`, el símbolo de i
 x <- 5  # Correcto
 x = 5   # No recomendado
 ```
-
-Para una explicación más detallada sobre el símbolo de asignación se recomienda visitar este [enlace](http://www.win-vector.com/blog/2016/12/the-case-for-using-in-r/).
 
 ## Punto y coma
 No se recomienda colocar varias instrucciones separadas por `;` en la misma línea, aunque funciona dificulta la revisión del código.

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>20 Verosimilitud | Manual de R</title>
   <meta name="description" content="20 Verosimilitud | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="20 Verosimilitud | Manual de R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2024-02-22" />
+<meta name="date" content="2024-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,6 +53,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="libs/plotly-binding-4.10.4/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
@@ -64,7 +65,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -74,7 +75,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -136,6 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -742,32 +744,32 @@ Asumiendo un modelo estadístico parametrizado por una cantidad fija y desconoci
 <p><span class="math display">\[f(x)=P(X=x)=\binom{n}{x} p^x (1-p)^{n-x}, \quad 0&lt;p&lt;1, \quad n \leq 1, 2, \ldots, \quad 0 \leq x \leq n\]</span></p>
 <p>La distribución binomial anterior tiene sólo un parámetro <span class="math inline">\(p\)</span>, por lo tanto en este caso se <span class="math inline">\(\theta=p\)</span>.</p>
 <p>Suponga que se tiene el vector <code>rta</code> que corresponde a una muestra aleatoria de una distribución binomial con parámetro <span class="math inline">\(n=5\)</span> conocido.</p>
-<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="loglik.html#cb653-1" tabindex="-1"></a>rta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>,</span>
-<span id="cb653-2"><a href="loglik.html#cb653-2" tabindex="-1"></a>         <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="loglik.html#cb651-1" tabindex="-1"></a>rta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>,</span>
+<span id="cb651-2"><a href="loglik.html#cb651-2" tabindex="-1"></a>         <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Calcular el valor de log-verosimilitud <span class="math inline">\(l(\theta)\)</span> si asumiendo que <span class="math inline">\(p=0.30\)</span> en la distribución binomial.</li>
 </ol>
 <p>Para obtener el valor de <span class="math inline">\(l(\theta)\)</span> en el punto <span class="math inline">\(p=0.30\)</span> se aplica la definición dada en la expresión <a href="loglik.html#eq:loglik">(20.2)</a>. Como el problema trata de una binomial se usa entonces la función de masa <code>dbinom</code> evaluada en la muestra <code>rta</code>, el parámetro <code>size</code> como es conocido se reemplaza por el valor de cinco y en el parámetro <code>prob</code> se cambia por 0.3. Como interesa la función de log-verosimilitud se debe incluir <code>log=TRUE</code>. A continuación el código necesario.</p>
-<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="loglik.html#cb654-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span>rta, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span><span class="fl">0.3</span>, <span class="at">log=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="loglik.html#cb652-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span>rta, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span><span class="fl">0.3</span>, <span class="at">log=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## [1] -24.55231</code></pre>
 <p>Por lo tanto <span class="math inline">\(l(\theta)= -24.55\)</span></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Construir una función llamada <code>ll</code> a la cual le ingrese valores del parámetro <span class="math inline">\(p\)</span> de la binomial y que la función entregue el valor de log-verosimilitud.</li>
 </ol>
 <p>La función solicitada tiene un cuerpo igual al usado en el numeral anterior, a continuación el código necesario para crearla.</p>
-<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="loglik.html#cb656-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(prob) <span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span>rta, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span>prob, <span class="at">log=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="loglik.html#cb654-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(prob) <span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x=</span>rta, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span>prob, <span class="at">log=</span>T))</span></code></pre></div>
 <p>Vamos a probar la función en dos valores arbitrarios <span class="math inline">\(p=0.15\)</span> y <span class="math inline">\(p=0.80\)</span> que pertenezcan al dominio del parámetro <span class="math inline">\(p\)</span> de la distribución binomial.</p>
-<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="loglik.html#cb657-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fl">0.15</span>)  <span class="co"># Individual para p=0.15</span></span></code></pre></div>
+<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="loglik.html#cb655-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fl">0.15</span>)  <span class="co"># Individual para p=0.15</span></span></code></pre></div>
 <pre><code>## [1] -25.54468</code></pre>
-<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="loglik.html#cb659-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fl">0.80</span>)  <span class="co"># Individual para p=0.80</span></span></code></pre></div>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="loglik.html#cb657-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fl">0.80</span>)  <span class="co"># Individual para p=0.80</span></span></code></pre></div>
 <pre><code>## [1] -98.45598</code></pre>
 <p>El valor de log-verosimilitud para <span class="math inline">\(p=0.15\)</span> fue de -25.54 mientras que para <span class="math inline">\(p=0.80\)</span> fue de -98.46.</p>
 <p>Vamos ahora a chequear si la función <code>ll</code> está vectorizada y para esto usamos el código mostrado a continuación y deberíamos obtener un vector con los valores <code>c(-25.54, -98.56)</code>.</p>
-<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="loglik.html#cb661-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.80</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="loglik.html#cb659-1" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.80</span>))</span></code></pre></div>
 <pre><code>## [1] -57.31899</code></pre>
 <p>No obtuvimos el resultado esperado, eso significa que nuestra función no está vectorizada. Ese problema lo podemos solucionar así:</p>
-<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="loglik.html#cb663-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll)</span>
-<span id="cb663-2"><a href="loglik.html#cb663-2" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.80</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="loglik.html#cb661-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll)</span>
+<span id="cb661-2"><a href="loglik.html#cb661-2" tabindex="-1"></a><span class="fu">ll</span>(<span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.80</span>))</span></code></pre></div>
 <pre><code>## [1] -25.54468 -98.45598</code></pre>
 <p>Vemos que ahora que cuando se ingresa un vector a la función <code>ll</code> se obtiene un vector.</p>
 
@@ -778,10 +780,10 @@ Necesitamos que la función <code>ll</code> esté vectorizada para poder dibujar
 <li>Dibujar la curva log-verosimilitud <span class="math inline">\(l(\theta)\)</span>, en el eje X debe estar el parámetro <span class="math inline">\(p\)</span> del cual depende la función de log-verosimilitud.</li>
 </ol>
 <p>En la Figura <a href="loglik.html#fig:loglik1">20.2</a> se presenta la curva solicitada.</p>
-<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="loglik.html#cb665-1" tabindex="-1"></a><span class="fu">curve</span>(ll, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&#39;dodgerblue3&#39;</span>,</span>
-<span id="cb665-2"><a href="loglik.html#cb665-2" tabindex="-1"></a>      <span class="at">xlab=</span><span class="st">&#39;Probabilidad de éxito (p)&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb665-3"><a href="loglik.html#cb665-3" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">&quot;Loglik(p)&quot;</span>)</span>
-<span id="cb665-4"><a href="loglik.html#cb665-4" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="loglik.html#cb663-1" tabindex="-1"></a><span class="fu">curve</span>(ll, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&#39;dodgerblue3&#39;</span>,</span>
+<span id="cb663-2"><a href="loglik.html#cb663-2" tabindex="-1"></a>      <span class="at">xlab=</span><span class="st">&#39;Probabilidad de éxito (p)&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb663-3"><a href="loglik.html#cb663-3" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">&quot;Loglik(p)&quot;</span>)</span>
+<span id="cb663-4"><a href="loglik.html#cb663-4" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:loglik1"></span>
 <img src="Manual_de_R_files/figure-html/loglik1-1.png" alt="Función de log-verosimilitud para el ejemplo sobre binomial." width="480" />
 <p class="caption">
@@ -796,9 +798,9 @@ Figure 20.2: Función de log-verosimilitud para el ejemplo sobre binomial.
 <li>¿Cuál es el valor exacto de <span class="math inline">\(p\)</span> que maximiza la función log-verosimilitud?</li>
 </ol>
 <p>En R existe la función <code>optimize</code> que sirve para encontrar el valor que <strong>minimiza</strong> una función uniparamétrica en un intervalo dado, sin embargo, aquí interesa es maximimizar la función de log-verosimilitud, por esa razón se construye la función <code>minusll</code> que es el negativo de la función <code>ll</code> para así poder usar <code>optimize</code>. A continuación el código usado. </p>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="loglik.html#cb666-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span><span class="fu">ll</span>(x)</span>
-<span id="cb666-2"><a href="loglik.html#cb666-2" tabindex="-1"></a></span>
-<span id="cb666-3"><a href="loglik.html#cb666-3" tabindex="-1"></a><span class="fu">optimize</span>(<span class="at">f=</span>minusll, <span class="at">interval=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="loglik.html#cb664-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span><span class="fu">ll</span>(x)</span>
+<span id="cb664-2"><a href="loglik.html#cb664-2" tabindex="-1"></a></span>
+<span id="cb664-3"><a href="loglik.html#cb664-3" tabindex="-1"></a><span class="fu">optimize</span>(<span class="at">f=</span>minusll, <span class="at">interval=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>## $minimum
 ## [1] 0.229993
 ## 
@@ -810,19 +812,19 @@ Figure 20.2: Función de log-verosimilitud para el ejemplo sobre binomial.
 <h3>Ejemplo<a href="loglik.html#ejemplo-60" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suponga que la estatura de una población se puede asumir como una normal <span class="math inline">\(N(170, 25)\)</span>. Suponga también que se genera una muestra aleatoria de 50 observaciones de la población con el objetivo de recuperar los valores de la media y varianza poblacionales a partir de la muestra aleatoria.</p>
 <p>La muestra se va a generar con la función <code>rnorm</code> pero antes se fijará una semilla con la intención de que el lector pueda replicar el ejemplo y obtener la misma muestra aleatoria aquí generada, el código para hacerlo es el siguiente.</p>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="loglik.html#cb668-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1235</span>)  <span class="co"># La semilla es 1235</span></span>
-<span id="cb668-2"><a href="loglik.html#cb668-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">mean=</span><span class="dv">170</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
-<span id="cb668-3"><a href="loglik.html#cb668-3" tabindex="-1"></a>y[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]  <span class="co"># Para ver los primeros siete valores generados</span></span></code></pre></div>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="loglik.html#cb666-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1235</span>)  <span class="co"># La semilla es 1235</span></span>
+<span id="cb666-2"><a href="loglik.html#cb666-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">mean=</span><span class="dv">170</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
+<span id="cb666-3"><a href="loglik.html#cb666-3" tabindex="-1"></a>y[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]  <span class="co"># Para ver los primeros siete valores generados</span></span></code></pre></div>
 <pre><code>## [1] 166.5101 163.5757 174.9498 170.5589 170.5710 178.4910 170.2392</code></pre>
 <ol style="list-style-type: decimal">
 <li>Construya la función de log-verosimilitud para los parámetros de la normal dada la muestra aleatoria <code>y</code>.</li>
 </ol>
 <p>Abajo se muestra la forma de construir la función de log-verosimilitud.</p>
-<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="loglik.html#cb670-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
-<span id="cb670-2"><a href="loglik.html#cb670-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> param[<span class="dv">1</span>]  <span class="co"># param es el vector de parámetros</span></span>
-<span id="cb670-3"><a href="loglik.html#cb670-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> param[<span class="dv">2</span>] </span>
-<span id="cb670-4"><a href="loglik.html#cb670-4" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
-<span id="cb670-5"><a href="loglik.html#cb670-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="loglik.html#cb668-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
+<span id="cb668-2"><a href="loglik.html#cb668-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> param[<span class="dv">1</span>]  <span class="co"># param es el vector de parámetros</span></span>
+<span id="cb668-3"><a href="loglik.html#cb668-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> param[<span class="dv">2</span>] </span>
+<span id="cb668-4"><a href="loglik.html#cb668-4" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb668-5"><a href="loglik.html#cb668-5" tabindex="-1"></a>}</span></code></pre></div>
 
 <div class="rmdwarning">
 Siempre que el interés sea encontrar los valores que maximizan una función de log-verosimilitud, los parámetros de la distribución <strong>deben</strong> ingresar a la función <code>ll</code> como un vector. Esto se debe hacer para poder usar las funciones de búsqueda <code>optim</code> y <code>nlminb</code>.
@@ -831,14 +833,14 @@ Siempre que el interés sea encontrar los valores que maximizan una función de 
 <li>Dibujar la función de log-verosimilitud.</li>
 </ol>
 <p>En la Figura <a href="loglik.html#fig:loglik2">20.3</a> se muestra el gráfico de niveles para la superficie de log-verosimilitud. De esta figura se nota claramente que los valores que maximizan la superficie están alrededor de <span class="math inline">\(\mu=170\)</span> y <span class="math inline">\(\sigma=5\)</span>.</p>
-<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="loglik.html#cb671-1" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>a, <span class="at">sd=</span>b, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
-<span id="cb671-2"><a href="loglik.html#cb671-2" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll1)</span>
-<span id="cb671-3"><a href="loglik.html#cb671-3" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">160</span>, <span class="at">to=</span><span class="dv">180</span>, <span class="at">by=</span><span class="fl">0.5</span>)</span>
-<span id="cb671-4"><a href="loglik.html#cb671-4" tabindex="-1"></a>yy <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">3</span>, <span class="at">to=</span><span class="dv">7</span>, <span class="at">by=</span><span class="fl">0.5</span>)</span>
-<span id="cb671-5"><a href="loglik.html#cb671-5" tabindex="-1"></a>zz <span class="ot">&lt;-</span> <span class="fu">outer</span>(<span class="at">X=</span>xx, <span class="at">Y=</span>yy, ll1)</span>
-<span id="cb671-6"><a href="loglik.html#cb671-6" tabindex="-1"></a><span class="fu">filled.contour</span>(<span class="at">x=</span>xx, <span class="at">y=</span>yy, <span class="at">z=</span>zz, <span class="at">nlevels=</span><span class="dv">20</span>,</span>
-<span id="cb671-7"><a href="loglik.html#cb671-7" tabindex="-1"></a>               <span class="at">xlab=</span><span class="fu">expression</span>(mu), <span class="at">ylab=</span><span class="fu">expression</span>(sigma),</span>
-<span id="cb671-8"><a href="loglik.html#cb671-8" tabindex="-1"></a>               <span class="at">color =</span> topo.colors)</span></code></pre></div>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="loglik.html#cb669-1" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>a, <span class="at">sd=</span>b, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb669-2"><a href="loglik.html#cb669-2" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll1)</span>
+<span id="cb669-3"><a href="loglik.html#cb669-3" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">160</span>, <span class="at">to=</span><span class="dv">180</span>, <span class="at">by=</span><span class="fl">0.5</span>)</span>
+<span id="cb669-4"><a href="loglik.html#cb669-4" tabindex="-1"></a>yy <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">3</span>, <span class="at">to=</span><span class="dv">7</span>, <span class="at">by=</span><span class="fl">0.5</span>)</span>
+<span id="cb669-5"><a href="loglik.html#cb669-5" tabindex="-1"></a>zz <span class="ot">&lt;-</span> <span class="fu">outer</span>(<span class="at">X=</span>xx, <span class="at">Y=</span>yy, ll1)</span>
+<span id="cb669-6"><a href="loglik.html#cb669-6" tabindex="-1"></a><span class="fu">filled.contour</span>(<span class="at">x=</span>xx, <span class="at">y=</span>yy, <span class="at">z=</span>zz, <span class="at">nlevels=</span><span class="dv">20</span>,</span>
+<span id="cb669-7"><a href="loglik.html#cb669-7" tabindex="-1"></a>               <span class="at">xlab=</span><span class="fu">expression</span>(mu), <span class="at">ylab=</span><span class="fu">expression</span>(sigma),</span>
+<span id="cb669-8"><a href="loglik.html#cb669-8" tabindex="-1"></a>               <span class="at">color =</span> topo.colors)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:loglik2"></span>
 <img src="Manual_de_R_files/figure-html/loglik2-1.png" alt="Gráfico de niveles para la función de log-verosimilitud para el ejemplo sobre normal." width="864" />
 <p class="caption">
@@ -849,9 +851,9 @@ Figure 20.3: Gráfico de niveles para la función de log-verosimilitud para el e
 <li>Obtenga los valores de <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> que maximizan la función de log-verosimilitud.</li>
 </ol>
 <p>Para obtener los valores solicitados vamos a usar la función <code>nlminb</code> que es un optimizador. A la función <code>nlminb</code> se le debe indicar por medio del parámetro <code>objective</code> la función que queremos optimizar (minimizar); el parámetro <code>start</code> es un vector con los valores iniciales para comenzar la búsqueda de <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span>; los parámetros <code>lower</code> y <code>upper</code> sirven para delimitar el espacio de búsqueda. A continuación se muestra el código usado para obtener los valores que minimizan a <code>minusll</code>, es decir, los valores que maximizan la función de log-verosimilitud. </p>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="loglik.html#cb672-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span><span class="fu">ll</span>(x)</span>
-<span id="cb672-2"><a href="loglik.html#cb672-2" tabindex="-1"></a><span class="fu">nlminb</span>(<span class="at">objective=</span>minusll, <span class="at">start=</span><span class="fu">c</span>(<span class="dv">163</span>, <span class="fl">3.4</span>),</span>
-<span id="cb672-3"><a href="loglik.html#cb672-3" tabindex="-1"></a>       <span class="at">lower=</span><span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">3</span>), <span class="at">upper=</span><span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">7</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="loglik.html#cb670-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span><span class="fu">ll</span>(x)</span>
+<span id="cb670-2"><a href="loglik.html#cb670-2" tabindex="-1"></a><span class="fu">nlminb</span>(<span class="at">objective=</span>minusll, <span class="at">start=</span><span class="fu">c</span>(<span class="dv">163</span>, <span class="fl">3.4</span>),</span>
+<span id="cb670-3"><a href="loglik.html#cb670-3" tabindex="-1"></a>       <span class="at">lower=</span><span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">3</span>), <span class="at">upper=</span><span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">7</span>))</span></code></pre></div>
 <pre><code>## $par
 ## [1] 170.338374   5.423529
 ## 
@@ -881,15 +883,15 @@ En R se tienen dos funciones básicas para optimizar funciones, es decir, para e
 <li>¿Hay alguna función para obtener directamente el valor que maximiza la función log-verosimilitud?</li>
 </ol>
 <p>La respuesta es si. Si la distribución estudiada es una de las distribuciones básicas se puede usar la función <code>fitdistr</code> del paquete básico <strong>MASS</strong>. Esta función requiere de los datos que se ingresan por medio del parámetro <code>x</code>, y de la distribución de los datos que se ingresa por medio del parámetro <code>densfun</code>. La función <code>fitdistr</code> admite 15 distribuciones diferentes para hacer la búsqueda de los parámetros que caracterizan una distribución, se sugiere consultar la ayuda de la función <code>fitdistr</code> escribiendo en la consola <code>help(fitdistr)</code>. A continuación el código usado. </p>
-<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="loglik.html#cb674-1" tabindex="-1"></a><span class="fu">require</span>(MASS) <span class="co"># El paquete ya está instalado, solo se debe cargar</span></span>
-<span id="cb674-2"><a href="loglik.html#cb674-2" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>y, <span class="at">densfun=</span><span class="st">&#39;normal&#39;</span>)</span>
-<span id="cb674-3"><a href="loglik.html#cb674-3" tabindex="-1"></a>res</span></code></pre></div>
+<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="loglik.html#cb672-1" tabindex="-1"></a><span class="fu">require</span>(MASS) <span class="co"># El paquete ya está instalado, solo se debe cargar</span></span>
+<span id="cb672-2"><a href="loglik.html#cb672-2" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>y, <span class="at">densfun=</span><span class="st">&#39;normal&#39;</span>)</span>
+<span id="cb672-3"><a href="loglik.html#cb672-3" tabindex="-1"></a>res</span></code></pre></div>
 <pre><code>##       mean           sd     
 ##   170.3383794     5.4235271 
 ##  (  0.7670026) (  0.5423527)</code></pre>
 <p>El objeto <code>res</code> contiene los resultados de usar <code>fitdistr</code>. En la primer línea están los valores de los parámetros que maximizan la función de log-verosimilitud, en la parte de abajo, dentro de paréntesis, están los errores estándar o desviaciones de éstos estimadores.</p>
 <p>Al objeto <code>res</code> es de la clase <em>fitdistr</em> y por lo tanto se le puede aplicar la función genérica <code>logLik</code> para obtener el valor de la log-verosimilitud. Se sugiere consultar la ayuda de la función <code>logLik</code> escribiendo en la consola <code>help(logLik)</code>. A continuación el código para usar <code>logLik</code> sobre el objeto <code>res</code>.</p>
-<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="loglik.html#cb676-1" tabindex="-1"></a><span class="fu">logLik</span>(res)</span></code></pre></div>
+<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="loglik.html#cb674-1" tabindex="-1"></a><span class="fu">logLik</span>(res)</span></code></pre></div>
 <pre><code>## &#39;log Lik.&#39; -155.4842 (df=2)</code></pre>
 <p>De esta última salida se observa que el valor coincide con el obtenido cuando se usó <code>nlminb</code>.</p>
 </div>
@@ -900,22 +902,22 @@ En R se tienen dos funciones básicas para optimizar funciones, es decir, para e
 <li>¿Cómo se puede generar la muestra aleatoria solicitada?</li>
 </ol>
 <p>Para generar la muestra aleatoria (<code>ma</code>) solicitada se fijó la semilla con el objetivo de que el lector pueda obtener los mismos resultados de este ejemplo.</p>
-<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="loglik.html#cb678-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb678-2"><a href="loglik.html#cb678-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
-<span id="cb678-3"><a href="loglik.html#cb678-3" tabindex="-1"></a>ma <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="at">n=</span>n, <span class="at">shape=</span><span class="dv">2</span>, <span class="at">rate=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="loglik.html#cb676-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb676-2"><a href="loglik.html#cb676-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb676-3"><a href="loglik.html#cb676-3" tabindex="-1"></a>ma <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="at">n=</span>n, <span class="at">shape=</span><span class="dv">2</span>, <span class="at">rate=</span><span class="fl">0.5</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Asumiendo que la muestra aleatoria proviene de una normal (lo cual es incorrecto), estime los parámetros de la distribución normal.</li>
 </ol>
-<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb679-1"><a href="loglik.html#cb679-1" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>ma, <span class="at">densfun=</span><span class="st">&#39;normal&#39;</span>)</span>
-<span id="cb679-2"><a href="loglik.html#cb679-2" tabindex="-1"></a>fit1</span></code></pre></div>
+<div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb677-1"><a href="loglik.html#cb677-1" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>ma, <span class="at">densfun=</span><span class="st">&#39;normal&#39;</span>)</span>
+<span id="cb677-2"><a href="loglik.html#cb677-2" tabindex="-1"></a>fit1</span></code></pre></div>
 <pre><code>##      mean         sd    
 ##   4.3082767   2.8084910 
 ##  (0.2808491) (0.1985903)</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Asumiendo que la muestra aleatoria proviene de una gamma estime los parámetros de la distribución gamma.</li>
 </ol>
-<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="loglik.html#cb681-1" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>ma, <span class="at">densfun=</span><span class="st">&#39;gamma&#39;</span>)</span>
-<span id="cb681-2"><a href="loglik.html#cb681-2" tabindex="-1"></a>fit2</span></code></pre></div>
+<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb679-1"><a href="loglik.html#cb679-1" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(<span class="at">x=</span>ma, <span class="at">densfun=</span><span class="st">&#39;gamma&#39;</span>)</span>
+<span id="cb679-2"><a href="loglik.html#cb679-2" tabindex="-1"></a>fit2</span></code></pre></div>
 <pre><code>##      shape         rate   
 ##   2.23978235   0.51987909 
 ##  (0.29620136) (0.07702892)</code></pre>
@@ -924,19 +926,19 @@ En R se tienen dos funciones básicas para optimizar funciones, es decir, para e
 <li>Dibuje dos qqplot, uno asumiendo distribución normal y el otro distribución gamma. ¿Cuál distribución se ajusta mejor a los datos simulados?</li>
 </ol>
 <p>Para dibujar el qqplot se usa la función genérica <code>qqplot</code>, recomendamos consultar <span class="citation">Hernández (<a href="#ref-hernandez_correa">2018</a>)</span> para los detalles de cómo usar esta función. Al usar <code>qqplot</code> para obtener el qqplot normal y gamma es necesario indicar los valores <span class="math inline">\(\hat{\boldsymbol{\theta}}\)</span> obtenidos en el numeral anterior, por eso es que en el código mostrado a continuación aparece <code>mean=4.3083, sd=2.8085</code> en el qqplot normal y <code>shape=2.23978, rate=0.51988</code> en el qqplot gamma.</p>
-<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="loglik.html#cb683-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb683-2"><a href="loglik.html#cb683-2" tabindex="-1"></a></span>
-<span id="cb683-3"><a href="loglik.html#cb683-3" tabindex="-1"></a><span class="fu">qqplot</span>(<span class="at">y=</span>ma, <span class="at">pch=</span><span class="dv">19</span>,</span>
-<span id="cb683-4"><a href="loglik.html#cb683-4" tabindex="-1"></a>       <span class="at">x=</span><span class="fu">qnorm</span>(<span class="fu">ppoints</span>(n), <span class="at">mean=</span><span class="fl">4.3083</span>, <span class="at">sd=</span><span class="fl">2.8085</span>),</span>
-<span id="cb683-5"><a href="loglik.html#cb683-5" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;Normal Q-Q Plot&#39;</span>,</span>
-<span id="cb683-6"><a href="loglik.html#cb683-6" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Theoretical Quantiles&#39;</span>,</span>
-<span id="cb683-7"><a href="loglik.html#cb683-7" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&#39;Sample Quantiles&#39;</span>)</span>
-<span id="cb683-8"><a href="loglik.html#cb683-8" tabindex="-1"></a></span>
-<span id="cb683-9"><a href="loglik.html#cb683-9" tabindex="-1"></a><span class="fu">qqplot</span>(<span class="at">y=</span>ma, <span class="at">pch=</span><span class="dv">19</span>,</span>
-<span id="cb683-10"><a href="loglik.html#cb683-10" tabindex="-1"></a>       <span class="at">x=</span><span class="fu">qgamma</span>(<span class="fu">ppoints</span>(n), <span class="at">shape=</span><span class="fl">2.23978</span>, <span class="at">rate=</span><span class="fl">0.51988</span>),</span>
-<span id="cb683-11"><a href="loglik.html#cb683-11" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;Gamma Q-Q Plot&#39;</span>,</span>
-<span id="cb683-12"><a href="loglik.html#cb683-12" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Theoretical Quantiles&#39;</span>,</span>
-<span id="cb683-13"><a href="loglik.html#cb683-13" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&#39;Sample Quantiles&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="loglik.html#cb681-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb681-2"><a href="loglik.html#cb681-2" tabindex="-1"></a></span>
+<span id="cb681-3"><a href="loglik.html#cb681-3" tabindex="-1"></a><span class="fu">qqplot</span>(<span class="at">y=</span>ma, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb681-4"><a href="loglik.html#cb681-4" tabindex="-1"></a>       <span class="at">x=</span><span class="fu">qnorm</span>(<span class="fu">ppoints</span>(n), <span class="at">mean=</span><span class="fl">4.3083</span>, <span class="at">sd=</span><span class="fl">2.8085</span>),</span>
+<span id="cb681-5"><a href="loglik.html#cb681-5" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;Normal Q-Q Plot&#39;</span>,</span>
+<span id="cb681-6"><a href="loglik.html#cb681-6" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Theoretical Quantiles&#39;</span>,</span>
+<span id="cb681-7"><a href="loglik.html#cb681-7" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&#39;Sample Quantiles&#39;</span>)</span>
+<span id="cb681-8"><a href="loglik.html#cb681-8" tabindex="-1"></a></span>
+<span id="cb681-9"><a href="loglik.html#cb681-9" tabindex="-1"></a><span class="fu">qqplot</span>(<span class="at">y=</span>ma, <span class="at">pch=</span><span class="dv">19</span>,</span>
+<span id="cb681-10"><a href="loglik.html#cb681-10" tabindex="-1"></a>       <span class="at">x=</span><span class="fu">qgamma</span>(<span class="fu">ppoints</span>(n), <span class="at">shape=</span><span class="fl">2.23978</span>, <span class="at">rate=</span><span class="fl">0.51988</span>),</span>
+<span id="cb681-11"><a href="loglik.html#cb681-11" tabindex="-1"></a>       <span class="at">main=</span><span class="st">&#39;Gamma Q-Q Plot&#39;</span>,</span>
+<span id="cb681-12"><a href="loglik.html#cb681-12" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">&#39;Theoretical Quantiles&#39;</span>,</span>
+<span id="cb681-13"><a href="loglik.html#cb681-13" tabindex="-1"></a>       <span class="at">ylab=</span><span class="st">&#39;Sample Quantiles&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:normgamma"></span>
 <img src="Manual_de_R_files/figure-html/normgamma-1.png" alt="Gráfico cuantil cuantil normal y gamma para la muestra simulada." width="864" />
 <p class="caption">
@@ -955,9 +957,9 @@ En este ejemplo se eligió la mejor distribución entre dos candidatas usando un
 <ol start="5" style="list-style-type: decimal">
 <li>Para comparar modelos se puede utilizar el <em>Akaike information criterion</em> (<span class="math inline">\(AIC\)</span>) propuesto por <span class="citation">Akaike (<a href="#ref-Akaike74">1974</a>)</span> que sirve para medir la calidad relativa de los modelos estadísticos, la expresión para calcular el indicador es <span class="math inline">\(AIC=-2 \, \hat{l}+2 \, df\)</span>, donde <span class="math inline">\(\hat{l}\)</span> corresponde al valor de <span class="math inline">\(\log\)</span>-verosimilitud y <span class="math inline">\(df\)</span> corresponde al número de parámetros estimados del modelo. Siempre el modelo elegido es aquel modelo con el menor valor de <span class="math inline">\(AIC\)</span>. Calcular el <span class="math inline">\(AIC\)</span> para los modelos asumidos normal y gamma.</li>
 </ol>
-<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="loglik.html#cb684-1" tabindex="-1"></a><span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">logLik</span>(fit1) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># AIC para modelo normal</span></span></code></pre></div>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="loglik.html#cb682-1" tabindex="-1"></a><span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">logLik</span>(fit1) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># AIC para modelo normal</span></span></code></pre></div>
 <pre><code>## &#39;log Lik.&#39; 494.3172 (df=2)</code></pre>
-<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="loglik.html#cb686-1" tabindex="-1"></a><span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">logLik</span>(fit2) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># AIC para modelo gamma</span></span></code></pre></div>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="loglik.html#cb684-1" tabindex="-1"></a><span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">logLik</span>(fit2) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># AIC para modelo gamma</span></span></code></pre></div>
 <pre><code>## &#39;log Lik.&#39; 466.0479 (df=2)</code></pre>
 <p>De los resultados anteriores se concluye que entre los dos modelos, el mejor es el gamma porque su <span class="math inline">\(AIC=466\)</span> es el menor de toos los <span class="math inline">\(AIC\)</span>.</p>
 
@@ -995,15 +997,15 @@ I(\theta) \equiv - \frac{\partial^2}{\partial \theta^2} l(\theta)
 </ul>
 <p>Dibujar la función <span class="math inline">\(l(\lambda)\)</span> para ambos casos e identificar la curvatura.</p>
 <p>A continuación el código para evaluar la función <span class="math inline">\(l(\lambda)\)</span> para cada caso.</p>
-<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="loglik.html#cb688-1" tabindex="-1"></a><span class="co"># Caso 1</span></span>
-<span id="cb688-2"><a href="loglik.html#cb688-2" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>)</span>
-<span id="cb688-3"><a href="loglik.html#cb688-3" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda) <span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x=</span>w, <span class="at">lambda=</span>lambda, <span class="at">log=</span>T))</span>
-<span id="cb688-4"><a href="loglik.html#cb688-4" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll1)</span>
-<span id="cb688-5"><a href="loglik.html#cb688-5" tabindex="-1"></a></span>
-<span id="cb688-6"><a href="loglik.html#cb688-6" tabindex="-1"></a><span class="co"># Caso 2</span></span>
-<span id="cb688-7"><a href="loglik.html#cb688-7" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">15</span>)</span>
-<span id="cb688-8"><a href="loglik.html#cb688-8" tabindex="-1"></a>ll2 <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda) <span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x=</span>y, <span class="at">lambda=</span>lambda, <span class="at">log=</span>T))</span>
-<span id="cb688-9"><a href="loglik.html#cb688-9" tabindex="-1"></a>ll2 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll2)</span></code></pre></div>
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="loglik.html#cb686-1" tabindex="-1"></a><span class="co"># Caso 1</span></span>
+<span id="cb686-2"><a href="loglik.html#cb686-2" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>)</span>
+<span id="cb686-3"><a href="loglik.html#cb686-3" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda) <span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x=</span>w, <span class="at">lambda=</span>lambda, <span class="at">log=</span>T))</span>
+<span id="cb686-4"><a href="loglik.html#cb686-4" tabindex="-1"></a>ll1 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll1)</span>
+<span id="cb686-5"><a href="loglik.html#cb686-5" tabindex="-1"></a></span>
+<span id="cb686-6"><a href="loglik.html#cb686-6" tabindex="-1"></a><span class="co"># Caso 2</span></span>
+<span id="cb686-7"><a href="loglik.html#cb686-7" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">15</span>)</span>
+<span id="cb686-8"><a href="loglik.html#cb686-8" tabindex="-1"></a>ll2 <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda) <span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x=</span>y, <span class="at">lambda=</span>lambda, <span class="at">log=</span>T))</span>
+<span id="cb686-9"><a href="loglik.html#cb686-9" tabindex="-1"></a>ll2 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(ll2)</span></code></pre></div>
 <p>En la Figura <a href="loglik.html#fig:loglikpoisson">20.5</a> se muestran las dos curvas <span class="math inline">\(l(\lambda)\)</span> para cada uno de los casos. De la figura se observa claramente que cuando se tienen 4 observaciones la curva es más puntiaguda y por lo tanto menor incertibumbre sobre el parámetro <span class="math inline">\(\lambda\)</span> a estimar.</p>
 <div class="figure"><span style="display:block;" id="fig:loglikpoisson"></span>
 <img src="Manual_de_R_files/figure-html/loglikpoisson-1.png" alt="Curvas de log-verosimilitud para los dos casos." width="480" />
@@ -1026,21 +1028,21 @@ y_i &amp;\sim N(\mu_i, \sigma^2), \\
 x_1 &amp;\sim U(-5, 6).
 \end{align*}\]</span></p>
 <p>El código mostrado a continuación permite simular un conjunto de valores con la estructura anteior.</p>
-<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="loglik.html#cb689-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb689-2"><a href="loglik.html#cb689-2" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span>n, <span class="at">min=</span><span class="sc">-</span><span class="dv">5</span>, <span class="at">max=</span><span class="dv">6</span>)</span>
-<span id="cb689-3"><a href="loglik.html#cb689-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span><span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> x1, <span class="at">sd=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="loglik.html#cb687-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb687-2"><a href="loglik.html#cb687-2" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span>n, <span class="at">min=</span><span class="sc">-</span><span class="dv">5</span>, <span class="at">max=</span><span class="dv">6</span>)</span>
+<span id="cb687-3"><a href="loglik.html#cb687-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span><span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> x1, <span class="at">sd=</span><span class="dv">5</span>)</span></code></pre></div>
 <p>El vector de parámetros del modelo anterior es <span class="math inline">\(\boldsymbol{\theta}=(\beta_0, \beta_1, \sigma)^\top=(-2, 3, 5)^\top\)</span>, el primer elemento corresponde al intercepto, el segundo a la pendiente y el último a la desviación.</p>
-<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="loglik.html#cb690-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, y, x1) {</span>
-<span id="cb690-2"><a href="loglik.html#cb690-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> x1  <span class="co"># Se define la media</span></span>
-<span id="cb690-3"><a href="loglik.html#cb690-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> theta[<span class="dv">3</span>]                  <span class="co"># Se define la desviación.</span></span>
-<span id="cb690-4"><a href="loglik.html#cb690-4" tabindex="-1"></a>  <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
-<span id="cb690-5"><a href="loglik.html#cb690-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="loglik.html#cb688-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, y, x1) {</span>
+<span id="cb688-2"><a href="loglik.html#cb688-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> x1  <span class="co"># Se define la media</span></span>
+<span id="cb688-3"><a href="loglik.html#cb688-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> theta[<span class="dv">3</span>]                  <span class="co"># Se define la desviación.</span></span>
+<span id="cb688-4"><a href="loglik.html#cb688-4" tabindex="-1"></a>  <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb688-5"><a href="loglik.html#cb688-5" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora vamos a usar la función <code>optim</code> para encontrar los valores que maximizan la función de log-verosimilitud, el código para hacer eso se muestra a continuación. En el parámetro <code>par</code> se coloca un vector de posibles valores de <span class="math inline">\(\boldsymbol{\theta}\)</span> para iniciar la búsqueda, en <code>fn</code> se coloca la función de interés, en <code>lower</code> y <code>upper</code> se colocan vectores que indican los límites de búsqueda de cada parámetro, los <span class="math inline">\(\beta_k\)</span> pueden variar entre <span class="math inline">\(-\infty\)</span> y <span class="math inline">\(\infty\)</span> mientras que el parámetro <span class="math inline">\(\sigma\)</span> toma valores en el intervalo <span class="math inline">\((0, \infty)\)</span>. Como la función <code>minusll</code> tiene argumentos adicionales <code>y</code> e <code>x1</code>, estos pasan a la función <code>optim</code> al final como se muestra en el código.</p>
-<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="loglik.html#cb691-1" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">fn=</span>minusll, <span class="at">method=</span><span class="st">&#39;L-BFGS-B&#39;</span>,</span>
-<span id="cb691-2"><a href="loglik.html#cb691-2" tabindex="-1"></a>              <span class="at">lower=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>), <span class="at">upper=</span><span class="fu">c</span>(<span class="cn">Inf</span>, <span class="cn">Inf</span>, <span class="cn">Inf</span>), </span>
-<span id="cb691-3"><a href="loglik.html#cb691-3" tabindex="-1"></a>              <span class="at">y=</span>y, <span class="at">x1=</span>x1)</span></code></pre></div>
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="loglik.html#cb689-1" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">fn=</span>minusll, <span class="at">method=</span><span class="st">&#39;L-BFGS-B&#39;</span>,</span>
+<span id="cb689-2"><a href="loglik.html#cb689-2" tabindex="-1"></a>              <span class="at">lower=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>), <span class="at">upper=</span><span class="fu">c</span>(<span class="cn">Inf</span>, <span class="cn">Inf</span>, <span class="cn">Inf</span>), </span>
+<span id="cb689-3"><a href="loglik.html#cb689-3" tabindex="-1"></a>              <span class="at">y=</span>y, <span class="at">x1=</span>x1)</span></code></pre></div>
 <p>En el objeto <code>res1</code> está el resultado de la optimización, para explorar los resultados usamos</p>
-<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="loglik.html#cb692-1" tabindex="-1"></a>res1</span></code></pre></div>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="loglik.html#cb690-1" tabindex="-1"></a>res1</span></code></pre></div>
 <pre><code>## $par
 ## [1] -1.904603  3.079600  5.014184
 ## 
@@ -1062,15 +1064,15 @@ x_1 &amp;\sim U(-5, 6).
 Cuando se usa <code>optim</code> es necesario decirle que inicie la búsqueda de <span class="math inline">\(\boldsymbol{\theta}\)</span> a partir de un lugar. Por esa razón se usó <code>par=c(0, 0, 1)</code>, esto significa que la búsqueda inicia en el tripleta <span class="math inline">\(\beta_0=0\)</span>, <span class="math inline">\(\beta_1=0\)</span> y <span class="math inline">\(\sigma=1\)</span>.
 </div>
 <p>En algunas ocasiones es mejor hacer la búsqueda de los parámetros en el intervalo <span class="math inline">\((-\infty, \infty)\)</span> que en una región limitada como por ejemplo <span class="math inline">\((0, \infty)\)</span> o <span class="math inline">\((-1, 1)\)</span>, ya que las funciones de búsqueda podrían tener problemas en los bordes de esos intervalos. Una estrategia usual en este tipo de casos es aplicar una transformación apropiada al parámetro que tiene el dominio limitado. En el presente ejemplo <span class="math inline">\(\sigma\)</span> sólo puede tomar valores mayores que cero y una transformación de tipo <span class="math inline">\(\log\)</span> podría ser muy útil ya que <span class="math inline">\(\log\)</span> relaciona los reales positivos con todos los reales. La transformación para este problema sería <span class="math inline">\(\log(\sigma)=\beta_3\)</span> o escrita de forma inversa <span class="math inline">\(\sigma=\exp(\beta_3)\)</span>. El nuevo parámetro <span class="math inline">\(\beta_3\)</span> puede variar en <span class="math inline">\((-\infty, \infty)\)</span> pero al ser transformado por la función exponencial este se volvería un valor apropiado para <span class="math inline">\(\sigma\)</span>. Para implementar esta variación lo único que se debe hacer es modificar la línea 3 de la función <code>minusll</code> como se muestra a continuación:</p>
-<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="loglik.html#cb694-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, y, x1) {</span>
-<span id="cb694-2"><a href="loglik.html#cb694-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> x1  </span>
-<span id="cb694-3"><a href="loglik.html#cb694-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> <span class="fu">exp</span>(theta[<span class="dv">3</span>])  <span class="co"># &lt;&lt;&lt;&lt;&lt;---- El cambio fue aquí</span></span>
-<span id="cb694-4"><a href="loglik.html#cb694-4" tabindex="-1"></a>  <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
-<span id="cb694-5"><a href="loglik.html#cb694-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="loglik.html#cb692-1" tabindex="-1"></a>minusll <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, y, x1) {</span>
+<span id="cb692-2"><a href="loglik.html#cb692-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> x1  </span>
+<span id="cb692-3"><a href="loglik.html#cb692-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> <span class="fu">exp</span>(theta[<span class="dv">3</span>])  <span class="co"># &lt;&lt;&lt;&lt;&lt;---- El cambio fue aquí</span></span>
+<span id="cb692-4"><a href="loglik.html#cb692-4" tabindex="-1"></a>  <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb692-5"><a href="loglik.html#cb692-5" tabindex="-1"></a>}</span></code></pre></div>
 <p>Para hacer la búsqueda se procede de forma similar, abajo el código necesario.</p>
-<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="loglik.html#cb695-1" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">fn=</span>minusll, <span class="at">method=</span><span class="st">&#39;L-BFGS-B&#39;</span>,</span>
-<span id="cb695-2"><a href="loglik.html#cb695-2" tabindex="-1"></a>              <span class="at">y=</span>y, <span class="at">x1=</span>x1)</span>
-<span id="cb695-3"><a href="loglik.html#cb695-3" tabindex="-1"></a>res2</span></code></pre></div>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="loglik.html#cb693-1" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">fn=</span>minusll, <span class="at">method=</span><span class="st">&#39;L-BFGS-B&#39;</span>,</span>
+<span id="cb693-2"><a href="loglik.html#cb693-2" tabindex="-1"></a>              <span class="at">y=</span>y, <span class="at">x1=</span>x1)</span>
+<span id="cb693-3"><a href="loglik.html#cb693-3" tabindex="-1"></a>res2</span></code></pre></div>
 <pre><code>## $par
 ## [1] -1.904609  3.079598  1.612271
 ## 
@@ -1095,26 +1097,26 @@ Cuando se usa <code>optim</code> es necesario decirle que inicie la búsqueda de
 <div id="ejemplo-64" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="loglik.html#ejemplo-64" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En este ejemplo vamos a repetir un ejemplo anterior con la distribución normal.</p>
-<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="loglik.html#cb697-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1235</span>)  <span class="co"># La semilla es 1235</span></span>
-<span id="cb697-2"><a href="loglik.html#cb697-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">mean=</span><span class="dv">170</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
-<span id="cb697-3"><a href="loglik.html#cb697-3" tabindex="-1"></a>y[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]  <span class="co"># Para ver los primeros siete valores generados</span></span></code></pre></div>
+<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="loglik.html#cb695-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1235</span>)  <span class="co"># La semilla es 1235</span></span>
+<span id="cb695-2"><a href="loglik.html#cb695-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">mean=</span><span class="dv">170</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
+<span id="cb695-3"><a href="loglik.html#cb695-3" tabindex="-1"></a>y[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]  <span class="co"># Para ver los primeros siete valores generados</span></span></code></pre></div>
 <pre><code>## [1] 166.5101 163.5757 174.9498 170.5589 170.5710 178.4910 170.2392</code></pre>
 <p>Ahora vamos a crear la función de log-verosimilitud de la siguiente manera:</p>
-<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="loglik.html#cb699-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
-<span id="cb699-2"><a href="loglik.html#cb699-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> param[<span class="dv">1</span>]  <span class="co"># param es el vector de parámetros</span></span>
-<span id="cb699-3"><a href="loglik.html#cb699-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> param[<span class="dv">2</span>] </span>
-<span id="cb699-4"><a href="loglik.html#cb699-4" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
-<span id="cb699-5"><a href="loglik.html#cb699-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="loglik.html#cb697-1" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
+<span id="cb697-2"><a href="loglik.html#cb697-2" tabindex="-1"></a>  media <span class="ot">&lt;-</span> param[<span class="dv">1</span>]  <span class="co"># param es el vector de parámetros</span></span>
+<span id="cb697-3"><a href="loglik.html#cb697-3" tabindex="-1"></a>  desvi <span class="ot">&lt;-</span> param[<span class="dv">2</span>] </span>
+<span id="cb697-4"><a href="loglik.html#cb697-4" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">dnorm</span>(<span class="at">x=</span>y, <span class="at">mean=</span>media, <span class="at">sd=</span>desvi, <span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb697-5"><a href="loglik.html#cb697-5" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora vamos a estimar los parametros con el paquete <strong>maxLik</strong>.</p>
-<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="loglik.html#cb700-1" tabindex="-1"></a><span class="fu">library</span>(maxLik)</span>
-<span id="cb700-2"><a href="loglik.html#cb700-2" tabindex="-1"></a></span>
-<span id="cb700-3"><a href="loglik.html#cb700-3" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>,</span>
-<span id="cb700-4"><a href="loglik.html#cb700-4" tabindex="-1"></a>              <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">byrow=</span><span class="cn">TRUE</span>, <span class="at">ncol=</span><span class="dv">2</span>)</span>
-<span id="cb700-5"><a href="loglik.html#cb700-5" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb700-6"><a href="loglik.html#cb700-6" tabindex="-1"></a></span>
-<span id="cb700-7"><a href="loglik.html#cb700-7" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">maxLik</span>(ll, <span class="at">start=</span><span class="fu">c</span>(<span class="at">media=</span><span class="dv">163</span>, <span class="at">desvi=</span><span class="fl">3.4</span>),</span>
-<span id="cb700-8"><a href="loglik.html#cb700-8" tabindex="-1"></a>            <span class="at">constraints=</span><span class="fu">list</span>(<span class="at">ineqA=</span>A, <span class="at">ineqB=</span>B))</span>
-<span id="cb700-9"><a href="loglik.html#cb700-9" tabindex="-1"></a><span class="fu">summary</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="loglik.html#cb698-1" tabindex="-1"></a><span class="fu">library</span>(maxLik)</span>
+<span id="cb698-2"><a href="loglik.html#cb698-2" tabindex="-1"></a></span>
+<span id="cb698-3"><a href="loglik.html#cb698-3" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>,</span>
+<span id="cb698-4"><a href="loglik.html#cb698-4" tabindex="-1"></a>              <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">byrow=</span><span class="cn">TRUE</span>, <span class="at">ncol=</span><span class="dv">2</span>)</span>
+<span id="cb698-5"><a href="loglik.html#cb698-5" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb698-6"><a href="loglik.html#cb698-6" tabindex="-1"></a></span>
+<span id="cb698-7"><a href="loglik.html#cb698-7" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">maxLik</span>(ll, <span class="at">start=</span><span class="fu">c</span>(<span class="at">media=</span><span class="dv">163</span>, <span class="at">desvi=</span><span class="fl">3.4</span>),</span>
+<span id="cb698-8"><a href="loglik.html#cb698-8" tabindex="-1"></a>            <span class="at">constraints=</span><span class="fu">list</span>(<span class="at">ineqA=</span>A, <span class="at">ineqB=</span>B))</span>
+<span id="cb698-9"><a href="loglik.html#cb698-9" tabindex="-1"></a><span class="fu">summary</span>(m)</span></code></pre></div>
 <pre><code>## --------------------------------------------
 ## Maximum Likelihood estimation
 ## Nelder-Mead maximization, 65 iterations
@@ -1182,7 +1184,7 @@ x_2 &amp;\sim Poisson(\lambda=3)
 </div>
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-Akaike74" class="csl-entry">
 Akaike, H. 1974. <span>“<span class="nocase">A new look at the statistical model identification</span>.”</span> <em>IEEE Transactions on Automatic Control</em> 19 (6): 716–23.
 </div>

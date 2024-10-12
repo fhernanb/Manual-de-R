@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>24 Aproximación de integrales | Manual de R</title>
   <meta name="description" content="24 Aproximación de integrales | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="24 Aproximación de integrales | Manual de R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2024-02-22" />
+<meta name="date" content="2024-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,6 +53,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="libs/plotly-binding-4.10.4/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
@@ -64,7 +65,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -74,7 +75,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -136,6 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -732,8 +734,8 @@ I = \int_{-\infty}^{\infty} f(x) d(x) = f(x_0) \sqrt{2 \pi / c}
 <h3>Ejemplo<a href="aproxint.html#ejemplo-87" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Calcular la integral de <span class="math inline">\(f(x)=\exp \left( -(x-1.5)^2 \right)\)</span> en <span class="math inline">\(\Re\)</span> utilizando la aproximación de Laplace.</p>
 <p>Primero vamos a dibujar la función <span class="math inline">\(f(x)\)</span> para ver en dónde está su moda <span class="math inline">\(x_0\)</span>.</p>
-<div class="sourceCode" id="cb804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb804-1"><a href="aproxint.html#cb804-1" tabindex="-1"></a>fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">exp</span>(<span class="sc">-</span>(x<span class="fl">-1.5</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb804-2"><a href="aproxint.html#cb804-2" tabindex="-1"></a><span class="fu">curve</span>(fun, <span class="at">from=</span><span class="sc">-</span><span class="dv">5</span>, <span class="at">to=</span><span class="dv">5</span>, <span class="at">ylab=</span><span class="st">&#39;f(x)&#39;</span>, <span class="at">las=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb802-1"><a href="aproxint.html#cb802-1" tabindex="-1"></a>fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">exp</span>(<span class="sc">-</span>(x<span class="fl">-1.5</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb802-2"><a href="aproxint.html#cb802-2" tabindex="-1"></a><span class="fu">curve</span>(fun, <span class="at">from=</span><span class="sc">-</span><span class="dv">5</span>, <span class="at">to=</span><span class="dv">5</span>, <span class="at">ylab=</span><span class="st">&#39;f(x)&#39;</span>, <span class="at">las=</span><span class="dv">1</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:aprox1"></span>
 <img src="Manual_de_R_files/figure-html/aprox1-1.png" alt="Perfil de la función f(x)." width="384" />
 <p class="caption">
@@ -741,20 +743,20 @@ Figure 24.1: Perfil de la función f(x).
 </p>
 </div>
 <p>Visualmente se nota que la moda está cerca del valor 1.5 y para determinar numéricamente el valor de la moda <span class="math inline">\(x_0\)</span> se usa la función <code>optimize</code>, los resultados se almacenan en el objeto <code>res</code>. El valor de la moda corresponde al elemento <code>maximum</code> del objeto <code>res</code>.</p>
-<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="aproxint.html#cb805-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">optimize</span>(fun, <span class="at">interval=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="at">maximum=</span><span class="cn">TRUE</span>)</span>
-<span id="cb805-2"><a href="aproxint.html#cb805-2" tabindex="-1"></a>res</span></code></pre></div>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="aproxint.html#cb803-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">optimize</span>(fun, <span class="at">interval=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="at">maximum=</span><span class="cn">TRUE</span>)</span>
+<span id="cb803-2"><a href="aproxint.html#cb803-2" tabindex="-1"></a>res</span></code></pre></div>
 <pre><code>## $maximum
 ## [1] 1.499997
 ## 
 ## $objective
 ## [1] 1</code></pre>
 <p>Para determinar el valor de <span class="math inline">\(c\)</span> de la expresión <a href="aproxint.html#eq:aproxlaplace">(24.2)</a> se utiliza el siguiente código.</p>
-<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="aproxint.html#cb807-1" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;numDeriv&quot;</span>)</span>
-<span id="cb807-2"><a href="aproxint.html#cb807-2" tabindex="-1"></a>constant <span class="ot">&lt;-</span> <span class="sc">-</span> <span class="fu">as.numeric</span>(<span class="fu">hessian</span>(fun, res<span class="sc">$</span>maximum))</span></code></pre></div>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="aproxint.html#cb805-1" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;numDeriv&quot;</span>)</span>
+<span id="cb805-2"><a href="aproxint.html#cb805-2" tabindex="-1"></a>constant <span class="ot">&lt;-</span> <span class="sc">-</span> <span class="fu">as.numeric</span>(<span class="fu">hessian</span>(fun, res<span class="sc">$</span>maximum))</span></code></pre></div>
 <p>Para obtener la aproximación de la integral se usa la expresión <a href="aproxint.html#eq:aproxlaplace">(24.2)</a> y para tener un punto de comparación se evalua la integral usando la función <code>integrate</code>, a continuación el código.</p>
-<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="aproxint.html#cb808-1" tabindex="-1"></a><span class="fu">fun</span>(res<span class="sc">$</span>maximum) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">/</span>constant)</span></code></pre></div>
+<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb806-1"><a href="aproxint.html#cb806-1" tabindex="-1"></a><span class="fu">fun</span>(res<span class="sc">$</span>maximum) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">/</span>constant)</span></code></pre></div>
 <pre><code>## [1] 1.772454</code></pre>
-<div class="sourceCode" id="cb810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb810-1"><a href="aproxint.html#cb810-1" tabindex="-1"></a><span class="fu">integrate</span>(fun, <span class="sc">-</span><span class="cn">Inf</span>, <span class="cn">Inf</span>)  <span class="co"># Para comparar</span></span></code></pre></div>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="aproxint.html#cb808-1" tabindex="-1"></a><span class="fu">integrate</span>(fun, <span class="sc">-</span><span class="cn">Inf</span>, <span class="cn">Inf</span>)  <span class="co"># Para comparar</span></span></code></pre></div>
 <pre><code>## 1.772454 with absolute error &lt; 1.5e-06</code></pre>
 <p>De los anteriores resultados vemos que la aproximación es buena.</p>
 
