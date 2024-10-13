@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2024-10-12" />
+<meta name="date" content="2024-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="estilo.html"><a href="estilo.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>3.2</b> Nombres de los objetos</a></li>
 <li class="chapter" data-level="3.3" data-path="estilo.html"><a href="estilo.html#longitud-de-una-línea-de-código"><i class="fa fa-check"></i><b>3.3</b> Longitud de una línea de código</a></li>
 <li class="chapter" data-level="3.4" data-path="estilo.html"><a href="estilo.html#espacios"><i class="fa fa-check"></i><b>3.4</b> Espacios</a></li>
-<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación"><i class="fa fa-check"></i><b>3.5</b> Asignación</a></li>
+<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación-en-r"><i class="fa fa-check"></i><b>3.5</b> Asignación en R</a>
+<ul>
+<li class="chapter" data-level="" data-path="estilo.html"><a href="estilo.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
 <li class="chapter" data-level="3.6" data-path="estilo.html"><a href="estilo.html#punto-y-coma"><i class="fa fa-check"></i><b>3.6</b> Punto y coma</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a>
@@ -237,11 +240,8 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
-<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#asignación-en-r"><i class="fa fa-check"></i><b>5.2</b> Asignación en R</a>
-<ul>
-<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores"><i class="fa fa-check"></i><b>5.3</b> Operadores</a></li>
+<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#funciones-básicas"><i class="fa fa-check"></i><b>5.2</b> Funciones básicas</a></li>
+<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores-binarios"><i class="fa fa-check"></i><b>5.3</b> Operadores binarios</a></li>
 <li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -722,10 +722,10 @@ div.csl-indent {
 </ul>
 <p>Las unidades de algunas de las variables están en sistema inglés, más adelante mostraremos cómo convertir esas variables.</p>
 <p>Para leer la base de datos usamos el siguiente código.</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="estadística-descriptiva-con-dplyr.html#cb409-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/babies.txt&#39;</span></span>
-<span id="cb409-2"><a href="estadística-descriptiva-con-dplyr.html#cb409-2" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">read.table</span>(url, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="estadística-descriptiva-con-dplyr.html#cb415-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/babies.txt&#39;</span></span>
+<span id="cb415-2"><a href="estadística-descriptiva-con-dplyr.html#cb415-2" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">read.table</span>(url, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)</span></code></pre></div>
 <p>Par ver el encabezado de la base de datos.</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="estadística-descriptiva-con-dplyr.html#cb410-1" tabindex="-1"></a><span class="fu">head</span>(dt, <span class="at">n=</span><span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="estadística-descriptiva-con-dplyr.html#cb416-1" tabindex="-1"></a><span class="fu">head</span>(dt, <span class="at">n=</span><span class="dv">8</span>)</span></code></pre></div>
 <pre><code>##   bwt gestation     parity age height weight smoke
 ## 1 120       284 First born  27     62    100   Not
 ## 2 113       282 First born  33     64    135   Not
@@ -736,7 +736,7 @@ div.csl-indent {
 ## 7 138       244 First born  33     62    178   Not
 ## 8 132       245 First born  23     65    140   Not</code></pre>
 <p>Ahora vamos a explorar la base de datos por medio de la función <code>summary</code>.</p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="estadística-descriptiva-con-dplyr.html#cb412-1" tabindex="-1"></a><span class="fu">summary</span>(dt)</span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="estadística-descriptiva-con-dplyr.html#cb418-1" tabindex="-1"></a><span class="fu">summary</span>(dt)</span></code></pre></div>
 <pre><code>##       bwt          gestation        parity               age       
 ##  Min.   : 55.0   Min.   :148.0   Length:1236        Min.   :15.00  
 ##  1st Qu.:108.8   1st Qu.:272.0   Class :character   1st Qu.:23.00  
@@ -754,7 +754,7 @@ div.csl-indent {
 ##  Max.   :72.00   Max.   :250.0                     
 ##  NA&#39;s   :22      NA&#39;s   :36</code></pre>
 <p>Otra tabla de resumen se puede obtener con la función <code>str</code>.</p>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="estadística-descriptiva-con-dplyr.html#cb414-1" tabindex="-1"></a><span class="fu">str</span>(dt)</span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="estadística-descriptiva-con-dplyr.html#cb420-1" tabindex="-1"></a><span class="fu">str</span>(dt)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    1236 obs. of  7 variables:
 ##  $ bwt      : int  120 113 128 123 108 136 138 132 120 143 ...
 ##  $ gestation: int  284 282 279 NA 282 286 244 245 289 299 ...
@@ -764,10 +764,10 @@ div.csl-indent {
 ##  $ weight   : int  100 135 115 190 125 93 178 140 125 136 ...
 ##  $ smoke    : chr  &quot;Not&quot; &quot;Not&quot; &quot;Yes&quot; &quot;Not&quot; ...</code></pre>
 <p>Para conocer la imension de la base de datos usamos la función <code>dim</code>.</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="estadística-descriptiva-con-dplyr.html#cb416-1" tabindex="-1"></a><span class="fu">dim</span>(dt)</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="estadística-descriptiva-con-dplyr.html#cb422-1" tabindex="-1"></a><span class="fu">dim</span>(dt)</span></code></pre></div>
 <pre><code>## [1] 1236    7</code></pre>
 <p>Para ver el peso de las madres.</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="estadística-descriptiva-con-dplyr.html#cb418-1" tabindex="-1"></a>dt<span class="sc">$</span>weight</span></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="estadística-descriptiva-con-dplyr.html#cb424-1" tabindex="-1"></a>dt<span class="sc">$</span>weight</span></code></pre></div>
 <pre><code>##    [1] 100 135 115 190 125  93 178 140 125 136 120 124 128  99 154 130 125 125
 ##   [19] 170 142  93 175 145 182 122 112 106 175 125 132 105 146 123 105 120 130
 ##   [37] 115  92 101  NA 160 177  NA 119 130 110 150  90 147 119 130 148 110 126
@@ -838,7 +838,7 @@ div.csl-indent {
 ## [1207] 135 125 156 140 130 103 120 151 103 119 109 145 150 180  95 120 116 136
 ## [1225] 135 145 102  87 116 121 126 100 120 150 110 129</code></pre>
 <p>Otra forma de ver el peso almacenado en columna 6.</p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="estadística-descriptiva-con-dplyr.html#cb420-1" tabindex="-1"></a>dt[, <span class="dv">6</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="estadística-descriptiva-con-dplyr.html#cb426-1" tabindex="-1"></a>dt[, <span class="dv">6</span>]</span></code></pre></div>
 <pre><code>##    [1] 100 135 115 190 125  93 178 140 125 136 120 124 128  99 154 130 125 125
 ##   [19] 170 142  93 175 145 182 122 112 106 175 125 132 105 146 123 105 120 130
 ##   [37] 115  92 101  NA 160 177  NA 119 130 110 150  90 147 119 130 148 110 126
@@ -909,14 +909,14 @@ div.csl-indent {
 ## [1207] 135 125 156 140 130 103 120 151 103 119 109 145 150 180  95 120 116 136
 ## [1225] 135 145 102  87 116 121 126 100 120 150 110 129</code></pre>
 <p>Para ver la información de las madres 2, 125, 569 y 830 podemos usar el siguiente código:</p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="estadística-descriptiva-con-dplyr.html#cb422-1" tabindex="-1"></a>dt[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">125</span>, <span class="dv">569</span>, <span class="dv">830</span>), ]</span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="estadística-descriptiva-con-dplyr.html#cb428-1" tabindex="-1"></a>dt[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">125</span>, <span class="dv">569</span>, <span class="dv">830</span>), ]</span></code></pre></div>
 <pre><code>##     bwt gestation     parity age height weight smoke
 ## 2   113       282 First born  33     64    135   Not
 ## 125 117       276 First born  31     69    150   Not
 ## 569 127       254 First born  27     67    146   Yes
 ## 830  62       228 First born  24     61    107   Not</code></pre>
 <p>Para ver la edad y smoke de las mujeres 40, 58, 69 y 256 podemos usar el siguiente código:</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="estadística-descriptiva-con-dplyr.html#cb424-1" tabindex="-1"></a>dt[<span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">58</span>, <span class="dv">69</span>, <span class="dv">256</span>), <span class="fu">c</span>(<span class="st">&#39;age&#39;</span>, <span class="st">&#39;smoke&#39;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="estadística-descriptiva-con-dplyr.html#cb430-1" tabindex="-1"></a>dt[<span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">58</span>, <span class="dv">69</span>, <span class="dv">256</span>), <span class="fu">c</span>(<span class="st">&#39;age&#39;</span>, <span class="st">&#39;smoke&#39;</span>)]</span></code></pre></div>
 <pre><code>##     age smoke
 ## 40   31   Not
 ## 58   33   Not
@@ -934,26 +934,26 @@ div.csl-indent {
 <li><code>max(x, na.rm=FALSE)</code>: para calcular el máximo.</li>
 </ul>
 <p>¿Cuál es el peso promedio de las madres?</p>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="estadística-descriptiva-con-dplyr.html#cb426-1" tabindex="-1"></a><span class="fu">mean</span>(dt<span class="sc">$</span>weight)</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="estadística-descriptiva-con-dplyr.html#cb432-1" tabindex="-1"></a><span class="fu">mean</span>(dt<span class="sc">$</span>weight)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>El resultado de <code>NA</code> se debe a los NA’s presentes en la base de datos. Para remover los NA’s podemos proceder de la siguiente manera:</p>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="estadística-descriptiva-con-dplyr.html#cb428-1" tabindex="-1"></a><span class="fu">mean</span>(dt<span class="sc">$</span>weight, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="estadística-descriptiva-con-dplyr.html#cb434-1" tabindex="-1"></a><span class="fu">mean</span>(dt<span class="sc">$</span>weight, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 128.6258</code></pre>
 <p>Vamos ahora a averiguar características de resumen para el peso de los bebés.</p>
 <p align="center">
 <img src="images/pesando_bebe.jpg" width="300">
 </p>
 <p>¿Cual es el peso promedio de los bebés?</p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="estadística-descriptiva-con-dplyr.html#cb430-1" tabindex="-1"></a><span class="fu">mean</span>(dt<span class="sc">$</span>bwt)</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="estadística-descriptiva-con-dplyr.html#cb436-1" tabindex="-1"></a><span class="fu">mean</span>(dt<span class="sc">$</span>bwt)</span></code></pre></div>
 <pre><code>## [1] 119.5769</code></pre>
 <p>¿Cual es la varianza del peso de los bebés?</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="estadística-descriptiva-con-dplyr.html#cb432-1" tabindex="-1"></a><span class="fu">var</span>(dt<span class="sc">$</span>bwt)</span></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="estadística-descriptiva-con-dplyr.html#cb438-1" tabindex="-1"></a><span class="fu">var</span>(dt<span class="sc">$</span>bwt)</span></code></pre></div>
 <pre><code>## [1] 332.5682</code></pre>
 <p>¿Cual es la desviación del peso de los bebés?</p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="estadística-descriptiva-con-dplyr.html#cb434-1" tabindex="-1"></a><span class="fu">sd</span>(dt<span class="sc">$</span>bwt)</span></code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="estadística-descriptiva-con-dplyr.html#cb440-1" tabindex="-1"></a><span class="fu">sd</span>(dt<span class="sc">$</span>bwt)</span></code></pre></div>
 <pre><code>## [1] 18.23645</code></pre>
 <p>¿Cuales son Q1, D4 y P90 para el peso de los bebés?</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="estadística-descriptiva-con-dplyr.html#cb436-1" tabindex="-1"></a><span class="fu">quantile</span>(dt<span class="sc">$</span>bwt, <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.40</span>, <span class="fl">0.90</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="estadística-descriptiva-con-dplyr.html#cb442-1" tabindex="-1"></a><span class="fu">quantile</span>(dt<span class="sc">$</span>bwt, <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.40</span>, <span class="fl">0.90</span>))</span></code></pre></div>
 <pre><code>##    25%    40%    90% 
 ## 108.75 116.00 142.00</code></pre>
 </div>
@@ -970,7 +970,7 @@ div.csl-indent {
 <img src="images/dplyr_logo.jpeg" width="200">
 </p>
 <p>Para usar el paquete <strong>dplyr</strong> podemos cargar a <strong>tidyverse</strong> o directamente a <strong>dplyr</strong> así:</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="estadística-descriptiva-con-dplyr.html#cb438-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="estadística-descriptiva-con-dplyr.html#cb444-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
 <p>En el mensaje anterior se aclara que hay unas funciones de <strong>dplyr</strong> que enmarcaran otras funciones de los paquetes <strong>stats</strong> y <strong>base</strong>.</p>
 </div>
 <div id="pipes-en-r" class="section level2 hasAnchor" number="14.3">
@@ -982,9 +982,9 @@ div.csl-indent {
 </ul>
 <p>Los operadores pipe sirve para escribir instrucciones de manera secuencial. A continuación vamos a mostrar dos ejemplos de la misma operación usando ambos pipe.</p>
 <p>El objetivo es tomar la base de datos <code>dt</code>, extraer la variable <code>bwt</code> y al vector o variable resultante calcularle la media con <code>mean</code>.</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="estadística-descriptiva-con-dplyr.html#cb439-1" tabindex="-1"></a>dt <span class="sc">%&gt;%</span> <span class="fu">pull</span>(bwt) <span class="sc">%&gt;%</span> mean  <span class="co"># Usando pipe de magrittr</span></span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="estadística-descriptiva-con-dplyr.html#cb445-1" tabindex="-1"></a>dt <span class="sc">%&gt;%</span> <span class="fu">pull</span>(bwt) <span class="sc">%&gt;%</span> mean  <span class="co"># Usando pipe de magrittr</span></span></code></pre></div>
 <pre><code>## [1] 119.5769</code></pre>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="estadística-descriptiva-con-dplyr.html#cb441-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(bwt) <span class="sc">|&gt;</span> <span class="fu">mean</span>()  <span class="co"># Usando pipe nativo</span></span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="estadística-descriptiva-con-dplyr.html#cb447-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(bwt) <span class="sc">|&gt;</span> <span class="fu">mean</span>()  <span class="co"># Usando pipe nativo</span></span></code></pre></div>
 <pre><code>## [1] 119.5769</code></pre>
 <p>De la salida anterior vemos que los resultados son idénticos.</p>
 <p>Para ver una comparación de los dos pipe se recomienda ver el siguiente video.</p>
@@ -994,7 +994,7 @@ div.csl-indent {
 <div id="estadística-descriptiva-con-dplyr-1" class="section level2 hasAnchor" number="14.4">
 <h2><span class="header-section-number">14.4</span> Estadística descriptiva con dplyr<a href="estadística-descriptiva-con-dplyr.html#estadística-descriptiva-con-dplyr-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La función <code>glimpse</code> del paquete <strong>dplyr</strong> nos da un resumen de las variables de la base de datos.</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="estadística-descriptiva-con-dplyr.html#cb443-1" tabindex="-1"></a><span class="fu">glimpse</span>(dt)</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="estadística-descriptiva-con-dplyr.html#cb449-1" tabindex="-1"></a><span class="fu">glimpse</span>(dt)</span></code></pre></div>
 <pre><code>## Rows: 1,236
 ## Columns: 7
 ## $ bwt       &lt;int&gt; 120, 113, 128, 123, 108, 136, 138, 132, 120, 143, 140, 144, …
@@ -1005,47 +1005,47 @@ div.csl-indent {
 ## $ weight    &lt;int&gt; 100, 135, 115, 190, 125, 93, 178, 140, 125, 136, 120, 124, 1…
 ## $ smoke     &lt;chr&gt; &quot;Not&quot;, &quot;Not&quot;, &quot;Yes&quot;, &quot;Not&quot;, &quot;Yes&quot;, &quot;Not&quot;, &quot;Not&quot;, &quot;Not&quot;, &quot;Not…</code></pre>
 <p>Vamos a extraer una sola variable con <code>pull</code> y luego a calcular la media, varianza y desviación estándar del peso de los bebés.</p>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="estadística-descriptiva-con-dplyr.html#cb445-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(bwt) <span class="sc">|&gt;</span> <span class="fu">mean</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="estadística-descriptiva-con-dplyr.html#cb451-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(bwt) <span class="sc">|&gt;</span> <span class="fu">mean</span>()</span></code></pre></div>
 <pre><code>## [1] 119.5769</code></pre>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="estadística-descriptiva-con-dplyr.html#cb447-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(bwt) <span class="sc">|&gt;</span> <span class="fu">var</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="estadística-descriptiva-con-dplyr.html#cb453-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(bwt) <span class="sc">|&gt;</span> <span class="fu">var</span>()</span></code></pre></div>
 <pre><code>## [1] 332.5682</code></pre>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="estadística-descriptiva-con-dplyr.html#cb449-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(bwt) <span class="sc">|&gt;</span> <span class="fu">sd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="estadística-descriptiva-con-dplyr.html#cb455-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(bwt) <span class="sc">|&gt;</span> <span class="fu">sd</span>()</span></code></pre></div>
 <pre><code>## [1] 18.23645</code></pre>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="estadística-descriptiva-con-dplyr.html#cb451-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(bwt) <span class="sc">|&gt;</span> <span class="fu">quantile</span>(<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.40</span>, <span class="fl">0.90</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="estadística-descriptiva-con-dplyr.html#cb457-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(bwt) <span class="sc">|&gt;</span> <span class="fu">quantile</span>(<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.40</span>, <span class="fl">0.90</span>))</span></code></pre></div>
 <pre><code>##    25%    40%    90% 
 ## 108.75 116.00 142.00</code></pre>
 <p>Vamos a calcular las mismas medidas de resumen anteriores pero con escritura secuencial usando el operador pipe <code>|&gt;</code> y la función <code>summarise</code>.</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="estadística-descriptiva-con-dplyr.html#cb453-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">media_peso =</span> <span class="fu">mean</span>(bwt),</span>
-<span id="cb453-2"><a href="estadística-descriptiva-con-dplyr.html#cb453-2" tabindex="-1"></a>                <span class="at">varianza_peso =</span> <span class="fu">var</span>(bwt),</span>
-<span id="cb453-3"><a href="estadística-descriptiva-con-dplyr.html#cb453-3" tabindex="-1"></a>                <span class="at">desvi_peso =</span> <span class="fu">sd</span>(bwt),</span>
-<span id="cb453-4"><a href="estadística-descriptiva-con-dplyr.html#cb453-4" tabindex="-1"></a>                <span class="at">Q1 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.25</span>),</span>
-<span id="cb453-5"><a href="estadística-descriptiva-con-dplyr.html#cb453-5" tabindex="-1"></a>                <span class="at">D4 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.40</span>),</span>
-<span id="cb453-6"><a href="estadística-descriptiva-con-dplyr.html#cb453-6" tabindex="-1"></a>                <span class="at">P90 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.90</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="estadística-descriptiva-con-dplyr.html#cb459-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">media_peso =</span> <span class="fu">mean</span>(bwt),</span>
+<span id="cb459-2"><a href="estadística-descriptiva-con-dplyr.html#cb459-2" tabindex="-1"></a>                <span class="at">varianza_peso =</span> <span class="fu">var</span>(bwt),</span>
+<span id="cb459-3"><a href="estadística-descriptiva-con-dplyr.html#cb459-3" tabindex="-1"></a>                <span class="at">desvi_peso =</span> <span class="fu">sd</span>(bwt),</span>
+<span id="cb459-4"><a href="estadística-descriptiva-con-dplyr.html#cb459-4" tabindex="-1"></a>                <span class="at">Q1 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.25</span>),</span>
+<span id="cb459-5"><a href="estadística-descriptiva-con-dplyr.html#cb459-5" tabindex="-1"></a>                <span class="at">D4 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.40</span>),</span>
+<span id="cb459-6"><a href="estadística-descriptiva-con-dplyr.html#cb459-6" tabindex="-1"></a>                <span class="at">P90 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.90</span>))</span></code></pre></div>
 <pre><code>##   media_peso varianza_peso desvi_peso     Q1  D4 P90
 ## 1   119.5769      332.5682   18.23645 108.75 116 142</code></pre>
 <p>Vamos a ver cómo cambian las medidas anteriores cuando diferenciamos por el tipo de embarazo.</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="estadística-descriptiva-con-dplyr.html#cb455-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">group_by</span>(parity) <span class="sc">|&gt;</span> </span>
-<span id="cb455-2"><a href="estadística-descriptiva-con-dplyr.html#cb455-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media_peso =</span> <span class="fu">mean</span>(bwt),</span>
-<span id="cb455-3"><a href="estadística-descriptiva-con-dplyr.html#cb455-3" tabindex="-1"></a>            <span class="at">varianza_peso =</span> <span class="fu">var</span>(bwt),</span>
-<span id="cb455-4"><a href="estadística-descriptiva-con-dplyr.html#cb455-4" tabindex="-1"></a>            <span class="at">desvi_peso =</span> <span class="fu">sd</span>(bwt),</span>
-<span id="cb455-5"><a href="estadística-descriptiva-con-dplyr.html#cb455-5" tabindex="-1"></a>            <span class="at">Q1 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.25</span>),</span>
-<span id="cb455-6"><a href="estadística-descriptiva-con-dplyr.html#cb455-6" tabindex="-1"></a>            <span class="at">D4 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.40</span>),</span>
-<span id="cb455-7"><a href="estadística-descriptiva-con-dplyr.html#cb455-7" tabindex="-1"></a>            <span class="at">P90 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.90</span>),</span>
-<span id="cb455-8"><a href="estadística-descriptiva-con-dplyr.html#cb455-8" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="estadística-descriptiva-con-dplyr.html#cb461-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">group_by</span>(parity) <span class="sc">|&gt;</span> </span>
+<span id="cb461-2"><a href="estadística-descriptiva-con-dplyr.html#cb461-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media_peso =</span> <span class="fu">mean</span>(bwt),</span>
+<span id="cb461-3"><a href="estadística-descriptiva-con-dplyr.html#cb461-3" tabindex="-1"></a>            <span class="at">varianza_peso =</span> <span class="fu">var</span>(bwt),</span>
+<span id="cb461-4"><a href="estadística-descriptiva-con-dplyr.html#cb461-4" tabindex="-1"></a>            <span class="at">desvi_peso =</span> <span class="fu">sd</span>(bwt),</span>
+<span id="cb461-5"><a href="estadística-descriptiva-con-dplyr.html#cb461-5" tabindex="-1"></a>            <span class="at">Q1 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.25</span>),</span>
+<span id="cb461-6"><a href="estadística-descriptiva-con-dplyr.html#cb461-6" tabindex="-1"></a>            <span class="at">D4 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.40</span>),</span>
+<span id="cb461-7"><a href="estadística-descriptiva-con-dplyr.html#cb461-7" tabindex="-1"></a>            <span class="at">P90 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.90</span>),</span>
+<span id="cb461-8"><a href="estadística-descriptiva-con-dplyr.html#cb461-8" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 8
 ##   parity     media_peso varianza_peso desvi_peso    Q1    D4   P90     n
 ##   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
 ## 1 First born       120.          345.       18.6   109   116   143   921
 ## 2 Unknown          118.          294.       17.1   107   114   139   315</code></pre>
 <p>Vamos a ver como cambiar las medidas anteriores cuando diferenciamos por fumar.</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="estadística-descriptiva-con-dplyr.html#cb457-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">group_by</span>(smoke) <span class="sc">|&gt;</span> </span>
-<span id="cb457-2"><a href="estadística-descriptiva-con-dplyr.html#cb457-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media_peso =</span> <span class="fu">mean</span>(bwt),</span>
-<span id="cb457-3"><a href="estadística-descriptiva-con-dplyr.html#cb457-3" tabindex="-1"></a>            <span class="at">varianza_peso =</span> <span class="fu">var</span>(bwt),</span>
-<span id="cb457-4"><a href="estadística-descriptiva-con-dplyr.html#cb457-4" tabindex="-1"></a>            <span class="at">desvi_peso =</span> <span class="fu">sd</span>(bwt),</span>
-<span id="cb457-5"><a href="estadística-descriptiva-con-dplyr.html#cb457-5" tabindex="-1"></a>            <span class="at">Q1 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.25</span>),</span>
-<span id="cb457-6"><a href="estadística-descriptiva-con-dplyr.html#cb457-6" tabindex="-1"></a>            <span class="at">D4 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.40</span>),</span>
-<span id="cb457-7"><a href="estadística-descriptiva-con-dplyr.html#cb457-7" tabindex="-1"></a>            <span class="at">P90 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.90</span>),</span>
-<span id="cb457-8"><a href="estadística-descriptiva-con-dplyr.html#cb457-8" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="estadística-descriptiva-con-dplyr.html#cb463-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">group_by</span>(smoke) <span class="sc">|&gt;</span> </span>
+<span id="cb463-2"><a href="estadística-descriptiva-con-dplyr.html#cb463-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media_peso =</span> <span class="fu">mean</span>(bwt),</span>
+<span id="cb463-3"><a href="estadística-descriptiva-con-dplyr.html#cb463-3" tabindex="-1"></a>            <span class="at">varianza_peso =</span> <span class="fu">var</span>(bwt),</span>
+<span id="cb463-4"><a href="estadística-descriptiva-con-dplyr.html#cb463-4" tabindex="-1"></a>            <span class="at">desvi_peso =</span> <span class="fu">sd</span>(bwt),</span>
+<span id="cb463-5"><a href="estadística-descriptiva-con-dplyr.html#cb463-5" tabindex="-1"></a>            <span class="at">Q1 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.25</span>),</span>
+<span id="cb463-6"><a href="estadística-descriptiva-con-dplyr.html#cb463-6" tabindex="-1"></a>            <span class="at">D4 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.40</span>),</span>
+<span id="cb463-7"><a href="estadística-descriptiva-con-dplyr.html#cb463-7" tabindex="-1"></a>            <span class="at">P90 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.90</span>),</span>
+<span id="cb463-8"><a href="estadística-descriptiva-con-dplyr.html#cb463-8" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 8
 ##   smoke media_peso varianza_peso desvi_peso    Q1    D4   P90     n
 ##   &lt;chr&gt;      &lt;dbl&gt;         &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
@@ -1053,14 +1053,14 @@ div.csl-indent {
 ## 2 Yes         114.          328.       18.1  102   109.  138    484
 ## 3 &lt;NA&gt;        127.          476.       21.8  110.  122.  152.    10</code></pre>
 <p>Vamos a ver como cambiar las medidas anteriores cuando diferenciamos por el tipo de embarazo y fumar.</p>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="estadística-descriptiva-con-dplyr.html#cb459-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">group_by</span>(parity, smoke) <span class="sc">|&gt;</span> </span>
-<span id="cb459-2"><a href="estadística-descriptiva-con-dplyr.html#cb459-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media_peso =</span> <span class="fu">mean</span>(bwt),</span>
-<span id="cb459-3"><a href="estadística-descriptiva-con-dplyr.html#cb459-3" tabindex="-1"></a>            <span class="at">varianza_peso =</span> <span class="fu">var</span>(bwt),</span>
-<span id="cb459-4"><a href="estadística-descriptiva-con-dplyr.html#cb459-4" tabindex="-1"></a>            <span class="at">desvi_peso =</span> <span class="fu">sd</span>(bwt),</span>
-<span id="cb459-5"><a href="estadística-descriptiva-con-dplyr.html#cb459-5" tabindex="-1"></a>            <span class="at">Q1 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.25</span>),</span>
-<span id="cb459-6"><a href="estadística-descriptiva-con-dplyr.html#cb459-6" tabindex="-1"></a>            <span class="at">D4 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.40</span>),</span>
-<span id="cb459-7"><a href="estadística-descriptiva-con-dplyr.html#cb459-7" tabindex="-1"></a>            <span class="at">P90 =</span><span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.90</span>),</span>
-<span id="cb459-8"><a href="estadística-descriptiva-con-dplyr.html#cb459-8" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="estadística-descriptiva-con-dplyr.html#cb465-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">group_by</span>(parity, smoke) <span class="sc">|&gt;</span> </span>
+<span id="cb465-2"><a href="estadística-descriptiva-con-dplyr.html#cb465-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media_peso =</span> <span class="fu">mean</span>(bwt),</span>
+<span id="cb465-3"><a href="estadística-descriptiva-con-dplyr.html#cb465-3" tabindex="-1"></a>            <span class="at">varianza_peso =</span> <span class="fu">var</span>(bwt),</span>
+<span id="cb465-4"><a href="estadística-descriptiva-con-dplyr.html#cb465-4" tabindex="-1"></a>            <span class="at">desvi_peso =</span> <span class="fu">sd</span>(bwt),</span>
+<span id="cb465-5"><a href="estadística-descriptiva-con-dplyr.html#cb465-5" tabindex="-1"></a>            <span class="at">Q1 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.25</span>),</span>
+<span id="cb465-6"><a href="estadística-descriptiva-con-dplyr.html#cb465-6" tabindex="-1"></a>            <span class="at">D4 =</span> <span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.40</span>),</span>
+<span id="cb465-7"><a href="estadística-descriptiva-con-dplyr.html#cb465-7" tabindex="-1"></a>            <span class="at">P90 =</span><span class="fu">quantile</span>(bwt, <span class="at">probs=</span><span class="fl">0.90</span>),</span>
+<span id="cb465-8"><a href="estadística-descriptiva-con-dplyr.html#cb465-8" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## `summarise()` has grouped
 ## output by &#39;parity&#39;. You can
 ## override using the `.groups`
@@ -1075,12 +1075,12 @@ div.csl-indent {
 ## 4 Unknown    Not         121.          284.       16.8  112   117   140    194
 ## 5 Unknown    Yes         113.          275.       16.6  102   109   131    121</code></pre>
 <p>Calculando la correlación entre peso bebe y peso madre.</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="estadística-descriptiva-con-dplyr.html#cb462-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">select</span>(bwt, weight) <span class="sc">|&gt;</span> <span class="fu">cor</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="estadística-descriptiva-con-dplyr.html#cb468-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">select</span>(bwt, weight) <span class="sc">|&gt;</span> <span class="fu">cor</span>()</span></code></pre></div>
 <pre><code>##        bwt weight
 ## bwt      1     NA
 ## weight  NA      1</code></pre>
 <p>Como hay NA en alguna de las variables vamos a agregar <code>use='complete.obs'</code> para obtener la correlación.</p>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="estadística-descriptiva-con-dplyr.html#cb464-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">select</span>(bwt, weight) <span class="sc">|&gt;</span> <span class="fu">cor</span>(<span class="at">use=</span><span class="st">&#39;complete.obs&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="estadística-descriptiva-con-dplyr.html#cb470-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">select</span>(bwt, weight) <span class="sc">|&gt;</span> <span class="fu">cor</span>(<span class="at">use=</span><span class="st">&#39;complete.obs&#39;</span>)</span></code></pre></div>
 <pre><code>##              bwt    weight
 ## bwt    1.0000000 0.1540382
 ## weight 0.1540382 1.0000000</code></pre>
@@ -1090,19 +1090,19 @@ div.csl-indent {
 <h2><span class="header-section-number">14.5</span> Creando nuevas variables<a href="estadística-descriptiva-con-dplyr.html#creando-nuevas-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En esta sección vamos a mostrar cómo crear nuevas variables a partir de variables ya existentes en la base de datos.</p>
 <p>Vamos a transformar la altura y el peso de la madre al <a href="https://es.wikipedia.org/wiki/Sistema_Internacional_de_Unidades">sistema internacional de unidades</a>.</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="estadística-descriptiva-con-dplyr.html#cb466-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">height_mt =</span> height <span class="sc">*</span> <span class="fl">0.0254</span>,</span>
-<span id="cb466-2"><a href="estadística-descriptiva-con-dplyr.html#cb466-2" tabindex="-1"></a>             <span class="at">weight_kg =</span> weight <span class="sc">*</span> <span class="fl">0.453592</span>) <span class="ot">-&gt;</span> dt</span>
-<span id="cb466-3"><a href="estadística-descriptiva-con-dplyr.html#cb466-3" tabindex="-1"></a></span>
-<span id="cb466-4"><a href="estadística-descriptiva-con-dplyr.html#cb466-4" tabindex="-1"></a><span class="fu">head</span>(dt, <span class="at">n=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="estadística-descriptiva-con-dplyr.html#cb472-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">height_mt =</span> height <span class="sc">*</span> <span class="fl">0.0254</span>,</span>
+<span id="cb472-2"><a href="estadística-descriptiva-con-dplyr.html#cb472-2" tabindex="-1"></a>             <span class="at">weight_kg =</span> weight <span class="sc">*</span> <span class="fl">0.453592</span>) <span class="ot">-&gt;</span> dt</span>
+<span id="cb472-3"><a href="estadística-descriptiva-con-dplyr.html#cb472-3" tabindex="-1"></a></span>
+<span id="cb472-4"><a href="estadística-descriptiva-con-dplyr.html#cb472-4" tabindex="-1"></a><span class="fu">head</span>(dt, <span class="at">n=</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##   bwt gestation     parity age height weight smoke height_mt weight_kg
 ## 1 120       284 First born  27     62    100   Not    1.5748  45.35920
 ## 2 113       282 First born  33     64    135   Not    1.6256  61.23492
 ## 3 128       279 First born  28     64    115   Yes    1.6256  52.16308
 ## 4 123        NA First born  36     69    190   Not    1.7526  86.18248</code></pre>
 <p>Ahora vamos a calcular el IMC con las nuevas variables así:</p>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="estadística-descriptiva-con-dplyr.html#cb468-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">imc =</span> weight_kg <span class="sc">/</span> height_mt<span class="sc">^</span><span class="dv">2</span>) <span class="ot">-&gt;</span> dt</span>
-<span id="cb468-2"><a href="estadística-descriptiva-con-dplyr.html#cb468-2" tabindex="-1"></a></span>
-<span id="cb468-3"><a href="estadística-descriptiva-con-dplyr.html#cb468-3" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="estadística-descriptiva-con-dplyr.html#cb474-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">imc =</span> weight_kg <span class="sc">/</span> height_mt<span class="sc">^</span><span class="dv">2</span>) <span class="ot">-&gt;</span> dt</span>
+<span id="cb474-2"><a href="estadística-descriptiva-con-dplyr.html#cb474-2" tabindex="-1"></a></span>
+<span id="cb474-3"><a href="estadística-descriptiva-con-dplyr.html#cb474-3" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##   bwt gestation     parity age height weight smoke height_mt weight_kg      imc
 ## 1 120       284 First born  27     62    100   Not    1.5748  45.35920 18.29004
 ## 2 113       282 First born  33     64    135   Not    1.6256  61.23492 23.17244
@@ -1113,45 +1113,45 @@ div.csl-indent {
 <div id="tablas-de-frecuencia" class="section level2 hasAnchor" number="14.6">
 <h2><span class="header-section-number">14.6</span> Tablas de frecuencia<a href="estadística-descriptiva-con-dplyr.html#tablas-de-frecuencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Vamos a una la variable de clasificación según peso. Recien nacidos con pesos inferiores a 100 onzas son considerados livianos, aquellos con pesos entre 100 (inclusive) y 140 son aceptables y con pesos de 140 o más se consideran sanos.</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="estadística-descriptiva-con-dplyr.html#cb470-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">clasi =</span> <span class="fu">cut</span>(bwt, </span>
-<span id="cb470-2"><a href="estadística-descriptiva-con-dplyr.html#cb470-2" tabindex="-1"></a>                         <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">100</span>, <span class="dv">140</span>, <span class="cn">Inf</span>),</span>
-<span id="cb470-3"><a href="estadística-descriptiva-con-dplyr.html#cb470-3" tabindex="-1"></a>                         <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Liviano&quot;</span>,<span class="st">&quot;Aceptable&quot;</span>,<span class="st">&quot;Sano&quot;</span>),</span>
-<span id="cb470-4"><a href="estadística-descriptiva-con-dplyr.html#cb470-4" tabindex="-1"></a>                         <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)) <span class="ot">-&gt;</span> dt</span></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="estadística-descriptiva-con-dplyr.html#cb476-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">clasi =</span> <span class="fu">cut</span>(bwt, </span>
+<span id="cb476-2"><a href="estadística-descriptiva-con-dplyr.html#cb476-2" tabindex="-1"></a>                         <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">100</span>, <span class="dv">140</span>, <span class="cn">Inf</span>),</span>
+<span id="cb476-3"><a href="estadística-descriptiva-con-dplyr.html#cb476-3" tabindex="-1"></a>                         <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Liviano&quot;</span>,<span class="st">&quot;Aceptable&quot;</span>,<span class="st">&quot;Sano&quot;</span>),</span>
+<span id="cb476-4"><a href="estadística-descriptiva-con-dplyr.html#cb476-4" tabindex="-1"></a>                         <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)) <span class="ot">-&gt;</span> dt</span></code></pre></div>
 <p>Tabla de frecuencia absoluta para clasificación.</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="estadística-descriptiva-con-dplyr.html#cb471-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(clasi) <span class="sc">|&gt;</span> </span>
-<span id="cb471-2"><a href="estadística-descriptiva-con-dplyr.html#cb471-2" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="estadística-descriptiva-con-dplyr.html#cb477-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(clasi) <span class="sc">|&gt;</span> </span>
+<span id="cb477-2"><a href="estadística-descriptiva-con-dplyr.html#cb477-2" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div>
 <pre><code>## 
 ##   Liviano Aceptable      Sano 
 ##       174       917       145</code></pre>
 <p>Tabla de frecuencia relativa para clasificación.</p>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="estadística-descriptiva-con-dplyr.html#cb473-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(clasi) <span class="sc">|&gt;</span> </span>
-<span id="cb473-2"><a href="estadística-descriptiva-con-dplyr.html#cb473-2" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb473-3"><a href="estadística-descriptiva-con-dplyr.html#cb473-3" tabindex="-1"></a>  <span class="fu">prop.table</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb473-4"><a href="estadística-descriptiva-con-dplyr.html#cb473-4" tabindex="-1"></a>  <span class="fu">round</span>(<span class="at">digits=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="estadística-descriptiva-con-dplyr.html#cb479-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">pull</span>(clasi) <span class="sc">|&gt;</span> </span>
+<span id="cb479-2"><a href="estadística-descriptiva-con-dplyr.html#cb479-2" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb479-3"><a href="estadística-descriptiva-con-dplyr.html#cb479-3" tabindex="-1"></a>  <span class="fu">prop.table</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb479-4"><a href="estadística-descriptiva-con-dplyr.html#cb479-4" tabindex="-1"></a>  <span class="fu">round</span>(<span class="at">digits=</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## 
 ##   Liviano Aceptable      Sano 
 ##    0.1408    0.7419    0.1173</code></pre>
 <p>Tabla de frecuencia absoluta para fumar y clasificación.</p>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="estadística-descriptiva-con-dplyr.html#cb475-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">select</span>(smoke, clasi) <span class="sc">|&gt;</span> </span>
-<span id="cb475-2"><a href="estadística-descriptiva-con-dplyr.html#cb475-2" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb475-3"><a href="estadística-descriptiva-con-dplyr.html#cb475-3" tabindex="-1"></a>  <span class="fu">addmargins</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="estadística-descriptiva-con-dplyr.html#cb481-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">select</span>(smoke, clasi) <span class="sc">|&gt;</span> </span>
+<span id="cb481-2"><a href="estadística-descriptiva-con-dplyr.html#cb481-2" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb481-3"><a href="estadística-descriptiva-con-dplyr.html#cb481-3" tabindex="-1"></a>  <span class="fu">addmargins</span>()</span></code></pre></div>
 <pre><code>##      clasi
 ## smoke Liviano Aceptable Sano  Sum
 ##   Not      62       581   99  742
 ##   Yes     111       331   42  484
 ##   Sum     173       912  141 1226</code></pre>
 <p>Tabla de frecuencia relativa para fumar y clasificación.</p>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="estadística-descriptiva-con-dplyr.html#cb477-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">select</span>(smoke, clasi) <span class="sc">|&gt;</span> </span>
-<span id="cb477-2"><a href="estadística-descriptiva-con-dplyr.html#cb477-2" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb477-3"><a href="estadística-descriptiva-con-dplyr.html#cb477-3" tabindex="-1"></a>  <span class="fu">prop.table</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="estadística-descriptiva-con-dplyr.html#cb483-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">select</span>(smoke, clasi) <span class="sc">|&gt;</span> </span>
+<span id="cb483-2"><a href="estadística-descriptiva-con-dplyr.html#cb483-2" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb483-3"><a href="estadística-descriptiva-con-dplyr.html#cb483-3" tabindex="-1"></a>  <span class="fu">prop.table</span>()</span></code></pre></div>
 <pre><code>##      clasi
 ## smoke    Liviano  Aceptable       Sano
 ##   Not 0.05057096 0.47389886 0.08075041
 ##   Yes 0.09053834 0.26998369 0.03425775</code></pre>
 <p>Tabla de frecuencia relativa por <strong>columnas</strong> para fumar y clasificación.</p>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="estadística-descriptiva-con-dplyr.html#cb479-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">select</span>(smoke, clasi) <span class="sc">|&gt;</span> </span>
-<span id="cb479-2"><a href="estadística-descriptiva-con-dplyr.html#cb479-2" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb479-3"><a href="estadística-descriptiva-con-dplyr.html#cb479-3" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="at">margin=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="estadística-descriptiva-con-dplyr.html#cb485-1" tabindex="-1"></a>dt <span class="sc">|&gt;</span> <span class="fu">select</span>(smoke, clasi) <span class="sc">|&gt;</span> </span>
+<span id="cb485-2"><a href="estadística-descriptiva-con-dplyr.html#cb485-2" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb485-3"><a href="estadística-descriptiva-con-dplyr.html#cb485-3" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="at">margin=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##      clasi
 ## smoke   Liviano Aceptable      Sano
 ##   Not 0.3583815 0.6370614 0.7021277
@@ -1161,8 +1161,8 @@ div.csl-indent {
 <h2><span class="header-section-number">14.7</span> Gráficos<a href="estadística-descriptiva-con-dplyr.html#gráficos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En esta sección se mostrará como crear algunos gráficos básicos. Para más detalles de como construir otros gráficos se recomienda consultar el libro <a href="https://fhernanb.github.io/Graficos-con-R/">Gráficos con R</a>.</p>
 <p>Boxplot para el peso de los bebés.</p>
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="estadística-descriptiva-con-dplyr.html#cb481-1" tabindex="-1"></a><span class="fu">boxplot</span>(dt<span class="sc">$</span>bwt, <span class="at">las=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">&quot;darkorchid1&quot;</span>, </span>
-<span id="cb481-2"><a href="estadística-descriptiva-con-dplyr.html#cb481-2" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Peso del bebe (onzas)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="estadística-descriptiva-con-dplyr.html#cb487-1" tabindex="-1"></a><span class="fu">boxplot</span>(dt<span class="sc">$</span>bwt, <span class="at">las=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">&quot;darkorchid1&quot;</span>, </span>
+<span id="cb487-2"><a href="estadística-descriptiva-con-dplyr.html#cb487-2" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Peso del bebe (onzas)&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:analDescrip01"></span>
 <img src="Manual_de_R_files/figure-html/analDescrip01-1.png" alt="Boxplot para el peso de los bebés." width="960" />
 <p class="caption">
@@ -1170,9 +1170,9 @@ Figure 14.1: Boxplot para el peso de los bebés.
 </p>
 </div>
 <p>Boxplot horizontal para el peso de los bebés.</p>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="estadística-descriptiva-con-dplyr.html#cb482-1" tabindex="-1"></a><span class="fu">boxplot</span>(dt<span class="sc">$</span>bwt, <span class="at">las=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">&quot;darkseagreen2&quot;</span>,</span>
-<span id="cb482-2"><a href="estadística-descriptiva-con-dplyr.html#cb482-2" tabindex="-1"></a>        <span class="at">horizontal=</span><span class="cn">TRUE</span>,</span>
-<span id="cb482-3"><a href="estadística-descriptiva-con-dplyr.html#cb482-3" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Peso del bebe (onzas)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="estadística-descriptiva-con-dplyr.html#cb488-1" tabindex="-1"></a><span class="fu">boxplot</span>(dt<span class="sc">$</span>bwt, <span class="at">las=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">&quot;darkseagreen2&quot;</span>,</span>
+<span id="cb488-2"><a href="estadística-descriptiva-con-dplyr.html#cb488-2" tabindex="-1"></a>        <span class="at">horizontal=</span><span class="cn">TRUE</span>,</span>
+<span id="cb488-3"><a href="estadística-descriptiva-con-dplyr.html#cb488-3" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Peso del bebe (onzas)&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:analDescrip02"></span>
 <img src="Manual_de_R_files/figure-html/analDescrip02-1.png" alt="Boxplot horizontal para el peso de los bebés." width="960" />
 <p class="caption">
@@ -1180,7 +1180,7 @@ Figure 14.2: Boxplot horizontal para el peso de los bebés.
 </p>
 </div>
 <p>Boxplot para el peso de los bebés diferenciando por la variable smoke.</p>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="estadística-descriptiva-con-dplyr.html#cb483-1" tabindex="-1"></a><span class="fu">boxplot</span>(dt<span class="sc">$</span>bwt <span class="sc">~</span> dt<span class="sc">$</span>smoke, <span class="at">las=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="estadística-descriptiva-con-dplyr.html#cb489-1" tabindex="-1"></a><span class="fu">boxplot</span>(dt<span class="sc">$</span>bwt <span class="sc">~</span> dt<span class="sc">$</span>smoke, <span class="at">las=</span><span class="dv">1</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:analDescrip03"></span>
 <img src="Manual_de_R_files/figure-html/analDescrip03-1.png" alt="Boxplot para el peso diferenciando por fumar." width="960" />
 <p class="caption">
@@ -1188,11 +1188,11 @@ Figure 14.3: Boxplot para el peso diferenciando por fumar.
 </p>
 </div>
 <p>Editando el boxplot para obtener una mejor apariencia.</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="estadística-descriptiva-con-dplyr.html#cb484-1" tabindex="-1"></a><span class="fu">boxplot</span>(dt<span class="sc">$</span>bwt <span class="sc">~</span> dt<span class="sc">$</span>smoke, <span class="at">las=</span><span class="dv">1</span>, </span>
-<span id="cb484-2"><a href="estadística-descriptiva-con-dplyr.html#cb484-2" tabindex="-1"></a>        <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;dodgerblue&quot;</span>, <span class="st">&quot;hotpink2&quot;</span>),</span>
-<span id="cb484-3"><a href="estadística-descriptiva-con-dplyr.html#cb484-3" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&#39;Babies weight given smoke status&#39;</span>,</span>
-<span id="cb484-4"><a href="estadística-descriptiva-con-dplyr.html#cb484-4" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&#39;Does the mother smoke?&#39;</span>,</span>
-<span id="cb484-5"><a href="estadística-descriptiva-con-dplyr.html#cb484-5" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&#39;Weight (ounces)&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="estadística-descriptiva-con-dplyr.html#cb490-1" tabindex="-1"></a><span class="fu">boxplot</span>(dt<span class="sc">$</span>bwt <span class="sc">~</span> dt<span class="sc">$</span>smoke, <span class="at">las=</span><span class="dv">1</span>, </span>
+<span id="cb490-2"><a href="estadística-descriptiva-con-dplyr.html#cb490-2" tabindex="-1"></a>        <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;dodgerblue&quot;</span>, <span class="st">&quot;hotpink2&quot;</span>),</span>
+<span id="cb490-3"><a href="estadística-descriptiva-con-dplyr.html#cb490-3" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&#39;Babies weight given smoke status&#39;</span>,</span>
+<span id="cb490-4"><a href="estadística-descriptiva-con-dplyr.html#cb490-4" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&#39;Does the mother smoke?&#39;</span>,</span>
+<span id="cb490-5"><a href="estadística-descriptiva-con-dplyr.html#cb490-5" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&#39;Weight (ounces)&#39;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:analDescrip04"></span>
 <img src="Manual_de_R_files/figure-html/analDescrip04-1.png" alt="Boxplot mejorado para el peso diferenciando por fumar." width="960" />
 <p class="caption">
@@ -1200,11 +1200,11 @@ Figure 14.4: Boxplot mejorado para el peso diferenciando por fumar.
 </p>
 </div>
 <p>¿Como cambiar Not y Yes de smoke para colocar el gráfico en español?</p>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="estadística-descriptiva-con-dplyr.html#cb485-1" tabindex="-1"></a>dt<span class="sc">$</span>fuma <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(dt<span class="sc">$</span>smoke <span class="sc">==</span> <span class="st">&#39;Not&#39;</span>, <span class="st">&#39;No&#39;</span>, <span class="st">&#39;Si&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="estadística-descriptiva-con-dplyr.html#cb491-1" tabindex="-1"></a>dt<span class="sc">$</span>fuma <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(dt<span class="sc">$</span>smoke <span class="sc">==</span> <span class="st">&#39;Not&#39;</span>, <span class="st">&#39;No&#39;</span>, <span class="st">&#39;Si&#39;</span>)</span></code></pre></div>
 <p>Boxplot en español</p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="estadística-descriptiva-con-dplyr.html#cb486-1" tabindex="-1"></a><span class="fu">boxplot</span>(dt<span class="sc">$</span>bwt <span class="sc">~</span> dt<span class="sc">$</span>fuma, <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb486-2"><a href="estadística-descriptiva-con-dplyr.html#cb486-2" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&#39;¿Fuma la madre?&#39;</span>,</span>
-<span id="cb486-3"><a href="estadística-descriptiva-con-dplyr.html#cb486-3" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&#39;Peso del bebe (onzas)&#39;</span>, <span class="at">las=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="estadística-descriptiva-con-dplyr.html#cb492-1" tabindex="-1"></a><span class="fu">boxplot</span>(dt<span class="sc">$</span>bwt <span class="sc">~</span> dt<span class="sc">$</span>fuma, <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb492-2"><a href="estadística-descriptiva-con-dplyr.html#cb492-2" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&#39;¿Fuma la madre?&#39;</span>,</span>
+<span id="cb492-3"><a href="estadística-descriptiva-con-dplyr.html#cb492-3" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&#39;Peso del bebe (onzas)&#39;</span>, <span class="at">las=</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## Warning in (function (z, notch = FALSE, width = NULL, varwidth = FALSE, :
 ## Duplicated argument las = 1 is disregarded</code></pre>
 <div class="figure"><span style="display:block;" id="fig:analDescrip05"></span>
@@ -1214,9 +1214,9 @@ Figure 14.5: Boxplot para el peso de los bebés en español.
 </p>
 </div>
 <p>¿Cual es la relación entre peso del bebe y de la madre?</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="estadística-descriptiva-con-dplyr.html#cb488-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>dt<span class="sc">$</span>weight, <span class="at">y=</span>dt<span class="sc">$</span>bwt,</span>
-<span id="cb488-2"><a href="estadística-descriptiva-con-dplyr.html#cb488-2" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Peso de la madre (libras)&#39;</span>,</span>
-<span id="cb488-3"><a href="estadística-descriptiva-con-dplyr.html#cb488-3" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&#39;Peso del bebe (onzas)&#39;</span>, <span class="at">las=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="estadística-descriptiva-con-dplyr.html#cb494-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>dt<span class="sc">$</span>weight, <span class="at">y=</span>dt<span class="sc">$</span>bwt,</span>
+<span id="cb494-2"><a href="estadística-descriptiva-con-dplyr.html#cb494-2" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Peso de la madre (libras)&#39;</span>,</span>
+<span id="cb494-3"><a href="estadística-descriptiva-con-dplyr.html#cb494-3" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&#39;Peso del bebe (onzas)&#39;</span>, <span class="at">las=</span><span class="dv">1</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:analDescrip06"></span>
 <img src="Manual_de_R_files/figure-html/analDescrip06-1.png" alt="Diagrama de dispersión para peso del bebé versus peso de la madre." width="960" />
 <p class="caption">
@@ -1224,15 +1224,15 @@ Figure 14.6: Diagrama de dispersión para peso del bebé versus peso de la madre
 </p>
 </div>
 <p>Diagrama de dispersión entre pesos diferenciando por fumar</p>
-<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="estadística-descriptiva-con-dplyr.html#cb489-1" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(dt)</span>
-<span id="cb489-2"><a href="estadística-descriptiva-con-dplyr.html#cb489-2" tabindex="-1"></a></span>
-<span id="cb489-3"><a href="estadística-descriptiva-con-dplyr.html#cb489-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>dt2<span class="sc">$</span>weight, <span class="at">y=</span>dt2<span class="sc">$</span>bwt, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb489-4"><a href="estadística-descriptiva-con-dplyr.html#cb489-4" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Peso de la madre (libras)&#39;</span>,</span>
-<span id="cb489-5"><a href="estadística-descriptiva-con-dplyr.html#cb489-5" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&#39;Peso del bebe (onzas)&#39;</span>,</span>
-<span id="cb489-6"><a href="estadística-descriptiva-con-dplyr.html#cb489-6" tabindex="-1"></a>     <span class="at">col=</span><span class="fu">as.factor</span>(dt2<span class="sc">$</span>smoke))</span>
-<span id="cb489-7"><a href="estadística-descriptiva-con-dplyr.html#cb489-7" tabindex="-1"></a></span>
-<span id="cb489-8"><a href="estadística-descriptiva-con-dplyr.html#cb489-8" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&#39;bottomright&#39;</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">&#39;No&#39;</span>, <span class="st">&#39;Si&#39;</span>),</span>
-<span id="cb489-9"><a href="estadística-descriptiva-con-dplyr.html#cb489-9" tabindex="-1"></a>       <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="estadística-descriptiva-con-dplyr.html#cb495-1" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(dt)</span>
+<span id="cb495-2"><a href="estadística-descriptiva-con-dplyr.html#cb495-2" tabindex="-1"></a></span>
+<span id="cb495-3"><a href="estadística-descriptiva-con-dplyr.html#cb495-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>dt2<span class="sc">$</span>weight, <span class="at">y=</span>dt2<span class="sc">$</span>bwt, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb495-4"><a href="estadística-descriptiva-con-dplyr.html#cb495-4" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&#39;Peso de la madre (libras)&#39;</span>,</span>
+<span id="cb495-5"><a href="estadística-descriptiva-con-dplyr.html#cb495-5" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&#39;Peso del bebe (onzas)&#39;</span>,</span>
+<span id="cb495-6"><a href="estadística-descriptiva-con-dplyr.html#cb495-6" tabindex="-1"></a>     <span class="at">col=</span><span class="fu">as.factor</span>(dt2<span class="sc">$</span>smoke))</span>
+<span id="cb495-7"><a href="estadística-descriptiva-con-dplyr.html#cb495-7" tabindex="-1"></a></span>
+<span id="cb495-8"><a href="estadística-descriptiva-con-dplyr.html#cb495-8" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&#39;bottomright&#39;</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">&#39;No&#39;</span>, <span class="st">&#39;Si&#39;</span>),</span>
+<span id="cb495-9"><a href="estadística-descriptiva-con-dplyr.html#cb495-9" tabindex="-1"></a>       <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:analDescrip07"></span>
 <img src="Manual_de_R_files/figure-html/analDescrip07-1.png" alt="Diagrama de dispersión para peso del bebé versus peso de la madre diferenciando por fumar." width="960" />
 <p class="caption">
@@ -1240,9 +1240,9 @@ Figure 14.7: Diagrama de dispersión para peso del bebé versus peso de la madre
 </p>
 </div>
 <p>Para ver la relación entre el peso de la madre y la edad de la madre.</p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="estadística-descriptiva-con-dplyr.html#cb490-1" tabindex="-1"></a><span class="fu">plot</span>(dt<span class="sc">$</span>age, dt<span class="sc">$</span>weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">&quot;tomato&quot;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb490-2"><a href="estadística-descriptiva-con-dplyr.html#cb490-2" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Edad de la madre&quot;</span>,</span>
-<span id="cb490-3"><a href="estadística-descriptiva-con-dplyr.html#cb490-3" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Peso de la madre&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="estadística-descriptiva-con-dplyr.html#cb496-1" tabindex="-1"></a><span class="fu">plot</span>(dt<span class="sc">$</span>age, dt<span class="sc">$</span>weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">&quot;tomato&quot;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb496-2"><a href="estadística-descriptiva-con-dplyr.html#cb496-2" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Edad de la madre&quot;</span>,</span>
+<span id="cb496-3"><a href="estadística-descriptiva-con-dplyr.html#cb496-3" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Peso de la madre&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:analDescrip08"></span>
 <img src="Manual_de_R_files/figure-html/analDescrip08-1.png" alt="Diagrama de dispersión del peso de la madre versus su edad." width="960" />
 <p class="caption">

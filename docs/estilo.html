@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2024-10-12" />
+<meta name="date" content="2024-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="estilo.html"><a href="estilo.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>3.2</b> Nombres de los objetos</a></li>
 <li class="chapter" data-level="3.3" data-path="estilo.html"><a href="estilo.html#longitud-de-una-línea-de-código"><i class="fa fa-check"></i><b>3.3</b> Longitud de una línea de código</a></li>
 <li class="chapter" data-level="3.4" data-path="estilo.html"><a href="estilo.html#espacios"><i class="fa fa-check"></i><b>3.4</b> Espacios</a></li>
-<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación"><i class="fa fa-check"></i><b>3.5</b> Asignación</a></li>
+<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación-en-r"><i class="fa fa-check"></i><b>3.5</b> Asignación en R</a>
+<ul>
+<li class="chapter" data-level="" data-path="estilo.html"><a href="estilo.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
 <li class="chapter" data-level="3.6" data-path="estilo.html"><a href="estilo.html#punto-y-coma"><i class="fa fa-check"></i><b>3.6</b> Punto y coma</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a>
@@ -237,11 +240,8 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
-<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#asignación-en-r"><i class="fa fa-check"></i><b>5.2</b> Asignación en R</a>
-<ul>
-<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores"><i class="fa fa-check"></i><b>5.3</b> Operadores</a></li>
+<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#funciones-básicas"><i class="fa fa-check"></i><b>5.2</b> Funciones básicas</a></li>
+<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores-binarios"><i class="fa fa-check"></i><b>5.3</b> Operadores binarios</a></li>
 <li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -796,21 +796,40 @@ div.csl-indent {
 <span id="cb92-18"><a href="estilo.html#cb92-18" tabindex="-1"></a><span class="cf">else</span>                     <span class="co"># Incorrecto</span></span>
 <span id="cb92-19"><a href="estilo.html#cb92-19" tabindex="-1"></a>  one line</span></code></pre></div>
 </div>
-<div id="asignación" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Asignación<a href="estilo.html#asignación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Para realizar asignaciones se recomienda usar el símbolo <code>&lt;-</code>, el símbolo de igualdad <code>=</code> no se recomienda usarlo para asignaciones.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="estilo.html#cb93-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># Correcto</span></span>
-<span id="cb93-2"><a href="estilo.html#cb93-2" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span>   <span class="co"># No recomendado</span></span></code></pre></div>
+<div id="asignación-en-r" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Asignación en R<a href="estilo.html#asignación-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En R se pueden hacer asignación de varias formas, a continuación se presentan los operadores disponibles para tal fin.</p>
+<ul>
+<li><code>&lt;-</code> este es el operador de asignación a izquierda, es el más usado y recomendado.</li>
+<li><code>-&gt;</code> este es el operador de asignación a derecha, no es frecuente su uso.</li>
+<li><code>=</code> el símbolo igual sirve para hacer asignaciones pero <strong>NO</strong> se recomienda usarlo.</li>
+<li><code>&lt;&lt;-</code> este es un operador de asignación global y sólo debe ser usado por usuarios avanzados.</li>
+</ul>
 <p>Para una explicación más detallada sobre el símbolo de asignación se recomienda visitar este <a href="http://www.win-vector.com/blog/2016/12/the-case-for-using-in-r/">enlace</a>.</p>
+<div id="ejemplo-5" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="estilo.html#ejemplo-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Almacene los valores 5.3, 4.6 y 25 en los objetos <code>a</code>, <code>b</code> y <code>age</code> respectivamente, use diferentes símbolos de asignación.</p>
+<p>Para hacer lo solicitado se podría usar el siguiente código.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="estilo.html#cb93-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">5.3</span> <span class="co"># Recomended</span></span>
+<span id="cb93-2"><a href="estilo.html#cb93-2" tabindex="-1"></a><span class="fl">4.6</span> <span class="ot">-&gt;</span> b <span class="co"># It is not usual</span></span>
+<span id="cb93-3"><a href="estilo.html#cb93-3" tabindex="-1"></a>age <span class="ot">=</span> <span class="dv">25</span> <span class="co"># Not recomended</span></span></code></pre></div>
+
+<div class="rmdimportant">
+Aunque una asignación se puede hacer de tres formas diferentes, se recomienda sólo usar el símbolo <code>&lt;-</code>.
+</div>
+<p>Para realizar asignaciones se recomienda usar el símbolo <code>&lt;-</code>, el símbolo de igualdad <code>=</code> no se recomienda usarlo para asignaciones.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="estilo.html#cb94-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># Correcto</span></span>
+<span id="cb94-2"><a href="estilo.html#cb94-2" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span>   <span class="co"># No recomendado</span></span></code></pre></div>
+</div>
 </div>
 <div id="punto-y-coma" class="section level2 hasAnchor" number="3.6">
 <h2><span class="header-section-number">3.6</span> Punto y coma<a href="estilo.html#punto-y-coma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>No se recomienda colocar varias instrucciones separadas por <code>;</code> en la misma línea, aunque funciona dificulta la revisión del código.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="estilo.html#cb94-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span>; y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean=</span><span class="dv">5</span>); <span class="fu">hist</span>(y)  <span class="co"># No se recomienda</span></span>
-<span id="cb94-2"><a href="estilo.html#cb94-2" tabindex="-1"></a></span>
-<span id="cb94-3"><a href="estilo.html#cb94-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span>                                  <span class="co"># Correcto</span></span>
-<span id="cb94-4"><a href="estilo.html#cb94-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean=</span><span class="dv">5</span>)</span>
-<span id="cb94-5"><a href="estilo.html#cb94-5" tabindex="-1"></a><span class="fu">hist</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="estilo.html#cb95-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span>; y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean=</span><span class="dv">5</span>); <span class="fu">hist</span>(y)  <span class="co"># No se recomienda</span></span>
+<span id="cb95-2"><a href="estilo.html#cb95-2" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="estilo.html#cb95-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span>                                  <span class="co"># Correcto</span></span>
+<span id="cb95-4"><a href="estilo.html#cb95-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean=</span><span class="dv">5</span>)</span>
+<span id="cb95-5"><a href="estilo.html#cb95-5" tabindex="-1"></a><span class="fu">hist</span>(y)</span></code></pre></div>
 <p>A pesar de la anterior advertencia es posible que en este libro usemos el <code>;</code> en algunas ocasiones, si lo hacemos es para ahorrar espacio en la presentación del código.</p>
 
 </div>

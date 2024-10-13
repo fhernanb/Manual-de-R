@@ -15,20 +15,23 @@ if (condicion) {
 ```
 
 ### Ejemplo {-}
-Una secretaria recibe la información del salario básico semanal de un empleado y las horas trabajadas durante la semana por ese empleado. El salario básico es la remuneración por 40 horas de labor por semana, las horas extra son pagadas a ciencuenta mil pesos. Escriba el procedimiento en R que debe usar la secretaria para calcular el salario semanal de un empleado que trabajó 45 horas y tiene salario básico de un millon de pesos.
+Una secretaria recibe la información del salario básico semanal de un empleado y las horas trabajadas durante la semana por ese empleado. El salario básico es la remuneración por las primeras 40 horas de labor por semana, las horas extra son pagadas a ciencuenta mil pesos. Escriba el procedimiento en R que debe usar la secretaria para calcular el salario semanal de un empleado que trabajó 45 horas y tiene salario básico de un millón de pesos.
+
+__Solución__
 
 El código para calcular el salario final del empleado es el siguiente:
-```{r}
-sal <- 1  # Salario básico por semana
-hlab <- 45   # Horas laboradas por semana
 
-if(hlab > 40) {
-  hext <- hlab - 40
-  salext <- hext * 0.05
-  sal <- sal + salext
+```{r}
+sal_bas <- 1    # Salario básico por semana (en millones de $)
+horas_lab <- 45 # Horas laboradas por semana
+
+if (horas_lab > 40) {
+  horas_ext <- horas_lab - 40
+  sal_ext <- horas_ext * 0.05
+  salario <- sal_bas + sal_ext
 }
 
-sal  # Salario semanal
+salario # Salario semanal (en millones de $)
 ```
 
 ## Instrucción `if` `else` 
@@ -40,13 +43,37 @@ if (condicion) {
   operación 2
   ...
   operación final
+} else {
+    operación 1
+    operación 2
+    ...
+    operación final
 }
-else {
-  operación 1
-  operación 2
-  ...
-  operación final
+```
+
+### Ejemplo {-}
+Supongamos que trabajas en una tienda de ropa y deseas implementar un sistema que determine el descuento que se aplicará a un cliente basado en el total de su compra. La política de descuentos es la siguiente:
+
+- Si el total de la compra es mayor o igual a 100, se aplica un descuento del 20% y se suma un bono de 10 \$. 
+- Si el total es menor a 100, no hay descuento, pero se suma un cargo adicional de 5\$.
+
+Escriba un procedimiento en R que reciba como argumento el total de la compra y devuelva el monto final después de aplicar las operaciones correspondientes.
+
+__Solución__
+
+Supongamos que el total de compra es 450, así el procedimiento en R sería:
+
+```{r}
+total_compra <- 450
+
+if (total_compra >= 100) {
+    descuento <- total_compra * 0.20
+    precio_final <- total_compra - descuento + 10
+} else {
+    precio_final <- total_compra + 5
 }
+
+precio_final
 ```
 
 ## Instrucción `ifelse` 
@@ -59,10 +86,13 @@ ifelse(condición, operación SI cumple, operación NO cumple)
 ### Ejemplo {-}
 Suponga que usted recibe un vector de números enteros, escriba un procedimiento que diga si cada elemento del vector es par o impar.
 
+__Solución__
+
+Supongamos que tenemos un vecto `x` con varios números, así el procedimiento en R sería:
+
 ```{r}
 x <- c(5, 3, 2, 8, -4, 1)
-
-ifelse(x %% 2 == 0, 'Es par', 'Es impar')
+ifelse(x %% 2 == 0, "Es par", "Es impar")
 ```
 
 ## Instrucción `for` 
@@ -80,9 +110,11 @@ for (i in secuencia) {
 ### Ejemplo {-}
 Escriba un procedimiento para crear 10 muestras de tamaño 100 de una distribución uniforme entre uno y tres. Para cada una de las muestra, se debe contar el número de elementos de la muestra que fueron mayores o iguales a 2.5.
 
+__Solución__
+
 ```{r}
-nrep <- 10  # Número de repeticiones
-n <- 100    # Tamaño de la muestra
+nrep <- 10               # Número de repeticiones
+n <- 100                 # Tamaño de la muestra
 conteo <- numeric(nrep)  # Vector para almacenar el conteo
 
 for (i in 1:nrep) {
@@ -108,10 +140,12 @@ while (condición) {
 ### Ejemplo {-}
 Suponga que se lanza una moneda en la cual el resultado es cara o sello. Escribir un procedimiento que simule lanzamientos hasta que el número de caras obtenidas sea 5. El procedimiento debe entregar el historial de lanzamientos.
 
+__Solución__
+
 Para simular el lanzamiento de __una__ moneda se puede usar la función `sample` y definiendo el vector `resultados` con `size=1` para simular un lanzamiento, a continuación el código y tres pruebas ilustrativas.
 
 ```{r}
-resultados <- c('Cara', 'Sello')
+resultados <- c("Cara", "Sello")
 sample(x=resultados, size=1)  # Prueba 1
 ```
 
@@ -126,7 +160,7 @@ while (num.caras < 5) {
   res <- sample(x=resultados, size=1)
   num.lanza <- num.lanza + 1
   historial[num.lanza] <- res
-  if (res == 'Cara') {
+  if (res == "Cara") {
     num.caras <- num.caras + 1
   }
 }
@@ -135,7 +169,7 @@ historial
 num.lanza
 ```
 
-```{block2, type='rmdnote'}
+```{block2, type="rmdnote"}
 La instrucción `for` se usa cuando sabemos el número de veces que se debe repetir el procedimiento, mientras que la instrucción `while` se usa cuando debemos repetir un procedimiento cuando se cumpla una condición.
 ```
 
@@ -155,6 +189,8 @@ repeat {
 ### Ejemplo {-}
 Escribir un procedimiento para ir aumentando de uno en uno el valor de `x` hasta que `x` sea igual a siete El procedimiento debe imprimir por pantalla la secuencia de valores de `x`.
 
+__Solución__
+
 ```{r}
 x <- 3  # Valor de inicio
 
@@ -167,6 +203,54 @@ repeat {
 }
 ```
 
-```{block2, type='rmdtip'}
+```{block2, type="rmdtip"}
 La instrucción `break` sirve para salir de un procedimiento iterativo.
+```
+
+## EJERCICIOS {-}
+Use funciones o procedimientos (varias líneas) de R para responder cada una de las siguientes preguntas.
+
+1. Clasificación de Edad. Escriba un código que pida al usuario su edad y clasifique la edad en las siguientes categorías:
+
+- Menor de 18: "Eres un menor de edad."
+- Entre 18 y 65: "Eres un adulto."
+- Mayor de 65: "Eres un adulto mayor."
+
+2. Evaluación de Notas. Crea una función que reciba una nota (número) y devuelva el estado del estudiante según la siguiente escala:
+
+- Si la nota es mayor o igual a 60: "Aprobado"
+- Si la nota es menor a 60: "Reprobado"
+
+3. Determinación del Precio del Boleto. Escribe un código que determine el precio de un boleto de cine basado en la edad del espectador:
+
+- Menores de 12 años: $5
+- Entre 12 y 64 años: $10
+- Mayores de 64 años: $7
+
+4. Comprobación de Par o Impar. Desarrolla un procedimiento que tome un número entero como entrada y devuelva si el número es par o impar:
+
+- Si el número es par: "El número es par."
+- Si el número es impar: "El número es impar."
+
+5. Análisis de Temperatura. Crea un script que evalúe la temperatura ingresada por el usuario y devuelva un mensaje según los siguientes rangos:
+
+- Menos de 0°C: "Hace frío."
+- Entre 0°C y 20°C: "Temperatura templada."
+- Más de 20°C: "Hace calor."
+
+6. Suma de Números. Escribe un código que use un bucle `for` para calcular la suma de los primeros 100 números enteros. Imprime el resultado.
+
+7. Contador de Números Pares. Crea un script que utilice un bucle `while` para contar cuántos números pares hay entre 1 y 50. Imprime el total de números pares encontrados.
+
+8. Factorial de un Número. Desarrolla una función que calcule el factorial de un número ingresado por el usuario utilizando un bucle `for`. Por ejemplo, si el usuario ingresa 5, la función debe devolver 120 (5!).
+
+9. Generación de Números Aleatorios. Escribe un código que use un bucle `repeat` para generar números aleatorios entre 1 y 100 hasta que se genere un número mayor a 90. Imprime todos los números generados.
+
+10. Tabla de Multiplicar. Crea una función que genere y muestre la tabla de multiplicar de un número ingresado por el usuario utilizando un bucle `for`. Por ejemplo, si el usuario ingresa 3, debe mostrar:
+
+```
+3 x 1 = 3
+3 x 2 = 6
+...
+3 x 10 = 30
 ```

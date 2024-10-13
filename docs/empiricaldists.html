@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2024-10-12" />
+<meta name="date" content="2024-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="estilo.html"><a href="estilo.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>3.2</b> Nombres de los objetos</a></li>
 <li class="chapter" data-level="3.3" data-path="estilo.html"><a href="estilo.html#longitud-de-una-línea-de-código"><i class="fa fa-check"></i><b>3.3</b> Longitud de una línea de código</a></li>
 <li class="chapter" data-level="3.4" data-path="estilo.html"><a href="estilo.html#espacios"><i class="fa fa-check"></i><b>3.4</b> Espacios</a></li>
-<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación"><i class="fa fa-check"></i><b>3.5</b> Asignación</a></li>
+<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación-en-r"><i class="fa fa-check"></i><b>3.5</b> Asignación en R</a>
+<ul>
+<li class="chapter" data-level="" data-path="estilo.html"><a href="estilo.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
 <li class="chapter" data-level="3.6" data-path="estilo.html"><a href="estilo.html#punto-y-coma"><i class="fa fa-check"></i><b>3.6</b> Punto y coma</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a>
@@ -237,11 +240,8 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
-<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#asignación-en-r"><i class="fa fa-check"></i><b>5.2</b> Asignación en R</a>
-<ul>
-<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores"><i class="fa fa-check"></i><b>5.3</b> Operadores</a></li>
+<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#funciones-básicas"><i class="fa fa-check"></i><b>5.2</b> Funciones básicas</a></li>
+<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores-binarios"><i class="fa fa-check"></i><b>5.3</b> Operadores binarios</a></li>
 <li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -710,27 +710,27 @@ div.csl-indent {
 <div id="una-variable" class="section level2 hasAnchor" number="25.1">
 <h2><span class="header-section-number">25.1</span> Una variable<a href="empiricaldists.html#una-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Las funciones para obtener la densidad empírica <span class="math inline">\(f_n(x)\)</span> y la función de distribución acumulada empírica <span class="math inline">\(F_n(x)\)</span> de una variable cuantitativa son <code>density</code> y <code>ecdf</code> del paquete básico <strong>stats</strong>. A continuación al estructura de las funciones.</p>
-<div class="sourceCode" id="cb810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb810-1"><a href="empiricaldists.html#cb810-1" tabindex="-1"></a><span class="fu">density</span>(x, <span class="at">bw =</span> <span class="st">&quot;nrd0&quot;</span>, <span class="at">adjust =</span> <span class="dv">1</span>,</span>
-<span id="cb810-2"><a href="empiricaldists.html#cb810-2" tabindex="-1"></a>        <span class="at">kernel =</span> <span class="fu">c</span>(<span class="st">&quot;gaussian&quot;</span>, <span class="st">&quot;epanechnikov&quot;</span>, <span class="st">&quot;rectangular&quot;</span>,</span>
-<span id="cb810-3"><a href="empiricaldists.html#cb810-3" tabindex="-1"></a>                   <span class="st">&quot;triangular&quot;</span>, <span class="st">&quot;biweight&quot;</span>,</span>
-<span id="cb810-4"><a href="empiricaldists.html#cb810-4" tabindex="-1"></a>                   <span class="st">&quot;cosine&quot;</span>, <span class="st">&quot;optcosine&quot;</span>),</span>
-<span id="cb810-5"><a href="empiricaldists.html#cb810-5" tabindex="-1"></a>        <span class="at">weights =</span> <span class="cn">NULL</span>, <span class="at">window =</span> kernel, width,</span>
-<span id="cb810-6"><a href="empiricaldists.html#cb810-6" tabindex="-1"></a>        <span class="at">give.Rkern =</span> <span class="cn">FALSE</span>, <span class="at">subdensity =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb810-7"><a href="empiricaldists.html#cb810-7" tabindex="-1"></a>        <span class="at">n =</span> <span class="dv">512</span>, from, to, <span class="at">cut =</span> <span class="dv">3</span>, <span class="at">na.rm =</span> <span class="cn">FALSE</span>, ...)</span>
-<span id="cb810-8"><a href="empiricaldists.html#cb810-8" tabindex="-1"></a></span>
-<span id="cb810-9"><a href="empiricaldists.html#cb810-9" tabindex="-1"></a><span class="fu">ecdf</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb816-1"><a href="empiricaldists.html#cb816-1" tabindex="-1"></a><span class="fu">density</span>(x, <span class="at">bw =</span> <span class="st">&quot;nrd0&quot;</span>, <span class="at">adjust =</span> <span class="dv">1</span>,</span>
+<span id="cb816-2"><a href="empiricaldists.html#cb816-2" tabindex="-1"></a>        <span class="at">kernel =</span> <span class="fu">c</span>(<span class="st">&quot;gaussian&quot;</span>, <span class="st">&quot;epanechnikov&quot;</span>, <span class="st">&quot;rectangular&quot;</span>,</span>
+<span id="cb816-3"><a href="empiricaldists.html#cb816-3" tabindex="-1"></a>                   <span class="st">&quot;triangular&quot;</span>, <span class="st">&quot;biweight&quot;</span>,</span>
+<span id="cb816-4"><a href="empiricaldists.html#cb816-4" tabindex="-1"></a>                   <span class="st">&quot;cosine&quot;</span>, <span class="st">&quot;optcosine&quot;</span>),</span>
+<span id="cb816-5"><a href="empiricaldists.html#cb816-5" tabindex="-1"></a>        <span class="at">weights =</span> <span class="cn">NULL</span>, <span class="at">window =</span> kernel, width,</span>
+<span id="cb816-6"><a href="empiricaldists.html#cb816-6" tabindex="-1"></a>        <span class="at">give.Rkern =</span> <span class="cn">FALSE</span>, <span class="at">subdensity =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb816-7"><a href="empiricaldists.html#cb816-7" tabindex="-1"></a>        <span class="at">n =</span> <span class="dv">512</span>, from, to, <span class="at">cut =</span> <span class="dv">3</span>, <span class="at">na.rm =</span> <span class="cn">FALSE</span>, ...)</span>
+<span id="cb816-8"><a href="empiricaldists.html#cb816-8" tabindex="-1"></a></span>
+<span id="cb816-9"><a href="empiricaldists.html#cb816-9" tabindex="-1"></a><span class="fu">ecdf</span>(x)</span></code></pre></div>
 <div id="ejemplo-88" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="empiricaldists.html#ejemplo-88" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Supongamos que se obtener una distribución empírica para la variable altura de los hombres de la base de datos <strong>medidas del cuerpo</strong>.</p>
-<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="empiricaldists.html#cb811-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
-<span id="cb811-2"><a href="empiricaldists.html#cb811-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="empiricaldists.html#cb817-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb817-2"><a href="empiricaldists.html#cb817-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span></code></pre></div>
 <p><em>Solución</em></p>
-<div class="sourceCode" id="cb812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb812-1"><a href="empiricaldists.html#cb812-1" tabindex="-1"></a>emp_f <span class="ot">&lt;-</span> <span class="fu">density</span>(datos<span class="sc">$</span>altura)</span>
-<span id="cb812-2"><a href="empiricaldists.html#cb812-2" tabindex="-1"></a>emp_F <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(datos<span class="sc">$</span>altura)</span></code></pre></div>
+<div class="sourceCode" id="cb818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb818-1"><a href="empiricaldists.html#cb818-1" tabindex="-1"></a>emp_f <span class="ot">&lt;-</span> <span class="fu">density</span>(datos<span class="sc">$</span>altura)</span>
+<span id="cb818-2"><a href="empiricaldists.html#cb818-2" tabindex="-1"></a>emp_F <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(datos<span class="sc">$</span>altura)</span></code></pre></div>
 <p>Ahora vamos a dibujar <span class="math inline">\(f_n(x)\)</span> y <span class="math inline">\(F_n(x)\)</span>.</p>
-<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="empiricaldists.html#cb813-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb813-2"><a href="empiricaldists.html#cb813-2" tabindex="-1"></a><span class="fu">plot</span>(emp_f, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&quot;Empirical fn(x)&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Altura&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;fn(x)&quot;</span>)</span>
-<span id="cb813-3"><a href="empiricaldists.html#cb813-3" tabindex="-1"></a><span class="fu">plot</span>(emp_F, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&quot;Empirical Fn(x)&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Altura&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="empiricaldists.html#cb819-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb819-2"><a href="empiricaldists.html#cb819-2" tabindex="-1"></a><span class="fu">plot</span>(emp_f, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&quot;Empirical fn(x)&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Altura&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;fn(x)&quot;</span>)</span>
+<span id="cb819-3"><a href="empiricaldists.html#cb819-3" tabindex="-1"></a><span class="fu">plot</span>(emp_F, <span class="at">las=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">&quot;Empirical Fn(x)&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Altura&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:fnFn"></span>
 <img src="Manual_de_R_files/figure-html/fnFn-1.png" alt="fn(x) y Fn(x) para las alturas." width="864" />
 <p class="caption">
@@ -744,7 +744,7 @@ Figure 25.1: fn(x) y Fn(x) para las alturas.
 <li>Observando la figura de <span class="math inline">\(F_n(x)\)</span>. Al subir desde Altura = 170 chocamos con la curva a una altura aproximada de 0.41.</li>
 <li>Evaluando 170 en la función <code>emp_F</code> así:</li>
 </ul>
-<div class="sourceCode" id="cb814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb814-1"><a href="empiricaldists.html#cb814-1" tabindex="-1"></a><span class="fu">emp_F</span>(<span class="dv">170</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="empiricaldists.html#cb820-1" tabindex="-1"></a><span class="fu">emp_F</span>(<span class="dv">170</span>)</span></code></pre></div>
 <pre><code>## [1] 0.4166667</code></pre>
 <p>De ambas formas se llega a que <span class="math inline">\(P(Altura \leq 170) = 0.4166\)</span>.</p>
 

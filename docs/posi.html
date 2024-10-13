@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2024-10-12" />
+<meta name="date" content="2024-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="estilo.html"><a href="estilo.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>3.2</b> Nombres de los objetos</a></li>
 <li class="chapter" data-level="3.3" data-path="estilo.html"><a href="estilo.html#longitud-de-una-línea-de-código"><i class="fa fa-check"></i><b>3.3</b> Longitud de una línea de código</a></li>
 <li class="chapter" data-level="3.4" data-path="estilo.html"><a href="estilo.html#espacios"><i class="fa fa-check"></i><b>3.4</b> Espacios</a></li>
-<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación"><i class="fa fa-check"></i><b>3.5</b> Asignación</a></li>
+<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación-en-r"><i class="fa fa-check"></i><b>3.5</b> Asignación en R</a>
+<ul>
+<li class="chapter" data-level="" data-path="estilo.html"><a href="estilo.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
 <li class="chapter" data-level="3.6" data-path="estilo.html"><a href="estilo.html#punto-y-coma"><i class="fa fa-check"></i><b>3.6</b> Punto y coma</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a>
@@ -237,11 +240,8 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
-<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#asignación-en-r"><i class="fa fa-check"></i><b>5.2</b> Asignación en R</a>
-<ul>
-<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores"><i class="fa fa-check"></i><b>5.3</b> Operadores</a></li>
+<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#funciones-básicas"><i class="fa fa-check"></i><b>5.2</b> Funciones básicas</a></li>
+<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores-binarios"><i class="fa fa-check"></i><b>5.3</b> Operadores binarios</a></li>
 <li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -717,9 +717,9 @@ div.csl-indent {
 <li><code>biceps</code>: perímetro del biceps derecho (centímetros).</li>
 </ol>
 <p>A continuación se presenta el código para definir la url donde están los datos, para cargar la base de datos en R y para mostrar por pantalla un encabezado (usando <code>head</code>) de la base de datos.</p>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="posi.html#cb383-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
-<span id="cb383-2"><a href="posi.html#cb383-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span>
-<span id="cb383-3"><a href="posi.html#cb383-3" tabindex="-1"></a><span class="fu">head</span>(datos)  <span class="co"># Para ver el encabezado de la base de datos</span></span></code></pre></div>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="posi.html#cb389-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb389-2"><a href="posi.html#cb389-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span>
+<span id="cb389-3"><a href="posi.html#cb389-3" tabindex="-1"></a><span class="fu">head</span>(datos)  <span class="co"># Para ver el encabezado de la base de datos</span></span></code></pre></div>
 <pre><code>##   edad peso altura   sexo muneca biceps
 ## 1   43 87.3  188.0 Hombre   12.2   35.8
 ## 2   65 80.0  174.0 Hombre   12.0   35.0
@@ -730,13 +730,13 @@ div.csl-indent {
 <div id="cuantiles" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> Cuantiles <a href="posi.html#cuantiles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para obtener cualquier cuantil (cuartiles, deciles y percentiles) se usa la función <code>quantile</code>. Los argumentos básicos de la función <code>quantile</code> son tres y se muestran a continuación.</p>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="posi.html#cb385-1" tabindex="-1"></a><span class="fu">quantile</span>(x, probs, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="posi.html#cb391-1" tabindex="-1"></a><span class="fu">quantile</span>(x, probs, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>En el parámetro <code>x</code> se indica la variable de interés para la cual se quieren calcular los cuantiles, el parámetro <code>probs</code> sirve para definir los cuantiles de interés y el parámetro <code>na.rm</code> es un valor lógico que en caso de ser <code>TRUE</code>, significa que se deben remover las observaciones con <code>NA</code>, el valor por defecto para este parámetro es <code>FALSE</code>.</p>
 <div id="ejemplo-42" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="posi.html#ejemplo-42" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suponga que queremos obtener el percentil 5, la mediana y el decil 8 pa la altura del grupo de estudiantes.</p>
 <p>Se solicita el percentil 5, la mediana que es el percentil 50 y el decil 8 que corresponde al percentil 80, por lo tanto es necesario indicarle a la función <code>quantile</code> que calcule los cuantiles para las ubicaciones 0.05, 0.5 y 0.8, el código para obtener las tres medidas solicitadas es el siguiente.</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="posi.html#cb386-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="at">x=</span>datos<span class="sc">$</span>altura, <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="fl">0.8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="posi.html#cb392-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="at">x=</span>datos<span class="sc">$</span>altura, <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="fl">0.8</span>))</span></code></pre></div>
 <pre><code>##    5%   50%   80% 
 ## 155.2 172.7 180.3</code></pre>
 

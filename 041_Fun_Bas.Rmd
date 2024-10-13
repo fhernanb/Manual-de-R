@@ -38,7 +38,7 @@ Al instalar R por primera vez, se incluyen automáticamente un conjunto de paque
 - `utils`: Incluye funciones útiles para la manipulación de datos, gestión de archivos y otras tareas auxiliares.
 - `datasets`: Proporciona conjuntos de datos de ejemplo que se pueden utilizar para practicar y aprender R.
 
-Para ver todas las funciones del paquete `base` se escribe el siguiente código en la consola y luego se da clic en el hiper-enlace **index** que aparezca.
+Por ejemplo, para ver todas las funciones del paquete `base` se escribe el siguiente código en la consola y luego se da clic en el hiper-enlace **index** que aparezca.
 
 ```{r eval=FALSE}
 help("base")

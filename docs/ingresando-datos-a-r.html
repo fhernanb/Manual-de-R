@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2024-10-12" />
+<meta name="date" content="2024-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="estilo.html"><a href="estilo.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>3.2</b> Nombres de los objetos</a></li>
 <li class="chapter" data-level="3.3" data-path="estilo.html"><a href="estilo.html#longitud-de-una-línea-de-código"><i class="fa fa-check"></i><b>3.3</b> Longitud de una línea de código</a></li>
 <li class="chapter" data-level="3.4" data-path="estilo.html"><a href="estilo.html#espacios"><i class="fa fa-check"></i><b>3.4</b> Espacios</a></li>
-<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación"><i class="fa fa-check"></i><b>3.5</b> Asignación</a></li>
+<li class="chapter" data-level="3.5" data-path="estilo.html"><a href="estilo.html#asignación-en-r"><i class="fa fa-check"></i><b>3.5</b> Asignación en R</a>
+<ul>
+<li class="chapter" data-level="" data-path="estilo.html"><a href="estilo.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
 <li class="chapter" data-level="3.6" data-path="estilo.html"><a href="estilo.html#punto-y-coma"><i class="fa fa-check"></i><b>3.6</b> Punto y coma</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ingresando-datos-a-r.html"><a href="ingresando-datos-a-r.html"><i class="fa fa-check"></i><b>4</b> Ingresando datos a R</a>
@@ -237,11 +240,8 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="funbas.html"><a href="funbas.html"><i class="fa fa-check"></i><b>5</b> Funciones básicas de R</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="funbas.html"><a href="funbas.html#qué-es-una-función-de-r"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es una función de R?</a></li>
-<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#asignación-en-r"><i class="fa fa-check"></i><b>5.2</b> Asignación en R</a>
-<ul>
-<li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores"><i class="fa fa-check"></i><b>5.3</b> Operadores</a></li>
+<li class="chapter" data-level="5.2" data-path="funbas.html"><a href="funbas.html#funciones-básicas"><i class="fa fa-check"></i><b>5.2</b> Funciones básicas</a></li>
+<li class="chapter" data-level="5.3" data-path="funbas.html"><a href="funbas.html#operadores-binarios"><i class="fa fa-check"></i><b>5.3</b> Operadores binarios</a></li>
 <li class="chapter" data-level="5.4" data-path="funbas.html"><a href="funbas.html#pruebas-lógicas"><i class="fa fa-check"></i><b>5.4</b> Pruebas lógicas</a>
 <ul>
 <li class="chapter" data-level="" data-path="funbas.html"><a href="funbas.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
@@ -712,31 +712,31 @@ div.csl-indent {
 <p>La función <code>readline</code> básica de R sirve para escribir un mensaje en la consola y solicitar al usuario una información que luego se puede utilizar para realizar alguna operación.</p>
 <p>Abajo se muestra un código de R que el lector puede copiar y pegar en un script. <font color="Fuchsia">El código se debe ejecutar línea por línea y no en bloque</font>.</p>
 <p>La primera línea solicita el nombre del usuario y lo almacena automáticamente en la variable <code>my_name</code>. La segunda línea solicita la edad y la almacena en la variable <code>my_age</code>. La tercera se asegura que la edad se convierta a un número entero. La cuarta instrucción, escrita en varias líneas, saluda y entrega la edad del usuario en el próximo año.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="ingresando-datos-a-r.html#cb95-1" tabindex="-1"></a>my_name <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="at">prompt=</span><span class="st">&quot;Ingrese su nombre: &quot;</span>)</span>
-<span id="cb95-2"><a href="ingresando-datos-a-r.html#cb95-2" tabindex="-1"></a>my_age  <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="at">prompt=</span><span class="st">&quot;Ingrese su edad en años: &quot;</span>)</span>
-<span id="cb95-3"><a href="ingresando-datos-a-r.html#cb95-3" tabindex="-1"></a>my_age  <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(my_age) <span class="co"># convert character into integer</span></span>
-<span id="cb95-4"><a href="ingresando-datos-a-r.html#cb95-4" tabindex="-1"></a></span>
-<span id="cb95-5"><a href="ingresando-datos-a-r.html#cb95-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Hola,&quot;</span>, my_name, </span>
-<span id="cb95-6"><a href="ingresando-datos-a-r.html#cb95-6" tabindex="-1"></a>            <span class="st">&quot;el año siguiente usted tendra&quot;</span>, </span>
-<span id="cb95-7"><a href="ingresando-datos-a-r.html#cb95-7" tabindex="-1"></a>            my_age <span class="sc">+</span> <span class="dv">1</span>, </span>
-<span id="cb95-8"><a href="ingresando-datos-a-r.html#cb95-8" tabindex="-1"></a>            <span class="st">&quot;años de edad.&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="ingresando-datos-a-r.html#cb96-1" tabindex="-1"></a>my_name <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="at">prompt=</span><span class="st">&quot;Ingrese su nombre: &quot;</span>)</span>
+<span id="cb96-2"><a href="ingresando-datos-a-r.html#cb96-2" tabindex="-1"></a>my_age  <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="at">prompt=</span><span class="st">&quot;Ingrese su edad en años: &quot;</span>)</span>
+<span id="cb96-3"><a href="ingresando-datos-a-r.html#cb96-3" tabindex="-1"></a>my_age  <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(my_age) <span class="co"># convert character into integer</span></span>
+<span id="cb96-4"><a href="ingresando-datos-a-r.html#cb96-4" tabindex="-1"></a></span>
+<span id="cb96-5"><a href="ingresando-datos-a-r.html#cb96-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Hola,&quot;</span>, my_name, </span>
+<span id="cb96-6"><a href="ingresando-datos-a-r.html#cb96-6" tabindex="-1"></a>            <span class="st">&quot;el año siguiente usted tendra&quot;</span>, </span>
+<span id="cb96-7"><a href="ingresando-datos-a-r.html#cb96-7" tabindex="-1"></a>            my_age <span class="sc">+</span> <span class="dv">1</span>, </span>
+<span id="cb96-8"><a href="ingresando-datos-a-r.html#cb96-8" tabindex="-1"></a>            <span class="st">&quot;años de edad.&quot;</span>))</span></code></pre></div>
 </div>
 <div id="usando-ventana-emergente-con-svdialogs" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Usando ventana emergente con <strong>svDialogs</strong><a href="ingresando-datos-a-r.html#usando-ventana-emergente-con-svdialogs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El paquete <strong>svDialogs</strong> se puede utilizar para crear ventanas emergentes con un mensaje y solicitando información que luego se puede utilizar para realizar alguna operación.</p>
 <p>Abajo se muestra un código de R que el lector puede copiar y pegar en un script. <font color="Fuchsia">El código se puede ejecutar en bloque</font>.</p>
 <p>Este ejemplo hace lo mismo que el ejemplo anterior pero con la ventaja de abrir una ventana emergente para mostrar un mensaje y solicitar alguna información. Lo primero que se debe hacer es cargar el paquete <strong>svDialogs</strong>, si aún no lo ha instalado puede hacer escribiendo</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="ingresando-datos-a-r.html#cb96-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;svDialogs&quot;</span>) <span class="co"># Para instalar el paquete</span></span>
-<span id="cb96-2"><a href="ingresando-datos-a-r.html#cb96-2" tabindex="-1"></a><span class="fu">library</span>(svDialogs)            <span class="co"># Para usar el paquete</span></span>
-<span id="cb96-3"><a href="ingresando-datos-a-r.html#cb96-3" tabindex="-1"></a></span>
-<span id="cb96-4"><a href="ingresando-datos-a-r.html#cb96-4" tabindex="-1"></a>my_name <span class="ot">&lt;-</span> <span class="fu">dlgInput</span>(<span class="at">message=</span><span class="st">&quot;Ingrese su nombre: &quot;</span>)<span class="sc">$</span>res</span>
-<span id="cb96-5"><a href="ingresando-datos-a-r.html#cb96-5" tabindex="-1"></a>my_age  <span class="ot">&lt;-</span> <span class="fu">dlgInput</span>(<span class="at">message=</span><span class="st">&quot;Ingrese su edad en años: &quot;</span>)<span class="sc">$</span>res</span>
-<span id="cb96-6"><a href="ingresando-datos-a-r.html#cb96-6" tabindex="-1"></a>my_age  <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(my_age) <span class="co"># convert character into integer</span></span>
-<span id="cb96-7"><a href="ingresando-datos-a-r.html#cb96-7" tabindex="-1"></a></span>
-<span id="cb96-8"><a href="ingresando-datos-a-r.html#cb96-8" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Hola,&quot;</span>, my_name, </span>
-<span id="cb96-9"><a href="ingresando-datos-a-r.html#cb96-9" tabindex="-1"></a>            <span class="st">&quot;el año siguiente usted tendá&quot;</span>, </span>
-<span id="cb96-10"><a href="ingresando-datos-a-r.html#cb96-10" tabindex="-1"></a>            my_age <span class="sc">+</span> <span class="dv">1</span>, </span>
-<span id="cb96-11"><a href="ingresando-datos-a-r.html#cb96-11" tabindex="-1"></a>            <span class="st">&quot;años de edad.&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="ingresando-datos-a-r.html#cb97-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;svDialogs&quot;</span>) <span class="co"># Para instalar el paquete</span></span>
+<span id="cb97-2"><a href="ingresando-datos-a-r.html#cb97-2" tabindex="-1"></a><span class="fu">library</span>(svDialogs)            <span class="co"># Para usar el paquete</span></span>
+<span id="cb97-3"><a href="ingresando-datos-a-r.html#cb97-3" tabindex="-1"></a></span>
+<span id="cb97-4"><a href="ingresando-datos-a-r.html#cb97-4" tabindex="-1"></a>my_name <span class="ot">&lt;-</span> <span class="fu">dlgInput</span>(<span class="at">message=</span><span class="st">&quot;Ingrese su nombre: &quot;</span>)<span class="sc">$</span>res</span>
+<span id="cb97-5"><a href="ingresando-datos-a-r.html#cb97-5" tabindex="-1"></a>my_age  <span class="ot">&lt;-</span> <span class="fu">dlgInput</span>(<span class="at">message=</span><span class="st">&quot;Ingrese su edad en años: &quot;</span>)<span class="sc">$</span>res</span>
+<span id="cb97-6"><a href="ingresando-datos-a-r.html#cb97-6" tabindex="-1"></a>my_age  <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(my_age) <span class="co"># convert character into integer</span></span>
+<span id="cb97-7"><a href="ingresando-datos-a-r.html#cb97-7" tabindex="-1"></a></span>
+<span id="cb97-8"><a href="ingresando-datos-a-r.html#cb97-8" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Hola,&quot;</span>, my_name, </span>
+<span id="cb97-9"><a href="ingresando-datos-a-r.html#cb97-9" tabindex="-1"></a>            <span class="st">&quot;el año siguiente usted tendá&quot;</span>, </span>
+<span id="cb97-10"><a href="ingresando-datos-a-r.html#cb97-10" tabindex="-1"></a>            my_age <span class="sc">+</span> <span class="dv">1</span>, </span>
+<span id="cb97-11"><a href="ingresando-datos-a-r.html#cb97-11" tabindex="-1"></a>            <span class="st">&quot;años de edad.&quot;</span>))</span></code></pre></div>
 <p>En la siguiente figura se muestran las cajas solicitando la información.</p>
 <p align="center">
 <img src="images/cajas_con_dlgInput.png" width="500">
@@ -747,19 +747,19 @@ div.csl-indent {
 <div id="botones-para-responder" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Botones para responder<a href="ingresando-datos-a-r.html#botones-para-responder" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La función <code>winDialog</code> del paquete básico __utils_ sirve para crear botones de diálogo en Windows solamente. A continuación se muestra la forma de generar los 4 tipos de botones.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="ingresando-datos-a-r.html#cb98-1" tabindex="-1"></a><span class="fu">library</span>(utils)</span>
-<span id="cb98-2"><a href="ingresando-datos-a-r.html#cb98-2" tabindex="-1"></a></span>
-<span id="cb98-3"><a href="ingresando-datos-a-r.html#cb98-3" tabindex="-1"></a><span class="fu">winDialog</span>(<span class="at">type=</span><span class="st">&quot;ok&quot;</span>, <span class="at">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span>
-<span id="cb98-4"><a href="ingresando-datos-a-r.html#cb98-4" tabindex="-1"></a><span class="fu">winDialog</span>(<span class="at">type=</span><span class="st">&quot;okcancel&quot;</span>, <span class="at">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span>
-<span id="cb98-5"><a href="ingresando-datos-a-r.html#cb98-5" tabindex="-1"></a><span class="fu">winDialog</span>(<span class="at">type=</span><span class="st">&quot;yesno&quot;</span>, <span class="at">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span>
-<span id="cb98-6"><a href="ingresando-datos-a-r.html#cb98-6" tabindex="-1"></a><span class="fu">winDialog</span>(<span class="at">type=</span><span class="st">&quot;yesnocancel&quot;</span>, <span class="at">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="ingresando-datos-a-r.html#cb99-1" tabindex="-1"></a><span class="fu">library</span>(utils)</span>
+<span id="cb99-2"><a href="ingresando-datos-a-r.html#cb99-2" tabindex="-1"></a></span>
+<span id="cb99-3"><a href="ingresando-datos-a-r.html#cb99-3" tabindex="-1"></a><span class="fu">winDialog</span>(<span class="at">type=</span><span class="st">&quot;ok&quot;</span>, <span class="at">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span>
+<span id="cb99-4"><a href="ingresando-datos-a-r.html#cb99-4" tabindex="-1"></a><span class="fu">winDialog</span>(<span class="at">type=</span><span class="st">&quot;okcancel&quot;</span>, <span class="at">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span>
+<span id="cb99-5"><a href="ingresando-datos-a-r.html#cb99-5" tabindex="-1"></a><span class="fu">winDialog</span>(<span class="at">type=</span><span class="st">&quot;yesno&quot;</span>, <span class="at">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span>
+<span id="cb99-6"><a href="ingresando-datos-a-r.html#cb99-6" tabindex="-1"></a><span class="fu">winDialog</span>(<span class="at">type=</span><span class="st">&quot;yesnocancel&quot;</span>, <span class="at">message=</span><span class="st">&quot;¿Usted quiere BORRAR el archivo?&quot;</span>)</span></code></pre></div>
 <p>En la siguiente figura están las imágenes de los 4 tipos de botones.</p>
 <p align="center">
 <img src="images/botones_pregunta.png" width="500">
 </p>
 <p>A continuación se muestra un ejemplo de cómo usar un botón para preguntar y luego imprimir en la consola un mensaje dependiendo de la respuesta. Copie todo el siguiente código en la consola y vea el resultado.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="ingresando-datos-a-r.html#cb99-1" tabindex="-1"></a>answer <span class="ot">&lt;-</span> <span class="fu">winDialog</span>(<span class="at">type=</span><span class="st">&quot;yesno&quot;</span>, <span class="at">mess=</span><span class="st">&quot;¿Le sirvió mi sugerencia?&quot;</span>)</span>
-<span id="cb99-2"><a href="ingresando-datos-a-r.html#cb99-2" tabindex="-1"></a><span class="cf">if</span> (answer<span class="sc">==</span><span class="st">&#39;YES&#39;</span>) {<span class="fu">print</span>(<span class="st">&#39;Excelente!&#39;</span>)} <span class="cf">else</span> {<span class="fu">print</span>(<span class="st">&#39;Lástima&#39;</span>)}</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="ingresando-datos-a-r.html#cb100-1" tabindex="-1"></a>answer <span class="ot">&lt;-</span> <span class="fu">winDialog</span>(<span class="at">type=</span><span class="st">&quot;yesno&quot;</span>, <span class="at">mess=</span><span class="st">&quot;¿Le sirvió mi sugerencia?&quot;</span>)</span>
+<span id="cb100-2"><a href="ingresando-datos-a-r.html#cb100-2" tabindex="-1"></a><span class="cf">if</span> (answer<span class="sc">==</span><span class="st">&#39;YES&#39;</span>) {<span class="fu">print</span>(<span class="st">&#39;Excelente!&#39;</span>)} <span class="cf">else</span> {<span class="fu">print</span>(<span class="st">&#39;Lástima&#39;</span>)}</span></code></pre></div>
 
 </div>
 </div>

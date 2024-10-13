@@ -96,7 +96,7 @@ nombres-de-los-archivos
 nombres-de-los-objetos
 longitud-de-una-línea-de-código
 espacios
-asignación
+asignación-en-r
 punto-y-coma
 ingresando-datos-a-r
 usando-la-consola
@@ -104,8 +104,8 @@ usando-ventana-emergente-con-svdialogs
 botones-para-responder
 funbas
 qué-es-una-función-de-r
-asignación-en-r
-operadores
+funciones-básicas
+operadores-binarios
 pruebas-lógicas
 operadores-lógicos
 funciones-sobre-vectores
@@ -236,5 +236,4 @@ distribución-wishart
 mezcla-de-dos-normales-multivariadas
 curio
 cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática
-funciones-básicas
-operadores-binarios
+ejercicios-7
