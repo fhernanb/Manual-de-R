@@ -124,6 +124,11 @@ instrucción-repeat
 creafun
 qué-es-una-función-en-r
 partes-de-una-función-en-r
+vecfun
+forma-1-asegurando-la-vectorización-desde-el-origen
+forma-2-usando-vectorize
+comparando-los-tiempos-de-procesamiento
+otros-recursos-para-aprender-sobre-vectorización
 read
 qué-es-una-base-de-datos
 en-qué-formato-almacenar-una-base-de-datos
@@ -179,7 +184,7 @@ cálculo-de-probabilidades
 cálculo-de-cuantiles
 ejemplo-de-generación-de-datos
 estimación-de-los-parámetros-mu-y-sigma
-ejercicios-6
+ejercicios-7
 normalidad
 consideraciones-iniciales
 histograma-y-densidad
@@ -236,4 +241,3 @@ distribución-wishart
 mezcla-de-dos-normales-multivariadas
 curio
 cómo-verificar-si-un-paquete-no-está-instalado-para-instalarlo-de-forma-automática
-ejercicios-7

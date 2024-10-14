@@ -49,8 +49,6 @@ Existen hojas de trucos (cheatsheets) con el listado de las funciones básicas m
 - Cheatsheet del cran: https://cran.r-project.org/doc/contrib/Short-refcard.pdf
 - Cheatsheets Posit: https://rstudio.github.io/cheatsheets/ 
 
-
-
 ## Operadores binarios
 En R se pueden hacer diversas operaciones usando operadores binarios como `+` y como `^`, estos operadores son a su vez funciones.
 
@@ -106,6 +104,8 @@ a == b  # Comparación de igualdad término a término
 ### Ejemplo {-}
 Crear un vector con los números de 1 a 17 y extrater los números que son mayores o iguales a 12.
 
+__Solución__
+
 Primero se crear el vector `x` con los elementos del 1 al 17. La prueba lógica `x >= 12` se usa para evaluar la condición, el resultado es un vector de 17 posiciones con valores de `TRUE` o `FALSE` dependiendo de si la condición se cumple o no. Este vector lógico se coloca dentro de `x[ ]` para que al evaluar `x[x >= 12]` sólo aparezcan los valores del vector original que SI cumplen la condición. El código necesario se muestra a continuación.
 
 ```{r}
@@ -115,6 +115,8 @@ x[x >= 12]  # Se solicitan los valores que cumplen la condición
 
 ### Ejemplo {-}
 Retome el marco de datos `mimarco` construído en la sección 2.4 y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años.
+
+__Solución__
 
 Inicialmente vamos a construir nuevamente el objeto `mimarco` de la sección 2.4 usando el siguiente código.
 
@@ -171,6 +173,8 @@ x < 4 & y > 5  # Conjunción entre las pruebas anteriores.
 ### Ejemplo {-}
 Retome el marco de datos `mimarco` construído en la sección 2.4 y use una prueba lógica para extraer la información de las personas que tienen una edad superior o igual a 15 años y que practican deporte.
 
+__Solución__
+
 Aquí interesa extraer la información de los individuos que cumplen dos condiciones simultáneamente, aquellos con edad $\geq$ 15 y que SI practiquen deporte. El código necesario para obtener la información solicitada es el siguiente.
 
 ```{r}
@@ -206,6 +210,8 @@ En R podemos destacar las siguientes funciones básicas sobre vectores numérico
 
 ### Ejemplo {-}
 Construir en vector llamado `myvec` con los siguientes elementos: 5, 3, 2, 1, 2, 0, NA, 0, 9, 6. Luego aplicar todas las funciones anteriores para verificar el funcionamiento de las mismas.
+
+__Solución__
 
 ```{r}
 myvec <- c(5, 3, 2, 1, 2, 0, NA, 0, 9, 6)
@@ -283,6 +289,8 @@ Construya las siguientes tres secuencias usando la función `seq`.
 - Una secuencia de dos en dos comenzando en 1.
 - Una secuencia desde 1 con un salto de $\pi$ y sin pasar del número 9.
 
+__Solución__
+
 El código necesario para obtener las secuencias se muestra a continuación.
 
 ```{r}
@@ -326,6 +334,8 @@ Construya las siguientes repeticiones usando la función `rep`, no lo haga ingre
 - 1 1 2 3 3 4
 - 1 1 2 2 3 3 4 4
 
+__Solución__
+
 La clave para construir una repetición es descrubir la semilla o elemento que se repite. Las instrucciones para obtener las repeticiones anteriores se muestra a continuación.
 
 ```{r}
@@ -356,6 +366,8 @@ Existen 4 funciones útiles para modificar u obtener información de un número,
 
 ### Ejemplo {-}
 Aplique las funciones `round`, `ceiling`, `floor` y `trunc` a un valor positivo y a un valor negativo para inspeccionar los resultados.
+
+__Solución__
 
 A continuación el código de prueba para un número positivo cualquiera.
 
@@ -389,6 +401,8 @@ En el parámetro `x` se ingresa el vector y el parámetro `decreasing` sirva par
 
 ### Ejemplo {-}
 Considere el vector `x` que tiene los siguientes elementos: 2, 3, 6, 4, 9 y 5. Ordene el vector de menor a mayor, de mayor a menor y por último encuentre la posición que ocupan los elementos de `x` si se ordenaran de menor a mayor.
+
+__Solución__
 
 ```{r}
 x <- c(2, 3, 6, 4, 9, 5)

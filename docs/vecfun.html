@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>14 Medidas de correlación | Manual de R</title>
-  <meta name="description" content="14 Medidas de correlación | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <title>8 Vectorización de funciones | Manual de R</title>
+  <meta name="description" content="8 Vectorización de funciones | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="14 Medidas de correlación | Manual de R" />
+  <meta property="og:title" content="8 Vectorización de funciones | Manual de R" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/portada.png" />
-  <meta property="og:description" content="14 Medidas de correlación | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta property="og:description" content="8 Vectorización de funciones | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="github-repo" content="fhernanb/Manual-de-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="14 Medidas de correlación | Manual de R" />
+  <meta name="twitter:title" content="8 Vectorización de funciones | Manual de R" />
   
-  <meta name="twitter:description" content="14 Medidas de correlación | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="twitter:description" content="8 Vectorización de funciones | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="/images/portada.png" />
 
 <meta name="author" content="Freddy Hernández" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="posi.html"/>
-<link rel="next" href="estadística-descriptiva-con-dplyr.html"/>
+<link rel="prev" href="creafun.html"/>
+<link rel="next" href="read.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,14 +53,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.10.4/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -131,29 +123,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -716,127 +685,128 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="correl" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">14</span> Medidas de correlación<a href="correl.html#correl" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>En este capítulo se mostrará cómo obtener el coeficiente de correlación lineal para variables cuantitativas.</p>
-<div id="función-cor" class="section level2 hasAnchor" number="14.1">
-<h2><span class="header-section-number">14.1</span> Función <code>cor</code> <a href="correl.html#función-cor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La función <code>cor</code> permite calcular el coeficiente de correlación de Pearson, Kendall o Spearman para dos variables cuantitativas. La estructura de la función es la siguiente.</p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="correl.html#cb422-1" tabindex="-1"></a><span class="fu">cor</span>(x, y, <span class="at">use=</span><span class="st">&quot;everything&quot;</span>,</span>
-<span id="cb422-2"><a href="correl.html#cb422-2" tabindex="-1"></a>    <span class="at">method=</span><span class="fu">c</span>(<span class="st">&quot;pearson&quot;</span>, <span class="st">&quot;kendall&quot;</span>, <span class="st">&quot;spearman&quot;</span>))</span></code></pre></div>
-<p>Los parámetos de la función son:</p>
+<div id="vecfun" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Vectorización de funciones<a href="vecfun.html#vecfun" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>R trabaja de forma vectorizada, eso significa que la mayoría de procedimientos (o funciones) quedan vectorizadas por naturaleza y por esa razón podemos evaluar una función en un único valor o en un vector, y el resultado será el resultado esperado.</p>
+<p>Sin embargo, en algunas situaciones la vectorización no está garantizada y por eso al evaluar nuestra función en un vector, el resultado no coincide con lo esperado. En el siguiente ejemplo vamos a ver un caso de una función <strong>NO vectorizada</strong>.</p>
+<div id="ejemplo-25" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplo<a href="vecfun.html#ejemplo-25" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Construya una función que reciba los coeficientes de una ecuación de segundo grado <span class="math inline">\(ax^2+bx+c=0\)</span> y que entregue las dos raices.</p>
+<p><strong>Solución</strong></p>
+<p>Recordemos que la solución de una ecuación de segundo grado es:</p>
+<p><span class="math display">\[
+x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\]</span></p>
+<p>Vamos a crear la función solicitada así:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="vecfun.html#cb1-1" tabindex="-1"></a>raices1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c) {</span>
+<span id="cb1-2"><a href="vecfun.html#cb1-2" tabindex="-1"></a>  raiz1 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb1-3"><a href="vecfun.html#cb1-3" tabindex="-1"></a>  raiz2 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb1-4"><a href="vecfun.html#cb1-4" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(raiz1, raiz2))</span>
+<span id="cb1-5"><a href="vecfun.html#cb1-5" tabindex="-1"></a>}</span></code></pre></div>
+<p>Ahora vamos a probar la función <code>raices1</code> para tres casos pero lo vamos a realizar de forma individual. Los tres casos son:</p>
 <ul>
-<li><code>x, y</code>: vectores cuantitativos.</li>
-<li><code>use</code>: parámetro que indica lo que se debe hacer cuando se presenten registros <code>NA</code> en alguno de los vectores. Las diferentes posibilidades son: <code>everything</code>, <code>all.obs</code>, <code>complete.obs</code>, <code>na.or.complete</code> y <code>pairwise.complete.obs</code>, el valor por defecto es <code>everything</code>.</li>
-<li><code>method</code>: tipo de coeficiente de correlación a calcular, por defecto es <code>pearson</code>, otros valores posibles son <code>kendall</code> y <code>spearman</code>.</li>
+<li><span class="math inline">\(x^2+4x=0\)</span>.</li>
+<li><span class="math inline">\(x^2+x+2=0\)</span>.</li>
+<li><span class="math inline">\(x^2+2x-3=0\)</span>.</li>
 </ul>
-<div id="ejemplo-45" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo<a href="correl.html#ejemplo-45" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Calcular el coeficiente de correlación de Pearson para las variables área y precio de la base de datos sobre apartamentos usados.</p>
-<p>Lo primero que se debe hacer es cargar la base de datos usando la url apropiada. Luego de esto se usa la función <code>cor</code> sobre las variables de interés. A continuación se muestra el código necesario.</p>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="correl.html#cb423-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015&#39;</span></span>
-<span id="cb423-2"><a href="correl.html#cb423-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span>url, <span class="at">header=</span>T)</span>
-<span id="cb423-3"><a href="correl.html#cb423-3" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">x=</span>datos<span class="sc">$</span>mt2, <span class="at">y=</span>datos<span class="sc">$</span>precio)</span></code></pre></div>
-<pre><code>## [1] 0.8582585</code></pre>
-<p>Del resultado anterior vemos que existe una correlación de 0.8582585 entre las dos variables, eso significa que apartamentos de mayor área tienden a tener precios de venta más alto. Este resultado se ilustra en la Figura <a href="correl.html#fig:disp">14.1</a>, se nota claramente que la nube de puntos tiene un pendiente positiva y por eso el signo del coeficiente de correlación.</p>
-<p>A continuación el código para generar la Figura <a href="correl.html#fig:disp">14.1</a>.</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="correl.html#cb425-1" tabindex="-1"></a><span class="fu">with</span>(datos, <span class="fu">plot</span>(<span class="at">x=</span>mt2, <span class="at">y=</span>precio, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">&#39;blue&#39;</span>,</span>
-<span id="cb425-2"><a href="correl.html#cb425-2" tabindex="-1"></a>                 <span class="at">xlab=</span><span class="st">&#39;Área del apartamento&#39;</span>, <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb425-3"><a href="correl.html#cb425-3" tabindex="-1"></a>                 <span class="at">ylab=</span><span class="st">&#39;Precio del apartamento (millones COP)&#39;</span>))</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:disp"></span>
-<img src="Manual_de_R_files/figure-html/disp-1.png" alt="Diagrama de dispersión para precio versus área de los apartamentos usados." width="960" />
-<p class="caption">
-Figure 14.1: Diagrama de dispersión para precio versus área de los apartamentos usados.
-</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="vecfun.html#cb2-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] -4  0</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="vecfun.html#cb4-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">3</span>, <span class="at">c=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] -2 -1</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="vecfun.html#cb6-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">2</span>, <span class="at">c=</span><span class="sc">-</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] -3  1</code></pre>
+<p>Ahora vamos a probar nuestra función ingresando los tres valores de <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> y <span class="math inline">\(c\)</span> en forma de vectores así:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="vecfun.html#cb8-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), </span>
+<span id="cb8-2"><a href="vecfun.html#cb8-2" tabindex="-1"></a>        <span class="at">b=</span><span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>), </span>
+<span id="cb8-3"><a href="vecfun.html#cb8-3" tabindex="-1"></a>        <span class="at">c=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## [1] -4 -2 -3  0 -1  1</code></pre>
+<p>Al ver la salida vemos que el resultado no es el esperado, si salen los números pero NO en el orden que esperamos, eso nos podría confundir a nosotros y a los nuevos usuarios de nuestra función <code>raices1</code>.</p>
+<p>¿Qué debemos hacer para garantizar la vectorización?</p>
 </div>
+<div id="forma-1-asegurando-la-vectorización-desde-el-origen" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Forma 1: asegurando la vectorización desde el origen<a href="vecfun.html#forma-1-asegurando-la-vectorización-desde-el-origen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Lo primero es crear una función auxiliar que reciba un <span style="background-color:#D6F7C6">vector</span> y no valores separados. Es decir, la función recibe los tres valores por medio del vector <code>x</code> y luego dentro de la función se crean los valores <code>a</code>, <code>b</code> y <code>c</code> necesarios. A continuación la función auxiliar.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="vecfun.html#cb10-1" tabindex="-1"></a>raiz_aux <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb10-2"><a href="vecfun.html#cb10-2" tabindex="-1"></a>  a <span class="ot">&lt;-</span> x[<span class="dv">1</span>]</span>
+<span id="cb10-3"><a href="vecfun.html#cb10-3" tabindex="-1"></a>  b <span class="ot">&lt;-</span> x[<span class="dv">2</span>]</span>
+<span id="cb10-4"><a href="vecfun.html#cb10-4" tabindex="-1"></a>  c <span class="ot">&lt;-</span> x[<span class="dv">3</span>]</span>
+<span id="cb10-5"><a href="vecfun.html#cb10-5" tabindex="-1"></a>  raiz1 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb10-6"><a href="vecfun.html#cb10-6" tabindex="-1"></a>  raiz2 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb10-7"><a href="vecfun.html#cb10-7" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(raiz1, raiz2))</span>
+<span id="cb10-8"><a href="vecfun.html#cb10-8" tabindex="-1"></a>}</span></code></pre></div>
+<p>La clave para crear la función vectorizada <code>raices2</code> es que ella reciba los valores de los coefientes por separado, internamente se construya un matriz <code>m</code> con los valores individuales (o vectores) que ingrese al usuario, y a esa matriz <code>m</code> se le aplique por filas la función auxiliar <code>raiz_aux</code> para obtener las raices. Abajo el código para la nueva versión de la función pero vectorizada.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="vecfun.html#cb11-1" tabindex="-1"></a>raices2 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c) {</span>
+<span id="cb11-2"><a href="vecfun.html#cb11-2" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(a, b, c)</span>
+<span id="cb11-3"><a href="vecfun.html#cb11-3" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="at">X=</span>m, <span class="at">MARGIN=</span><span class="dv">1</span>, <span class="at">FUN=</span>raiz_aux)</span>
+<span id="cb11-4"><a href="vecfun.html#cb11-4" tabindex="-1"></a>  <span class="fu">rownames</span>(res) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;raiz 1&quot;</span>, <span class="st">&quot;raiz 2&quot;</span>)</span>
+<span id="cb11-5"><a href="vecfun.html#cb11-5" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">t</span>(res))</span>
+<span id="cb11-6"><a href="vecfun.html#cb11-6" tabindex="-1"></a>}</span></code></pre></div>
+<p>Esta nueva función funciona bien si el usuario ingresa los coeficientes de una sola ecuación <span class="math inline">\(ax^2+bx+c=0\)</span> o si ingresa los coeficientes de varias ecuaciones. Hagamos pruebas para asegurarnos de la vectorización.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="vecfun.html#cb12-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>##      raiz 1 raiz 2
+## [1,]     -4      0</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="vecfun.html#cb14-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">3</span>, <span class="at">c=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##      raiz 1 raiz 2
+## [1,]     -2     -1</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="vecfun.html#cb16-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">2</span>, <span class="at">c=</span><span class="sc">-</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##      raiz 1 raiz 2
+## [1,]     -3      1</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="vecfun.html#cb18-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), </span>
+<span id="cb18-2"><a href="vecfun.html#cb18-2" tabindex="-1"></a>        <span class="at">b=</span><span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>), </span>
+<span id="cb18-3"><a href="vecfun.html#cb18-3" tabindex="-1"></a>        <span class="at">c=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>))</span></code></pre></div>
+<pre><code>##      raiz 1 raiz 2
+## [1,]     -4      0
+## [2,]     -2     -1
+## [3,]     -3      1</code></pre>
 </div>
-<div id="ejemplo-46" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo<a href="correl.html#ejemplo-46" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Para las mismas variables del ejemplo anterior calcular los coeficientes de correlación Kendall y Spearman.</p>
-<p>A continuación el código para obtener lo solicitado.</p>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="correl.html#cb426-1" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">x=</span>datos<span class="sc">$</span>mt2, <span class="at">y=</span>datos<span class="sc">$</span>precio, <span class="at">method=</span><span class="st">&#39;pearson&#39;</span>)</span></code></pre></div>
-<pre><code>## [1] 0.8582585</code></pre>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="correl.html#cb428-1" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">x=</span>datos<span class="sc">$</span>mt2, <span class="at">y=</span>datos<span class="sc">$</span>precio, <span class="at">method=</span><span class="st">&#39;kendall&#39;</span>)</span></code></pre></div>
-<pre><code>## [1] 0.6911121</code></pre>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="correl.html#cb430-1" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">x=</span>datos<span class="sc">$</span>mt2, <span class="at">y=</span>datos<span class="sc">$</span>precio, <span class="at">method=</span><span class="st">&#39;spearman&#39;</span>)</span></code></pre></div>
-<pre><code>## [1] 0.860306</code></pre>
-</div>
-<div id="ejemplo-47" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo<a href="correl.html#ejemplo-47" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Para la base de datos de apartamentos usados, ¿cuáles de las variables cuantitativas tienen mayor correlación?</p>
-<p>Lo primero que debemos hacer es determinar cuáles son las cuantitativas de la base de datos. Para obtener información de las variables que están almacenadas en el marco de datos llamado <code>datos</code> usamos la función <code>str</code> que muestra la estructura interna de objeto.</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="correl.html#cb432-1" tabindex="-1"></a><span class="fu">str</span>(datos)</span></code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    694 obs. of  11 variables:
-##  $ precio        : num  79 93 100 123 135 140 145 160 160 175 ...
-##  $ mt2           : num  43.2 56.9 66.4 61.9 89.8 ...
-##  $ ubicacion     : chr  &quot;norte&quot; &quot;norte&quot; &quot;norte&quot; &quot;norte&quot; ...
-##  $ estrato       : int  3 2 3 2 4 3 3 3 4 4 ...
-##  $ alcobas       : int  3 2 2 3 3 3 2 3 4 3 ...
-##  $ banos         : int  1 1 2 2 2 2 2 2 2 2 ...
-##  $ balcon        : chr  &quot;si&quot; &quot;si&quot; &quot;no&quot; &quot;si&quot; ...
-##  $ parqueadero   : chr  &quot;si&quot; &quot;si&quot; &quot;no&quot; &quot;si&quot; ...
-##  $ administracion: num  0.05 0.069 0 0.13 0 0.12 0.14 0.127 0 0.123 ...
-##  $ avaluo        : num  14.9 27 15.7 27 39.6 ...
-##  $ terminado     : chr  &quot;no&quot; &quot;si&quot; &quot;no&quot; &quot;no&quot; ...</code></pre>
-<p>Del anterior resultado vemos que las variables precio, mt2, alcobas, banos, administracion y avaluo son las variables cuantitativas, las restantes son cualitativas (nominal u ordinal). Las posiciones de las variables cuantitativas en el objeto <code>datos</code> son 1, 2, 5, 6, 9, 10, así podemos construir un marco de datos sólo con la información cuantitativa, a continuación el código usado.</p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="correl.html#cb434-1" tabindex="-1"></a>datos.cuanti <span class="ot">&lt;-</span> datos[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">10</span>)]</span>
-<span id="cb434-2"><a href="correl.html#cb434-2" tabindex="-1"></a><span class="co"># La siguiente instrucción para editar los nombres de la variables</span></span>
-<span id="cb434-3"><a href="correl.html#cb434-3" tabindex="-1"></a><span class="fu">colnames</span>(datos.cuanti) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Precio&#39;</span>, <span class="st">&#39;Área&#39;</span>, <span class="st">&#39;Alcobas&#39;</span>,</span>
-<span id="cb434-4"><a href="correl.html#cb434-4" tabindex="-1"></a>                            <span class="st">&#39;Baños&#39;</span>, <span class="st">&#39;Admon&#39;</span>, <span class="st">&#39;Avaluo&#39;</span>)</span>
-<span id="cb434-5"><a href="correl.html#cb434-5" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">cor</span>(datos.cuanti), <span class="at">digits=</span><span class="dv">2</span>)</span>
-<span id="cb434-6"><a href="correl.html#cb434-6" tabindex="-1"></a>M</span></code></pre></div>
-<pre><code>##         Precio Área Alcobas Baños Admon Avaluo
-## Precio    1.00 0.86    0.19  0.63  0.75   0.79
-## Área      0.86 1.00    0.31  0.67  0.77   0.75
-## Alcobas   0.19 0.31    1.00  0.35  0.16   0.15
-## Baños     0.63 0.67    0.35  1.00  0.55   0.53
-## Admon     0.75 0.77    0.16  0.55  1.00   0.70
-## Avaluo    0.79 0.75    0.15  0.53  0.70   1.00</code></pre>
-<p>El anterior resultado representa la matriz de correlaciones entre las variables cuantitativas, se observa que la mayor correlación es entre las variables precio y área del apartamento.</p>
-<p>Es posible representar gráficamente la matriz de correlaciones <code>M</code> por medio de la función <code>corrplot</code> del paquete <strong>corrplot</strong> <span class="citation">(<a href="#ref-R-corrplot">Wei and Simko 2021</a>)</span>, a continuación el código para obtener su representación gráfica.</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="correl.html#cb436-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&#39;corrplot&#39;</span>)  <span class="co"># Para cargar el paquete corrplot</span></span></code></pre></div>
-<pre><code>## corrplot 0.92 loaded</code></pre>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="correl.html#cb438-1" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(M)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:corplot"></span>
-<img src="Manual_de_R_files/figure-html/corplot-1.png" alt="Matriz de coeficientes de correlación." width="576" />
-<p class="caption">
-Figure 14.2: Matriz de coeficientes de correlación.
-</p>
-</div>
-<p>En la Figura <a href="correl.html#fig:corplot">14.2</a> se muestra la matriz con los coeficientes de correlación. En la diagonal de la Figura <a href="correl.html#fig:corplot">14.2</a> están las variables, por encima están unos círculos de colores, entre más intensidad del color, ya sea azul o rojo, mayor es la correlación, colores ténues significan correlación baja; el tamaño de los círculos está asociado al valor absoluto de correlación. Por debajo de la diagonal se observan los valores exactos de correlación en colores.</p>
+<div id="forma-2-usando-vectorize" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Forma 2: usando <code>Vectorize</code><a href="vecfun.html#forma-2-usando-vectorize" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hay una función básica llamada <code>Vectorize</code> que nos ayuda a crear funciones vectorizadas. Vamos a aplicar la función <code>Vectorize</code> sobre la función original <code>raices1</code> para vectorizarla, a continuación el código:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="vecfun.html#cb20-1" tabindex="-1"></a>raices3 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(raices1)</span></code></pre></div>
+<p>Vamos a probar esta tercera versión de la función.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="vecfun.html#cb21-1" tabindex="-1"></a><span class="fu">raices3</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), </span>
+<span id="cb21-2"><a href="vecfun.html#cb21-2" tabindex="-1"></a>        <span class="at">b=</span><span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>), </span>
+<span id="cb21-3"><a href="vecfun.html#cb21-3" tabindex="-1"></a>        <span class="at">c=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>))</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   -4   -2   -3
+## [2,]    0   -1    1</code></pre>
+<p>De la salida anterior vemos que los resultados de las funciones vectorizadas <code>raices2</code> y <code>raices3</code> coinciden.</p>
 
-<div class="rmdtip">
-La función <code>corrplot</code> es muy versátil, se pueden obtener diferentes representaciones gráficas de la matriz de correlaciones, para conocer las diferentes posibilidades recomendamos consultar este enlace: <a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html" class="uri">https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html</a>.
+<div class="rmdwarning">
+¿Cuál de las dos opciones de vectorización es mejor?
 </div>
 </div>
-<div id="ejemplo-48" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo<a href="correl.html#ejemplo-48" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Construya dos vectores hipotéticos con el gasto y ahorro de un grupo de 7 familias, incluya dos <code>NA</code>. Calcule el coeficiente de correlación entre <code>ahorro</code> y <code>gasto</code>, use el parámetro <code>use</code> para manejar los <code>NA</code>.</p>
-<p>A continuación se presenta el código para crear los objetos <code>ahorro</code> y <code>gasto</code> con datos ficticios. Observe que en el primer caso donde se calcula la correlación no es posible obtener un resultado debido a que por defecto <code>use='everything'</code> y por lo tanto usa todas las observaciones incluyendo los <code>NA</code>. En el segundo caso si se obtiene un valor para la correlación debido a que se usó <code>use='complete.obs'</code>.</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="correl.html#cb439-1" tabindex="-1"></a>gasto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">170</span>, <span class="dv">230</span>, <span class="dv">120</span>, <span class="dv">156</span>, <span class="dv">256</span>, <span class="cn">NA</span>, <span class="dv">352</span>)</span>
-<span id="cb439-2"><a href="correl.html#cb439-2" tabindex="-1"></a>ahorro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">30</span>, <span class="cn">NA</span>, <span class="dv">35</span>, <span class="dv">15</span>, <span class="dv">65</span>, <span class="dv">15</span>)</span>
-<span id="cb439-3"><a href="correl.html#cb439-3" tabindex="-1"></a></span>
-<span id="cb439-4"><a href="correl.html#cb439-4" tabindex="-1"></a><span class="fu">cor</span>(gasto, ahorro)</span></code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="correl.html#cb441-1" tabindex="-1"></a><span class="fu">cor</span>(gasto, ahorro, <span class="at">use=</span><span class="st">&#39;complete.obs&#39;</span>)</span></code></pre></div>
-<pre><code>## [1] -0.8465124</code></pre>
-</div>
-</div>
-<div id="ejercicios-6" class="section level2 unnumbered hasAnchor">
-<h2>EJERCICIOS<a href="correl.html#ejercicios-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Use funciones o procedimientos (varias líneas) de R para responder cada una de las siguientes preguntas.</p>
-<ol style="list-style-type: decimal">
-<li><p>Para cada uno de los estratos socioeconómicos, calcular el coeficiente de correlación lineal de Pearson para las variables precio y área de la base de datos de los apartamentos usados.</p></li>
-<li><p>Calcular los coeficientes de correlación Pearson, Kendall y Spearman para las variables cuantitativas de la base de datos sobre medidas del cuerpo explicada en el Capítulo <a href="central.html#central">11</a>. La url con la información es la siguiente: <a href="https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo" class="uri">https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo</a></p></li>
-<li><p>Represente gráficamente las matrices de correlación obtenidas en el ejercicio anterior.</p></li>
-</ol>
+<div id="comparando-los-tiempos-de-procesamiento" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Comparando los tiempos de procesamiento<a href="vecfun.html#comparando-los-tiempos-de-procesamiento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Vamos a comparar los tiempos de procesamiento para 50 pruebas usando la función <code>microbenchmark</code>. Abajo el código necesario para la comparación.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="vecfun.html#cb23-1" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
+<span id="cb23-2"><a href="vecfun.html#cb23-2" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="vecfun.html#cb23-3" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(<span class="at">vect_origen =</span> <span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>),</span>
+<span id="cb23-4"><a href="vecfun.html#cb23-4" tabindex="-1"></a>                      <span class="at">vect_Vector =</span> <span class="fu">raices3</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>),</span>
+<span id="cb23-5"><a href="vecfun.html#cb23-5" tabindex="-1"></a>                      <span class="at">times =</span> <span class="dv">50</span><span class="dt">L</span>)</span>
+<span id="cb23-6"><a href="vecfun.html#cb23-6" tabindex="-1"></a>res</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##         expr  min   lq   mean median   uq   max neval cld
+##  vect_origen 76.8 81.6 91.008  87.05 94.0 215.6    50   a
+##  vect_Vector 72.7 76.3 85.558  84.15 88.2 151.7    50   a</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="vecfun.html#cb25-1" tabindex="-1"></a><span class="fu">plot</span>(res, <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;deepskyblue1&quot;</span>))</span></code></pre></div>
+<p><img src="Manual_de_R_files/figure-html/comp_vectorizacion-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Los resultados anterior muestran que no hay mucha diferencia entre los tiempos de procesamiento de ambas funciones.</p>
 
+<div class="rmdwarning">
+En este ejemplo los tiempos de procesamiento fueron parecidos, es importante comparar siempre las funciones vectorizadas de origen y con <code>Vectorize</code> para elegir la mejor opción.
 </div>
 </div>
-<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-R-corrplot" class="csl-entry">
-Wei, Taiyun, and Viliam Simko. 2021. <em>Corrplot: Visualization of a Correlation Matrix</em>. <a href="https://github.com/taiyun/corrplot">https://github.com/taiyun/corrplot</a>.
+<div id="otros-recursos-para-aprender-sobre-vectorización" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Otros recursos para aprender sobre vectorización<a href="vecfun.html#otros-recursos-para-aprender-sobre-vectorización" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>R inferno: <a href="https://www.burns-stat.com/pages/Tutor/R_inferno.pdf" class="uri">https://www.burns-stat.com/pages/Tutor/R_inferno.pdf</a>.</li>
+<li>R bloggers: <a href="https://www.r-bloggers.com/2019/04/vectorizing-functions-in-r-is-easy-2/" class="uri">https://www.r-bloggers.com/2019/04/vectorizing-functions-in-r-is-easy-2/</a></li>
+<li>Usando purrr: <a href="https://thatdatatho.com/vectorization-r-purrr/" class="uri">https://thatdatatho.com/vectorization-r-purrr/</a></li>
+<li>Otro recurso: <a href="https://cnuge.github.io/post/vectorize_r/" class="uri">https://cnuge.github.io/post/vectorize_r/</a></li>
+<li>Jim Hester: <a href="https://www.jimhester.com/post/2018-04-12-vectorize/" class="uri">https://www.jimhester.com/post/2018-04-12-vectorize/</a></li>
+</ul>
+
 </div>
 </div>
             </section>
@@ -844,8 +814,8 @@ Wei, Taiyun, and Viliam Simko. 2021. <em>Corrplot: Visualization of a Correlatio
           </div>
         </div>
       </div>
-<a href="posi.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="estadística-descriptiva-con-dplyr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="creafun.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="read.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -876,7 +846,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/fhernanb/Manual-de-R/edit/master/14_Med_Cor.Rmd",
+"link": "https://github.com/fhernanb/Manual-de-R/edit/master/051_Vectori.Rmd",
 "text": "Edit"
 },
 "history": {
