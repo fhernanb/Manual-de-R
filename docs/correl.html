@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14 Medidas de correlación | Manual de R</title>
   <meta name="description" content="14 Medidas de correlación | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14 Medidas de correlación | Manual de R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2024-10-14" />
+<meta name="date" content="2024-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -793,9 +793,9 @@ Figure 14.1: Diagrama de dispersión para precio versus área de los apartamento
 ## Admon     0.75 0.77    0.16  0.55  1.00   0.70
 ## Avaluo    0.79 0.75    0.15  0.53  0.70   1.00</code></pre>
 <p>El anterior resultado representa la matriz de correlaciones entre las variables cuantitativas, se observa que la mayor correlación es entre las variables precio y área del apartamento.</p>
-<p>Es posible representar gráficamente la matriz de correlaciones <code>M</code> por medio de la función <code>corrplot</code> del paquete <strong>corrplot</strong> <span class="citation">(<a href="#ref-R-corrplot">Wei and Simko 2021</a>)</span>, a continuación el código para obtener su representación gráfica.</p>
+<p>Es posible representar gráficamente la matriz de correlaciones <code>M</code> por medio de la función <code>corrplot</code> del paquete <strong>corrplot</strong> <span class="citation">(<a href="#ref-R-corrplot">Wei and Simko 2024</a>)</span>, a continuación el código para obtener su representación gráfica.</p>
 <div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="correl.html#cb436-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&#39;corrplot&#39;</span>)  <span class="co"># Para cargar el paquete corrplot</span></span></code></pre></div>
-<pre><code>## corrplot 0.92 loaded</code></pre>
+<pre><code>## corrplot 0.95 loaded</code></pre>
 <div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="correl.html#cb438-1" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(M)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:corplot"></span>
 <img src="Manual_de_R_files/figure-html/corplot-1.png" alt="Matriz de coeficientes de correlación." width="576" />
@@ -836,7 +836,7 @@ La función <code>corrplot</code> es muy versátil, se pueden obtener diferentes
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-R-corrplot" class="csl-entry">
-Wei, Taiyun, and Viliam Simko. 2021. <em>Corrplot: Visualization of a Correlation Matrix</em>. <a href="https://github.com/taiyun/corrplot">https://github.com/taiyun/corrplot</a>.
+Wei, Taiyun, and Viliam Simko. 2024. <em>Corrplot: Visualization of a Correlation Matrix</em>. <a href="https://github.com/taiyun/corrplot">https://github.com/taiyun/corrplot</a>.
 </div>
 </div>
             </section>

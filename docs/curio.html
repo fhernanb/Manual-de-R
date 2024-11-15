@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>28 Curiosidades | Manual de R</title>
   <meta name="description" content="28 Curiosidades | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="28 Curiosidades | Manual de R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2024-10-14" />
+<meta name="date" content="2024-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -725,13 +725,13 @@ div.csl-indent {
 <div id="ejemplo-103" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo<a href="curio.html#ejemplo-103" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El código mostrado abajo revisa si los paquetes <code>knitr</code>, <code>png</code> y <code>markdown</code> están instalados e instala los ausentes y luego carga todos los paquetes que estén en el vector <code>packages</code>.</p>
-<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb908-1"><a href="curio.html#cb908-1" tabindex="-1"></a>packages <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="st">&quot;markdown&quot;</span>)</span>
-<span id="cb908-2"><a href="curio.html#cb908-2" tabindex="-1"></a>package.check <span class="ot">&lt;-</span> <span class="fu">lapply</span>(packages, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
-<span id="cb908-3"><a href="curio.html#cb908-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb908-4"><a href="curio.html#cb908-4" tabindex="-1"></a>    <span class="fu">install.packages</span>(x, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb908-5"><a href="curio.html#cb908-5" tabindex="-1"></a>    <span class="fu">library</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb908-6"><a href="curio.html#cb908-6" tabindex="-1"></a>  }</span>
-<span id="cb908-7"><a href="curio.html#cb908-7" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="curio.html#cb912-1" tabindex="-1"></a>packages <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;png&quot;</span>, <span class="st">&quot;markdown&quot;</span>)</span>
+<span id="cb912-2"><a href="curio.html#cb912-2" tabindex="-1"></a>package.check <span class="ot">&lt;-</span> <span class="fu">lapply</span>(packages, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb912-3"><a href="curio.html#cb912-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb912-4"><a href="curio.html#cb912-4" tabindex="-1"></a>    <span class="fu">install.packages</span>(x, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb912-5"><a href="curio.html#cb912-5" tabindex="-1"></a>    <span class="fu">library</span>(x, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb912-6"><a href="curio.html#cb912-6" tabindex="-1"></a>  }</span>
+<span id="cb912-7"><a href="curio.html#cb912-7" tabindex="-1"></a>})</span></code></pre></div>
 
 </div>
 </div>

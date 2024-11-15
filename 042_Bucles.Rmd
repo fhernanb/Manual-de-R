@@ -174,7 +174,7 @@ La instrucción `for` se usa cuando sabemos el número de veces que se debe repe
 ```
 
 ## Instrucción `repeat` 
-La instrucción `while` es muy útil para repetir un procedimiento siempre que se cumple una condición. A continuación se muestra la estructura básica de uso.
+La instrucción `repeat` es muy útil para repetir un procedimiento siempre que se cumple una condición. A continuación se muestra la estructura básica de uso.
 
 ```{r, eval=FALSE}
 repeat {

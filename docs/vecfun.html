@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Vectorización de funciones | Manual de R</title>
   <meta name="description" content="8 Vectorización de funciones | Manual de R para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Vectorización de funciones | Manual de R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Olga Usuga" />
 
 
-<meta name="date" content="2024-10-14" />
+<meta name="date" content="2024-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,6 +53,14 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -123,6 +131,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -698,27 +729,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
 \]</span></p>
 <p>Vamos a crear la función solicitada así:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="vecfun.html#cb1-1" tabindex="-1"></a>raices1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c) {</span>
-<span id="cb1-2"><a href="vecfun.html#cb1-2" tabindex="-1"></a>  raiz1 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
-<span id="cb1-3"><a href="vecfun.html#cb1-3" tabindex="-1"></a>  raiz2 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
-<span id="cb1-4"><a href="vecfun.html#cb1-4" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(raiz1, raiz2))</span>
-<span id="cb1-5"><a href="vecfun.html#cb1-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="vecfun.html#cb296-1" tabindex="-1"></a>raices1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c) {</span>
+<span id="cb296-2"><a href="vecfun.html#cb296-2" tabindex="-1"></a>  raiz1 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb296-3"><a href="vecfun.html#cb296-3" tabindex="-1"></a>  raiz2 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb296-4"><a href="vecfun.html#cb296-4" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(raiz1, raiz2))</span>
+<span id="cb296-5"><a href="vecfun.html#cb296-5" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora vamos a probar la función <code>raices1</code> para tres casos pero lo vamos a realizar de forma individual. Los tres casos son:</p>
 <ul>
 <li><span class="math inline">\(x^2+4x=0\)</span>.</li>
 <li><span class="math inline">\(x^2+x+2=0\)</span>.</li>
 <li><span class="math inline">\(x^2+2x-3=0\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="vecfun.html#cb2-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="vecfun.html#cb297-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] -4  0</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="vecfun.html#cb4-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">3</span>, <span class="at">c=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="vecfun.html#cb299-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">3</span>, <span class="at">c=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] -2 -1</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="vecfun.html#cb6-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">2</span>, <span class="at">c=</span><span class="sc">-</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="vecfun.html#cb301-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">2</span>, <span class="at">c=</span><span class="sc">-</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] -3  1</code></pre>
 <p>Ahora vamos a probar nuestra función ingresando los tres valores de <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> y <span class="math inline">\(c\)</span> en forma de vectores así:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="vecfun.html#cb8-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), </span>
-<span id="cb8-2"><a href="vecfun.html#cb8-2" tabindex="-1"></a>        <span class="at">b=</span><span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>), </span>
-<span id="cb8-3"><a href="vecfun.html#cb8-3" tabindex="-1"></a>        <span class="at">c=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="vecfun.html#cb303-1" tabindex="-1"></a><span class="fu">raices1</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), </span>
+<span id="cb303-2"><a href="vecfun.html#cb303-2" tabindex="-1"></a>        <span class="at">b=</span><span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>), </span>
+<span id="cb303-3"><a href="vecfun.html#cb303-3" tabindex="-1"></a>        <span class="at">c=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## [1] -4 -2 -3  0 -1  1</code></pre>
 <p>Al ver la salida vemos que el resultado no es el esperado, si salen los números pero NO en el orden que esperamos, eso nos podría confundir a nosotros y a los nuevos usuarios de nuestra función <code>raices1</code>.</p>
 <p>¿Qué debemos hacer para garantizar la vectorización?</p>
@@ -726,34 +757,34 @@ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
 <div id="forma-1-asegurando-la-vectorización-desde-el-origen" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Forma 1: asegurando la vectorización desde el origen<a href="vecfun.html#forma-1-asegurando-la-vectorización-desde-el-origen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Lo primero es crear una función auxiliar que reciba un <span style="background-color:#D6F7C6">vector</span> y no valores separados. Es decir, la función recibe los tres valores por medio del vector <code>x</code> y luego dentro de la función se crean los valores <code>a</code>, <code>b</code> y <code>c</code> necesarios. A continuación la función auxiliar.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="vecfun.html#cb10-1" tabindex="-1"></a>raiz_aux <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb10-2"><a href="vecfun.html#cb10-2" tabindex="-1"></a>  a <span class="ot">&lt;-</span> x[<span class="dv">1</span>]</span>
-<span id="cb10-3"><a href="vecfun.html#cb10-3" tabindex="-1"></a>  b <span class="ot">&lt;-</span> x[<span class="dv">2</span>]</span>
-<span id="cb10-4"><a href="vecfun.html#cb10-4" tabindex="-1"></a>  c <span class="ot">&lt;-</span> x[<span class="dv">3</span>]</span>
-<span id="cb10-5"><a href="vecfun.html#cb10-5" tabindex="-1"></a>  raiz1 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
-<span id="cb10-6"><a href="vecfun.html#cb10-6" tabindex="-1"></a>  raiz2 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
-<span id="cb10-7"><a href="vecfun.html#cb10-7" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(raiz1, raiz2))</span>
-<span id="cb10-8"><a href="vecfun.html#cb10-8" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="vecfun.html#cb305-1" tabindex="-1"></a>raiz_aux <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb305-2"><a href="vecfun.html#cb305-2" tabindex="-1"></a>  a <span class="ot">&lt;-</span> x[<span class="dv">1</span>]</span>
+<span id="cb305-3"><a href="vecfun.html#cb305-3" tabindex="-1"></a>  b <span class="ot">&lt;-</span> x[<span class="dv">2</span>]</span>
+<span id="cb305-4"><a href="vecfun.html#cb305-4" tabindex="-1"></a>  c <span class="ot">&lt;-</span> x[<span class="dv">3</span>]</span>
+<span id="cb305-5"><a href="vecfun.html#cb305-5" tabindex="-1"></a>  raiz1 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb305-6"><a href="vecfun.html#cb305-6" tabindex="-1"></a>  raiz2 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2-4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb305-7"><a href="vecfun.html#cb305-7" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(raiz1, raiz2))</span>
+<span id="cb305-8"><a href="vecfun.html#cb305-8" tabindex="-1"></a>}</span></code></pre></div>
 <p>La clave para crear la función vectorizada <code>raices2</code> es que ella reciba los valores de los coefientes por separado, internamente se construya un matriz <code>m</code> con los valores individuales (o vectores) que ingrese al usuario, y a esa matriz <code>m</code> se le aplique por filas la función auxiliar <code>raiz_aux</code> para obtener las raices. Abajo el código para la nueva versión de la función pero vectorizada.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="vecfun.html#cb11-1" tabindex="-1"></a>raices2 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c) {</span>
-<span id="cb11-2"><a href="vecfun.html#cb11-2" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(a, b, c)</span>
-<span id="cb11-3"><a href="vecfun.html#cb11-3" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="at">X=</span>m, <span class="at">MARGIN=</span><span class="dv">1</span>, <span class="at">FUN=</span>raiz_aux)</span>
-<span id="cb11-4"><a href="vecfun.html#cb11-4" tabindex="-1"></a>  <span class="fu">rownames</span>(res) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;raiz 1&quot;</span>, <span class="st">&quot;raiz 2&quot;</span>)</span>
-<span id="cb11-5"><a href="vecfun.html#cb11-5" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">t</span>(res))</span>
-<span id="cb11-6"><a href="vecfun.html#cb11-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="vecfun.html#cb306-1" tabindex="-1"></a>raices2 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c) {</span>
+<span id="cb306-2"><a href="vecfun.html#cb306-2" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(a, b, c)</span>
+<span id="cb306-3"><a href="vecfun.html#cb306-3" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="at">X=</span>m, <span class="at">MARGIN=</span><span class="dv">1</span>, <span class="at">FUN=</span>raiz_aux)</span>
+<span id="cb306-4"><a href="vecfun.html#cb306-4" tabindex="-1"></a>  <span class="fu">rownames</span>(res) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;raiz 1&quot;</span>, <span class="st">&quot;raiz 2&quot;</span>)</span>
+<span id="cb306-5"><a href="vecfun.html#cb306-5" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">t</span>(res))</span>
+<span id="cb306-6"><a href="vecfun.html#cb306-6" tabindex="-1"></a>}</span></code></pre></div>
 <p>Esta nueva función funciona bien si el usuario ingresa los coeficientes de una sola ecuación <span class="math inline">\(ax^2+bx+c=0\)</span> o si ingresa los coeficientes de varias ecuaciones. Hagamos pruebas para asegurarnos de la vectorización.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="vecfun.html#cb12-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="vecfun.html#cb307-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>)</span></code></pre></div>
 <pre><code>##      raiz 1 raiz 2
 ## [1,]     -4      0</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="vecfun.html#cb14-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">3</span>, <span class="at">c=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="vecfun.html#cb309-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">3</span>, <span class="at">c=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##      raiz 1 raiz 2
 ## [1,]     -2     -1</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="vecfun.html#cb16-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">2</span>, <span class="at">c=</span><span class="sc">-</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="vecfun.html#cb311-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">2</span>, <span class="at">c=</span><span class="sc">-</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##      raiz 1 raiz 2
 ## [1,]     -3      1</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="vecfun.html#cb18-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), </span>
-<span id="cb18-2"><a href="vecfun.html#cb18-2" tabindex="-1"></a>        <span class="at">b=</span><span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>), </span>
-<span id="cb18-3"><a href="vecfun.html#cb18-3" tabindex="-1"></a>        <span class="at">c=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="vecfun.html#cb313-1" tabindex="-1"></a><span class="fu">raices2</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), </span>
+<span id="cb313-2"><a href="vecfun.html#cb313-2" tabindex="-1"></a>        <span class="at">b=</span><span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>), </span>
+<span id="cb313-3"><a href="vecfun.html#cb313-3" tabindex="-1"></a>        <span class="at">c=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>))</span></code></pre></div>
 <pre><code>##      raiz 1 raiz 2
 ## [1,]     -4      0
 ## [2,]     -2     -1
@@ -762,11 +793,11 @@ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
 <div id="forma-2-usando-vectorize" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> Forma 2: usando <code>Vectorize</code><a href="vecfun.html#forma-2-usando-vectorize" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Hay una función básica llamada <code>Vectorize</code> que nos ayuda a crear funciones vectorizadas. Vamos a aplicar la función <code>Vectorize</code> sobre la función original <code>raices1</code> para vectorizarla, a continuación el código:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="vecfun.html#cb20-1" tabindex="-1"></a>raices3 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(raices1)</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="vecfun.html#cb315-1" tabindex="-1"></a>raices3 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(raices1)</span></code></pre></div>
 <p>Vamos a probar esta tercera versión de la función.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="vecfun.html#cb21-1" tabindex="-1"></a><span class="fu">raices3</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), </span>
-<span id="cb21-2"><a href="vecfun.html#cb21-2" tabindex="-1"></a>        <span class="at">b=</span><span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>), </span>
-<span id="cb21-3"><a href="vecfun.html#cb21-3" tabindex="-1"></a>        <span class="at">c=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="vecfun.html#cb316-1" tabindex="-1"></a><span class="fu">raices3</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), </span>
+<span id="cb316-2"><a href="vecfun.html#cb316-2" tabindex="-1"></a>        <span class="at">b=</span><span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>), </span>
+<span id="cb316-3"><a href="vecfun.html#cb316-3" tabindex="-1"></a>        <span class="at">c=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   -4   -2   -3
 ## [2,]    0   -1    1</code></pre>
@@ -779,17 +810,17 @@ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
 <div id="comparando-los-tiempos-de-procesamiento" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Comparando los tiempos de procesamiento<a href="vecfun.html#comparando-los-tiempos-de-procesamiento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Vamos a comparar los tiempos de procesamiento para 50 pruebas usando la función <code>microbenchmark</code>. Abajo el código necesario para la comparación.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="vecfun.html#cb23-1" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
-<span id="cb23-2"><a href="vecfun.html#cb23-2" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="vecfun.html#cb23-3" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(<span class="at">vect_origen =</span> <span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>),</span>
-<span id="cb23-4"><a href="vecfun.html#cb23-4" tabindex="-1"></a>                      <span class="at">vect_Vector =</span> <span class="fu">raices3</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>),</span>
-<span id="cb23-5"><a href="vecfun.html#cb23-5" tabindex="-1"></a>                      <span class="at">times =</span> <span class="dv">50</span><span class="dt">L</span>)</span>
-<span id="cb23-6"><a href="vecfun.html#cb23-6" tabindex="-1"></a>res</span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="vecfun.html#cb318-1" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
+<span id="cb318-2"><a href="vecfun.html#cb318-2" tabindex="-1"></a></span>
+<span id="cb318-3"><a href="vecfun.html#cb318-3" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(<span class="at">vect_origen =</span> <span class="fu">raices2</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>),</span>
+<span id="cb318-4"><a href="vecfun.html#cb318-4" tabindex="-1"></a>                      <span class="at">vect_Vector =</span> <span class="fu">raices3</span>(<span class="at">a=</span><span class="dv">1</span>, <span class="at">b=</span><span class="dv">4</span>, <span class="at">c=</span><span class="dv">0</span>),</span>
+<span id="cb318-5"><a href="vecfun.html#cb318-5" tabindex="-1"></a>                      <span class="at">times =</span> <span class="dv">50</span><span class="dt">L</span>)</span>
+<span id="cb318-6"><a href="vecfun.html#cb318-6" tabindex="-1"></a>res</span></code></pre></div>
 <pre><code>## Unit: microseconds
-##         expr  min   lq   mean median   uq   max neval cld
-##  vect_origen 76.8 81.6 91.008  87.05 94.0 215.6    50   a
-##  vect_Vector 72.7 76.3 85.558  84.15 88.2 151.7    50   a</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="vecfun.html#cb25-1" tabindex="-1"></a><span class="fu">plot</span>(res, <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;deepskyblue1&quot;</span>))</span></code></pre></div>
+##         expr     min      lq     mean   median      uq     max neval
+##  vect_origen 136.300 146.302 162.1271 158.9010 169.101 245.201    50
+##  vect_Vector 133.101 143.501 155.6989 152.9015 163.600 295.202    50</code></pre>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="vecfun.html#cb320-1" tabindex="-1"></a><span class="fu">plot</span>(res, <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;deepskyblue1&quot;</span>))</span></code></pre></div>
 <p><img src="Manual_de_R_files/figure-html/comp_vectorizacion-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Los resultados anterior muestran que no hay mucha diferencia entre los tiempos de procesamiento de ambas funciones.</p>
 
